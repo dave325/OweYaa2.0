@@ -1,0 +1,612 @@
+/******
+Table of Contents:
+1. Header
+  1.1 Navbar Styles
+2. Homepage
+3. Veteran and Company Home Page
+4. Favorite and Browse intern Pages
+  4.1 Spacing styles
+  4.2 Form styles
+5. Veteran Dashboard
+6. Footer
+  6.1 Footer Overall Style
+  6.2 Footer center
+  6.3 Footer Right
+  6.4 Footer Mobile
+7. Modals
+	7.1 Login Modal
+	7.2 Other modals
+*****/
+
+body{
+	font-size: 15.5px;
+}
+
+/*******************************
+
+ Section 1: Header
+
+ ******************************/
+
+/*************
+
+Section 1.1 Navbar Styles
+
+*************/
+
+.navbar{
+      padding-bottom: 10px;
+			padding-top: 10px;
+}
+
+.navbar-collapse{
+    padding-top: 12px;
+}
+
+.navbar-collapse a{
+	margin-right: 10px;
+
+}
+
+.navbar-nav > li{
+  padding-left:0px;
+	font-size: 18px;
+	font-weight: 700;
+	font-family:  'Open sans', sans-serif;
+}
+
+
+
+/**********************************************************
+END OF SECTION 1
+**********************************************************/
+
+/*********************************
+
+Section 2: Home Page
+
+**********************************/
+.home-page #company-pictures {
+ background-color: #FFF;
+}
+.home-page #donate {
+  height : 90px;
+  font-size: 24px;
+  margin-bottom:20px;
+}
+.home-page h3{
+  font-family:  'Open sans', sans-serif;
+  text-align:center
+}
+.home-page #pics{
+  border-radius: 10px;
+}
+.home-page p{
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 20px;
+}
+/*This is the boxes which take up the center of the page: 4 under Veterans and 4 under Companies*/
+.home-page .box {
+  margin-bottom:20px;
+	padding: 0px;
+	background-color: #fff;
+	border: 1px solid #4686AC;
+	border-radius: 10px;
+	box-shadow:  -1px 1px #4686AC,
+         -2px 2px #4686AC,
+         -3px 3px #4686AC,
+         -4px 4px #4686AC,
+         -5px 5px #4686AC;
+}
+
+.home-page .textBox {
+	margin-bottom:20px;
+	padding: 0px;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 10px;
+	box-shadow:  -1px 1px #2a2a2a,
+         -2px 2px #2a2a2a,
+         -3px 3px #2a2a2a,
+         -4px 4px #2a2a2a,
+         -5px 5px #2a2a2a;
+}
+.home-page .vet-container:nth-child(odd), #home-page .com-container:nth-child(even){
+	margin-left:12.4% !important;
+}
+.home-page .textBox h3 {
+	font-size: 120%;
+	letter-spacing: 1px;
+	font-weight: 700;
+	line-height: 200%;
+	margin: 10px 10px;
+}
+.home-page .box .header {
+	color: #000;
+	font-weight: 700;
+}
+
+.home-page h2 {
+	color: #000;
+}
+
+.home-page #match {
+	background-color: #FFF;
+}
+
+.home-page .container-fluid {
+	display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+
+/**********************************************************
+END OF SECTION 2
+**********************************************************/
+
+/*********************************
+
+Section 3: Veteran and Company Home Page
+
+**********************************/
+
+/*************
+
+Section 3.1 Element Styles
+
+*************/
+
+/* ask AYo */
+container col-lg-12 col-md-12{
+   padding: 25px;
+}
+
+#comp-page h1, #vet-page h1{
+  font-size:55px;
+  /********* Changes h1 tags to a different font *********/
+  font-family:"Roboto Condensed",sans-serif;
+  padding: 100px 0px 20px;
+  color: #4686ac;
+}
+
+/*************** Sets the style for hr line underneath how it works and steps ********/
+#comp-page hr, #vet-page hr {
+    /********** Change if you want a different looking hr line ***************/
+    border-style: inset;
+    /**************** DO NOT CHANGE **********************/
+    border-width: .7px;
+    /*************** DO NOT CHANGE *********************/
+    width: 94%;
+}
+
+
+#comp-page h2, #vet-page h2{
+  font-size:55px;
+  font-family:"Roboto Condensed",sans-serif;
+  padding: 20px 0px 20px;
+  color: #4686ac;
+}
+
+#comp-page h4, #vet-page h4{
+  font-size:55px;
+  font-family:"Roboto Condensed",sans-serif;
+  padding:20px 0px 50px;
+  color: #4686ac;
+}
+
+
+/*************
+
+Section 3.2 Classes
+
+*************/
+
+#comp-page .caption, #vet-page .caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(90, 90, 90, 0.75);
+    width:100%;
+    height:100%;
+    display: none;
+    color:#fff !important;
+}
+
+/*********** Matching Company div ***************/
+.border{
+  /* Took out because it caused a giant gap */
+  padding-bottom:5%;
+}
+
+/*******************************************************************
+Section 4: Favorite and Browse Intern Styles
+
+The two pages work in a very similar manner
+
+.intern is a class that targets the containers that hold each intern information
+
+*******************************************************************/
+
+/********
+
+Section 4.1: Spacing styles
+
+********/
+
+/************************* DO NOT CHANGE PADDING for intern ***********************/
+
+#browse-interns .intern, #fav-intern .intern{
+  /****** Change the border color(#000) to the desired color *****/
+	border-bottom:1px solid #000;
+
+  /***** Adds some space between intern profiles for browse-intern and fav-intern pages *****/
+	padding:30px;
+}
+
+#browse-interns .intern img, #fav-intern .intern img{
+  /****** Change only if you want the intern image to change sizes *****/
+  /****** DO NOT REMOVE THE !IMPORTANT, otherwise it will break the style and will not take effect ******/
+	height:150px !important;
+
+  /****** Changes the vertical alignment of images so they seem more aligned with the text ****/
+	margin:50px 0px 0px 0px;
+}
+
+/****** Stops the last intern class to have a border at the bottom ******/
+#browse-interns .intern:last-child, #fav-intern .intern:last-child{
+  border:none;
+}
+
+/******* Adds spacing between header and content for the pages ******/
+#browse-interns article #fav-intern article{
+  margin-top:20px;
+}
+
+/**********
+
+Section 4.2: Form styles
+
+************/
+
+/************* Cahnges the input fields to have only a bottom border when users view it ***************/
+#browse-interns .form-control, #fav-intern .form-control{
+  box-shadow: none;
+  /****** Take this out if you want the input boxes to have a generic look *******/
+  border:none;
+  border-bottom:1px solid #000;
+  /****** Adds spacing at the bottom of the input fields *******/
+  margin:0px 0px 20px 0px;
+}
+
+/************ Adds a border around the box that shows the progression of the form **********/
+#browse-interns #submit-progression, #fav-intern #submit-progression{
+  border:1px solid #000;
+}
+
+/************** Vertically aligns the text within the submit-progression div ************/
+#browse-interns #submit-progression p, #fav-intern #submit-progression p {
+	display:block;
+  margin:25px 0px;
+}
+/********************* Hides the other pages of the form ******************/
+#browse-interns .step, #fav-intern .step{
+	display:none;
+}
+/********************* Displays the current form page. Angular uses this to cycle through the form **************/
+#browse-interns .active, #fav-intern .active{
+	display:block;
+}
+
+/*******End of Form Styles **********/
+
+/**********************************************************
+END OF SECTION 4
+**********************************************************/
+
+/*******************************************************************
+
+Section 5: Vet Dashboard Styles
+
+*******************************************************************/
+.vet-dashboard .space {
+  margin: 40px 0px;
+}
+
+.vet-dashboard .gap, #comp-dash .gap, #contact .gap {
+  margin-bottom: 40px;
+}
+
+.vet-dashboard #tab {
+  padding: 100px 0;
+}
+
+.vet-dashboard .top {
+  padding-top: 20px;
+  padding-right: 20px;
+  overflow-wrap: break-word;
+}
+
+.vet-dashboard .box, #comp-dash .box {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+
+.vet-dashboard .equal, .home-page .equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
+.vet-dashboard .center {
+  text-align: center;
+  list-style-position:inside;
+}
+
+/**********************************************************
+END OF SECTION 5
+**********************************************************/
+
+/*******************************************************************
+
+Section 6: Footer
+
+*******************************************************************/
+
+/**********
+
+Section 6.1: footer overall styles
+
+************/
+.footer-distributed{
+	background-color: #292c2f;
+	font: bold 16px sans-serif;
+	padding: 70px 50px;
+	margin:30px 0px 0px 0px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+/*
+About the Oweyaa container margin-top to 60px
+*/
+.footer-right{
+	margin-top:90px;
+	padding-left:100px;
+}
+
+/*
+About the company info container margin between icon change to zero
+*/
+footer .comp-info{
+  margin:0px;
+}
+
+footer .comp-info p{
+  margin-top:0px;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+/**********
+
+Section 6.2: Footer Center
+
+************/
+
+.footer-center{
+	margin-top:80px;
+	padding-left:50px;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	line-height: 42px;
+	margin: 10px 15px;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+/**********
+
+Section 6.3: Footer Right
+
+************/
+
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+/**********
+
+Section 6.3: Footer Left
+
+************/
+
+.footer-left{
+	margin-top: 40px;
+}
+
+
+
+/**********
+
+Section 6.4: Footer Mobile
+
+************/
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+}
+/**********************************************************
+END OF SECTION 6
+**********************************************************/
+
+/*********************************************************
+Section 7: Modals
+*********************************************************/
+
+/********
+Section 7.1 Login Modal
+*******/
+#loginModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+#loginModal p {
+	color:#blue;
+	cursor:pointer;
+}
+
+#loginModal p:hover{
+	text-decoration: underline;
+}
+
+/********
+Section 7.2 Other Modals
+********/
+#actionModal {
+	background-color:#FFF;
+	margin: 20px;
+}
+
+#careerModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+#educationModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+#journalModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+#skillModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+#socialModal {
+	background-color:#FFF;
+	margin: 50px;
+}
+
+.error{
+	border:1px solid red;
+}
+.success{
+	border:1px solid green;
+}
+/**********************************************************
+END OF SECTION 7
+**********************************************************/

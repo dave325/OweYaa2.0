@@ -1,0 +1,12 @@
+<form novalidate>
+  <input type="text" ng-change="vm.change('{{user.id}}')"
+        ng-model="user.id"/>
+  {{vm.user.name}}
+  <p ng-click="vm.show()">click</p>
+  <div ng-repeat="b in vm.user">
+   <p>
+   {{b.name}}
+   </p>
+ </div>
+</form>
+<p ng-click="vm.store(vm.user)">Store Info</p>

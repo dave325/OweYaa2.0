@@ -1,0 +1,160 @@
+<div id="educationModal">
+  <form novalidate method="post" name="educationvm.content" ng-submit="submit()">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Information regarding higher education -->
+        <h3>Higher Education</h3>
+        <div class="form-group">
+          <button type="button" ng-hide="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Edit</button>
+          <button type="button" ng-show="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Done</button>
+            <p>
+              <label form="newField">School: </label>
+              <input ng-show="educationvm.editMode" ng-model="educationvm.school" type="text" class="form-control"/>
+              <span ng-hide="educationvm.editMode">{{educationvm.school}}</span>
+            </p>
+            <p>
+              <label form="newField">Degree: </label>
+              <input ng-show="educationvm.editMode" ng-model="educationvm.degree" type="text" class="form-control"/>
+              <span ng-hide="educationvm.editMode">{{educationvm.degree}}</span>
+            </p>
+            <p>
+              <label form="newField">Graduation Date: </label>
+              <input ng-show="educationvm.editMode" ng-model="educationvm.grad" type="text" class="form-control"/>
+              <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span>
+            </p>
+        </div>
+
+
+        <h3>Coursework / Training: </h3>
+
+        <!-- Display list of areas of interest -->
+        <div class="section">
+          <div>
+            <h4>Career Focus Area:</h4>
+            <!-- Editing purposes -->
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
+            <!-- Actual list of areas of interest -->
+            <ol>
+              <li ng-repeat="field in educationvm.focusArea track by $index">
+                <span ng-hide="educationvm.editMode">{{field}}</span>
+                <input type="text" ng-show="educationvm.editMode" ng-model="educationvm.focusArea[$index]">
+                <button class="btn" type="button" ng-click="educationvm.deleteFocusArea($index)" ng-hide="educationvm.editMode">Delete</button>
+              </li>
+            </ol>
+          </div>
+          <div class="form-group">
+            <!-- Add a new area of focus -->
+            <div>
+              <p>New Career Focus Area:</p>
+              <input type="text" ng-model="educationvm.newFocusArea">
+              <button class="btn" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display all bootcamps attended -->
+        <div class="section">
+          <div>
+            <h4>Bootcamps:</h4>
+            <!-- Editing purposes -->
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
+            <!-- Actual list of bootcamps -->
+            <ol>
+              <li ng-repeat="field in educationvm.bootcamps track by $index">
+                <span ng-hide="educationvm.editMode">{{field}}</span>
+                <input type="text" ng-show="educationvm.editMode" ng-model="educationvm.bootcamps[$index]">
+                <button class="btn" type="button" ng-click="educationvm.deleteBootcamp($index)" ng-hide="educationvm.editMode">Delete</button>
+              </li>
+            </ol>
+          </div>
+          <div class="form-group">
+            <!-- Add a new bootcamp -->
+            <div>
+              <p>New Bootcamp:</p>
+              <input type="text" ng-model="educationvm.newBootcamp">
+              <button class="btn" type="button" ng-click="educationvm.addToBootcamps()">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display all courses taken -->
+        <div class="section">
+          <div>
+            <h4>Courses:</h4>
+            <!-- Editing purposes -->
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
+            <!-- Actual list of courses -->
+            <ol>
+              <li ng-repeat="field in educationvm.courses track by $index">
+                <span ng-hide="educationvm.editMode">{{field}}</span>
+                <input type="text" ng-show="educationvm.editMode" ng-model="educationvm.courses[$index]">
+                <button class="btn" type="button" ng-click="educationvm.deleteCourse($index)" ng-hide="educationvm.editMode">Delete</button>
+              </li>
+            </ol>
+          </div>
+          <div class="form-group">
+            <!-- Add a new course -->
+            <div>
+              <p>New Course:</p>
+              <input type="text" ng-model="educationvm.newCourse">
+              <button class="btn" type="button" ng-click="educationvm.addToCourses()">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display all certifications -->
+        <div class="section">
+          <div>
+            <h4>Certifications:</h4>
+            <!-- Editing purposes -->
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
+            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
+            <!-- Actual list of certifications -->
+            <ol>
+              <li ng-repeat="field in educationvm.certfications track by $index">
+                <span ng-hide="educationvm.editMode">{{field}}</span>
+                <input type="text" ng-show="educationvm.editMode" ng-model="educationvm.certfications[$index]">
+                <button class="btn" type="button" ng-click="educationvm.deleteCertification($index)" ng-hide="educationvm.editMode">Delete</button>
+              </li>
+            </ol>
+          </div>
+          <div class="form-group">
+            <!-- Add a new certificate -->
+            <div>
+              <p>New Certification:</p>
+              <input type="text" ng-model="educationvm.newCertification">
+              <button class="btn" type="button" ng-click="educationvm.addToCertifications()">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display the education plan provided -->
+      <div class="col-md-6">
+        <h3>Education Plan: </h3>
+        <ul ng-repeat="education in educationvm.plan track by $index">
+          <li><input type="text" ng-model="educationvm.content.plan.$index" value="education.value"></li>
+        </ul>
+        <h4>We will provide more courses to you at a later date</h4>
+
+        <div>
+          <p>Education Plan:</p>
+          <ol>
+            <li ng-repeat="field in educationvm.plans">
+              {{field}}
+            </li>
+          </ol>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center form-group">
+          <button ng-click="educationvm.close()" class="btn btn-success" type="submit">Close</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

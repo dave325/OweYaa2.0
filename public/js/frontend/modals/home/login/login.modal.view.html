@@ -1,0 +1,35 @@
+<div id="loginModal">
+  <div id="loginUserType" class="col-xs-12" ng-if="loginvm.userTypeCheck">
+    <div id="loginVeteran" class="col-md-6 col-xs-12" ng-click="loginvm.registerVetCheck()" >
+      <img src="assets/images/check.png" class="pull-left" width="100%"/>
+      <p class="text-center">Login Veteran</p>
+    </div>
+    <div id="loginCompany" class="col-md-6 col-xs-12" ng-click="loginvm.registerCompCheck()">
+      <img src="assets/images/check.png" class="pull-left" width="100%"/>
+      <p class="text-center">Login Company</p>
+    </div>
+  </div>
+  <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck">
+    <p ng-show="loginvm.formError">{{loginvm.formError}}</p>
+    <h2 class="text-center">{{loginvm.displayFormTitle(loginvm.type)}}</h2>
+    <div class="form-group">
+      <label form="username">Username: </label>
+      <p ng-show="!loginModal.username.$valid && loginModal.username.$touched">Username too short</p>
+      <input ng-model="loginvm.credentials.loginModal.username" type="text" name="username" ng-class="[{error: !loginModal.username.$valid && loginModal.username.$touched}, {success: loginModal.username.$valid}]" ng-minlength="5" ng-required="true" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label form="username">Password: </label>
+      <p ng-show="!loginModal.password.$valid && loginModal.password.$touched">Password too short</p>
+      <input ng-model="loginvm.credentials.loginModal.password" type="password" name="password" ng-class="[{error: !loginModal.password.$valid && loginModal.password.$touched}, {success: loginModal.password.$valid}]" ng-minlength="8" ng-required="true" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input ng-value="loginvm.credentials.loginModal.honeypot" type="hidden" class="form-control" ng-maxlength="0"/>
+      <p ng-click="loginvm.loginOppForm()" id="changeLoginForm">Login as {{loginvm.displayFormTitle(!loginvm.type)}}</p>
+      <button type="button" ng-disabled="loginModal.$invalid" ng-click="loginvm.doLogin($event, loginvm.credentials.loginModal)"> Login </button>
+    </div>
+  </form>
+  <div>
+    <a href="register">Click here to register </a><br />
+    <a href="forgotpassword">Forgot password</a>
+  </div>
+</div>

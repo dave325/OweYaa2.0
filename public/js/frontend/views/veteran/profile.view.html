@@ -1,0 +1,70 @@
+<div id="vet-pro" class="vet-dashboard">
+
+  <navbar content="{{navbarvm.activeNav}}"></navbar>
+  <!-- Particular spacing -->
+  <div class="container">
+    <div class="space">
+    </div>
+
+    <!-- The tab layout -->
+    <div class="row">
+      <div class="col-md-2">
+        <div id="tab">
+          <!-- Tab Items -->
+          <div class="list-group">
+            <a href="veteran/:veteranid/profile" class="list-group-item active">Profile</a>
+            <a href="veteran/:veteranid/career" class="list-group-item list-group-item-action">Career Plan</a>
+            <a href="veteran/:veteranid/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 equal">
+        <div class="col-md-11 col-xs-12 col-md-offset-1 space box">
+          <!-- Profile Picture -->
+          <div class="col-md-3 col-xs-12 text-center">
+            <img src="{{contact.profile.img}}" height=200 />
+            <p><button class="btn btn-default">Upload Photo</button><p>
+          </div>
+          <!-- Contact Information -->
+          <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
+            <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+              <p><strong>Full Name</strong>: {{contact.user.name}} </p>
+              <p><strong>Location</strong>: {{contact.user.location}} </p>
+              <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
+              <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+            </div>
+            <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+              <p><strong>Email</strong>: {{contact.user.email}} </p>
+              <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
+              <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
+              <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADD IN CONTROLLER INPUT HERE -->
+        <div class="col-md-3  col-xs-12 col-sm-12 box gap ">
+          <p><span><strong>Careeer Plan Summary</strong></span></p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
+
+        </div>
+        <div class="col-md-3 col-xs-12 col-sm-12 col-md-offset-1 box gap">
+          <p><span><strong>Internship Match Information</strong></span></p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
+        </div>
+        <div class="col-md-3  col-xs-12 col-sm-12 col-md-offset-1 box gap">
+          <p><span><strong>Availability</strong></span></p>
+          <div id="availability">
+            <div class="form-group" ng-repeat="available in availability">
+              <!-- SYED DEAL WITH THE BS -->
+            </div>
+          </div>
+        </div>
+        <span class="clearfix"></span>
+      </div>
+    </div>
+
+  </div>
+  <footer-base></footer-base>
+
+</div>

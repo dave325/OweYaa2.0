@@ -1,0 +1,100 @@
+(function(){
+  // Fix issue with session that is not updating when user logs in
+  userLogin.$inject = ['$window', '$http', 'Authentication'];
+  function userLogin($window, $http, Authentication){
+    var User = {
+      data: {},
+      /*
+      * Login function that will check the database for a specific user and password
+      * @params user - the information from the login modal
+      */
+      setUser : function(user){
+        jUser = JSON.stringify(user);
+        $window.sessionStorage.setItem('user', jUser);
+      },
+      getUser : function(){
+        user = JSON.parse($window.sessionStorage.getItem('user'));
+        return user;
+      },
+      /*
+      * Register function that will register the user into the database
+      * @params user - the information that is recieved from the form
+      */
+      register : function(user){
+        // returns the http call that register the user variable in the database
+        return $http.post('/api/addUser', user).then(
+          function(data){
+            console.log(data);
+            // Sets the User data to the filtered information from the http call
+            User.data = angular.fromJson(data.data);
+            // Returns the user data object to the login modal
+            return true;
+          },function(data){
+            console.log(data);
+            // Returns error message to the error page
+            return false;
+          }
+        );
+      },
+      /*
+      * Logout function that will logout the user from the database and return boolean
+      * @params user - retrieves user information
+      */
+      logout: function(){
+        Authentication.deleteToken();
+        if(Authentication.getToken() == null){
+          $window.sessionStorage.removeItem('user');
+          return true;
+        }else{
+          return false;
+        }
+      },
+      /*
+      * isLoggedIn function will check the user information and returns specific user type
+      */
+      isLoggedIn: function(){
+        // Checks if user is set and if not return null
+        // Checks if user is set and stores the user inside a variable
+        if($window.sessionStorage.getItem('user') != null){
+          var user = $window.sessionStorage.getItem('user');
+        }
+        if(user != null){
+          switch(user.type){
+            case 0 :
+              return "Veteran";
+              break;
+            case 1:
+              return "Company";
+              break;
+            default :
+              return null;
+              break;
+          }
+        }else{
+          return null;
+        }
+      },
+      /*
+      * getCurrentuser functoin will check if User is logged in and then return the information of the user
+      */
+      getCurrentUser: function(token){
+        var user;
+        if(token == null){
+          return;
+        }else{
+          // returns the http call that register the user variable in the database
+          return $http({
+            url : '/api/check', 
+            method: 'POST',
+            headers:{
+              "Authorization" : "Bearer " +  token
+            }
+          });
+        }
+      } // End of getCurrentuser
+    }
+    return User;
+  }
+  angular.module('oweyaa')
+    .factory('User', userLogin);
+})();

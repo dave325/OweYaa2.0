@@ -1,0 +1,64 @@
+﻿<div id="proj-sub">
+
+  <navbar content="navbarvm.activeNav"></navbar>
+  <section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" id="proj-submit">
+		<!-- Status Bar  -->
+		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression">
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-bind="vm.steps.step1"> Step 1:Submit Project </p>
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-bind="vm.steps.step2"> Step 2:Submit Project </p>
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-class="{'active': vm.steps.active2}" ng-bind="vm.steps.step3"> Step 3:Submit Project </p>
+		</div>
+		<span class="clearfix"></span>
+		<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 col-sm-12 col-xs-12">
+			<h1 class="text-center">Contact form</h1>
+			<!-- Change to angular binding for specific name -->
+			<h2 class="text-center">{{vm.companyName}}</h2>
+		</div>
+		<h3 class="col-lg-12 col-md-12 text-center">{{vm.currentStep}}</h3>
+		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+			<form class="form" name="vm.submissionForm">
+				<div class="step" id="step1" ng-class="{'active': vm.steps.active1}">
+					<div class="form-group">
+						<label for="manager-name">What the Project Manager's Name?  </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.managerName" id="manager-name"/>
+					</div>
+					<div class="form-group">
+						<label for="comp-industry">What industry is your company in? </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.compIndustry" id="comp-industry"/>
+					</div>
+					<div class="form-group">
+						<label for="comp-location">Where are you located? </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.compLocation" id="comp-location"/>
+					</div>
+					<div class="form-group">
+						<label for="comp-phone">What is your phone number? </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.compPhone" id="comp-phone"/>
+					</div>
+					<div class="form-group">
+						<label for="comp-proj-description">Tell us what project/task you would like a military intern to work on with you?</label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.compProjDescription" id="comp-proj-description"/>
+					</div>
+					<input type="button" class="btn btn-default btn-primary pull-right col-sm-12 col-xs-12" value="Next Page" ng-click="nextPage()"/>
+				</div>
+				<div class="step" id="step2" ng-class="{'active': vm.steps.active2}">
+					<div class="form-group">
+						<label for="field1">Label 1: </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field1" id="field1"/>
+					</div>
+					<div class="form-group">
+						<label for="field2">Label 2: </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field2" id="field2"/>
+					</div>
+					<div class="form-group">
+						<label for="field3">Label 3: </label>
+						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field3" id="field3"/>
+					</div>
+					<input type="button" class="btn btn-default pull-left btn-primary  col-sm-12 col-xs-12" value="Previous Page" ng-click="prevPage()"/>
+					<input type="submit" class="btn btn-default btn-primary pull-right col-sm-12 col-xs-12" value="Submit" ng-click="submitProjForm()"/>
+				</div>
+			</form>
+		</div><!-- Form Container -->
+	</section>
+  <footer></footer>
+
+</div>

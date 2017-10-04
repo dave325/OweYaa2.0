@@ -1,0 +1,36 @@
+<div id="contact">
+
+  <navbar content="{{navbarvm.activeNav}}"></navbar>
+
+  <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Contact Us!</h1>
+        <p>Leave us your information, and we will be sure to get in touch with you soon!</p>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="exampleInputName">Full Name</label>
+                  <input ng-model="vm.fullName" type="text" class="form-control gap" id="exampleInputName" placeholder="Full Name">
+                  <label for="exampleInputEmail">Email Address</label>
+                  <input ng-model="vm.email" type="email" class="form-control gap" id="exampleInputEmail" placeholder="Email Address">
+                  <label for="exampleInputSubject">Subject</label>
+                  <input ng-model="vm.subject" type="text" class="form-control gap" id="exampleInputSubject" placeholder="Subject">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="exampleInputText">How can we help you?</label>
+                  <textarea ng-model="vm.description" class="form-control" id="exampleInputText" rows="7"></textarea>
+                     <div class="col-md-12">
+                        <button type="button" class="btn btn-labeled btn-success">
+                            <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span> Sumbit
+                        </button>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <footer-base></footer-base>
+</div>

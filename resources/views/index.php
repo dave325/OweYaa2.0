@@ -7,7 +7,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-mocks.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
-        <script src="/views/app.js"></script>
+        <script src="/app.js"></script>
 
         <!-- Company Controllers -->
         <script src="/views/frontend/controllers/company/browse-interns.controller.js"></script>

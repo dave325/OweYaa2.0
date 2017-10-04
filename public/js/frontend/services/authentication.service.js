@@ -15,7 +15,7 @@
         * @params user - the user informtaion that will be set in sessionStorage
         */
         setToken: function(user) {
-          return $http.post('http://oweyaa.herokuapp.com/api/login', user).then(
+          return $http.post('https://oweyaa.herokuapp.com/api/login', user).then(
             function(data){
                console.log(data);
               if(data.data.token){

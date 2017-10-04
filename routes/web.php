@@ -10,7 +10,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-Route::group(['prefix' => '/'], function (){
+Route::group('/', function (){
     Route::get('{all}', function (){
         return view('index');
     });

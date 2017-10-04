@@ -17,6 +17,8 @@
         setToken: function(user) {
           return $http.post('/api/login', user).then(
             function(data){
+              var info = JSON.parse(data);
+              console.log(info);
               if(data.data.token){
                 $window.sessionStorage.setItem('token', data.data.token);
                 // Returns the user data object to the login modal
@@ -26,7 +28,6 @@
               }
             },function(data){
               // Returns information from error call
-              console.log(data);
               return data;
             }
           )

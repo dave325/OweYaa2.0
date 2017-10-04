@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/{all}', function (){
+Route::get('/', function (){
     return view('indexa');
 });
+Route::post('/api/login',"ExampleController@loginTest");
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");

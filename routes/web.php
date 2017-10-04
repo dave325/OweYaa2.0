@@ -14,9 +14,6 @@
 Route::get('/', function (){
     return view('index');
 });
-Route::get('{all}', function (){
-    return view('index');
-});
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");

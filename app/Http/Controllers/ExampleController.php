@@ -33,6 +33,7 @@ class ExampleController extends Controller
                  }
                  $user->token = JWTAuth::fromUser($user);
                  // all good so return the token
+                 $user->toJson();
                  return response()->json(compact('user'));
                  
        // return response()->json("reached");

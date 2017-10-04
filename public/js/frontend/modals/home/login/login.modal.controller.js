@@ -1,6 +1,6 @@
 (function(){
-  loginModalCtrl.$inject = ['$uibModalInstance', 'User', 'Authentication', '$http'];
-	function loginModalCtrl($uibModalInstance, User, Authentication, $http){
+  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http'];
+	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http){
     // Instantiate the var to this
 		var loginvm = this;
     // Sets error variables

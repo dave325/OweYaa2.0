@@ -12,10 +12,10 @@
 */
 
 $router->get('/', function (){
-    return view('index');
+    return view('indexa');
 });
 $router->get('/login',function(){
-    return view('indexa');
+    return view('index');
 });
 /*
 Route::group(['prefix' => 'api'], function (){

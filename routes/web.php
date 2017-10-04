@@ -12,12 +12,9 @@
 */
 
 $router->get('/', function (){
-    return view('indexa');
-});
-$router->get('/login',function(){
     return view('index');
 });
-/*
+
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
@@ -25,4 +22,3 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('check','ExampleController@checks');
     });
 });
-*/

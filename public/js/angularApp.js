@@ -66,7 +66,6 @@
       controller:"error.controller.js",
       controllerAs:"vm"
     })
-    .otherwise({redirectTo:'/notFound'})
   }
   function locationConfig($locationProvider){
     $locationProvider.html5Mode(true);

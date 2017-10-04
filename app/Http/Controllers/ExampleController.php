@@ -15,7 +15,7 @@ class ExampleController extends Controller
      */
     public function __construct()
     {
-
+        
     }
     public function loginTest(Request $request){
          // grab credentials from the request
@@ -24,7 +24,7 @@ class ExampleController extends Controller
          $user->name = $credentials['username'];
                  try {
                      // attempt to verify the credentials and create a token for the user
-                     if (! $token = $this->guard()->attempt($credentials)) {
+                     if (! $token = JWAUTH::attempt($credentials)) {
                          return response()->json(['error' => 'invalid_credentials'], 401);
                      }
                  } catch (JWTException $e) {

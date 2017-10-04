@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function (){
+Route::get('/{all}', function (){
     return view('indexa');
 });
 Route::group(['prefix' => 'api'], function (){

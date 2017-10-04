@@ -35,14 +35,7 @@ return [
     */
 
     'guards' => [
-        'api' => [
-            'driver' => 'jwt',
-            'provider' => 'users'
-        ],
-        'militaryuser' => [
-            'driver' => 'jwt',
-            'provider' => 'militaryusers'
-        ]
+        'api' => ['driver' => 'api'],
     ],
 
     /*
@@ -63,14 +56,7 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-        'militaryusers' => [
-            'driver' => 'eloquent',
-            'model' => App\MilitaryUser::class,
-        ],
+        //
     ],
 
     /*
@@ -93,11 +79,7 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-        ],
+        //
     ],
 
 ];

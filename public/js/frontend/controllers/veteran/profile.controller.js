@@ -5,7 +5,7 @@
 		//$scope.user =  User.getUser();
 	    $scope.contact = {
 			profile: {
-				img: '../assets/images/User.jpg'
+				img: 'assets/images/User.jpg'
 	        },
 			user: User.getUser()
 	    }

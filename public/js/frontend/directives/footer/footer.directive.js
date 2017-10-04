@@ -7,7 +7,7 @@
       scope: {},
       bindToController: true,
       controllerAs:"footervm",
-      templateUrl: '/views/frontend/directives/footer/footer.view.html'
+      templateUrl: '/js/frontend/directives/footer/footer.view.html'
     };
   }
 angular.module('oweyaa').directive('footerBase', footerDir);

@@ -10,7 +10,7 @@
 
 		$scope.actionsModal = function() {
 			var am = $uibModal.open({
-				templateUrl: 'frontend/modals/veteran/action/action.modal.view.html',
+				templateUrl: 'js/frontend/modals/veteran/action/action.modal.view.html',
 				controller: 'actionModalCtrl',
 				controllerAs: 'actionvm'
 			});

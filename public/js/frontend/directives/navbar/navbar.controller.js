@@ -8,7 +8,7 @@
       var modal = $uibModal.open({
           animation:true,
           backdrop:'static',
-  				templateUrl: '/views/frontend/modals/home/' + click + '/' + click +'.modal.view.html',
+  				templateUrl: '/js/frontend/modals/home/' + click + '/' + click +'.modal.view.html',
   				controller: click + 'ModalCtrl',
   				controllerAs: click + 'vm'
   		});

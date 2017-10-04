@@ -3,33 +3,6 @@
 homeCtrl.$inject = ['$scope','$uibModal', '$http', '$window'];
 function homeCtrl($scope,$uibModal, $http, $window) {
     var vm = this;
-    vm.click = function(){
-        $http({
-            method: 'POST',
-            url:'/api/users',
-            data: {name:'david',password:'password'},
-        }).then(function(data){
-            $scope.user = data.data;
-            $window.sessionStorage.setItem("Token", data.data.token);
-            console.log(data.data);
-        },function(data){
-            console.log(data);
-        });
-    }
-    vm.clickOne = function(){
-        $http({
-            method: 'POST',
-            url:'/api/check',
-            headers : {
-                "Authorization" : "Bearer " + $window.sessionStorage.getItem("Token")
-            }
-        }).then(function(data){
-            $scope.user = data.data;
-            console.log(data.data);
-        },function(data){
-            console.log(data);
-        });
-    }
     // Need to target properly in views
     vm.boxes = {
       veterans:{

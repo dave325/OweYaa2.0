@@ -22,7 +22,7 @@
                 // Returns the user data object to the login modal
                 return true;
               }else{
-                return data;
+                return false;
               }
             },function(data){
               // Returns information from error call

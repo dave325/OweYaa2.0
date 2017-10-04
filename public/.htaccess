@@ -4,7 +4,9 @@
     </IfModule>
 
     RewriteEngine On
-
+    Access-Control-Allow-Headers: Content-Type
+    Access-Control-Allow-Methods: GET, POST, OPTIONS
+    Access-Control-Allow-Origin: *
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]

@@ -10,9 +10,10 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
-Route::get('/', function (){
-    return view('index');
+Route::group(['prefix' => '/'], function (){
+    Route::get('/', function (){
+        return view('index');
+    });
 });
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");

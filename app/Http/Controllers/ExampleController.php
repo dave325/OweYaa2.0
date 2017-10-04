@@ -22,6 +22,8 @@ class ExampleController extends Controller
          $credentials = $request->only('username', 'password');
          $user = new User();
          $user->name = $credentials['username'];
+         $user->password = $credentials['password'];
+         return response()->json($user);
                  try {
                      // attempt to verify the credentials and create a token for the user
                      if (! $token = JWTAuth::attempt($credentials)) {

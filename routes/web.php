@@ -14,6 +14,9 @@
 $router->get('/', function (){
     return view('index');
 });
+$router->get('{all}', function (){
+    return view('index');
+});
 
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");

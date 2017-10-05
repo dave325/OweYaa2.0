@@ -32,7 +32,7 @@ class ExampleController extends Controller
                      return response()->json(['error' => 'could_not_create_token'], 500);
                  }
                  // all good so return the token
-                 return response()->json(compact('token'));
+                 return response()->json(compact('user'));
                  
        // return response()->json("reached");
     }

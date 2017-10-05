@@ -33,8 +33,6 @@
         'type' : loginvm.type
       }
       Authentication.setToken(checkUser).then(function(data){
-        console.log(data);
-        /*
         if(data){
           User.getCurrentUser(Authentication.getToken()).then(function(data){
             loginvm.close(data.data.user);
@@ -45,7 +43,6 @@
           console.log(data);
           loginvm.formError = "Username or password does not exist. Please try again";
         }
-        */
       },function(data){
         console.log(data);
       });

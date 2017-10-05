@@ -16,7 +16,7 @@
         */
         setToken: function(user) {
           return $http.post('/api/login', user).then(
-            function(data){åå
+            function(data){
               if(data.data.token){
                 $window.sessionStorage.setItem('token', data.data.token);
                 // Returns the user data object to the login modal

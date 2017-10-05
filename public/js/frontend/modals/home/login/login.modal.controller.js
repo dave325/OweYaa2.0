@@ -33,7 +33,7 @@
         'type' : loginvm.type
       }
       Authentication.setToken(checkUser).then(function(data){
-        console.log($window.sessionStorage.getItem('token'));
+        console.log(data);
         if(data){
           User.getCurrentUser(Authentication.getToken()).then(function(data){
             loginvm.close(data.data.user);

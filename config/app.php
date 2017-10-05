@@ -55,5 +55,3 @@ return [
 
     'log' => 'errorlog',
 ];
-
-    ?>

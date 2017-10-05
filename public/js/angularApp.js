@@ -7,22 +7,22 @@
       controllerAs:"vm"
     })
     .when('/company',{
-      templateUrl:"/js/frontend/vieviews/home/company.view.html",
+      templateUrl:"/js/frontend/views/home/company.view.html",
       controller:"compHomeCtrl",
       controllerAs:"vm"
     })
     .when('/veteran',{
-      templateUrl:"/js/frontend/vieviews/home/veteran.view.html",
+      templateUrl:"/js/frontend/views/home/veteran.view.html",
       controller:"vetHomeCtrl",
       controllerAs:"vm"
     })
     .when('/contact',{
-      templateUrl:"/js/frontend/vieviews/home/contact.view.html",
+      templateUrl:"/js/frontend/views/home/contact.view.html",
       controller:"contactCtrl",
       controllerAs:"vm"
     })
     .when('/register',{
-      templateUrl:"/js/frontend/vieviews/home/register.view.html",
+      templateUrl:"/js/frontend/views/home/register.view.html",
       controller:"registerCtrl",
       controllerAs:"vm"
     })

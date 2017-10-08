@@ -17,13 +17,12 @@ class ExampleController extends Controller
     {
         $type = $request->input('type');
         if($type = 0){
-            $apiCall = "auth:veteran";
+            $this->app['auth']->setDefaultDriver('veteran');
         }elseif($type = 1){
-            $apiCall = "auth:company";
+            $this->app['auth']->setDefaultDriver('copmany');
         }else{
             $apiCall = "";
         }
-        $this->middleware($apiCall);
     }
     public function loginTest(Request $request){
          // grab credentials from the request

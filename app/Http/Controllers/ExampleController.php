@@ -15,6 +15,15 @@ class ExampleController extends Controller
      */
     public function __construct()
     {
+        $type = $request->input('type');
+        if($type = 0){
+            $apiCall = "auth:veteran";
+        }elseif($type = 1){
+            $apiCall = "auth:company";
+        }else{
+            $apiCall = "";
+        }
+        $this->middleware($apiCall);
     }
     public function loginTest(Request $request){
          // grab credentials from the request

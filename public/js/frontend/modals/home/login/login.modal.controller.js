@@ -37,7 +37,7 @@
           User.getCurrentUser(Authentication.getToken()).then(function(data){
             loginvm.close(data.data.user);
           },function(data){
-            console.log(data);
+            console.log(data.config.data);
           });
         }else{
           console.log(data);

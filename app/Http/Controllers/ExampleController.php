@@ -6,7 +6,6 @@ use App\MilitaryUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Contracts\Auth;
 class ExampleController extends Controller
 {
     private $apiCall;

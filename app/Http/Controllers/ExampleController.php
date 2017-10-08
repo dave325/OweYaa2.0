@@ -17,9 +17,9 @@ class ExampleController extends Controller
     {
         $type = $request->input('type');
         if($type = 0){
-            $this->app['auth']->setDefaultDriver('veteran');
+            Auth::shouldUse('veteran');
         }elseif($type = 1){
-            $this->app['auth']->setDefaultDriver('copmany');
+            Auth::shouldUse('copmany');
         }else{
             $apiCall = "";
         }

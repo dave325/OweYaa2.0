@@ -5,6 +5,7 @@ use App\User;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Contracts\Auth\Factory as Auth;
 class ValidateUser extends Controller
 {
     /**

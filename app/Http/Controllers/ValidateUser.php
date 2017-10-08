@@ -5,7 +5,7 @@ use App\User;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
-class ExampleController extends Controller
+class ValidateUser extends Controller
 {
     /**
      * Create a new controller instance.

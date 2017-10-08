@@ -73,11 +73,11 @@ return [
         ],
         'veteran' =>[
             'driver' => 'eloquent',
-            'model' => App\MilitaryUser::class
+            'model' => App\MilitaryUser::class,
         ],
         'company' => [
             'driver' => 'jwt',
-            'provider' => 'militaryuser',
+            'provider' => App\MilitaryUser::class,
         ],
     ],
     

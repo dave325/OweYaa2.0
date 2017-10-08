@@ -16,7 +16,7 @@ class ExampleController extends Controller
      */
     public function __construct(Request $request)
     {
-        $this->middleware = "auth";
+        $this->middleware["auth:api"];
     }
     public function loginTest(Request $request){
          // grab credentials from the request

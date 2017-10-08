@@ -33,6 +33,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->app['auth']->viaRequest('api', function ($request) {
             return app('auth')->setRequest($request)->user();
         });
+        $this->app['auth']->viaRequest('veteran', function ($request) {
+            return app('auth')->setRequest($request)->user();
+        });
+        $this->app['auth']->viaRequest('company', function ($request) {
+            return app('auth')->setRequest($request)->user();
+        });
     
     }
 }

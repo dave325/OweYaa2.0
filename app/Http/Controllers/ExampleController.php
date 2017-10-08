@@ -20,7 +20,7 @@ class ExampleController extends Controller
     }
     public function loginTest(Request $request){
          // grab credentials from the request
-         $credentials = $request->only('username', 'password');
+         $credentials = $request->only('name', 'password');
          $user = new User();
          $user->name = $credentials['username'];
                  try {

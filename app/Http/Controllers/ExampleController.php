@@ -16,14 +16,7 @@ class ExampleController extends Controller
      */
     public function __construct(Request $request)
     {
-        $type = $request->input('type');
-        if($type = 0){
-            $this->apiCall = "auth:veteran";
-        }elseif($type = 1){
-            $this->apiCall = "auth:company";
-        }else{
-            $this->apiCall = "";
-        }
+
     }
     public function loginTest(Request $request){
          // grab credentials from the request
@@ -32,7 +25,7 @@ class ExampleController extends Controller
          $user->name = $credentials['username'];
                  try {
                      // attempt to verify the credentials and create a token for the user
-                     if (! $token = Auth::guard($this->apiCall)->attempt($credentials)) {
+                     if (! $token = JWTAuth::attempt($credentials)) {
                          return response()->json(['error' => 'invalid_credentials'], 401);
                      }
                  } catch (JWTException $e) {

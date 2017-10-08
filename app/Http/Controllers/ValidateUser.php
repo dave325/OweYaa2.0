@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Contracts\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;;
 class ValidateUser extends Controller
 {
     /**
@@ -15,14 +14,6 @@ class ValidateUser extends Controller
      */
     public function __construct(Request $request)
     {
-        $type = $request->input('type');
-        if($type = 0){
-            Auth::shouldUse('veteran');
-        }elseif($type = 1){
-            Auth::shouldUse('copmany');
-        }else{
-            $apiCall = "";
-        }
     }
     public function checks(){
         try {

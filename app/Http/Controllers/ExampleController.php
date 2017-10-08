@@ -6,7 +6,6 @@ use App\MilitaryUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Contracts\Auth;
 class ExampleController extends Controller
 {
     /**
@@ -18,9 +17,9 @@ class ExampleController extends Controller
     {
         $type = $request->input('type');
         if($type = 0){
-            Auth::shouldUse('veteran');
+            $apiCall = "auth:veteran";
         }elseif($type = 1){
-            Auth::shouldUse('copmany');
+            $apiCall = "auth:company";
         }else{
             $apiCall = "";
         }
@@ -32,7 +31,7 @@ class ExampleController extends Controller
          $user->name = $credentials['username'];
                  try {
                      // attempt to verify the credentials and create a token for the user
-                     if (! $token = JWTAUTH::attempt($credentials)) {
+                     if (! $token = JWTAUTH::guard($apiCall)->attempt($credentials)) {
                          return response()->json(['error' => 'invalid_credentials'], 401);
                      }
                  } catch (JWTException $e) {

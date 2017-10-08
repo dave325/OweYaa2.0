@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -18,7 +17,7 @@ $router->get('{all}', function (){
     return view('index');
 });
 
-Route::group(['prefix' => 'api'], function (Request $request){
+Route::group(['prefix' => 'api'], function (Illuminate\Http\Request $request){
     $apiCall;
     $type = $request->input('type');
     if($type = 0){

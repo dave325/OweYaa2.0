@@ -19,7 +19,15 @@ $router->get('{all}', function (){
 });
 
 Route::group(['prefix' => 'api'], function (Request $request){
-    $apiCall = "auth:" . $request->input('type');
+    $apiCall;
+    $type = $request->input('type');
+    if($type = 0){
+        $apiCall = "auth:veteran";
+    }elseif($type = 1){
+        $apiCall = "auth:company";
+    }else{
+        $apiCall = "";
+    }
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
     Route::group(['middleware' => $apiCall],function(){

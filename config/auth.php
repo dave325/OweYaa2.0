@@ -71,11 +71,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'veteran' =>[
+        'militaryuser' =>[
             'driver' => 'eloquent',
             'model' => App\MilitaryUser::class,
         ],
-        'company' => [
+        'militaryuser' => [
             'driver' => 'jwt',
             'provider' => App\MilitaryUser::class,
         ],

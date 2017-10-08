@@ -45,7 +45,7 @@ return [
         ],
         'company' => [
             'driver' => 'jwt',
-            'provider' => 'militaryuser',
+            'provider' => 'companyuser',
         ],
     ],
     
@@ -75,9 +75,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\MilitaryUser::class,
         ],
-        'militaryuser' => [
-            'driver' => 'jwt',
-            'provider' => App\MilitaryUser::class,
+        'companyuser' => [
+            'driver' => 'eloquent',
+            'model' => App\CompanyUser::class,
         ],
     ],
     

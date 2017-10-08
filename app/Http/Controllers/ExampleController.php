@@ -13,7 +13,7 @@ class ExampleController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $type = $request->input('type');
         if($type = 0){

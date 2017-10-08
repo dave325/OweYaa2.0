@@ -40,7 +40,7 @@ class ExampleController extends Controller
     public function addUser(Request $request){
         // grab credentials from the request
         $credentials = $request->only('name', 'email', 'password', 'type');
-        $user = new User();
+        $user = new MilitaryUser();
         $user->name = $credentials['name'];
         $user->email = $credentials['email'];
         $user->password = Hash::make($credentials['password']);

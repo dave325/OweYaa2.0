@@ -20,5 +20,5 @@ $router->get('{all}', function (){
 Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
-    Route::post('check','ExampleController@checks');
+    Route::post('check','ValidateUser@checks');
 });

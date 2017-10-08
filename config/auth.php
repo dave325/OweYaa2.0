@@ -39,6 +39,10 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
+        'milApi' => [
+            'driver' => 'jwt',
+            'provider' => 'militaryuser',
+        ],
     ],
     
     /*
@@ -63,6 +67,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'veteran' =>[
+            'driver' => 'eloquent',
+            'model' => App\MilitaryUser::class
+        ]
     ],
     
     /*

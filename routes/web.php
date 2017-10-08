@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -18,10 +18,11 @@ $router->get('{all}', function (){
     return view('index');
 });
 
-Route::group(['prefix' => 'api'], function (){
+Route::group(['prefix' => 'api'], function (Request $request){
+    $apiCall = "auth:" . $request->input('type');
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
-    Route::group(['middleware' => 'auth:api'],function(){
+    Route::group(['middleware' => $apiCall],function(){
         Route::post('check','ExampleController@checks');
     });
 });

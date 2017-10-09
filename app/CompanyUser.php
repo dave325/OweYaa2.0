@@ -20,13 +20,20 @@ class CompanyUser extends Model implements AuthenticatableContract, Authorizable
      protected $primaryKey = "compid";
      public $incrementing = false;
      public $timestamps = false;
-      /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
      protected $fillable = ['compid', 'name','email','password'. 'matchNum', 'stripetoken', 'membertoken', 'phone', 'searchcomplete1', 'searchcomplete2', 'companyfav', 'type'];
-    
+    /** 
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
     public function getJWTIdentifier()
     {
         return $this->getKey();

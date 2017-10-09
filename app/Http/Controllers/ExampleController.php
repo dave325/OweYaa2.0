@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
+use App\CompanyUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;

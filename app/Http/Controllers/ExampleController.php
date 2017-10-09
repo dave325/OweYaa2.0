@@ -49,6 +49,7 @@ class ExampleController extends Controller
             $user = new MilitaryUser();
         }else{
             $user = new CompanyUser();
+            $user->compid = Hash::make($credentials['email']);
         }
         $user->name = $credentials['name'];
         $user->email = $credentials['email'];

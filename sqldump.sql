@@ -60,6 +60,7 @@ CREATE TABLE `companies` (
   `searchComplete` varchar(50) NOT NULL,
   `searchComplete2` varchar(50) NOT NULL,
   `companyFav` varchar(50) NOT NULL,
+  `type` tinyint(1) NOT NULL
   PRIMARY KEY (`compid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

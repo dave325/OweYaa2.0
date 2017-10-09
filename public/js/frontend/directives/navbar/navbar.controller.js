@@ -100,7 +100,7 @@
       },
       link4 : {
         name: 'Veteran Dashboard',
-        link : 'veteran/' + navbarvm + '/profile',
+        link : 'veteran/' + navbarvm.user + '/profile',
         click:''
       },
       link5: {

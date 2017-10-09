@@ -18,7 +18,7 @@ class ValidateUser extends Controller
     }
     public function checks(){
         try {
-            if (! $user = JWTAuth::parseToken()->authenticate()) {
+            if (! $user = app('auth')->guard('veteran')->authenticate()) {
                 return response()->json(['user_not_found'], 404);
             }
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {

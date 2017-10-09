@@ -155,7 +155,6 @@
     * Return the designated navbar based on user information
     */
     var userStatus = User.getUser();
-    console.log(userStatus);
     if (userStatus == null){
       navbarvm.activeNav =  navbarvm.regUser;
     }else if(userStatus.type == 1){

@@ -29,7 +29,12 @@
     .when('/veteran/:veteranid/profile',{
       templateUrl:"/js/frontend/views/veteran/profile.view.html",
       controller:"profileCtrl",
-      controllerAs:"vm"
+      controllerAs:"vm",
+      resolve: {
+        veteranId: function ($routeParams, User) {
+            return User.getUser().name;
+        }
+    }
     })
     .when('/veteran/:veteranid/career',{
       templateUrl:"/js/frontend/views/veteran/career.view.html",

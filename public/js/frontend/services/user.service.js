@@ -22,19 +22,7 @@
       */
       register : function(user){
         // returns the http call that register the user variable in the database
-        return $http.post('/api/addUser', user).then(
-          function(data){
-            console.log(data);
-            // Sets the User data to the filtered information from the http call
-            User.data = angular.fromJson(data.data);
-            // Returns the user data object to the login modal
-            return true;
-          },function(data){
-            console.log(data);
-            // Returns error message to the error page
-            return false;
-          }
-        );
+        return $http.post('/api/addUser', user);
       },
       /*
       * Logout function that will logout the user from the database and return boolean

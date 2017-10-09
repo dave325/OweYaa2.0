@@ -2,13 +2,26 @@
   navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout'];
   function navbarCtrl($window, User, $uibModal, $location, $timeout, $http){
     var navbarvm = this;
+    // Sets the user name
     if(User.getUser()){
       navbarvm.user = User.getUser().name;
     }else{
       navbarvm.user = ""
     }
+    /*
+    * Show a message for logging out
+    */
     navbarvm.message = "";
+
+    /**
+     * Sets whether to show message to user
+     */
     navbarvm.showMessage = false;
+
+    /**
+     * Makes a modal for users to login 
+     * @param backdrop - stops user from clicking outside of box
+     */
     navbarvm.modal = function(click){
       var modal = $uibModal.open({
           animation:true,
@@ -16,7 +29,10 @@
   				templateUrl: '/js/frontend/modals/home/' + click + '/' + click +'.modal.view.html',
   				controller: click + 'ModalCtrl',
   				controllerAs: click + 'vm'
-  		});
+      });
+      /**
+       * Returns the modal 
+       */
       modal.result
          .then(function (data) {
            console.log(data);

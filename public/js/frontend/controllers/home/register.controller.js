@@ -21,11 +21,10 @@
 				type : credentials.type
 			};
 			User.register(user).then(function(data){
-				console.log(data);
 				if(data){
-					vm.formError = "Thank you very much. Please sign in on the following screen. You will be redirected shortly";
+					vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";
 					$timeout(function(){
-		        $location.path('/');
+		        		$location.path('/');
 					},2000);
 				}
       },function(data){

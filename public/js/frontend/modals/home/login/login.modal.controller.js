@@ -39,6 +39,7 @@
             loginvm.close(data.data.user);
           },function(data){
             console.log(data);
+            loginvm.cancel(data);
           });
         }else{
           console.log(data);

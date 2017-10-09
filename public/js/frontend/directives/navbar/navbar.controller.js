@@ -23,7 +23,7 @@
            if(data.type == 1){
    					$location.path('/company/:companyid/dashboard')
    				}else{
-   					$location.path('/veteran/' + navbarvm.user.name + '/profile');
+   					$location.path('/veteran/' + navbarvm.user + '/profile');
    				}
          },function (reason) {
            console.log(reason);

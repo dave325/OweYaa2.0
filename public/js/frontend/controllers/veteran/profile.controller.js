@@ -1,7 +1,7 @@
 (function(){
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', 'veteranId'];
-	function profileCtrl($scope, User,veteranId) {
+	profileCtrl.$inject = ['$scope', 'User', 'veteranId', '$route'];
+	function profileCtrl($scope, User,veteranId, $route) {
 		$scope.veteranId = veteranId;
 		$route.current.veteranid = veteranId;
 		console.log(veteranId);

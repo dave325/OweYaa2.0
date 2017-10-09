@@ -96,7 +96,7 @@
       },
       link4 : {
         name: 'Veteran Dashboard',
-        link : 'veteran/:veteranid/profile',
+        link : 'veteran/' + User.getUser().name + 'profile',
         click:''
       },
       link5: {

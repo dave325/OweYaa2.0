@@ -47,7 +47,7 @@ class ExampleController extends Controller
         if($credentials['type'] == 0){
             $user = new MilitaryUser();
         }else{
-            $user = new CopmanyUser();
+            $user = new CompanyUser();
         }
         $user->name = $credentials['name'];
         $user->email = $credentials['email'];

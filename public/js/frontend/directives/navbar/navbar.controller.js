@@ -21,7 +21,7 @@
          .then(function (data) {
            User.setUser(data);
            if(data.type == 1){
-   					$location.path('/company/' + navbarvm.name +'/dashboard')
+   					$location.path('/company/' + navbarvm.user +'/dashboard')
    				}else{
    					$location.path('/veteran/' + navbarvm.user + '/profile');
    				}
@@ -135,15 +135,15 @@
           links : {
             link1: {
               name : "Browse Interns",
-              link : 'company/' + navbarvm.name +'/browse-intern'
+              link : 'company/' + navbarvm.user +'/browse-intern'
             },
             link2 : {
               name : 'Favorite Interns',
-              link : 'company/' + navbarvm.name +'/favorite-intern'
+              link : 'company/' + navbarvm.user +'/favorite-intern'
             },
             link3 : {
               name : 'Project Submission',
-              link : 'company/' + navbarvm.name +'/project-submission'
+              link : 'company/' + navbarvm.user +'/project-submission'
             }
           }
         },

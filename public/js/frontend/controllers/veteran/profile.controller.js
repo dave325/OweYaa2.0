@@ -3,6 +3,7 @@
 	profileCtrl.$inject = ['$scope', 'User', 'veteranId'];
 	function profileCtrl($scope, User,veteranId) {
 		$scope.veteranId = veteranId;
+		$route.current.veteranid = veteranId;
 		console.log(veteranId);
 		//$scope.user =  User.getUser();
 	    $scope.contact = {

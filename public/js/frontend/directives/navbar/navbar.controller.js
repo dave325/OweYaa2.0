@@ -2,6 +2,11 @@
   navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout'];
   function navbarCtrl($window, User, $uibModal, $location, $timeout, $http){
     var navbarvm = this;
+    if(User.getUser()){
+      navbarvm.user = User.getUser().name;
+    }else{
+      navbarvm.user = ""
+    }
     navbarvm.message = "";
     navbarvm.showMessage = false;
     navbarvm.modal = function(click){
@@ -15,11 +20,10 @@
       modal.result
          .then(function (data) {
            User.setUser(data);
-           var user = User.getUser();
            if(data.type == 1){
    					$location.path('/company/:companyid/dashboard')
    				}else{
-   					$location.path('/veteran/' + user.name + '/profile');
+   					$location.path('/veteran/' + navbarvm.user.name + '/profile');
    				}
          },function (reason) {
            console.log(reason);
@@ -96,7 +100,7 @@
       },
       link4 : {
         name: 'Veteran Dashboard',
-        link : 'veteran/' + User.getUser().name + '/profile',
+        link : 'veteran/' + navbarvm + '/profile',
         click:''
       },
       link5: {

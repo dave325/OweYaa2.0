@@ -16,7 +16,11 @@ class ExampleController extends Controller
      */
     public function __construct(Request $request)
     {
-        
+        if($request->input('type') == 0){
+            $this->apiCall = "veteran";
+        }else{
+            $this->apiCall = "company";
+        }
     }
     public function loginTest(Request $request){
          // grab credentials from the request
@@ -24,7 +28,7 @@ class ExampleController extends Controller
          $user = new User();
                  try {
                      // attempt to verify the credentials and create a token for the user
-                     if (! $token = app('auth')->guard('veteran')->attempt($credentials)) {
+                     if (! $token = app('auth')->guard($this->apiCall)->attempt($credentials)) {
                          return response()->json(['error' => 'invalid_credentials'], 401);
                      }
                  } catch (JWTException $e) {
@@ -40,7 +44,11 @@ class ExampleController extends Controller
     public function addUser(Request $request){
         // grab credentials from the request
         $credentials = $request->only('name', 'email', 'password', 'type');
-        $user = new MilitaryUser();
+        if($credentials['type'] == 0){
+            $user = new MilitaryUser();
+        }else{
+            $user = new CopmanyUser();
+        }
         $user->name = $credentials['name'];
         $user->email = $credentials['email'];
         $user->password = Hash::make($credentials['password']);

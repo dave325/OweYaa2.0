@@ -16,8 +16,8 @@ class CompanyUser extends Model implements AuthenticatableContract, Authorizable
      *
      * @var string
      */
-     protected $table = 'militaryuser';
-     protected $primaryKey = "name";
+     protected $table = 'company';
+     protected $primaryKey = "compid";
      public $incrementing = false;
      public $timestamps = false;
       /**
@@ -25,7 +25,7 @@ class CompanyUser extends Model implements AuthenticatableContract, Authorizable
      *
      * @var array
      */
-     protected $fillable = ['name','email','location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'token'];
+     protected $fillable = ['compid', 'name','email','password'. 'matchNum', 'stripetoken', 'membertoken', 'phone', 'searchcomplete1', 'searchcomplete2', 'companyfav', 'type'];
     
     public function getJWTIdentifier()
     {

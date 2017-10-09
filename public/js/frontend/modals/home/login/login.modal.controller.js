@@ -35,6 +35,7 @@
       Authentication.setToken(checkUser).then(function(data){
         if(data){
           User.getCurrentUser(Authentication.getToken()).then(function(data){
+            User.setUesr(data.data.user);
             loginvm.close(data.data.user);
           },function(data){
             console.log(data);

@@ -19,10 +19,12 @@
   		});
       modal.result
          .then(function (data) {
+           console.log(data);
+           var curUser = data.name;
            if(data.type == 1){
-   					$location.path('/company/' + navbarvm.user +'/dashboard');
+   					$location.path('/company/' + curUser +'/dashboard');
    				}else{
-   					$location.path('/veteran/' + navbarvm.user + '/profile');
+   					$location.path('/veteran/' + curUser + '/profile');
    				}
          },function (reason) {
            console.log(reason);

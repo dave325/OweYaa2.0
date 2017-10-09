@@ -26,10 +26,9 @@ class ExampleController extends Controller
     public function loginTest(Request $request){
          // grab credentials from the request
          $credentials = $request->only('name', 'password');
-         $user = new User();
                  try {
                      // attempt to verify the credentials and create a token for the user
-                     if (! $token = app('auth')->guard($this->apiCall)->attempt($credentials)) {
+                     if (! $token = app('auth')->guard("company")->attempt($credentials)) {
                          return response()->json(['error' => 'invalid_credentials'], 401);
                      }
                  } catch (JWTException $e) {
@@ -38,13 +37,12 @@ class ExampleController extends Controller
                  }
                  // all good so return the token
                  return response()->json(compact('token'));
-                 
-       // return response()->json("reached");
     }
     // Adds User
     public function addUser(Request $request){
         // grab credentials from the request
         $credentials = $request->only('name', 'email', 'password', 'type');
+        // Creates user based on what type is submitted
         if($credentials['type'] == 0){
             $user = new MilitaryUser();
         }else{

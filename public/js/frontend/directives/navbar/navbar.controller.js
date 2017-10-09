@@ -15,10 +15,11 @@
       modal.result
          .then(function (data) {
            User.setUser(data);
+           var user = User.getUser();
            if(data.type == 1){
    					$location.path('/company/:companyid/dashboard')
    				}else{
-   					$location.path('/veteran/:veteranid/profile');
+   					$location.path('/veteran/' + user.name + '/profile');
    				}
          },function (reason) {
            console.log(reason);

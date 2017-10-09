@@ -2,9 +2,7 @@
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User', 'veteranId', '$route'];
 	function profileCtrl($scope, User,veteranId, $route) {
-		$scope.veteranId = veteranId;
-		$route.current.veteranid = veteranId;
-		console.log(veteranId);
+		console.log($route.current.params);
 		//$scope.user =  User.getUser();
 	    $scope.contact = {
 			profile: {

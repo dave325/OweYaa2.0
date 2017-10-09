@@ -16,7 +16,7 @@ class CompanyUser extends Model implements AuthenticatableContract, Authorizable
      *
      * @var string
      */
-     protected $table = 'company';
+     protected $table = 'companies';
      protected $primaryKey = "compid";
      public $incrementing = false;
      public $timestamps = false;

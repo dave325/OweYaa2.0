@@ -19,6 +19,7 @@
   		});
       modal.result
          .then(function (data) {
+           console.log(data);
            User.setUser(data);
            if(data.type == 1){
    					$location.path('/company/' + navbarvm.user +'/dashboard')

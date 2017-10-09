@@ -14,11 +14,15 @@ class ValidateUser extends Controller
      */
     public function __construct(Request $request)
     {
-        
+        if($request->input('type') == 0){
+            $this->apiCall = "veteran";
+        }else{
+            $this->apiCall = "company";
+        }   
     }
     public function checks(){
         try {
-            if (! $user = app('auth')->guard('veteran')->authenticate()) {
+            if (! $user = app('auth')->guard($this->apiCall)->authenticate()) {
                 return response()->json(['user_not_found'], 404);
             }
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {

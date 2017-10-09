@@ -54,7 +54,7 @@ class ExampleController extends Controller
         $user->password = Hash::make($credentials['password']);
         $user->type = $credentials['type'];
         if($user->save()){
-            return response()->json($user);
+            return response()->json("success");
         }else{
             return response()->json("error");
         }

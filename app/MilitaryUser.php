@@ -42,7 +42,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     /**
      * Get the skills associated with the user.
      */
-    public function skill($name)
+    public function skill()
     {
         return $this->hasMany('App\Skill', 'name');
     }

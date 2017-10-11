@@ -26,7 +26,7 @@
       var modal = $uibModal.open({
           animation:true,
           backdrop:'static',
-  				templateUrl: '/js/frontend/modals/home/' + click + '/' + click +'.modal.view.html',
+  				templateUrl: '/js/frontend/modals/home/login/login.modal.view.html',
   				controller: click + 'ModalCtrl',
   				controllerAs: click + 'vm'
       });

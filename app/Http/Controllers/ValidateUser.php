@@ -42,7 +42,7 @@ class ValidateUser extends Controller
         }
         $user->name = $userCheck->name;
         $user->email = $userCheck->email;
-        $user->skill = $user->skill();
+        $user->skill = $user::find()->skill();
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

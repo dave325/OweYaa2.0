@@ -111,8 +111,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `course` (
-  `userid` int(10) NOT NULL,
+CREATE TABLE `courses` (
+  `name` varchar(255) NOT NULL,
   `course` varchar(100) NOT NULL,
   `completed` tinyint(1) NOT NULL,
   PRIMARY KEY (`userid`),
@@ -138,7 +138,7 @@ DROP TABLE IF EXISTS `languages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `languages` (
-  `userid` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `language` varchar(255) DEFAULT NULL,
   `rating` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -162,10 +162,10 @@ DROP TABLE IF EXISTS `mentor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mentor` (
-  `userid` varchar(255) DEFAULT NULL,
-  `mentorlocation` varchar(255) DEFAULT NULL,
-  `mentoremail` varchar(255) DEFAULT NULL,
-  `mentordiscussion` varchar(255) DEFAULT NULL
+  `name` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `discussion` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -245,7 +245,7 @@ DROP TABLE IF EXISTS `social`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `social` (
-  `userid` int(10) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `linkedin` varchar(15) NOT NULL,
   `skype` varchar(20) NOT NULL,
   `blog` varchar(100) NOT NULL,

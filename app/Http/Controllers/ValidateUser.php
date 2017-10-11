@@ -42,6 +42,14 @@ class ValidateUser extends Controller
         }
         $user->name = $userCheck->name;
         $user->email = $userCheck->email;
+        $user->mos = $userCheck->mos;
+        $user->location = $userCheck->location;
+        $user->phone = $userCheck->phone;
+        $user->career1 = $userCheck->career1;
+        $user->career2 = $userCheck->career2;
+        $user->prev1 = $userCheck->prev1;
+        $user->prev2 = $userCheck->prev2;
+        $user->bio = $userCheck->bio;
         $user->course = $user::find($user->name)->course;
         $user->skill = $user::find($user->name)->skill;
         $user->language = $user::find($user->name)->language;

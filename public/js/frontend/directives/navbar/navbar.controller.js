@@ -27,7 +27,7 @@
           animation:true,
           backdrop:'static',
   				templateUrl: '/js/frontend/modals/home/login/login.modal.view.html',
-  				controller: click + 'ModalCtrl',
+  				controller: 'loginModalCtrl',
   				controllerAs: click + 'vm'
       });
       /**

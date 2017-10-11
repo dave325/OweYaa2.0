@@ -221,7 +221,7 @@ DROP TABLE IF EXISTS `skills`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `skills` (
-  `userid` int(9) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `skill` varchar(255) DEFAULT NULL,
   `amount` int(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

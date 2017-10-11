@@ -21,8 +21,10 @@ class ValidateUser extends Controller
         }   
     }
     public function checks(){
+        $user = new MilitaryUser();
         try {
-            if (! $user = app('auth')->guard($this->apiCall)->authenticate()) {
+            if (! $userCheck = app('auth')->guard($this->apiCall)->authenticate()) {
+
                 return response()->json(['user_not_found'], 404);
             }
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
@@ -38,7 +40,9 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-    
+        $user->name = $userCheck->name;
+        $user->email = $userCheck->email;
+        $user->skill = $user->skill();
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

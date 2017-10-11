@@ -39,6 +39,13 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     protected $hidden = [
         'password',
     ];
+    /**
+     * Get the skill associated with the user.
+     */
+    public function skill()
+    {
+        return $this->hasMany('App\Skill', 'name');
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();

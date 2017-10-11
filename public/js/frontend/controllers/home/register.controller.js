@@ -27,9 +27,9 @@
 		        		$location.path('/');
 					},2000);
 				}
-      },function(data){
-        vm.formError = "There was an error, please try again";
-      });
+			},function(data){
+				vm.formError = "There was an error, please try again";
+			});
 		}
 		vm.formTitle = function(){
 			if(vm.credentials.registerModal.type == 1){

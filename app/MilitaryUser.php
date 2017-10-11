@@ -76,9 +76,9 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function mentor()
     {
-        return $this->hasOne('App\Skill', 'name');
+        return $this->hasOne('App\Mentor', 'name');
     }
-    
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

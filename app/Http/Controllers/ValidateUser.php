@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
-use App\Skill;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;;
 class ValidateUser extends Controller
@@ -51,7 +50,7 @@ class ValidateUser extends Controller
         $user->prev1 = $userCheck->prev1;
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
-        $user->course = App\Skill::with($name)->get();
+        $user->course = $user::find($user->name)->course;
         $user->skill = $user::find($user->name)->skill;
         $user->language = $user::find($user->name)->language;
         $user->social = $user::find($user->name)->social;

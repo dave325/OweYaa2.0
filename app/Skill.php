@@ -24,6 +24,15 @@ class Skill extends Model{
     protected $fillable = ['name','skill','amount'];
 
     /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'name',
+    ];
+
+    /**
      * Get the post that owns the comment.
      */
     public function post()

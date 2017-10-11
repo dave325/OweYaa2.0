@@ -24,6 +24,15 @@ class Course extends Model{
     protected $fillable = ['name','course','completed'];
 
     /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'name',
+    ];
+
+    /**
      * Get the post that owns the comment.
      */
     public function post()

@@ -24,6 +24,15 @@ class Social extends Model{
     protected $fillable = ['name','linkedin','skype', 'blog','github', 'portfolio'];
 
     /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'name',
+    ];
+
+    /**
      * Get the post that owns the comment.
      */
     public function post()

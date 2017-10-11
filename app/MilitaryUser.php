@@ -78,7 +78,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     {
         return $this->hasOne('App\Skill', 'name');
     }
-    // Social and mentor is a hasOne relationship
+    
     public function getJWTIdentifier()
     {
         return $this->getKey();

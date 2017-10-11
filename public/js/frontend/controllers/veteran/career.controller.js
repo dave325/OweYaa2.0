@@ -2,7 +2,7 @@
 	//Injector will protect against minification
 	careerCtrl.$inject = ['$scope', '$uibModal', 'User'];
 	function careerCtrl($scope,$uibModal, User) {
-		$scope.user =  User.getCurrentuser();
+		$scope.user =  User.getUser();
 	  $scope.actions = {
 			task1: "",
 			task2: ""

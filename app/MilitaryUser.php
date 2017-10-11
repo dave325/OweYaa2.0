@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Skill as Skill;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -44,7 +43,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function skill($name)
     {
-        $result = Skill::with($name)->get();
+        $result = \Skill::with($name)->get();
         return $result;
     }
 

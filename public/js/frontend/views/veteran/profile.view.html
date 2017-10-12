@@ -2,7 +2,7 @@
 
   <navbar content="{{navbarvm.activeNav}}"></navbar>
   <!-- Particular spacing -->
-  <div class="container">
+  <div class="col-xs-12">
     <div class="space">
     </div>
     <div class="col-xs-12 space box">
@@ -33,9 +33,9 @@
         <div id="tab">
           <!-- Tab Items -->
           <div class="list-group">
-            <a href="veteran/" + user.name +"/profile" class="list-group-item active">Profile</a>
-            <a href="veteran/" + user.name +"/career" class="list-group-item list-group-item-action">Career Plan</a>
-            <a href="veteran/" + user.name +"/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
+            <a href="veteran/{{user.name}}/profile" class="list-group-item active">Profile</a>
+            <a href="veteran/{{user.name}}/career" class="list-group-item list-group-item-action">Career Plan</a>
+            <a href="veteran/{{user.name}}/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
           </div>
         </div>
       </div>

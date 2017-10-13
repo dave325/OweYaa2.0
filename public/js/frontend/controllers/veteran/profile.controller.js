@@ -9,7 +9,13 @@
 			profile: {
 				img: 'assets/images/User.jpg'
 	        },
-			user: User.getUser()
+			user: User.getUser(),
+			// Temporary fill for actions 
+			// Wil; add dynamically when admin area is created
+			actions:{
+				task1: "",
+				task2: ""
+			}
 	    }
 		$scope.careerSummary = {
 			careerTracks : {

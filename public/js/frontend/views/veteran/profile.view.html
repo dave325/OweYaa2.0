@@ -63,12 +63,24 @@
     <aside class="col-xs-12 col-md-4">
         <!-- Contact Information -->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
-            <h2 class="col-xs-12 bg-primary">Contact Information</h2>
-            <p><strong>Email</strong>: {{contact.user.email}} </p>
-            <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
-            <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
-            <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
-          </div> <!-- End of Contact Information -->
+          <h2 class="col-xs-12 bg-primary">Contact Information</h2>
+          <p><strong>Email</strong>: {{contact.user.email}} </p>
+          <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
+          <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
+          <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
+        </div> <!-- End of Contact Information -->
+        <!-- Action Tasks-->
+        <div class="col-md-offset-1 col-xs-12 box space contact-info">
+          <h2 class="col-xs-12 bg-primary">Action Tasks</h2>
+          <div ng-if="!isObjectEmpty(actions)">
+              <p>Current Tasks:</p>
+              <p>{{actions.task1}}</p>
+              <p>{{actions.task2}}</p>
+          </div>
+          <div ng-if="isObjectEmpty(actions)">
+            <p>No actions tasks at the moment</p>
+          </div>
+        </div> <!-- End of Action Tasks -->
       </aside>
   </section>
   <footer-base></footer-base>

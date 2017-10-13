@@ -2,7 +2,9 @@
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User'];
 	function profileCtrl($scope, User) {
-		//$scope.user =  User.getUser();
+		$scope.isObjectEmpty = function(card){
+			return Object.keys(card).length === 0;
+		 }
 	    $scope.contact = {
 			profile: {
 				img: 'assets/images/User.jpg'

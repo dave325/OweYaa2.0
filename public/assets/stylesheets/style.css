@@ -312,7 +312,7 @@ END OF SECTION 4
 Section 5: Vet Dashboard Styles
 
 *******************************************************************/
-.vet-dashboard .container-fluid, .vet-dashboard aside{
+.vet-dashboard .container-fluid{
 	background-color:rgb(211,211,211);
 }
 .vet-dashboard .space {

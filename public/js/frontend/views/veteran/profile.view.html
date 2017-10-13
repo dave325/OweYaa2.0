@@ -2,11 +2,11 @@
 
   <navbar content="{{navbarvm.activeNav}}"></navbar>
   <!-- Particular spacing -->
-  <div class="col-xs-12 container-fluid">
+  <section class="col-xs-12 col-md-8 container-fluid">
     <div class="space">
     </div>
       <div class="row">
-      <div class="col-xs-12 col-md-8 space box">
+      <div class="col-xs-12 space box">
           <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
           <!-- Profile Picture -->
           <div class="col-md-3 col-xs-12 text-center">
@@ -22,14 +22,6 @@
             </div>
           </div>
         </div> <!-- End of Basic Information -->
-        <!-- Contact Information -->
-        <div class="col-md-3 col-md-offset-1 col-xs-12 box space contact-info">
-          <h2 class="col-xs-12 bg-primary">Contact Information</h2>
-          <p><strong>Email</strong>: {{contact.user.email}} </p>
-          <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
-          <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
-          <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
-        </div> <!-- End of Contact Information -->
     </div>
     <!-- The tab layout -->
     <div class="row">
@@ -67,7 +59,17 @@
       </div>
     </div>
 
-  </div>
+  </section>
+  <aside class="col-xs-12 col-md-3 col-md-offset-1">
+    <!-- Contact Information -->
+    <div class="col-xs-12 box space contact-info">
+        <h2 class="col-xs-12 bg-primary">Contact Information</h2>
+        <p><strong>Email</strong>: {{contact.user.email}} </p>
+        <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
+        <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
+        <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
+      </div> <!-- End of Contact Information -->
+  </aside>
   <footer-base></footer-base>
 
 </div>

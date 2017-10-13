@@ -316,7 +316,8 @@ Section 5: Vet Dashboard Styles
 	background-color:rgb(211,211,211);
 }
 .vet-dashboard .space {
-  margin: 40px 0px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .vet-dashboard .gap, #comp-dash .gap, #contact .gap {
@@ -352,6 +353,13 @@ Section 5: Vet Dashboard Styles
   list-style-position:inside;
 }
 
+.vet-dashboard .contact-info{
+	height:244px;
+}
+
+.vet-dashboard footer{
+	margin:0px;
+}
 /**********************************************************
 END OF SECTION 5
 **********************************************************/

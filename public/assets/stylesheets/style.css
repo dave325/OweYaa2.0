@@ -332,7 +332,6 @@ Section 5: Vet Dashboard Styles
 
 .vet-dashboard .box, #comp-dash .box {
   border: 2px solid black;
-  border-radius: 10px;
   padding: 10px 10px;
 }
 

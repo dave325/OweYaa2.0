@@ -318,6 +318,8 @@ Section 5: Vet Dashboard Styles
 
 .vet-dashboard aside{
 	height:100%;
+	position:fixed;
+	right:0px;
 }
 .vet-dashboard .space {
 	margin-top: 40px;

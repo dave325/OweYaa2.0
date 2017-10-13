@@ -359,7 +359,9 @@ Section 5: Vet Dashboard Styles
 
 .vet-dashboard .bg-info{
 	margin-bottom:15px;
+	text-transform:capitalize;
 }
+
 .vet-dashboard footer{
 	margin:0px;
 }

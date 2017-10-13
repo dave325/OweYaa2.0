@@ -7,6 +7,24 @@
     </div>
       <article class="col-xs-12 col-md-8">
         <div class="row">
+          <div class="col-xs-12 space box">
+            <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
+            <!-- Profile Picture -->
+            <div class="col-md-3 col-xs-12 text-center">
+              <img src="{{contact.profile.img}}" height=200 />
+              <p><button class="btn btn-default">Upload Photo</button><p>
+            </div>
+            <!-- Basic Information -->
+            <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
+              <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+                <p><strong>Location</strong>: {{contact.user.location}} </p>
+                <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
+                <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+              </div>
+            </div><!-- End of Basic Information -->
+          </div> 
+      </div>
+      <div class="row">
         <div class="col-xs-12 space box">
             <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
             <!-- Profile Picture -->
@@ -21,44 +39,45 @@
                 <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
                 <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
               </div>
-            </div>
-          </div> <!-- End of Basic Information -->
+            </div><!-- End of Basic Information -->
+          </div> 
       </div>
-      <!-- The tab layout -->
       <div class="row">
-        <div class="col-md-2">
-          <div id="tab">
-            <!-- Tab Items -->
-            <div class="list-group">
-              <a href="veteran/{{contact.user.name}}/profile" class="list-group-item active">Profile</a>
-              <a href="veteran/{{contact.user.name}}/career" class="list-group-item list-group-item-action">Career Plan</a>
-              <a href="veteran/{{contact.user.name}}/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-10 equal">
-
-          <!-- ADD IN CONTROLLER INPUT HERE -->
-          <div class="col-md-3  col-xs-12 col-sm-12 box gap ">
-            <p><span><strong>Career Plan Summary</strong></span></p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
-
-          </div>
-          <div class="col-md-3 col-xs-12 col-sm-12 col-md-offset-1 box gap">
-            <p><span><strong>Internship Match Information</strong></span></p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
-          </div>
-          <div class="col-md-3  col-xs-12 col-sm-12 col-md-offset-1 box gap">
-            <p><span><strong>Availability</strong></span></p>
-            <div id="availability">
-              <div class="form-group" ng-repeat="available in availability">
-                <!-- SYED DEAL WITH THE BS -->
+          <div class="col-xs-12 space box">
+              <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
+              <!-- Profile Picture -->
+              <div class="col-md-3 col-xs-12 text-center">
+                <img src="{{contact.profile.img}}" height=200 />
+                <p><button class="btn btn-default">Upload Photo</button><p>
               </div>
-            </div>
-          </div>
-          <span class="clearfix"></span>
+              <!-- Basic Information -->
+              <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
+                <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+                  <p><strong>Location</strong>: {{contact.user.location}} </p>
+                  <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
+                  <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+                </div>
+              </div><!-- End of Basic Information -->
+            </div> 
         </div>
-      </div>
+        <div class="row">
+            <div class="col-xs-12 space box">
+                <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
+                <!-- Profile Picture -->
+                <div class="col-md-3 col-xs-12 text-center">
+                  <img src="{{contact.profile.img}}" height=200 />
+                  <p><button class="btn btn-default">Upload Photo</button><p>
+                </div>
+                <!-- Basic Information -->
+                <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
+                  <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+                    <p><strong>Location</strong>: {{contact.user.location}} </p>
+                    <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
+                    <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+                  </div>
+                </div><!-- End of Basic Information -->
+              </div> 
+          </div>
       </article>
     <aside class="col-xs-12 col-md-4">
         <!-- Contact Information -->
@@ -83,6 +102,41 @@
         </div> <!-- End of Action Tasks -->
       </aside>
   </section>
+  <!-- The tab layout -->
+  <div class="row">
+      <div class="col-md-2">
+        <div id="tab">
+          <!-- Tab Items -->
+          <div class="list-group">
+            <a href="veteran/{{contact.user.name}}/profile" class="list-group-item active">Profile</a>
+            <a href="veteran/{{contact.user.name}}/career" class="list-group-item list-group-item-action">Career Plan</a>
+            <a href="veteran/{{contact.user.name}}/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 equal">
+
+        <!-- ADD IN CONTROLLER INPUT HERE -->
+        <div class="col-md-3  col-xs-12 col-sm-12 box gap ">
+          <p><span><strong>Career Plan Summary</strong></span></p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
+
+        </div>
+        <div class="col-md-3 col-xs-12 col-sm-12 col-md-offset-1 box gap">
+          <p><span><strong>Internship Match Information</strong></span></p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
+        </div>
+        <div class="col-md-3  col-xs-12 col-sm-12 col-md-offset-1 box gap">
+          <p><span><strong>Availability</strong></span></p>
+          <div id="availability">
+            <div class="form-group" ng-repeat="available in availability">
+              <!-- SYED DEAL WITH THE BS -->
+            </div>
+          </div>
+        </div>
+        <span class="clearfix"></span>
+      </div>
+    </div>
   <footer-base></footer-base>
 
 </div>

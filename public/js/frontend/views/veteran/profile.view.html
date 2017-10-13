@@ -5,30 +5,32 @@
   <div class="col-xs-12 container-fluid">
     <div class="space">
     </div>
-    <div class="col-xs-12 col-md-8 space box">
-        <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
-        <!-- Profile Picture -->
-        <div class="col-md-3 col-xs-12 text-center">
-          <img src="{{contact.profile.img}}" height=200 />
-          <p><button class="btn btn-default">Upload Photo</button><p>
-        </div>
-        <!-- Basic Information -->
-        <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
-          <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
-            <p><strong>Location</strong>: {{contact.user.location}} </p>
-            <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
-            <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+      <div class="row">
+      <div class="col-xs-12 col-md-8 space box">
+          <h2 class="col-xs-12 bg-primary">{{contact.user.name}}</h2>
+          <!-- Profile Picture -->
+          <div class="col-md-3 col-xs-12 text-center">
+            <img src="{{contact.profile.img}}" height=200 />
+            <p><button class="btn btn-default">Upload Photo</button><p>
           </div>
-        </div>
-      </div> <!-- End of Basic Information -->
-      <!-- Contact Information -->
-      <div class="col-md-3 col-md-offset-1 col-xs-12 box space contact-info">
-        <h2 class="col-xs-12 bg-primary">Contact Information</h2>
-        <p><strong>Email</strong>: {{contact.user.email}} </p>
-        <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
-        <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
-        <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
-      </div> <!-- End of Contact Information -->
+          <!-- Basic Information -->
+          <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
+            <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
+              <p><strong>Location</strong>: {{contact.user.location}} </p>
+              <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
+              <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+            </div>
+          </div>
+        </div> <!-- End of Basic Information -->
+        <!-- Contact Information -->
+        <div class="col-md-3 col-md-offset-1 col-xs-12 box space contact-info">
+          <h2 class="col-xs-12 bg-primary">Contact Information</h2>
+          <p><strong>Email</strong>: {{contact.user.email}} </p>
+          <p><strong>Phone Number</strong>r: {{contact.user.phone}} </p>
+          <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
+          <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
+        </div> <!-- End of Contact Information -->
+    </div>
     <!-- The tab layout -->
     <div class="row">
       <div class="col-md-2">

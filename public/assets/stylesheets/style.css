@@ -357,7 +357,7 @@ Section 5: Vet Dashboard Styles
 	height:244px;
 }
 
-.vet-dashboard .bg-info{
+.vet-dashboard .bg-primary{
 	margin-bottom:15px;
 	text-transform:capitalize;
 }

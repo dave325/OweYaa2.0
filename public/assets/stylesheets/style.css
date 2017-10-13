@@ -339,7 +339,7 @@ Section 5: Vet Dashboard Styles
 	/**
 	*	border: 2px solid black;
 	*/
-  padding: 10px 10px;
+  padding: 0px 10px;
 }
 
 .vet-dashboard .equal, .home-page .equal {
@@ -357,6 +357,9 @@ Section 5: Vet Dashboard Styles
 	height:244px;
 }
 
+.vet-dashboard .bg-info{
+	margin-bottom:15px;
+}
 .vet-dashboard footer{
 	margin:0px;
 }

@@ -23,7 +23,7 @@
 
 		$scope.educationModal = function() {
 			var em = $uibModal.open({
-				templateUrl: 'frontend/modals/veteran/education/education.modal.view.html',
+				templateUrl: '/js/frontend/modals/veteran/education/education.modal.view.html',
 				controller: 'educationModalCtrl',
 				controllerAs: 'educationvm'
 			});

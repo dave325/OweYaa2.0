@@ -58,8 +58,10 @@ Section 1.1 Navbar Styles
 	font-family:  'Open sans', sans-serif;
 }
 
-
-
+.navbar .alert{
+	margin:0px;
+	padding:0px;
+}
 /**********************************************************
 END OF SECTION 1
 **********************************************************/

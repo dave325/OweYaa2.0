@@ -29,13 +29,36 @@
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
 		$scope.openModalPopup = function () {
-       am.result
-         .then(function (data) {
-           console.log(data);
-         },function (reason) {
-           console.log(reason);
-         });
-			 };
+			am.result
+				.then(function (data) {
+					console.log(data);
+				},function (reason) {
+					console.log(reason);
+				});
+			};
+		}
+
+		$scope.career = {
+			prevField1: "",
+			prevEmployer1: "",
+			goal: ""
+		}
+
+		$scope.careerModal = function() {
+			var cm = $uibModal.open({
+				templateUrl: '/js/frontend/modals/veteran/career/career.modal.view.html',
+				controller: 'careerModalCtrl',
+				controllerAs: 'careervm',
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
+			});
+			$scope.openModalPopup = function () {
+				am.result
+					.then(function (data) {
+					console.log(data);
+					},function (reason) {
+					console.log(reason);
+					});
+			};
 		}
 		$scope.careerSummary = {
 			careerTracks : {

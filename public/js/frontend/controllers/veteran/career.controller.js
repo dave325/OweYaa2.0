@@ -31,7 +31,7 @@
 
 		$scope.socialModal = function() {
 			var som = $uibModal.open({
-				templateUrl: 'frontend/modals/veteran/social/social.modal.view.html',
+				templateUrl: '/js/frontend/modals/veteran/social/social.modal.view.html',
 				controller: 'socialModalCtrl',
 				controllerAs: 'socialvm'
 			});
@@ -53,7 +53,7 @@
 
 		$scope.careerModal = function() {
 			var cm = $uibModal.open({
-				templateUrl: 'frontend/modals/veteran/career/career.modal.view.html',
+				templateUrl: '/js/frontend/modals/veteran/career/career.modal.view.html',
 				controller: 'careerModalCtrl',
 				controllerAs: 'careervm'
 			});

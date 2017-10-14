@@ -327,7 +327,7 @@ Section 5: Vet Dashboard Styles
 }
 
 .vet-dashboard aside div{
-	margin-bottom:0px;
+	margin-bottom:0px !important;
 }
 .vet-dashboard .gap, #comp-dash .gap, #contact .gap {
   margin-bottom: 40px;
@@ -360,10 +360,6 @@ Section 5: Vet Dashboard Styles
 .vet-dashboard .center {
   text-align: center;
   list-style-position:inside;
-}
-
-.vet-dashboard .contact-info{
-	height:244px;
 }
 
 .vet-dashboard .bg-primary{

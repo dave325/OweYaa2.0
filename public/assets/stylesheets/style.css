@@ -312,6 +312,12 @@ END OF SECTION 4
 Section 5: Vet Dashboard Styles
 
 *******************************************************************/
+
+/**********
+
+Section 5.1: Veteran Dashboard
+
+************/
 .vet-dashboard .container-fluid, .vet-dashboard aside{
 	background-color:rgb(211,211,211);
 }
@@ -371,6 +377,16 @@ Section 5: Vet Dashboard Styles
 
 .vet-dashboard footer{
 	margin:0px;
+}
+
+/**********
+
+Section 5.2: Modal styles
+
+************/
+
+.vetModal .modal-dialog{
+	min-width:100% !important;
 }
 /**********************************************************
 END OF SECTION 5

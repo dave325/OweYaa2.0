@@ -326,6 +326,9 @@ Section 5: Vet Dashboard Styles
 	margin-bottom: 40px;
 }
 
+.vet-dashboard aside .space{
+	margin-bottom:20px;
+}
 .vet-dashboard .gap, #comp-dash .gap, #contact .gap {
   margin-bottom: 40px;
 }

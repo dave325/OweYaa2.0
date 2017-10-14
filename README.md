@@ -1,3 +1,3 @@
 # lumen
 
-[oweyaa.herokuapp.com]
+oweyaa.herokuapp.com

@@ -27,19 +27,15 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework</h2>
-              <!-- Profile Picture -->
-              <div class="col-md-3 col-xs-12 text-center">
-                <img src="{{contact.profile.img}}" height=200 />
-                <p><button class="btn btn-default">Upload Photo</button><p>
-              </div>
-              <!-- Basic Information -->
-              <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
-                <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
-                  <p><strong>Location</strong>: {{contact.user.location}} </p>
-                  <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
-                  <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
-                </div>
-              </div><!-- End of Basic Information -->
+              <p>Higher Education:</p>
+              <p>{{education.school}}</p>
+              <hr>
+              <p>Coursework / Training:</p>
+              <p>{{education.course}}</p>
+              <hr>
+              <p>Courses Provided By Us For You:</p>
+              <p>{{education.providedCourse}}</p>
+              <button ng-click="educationModal()" class="btn btn-primary">View All Items</button>
             </div> 
         </div>
         <div class="row">

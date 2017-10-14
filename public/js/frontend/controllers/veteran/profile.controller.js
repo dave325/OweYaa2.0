@@ -14,7 +14,28 @@
 			// Wil; add dynamically when admin area is created
 			actions:{
 			}
-	    }
+		}
+		$scope.education = {
+			school: "",
+			course: "",
+			providedCourse: ""
+		}
+
+		$scope.educationModal = function() {
+			var em = $uibModal.open({
+				templateUrl: 'frontend/modals/veteran/education/education.modal.view.html',
+				controller: 'educationModalCtrl',
+				controllerAs: 'educationvm'
+			});
+		$scope.openModalPopup = function () {
+       am.result
+         .then(function (data) {
+           console.log(data);
+         },function (reason) {
+           console.log(reason);
+         });
+			 };
+		}
 		$scope.careerSummary = {
 			careerTracks : {
 			},

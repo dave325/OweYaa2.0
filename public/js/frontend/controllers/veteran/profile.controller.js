@@ -60,6 +60,21 @@
 					});
 			};
 		}
+		$scope.skillModal = function() {
+			var skm = $uibModal.open({
+				templateUrl: '/js/frontend/modals/veteran/skill/skill.modal.view.html',
+				controller: 'skillModalCtrl',
+				controllerAs: 'skillvm'
+			});
+			$scope.openModalPopup = function () {
+				am.result
+					.then(function (data) {
+						console.log(data);
+					},function (reason) {
+						console.log(reason);
+					});
+			};
+		}
 		$scope.careerSummary = {
 			careerTracks : {
 			},

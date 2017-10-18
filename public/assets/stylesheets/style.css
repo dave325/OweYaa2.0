@@ -387,6 +387,10 @@ Section 5.2: Modal styles
 .vetModal .modal-dialog{
 	min-width:100% !important;
 }
+
+.form-group .glyphicon-remove{
+	color:red;
+}
 /**********************************************************
 END OF SECTION 5
 **********************************************************/

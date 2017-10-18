@@ -36,12 +36,12 @@
         <div class="form-group">
           <div>
             <h4>Career Focus Area:</h4>
+            <p ng-show="educationvm.focusArea.length == 10" class="bg-alert">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <p>New Career Focus Area:</p>
               <input type="text" ng-model="educationvm.newFocusArea">
-              <button class="btn" ng-disabled="educationvm.focusArea.length == 10" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
-              <p ng-show="educationvm.focusArea.length == 10">You may add up to 10 items</p>
+              <button class="btn" ng-disabled="educationvm.focusArea.length == 10" type="button" ng-click="educationvm.addToFocusArea()" class="btn btn-primary"">Add</button>
             </div><br />
             <ol ng-if="educationvm.focusArea.length > 0">
               <li ng-repeat="field in educationvm.focusArea track by $index">

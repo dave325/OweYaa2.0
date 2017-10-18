@@ -44,7 +44,7 @@
     // Add a new area of focus
     educationvm.addToFocusArea = function() {
       educationvm.focusArea.push(educationvm.newFocusArea);
-      education.newFocusArea = "";
+      educationvm.newFocusArea = "";
     }
 
     // Delete one of your plans

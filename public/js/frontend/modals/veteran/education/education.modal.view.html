@@ -54,9 +54,9 @@
 
         <!-- Display all bootcamps attended -->
         <div>
-          <div ng-if="educationvm.bootcamps.length > 0">
+          <div>
             <h4>Bootcamps:</h4>
-            <ol>
+            <ol ng-if="educationvm.bootcamps.length > 0">
               <li ng-repeat="field in educationvm.bootcamps track by $index">
                 <span ng-hide="educationvm.editMode">{{field}}</span>
                 <input type="text" ng-show="educationvm.editMode" ng-model="educationvm.bootcamps[$index]">

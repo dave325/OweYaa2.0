@@ -39,11 +39,11 @@
             <!-- Editing purposes -->
             <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
             <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
-            <!-- Actual list of areas of interest ->
+            <!-- Actual list of areas of interest -->
             <ol>
               <li ng-repeat="field in educationvm.focusArea track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
-                <input type="text" ng-disabled="!educationvm.editMode.cfa{$index}"  ng-model="educationvm.focusArea[$index]">
+                <input type="text" ng-disabled="!educationvm.editMode.cfa{{$index}}"  ng-model="educationvm.focusArea[$index]">
                 <button class="btn" type="button" ng-click="educationvm.deleteFocusArea($index)" ng-hide="educationvm.editMode">Delete</button>
               </li>
             </ol>

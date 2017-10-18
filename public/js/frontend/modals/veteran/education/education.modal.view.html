@@ -1,17 +1,19 @@
 <div id="educationModal">
   <span class="glyphicon glyphicon-remove pull-right" ng-click="educationvm.cancel()"></span>
-  <form novalidate method="post" name="educationvm.content" ng-submit="submit()">
+  <form novalidate method="post" name="education" ng-submit="submit()">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <!-- Information regarding higher education -->
         <h3>Higher Education</h3>
         <div class="form-group">
+          <!--
           <button type="button" ng-hide="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Edit</button>
           <button type="button" ng-show="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Done</button>
-            <p>
-              <label form="newField">School: </label>
-              <input ng-show="educationvm.editMode" ng-model="educationvm.school" type="text" class="form-control"/>
-              <span ng-hide="educationvm.editMode">{{educationvm.school}}</span>
+          --> 
+          <p>
+              <label form="education" for="school">School: </label>
+              <input ng-model="educationvm.school" type="text" class="form-control" name="school" id="school"/>
+              <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
             </p>
             <p>
               <label form="newField">Degree: </label>
@@ -134,7 +136,7 @@
       </div>
 
       <!-- Display the education plan provided -->
-      <div class="col-md-6">
+      <div class="col-md-12">
         <h3>Education Plan: </h3>
         <ul ng-repeat="education in educationvm.plan track by $index">
           <li><input type="text" ng-model="educationvm.content.plan.$index" value="education.value"></li>

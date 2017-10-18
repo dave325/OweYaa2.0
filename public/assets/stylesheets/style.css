@@ -396,14 +396,14 @@ Section 5.2: Modal styles
 	list-style-type:none;
 }
 
-.form-group .ol .li{
+.form-group .ol li{
 	display: inline-block;
+	margin:5px 10px 5px 0px;
 }
 
 .form-group ol input{
 	background-color:rgb(211,211,211);
 	border:1px solid green;
-	margin:5px 0px;
 }
 
 .add-btn{

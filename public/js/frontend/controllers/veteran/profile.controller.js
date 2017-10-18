@@ -28,7 +28,12 @@
 				templateUrl: '/js/frontend/modals/veteran/education/education.modal.view.html',
 				controller: 'educationModalCtrl',
 				controllerAs: 'educationvm',
-				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
+				resolve: {
+					userEd:function(){
+						return User.getUser();
+					}
+				}
 			});
 
 			em.result

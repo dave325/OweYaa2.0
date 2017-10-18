@@ -9,9 +9,9 @@
     educationvm.courses = [];
     educationvm.bootcamps = [
       {
-        name: "Test"
+        name:"test"
       }
-    ];
+    ]
     educationvm.focusArea = [];
 
     educationvm.newPlan = "";

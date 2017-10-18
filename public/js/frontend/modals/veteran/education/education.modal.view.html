@@ -45,7 +45,7 @@
             <ol>
               <li ng-repeat="field in educationvm.edInfo.course track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
-                <input type="text" ng-model="educationvm.focusArea[$index]"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteFocusArea($index)"></span>
+                <input type="text" ng-model="field[$index].course"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteFocusArea($index)"></span>
               </li>
             </ol>
           </div>
@@ -55,10 +55,6 @@
         <div>
           <div ng-if="educationvm.bootcamps.length > 0">
             <h4>Bootcamps:</h4>
-            <!-- Editing purposes -->
-            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>
-            <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-show="educationvm.editMode">Done</button>
-            <!-- Actual list of bootcamps -->
             <ol>
               <li ng-repeat="field in educationvm.bootcamps track by $index">
                 <span ng-hide="educationvm.editMode">{{field}}</span>

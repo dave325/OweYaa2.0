@@ -24,7 +24,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      // Remove default timestamp from eloquent
      public $timestamps = false;
      // Array to hold edcation
-     private $education = array();
+     public $education = array();
       /**
      * The attributes that are mass assignable.
      *

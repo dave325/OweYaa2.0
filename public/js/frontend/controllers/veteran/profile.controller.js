@@ -30,14 +30,13 @@
 				controllerAs: 'educationvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
-		$scope.openModalPopup = function () {
+
 			em.result
 				.then(function (data) {
 					console.log(data);
 				},function (reason) {
 					console.log(reason);
 				});
-			};
 		}
 
 		$scope.career = {

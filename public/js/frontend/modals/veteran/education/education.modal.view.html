@@ -36,6 +36,12 @@
         <div class="form-group">
           <div>
             <h4>Career Focus Area:</h4>
+            <!-- Add a new area of focus -->
+            <div>
+              <p>New Career Focus Area:</p>
+              <input type="text" ng-model="educationvm.newFocusArea">
+              <button class="btn" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
+            </div>
             <ol>
               <li ng-repeat="field in educationvm.edInfo.course track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
@@ -43,14 +49,6 @@
                 <button class="btn" type="button" ng-click="educationvm.deleteFocusArea($index)" ng-hide="educationvm.editMode">Delete</button>
               </li>
             </ol>
-          </div>
-          <div>
-            <!-- Add a new area of focus -->
-            <div>
-              <p>New Career Focus Area:</p>
-              <input type="text" ng-model="educationvm.newFocusArea">
-              <button class="btn" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
-            </div>
           </div>
         </div>
 

@@ -33,7 +33,7 @@
 
 			em.result
 				.then(function (data) {
-					console.log("reached");
+					console.log(data);
 				},function (reason) {
 					console.log(reason);
 				});

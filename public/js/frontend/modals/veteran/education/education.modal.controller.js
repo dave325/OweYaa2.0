@@ -71,8 +71,8 @@
     }
 
     // Allow editing
-    educationvm.triggerEditMode = function() {
-      educationvm.editMode = !educationvm.editMode;
+    educationvm.triggerEditMode = function(item) {
+      item.edit = true;
     }
 
     // The function that is call when a user cancels the opening of a modal

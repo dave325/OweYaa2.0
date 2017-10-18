@@ -83,7 +83,7 @@
 	  }
     // The function that is call when the user closes the modal
 		educationvm.close = function(result){
-			$uibModalInstance.close(result);
+			console.log("reaxhed");
 		}
 
     // Will Submit the form depending if everything is filled out

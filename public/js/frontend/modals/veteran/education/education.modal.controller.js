@@ -79,7 +79,7 @@
 
     // The function that is call when a user cancels the opening of a modal
 	  educationvm.cancel = function(){
-	   $uibModalInstance.dismiss('cancel')
+	   $uibModalInstance.dismiss('cancel');
 	  }
     // The function that is call when the user closes the modal
 		educationvm.close = function(result){

@@ -391,6 +391,11 @@ Section 5.2: Modal styles
 .form-group .glyphicon-remove{
 	color:red;
 }
+
+.form-group ol{
+	list-style-type:none;
+	border:1px solid green;
+}
 /**********************************************************
 END OF SECTION 5
 **********************************************************/

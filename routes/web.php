@@ -16,7 +16,7 @@ $router->get('/', function (){
 $router->get('{all}', function (){
     return view('index');
 });
-$router->get('{all}/*', function (){
+$router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
 

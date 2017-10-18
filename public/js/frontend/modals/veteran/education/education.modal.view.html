@@ -41,7 +41,7 @@
             <div>
               <p>New Career Focus Area:</p>
               <input type="text" ng-model="educationvm.newFocusArea">
-              <button class="btn" ng-disabled="educationvm.focusArea.length == 10" type="button" ng-click="educationvm.addToFocusArea()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.focusArea.length == 10 || educationm.newFocusArea.length < 1" type="button" ng-click="educationvm.addToFocusArea()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="educationvm.focusArea.length > 0">
               <li ng-repeat="field in educationvm.focusArea track by $index">

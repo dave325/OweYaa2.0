@@ -7,11 +7,7 @@
     educationvm.plans = [];
     educationvm.certfications = [];
     educationvm.courses = [];
-    educationvm.bootcamps = [
-      {
-        name:"test"
-      }
-    ]
+    educationvm.bootcamps = []
     educationvm.focusArea = [];
 
     educationvm.newPlan = "";

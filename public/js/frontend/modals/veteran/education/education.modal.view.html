@@ -42,8 +42,8 @@
               <input type="text" ng-model="educationvm.newFocusArea">
               <button class="btn" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
             </div><br />
-            <ol>
-              <li ng-repeat="field in educationvm.edInfo.course track by $index">
+            <ol ng-if="educationvm.focusArea.length > 0">
+              <li ng-repeat="field in educationvm.focusArea track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field.course"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteFocusArea($index)"></span>
               </li>

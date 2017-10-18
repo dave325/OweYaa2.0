@@ -395,10 +395,14 @@ Section 5.2: Modal styles
 .form-group ol{
 	list-style-type:none;
 }
+
+.form-group .ol .li{
+	display: inline-block;
+}
+
 .form-group ol input{
 	background-color:rgb(211,211,211);
 	border:1px solid green;
-	display: inline-block;
 	margin:5px 0px;
 }
 

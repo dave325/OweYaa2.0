@@ -398,6 +398,11 @@ Section 5.2: Modal styles
 .form-group ol input{
 	background-color:rgb(211,211,211);
 	border:1px solid green;
+	margin:5px 0px;
+}
+
+.add-btn{
+	border:1px solid rgb(247,159,75);
 }
 /**********************************************************
 END OF SECTION 5

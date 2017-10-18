@@ -2,7 +2,7 @@
   educationModalCtrl.$inject = ['$uibModalInstance', 'Authentication', 'userEd'];
   function educationModalCtrl($uibModalInstance, Authentication){
     educationvm = this;
-    educationvm.edInfo = userEd.education;
+    educationvm.edInfo = userEd;
     // Containers
     educationvm.plans = [];
     educationvm.certfications = [];

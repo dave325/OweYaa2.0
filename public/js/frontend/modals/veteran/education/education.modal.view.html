@@ -45,16 +45,15 @@
             <ol>
               <li ng-repeat="field in educationvm.edInfo.course track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
-                <input type="text" ng-model="educationvm.focusArea[$index]">
-                <button class="btn" type="button" ng-click="educationvm.deleteFocusArea($index)" ng-hide="educationvm.editMode">Delete</button>
+                <input type="text" ng-model="educationvm.focusArea[$index]"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteFocusArea($index)"></span>
               </li>
             </ol>
           </div>
         </div>
 
         <!-- Display all bootcamps attended -->
-        <div ng-if="educationvm.bootcamps.length > 0">
-          <div>
+        <div>
+          <div ng-if="educationvm.bootcamps.length > 0">
             <h4>Bootcamps:</h4>
             <!-- Editing purposes -->
             <button class="btn" type="button" ng-click="educationvm.triggerEditMode()" ng-hide="educationvm.editMode">Edit</button>

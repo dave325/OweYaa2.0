@@ -41,7 +41,7 @@
               <p>New Career Focus Area:</p>
               <input type="text" ng-model="educationvm.newFocusArea">
               <button class="btn" type="button" ng-click="educationvm.addToFocusArea()">Add</button>
-            </div>
+            </div><br />
             <ol>
               <li ng-repeat="field in educationvm.edInfo.course track by $index">
                 <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Display all bootcamps attended -->
-        <div ng-if="educationvm.bootcamps">
+        <div ng-if="educationvm.bootcamps.length > 0">
           <div>
             <h4>Bootcamps:</h4>
             <!-- Editing purposes -->

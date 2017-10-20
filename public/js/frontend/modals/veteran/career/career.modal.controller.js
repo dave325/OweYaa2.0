@@ -2,7 +2,7 @@
   careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication'];
   function careerModalCtrl($uibModalInstance, Authentication){
     careervm = this;
-    career.fromPresent = false;
+    careervm.fromPresent = false;
     // Containers
     careervm.prevCareer = [
       {
@@ -93,7 +93,7 @@
     }
     careervm.present = function(c){
       career.from = "Present";
-      career.fromPresent = true;
+      careervm.fromPresent = true;
     }
   }
   angular.module('oweyaa')

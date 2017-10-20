@@ -4,11 +4,11 @@
     educationvm = this;
     educationvm.edInfo = userEd;
     // Containers
-    educationvm.plans = [];
-    educationvm.certfications = [];
-    educationvm.courses = [];
-    educationvm.bootcamps = []
-    educationvm.focusArea = [];
+    educationvm.plans = ["Test"];
+    educationvm.certfications = ["Test"];
+    educationvm.courses = ["Test"];
+    educationvm.bootcamps = ["Test"]
+    educationvm.focusArea = ["Test"];
 
     educationvm.newPlan = "";
     educationvm.newCertification = "";
@@ -24,21 +24,25 @@
     // Add a new plan
     educationvm.addToPlan = function() {
       educationvm.plans.push(educationvm.newPlan);
+      educationvm.newPlan = ""
     }
 
     // Add a new certification
     educationvm.addToCertifications = function() {
       educationvm.certfications.push(educationvm.newCertification);
+      educationvm.newCertification = "";
     }
 
     // Add a new course
     educationvm.addToCourses = function() {
       educationvm.courses.push(educationvm.newCourse);
+      educationvm.newCourse = "";
     }
 
     // Add a new bootcamp
     educationvm.addToBootcamps = function() {
       educationvm.bootcamps.push(educationvm.newBootcamp);
+      educatinovm.newBootcamp = "";
     }
 
     // Add a new area of focus

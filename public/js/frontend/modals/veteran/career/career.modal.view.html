@@ -26,25 +26,6 @@
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
         </div>
       </div>
-      <!-- Display all courses taken -->
-      <div class="form-group">
-        <div>
-          <h4>Courses:</h4>
-          <p ng-show="educationvm.courses.length == 9" class="bg-warning">You may add up to 10 items</p>
-          <!-- Add a new area of focus -->
-          <div>
-            <p>New Courses:</p>
-            <input type="text" ng-model="educationvm.newCourse" class="add-btn" />
-            <button class="btn" ng-disabled="educationvm.courses.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.addToCourses()" class="btn btn-primary">Add</button>
-          </div><br />
-          <ol ng-if="educationvm.courses.length > 0">
-            <li ng-repeat="field in educationvm.courses track by $index">
-              <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
-              <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
-            </li>
-          </ol>
-        </div>
-      </div>
       <div class="col-md-5 col-md-offset-2">
         <!-- Display all interests and hobbies -->
         <div class="section">

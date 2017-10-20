@@ -1,8 +1,11 @@
 (function(){
-  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication', ];
-  function careerModalCtrl($uibModalInstance, Authentication){
+  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication', '$scope'];
+  function careerModalCtrl($uibModalInstance, Authentication, $scope){
     careervm = this;
     // Containers
+    $scope.$watch('careervm.fromPresent', function (newVal, oldVal) {
+      $scope.parameters = $scope.selectedQuery.fields;
+    });
     careervm.prevCareer = [
       {
         empl: "",

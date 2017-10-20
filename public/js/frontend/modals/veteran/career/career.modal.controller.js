@@ -3,9 +3,10 @@
   function careerModalCtrl($uibModalInstance, Authentication, $scope){
     careervm = this;
     // Containers
-    $scope.$watch('careervm.fromPresent', function (newVal, oldVal) {
-      $scope.parameters = $scope.careervm.fromPresent;
-    });
+    careervm.togglePresent = function(c){
+      c = true;
+      careervm.from = "Present";
+    }
     careervm.prevCareer = [
       {
         empl: "",

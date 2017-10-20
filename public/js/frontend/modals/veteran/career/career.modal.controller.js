@@ -4,7 +4,8 @@
     careervm = this;
     // Containers
     careervm.togglePresent = function(c){
-      c = true;
+      idx = careervm.fromPresent + c;
+      idx = true;
       careervm.from = "Present";
     }
     careervm.prevCareer = [

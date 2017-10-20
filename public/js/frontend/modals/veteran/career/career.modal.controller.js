@@ -4,7 +4,7 @@
     careervm = this;
     // Containers
     $scope.$watch('careervm.fromPresent', function (newVal, oldVal) {
-      $scope.parameters = $scope.selectedQuery.fields;
+      $scope.parameters = $scope.careervm.fromPresent;
     });
     careervm.prevCareer = [
       {

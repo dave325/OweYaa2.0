@@ -6,6 +6,7 @@
     careervm.togglePresent = function(c){
       idx = careervm.fromPresent + c;
       idx = true;
+      console.log(idx);
       careervm.from = "Present";
     }
     careervm.prevCareer = [

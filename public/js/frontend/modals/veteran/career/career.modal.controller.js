@@ -9,13 +9,13 @@
         empl: "",
         contact:"",
         to: "",
-        from: ""
+        from: 
       },
       {
         empl: "",
         contact:"",
         to: "",
-        from: ""
+        from
       }
     ];
     careervm.newFields = [];

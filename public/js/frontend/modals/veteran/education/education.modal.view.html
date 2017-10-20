@@ -61,7 +61,7 @@
             <div>
               <p>New Career Focus Area:</p>
               <input type="text" ng-model="educationvm.newBootcamp" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.bootcamps.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamp()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.bootcamps.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="educationvm.bootcamps.length > 0">
               <li ng-repeat="field in educationvm.bootcamps track by $index">
@@ -101,7 +101,7 @@
             <div>
               <p>New Career Focus Area:</p>
               <input type="text" ng-model="educationvm.newCertification" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.certifications.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.addToFocusArea()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.certifications.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.addToCertifications()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="educationvm.certifications.length > 0">
               <li ng-repeat="field in educationvm.certifications track by $index">

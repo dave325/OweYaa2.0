@@ -6,7 +6,7 @@
       <h3>Previous Career</h3>
       <div class="form-group" ng-repeat="career in careervm.prevCareer track by $index">
         <div>
-          <label form="career" for="prev{{$index}}">Previous Employer {{$index}}: </label>
+          <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
           <input ng-model="career.empl" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
         </div>
@@ -17,12 +17,13 @@
         </div>
         <div>
           <label form="career" form="prevTo{{$index}}">To: </label>
-          <input ng-model="career.to" type="text" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
+          <input ng-model="career.to" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
         </div>
         <div>
-          <label form="career" form="prevFrom{{$index}}">To: </label>
-          <input ng-model="career.from" type="text" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
+          <label form="career" form="prevFrom{{$index}}">From: </label>
+          <input ng-model="career.from" ng-disabled="career.fromPresent" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
+          <input type="checkbox" ng-model="career.from" class="form-control" name="fromPresent{${index}" />
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
         </div>
       </div>

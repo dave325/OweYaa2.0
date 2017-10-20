@@ -2,7 +2,6 @@
   careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication'];
   function careerModalCtrl($uibModalInstance, Authentication){
     careervm = this;
-    careervm.fromPresent = false;
     // Containers
     careervm.prevCareer = [
       {

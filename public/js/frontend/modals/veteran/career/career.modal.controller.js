@@ -1,5 +1,5 @@
 (function(){
-  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication'];
+  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication', ];
   function careerModalCtrl($uibModalInstance, Authentication){
     careervm = this;
     // Containers

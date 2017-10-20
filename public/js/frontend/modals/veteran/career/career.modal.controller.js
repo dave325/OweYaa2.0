@@ -4,8 +4,20 @@
     careervm = this;
 
     // Containers
-    careervm.prevCareer = [];
-    careervm.prevEmpl = [];
+    careervm.prevCareer = [
+      {
+        empl: "",
+        contact:"",
+        to: "",
+        from: ""
+      },
+      {
+        empl: "",
+        contact:"",
+        to: "",
+        from: ""
+      }
+    ];
     careervm.newFields = [];
     careervm.hobbies = [];
 

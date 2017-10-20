@@ -1,7 +1,31 @@
 <div id="careerModal">
-  <form novalidate method="post" name="careervm.content" ng-submit="submit()">
+  <form novalidate method="post" name="career" ng-submit="submit()">
     <div class="row">
       <div class="col-md-12">
+      <!-- Information regarding higher education -->
+      <h3>Previous Career</h3>
+      <div class="form-group" ng-repeat="career in careervm.prevCareer track by $index">
+        <div>
+          <label form="career" for="prev{{$index}}">Previous Employer {{$index}}: </label>
+          <input ng-model="career.empl" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
+          <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
+        </div>
+        <div>
+          <label form="career" for="prevContact{{$index}}">Contact: </label>
+          <input ng-model="career.contact" type="text" class="form-control" name="contact{{$index}}" id="prevContacte{{$index}}"/>
+          <!-- <span ng-hide="educationvm.editMode">{{educationvm.degree}}</span> -->
+        </div>
+        <div>
+          <label form="career" form="prevTo{{$index}}">To: </label>
+          <input ng-model="career.to" type="text" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
+          <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
+        </div>
+        <div>
+          <label form="career" form="prevFrom{{$index}}">To: </label>
+          <input ng-model="career.from" type="text" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
+          <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
+        </div>
+      </div>
       <!-- Display all courses taken -->
       <div class="form-group">
         <div>

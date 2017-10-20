@@ -8,14 +8,12 @@
       {
         empl: "",
         contact:"",
-        to: "",
-        from
+        to: ""
       },
       {
         empl: "",
         contact:"",
-        to: "",
-        from
+        to: ""
       }
     ];
     careervm.newFields = [];

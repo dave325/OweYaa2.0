@@ -91,6 +91,10 @@
 		careervm.onSubmit = function(){
 			careervm.docareer();
     }
+    careervm.present = function(c){
+      career.from = "Present";
+      career.fromPresent = true;
+    }
   }
   angular.module('oweyaa')
   .controller('careerModalCtrl', careerModalCtrl);

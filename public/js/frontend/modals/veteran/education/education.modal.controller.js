@@ -9,7 +9,6 @@
     educationvm.courses = ["Test"];
     educationvm.bootcamps = ["Test"]
     educationvm.focusArea = ["Test"];
-
     educationvm.newPlan = "";
     educationvm.newCertification = "";
     educationvm.newCourse = "";

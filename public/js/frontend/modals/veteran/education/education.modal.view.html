@@ -59,7 +59,7 @@
             <p ng-show="educationvm.bootcamps.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
-              <p>New Career Focus Area:</p>
+              <p>New Bootcamps:</p>
               <input type="text" ng-model="educationvm.newBootcamp" class="add-btn" />
               <button class="btn" ng-disabled="educationvm.bootcamps.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()" class="btn btn-primary">Add</button>
             </div><br />
@@ -79,7 +79,7 @@
             <p ng-show="educationvm.courses.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
-              <p>New Career Focus Area:</p>
+              <p>New Courses:</p>
               <input type="text" ng-model="educationvm.newCourse" class="add-btn" />
               <button class="btn" ng-disabled="educationvm.courses.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.addToCourses()" class="btn btn-primary">Add</button>
             </div><br />
@@ -99,7 +99,7 @@
             <p ng-show="educationvm.certifications.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
-              <p>New Career Focus Area:</p>
+              <p>New Certifications:</p>
               <input type="text" ng-model="educationvm.newCertification" class="add-btn" />
               <button class="btn" ng-disabled="educationvm.certifications.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.addToCertifications()" class="btn btn-primary">Add</button>
             </div><br />

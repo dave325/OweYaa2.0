@@ -5,6 +5,7 @@
     // Containers
     careervm.togglePresent = function(c){
       idx = careervm.fromPresent + c;
+      console.log(idx);
       idx = true;
       console.log(idx);
       careervm.from = "Present";

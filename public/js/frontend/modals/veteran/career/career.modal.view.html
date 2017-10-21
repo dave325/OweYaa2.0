@@ -1,4 +1,5 @@
 <div id="careerModal">
+    <span class="glyphicon glyphicon-remove pull-right" ng-click="educationvm.cancel()"></span>
   <form novalidate method="post" name="career" ng-submit="submit()">
     <div class="row">
       <div class="col-md-12">
@@ -27,9 +28,9 @@
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
         </div>
       </div>
-      <div class="col-md-5 col-md-offset-2">
+      <div class="col-xs-12">
         <!-- Display all interests and hobbies -->
-        <div class="section">
+        <div class="form-group">
           <div>
             <h3>Interests / Hobbies:</h3>
             <!-- Editing Purposes -->

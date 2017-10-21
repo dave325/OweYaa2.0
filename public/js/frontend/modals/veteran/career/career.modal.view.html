@@ -33,15 +33,16 @@
         <div class="form-group">
           <div>
             <h3>Interests / Hobbies:</h3>
-            <!-- Editing Purposes -->
-            <button class="btn" type="button" ng-click="careervm.triggerEditMode()" ng-hide="careervm.editMode">Edit</button>
-            <button class="btn" type="button" ng-click="careervm.triggerEditMode()" ng-show="careervm.editMode">Done</button>
-            <!-- Actual list of interests and hobbies -->
-            <ol>
+            <p ng-show="educationvm.focusArea.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <!-- Add a new area of focus -->
+            <div>
+              <input type="text" ng-model="careervm.newHobby" class="add-btn" />
+              <button class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="educationvm.addToFocusArea()" class="btn btn-primary">Add</button>
+            </div><br />
+            <ol ng-if="careervm.hobbies.length > 0">
               <li ng-repeat="field in careervm.hobbies track by $index">
-                <span ng-hide="careervm.editMode">{{field}}</span>
-                <input type="text" ng-show="careervm.editMode" ng-model="careervm.hobbies[$index]">
-                <button class="btn" type="button" ng-click="careervm.deleteHobby($index)" ng-hide="careervm.editMode">Delete</button>
+                <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
+                <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>
           </div>

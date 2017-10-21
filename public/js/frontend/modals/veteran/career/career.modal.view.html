@@ -23,7 +23,7 @@
         <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>
           <input ng-model="career.from" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
-          <p>Present</p><input type="checkbox" class="form-control" ng-model="career.present" />
+          Present: <input type="checkbox" class="form-control" ng-model="career.present" />
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
         </div>
       </div>

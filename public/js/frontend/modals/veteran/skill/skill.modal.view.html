@@ -30,7 +30,7 @@
         <!-- Display all interests and hobbies -->
         <div class="form-group">
           <div>
-            <h3>Skills:</h3>
+            <h3>Wanted Skills:</h3>
             <p ng-show="skillvm.want.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
@@ -48,27 +48,23 @@
       </div>
 
     <!-- Display all known programming languages -->
-    <div class="row">
-      <div>
-        <h3>Programming languages:</h3>
-        <!-- Editing Purposes -->
-        <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-hide="skillvm.editMode">Edit</button>
-        <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-show="skillvm.editMode">Done</button>
-        <!-- Actual list of languages -->
-        <ol>
-          <li ng-repeat="field in skillvm.languages track by $index">
-            <span ng-hide="skillvm.editMode">{{field}}</span>
-            <input type="text" ng-show="skillvm.editMode" ng-model="skillvm.languages[$index]">
-            <button class="btn" type="button" ng-click="skillvm.deleteLanguage($index)" ng-hide="skillvm.editMode">Delete</button>
-          </li>
-        </ol>
-      </div>
+    <div class="col-xs-12">
+      <!-- Display all interests and hobbies -->
       <div class="form-group">
-        <!-- Add a new language -->
         <div>
-          <p>New Language:</p>
-          <input type="text" ng-model="skillvm.newLanguage">
-          <button class="btn" type="button" ng-click="skillvm.addToLanguages()">Add</button>
+          <h3>Programming Skills:</h3>
+          <p ng-show="skillvm.languages.length == 9" class="bg-warning">You may add up to 10 items</p>
+          <!-- Add a new area of focus -->
+          <div>
+            <input type="text" ng-model="skillvm.newLanguage" class="add-btn" />
+            <button class="btn" ng-disabled="skillvm.languages.length == 9 || !skillvm.newLanguage" type="button" ng-click="skillvm.addToLanguages()" class="btn btn-primary">Add</button>
+          </div><br />
+          <ol ng-if="skillvm.languages.length > 0">
+              <li ng-repeat="field in skillvm.languages track by $index">
+                  <input type="text" ng-model="field">
+                  <button class="btn" type="button" ng-click="skillvm.deleteLanguages($index)">Delete</button>
+              </li>
+          </ol>
         </div>
       </div>
     </div>

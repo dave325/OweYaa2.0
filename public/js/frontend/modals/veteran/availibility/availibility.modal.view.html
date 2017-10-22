@@ -5,11 +5,8 @@
       <div class="col-md-12">
       <!-- Information regarding higher education -->
       <h3>Availible worktimes</h3>
-      <div class="form-group" ng-repeat="day in availibilityvm.schedule track by $index">
-          <label form="availability">day.day: </label>
-          <input ng-model="day.min" type="date" class="form-control" name="scheduleMin{{$index}}"/>
-          <input ng-model="day.max" type="date" class="form-control" name="scheduleMax{{$index}}"/>
-          <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
+      <div class="form-group">
+          <select required="true" name="openTime" ng-options="availibilityvm.hour as (hour | date: 'shortTime') for hour in hours track by hour" ng-model="start_time"><option></option></select>-
       </div>
     <div class="row">
       <div class="col-xs-12">

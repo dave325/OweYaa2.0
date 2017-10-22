@@ -72,7 +72,7 @@
 			var avm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/availibility/availibility.modal.view.html',
 				controller: 'availibilityModalCtrl',
-				controllerAs: 'availibiltyvm',
+				controllerAs: 'availibilityvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
 			avm.result

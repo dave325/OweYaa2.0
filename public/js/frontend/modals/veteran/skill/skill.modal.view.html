@@ -11,8 +11,8 @@
             <!-- Add a new area of focus -->
             <div>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" ng-minlength="1" required="required" name="newSkillSkill"  />
-              <input type="number" max="5" min="1" equired="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
-              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skills.newSkillAmount.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
+              <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
+              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.skills.length > 0">
                 <li ng-repeat="field in skillvm.skills track by $index">

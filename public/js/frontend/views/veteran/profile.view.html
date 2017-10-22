@@ -55,9 +55,9 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills</h2>
-              <ol ng-if="careervm.hobbies.length > 0">
+              <ol ng-if="skills.length > 0">
                 <li ng-repeat="field in skills track by $index | limitTo: 8">
-                  {{field}}
+                  {{field.skill}}, {{field.amount}}
                 </li>
               </ol>
               <!-- Create for loop for given skills and alllow user to delete and add them -->  

@@ -12,7 +12,7 @@
             <div>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" />
               <input type="number" ng-max="5" ng-min="1" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
-              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skills.newSkillAmount.$valid || !skillvm.newSkill.skill = '' " type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skills.newSkillAmount.$valid || !skillvm.newSkill.skill == '' " type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.skills.length > 0">
                 <li ng-repeat="field in skillvm.skills track by $index">

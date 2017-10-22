@@ -11,7 +11,7 @@
     skillvm.wants = [];
     skillvm.languages = [];
 
-    skillvm.newSkill = "";
+    skillvm.newSkill;
     skillvm.newWant = "";
     skillvm.newLanguage = "";
     skillvm.editMode = false;

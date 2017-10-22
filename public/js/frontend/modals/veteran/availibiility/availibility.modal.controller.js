@@ -51,5 +51,5 @@
     }
   }
   angular.module('oweyaa')
-  .controller('careerModalCtrl', careerModalCtrl);
+  .controller('availibilityModalCtrl', availibilityModalCtrl);
 })();

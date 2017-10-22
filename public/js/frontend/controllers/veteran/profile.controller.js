@@ -71,7 +71,7 @@
 			var avm = $uibModal.open({
 				templateUrl: '/js/frontenxd/modals/veteran/availibility/availibility.modal.view.html',
 				controller: 'availibilityModalCtrl',
-				controllerAs: 'availbiltyvm',
+				controllerAs: 'availibiltyvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
 			$scope.openModalPopup = function () {

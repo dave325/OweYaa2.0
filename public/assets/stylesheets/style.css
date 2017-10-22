@@ -410,7 +410,7 @@ Section 5.2: Modal styles
 	border:1px solid rgb(247,159,75);
 }
 
-progress{
+.progress{
 	padding:0px;
 }
 /**********************************************************

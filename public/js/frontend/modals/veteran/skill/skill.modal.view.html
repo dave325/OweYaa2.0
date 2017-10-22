@@ -62,7 +62,7 @@
           <ol ng-if="skillvm.languages.length > 0">
               <li ng-repeat="field in skillvm.languages track by $index">
                   <input type="text" ng-model="field">
-                  <button class="btn" type="button" ng-click="skillvm.deleteLanguages($index)">Delete</button>
+                  <button class="btn" type="button" ng-click="skillvm.deleteLanguage($index)">Delete</button>
               </li>
           </ol>
         </div>

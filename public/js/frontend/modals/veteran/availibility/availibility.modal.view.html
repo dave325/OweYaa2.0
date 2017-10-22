@@ -4,13 +4,11 @@
     <div class="row">
       <div class="col-md-12">
       <!-- Information regarding higher education -->
-      <h3>Previous Career</h3>
+      <h3>Availible worktimes</h3>
       <div class="form-group" ng-repeat="day in availibilityvm.schedule track by $index">
-        <div>
           <label form="availability" for="day.day">Previous Employer {{$index + 1}}: </label>
-          <input ng-model="availibilityvm.schedule{{$index}}" type="text" class="form-control" name="empl{{$index}}" id="day.day"/>
+          <input ng-model="availibilityvm.schedule{{$index}}" type="text" class="form-control" name="schedule{{$index}}" id="day.day"/>
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
-        </div>
       </div>
     <div class="row">
       <div class="col-xs-12">

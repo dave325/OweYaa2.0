@@ -18,6 +18,7 @@
     // Add a new skill
     skillvm.addToSkills = function() {
       skillvm.skills.push(skillvm.newSkill);
+      console.log(skillvm.newSkill);
       skillvm.newSkill = null;
     }
 

@@ -68,7 +68,7 @@
 		}
 		$scope.availibility = [{
 			day:"Monday",
-			min: Date(),
+			min: Date().getTime(),
 			max:"8:00PM"
 		},{
 			day:"Tuesday",
@@ -77,7 +77,7 @@
 		}]
 		$scope.availibilityModal = function() {
 			var avm = $uibModal.open({
-				templateUrl: '/js/frontend/modals/veteran/availibility/availibility.modal.view.html',
+				templateUrl: '/js/frontenxd/modals/veteran/availibility/availibility.modal.view.html',
 				controller: 'availibilityModalCtrl',
 				controllerAs: 'availbiltyvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"

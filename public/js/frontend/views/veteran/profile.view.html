@@ -55,8 +55,21 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills</h2>
-              <ol ng-if="skills" class="skillsModal">
-                <li ng-repeat="field in skills | limitTo: 8">
+              <ol ng-if="skills.have" class="skillsModal col-md-6">
+                <h4>Skills I have</h4>
+                <li ng-repeat="field in skills.have | limitTo: 8">
+                  {{field.skill}}, {{field.amount}}
+                </li> <br />
+              </ol>
+              <ol ng-if="skills.want" class="skillsModal col-md-6">
+                <h4>Skills I have</h4>
+                <li ng-repeat="field in skills.want | limitTo: 8">
+                  {{field.skill}}, {{field.amount}}
+                </li> <br />
+              </ol>
+              <ol ng-if="skills.programming" class="skillsModal col-md-6">
+                <h4>Skills I have</h4>
+                <li ng-repeat="field in skills.programming | limitTo: 8">
                   {{field.skill}}, {{field.amount}}
                 </li> <br />
               </ol>

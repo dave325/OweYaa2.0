@@ -55,8 +55,8 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills</h2>
-              <ol ng-if="skills.length > 0">
-                <li ng-repeat="field in skills track by $index | limitTo: 8">
+              <ol ng-if="skills">
+                <li ng-repeat="field in skills | limitTo: 8">
                   {{field.skill}}, {{field.amount}}
                 </li>
               </ol>

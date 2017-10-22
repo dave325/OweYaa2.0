@@ -6,8 +6,9 @@
       <!-- Information regarding higher education -->
       <h3>Availible worktimes</h3>
       <div class="form-group" ng-repeat="day in availibilityvm.schedule track by $index">
-          <label form="availability" for="day.day">Previous Employer {{$index + 1}}: </label>
-          <input ng-model="availibilityvm.schedule[$index]" type="text" class="form-control" name="schedule{{$index}}" id="day.day"/>
+          <label form="availability">day.day: </label>
+          <input ng-model="day.min" type="date" class="form-control" name="scheduleMin{{$index}}"/>
+          <input ng-model="day.max" type="date" class="form-control" name="scheduleMax{{$index}}"/>
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
       </div>
     <div class="row">

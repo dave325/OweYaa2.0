@@ -7,7 +7,7 @@
       <h3>Availible worktimes</h3>
       <div class="form-group" ng-repeat="time in availibilityvm.schedule">{{time.day}}
           <select required="true" name="openTime" ng-options="hour as (hour | date: 'shortTime') for hour in availibilityvm.hours track by hour" ng-model="start_time"><option></option></select>-
-          <select required="true" name="closeTime" ng-options="hour as (hour | date: 'shortTime') for hour in availibilityvmhours track by hour" ng-model="end_time" ng-change="update(end_time, $index, 2)"></select>
+          <select required="true" name="closeTime" ng-options="hour as (hour | date: 'shortTime') for hour in availibilityvm.hours track by hour" ng-model="end_time" ng-change="update(end_time, $index, 2)"></select>
         </div>
     <div class="row">
       <div class="col-xs-12">

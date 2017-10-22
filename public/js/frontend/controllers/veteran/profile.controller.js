@@ -66,15 +66,7 @@
 					});
 			};
 		}
-		$scope.availibility = [{
-			day:"Monday",
-			min: Date().getTime(),
-			max:"8:00PM"
-		},{
-			day:"Tuesday",
-			min:"8:00AM",
-			max:"8:00PM"
-		}]
+		$scope.availibility = []
 		$scope.availibilityModal = function() {
 			var avm = $uibModal.open({
 				templateUrl: '/js/frontenxd/modals/veteran/availibility/availibility.modal.view.html',

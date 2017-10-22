@@ -1,67 +1,21 @@
 <div id="careerModal">
-  <span class="glyphicon glyphicon-remove pull-right" ng-click="careervm.cancel()"></span>
-  <form novalidate method="post" name="career" ng-submit="submit()">
+  <span class="glyphicon glyphicon-remove pull-right" ng-click="availibilityvm.cancel()"></span>
+  <form novalidate method="post" name="availability" ng-submit="submit()">
     <div class="row">
       <div class="col-md-12">
       <!-- Information regarding higher education -->
       <h3>Previous Career</h3>
-      <div class="form-group" ng-repeat="career in careervm.prevCareer track by $index">
+      <div class="form-group" ng-repeat="day in availibilityvm.schedule track by $index">
         <div>
-          <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
-          <input ng-model="career.empl" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
+          <label form="availability" for="day.day">Previous Employer {{$index + 1}}: </label>
+          <input ng-model="availibilityvm.schedule{{$index}}" type="text" class="form-control" name="empl{{$index}}" id="day.day"/>
           <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
         </div>
-        <div>
-          <label form="career" for="prevContact{{$index}}">Contact: </label>
-          <input ng-model="career.contact" type="text" class="form-control" name="contact{{$index}}" id="prevContacte{{$index}}"/>
-          <!-- <span ng-hide="educationvm.editMode">{{educationvm.degree}}</span> -->
-        </div>
-        <div>
-          <label form="career" form="prevTo{{$index}}">To: </label>
-          <input ng-model="career.to" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
-          <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
-        </div>
-        <div>
-          <label form="career" form="prevFrom{{$index}}">From: </label>
-          <input ng-model="career.from" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
-          <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" />
-          <!-- <span ng-hide="educationvm.editMode">{{educationvm.grad}}</span> -->
-        </div>
       </div>
-      <div class="col-xs-12">
-        <!-- Display all interests and hobbies -->
-        <div class="form-group">
-          <div>
-            <h3>Interests / Hobbies:</h3>
-            <p ng-show="educationvm.focusArea.length == 9" class="bg-warning">You may add up to 10 items</p>
-            <!-- Add a new area of focus -->
-            <div>
-              <input type="text" ng-model="careervm.newHobby" class="add-btn" />
-              <button class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
-            </div><br />
-            <ol ng-if="careervm.hobbies.length > 0">
-              <li ng-repeat="field in careervm.hobbies track by $index">
-                <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field" class="btn btn-success"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <!-- Relocation Information -->
-      <div>
-        <h3>Willing to relocate?</h3>
-        <label form="relocate">Yes: </label>
-        <input type="radio" name="relocate" value="yes">
-        <label form="relocate">No: </label>
-        <input type="radio" name="relocate" value="no">
-      </div>
-    </div>
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
-          <button ng-click="careervm.close()" class="btn btn-success" type="submit">Close</button>
+          <button ng-click="availibilityvm.close()" class="btn btn-success" type="submit">Close</button>
         </div>
       </div>
     </div>

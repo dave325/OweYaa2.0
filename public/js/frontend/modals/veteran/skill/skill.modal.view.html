@@ -7,7 +7,7 @@
         <div class="form-group">
           <div>
             <h3>Skills:</h3>
-            <p ng-show="skillsvm.skills.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <p ng-show="skillvm.skills.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" />
@@ -18,7 +18,7 @@
                 <li ng-repeat="field in skillvm.skills track by $index">
                     <input type="text" ng-model="field.skill">
                     <input type="text" ng-model="field.amount">
-                    <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)" ng-hide="skillvm.editMode">Delete</button>
+                    <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)">Delete</button>
                   </li>
             </ol>
           </div>
@@ -26,31 +26,26 @@
       </div>
 
       <!-- Display all wanted skills -->
-      <div class="col-md-6">
-        <div>
-          <h3>Skills You Want:</h3>
-          <!-- Editing purposes -->
-          <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-hide="skillvm.editMode">Edit</button>
-          <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-show="skillvm.editMode">Done</button>
-          <!-- Actual list of wanted skills -->
-          <ol>
-            <li ng-repeat="field in skillvm.wants track by $index">
-              <span ng-hide="skillvm.editMode">{{field}}</span>
-              <input type="text" ng-show="skillvm.editMode" ng-model="skillvm.wants[$index]">
-              <button class="btn" type="button" ng-click="skillvm.deleteWant($index)" ng-hide="skillvm.editMode">Delete</button>
-            </li>
-          </ol>
-        </div>
+      <div class="col-xs-12">
+        <!-- Display all interests and hobbies -->
         <div class="form-group">
-          <!-- Add a new skill -->
           <div>
-            <p>New Skill:</p>
-            <input type="text" ng-model="skillvm.newWant">
-            <button class="btn" type="button" ng-click="skillvm.addToWants()">Add</button>
+            <h3>Skills:</h3>
+            <p ng-show="skillvm.want.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <!-- Add a new area of focus -->
+            <div>
+              <input type="text" ng-model="skillvm.newWant." class="add-btn" />
+              <button class="btn" ng-disabled="skillvm.want.length == 9 || !skillvm.newWant" type="button" ng-click="skillvm.addToWants()" class="btn btn-primary">Add</button>
+            </div><br />
+            <ol ng-if="skillvm.wants.length > 0">
+                <li ng-repeat="field in skillvm.wants track by $index">
+                    <input type="text" ng-model="field">
+                    <button class="btn" type="button" ng-click="skillvm.deleteWant($index)">Delete</button>
+                  </li>
+            </ol>
           </div>
         </div>
       </div>
-    </div>
 
     <!-- Display all known programming languages -->
     <div class="row">

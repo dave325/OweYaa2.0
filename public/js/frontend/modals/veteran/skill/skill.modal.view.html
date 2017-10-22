@@ -11,7 +11,7 @@
             <!-- Add a new area of focus -->
             <div>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" />
-              <input type="text" ng-model="skillvm.newSkill.amount" class="add-btn" />
+              <input type="number" max="5" ng-model="skillvm.newSkill.amount" class="add-btn" />
               <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skillvm.newSkill" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.skills.length > 0">
@@ -56,7 +56,8 @@
           <p ng-show="skillvm.languages.length == 9" class="bg-warning">You may add up to 10 items</p>
           <!-- Add a new area of focus -->
           <div>
-            <input type="text" ng-model="skillvm.newLanguage" class="add-btn" />
+            <input type="text" ng-model="skillvm.newLanguage.skill" class="add-btn" />
+            <input type="number" max="5" ng-model="skillvm.newLanguage.amount" class="add-btn" />
             <button class="btn" ng-disabled="skillvm.languages.length == 9 || !skillvm.newLanguage" type="button" ng-click="skillvm.addToLanguages()" class="btn btn-primary">Add</button>
           </div><br />
           <ol ng-if="skillvm.languages.length > 0">

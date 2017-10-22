@@ -1,7 +1,7 @@
 (function(){
   availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication', '$scope'];
   function availibilityModalCtrl($uibModalInstance, Authentication, $scope){
-    availibiltyvm = this;
+    availibilityvm = this;
     // Containers
     availibilityvm.schedule = [{
 			day:"Monday",

@@ -12,7 +12,7 @@
             <div>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" />
               <input type="number" ng-max="5" ng-model="skillvm.newSkill.amount" class="add-btn" />
-              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skillvm.newSkill" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skillvm.newSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.skills.length > 0">
                 <li ng-repeat="field in skillvm.skills track by $index">
@@ -58,7 +58,7 @@
           <div>
             <input type="text" ng-model="skillvm.newLanguage.skill" class="add-btn" />
             <input type="number" ng-max="5" ng-model="skillvm.newLanguage.amount" class="add-btn" />
-            <button class="btn" ng-disabled="skillvm.languages.length == 9 || !skillvm.newLanguage" type="button" ng-click="skillvm.addToLanguages()" class="btn btn-primary">Add</button>
+            <button class="btn" ng-disabled="skillvm.languages.length == 9 || !skillvm.newLanguage.$valid" type="button" ng-click="skillvm.addToLanguages()" class="btn btn-primary">Add</button>
           </div><br />
           <ol ng-if="skillvm.languages.length > 0">
               <li ng-repeat="field in skillvm.languages track by $index">

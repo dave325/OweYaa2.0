@@ -62,13 +62,13 @@
                 </li> <br />
               </ol>
               <ol ng-if="skills.want" class="skillsModal col-md-6">
-                <h4>Skills I have</h4>
+                <h4>Skills I want</h4>
                 <li ng-repeat="field in skills.want | limitTo: 8">
                   {{field.skill}}, {{field.amount}}
                 </li> <br />
               </ol>
               <ol ng-if="skills.programming" class="skillsModal col-md-6">
-                <h4>Skills I have</h4>
+                <h4>Programming Skills</h4>
                 <li ng-repeat="field in skills.programming | limitTo: 8">
                   {{field.skill}}, {{field.amount}}
                 </li> <br />

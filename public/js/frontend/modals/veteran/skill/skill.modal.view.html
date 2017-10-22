@@ -2,27 +2,23 @@
   <form novalidate method="post" name="skill.content" ng-submit="submit()">
     <div class="row">
       <!-- Display all available skills -->
-      <div class="col-md-6">
-        <div>
-          <h3>Skills You Have:</h3>
-          <!-- Editing purposes -->
-          <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-hide="skillvm.editMode">Edit</button>
-          <button class="btn" type="button" ng-click="skillvm.triggerEditMode()" ng-show="skillvm.editMode">Done</button>
-          <!-- Actual list of skills -->
-          <ol>
-            <li ng-repeat="field in skillvm.skills track by $index">
-              <span ng-hide="skillvm.editMode">{{field}}</span>
-              <input type="text" ng-show="skillvm.editMode" ng-model="skillvm.skills[$index]">
-              <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)" ng-hide="skillvm.editMode">Delete</button>
-            </li>
-          </ol>
-        </div>
+      <div class="col-xs-12">
+        <!-- Display all interests and hobbies -->
         <div class="form-group">
-          <!-- Add a new skill -->
           <div>
-            <p>New Skill:</p>
-            <input type="text" ng-model="skillvm.newSkill">
-            <button class="btn" type="button" ng-click="skillvm.addToSkills()">Add</button>
+            <h3>Interests / Hobbies:</h3>
+            <p ng-show="skillsvm.skills.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <!-- Add a new area of focus -->
+            <div>
+              <input type="text" ng-model="skillsvm.newSkill" class="add-btn" />
+              <button class="btn" ng-disabled="skillsvm.skills.length == 9 || !skillsvm.newSkill" type="button" ng-click="skillsvm.addToSkills()" class="btn btn-primary">Add</button>
+            </div><br />
+            <ol ng-if="skillsvm.skills.length > 0">
+                <li ng-repeat="field in skillvm.skills track by $index">
+                    <input type="text" ng-model="skillvm.skills[$index]">
+                    <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)" ng-hide="skillvm.editMode">Delete</button>
+                  </li>
+            </ol>
           </div>
         </div>
       </div>

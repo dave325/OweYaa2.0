@@ -66,16 +66,16 @@
 					});
 			};
 		}
-		$scope.skills = {
-			0:{
+		$scope.skills = [
+			{
 				skill:"HTML",
 				amount:4
 			},
-			1:{
+			{
 				skill:"CSS",
 				amount:4
 			}
-		}
+		]
 		$scope.skillModal = function() {
 			var skm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/skill/skill.modal.view.html',

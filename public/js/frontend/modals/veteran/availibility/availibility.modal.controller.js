@@ -58,10 +58,6 @@
 		availibilityvm.onSubmit = function(){
 			availibilityvm.docareer();
     }
-    availibilityvm.present = function(c){
-      career.from = "Present";
-      availibilityvm.fromPresent = true;
-    }
   }
   angular.module('oweyaa')
   .controller('availibilityModalCtrl', availibilityModalCtrl);

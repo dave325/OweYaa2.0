@@ -16,8 +16,7 @@
             </div><br />
             <ol ng-if="skillvm.skills.length > 0">
                 <li ng-repeat="field in skillvm.skills track by $index">
-                    <input type="text" ng-model="field.skill">
-                    <input type="text" ng-model="field.amount">
+                    <uib-progressbar max="5" value="field.amount"></uib-progressbar>
                     <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)">Delete</button>
                   </li>
             </ol>

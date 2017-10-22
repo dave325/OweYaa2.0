@@ -74,7 +74,40 @@
 			{
 				skill:"CSS",
 				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
+			},
+			{
+				skill:"CSS",
+				amount:4
 			}
+
 		]
 		$scope.skillModal = function() {
 			var skm = $uibModal.open({

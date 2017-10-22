@@ -10,15 +10,15 @@
             <p ng-show="skillsvm.skills.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
-              <input type="text" ng-model="skillsvm.newSkill.skill" class="add-btn" />
-              <input type="text" ng-model="skillsvm.newSkill.amount" class="add-btn" />
-              <button class="btn" ng-disabled="skillsvm.skills.length == 9 || !skillsvm.newSkill" type="button" ng-click="skillsvm.addToSkills()" class="btn btn-primary">Add</button>
+              <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" />
+              <input type="text" ng-model="skillvm.newSkill.amount" class="add-btn" />
+              <button class="btn" ng-disabled="skillvm.skills.length == 9 || !skillvm.newSkill" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillsvm.skills.length > 0">
-                <li ng-repeat="field in skillsvm.skills track by $index">
+                <li ng-repeat="field in skillvm.skills track by $index">
                     <input type="text" ng-model="field.skill">
                     <input type="text" ng-model="field.amount">
-                    <button class="btn" type="button" ng-click="skillsvm.deleteSkill($index)" ng-hide="skillvm.editMode">Delete</button>
+                    <button class="btn" type="button" ng-click="skillvm.deleteSkill($index)" ng-hide="skillvm.editMode">Delete</button>
                   </li>
             </ol>
           </div>

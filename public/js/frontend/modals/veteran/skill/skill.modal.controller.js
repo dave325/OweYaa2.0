@@ -4,7 +4,10 @@
     skillvm = this;
 
     // Containers
-    skillvm.skills = [];
+    skillvm.skills = [{
+      skill:"HTML",
+      amount:4
+    }];
     skillvm.wants = [];
     skillvm.languages = [];
 

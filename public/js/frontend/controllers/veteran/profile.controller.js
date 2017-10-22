@@ -111,12 +111,10 @@
 				],
 				want:[
 					{
-						skill:"HTML",
-						amount:4
+						skill:"HTML"
 					},
 					{
-						skill:"CSS",
-						amount:4
+						skill:"CSS"
 					},
 					{
 						skill:"CSS",

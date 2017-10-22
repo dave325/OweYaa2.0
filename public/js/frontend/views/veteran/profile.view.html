@@ -58,7 +58,7 @@
               <ol ng-if="skills.have" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
                 <li ng-repeat="field in skills.have | limitTo: 8">
-                  {{field.skill}}, {{field.amount}}
+                  {{field.skill}} <uib-progressbar max="5" value="field.amount"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
               <ol ng-if="skills.want" class="skillsModal col-md-6">

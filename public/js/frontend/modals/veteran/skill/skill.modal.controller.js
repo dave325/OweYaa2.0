@@ -18,7 +18,7 @@
     // Add a new skill
     skillvm.addToSkills = function() {
       skillvm.skills.push(skillvm.newSkill);
-      skillvm.newSkill = "";
+      skillvm.newSkill = null;
     }
 
     // Add a new skill that you want
@@ -30,7 +30,7 @@
     // Add a new language that you know
     skillvm.addToLanguages = function() {
       skillvm.languages.push(skillvm.newLanguage);
-      skillvm.newLanguage = "";
+      skillvm.newLanguage = null;
     }
 
     // Delete one of your skills

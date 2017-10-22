@@ -58,13 +58,13 @@
               <ol ng-if="skills.have" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
                 <li ng-repeat="field in skills.have | limitTo: 8">
-                  {{field.skill}} <uib-progressbar max="5" value="field.amount"><span>{{field.amount}}</span></uib-progressbar>
+                  <p  class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount" class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
               <ol ng-if="skills.programming" class="skillsModal col-md-6">
                 <h4>Programming Skills</h4>
                 <li ng-repeat="field in skills.programming | limitTo: 8">
-                    {{field.skill}} <uib-progressbar max="5" value="field.amount"><span>{{field.amount}}</span></uib-progressbar>
+                    <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
               <!-- Create for loop for given skills and alllow user to delete and add them -->  

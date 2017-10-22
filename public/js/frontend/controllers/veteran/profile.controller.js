@@ -66,22 +66,21 @@
 					});
 			};
 		}
+		
 		$scope.availibility = []
 		$scope.availibilityModal = function() {
 			var avm = $uibModal.open({
-				templateUrl: '/js/frontenxd/modals/veteran/availibility/availibility.modal.view.html',
+				templateUrl: '/js/frontend/modals/veteran/availibility/availibility.modal.view.html',
 				controller: 'availibilityModalCtrl',
 				controllerAs: 'availibiltyvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
-			$scope.openModalPopup = function () {
-				avm.result
-					.then(function (data) {
-					console.log(data);
-					},function (reason) {
-					console.log(reason);
-					});
-			};
+			avm.result
+				.then(function (data) {
+				console.log(data);
+				},function (reason) {
+				console.log(reason);
+				});
 		}
 		$scope.skills = {
 					have:[

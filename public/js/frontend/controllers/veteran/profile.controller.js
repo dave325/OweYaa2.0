@@ -68,7 +68,7 @@
 		}
 		$scope.availibility = [{
 			day:"Monday",
-			min:"8:00AM",
+			min: Date(),
 			max:"8:00PM"
 		},{
 			day:"Tuesday",

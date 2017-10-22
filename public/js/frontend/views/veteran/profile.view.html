@@ -56,7 +56,7 @@
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills</h2>
               <ol ng-if="skills">
-                <li ng-repeat="field in skills | limitTo: 8">
+                <li ng-repeat="field in skills | limitTo: 1">
                   {{field.skill}}, {{field.amount}}
                 </li>
               </ol>

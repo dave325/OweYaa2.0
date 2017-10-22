@@ -13,8 +13,7 @@
 
     skillvm.newSkill;
     skillvm.newWant = "";
-    skillvm.newLanguage = "";
-    skillvm.editMode = false;
+    skillvm.newLanguage;
 
     // Add a new skill
     skillvm.addToSkills = function() {

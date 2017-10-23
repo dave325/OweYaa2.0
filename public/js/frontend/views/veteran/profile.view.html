@@ -92,12 +92,9 @@
                   <p>Notes: {{interview.notes}}</p>
                 </div>
                 <h3>Networking Events:</h3>
-                <div ng-repeat="interview in interviews track by $index">
+                <div ng-repeat="events in netEvents track by $index">
                     <h5>Event #{{$index}}</h5>
-                    <p>Company: {{interview.company}}</p>
-                    <p>date: {{interview.date}}</p>
-                    <p>Contact: {{interview.contact}}</p>
-                    <p>Notes: {{interview.notes}}</p>
+                    <p>Event: {{events.company}}</p>
                   </div>
               </div>
               <div class="col-md-6"></div>

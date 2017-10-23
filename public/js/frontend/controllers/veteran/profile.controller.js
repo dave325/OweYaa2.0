@@ -224,6 +224,22 @@
 					});
 			};
 		}
+		$scope.interviews = [{
+			company:"Test",
+			date:"4",
+			contact:'3456',
+			notes: "3456"
+
+		},{
+			company:"Test",
+			date:"4",
+			contact:'3456',
+			notes: "3456"
+
+		}];
+		$scope.netEvents = [{
+
+		}]
 		$scope.careerSummary = {
 			careerTracks : {
 			},

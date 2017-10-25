@@ -237,9 +237,7 @@
 			notes: "3456"
 
 		}];
-		$scope.netEvents = [{
-
-		}]
+		$scope.netEvents = []
 		$scope.careerSummary = {
 			careerTracks : {
 			},

@@ -8,7 +8,7 @@
           <!-- Information regarding higher journal -->
           <h3>Building Connections</h3>
           <div class="form-group" ng-repeat="connect in journalvm.connections track by $index">
-              <h3>Interview {{$index}}</h3>
+              <h3>Interview {{$index + 1}}</h3>
             <p>
                 <label form="journal" for="company{{$index}}">Company: </label>
                 <input ng-model="connect.company" type="text" class="form-control" name="copmany{{$index}}"/>
@@ -36,7 +36,7 @@
             <!-- Information regarding higher journal -->
             <h3>Events</h3>
             <div class="form-group" ng-repeat="connect in journalvm.events track by $index">
-                <h3>Event {{$index}}</h3>
+                <h3>Event {{$index + 1}}</h3>
                 <p>
                     <label form="journal" for="title{{$index}}">Company: </label>
                     <input ng-model="connect.title" type="text" class="form-control" name="company{{$index}}" />

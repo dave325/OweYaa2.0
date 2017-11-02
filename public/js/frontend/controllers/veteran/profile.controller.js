@@ -1,6 +1,7 @@
 (function(){
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal'];
+	$scope.availability;
 	function profileCtrl($scope, User, $uibModal) {
 		$scope.isObjectEmpty = function(card){
 			return Object.keys(card).length === 0;
@@ -77,7 +78,7 @@
 			});
 			avm.result
 				.then(function (data) {
-				console.log(data);
+				$scope.availability = data;
 				},function (reason) {
 				console.log(reason);
 				});

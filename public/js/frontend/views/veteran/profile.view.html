@@ -110,7 +110,7 @@
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Availability</h2>
                 <div class="col-xs-12" ng-repeat="day in availibility">
-                  <p>{{day.day}} : {{day.begin_time}} - {{day.end_time}}</p>
+                  <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
                 </div>
                 <button ng-click="availibilityModal()" class="btn btn-primary">View All Items</button> 
               </div> 

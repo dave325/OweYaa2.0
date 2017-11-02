@@ -17,6 +17,18 @@
       //Update server information
     }
 
+    journalvm.connections = [{
+      company: "Test",
+      date: "4/4/17",
+      contact: "test",
+      notes:"snasfjdlkj asf"
+    },
+    {
+      company: "Test",
+      date: "4/4/17",
+      contact: "test",
+      notes:"snasfjdlkj asf"
+    }]
     /*
     * Update the modal to add a new skill
     */

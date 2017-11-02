@@ -1,0 +1,36 @@
+<div id="journalModal">
+    <span class="glyphicon glyphicon-remove pull-right" ng-click="journalvm.cancel()"></span>
+    <h2>Journal Information</h2>
+    <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
+    <form novalidate method="post" name="journal" ng-submit="submit()">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Information regarding higher journal -->
+          <h3>Building Connections</h3>
+          <div class="form-group" ng-repeat="connect in journalvm.connections track by $index">
+              <h3>Interview {{$index}}</h3>
+            <p>
+                <label form="journal" for="company{{$index}}">Company: </label>
+                <input ng-model="connect.school" type="text" class="form-control" name="copmany{{$index}}"/>
+                <!-- <span ng-hide="journalvm.editMode">{{journalvm.school}}</span> -->
+              </p>
+              <p>
+                <label form="journal" for="date{{$index}}">Date: </label>
+                <input ng-model="connect.date" type="date" class="form-control" name="date{{$index}}"/>
+                <!-- <span ng-hide="journalvm.editMode">{{journalvm.degree}}</span> -->
+              </p>
+              <p>
+                <label form="journal" form="contact{{$index}}">Contact: </label>
+                <input ng-model="connect.contact" type="text" class="form-control" name="contact{{$index}}"/>
+                <!-- <span ng-hide="journalvm.editMode">{{journalvm.grad}}</span> -->
+              </p>
+              <p>
+                <label form="journal" form="notes{{$index}}">Notes: </label>
+                <input ng-model="connect.notes" type="text" class="form-control" name="notes{{$index}}"/>
+                <!-- <span ng-hide="journalvm.editMode">{{journalvm.grad}}</span> -->
+              </p>
+          </div>
+          </div>
+       </div>          
+    </form>
+</div>

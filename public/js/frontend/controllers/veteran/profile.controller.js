@@ -189,22 +189,6 @@
 					{
 						skill:"CSS",
 						amount:4
-					},
-					{
-						skill:"CSS",
-						amount:4
-					},
-					{
-						skill:"CSS",
-						amount:4
-					},
-					{
-						skill:"CSS",
-						amount:4
-					},
-					{
-						skill:"CSS",
-						amount:4
 					}
 				]
 
@@ -224,6 +208,22 @@
 					});
 			};
 		}
+		$scope.journalModal = function() {
+			var skm = $uibModal.open({
+				templateUrl: '/js/frontend/modals/veteran/journal/journal.modal.view.html',
+				controller: 'journalModalCtrl',
+				controllerAs: 'journalvm'
+			});
+			$scope.openModalPopup = function () {
+				skm.result
+					.then(function (data) {
+						console.log(data);
+					},function (reason) {
+						console.log(reason);
+					});
+			};
+		}
+		
 		$scope.interviews = [{
 			company:"Test",
 			date:"4",

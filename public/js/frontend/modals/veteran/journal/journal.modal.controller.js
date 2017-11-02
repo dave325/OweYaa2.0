@@ -28,7 +28,27 @@
       date: new Date(2017, 3,15),
       contact: "test",
       notes:"snasfjdlkj asf"
-    }]
+    }];
+    journalvm.events = [{
+      event: "Test",
+      contacts:[{
+        name: "d"
+      },{
+        name:"e"
+      },{
+        name:"f"
+      }]
+    },
+    {
+      event: "Test",
+      contacts:[{
+        name: "d"
+      },{
+        name:"e"
+      },{
+        name:"f"
+      }]
+    }];
     /*
     * Update the modal to add a new skill
     */

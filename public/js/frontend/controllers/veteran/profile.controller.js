@@ -77,8 +77,10 @@
 			});
 			avm.result
 				.then(function (data) {
+					console.log(data);
 					for(var i = 0; i < data.length; i++){
-						$scope.availability.push(data[i]);
+						cnosole.log(data[i]);
+						//$scope.availability.push(data[i]);
 					}
 				},function (reason) {
 				console.log(reason);

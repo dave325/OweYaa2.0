@@ -19,13 +19,13 @@
 
     journalvm.connections = [{
       company: "Test",
-      date: Date("October 13, 2014 11:13:00"),
+      date: Date(2017, 3,15),
       contact: "test",
       notes:"snasfjdlkj asf"
     },
     {
       company: "Test",
-      date: Date("October 13, 2014 11:13:00"),
+      date: Date(2017, 3,15),
       contact: "test",
       notes:"snasfjdlkj asf"
     }]

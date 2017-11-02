@@ -78,7 +78,7 @@
 			avm.result
 				.then(function (data) {
 					for(var i = 0; i < data.length; i++){
-						$scope.availability.push(data[i]);
+						$scope.availibility.push(data[i]);
 					}
 				},function (reason) {
 				console.log(reason);

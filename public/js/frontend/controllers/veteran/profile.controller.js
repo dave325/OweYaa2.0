@@ -67,7 +67,7 @@
 			};
 		}
 		
-		$scope.availibility = []
+		$scope.availibility = [];
 		$scope.availibilityModal = function() {
 			var avm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/availibility/availibility.modal.view.html',
@@ -77,10 +77,8 @@
 			});
 			avm.result
 				.then(function (data) {
-					console.log(data);
 					for(var i = 0; i < data.length; i++){
-						console.log(data[i]);
-						//$scope.availability.push(data[i]);
+						$scope.availability.push(data[i]);
 					}
 				},function (reason) {
 				console.log(reason);

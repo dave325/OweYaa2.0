@@ -30,4 +30,6 @@
 			journalvm.dojournal();
     }
   }
+  angular.module('oweyaa')
+    .controller('journalModalCtrl', journalModalCtrl);
 })();

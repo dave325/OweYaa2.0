@@ -77,7 +77,9 @@
 			});
 			avm.result
 				.then(function (data) {
-				$scope.availability = data;
+					for(var i = 0; i < date.length; i++){
+						$scope.availability.push(data[i]);
+					}
 				},function (reason) {
 				console.log(reason);
 				});

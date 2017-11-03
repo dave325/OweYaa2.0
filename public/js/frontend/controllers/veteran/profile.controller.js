@@ -200,7 +200,8 @@
 			var skm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/skill/skill.modal.view.html',
 				controller: 'skillModalCtrl',
-				controllerAs: 'skillvm'
+				controllerAs: 'skillvm',
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
 			$scope.openModalPopup = function () {
 				skm.result
@@ -215,7 +216,8 @@
 			var skm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/journal/journal.modal.view.html',
 				controller: 'journalModalCtrl',
-				controllerAs: 'journalvm'
+				controllerAs: 'journalvm',
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
 			});
 				skm.result
 					.then(function (data) {
@@ -229,6 +231,7 @@
 				templateUrl: '/js/frontend/modals/veteran/contact/contact.modal.view.html',
 				controller: 'contactModalCtrl',
 				controllerAs: 'contactvm',
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
 				resolve:{
 					currUser:function(){
 						return User.getUser();

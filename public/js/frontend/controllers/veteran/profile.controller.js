@@ -230,7 +230,12 @@
 			var cm = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/contact/contact.modal.view.html',
 				controller: 'contactModalCtrl',
-				controllerAs: 'contactvm'
+				controllerAs: 'contactvm',
+				resolve:{
+					currUser:function(){
+						return User.getUser();
+					}
+				}
 			});
 			$scope.openModalPopup = function () {
 				cm.result

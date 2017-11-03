@@ -415,12 +415,12 @@ Section 5.2: Modal styles
 }
 
 .glyphicon-pencil{
-	font-size:20px;
-	margin-top:4px;
+	font-size:20px !important;
+	margin-top:4px !important;
 }
 
 .glyphicon-pencil:hover{
-	color:blue;
+	color:blue !important;
 }
 /**********************************************************
 END OF SECTION 5

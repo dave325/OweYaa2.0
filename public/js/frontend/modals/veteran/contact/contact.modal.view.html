@@ -5,14 +5,19 @@
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row">
         <div class="col-md-12">
-          <!-- Information regarding higher contact -->
-          <h3>Building Connections</h3>
+          <!-- Information regarding contact -->
+          <h3>Contact Information</h3>
+          <div class="form-group">
+                    <label form="contact" for="email">Email: </label>
+                    <input ng-model="contact.user.email" type="text" class="form-control" name="email"/>
+          </div>
+          <div class="form-group">
+                    <label form="contact" for="Phone">Phone Number: </label>
+                    <input ng-model="contact.user.phone" type="text" class="form-control" name="phone"/>
+          </div>
           <div class="form-group" ng-repeat="(key,connect) in contactvm.user.social track by $index">
-            <p>
                 <label form="contact" for="key">{{key}}: </label>
                 <input ng-model="connect" type="text" class="form-control" name="{{key}}"/>
-                <!-- <span ng-hide="contactvm.editMode">{{contactvm.school}}</span> -->
-              </p>
           </div>
           </div>
        </div>   

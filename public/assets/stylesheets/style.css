@@ -384,6 +384,9 @@ Section 5.2: Modal styles
 
 ************/
 
+.vetModal .modal-content{
+	padding:20px;
+}
 .vetModal .modal-dialog{
 	min-width:100% !important;
 }
@@ -634,7 +637,6 @@ Section 7.1 Login Modal
 *******/
 #loginModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 #loginModal p {
@@ -651,32 +653,26 @@ Section 7.2 Other Modals
 ********/
 #actionModal {
 	background-color:#FFF;
-	margin: 20px;
 }
 
 #careerModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 #educationModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 #journalModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 #skillModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 #socialModal {
 	background-color:#FFF;
-	margin: 50px;
 }
 
 .error{

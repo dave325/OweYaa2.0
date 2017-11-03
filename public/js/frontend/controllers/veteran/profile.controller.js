@@ -217,14 +217,12 @@
 				controller: 'journalModalCtrl',
 				controllerAs: 'journalvm'
 			});
-			$scope.openModalPopup = function () {
 				skm.result
 					.then(function (data) {
 						console.log(data);
 					},function (reason) {
 						console.log(reason);
 					});
-			};
 		}
 		$scope.contactModal = function() {
 			var cm = $uibModal.open({
@@ -237,14 +235,12 @@
 					}
 				}
 			});
-			$scope.openModalPopup = function () {
 				cm.result
 					.then(function (data) {
 						console.log(data);
 					},function (reason) {
 						console.log(reason);
 					});
-			};
 		}
 		$scope.interviews = [{
 			company:"Test",

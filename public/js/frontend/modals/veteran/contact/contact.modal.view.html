@@ -1,12 +1,10 @@
 <div id="contactModal">
     <span class="glyphicon glyphicon-remove pull-right" ng-click="contactvm.cancel()"></span>
-    <h2>contact Information</h2>
+    <h2>Contact Information</h2>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row">
         <div class="col-md-12">
-          <!-- Information regarding contact -->
-          <h3>Contact Information</h3>
           <div class="form-group">
                     <label form="contact" for="email">Email: </label>
                     <input ng-model="contact.user.email" type="text" class="form-control" name="email"/>

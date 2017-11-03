@@ -413,6 +413,15 @@ Section 5.2: Modal styles
 .progress{
 	padding:0px;
 }
+
+.glyphicon-pencil{
+	font-size:20px;
+	margin-top:4px;
+}
+
+.glyphicon-pencil:hover{
+	color:blue;
+}
 /**********************************************************
 END OF SECTION 5
 **********************************************************/

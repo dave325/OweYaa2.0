@@ -125,11 +125,12 @@
     <aside class="col-xs-12 col-md-4">
         <!-- Contact Information -->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
-          <h2 class="col-xs-12 bg-primary">Contact Information</h2>
+          <h2 class="col-xs-12 bg-primary">Contact Information<span class="glyphicon glyphicon-pencil" ng-click="contactModal()"></span></h2>
           <p><strong>Email</strong>: {{contact.user.email}} </p>
           <p><strong>Phone Number</strong>: {{contact.user.phone}} </p>
-          <p><strong>LinkedIn Profile</strong>: {{contact.user.linkedin}} </p>
-          <p><strong>Skype Username</strong>: {{contact.user.skype}} </p>
+          <p ng-repeat="(key,contact) in contact.user.social">
+            <b>{{key}}: </b> {{contact}}
+          </p>
         </div> <!-- End of Contact Information -->
         <!-- Action Tasks-->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">

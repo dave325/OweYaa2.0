@@ -77,6 +77,7 @@
 			});
 			avm.result
 				.then(function (data) {
+					$scope.availibility = [];
 					for(var i = 0; i < data.length; i++){
 						$scope.availibility.push(data[i]);
 					}
@@ -225,7 +226,21 @@
 					});
 			};
 		}
-		
+		$scope.contactModal = function() {
+			var cm = $uibModal.open({
+				templateUrl: '/js/frontend/modals/veteran/contact/contact.modal.view.html',
+				controller: 'contactModalCtrl',
+				controllerAs: 'contactvm'
+			});
+			$scope.openModalPopup = function () {
+				cm.result
+					.then(function (data) {
+						console.log(data);
+					},function (reason) {
+						console.log(reason);
+					});
+			};
+		}
 		$scope.interviews = [{
 			company:"Test",
 			date:"4",

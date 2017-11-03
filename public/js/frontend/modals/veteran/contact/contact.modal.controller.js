@@ -3,6 +3,7 @@
   function contactModalCtrl($uibModalInstance, currUser){
     contactvm = this;
     contactvm.user = currUser;
+    console.log(contactvm.user);
     // The function that is call when a user cancels the opening of a modal
 	  contactvm.cancel = function(){
 	   $uibModalInstance.dismiss('cancel')

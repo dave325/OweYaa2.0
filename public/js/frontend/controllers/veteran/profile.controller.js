@@ -277,7 +277,24 @@
 			notes: "3456"
 
 		}];
-		$scope.netEvents = []
+		$scope.netEvents = [];
+		$scope.jobSearch = {
+			goal:{
+				One:"",
+				Two:"",
+				Five: "",
+			},
+			careerSearch:[{
+				for:"",
+				title:"",
+				status:""
+			},{
+				for:"",
+				title:"",
+				status:""
+			}],
+			parallel:""
+		}
 		$scope.careerSummary = {
 			careerTracks : {
 			},

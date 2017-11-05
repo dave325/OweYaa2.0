@@ -101,9 +101,9 @@
               <div class="col-md-6">
                 <h3>Job Search</h3>
                 <p>My professional goals</p>
-                    <div ng-repeat="search in jobSearch.goal track by $index">
+                    <div ng-repeat="(key,search) in jobSearch.goal track by $index">
                         <div ng-if="search.length > 0">
-                          <h4>{{$index}} year goal</h4>
+                          <h4>{{key}} year goal</h4>
                           <p>{{search}}</p>
                         </div>
                     </div>

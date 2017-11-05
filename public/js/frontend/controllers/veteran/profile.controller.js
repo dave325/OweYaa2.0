@@ -245,6 +245,25 @@
 						console.log(reason);
 					});
 		}
+		$scope.portfolioModal = function() {
+			var cm = $uibModal.open({
+				templateUrl: '/js/frontend/modals/veteran/portfolio/portfolio.modal.view.html',
+				controller: 'portfolioModalCtrl',
+				controllerAs: 'portfoliovm',
+				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
+				resolve:{
+					currUser:function(){
+						return User.getUser();
+					}
+				}
+			});
+				cm.result
+					.then(function (data) {
+						console.log(data);
+					},function (reason) {
+						console.log(reason);
+					});
+		}
 		$scope.interviews = [{
 			company:"Test",
 			date:"4",

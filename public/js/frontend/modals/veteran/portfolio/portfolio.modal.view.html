@@ -1,28 +1,32 @@
-<div id="contactModal">
-    <span class="glyphicon glyphicon-remove pull-right" ng-click="contactvm.cancel()"></span>
-    <h2>Contact Information</h2>
+<div id="portfolioModal">
+    <span class="glyphicon glyphicon-remove pull-right" ng-click="portfoliovm.cancel()"></span>
+    <h2>Portfolio Information</h2>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
-    <form novalidate method="post" name="contact" ng-submit="submit()">
+    <form novalidate method="post" name="portfolio" ng-submit="submit()">
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-                    <label form="contact" for="email">Email: </label>
-                    <input ng-model="contact.user.email" type="text" class="form-control" name="email"/>
+                    <label form="portfolio" for="name">Name: </label>
+                    <input ng-model="portfolio.user.name" type="text" class="form-control" name="name"/>
           </div>
           <div class="form-group">
-                    <label form="contact" for="Phone">Phone Number: </label>
-                    <input ng-model="contact.user.phone" type="text" class="form-control" name="phone"/>
+                    <label form="portfolio" for="location">Location: </label>
+                    <input ng-model="portfolio.user.location" type="text" class="form-control" name="location"/>
           </div>
-          <div class="form-group" ng-repeat="(key,connect) in contactvm.user.social track by $index">
-                <label form="contact" for="key">{{key}}: </label>
-                <input ng-model="connect" type="text" class="form-control" name="{{key}}"/>
+          <div class="form-group">
+            <label form="portfolio" for="mos">MOS/Rate: </label>
+            <input ng-model="portfolio.user.mos" type="text" class="form-control" name="mos"/>
+          </div>
+          <div class="form-group">
+            <label form="portfolio" for="branch">Branch of Service: </label>
+            <input ng-model="portfolio.user.branch" type="text" class="form-control" name="branch"/>
           </div>
           </div>
        </div>   
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
-            <button ng-click="contactvm.close(contactvm)" class="btn btn-success">Close</button>
+            <button ng-click="portfoliovm.close(portfoliovm)" class="btn btn-success">Close</button>
             </div>
         </div>
         </div>       

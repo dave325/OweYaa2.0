@@ -30,9 +30,9 @@
 				controllerAs: 'educationvm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
 				resolve: {
-					userEd:function(){
-						return User.getUser();
-					}
+						userEd:function(){
+							return User.getUser();
+						}
 				}
 			});
 

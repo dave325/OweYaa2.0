@@ -107,6 +107,11 @@
                           <p>{{search}}</p>
                         </div>
                     </div>
+                    <div ng-repeat="search in jobSearch.careerSearch track by $index">
+                        <h4>Career Search For: </h4>{{search.for}}
+                        <p>Job Title: {{search.title}}</p>
+                        <p>Status: {{search.status}}</p>
+                  </div>
               </div>
               <div class="col-md-6"></div>
               <button class="btn btn-primary" ng-click="journalModal()">View Your Journal</button>

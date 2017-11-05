@@ -280,20 +280,20 @@
 		$scope.netEvents = [];
 		$scope.jobSearch = {
 			goal:{
-				One:"",
-				Two:"",
-				Five: "",
+				One:"sads",
+				Two:"asdas",
+				Five: "asdas",
 			},
 			careerSearch:[{
-				for:"",
-				title:"",
-				status:""
+				for:"asdf",
+				title:"asdf",
+				status:"sdf"
 			},{
-				for:"",
-				title:"",
-				status:""
+				for:"asdf",
+				title:"asdf",
+				status:"sdf"
 			}],
-			parallel:""
+			parallel:"asdfs"
 		}
 		$scope.careerSummary = {
 			careerTracks : {

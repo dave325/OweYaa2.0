@@ -21,7 +21,7 @@ class Mentor extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','location','discussion', 'email'];
+    protected $fillable = ['name', 'mentorname', 'location','discussion', 'email'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -47,7 +47,33 @@
                     <input ng-model="connect.date" type="date" class="form-control" name="date{{$index}}"/>
                 </p> -->
             </div>
-           </div>
+        </div>
+        <div class="row col-md-12">
+            <!-- Information regarding higher journal -->
+            <h3>Mentor Information</h3>
+            <div class="form-group">
+                <p>
+                    <label form="journal" for="mentorName">Mentor Name: </label>
+                    <input ng-model="contact.user.mentor.mentorname" type="text" class="form-control" name="mentorname" />
+                </p>
+                <p>
+                    <label form="journal" for="location">Mentor Location: </label>
+                    <input ng-model="contact.user.mentor.location" type="text" class="form-control" name="location" />
+                </p>
+                <p>
+                    <label form="journal" for="email">Mentor Email: </label>
+                    <input ng-model="contact.user.mentor.email" type="text" class="form-control" name="email" />
+                </p>
+                <p>
+                    <label form="journal" for="mentorDiscussion">Mentor Discussion: </label>
+                    <input ng-model="contact.user.mentor.discussion" type="text" class="form-control" name="discussion" />
+                </p>
+                <p>
+                    <label form="journal" for="mentorName">Mentor Name: </label>
+                    <input ng-model="contact.user.mentor.mentorname" type="text" class="form-control" name="mentorname" />
+                </p>
+            </div>
+        </div>
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">

@@ -92,7 +92,7 @@
                   <p>Contact: {{interview.contact}}</p>
                   <p>Notes: {{interview.notes}}</p>
                 </div>
-                <h3 ng-if="netEvents.length">Networking Events:</h3>
+                <h3 ng-if="netEvents.length > 0">Networking Events:</h3>
                 <div ng-repeat="events in netEvents track by $index">
                     <h5>Event #{{$index}}</h5>
                     <p>Event: {{events.company}}</p>

@@ -27,7 +27,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
               <p ng-if="education.school">Higher Education:</p>
               <p ng-if="education.school">{{contact.user.school}}</p>
               <p ng-if="education.course">Degree:</p>
@@ -46,7 +46,7 @@
                 <h3>Relevent Courses</h3>
                 <ul>
                   <li ng-repeat="course in contact.user.course">
-                    {{course}}
+                    {{course.course}}
                   </li>
                 </ul>
               </div>

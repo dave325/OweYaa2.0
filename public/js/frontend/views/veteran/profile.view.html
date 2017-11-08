@@ -27,7 +27,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework</h2>
+              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
               <p ng-if="education.school">Higher Education:</p>
               <p ng-if="education.school">{{education.school}}</p>
               <hr>
@@ -56,12 +56,11 @@
                 <p>{{career.prev2}}</p>
                 <p>Goals & Objectives:</p>
                 <p>{{career.goal}}</p>
-                <button ng-click="careerModal()" class="btn btn-primary">View All Items</button>
               </div> 
         </div>
         <div class="row box space">
           <div class="col-xs-12">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills</h2>
+              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
               <ol ng-if="skills.have" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
                 <li ng-repeat="field in skills.have | limitTo: 8">
@@ -83,12 +82,11 @@
                     {{field.skill}}
                   </li> <br />
                 </ol>
-              <button ng-click="skillModal()" class="btn btn-primary">View All Items</button>  
           </div> 
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Journal and Mentor</h2>
+              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
               <p>Record all your career development efforts here!</p>
               <div class="col-md-6">
                 <h3>Building Connections:</h3>
@@ -129,16 +127,14 @@
                 <p>Mentor Discussion: {{contact.user.mentor.discussion}}</p>
               </div>
               <div class="col-md-6"></div>
-              <button class="btn btn-primary" ng-click="journalModal()">View Your Journal</button>
             </div> 
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
-                <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Availability</h2>
+                <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in availibility">
                   <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
                 </div>
-                <button ng-click="availibilityModal()" class="btn btn-primary">View All Items</button> 
               </div> 
           </div>
         <div class="row">

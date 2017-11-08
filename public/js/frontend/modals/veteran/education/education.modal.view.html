@@ -8,10 +8,6 @@
         <!-- Information regarding higher education -->
         <h3>Higher Education</h3>
         <div class="form-group">
-          <!--
-          <button type="button" ng-hide="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Edit</button>
-          <button type="button" ng-show="educationvm.editMode" ng-click="educationvm.triggerEditMode()">Done</button>
-          --> 
           <p>
               <label form="education" for="school">School: </label>
               <input ng-model="educationvm.school" type="text" class="form-control" name="school" id="school"/>
@@ -45,7 +41,6 @@
             </div><br />
             <ol ng-if="educationvm.focusArea.length > 0">
               <li ng-repeat="field in educationvm.focusArea track by $index">
-                <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteFocusArea($index)"></span>
               </li>
             </ol>

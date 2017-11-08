@@ -39,6 +39,7 @@
 			em.result
 				.then(function (data) {
 					console.log(data);
+					$scope.user.education = data;
 				},function (reason) {
 					console.log(reason);
 				});

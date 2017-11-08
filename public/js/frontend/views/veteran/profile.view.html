@@ -29,14 +29,45 @@
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
               <p ng-if="education.school">Higher Education:</p>
-              <p ng-if="education.school">{{education.school}}</p>
-              <hr>
-              <p ng-if="education.course">Coursework / Training:</p>
-              <p ng-if="education.course">{{education.course}}</p>
-              <hr>
+              <p ng-if="education.school">{{contact.user.school}}</p>
+              <p ng-if="education.course">Degree:</p>
+              <p ng-if="education.course">{{contact.user.degree}}</p>
+              <p ng-if="education.grad">Graduation:</p>
+              <p ng-if="education.grad">{{contact.user.grad}}</p>
+              <div ng-if="contact.user.careerFocus.length > 0">
+                <h3>Career Focus</h3>
+                <ul>
+                  <li ng-repeat="career in contact.user.careerFocus">
+                    {{career}}
+                  </li>
+                </ul>
+              </div>
+              <div ng-if="contact.user.course.length > 0">
+                <h3>Relevent Courses</h3>
+                <ul>
+                  <li ng-repeat="course in contact.user.course">
+                    {{course}}
+                  </li>
+                </ul>
+              </div>
+              <div ng-if="contact.user.bootcamp.length > 0">
+                <h3>Bootcamps:</h3>
+                <ul>
+                  <li ng-repeat="bootcamp in contact.user.bootcamp">
+                    {{bootcamp}}
+                  </li>
+                </ul>
+              </div>
+              <div ng-if="contact.user.certifications.length > 0">
+                <h3>Certifications Gained:</h3>
+                <ul>
+                  <li ng-repeat="certification in contact.user.certification">
+                    {{certification}}
+                  </li>
+                </ul>
+              </div>
               <p  ng-if="education.providedCourse">Courses Provided By Us For You:</p>
               <p ng-if="education.providedCourse">{{education.providedCourse}}</p>
-              <button ng-click="educationModal()" class="btn btn-primary">View All Items</button>
             </div> 
         </div>
         <div class="row">
@@ -45,16 +76,14 @@
                 <p>Previous Career Fields:</p>
                 <h3>Career Field 1:</h3>
                 <p>{{career.career1}}</p>
-                <hr>
                 <p>Previous Employer:</p>
                 <p>{{career.prev1}}</p>
                 <hr>
                 <h3>Career Field 2:</h3>
                 <p>{{career.career2}}</p>
-                <hr>
                 <p>Previous Employers:</p>
                 <p>{{career.prev2}}</p>
-                <p>Goals & Objectives:</p>
+                <p>Goals &amp; Objectives:</p>
                 <p>{{career.goal}}</p>
               </div> 
         </div>

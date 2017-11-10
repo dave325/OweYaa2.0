@@ -40,27 +40,16 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        array_push($user->profile,$userCheck->name);
-        array_push($user->profile,$userCheck->mos);
-        array_push($user->profile,$userCheck->location);
-        array_push($user->profile,$userCheck->branch);
-        array_push($user->profile,$userCheck->imgurl);
-        array_push($user->profile,$userCheck->bio);
-        $user->name = $userCheck->name;
-        $user->email = $userCheck->email;
-        $user->mos = $userCheck->mos;
-        $user->location = $userCheck->location;
+        $user->profile['name'] = $userCheck->name;
+        $user->profile['email'] = $userCheck->email;
+        $user->profile['mos'] = $userCheck->mos;
+        $user->profile['location'] = $userCheck->location;
+        $user->profile['branch'] = $userCheck->branch;
         $user->phone = $userCheck->phone;
-        array_push($user->carrer,$userCheck->career1);
-        array_push($user->carrer,$userCheck->career2);
-        array_push($user->carrer,$userCheck->prev1);
-        array_push($user->carrer,$userCheck->prev2);
-        array_push($user->carrer,$userCheck->desired1);
-        array_push($user->carrer,$userCheck->desired2);
-        //$user->career1 = $userCheck->career1;
-        //$user->career2 = $userCheck->career2;
-        //$user->prev1 = $userCheck->prev1;
-        //$user->prev2 = $userCheck->prev2;
+        $user->career1 = $userCheck->career1;
+        $user->career2 = $userCheck->career2;
+        $user->prev1 = $userCheck->prev1;
+        $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
         $user->course = $user::find($user->name)->course;
         $user->skill = $user::find($user->name)->skill;

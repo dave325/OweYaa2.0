@@ -23,6 +23,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      public $incrementing = false;
      // Remove default timestamp from eloquent
      public $timestamps = false;
+     protected $profile;
      /**
      * The attributes that should be casted to native types.
      *
@@ -46,7 +47,6 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      * @var array
      */
      protected $appends = ['profile'];
-     protected $profile;
      public $education = array();
      public $career = array();
      public $skill = array();

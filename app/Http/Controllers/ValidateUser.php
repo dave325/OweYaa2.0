@@ -51,11 +51,11 @@ class ValidateUser extends Controller
         $user->prev1 = $userCheck->prev1;
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
-        $user->course = $user::find($user->name)->course;
-        $user->skill = $user::find($user->name)->skill;
-        $user->language = $user::find($user->name)->language;
-        $user->social = $user::find($user->name)->social;
-        $user->mentor = $user::find($user->name)->mentor;
+        $user->course = $user::find($userCheck->name)->course;
+        $user->skill = $user::find($userCheck->name)->skill;
+        $user->language = $user::find($userCheck->name)->language;
+        $user->social = $user::find($userCheck->name)->social;
+        $user->mentor = $user::find($userCheck->name)->mentor;
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

@@ -57,6 +57,6 @@ class ValidateUser extends Controller
         $user->social = $user::find($userCheck->name)->social;
         $user->mentor = $user::find($userCheck->name)->mentor;
         // the token is valid and we have found the user via the sub claim
-        return response()->json(compact('user'));
+        return response()->json($user);
     }
 }

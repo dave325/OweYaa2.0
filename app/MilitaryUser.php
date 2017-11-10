@@ -23,16 +23,15 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      public $incrementing = false;
      // Remove default timestamp from eloquent
      public $timestamps = false;
-     protected $attributes = [
-        'profile' 
-     ];
+     protected $profile;
+     protected $attributes = ['profile'];
      /**
      * The attributes that should be casted to native types.
      *
      * @var array
      */
      protected $casts = [
-        'profile' => 'boolean',
+        'profile' => 'array',
      ];
       /**
      * Get the administrator flag for the user.

@@ -33,15 +33,6 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      protected $casts = [
         'profile' => 'array',
      ];
-      /**
-     * Get the administrator flag for the user.
-     *
-     * @return bool
-     */
-    public function getProfileAttribute()
-    {
-        return $this->attributes['profile'];
-    }     
      /**
      * The accessors to append to the model's array form.
      *

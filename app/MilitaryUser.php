@@ -23,12 +23,21 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      public $incrementing = false;
      // Remove default timestamp from eloquent
      public $timestamps = false;
+      /**
+     * Get the administrator flag for the user.
+     *
+     * @return bool
+     */
+    public function getProfileAttribute()
+    {
+        return $this->attributes['profile'];
+    }     
      /**
-     * The attributes that aren't mass assignable.
+     * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $guarded = ['profile'];    
+    protected $appends = ['profile'];
      public $education = array();
      public $career = array();
      public $skill = array();

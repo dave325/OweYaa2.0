@@ -35,7 +35,7 @@ class Skill extends Model{
     /**
      * Get the post that owns the comment.
      */
-    public function post()
+    public function militaryUser()
     {
         return $this->belongsTo('App\MilitaryUser', 'name');
     }

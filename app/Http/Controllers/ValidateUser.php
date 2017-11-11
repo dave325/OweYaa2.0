@@ -46,7 +46,8 @@ class ValidateUser extends Controller
             'email' => $userCheck->email,
             'mos' => $userCheck->mos,
             'location' => $userCheck->location,
-            'phone' => $userCheck->phone
+            'phone' => $userCheck->phone,
+            'social' => MilitaryUser::with('social')->where('name','=',$user->name)->get()
         ];
        
         $user->career1 = $userCheck->career1;
@@ -57,8 +58,7 @@ class ValidateUser extends Controller
         $user->course = MilitaryUser::with('course')->where('name','=',$user->name)->get();
         $user->skill = MilitaryUser::with('skill' , 'language', 'wantedSkills')->where('name','=',$user->name)->get();
         $user->availability = MilitaryUser::with('availability')->where('name','=',$user->name)->get();
-        $user->social = $user::find($user->name)->social;
-        $user->mentor = $user::find($user->name)->mentor;
+        $user->mentor = MilitaryUser::with('mentor')->where('name','=',$user->name)->get();
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

@@ -52,7 +52,10 @@ class ValidateUser extends Controller
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
         $user->course = MilitaryUser::with('course')->where('name','=',$user->name)->get();
-        $user->skill = $user::find($user->name)->skill;
+        $user->skill =[
+            "skill" => MilitaryUser::with('skill')->where('name','=',$user->name)->get(),
+            "language" => MilitaryUser::with('language')->where('name','=',$user->name)->get()
+        ];
         $user->language = $user::find($user->name)->language;
         $user->social = $user::find($user->name)->social;
         $user->mentor = $user::find($user->name)->mentor;

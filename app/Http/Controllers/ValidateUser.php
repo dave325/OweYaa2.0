@@ -41,9 +41,12 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        $user->education = [
+        $user->contactinfo = [
             'name' => $userCheck->name,
-            'email' => $userCheck->email
+            'email' => $userCheck->email,
+            'mos' => $userCheck->mos,
+            'location' => $userCheck->location,
+            'phone' => $userCheck->phone
         ];
         $user->name = $userCheck->name;
         $user->email = $userCheck->email;
@@ -56,8 +59,8 @@ class ValidateUser extends Controller
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
         $user->course = MilitaryUser::with('course')->where('name','=',$user->name)->get();
-        $user->skill = MilitaryUser::with('skill' , 'language')->where('name','=',$user->name)->get();
-        $user->language = $user::find($user->name)->language;
+        $user->skill = MilitaryUser::with('skill' , 'language', 'wantedSkill')->where('name','=',$user->name)->get();
+        $user->availability = MilitaryUser::with('availability')->where('name','=',$user->name)->get();
         $user->social = $user::find($user->name)->social;
         $user->mentor = $user::find($user->name)->mentor;
         // the token is valid and we have found the user via the sub claim

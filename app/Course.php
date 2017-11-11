@@ -35,8 +35,8 @@ class Course extends Model{
     /**
      * Get the post that owns the comment.
      */
-    public function post()
+    public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', null, 'name');
     }
 }

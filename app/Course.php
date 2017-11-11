@@ -29,7 +29,7 @@ class Course extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'name','military_user'
     ];
 
     /**

@@ -35,7 +35,7 @@ class Course extends Model{
     /**
      * Get the post that owns the comment.
      */
-    public function course()
+    public function militaryUser()
     {
         return $this->belongsTo('App\MilitaryUser', 'name', 'name');
     }

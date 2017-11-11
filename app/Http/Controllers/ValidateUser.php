@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
-use App\Course;
+use App\Skill;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;;
 class ValidateUser extends Controller
@@ -47,7 +47,7 @@ class ValidateUser extends Controller
             'mos' => $userCheck->mos,
             'location' => $userCheck->location,
             'phone' => $userCheck->phone,
-            'social' => MilitaryUser::with('social')->where('name','=',$userCheck->name)->get()
+            'social' => Skill::with('militaryUser')->where('name','=',$userCheck->name)->get()
         ];
        
         $user->career1 = $userCheck->career1;
@@ -56,9 +56,8 @@ class ValidateUser extends Controller
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
         $user->course = MilitaryUser::with('course')->where('name','=',$userCheck->name)->get();
-        $user->skill = MilitaryUser::with('skill' , 'language', 'wantedSkills')->where('name','=',$userCheck->name)->get();
-        $user->availability = MilitaryUser::with('availability')->where('name','=',$userCheck->name)->get();
-        $user->mentor = MilitaryUser::with('mentor')->where('name','=',$userCheck->name)->get();
+        $user->skill = MilitaryUser::with('skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course')->where('name','=',$userCheck->name)->get();
+       
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

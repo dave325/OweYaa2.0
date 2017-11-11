@@ -55,7 +55,7 @@ class ValidateUser extends Controller
         $user->prev1 = $userCheck->prev1;
         $user->prev2 = $userCheck->prev2;
         $user->bio = $userCheck->bio;
-        $user->course = MilitaryUser::with('course')->where('name','=',$userCheck->name)->get();
+        //$user->course = MilitaryUser::with('course')->where('name','=',$userCheck->name)->get();
         $user->skill = MilitaryUser::with('skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course')->where('name','=',$userCheck->name)->get();
        
         // the token is valid and we have found the user via the sub claim

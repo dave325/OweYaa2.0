@@ -23,16 +23,15 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      public $incrementing = false;
      // Remove default timestamp from eloquent
      public $timestamps = false;
-     protected $contact = [];
      protected $appends = array('contact');
-
+    protected $casts = ['contact' => 'array'];
     public function getContactAttribute()
     {
         return $this->contact;  
     }
     public function setContactAttribute($name, $value)
     {
-        $this->attributes['contact'][$name] = strtolower($value);
+        $this->attributes['contact']= strtolower($value);
     }
       /**
      * The attributes that are mass assignable.

@@ -24,14 +24,14 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      // Remove default timestamp from eloquent
      public $timestamps = false;
      protected $cast = [
-         'education' => 'array'
+         'contactinfo' => 'array'
      ];
       /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-     protected $fillable = ['name','password','email','mos', 'branch', 'imgurl', 'location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'language', 'mentor','social', 'education'];
+     protected $fillable = ['name','password','email','mos', 'branch', 'imgurl', 'location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability', 'contactinfo','wantedskills','events', 'goals','careersearch'];
 
      /**
      * The attributes excluded from the model's JSON form.
@@ -80,6 +80,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     {
         return $this->hasOne('App\Mentor', 'name');
     }
+
     /**
      * Get the education associated with the user.
      */
@@ -87,6 +88,55 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     {
         return $this->hasOne('App\Education', 'name');
     }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function actionTask()
+    {
+        return $this->hasOne('App\ActionTask', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function availability()
+    {
+        return $this->hasMany('App\Availability', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function wantedSkills()
+    {
+        return $this->hasOne('App\WantedSkills', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function events()
+    {
+        return $this->hasMany('App\Event', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function goals()
+    {
+        return $this->hasMany('App\Goal', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function careerSearch()
+    {
+        return $this->hasMany('App\CareerSearch', 'name');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

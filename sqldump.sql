@@ -326,3 +326,80 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-10-08 18:18:36
+CREATE TABLE actiontask(
+  task1 varchar(255),
+  task2 varchar(255),
+  task3 varchar(255),
+  completed1 boolean,
+  copmleted2 boolean,
+  completed3 boolean,
+  name varchar(255) NOT NULL
+);
+
+CREATE TABLE availability(
+  dayofweek varchar(9),
+  starttime TIME,
+  endtime TIME,
+  name varchar(255)
+);
+
+CREATE TABLE contactinfo(
+  name varchar(255),
+  email varchar(255) PRIMARY KEY NOT NULL,
+  phone varchar(255),
+  location varchar(255),
+  mos varchar(255),
+  branch varchar(255)
+);
+
+CREATE TABLE education(
+  school varchar (255),
+  degree varchar(255),
+  graddate date,
+  course1 varchar(255),
+  course2 varchar(255),
+  course3 varchar(255),
+  name varchar(255)
+);
+
+
+CREATE TABLE wantedskills(
+  name varchar(255),
+  skill1 varchar(55),
+  skill2 varchar(55),
+  skill3 varchar(55),
+  skill4 varchar(55),
+  skill5 varchar(55),
+  skill6 varchar(55),
+  skill7 varchar(55)
+);
+CREATE TABLE programmingskills(
+  name varchar(255),
+  skill varchar(55),
+  amount int(1)
+);
+
+CREATE TABLE events(
+  name varchar(255),
+  eventname varchar(55),
+  contactid int
+);
+
+CREATE TABLE events(
+  name varchar(255),
+  eventname varchar(55),
+  contactid int
+);
+
+CREATE TABLE goals(
+  name varchar(255),
+  goal1 varchar(55),
+  goal2 varchar(55),
+  goal3 varchar(55)
+);
+
+CREATE TABLE careersearch(
+  name varchar(255),
+  title varchar(55),
+  status varchar(55)
+);

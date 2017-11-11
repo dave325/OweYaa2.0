@@ -2,15 +2,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-class Education extends Model{
+class WantedSkills extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'education';
+    protected $table = 'wantedskills';
     // Set primary key
-    protected $primaryKey = 'name';
+    protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class Education extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name', 'school', 'degree','gradDate', 'course1', 'course2', 'course3'];
+    protected $fillable = ['name','skill1','skill2','skill3','skill4', 'skill5','skill6', 'skill7'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class Education extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'name'
     ];
 
     /**
@@ -37,6 +37,6 @@ class Education extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser','name');
     }
 }

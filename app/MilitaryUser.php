@@ -51,11 +51,11 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function course()
     {
-        return $this->hasMany('App\Course', 'name');
+        return $this->hasMany('App\Course')->where('name', '=' , $this->name);
     }
 
     public function getC(){
-        return $this->course()->where('name', '=' , $this->name);
+        return $this->course();
     }
 
     /**

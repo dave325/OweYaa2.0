@@ -39,7 +39,7 @@
 			em.result
 				.then(function (data) {
 					console.log(data);
-					$scope.user.education = data;
+					$scope.user = User.getUser();
 				},function (reason) {
 					console.log(reason);
 				});

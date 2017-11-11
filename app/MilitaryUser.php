@@ -54,6 +54,11 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
         return $this->hasMany('App\Course', 'name');
     }
 
+    public function getSCourse()
+    {
+        return $this->course()
+            ->where('name', 'course.name');
+    }
     /**
      * Get the languages associated with the user.
      */

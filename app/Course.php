@@ -37,6 +37,6 @@ class Course extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', null, 'name');
+        return $this->belongsTo('App\MilitaryUser', 'name', 'name');
     }
 }

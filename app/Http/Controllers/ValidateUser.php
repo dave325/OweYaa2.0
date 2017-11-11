@@ -48,11 +48,7 @@ class ValidateUser extends Controller
             'location' => $userCheck->location,
             'phone' => $userCheck->phone
         ];
-        $user->name = $userCheck->name;
-        $user->email = $userCheck->email;
-        $user->mos = $userCheck->mos;
-        $user->location = $userCheck->location;
-        $user->phone = $userCheck->phone;
+       
         $user->career1 = $userCheck->career1;
         $user->career2 = $userCheck->career2;
         $user->prev1 = $userCheck->prev1;

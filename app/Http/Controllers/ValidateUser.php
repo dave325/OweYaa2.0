@@ -41,6 +41,10 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
+        $user->education = [
+            'name' => $userCheck->name,
+            'email' => $userCheck->email
+        ];
         $user->name = $userCheck->name;
         $user->email = $userCheck->email;
         $user->mos = $userCheck->mos;

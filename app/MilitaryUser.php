@@ -23,15 +23,12 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      public $incrementing = false;
      // Remove default timestamp from eloquent
      public $timestamps = false;
-     protected $cast = [
-         'contactinfo' => 'array'
-     ];
       /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-     protected $fillable = ['name','password','email','mos', 'branch', 'imgurl', 'location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability', 'contactinfo','wantedskills','events', 'goals','careersearch'];
+     protected $fillable = ['name','password','email','mos', 'branch', 'imgurl', 'location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch'];
 
      /**
      * The attributes excluded from the model's JSON form.

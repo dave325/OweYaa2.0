@@ -28,7 +28,8 @@
           backdrop:'static',
   				templateUrl: '/js/frontend/modals/home/login/login.modal.view.html',
   				controller: 'loginModalCtrl',
-  				controllerAs: click + 'vm'
+  				controllerAs: click + 'vm',
+          windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
       });
       /**
        * Returns the modal 
@@ -36,7 +37,7 @@
       modal.result
          .then(function (data) {
            console.log(data);
-           var curUser = data.name;
+           var curUser = data.contact_info.name;
            if(data.type == 1){
    					$location.path('/company/' + curUser +'/dashboard');
    				}else{

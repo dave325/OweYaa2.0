@@ -54,7 +54,7 @@
                 <h3>Bootcamps:</h3>
                 <ul>
                   <li ng-repeat="bootcamp in user.bootcamp">
-                    {{bootcamp}}
+                    {{bootcamp.bootcamp}}
                   </li>
                 </ul>
               </div>
@@ -66,7 +66,7 @@
                   </li>
                 </ul>
               </div>
-              <p  ng-if="education.providedCourse">Courses Provided By Us For You:</p>
+              <p  ng-if="user.education.course1 || user.education.course2 || user.education.course3">Courses Provided By Us For You:</p>
               <p ng-if="user.education.course1">{{user.education.course1}}</p>
               <p ng-if="user.education.course2">{{user.education.course2}}</p>
               <p ng-if="user.education.course3">{{user.education.course3}}</p>

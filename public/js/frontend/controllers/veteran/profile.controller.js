@@ -2,9 +2,6 @@
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal'];
 	function profileCtrl($scope, User, $uibModal) {
-		$scope.isObjectEmpty = function(card){
-			return Object.keys(card).length === 0;
-		 }
 	    $scope.user = User.getUser();
 		 console.log($scope.user);
 		$scope.educationModal = function() {

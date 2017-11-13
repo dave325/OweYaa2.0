@@ -6,7 +6,7 @@
 			return Object.keys(card).length === 0;
 		 }
 	    $scope.user = User.getUser();
-
+		 console.log($scope.user);
 		$scope.educationModal = function() {
 			var em = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/education/education.modal.view.html',

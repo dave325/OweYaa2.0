@@ -17,11 +17,6 @@
 				task2 : "Task 2"
 			}
 		}
-		$scope.education = {
-			school: "",
-			course: "",
-			providedCourse: ""
-		}
 
 		$scope.educationModal = function() {
 			var em = $uibModal.open({

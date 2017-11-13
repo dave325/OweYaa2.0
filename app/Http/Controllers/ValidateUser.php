@@ -41,7 +41,7 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        $user = MilitaryUser::with('skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social')->where('name','=',$userCheck->name)->first();
+        $user = MilitaryUser::with('skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events')->where('name','=',$userCheck->name)->first();
        
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));

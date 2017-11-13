@@ -8,7 +8,7 @@ class ContactInfo extends Model{
      *
      * @var string
      */
-    protected $table = 'careersearch';
+    protected $table = 'contactinfo';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent

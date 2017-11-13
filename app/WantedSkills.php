@@ -8,7 +8,7 @@ class WantedSkills extends Model{
      *
      * @var string
      */
-    protected $table = 'wantedskills';
+    protected $table = 'wantedskill';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent

@@ -107,7 +107,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function wantedSkills()
     {
-        return $this->hasOne('App\WantedSkills', 'name');
+        return $this->hasMany('App\WantedSkill', 'name');
     }
 
     /**

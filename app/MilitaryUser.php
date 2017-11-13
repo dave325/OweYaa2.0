@@ -28,7 +28,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      *
      * @var array
      */
-     protected $fillable = ['name','password','email', 'contactinfo', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch'];
+     protected $fillable = ['name','password','email', 'contactinfo', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch', 'bootcamp'];
 
      /**
      * The attributes excluded from the model's JSON form.
@@ -53,7 +53,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function contactInfo()
     {
-        return $this->hasMany('App\ContactInfo', 'name');
+        return $this->hasOne('App\ContactInfo', 'name');
     }
 
     /**
@@ -142,6 +142,14 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     public function careerSearch()
     {
         return $this->hasMany('App\CareerSearch', 'name');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function bootcamp()
+    {
+        return $this->hasMany('App\Bootcamp', 'name');
     }
 
     public function getJWTIdentifier()

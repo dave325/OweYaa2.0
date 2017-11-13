@@ -8,60 +8,60 @@
       <article class="col-xs-12 col-md-8">
         <div class="row">
           <div class="col-xs-12 space box">
-            <h2 class="col-xs-12 bg-primary">{{contact.user.name}}<span class="glyphicon glyphicon-pencil pull-right" ng-click="portfolioModal()"></span></h2>
+            <h2 class="col-xs-12 bg-primary">{{user.name}}<span class="glyphicon glyphicon-pencil pull-right" ng-click="portfolioModal()"></span></h2>
             <!-- Profile Picture -->
             <div class="col-md-3 col-xs-12 text-center">
-              <img src="{{contact.profile.img}}" height=200 />
+              <img src="{user.contact_info.imgurl}}" height=200 />
               <p><button class="btn btn-default">Upload Photo</button><p>
             </div>
             <!-- Basic Information -->
             <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
               <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
-                <p><strong>Name</strong>: {{contact.user.name}} </p>
-                <p><strong>Location</strong>: {{contact.user.location}} </p>
-                <p><strong>MOS/Rate</strong>: {{contact.user.mos}} </p>
-                <p><strong>Branch of Service</strong>: {{contact.branch}} </p>
+                <p><strong>Name</strong>: {{user.contact_info.name}} </p>
+                <p><strong>Location</strong>: {{user.contact_info.location}} </p>
+                <p><strong>MOS/Rate</strong>: {{user.contact_info.mos}} </p>
+                <p><strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
               </div>
             </div><!-- End of Basic Information -->
           </div> 
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
               <p ng-if="education.school">Higher Education:</p>
-              <p ng-if="education.school">{{contact.user.school}}</p>
+              <p ng-if="education.school">{{user.education.school}}</p>
               <p ng-if="education.course">Degree:</p>
-              <p ng-if="education.course">{{contact.user.degree}}</p>
+              <p ng-if="education.course">{{user.education.degree}}</p>
               <p ng-if="education.grad">Graduation:</p>
-              <p ng-if="education.grad">{{contact.user.grad}}</p>
-              <div ng-if="contact.user.careerFocus.length > 0">
+              <p ng-if="education.grad">{{user.education.graddate}}</p>
+              <div ng-if="user.careerFocus.length > 0">
                 <h3>Career Focus</h3>
                 <ul>
-                  <li ng-repeat="career in contact.user.careerFocus">
+                  <li ng-repeat="career in user.careerFocus">
                     {{career}}
                   </li>
                 </ul>
               </div>
-              <div ng-if="contact.user.course.length > 0">
+              <div ng-if="user.course.length > 0">
                 <h3>Relevent Courses</h3>
                 <ul>
-                  <li ng-repeat="course in contact.user.course">
+                  <li ng-repeat="course in user.course">
                     {{course.course}}
                   </li>
                 </ul>
               </div>
-              <div ng-if="contact.user.bootcamp.length > 0">
+              <div ng-if="user.bootcamp.length > 0">
                 <h3>Bootcamps:</h3>
                 <ul>
-                  <li ng-repeat="bootcamp in contact.user.bootcamp">
+                  <li ng-repeat="bootcamp in user.bootcamp">
                     {{bootcamp}}
                   </li>
                 </ul>
               </div>
-              <div ng-if="contact.user.certifications.length > 0">
+              <div ng-if="user.certifications.length > 0">
                 <h3>Certifications Gained:</h3>
                 <ul>
-                  <li ng-repeat="certification in contact.user.certification">
+                  <li ng-repeat="certification in user.certification">
                     {{certification}}
                   </li>
                 </ul>
@@ -72,7 +72,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
-                <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
+                <h2 class="col-xs-12 bg-primary">{{user.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
                 <p>Previous Career Fields:</p>
                 <h3>Career Field 1:</h3>
                 <p>{{career.career1}}</p>
@@ -89,7 +89,7 @@
         </div>
         <div class="row box space">
           <div class="col-xs-12">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{user.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
               <ol ng-if="skills.have" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
                 <li ng-repeat="field in skills.have | limitTo: 8">
@@ -115,7 +115,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{user.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
               <p>Record all your career development efforts here!</p>
               <div class="col-md-6">
                 <h3>Building Connections:</h3>
@@ -150,17 +150,17 @@
               </div>
               <div class="col-md-12">
                 <h3>Mentor Information</h3>
-                <p>Mentor Name: {{contact.user.mentor.mentorname}}</p>
-                <p>Mentor Location: {{contact.user.mentor.location}}</p>
-                <p>Mentor Email: {{contact.user.mentor.email}}</p>
-                <p>Mentor Discussion: {{contact.user.mentor.discussion}}</p>
+                <p>Mentor Name: {{user.mentor.mentorname}}</p>
+                <p>Mentor Location: {{user.mentor.location}}</p>
+                <p>Mentor Email: {{user.mentor.email}}</p>
+                <p>Mentor Discussion: {{user.mentor.discussion}}</p>
               </div>
               <div class="col-md-6"></div>
             </div> 
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
-                <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
+                <h2 class="col-xs-12 bg-primary">{{user.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in availibility">
                   <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
                 </div>
@@ -168,7 +168,7 @@
           </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{contact.user.name}} - Resume and Portfolio</h2>
+              <h2 class="col-xs-12 bg-primary">{{user.name}} - Resume and Portfolio</h2>
               
             </div> 
         </div>
@@ -177,21 +177,21 @@
         <!-- Contact Information -->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
           <h2 class="col-xs-12 bg-primary">Contact Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="contactModal()"></span></h2>
-          <p><strong>Email</strong>: {{contact.user.email}} </p>
-          <p><strong>Phone Number</strong>: {{contact.user.phone}} </p>
-          <p ng-repeat="(key,contact) in contact.user.social" ng-if="contact.length > 0">
+          <p><strong>Email</strong>: {{user.email}} </p>
+          <p><strong>Phone Number</strong>: {{user.phone}} </p>
+          <p ng-repeat="(key,contact) in user.social" ng-if="length > 0">
             <b>{{key}}: </b> {{contact}}
           </p>
         </div> <!-- End of Contact Information -->
         <!-- Action Tasks-->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
           <h2 class="col-xs-12 bg-primary">Action Tasks</h2>
-          <div ng-if="!isObjectEmpty(contact.actions)">
+          <div ng-if="!isObjectEmpty(actions)">
               <p>Current Tasks:</p>
-              <p>{{contact.actions.task1}}</p>
-              <p>{{contact.actions.task2}}</p>
+              <p>{{actions.task1}}</p>
+              <p>{{actions.task2}}</p>
           </div>
-          <div ng-if="isObjectEmpty(contact.actions)">
+          <div ng-if="isObjectEmpty(actions)">
             <p>No actions tasks at the moment</p>
           </div>
         </div> <!-- End of Action Tasks -->

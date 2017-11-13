@@ -5,18 +5,7 @@
 		$scope.isObjectEmpty = function(card){
 			return Object.keys(card).length === 0;
 		 }
-	    $scope.contact = {
-			profile: {
-				img: 'assets/images/User.jpg'
-	        },
-			user: User.getUser(),
-			// Temporary fill for actions 
-			// Wil; add dynamically when admin area is created
-			actions:{
-				task1 : "Task 1",
-				task2 : "Task 2"
-			}
-		}
+	    $scope.user = User.getUser();
 
 		$scope.educationModal = function() {
 			var em = $uibModal.open({

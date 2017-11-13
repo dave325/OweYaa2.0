@@ -3,13 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-class Course extends Model{
+class Bootcamp extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'courses';
+    protected $table = 'bootcamps';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent

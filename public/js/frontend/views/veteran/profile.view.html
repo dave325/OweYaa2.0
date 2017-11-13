@@ -67,7 +67,9 @@
                 </ul>
               </div>
               <p  ng-if="education.providedCourse">Courses Provided By Us For You:</p>
-              <p ng-if="education.providedCourse">{{education.providedCourse}}</p>
+              <p ng-if="user.education.course1">{{user.education.course1}}</p>
+              <p ng-if="user.education.course2">{{user.education.course2}}</p>
+              <p ng-if="user.education.course3">{{user.education.course3}}</p>
             </div> 
         </div>
         <div class="row">
@@ -75,28 +77,28 @@
                 <h2 class="col-xs-12 bg-primary">{{user.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
                 <p>Previous Career Fields:</p>
                 <h3>Career Field 1:</h3>
-                <p>{{career.career1}}</p>
+                <p>{{user.career.career1}}</p>
                 <p>Previous Employer:</p>
-                <p>{{career.prev1}}</p>
+                <p>{{user.career.prev1}}</p>
                 <hr>
                 <h3>Career Field 2:</h3>
-                <p>{{career.career2}}</p>
+                <p>{{user.career.career2}}</p>
                 <p>Previous Employers:</p>
-                <p>{{career.prev2}}</p>
+                <p>{{user.career.prev2}}</p>
                 <p>Goals &amp; Objectives:</p>
-                <p>{{career.goal}}</p>
+                <p>{{user.career.goal}}</p>
               </div> 
         </div>
         <div class="row box space">
           <div class="col-xs-12">
               <h2 class="col-xs-12 bg-primary">{{user.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
-              <ol ng-if="skills.have" class="skillsModal col-md-6">
+              <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
-                <li ng-repeat="field in skills.have | limitTo: 8">
+                <li ng-repeat="field in user.skill | limitTo: 8">
                   <p  class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount" class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
-              <ol ng-if="skills.programming" class="skillsModal col-md-6">
+              <ol ng-if="user.skills.programminglanguage.length > 0" class="skillsModal col-md-6">
                 <h4>Programming Skills</h4>
                 <li ng-repeat="field in skills.programming | limitTo: 8">
                     <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
@@ -105,9 +107,9 @@
               </div>
               <div class="col-xs-12">
               <!-- Create for loop for given skills and alllow user to delete and add them -->  
-              <ol ng-if="skills.want" class="skillsModal col-md-6">
+              <ol ng-if="user.wanted_skills.length > 0" class="skillsModal col-md-6">
                   <h4>Skills I want</h4>
-                  <li ng-repeat="field in skills.want | limitTo: 8">
+                  <li ng-repeat="field in user.wanted_skills | limitTo: 8">
                     {{field.skill}}
                   </li> <br />
                 </ol>
@@ -120,17 +122,18 @@
               <div class="col-md-6">
                 <h3>Building Connections:</h3>
                 <p>Informational Interviews</p>
-                <div ng-repeat="interview in interviews track by $index">
+                <div ng-repeat="interview in user.interviews track by $index">
                   <h5>Interview #{{$index}}</h5>
-                  <p>Company: {{interview.company}}</p>
-                  <p>date: {{interview.date}}</p>
-                  <p>Contact: {{interview.contact}}</p>
-                  <p>Notes: {{interview.notes}}</p>
+                  <p>Company: {{user.interview.company}}</p>
+                  <p>date: {{user.interview.date}}</p>
+                  <p>Contact: {{user.interview.contact}}</p>
+                  <p>Notes: {{user.interview.notes}}</p>
                 </div>
-                <h3 ng-if="netEvents.length > 0">Networking Events:</h3>
-                <div ng-repeat="events in netEvents track by $index">
+                <h3 ng-if="user.events.length > 0">Networking Events:</h3>
+                <div ng-repeat="events in user.events track by $index">
                     <h5>Event #{{$index}}</h5>
-                    <p>Event: {{events.company}}</p>
+                    <p>Event: {{events.eventname}}</p>
+                    <!-- Add contacts here -->
                   </div>
               </div>
               <div class="col-md-6">
@@ -142,8 +145,8 @@
                           <p>{{search}}</p>
                         </div>
                     </div>
-                    <div ng-repeat="search in jobSearch.careerSearch track by $index">
-                        <h4>Career Search For: </h4>{{search.for}}
+                    <div ng-repeat="search in user.careerSearch track by $index">
+                        <h4>Career Search For: **Fix later from career track</h4>
                         <p>Job Title: {{search.title}}</p>
                         <p>Status: {{search.status}}</p>
                   </div>
@@ -161,7 +164,7 @@
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
-                <div class="col-xs-12" ng-repeat="day in availibility">
+                <div class="col-xs-12" ng-repeat="day in user.availibility">
                   <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
                 </div>
               </div> 
@@ -177,8 +180,8 @@
         <!-- Contact Information -->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
           <h2 class="col-xs-12 bg-primary">Contact Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="contactModal()"></span></h2>
-          <p><strong>Email</strong>: {{user.email}} </p>
-          <p><strong>Phone Number</strong>: {{user.phone}} </p>
+          <p><strong>Email</strong>: {{user.contact_info.email}} </p>
+          <p><strong>Phone Number</strong>: {{user.contact_info.phone}} </p>
           <p ng-repeat="(key,contact) in user.social" ng-if="length > 0">
             <b>{{key}}: </b> {{contact}}
           </p>
@@ -186,10 +189,10 @@
         <!-- Action Tasks-->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
           <h2 class="col-xs-12 bg-primary">Action Tasks</h2>
-          <div ng-if="!isObjectEmpty(actions)">
+          <div ng-if="!isObjectEmpty(user.action_task)">
               <p>Current Tasks:</p>
-              <p>{{actions.task1}}</p>
-              <p>{{actions.task2}}</p>
+              <p>{{user.action_task.task1}}</p>
+              <p>{{user.action_task.task2}}</p>
           </div>
           <div ng-if="isObjectEmpty(actions)">
             <p>No actions tasks at the moment</p>

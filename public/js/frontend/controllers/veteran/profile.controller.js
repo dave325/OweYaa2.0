@@ -34,7 +34,7 @@
 			em.result
 				.then(function (data) {
 					console.log(data);
-					$scope.user = User.getUser();
+					$scope.contact.user = User.getUser();
 				},function (reason) {
 					console.log(reason);
 				});

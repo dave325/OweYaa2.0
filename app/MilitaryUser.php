@@ -28,7 +28,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      *
      * @var array
      */
-     protected $fillable = ['name','password','email','mos', 'branch', 'imgurl', 'location', 'phone', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch'];
+     protected $fillable = ['name','password','email', 'contactinfo', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch'];
 
      /**
      * The attributes excluded from the model's JSON form.
@@ -37,6 +37,8 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     protected $hidden = [
         'password',
+        'name',
+        'email'
     ];
     /**
      * Get the skills associated with the user.
@@ -44,6 +46,14 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     public function skill()
     {
         return $this->hasMany('App\Skill', 'name');
+    }
+
+    /**
+     * Get the skills associated with the user.
+     */
+    public function contactInfo()
+    {
+        return $this->hasMany('App\ContactInfo', 'name');
     }
 
     /**

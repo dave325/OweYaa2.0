@@ -19,7 +19,8 @@
       $http({
         url : '/api/update/education', 
         method: 'POST',
-        data: portfoliovm.user
+        data: portfoliovm.user,
+        responseType:'json'
       }).then(function(data){
         console.log(data);
       })

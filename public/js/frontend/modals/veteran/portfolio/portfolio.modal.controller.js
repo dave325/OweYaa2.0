@@ -1,8 +1,8 @@
 (function(){
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'currUser'];
-  function portfolioModalCtrl($uibModalInstance, currUser){
+  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser'];
+  function portfolioModalCtrl($uibModalInstance, CurrUser){
     portfoliovm = this;
-    portfoliovm.user = currUser;
+    portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);
     // The function that is call when a user cancels the opening of a modal
 	  portfoliovm.cancel = function(){

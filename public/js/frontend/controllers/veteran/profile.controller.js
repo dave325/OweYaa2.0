@@ -5,15 +5,13 @@
 	    $scope.user = User.getUser();
 		 console.log($scope.user);
 		 $scope.openModal = function(modal){
-			 console.log(modal);
-			 /*
 			var m = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/' + modal +'/' + modal + '.modal.view.html',
 				controller: modal + 'ModalCtrl',
 				controllerAs: modal + 'vm',
 				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
 				resolve: {
-						CurUser:function(){
+						CurrUser:function(){
 							return User.getUser();
 						}
 				}
@@ -25,7 +23,7 @@
 					$scope.user = User.getUser();
 				},function (reason) {
 					console.log(reason);
-				});*/
+				});
 		 }
 		$scope.educationModal = function() {
 			var em = $uibModal.open({

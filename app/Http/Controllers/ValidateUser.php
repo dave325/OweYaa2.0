@@ -49,8 +49,6 @@ class ValidateUser extends Controller
 
     public function updateEducation(Request $request){
         $credentials = $request->only('contact_info');
-        $education = Education::where('name', '=', $credentials['contactInfo']['name']);
-        $education->fill($credentials);
-        $education->save();
+        $education = Education::where('name', '=', $credentials['contactInfo']['name'])-update($request);
     }
 }

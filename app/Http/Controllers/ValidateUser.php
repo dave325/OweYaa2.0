@@ -48,8 +48,8 @@ class ValidateUser extends Controller
     }
 
     public function updateEducation(Request $request){
-        $credentials = collect(json_decode($request, true));
-        return response()->json($request);
+        $credentials = json_decode($request, true);
+        return response()->json($credentials);
         $education = Education::where('name', '=', $credentials['contactInfo']['name']);
         $education->school = $credentials['education']['school'];
         $education->degree = $credentials['education']['degree'];

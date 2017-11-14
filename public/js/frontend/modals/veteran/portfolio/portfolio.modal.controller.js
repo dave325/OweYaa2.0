@@ -15,12 +15,19 @@
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function(){
       //Update server information
+      $http({
+        url : '/api/update/education', 
+        method: 'POST',
+        data:portfoliovm.user
+      });
+      
     }
 
     // Will Submit the form depending if everything is filled out
 		portfoliovm.onSubmit = function(){
 			portfoliovm.doportfolio();
     }
+
   }
   angular.module('oweyaa')
     .controller('portfolioModalCtrl', portfolioModalCtrl);

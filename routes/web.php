@@ -24,4 +24,5 @@ Route::group(['prefix' => 'api'], function (){
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('check','ValidateUser@checks');
+    Route::post('update/education', 'ValidateUser@updateEducation')
 });

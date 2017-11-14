@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+use App\TableModels\Education;
 use App\MilitaryUser;
 use App\Skill;
 use Illuminate\Http\Request;
@@ -45,5 +45,13 @@ class ValidateUser extends Controller
        
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
+    }
+
+    public function updateEducation(Request $request){
+        $credentials = $request->only('contact_info','education', 'type');
+        $education = Education::where('name', '=', $credentials['contactInfo']['name']);
+        $education->school = $credentials['education']['school'];
+        $education->degree = $credentials['education']['degree'];
+        $education->save();
     }
 }

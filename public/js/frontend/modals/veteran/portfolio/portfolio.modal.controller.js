@@ -1,6 +1,6 @@
 (function(){
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser'];
-  function portfolioModalCtrl($uibModalInstance, CurrUser){
+  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http'];
+  function portfolioModalCtrl($uibModalInstance, CurrUser,$http){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);

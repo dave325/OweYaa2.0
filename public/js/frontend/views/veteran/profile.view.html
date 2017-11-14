@@ -78,6 +78,7 @@
                 <div ng-if="user.prev_career_fields.length > 0">
                   <h3>Previous Career Fields</h3>
                   <div ng-repeat="field in user.prev_career_fields track by $index">
+                    <p>Field #{{$index}}</p>
                     <p>Career Field: {{field.career}}</p>
                     <p>Employer: {{field.employer}}</p>
                     <h4></h4>
@@ -96,7 +97,7 @@
                   <p  class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount" class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
-              <ol ng-if="user.skills.programminglanguage.length > 0" class="skillsModal col-md-6">
+              <ol ng-if="user.programminglanguage.length > 0" class="skillsModal col-md-6">
                 <h4>Programming Skills</h4>
                 <li ng-repeat="field in skills.programming | limitTo: 8">
                     <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>

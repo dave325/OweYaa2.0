@@ -176,6 +176,14 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
+     * Get the interviews associated with the user.
+     */
+    public function interviews()
+    {
+        return $this->hasMany('App\TableModels\Interview', 'name');
+    }
+
+    /**
      * Get the programming skills associated with the user.
      */
     public function hobbies()

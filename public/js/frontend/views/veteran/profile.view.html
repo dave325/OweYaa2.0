@@ -74,19 +74,17 @@
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
-                <h2 class="col-xs-12 bg-primary">{{user.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
-                <p>Previous Career Fields:</p>
-                <h3>Career Field 1:</h3>
-                <p>{{user.career.career1}}</p>
-                <p>Previous Employer:</p>
-                <p>{{user.career.prev1}}</p>
-                <hr>
-                <h3>Career Field 2:</h3>
-                <p>{{user.career.career2}}</p>
-                <p>Previous Employers:</p>
-                <p>{{user.career.prev2}}</p>
+                <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
+                <div ng-if="user.prev_career_fields.length > 0">
+                  <h3>Previous Career Fields</h3>
+                  <div ng-repeat="field in user.prev_career_fields track by $index">
+                    <p>Career Field: {{field.career}}</p>
+                    <p>Employer: {{field.employer}}</p>
+                    <h4></h4>
+                  </div>
+                </div>
                 <p>Goals &amp; Objectives:</p>
-                <p>{{user.career.goal}}</p>
+                <p ng-if="user.career_goal.length > 0" ng-repeat="goal in user.career_goal">{{goal.goal}}</p>
               </div> 
         </div>
         <div class="row box space">

@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Skill;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -101,7 +100,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function actionTask()
     {
-        return $this->hasOne('App\ActionTask', 'name');
+        return $this->hasOne('App\TableModels\ActionTask', 'name');
     }
 
     /**
@@ -149,7 +148,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function bootcamp()
     {
-        return $this->hasMany('App\Bootcamp', 'name');
+        return $this->hasMany('App\TableModels\Bootcamp', 'name');
     }
 
     public function getJWTIdentifier()

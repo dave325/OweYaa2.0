@@ -1,14 +1,15 @@
 <?php
-namespace App;
+
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class ActionTask extends Model{
+class Bootcamp extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'actiontask';
+    protected $table = 'bootcamps';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
@@ -21,7 +22,7 @@ class ActionTask extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','task1','task2','task3','completed1', 'completed2','completed3'];
+    protected $fillable = ['name','bootcamp'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +30,7 @@ class ActionTask extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'name',
     ];
 
     /**
@@ -37,6 +38,6 @@ class ActionTask extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser', 'name');
     }
 }

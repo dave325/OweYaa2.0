@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\TableModels\Education;
+use App\TableModels\ContactInfo;
 use App\MilitaryUser;
 use App\Skill;
 use Illuminate\Http\Request;
@@ -49,10 +49,8 @@ class ValidateUser extends Controller
 
     public function updateEducation(Request $request){
         $credentials = $request->only('contact_info');
-        return response()->json($credentials);
         $education = Education::where('name', '=', $credentials['contactInfo']['name']);
-        $education->school = $credentials['education']['school'];
-        $education->degree = $credentials['education']['degree'];
+        $education->fill($credentials);
         $education->save();
     }
 }

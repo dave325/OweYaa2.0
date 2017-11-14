@@ -165,7 +165,7 @@
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in user.availability">
-                  <p>{{day.dayofweek}} : {{day.starttime | date:'yyyy-MM-dd'}} - {{day.endtime | date:'yyyy-MM-dd'}}</p>
+                  <p>{{day.dayofweek}} : {{day.starttime | date:'H:mm'}} - {{day.endtime | date:'H:mm'}}</p>
                 </div>
               </div> 
           </div>

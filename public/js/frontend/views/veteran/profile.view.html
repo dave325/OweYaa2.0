@@ -78,7 +78,7 @@
                 <div ng-if="user.prev_career_fields.length > 0">
                   <h3>Previous Career Fields</h3>
                   <div ng-repeat="field in user.prev_career_fields track by $index">
-                    <p>Field #{{$index}}</p>
+                    <p>Field #{{$index + 1}}</p>
                     <p>Career Field: {{field.career}}</p>
                     <p>Employer: {{field.employer}}</p>
                     <h4></h4>

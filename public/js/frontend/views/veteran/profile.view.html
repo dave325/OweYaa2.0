@@ -90,7 +90,7 @@
         </div>
         <div class="row box space">
           <div class="col-xs-12">
-              <h2 class="col-xs-12 bg-primary">{{user.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
               <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
                 <h4>Skills I have</h4>
                 <li ng-repeat="field in user.skill | limitTo: 8">
@@ -116,7 +116,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 space box">
-              <h2 class="col-xs-12 bg-primary">{{user.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
+              <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
               <p>Record all your career development efforts here!</p>
               <div class="col-md-6">
                 <h3>Building Connections:</h3>
@@ -162,7 +162,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
-                <h2 class="col-xs-12 bg-primary">{{user.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
+                <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in user.availibility">
                   <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
                 </div>

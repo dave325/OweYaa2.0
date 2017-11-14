@@ -28,12 +28,12 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
-              <p ng-if="education.school">Higher Education:</p>
-              <p ng-if="education.school">{{user.education.school}}</p>
-              <p ng-if="education.course">Degree:</p>
-              <p ng-if="education.course">{{user.education.degree}}</p>
-              <p ng-if="education.grad">Graduation:</p>
-              <p ng-if="education.grad">{{user.education.graddate}}</p>
+              <p ng-if="user.education.school">Higher Education:</p>
+              <p ng-if="user.education.school">{{user.education.school}}</p>
+              <p ng-if="use.education.degree">Degree:</p>
+              <p ng-if="user.education.degree">{{user.education.degree}}</p>
+              <p ng-if="user.education.graddate">Graduation:</p>
+              <p ng-if="user.education.graddate">{{user.education.graddate}}</p>
               <div ng-if="user.careerFocus.length > 0">
                 <h3>Career Focus</h3>
                 <ul>
@@ -122,7 +122,7 @@
                 <h3>Building Connections:</h3>
                 <p>Informational Interviews</p>
                 <div ng-repeat="interview in user.interviews track by $index">
-                  <h5>Interview #{{$index}}</h5>
+                  <h5>Interview #{{$index + 1}}</h5>
                   <p>Company: {{interview.company}}</p>
                   <p>date: {{interview.date}}</p>
                   <p>Contact: {{interview.contact}}</p>
@@ -130,7 +130,7 @@
                 </div>
                 <h3 ng-if="user.events.length > 0">Networking Events:</h3>
                 <div ng-repeat="events in user.events track by $index">
-                    <h5>Event #{{$index}}</h5>
+                    <h5>Event #{{$index + 1}}</h5>
                     <p>Event: {{events.eventname}}</p>
                     <!-- Add contacts here -->
                   </div>

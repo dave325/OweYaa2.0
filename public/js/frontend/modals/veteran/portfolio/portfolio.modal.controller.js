@@ -15,6 +15,7 @@
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function(){
       //Update server information
+      console.log(portfoliovm.user);
       $http({
         url : '/api/update/education', 
         method: 'POST',

@@ -27,7 +27,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      *
      * @var array
      */
-     protected $fillable = ['name','password','email', 'contactinfo', 'career1', 'career2', 'desired1', 'desired2', 'prev1', 'prev2', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch', 'bootcamp'];
+     protected $fillable = ['name','password','email', 'contactinfo', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch', 'bootcamp', 'language'];
 
      /**
      * The attributes excluded from the model's JSON form.
@@ -96,7 +96,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the action task associated with the user.
      */
     public function actionTask()
     {
@@ -104,7 +104,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the availability associated with the user.
      */
     public function availability()
     {
@@ -112,7 +112,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the wanted skills associated with the user.
      */
     public function wantedSkills()
     {
@@ -120,7 +120,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the events associated with the user.
      */
     public function events()
     {
@@ -128,7 +128,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the goals associated with the user.
      */
     public function goals()
     {
@@ -136,7 +136,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the career search associated with the user.
      */
     public function careerSearch()
     {
@@ -144,11 +144,35 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the education associated with the user.
+     * Get the bootcamp associated with the user.
      */
     public function bootcamp()
     {
         return $this->hasMany('App\TableModels\Bootcamp', 'name');
+    }
+
+    /**
+     * Get the previous career fields associated with the user.
+     */
+    public function prevCareerFields()
+    {
+        return $this->hasMany('App\TableModels\PreviousCareerFields', 'name');
+    }
+
+    /**
+     * Get the career goals associated with the user.
+     */
+    public function careerGoals()
+    {
+        return $this->hasMany('App\TableModels\CareerGoals', 'name');
+    }
+
+    /**
+     * Get the programming skills associated with the user.
+     */
+    public function programmingSkills()
+    {
+        return $this->hasMany('App\TableModels\ProgrammingSkills', 'name');
     }
 
     public function getJWTIdentifier()

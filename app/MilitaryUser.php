@@ -156,7 +156,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function prevCareerFields()
     {
-        return $this->hasMany('App\TableModels\PreviousCareerFields', 'name');
+        return $this->hasMany('App\TableModels\PreviousCareerField', 'name');
     }
 
     /**
@@ -164,7 +164,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function careerGoals()
     {
-        return $this->hasMany('App\TableModels\CareerGoals', 'name');
+        return $this->hasMany('App\TableModels\CareerGoal', 'name');
     }
 
     /**
@@ -172,7 +172,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function programmingSkills()
     {
-        return $this->hasMany('App\TableModels\ProgrammingSkills', 'name');
+        return $this->hasMany('App\TableModels\ProgrammingSkill', 'name');
     }
 
     public function getJWTIdentifier()

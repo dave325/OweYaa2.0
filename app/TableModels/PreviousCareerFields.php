@@ -2,7 +2,7 @@
 namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class PreviousCareerFields extends Model{
+class PreviousCareerField extends Model{
     /**
      * The table associated with the model.
      *

@@ -5,6 +5,8 @@
 	    $scope.user = User.getUser();
 		 console.log($scope.user);
 		 $scope.openModal = function(modal){
+			 console.log(modal);
+			 /*
 			var m = $uibModal.open({
 				templateUrl: '/js/frontend/modals/veteran/' + modal +'/' + modal + '.modal.view.html',
 				controller: modal + 'ModalCtrl',
@@ -23,7 +25,7 @@
 					$scope.user = User.getUser();
 				},function (reason) {
 					console.log(reason);
-				});
+				});*/
 		 }
 		$scope.educationModal = function() {
 			var em = $uibModal.open({

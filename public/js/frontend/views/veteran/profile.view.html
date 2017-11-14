@@ -123,10 +123,10 @@
                 <p>Informational Interviews</p>
                 <div ng-repeat="interview in user.interviews track by $index">
                   <h5>Interview #{{$index}}</h5>
-                  <p>Company: {{user.interview.company}}</p>
-                  <p>date: {{user.interview.date}}</p>
-                  <p>Contact: {{user.interview.contact}}</p>
-                  <p>Notes: {{user.interview.notes}}</p>
+                  <p>Company: {{interview.company}}</p>
+                  <p>date: {{interview.date}}</p>
+                  <p>Contact: {{interview.contact}}</p>
+                  <p>Notes: {{interview.notes}}</p>
                 </div>
                 <h3 ng-if="user.events.length > 0">Networking Events:</h3>
                 <div ng-repeat="events in user.events track by $index">

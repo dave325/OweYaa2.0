@@ -1,27 +1,26 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Availability extends Model{
+class Goal extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'availability';
+    protected $table = 'goals';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
-
      /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-    protected $fillable = ['name','dayofweek','starttime','endtime'];
+    protected $fillable = ['name','goal1','goal2','goal3'];
 
     /**
      * The attributes excluded from the model's JSON form.

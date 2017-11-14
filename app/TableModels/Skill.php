@@ -1,14 +1,14 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class WantedSkills extends Model{
+class Skill extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'wantedskill';
+    protected $table = 'skills';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
@@ -21,7 +21,7 @@ class WantedSkills extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','skill1','skill2','skill3','skill4', 'skill5','skill6', 'skill7'];
+    protected $fillable = ['name','skill','amount'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class WantedSkills extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'name',
     ];
 
     /**
@@ -37,6 +37,6 @@ class WantedSkills extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser', 'name');
     }
 }

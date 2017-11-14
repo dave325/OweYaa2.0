@@ -1,14 +1,14 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class ContactInfo extends Model{
+class CareerSearch extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'contactinfo';
+    protected $table = 'careersearch';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
@@ -20,7 +20,16 @@ class ContactInfo extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','email','phone','location', 'mos','branch'];
+    protected $fillable = ['name','title','status'];
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'name'
+    ];
 
     /**
      * Get the post that owns the comment.
@@ -29,4 +38,5 @@ class ContactInfo extends Model{
     {
         return $this->belongsTo('App\MilitaryUser','name');
     }
+
 }

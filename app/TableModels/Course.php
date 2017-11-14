@@ -1,30 +1,28 @@
 <?php
-namespace App;
+
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Event extends Model{
+class Course extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'events';
+    protected $table = 'courses';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
-    protected $casts = [
-        "contact" => 'array'
-    ];
 
      /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-    protected $fillable = ['name','eventname','contact'];
+    protected $fillable = ['name','course','completed'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,7 +30,7 @@ class Event extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'name',
     ];
 
     /**
@@ -40,13 +38,6 @@ class Event extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
-    }
-
-    /**
-     * 
-     */
-    public function contact(){
-        return $this->hasMany('App\Contact', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'name');
     }
 }

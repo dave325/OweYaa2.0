@@ -1,26 +1,27 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class CareerSearch extends Model{
+class WantedSkills extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'careersearch';
+    protected $table = 'wantedskill';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
+
      /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-    protected $fillable = ['name','title','status'];
+    protected $fillable = ['name','skill1','skill2','skill3','skill4', 'skill5','skill6', 'skill7'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,5 +39,4 @@ class CareerSearch extends Model{
     {
         return $this->belongsTo('App\MilitaryUser','name');
     }
-
 }

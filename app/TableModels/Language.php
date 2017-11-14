@@ -1,26 +1,27 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Goal extends Model{
+class Language extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'goals';
+    protected $table = 'languages';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
+
      /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-    protected $fillable = ['name','goal1','goal2','goal3'];
+    protected $fillable = ['name','language','rating'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -28,14 +29,14 @@ class Goal extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'name',
     ];
 
     /**
      * Get the post that owns the comment.
      */
-    public function militaryUser()
+    public function post()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser', 'name');
     }
 }

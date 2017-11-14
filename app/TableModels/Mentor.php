@@ -1,14 +1,14 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Education extends Model{
+class Mentor extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'education';
+    protected $table = 'mentor';
     // Set primary key
     protected $primaryKey = 'name';
     // Remove default increment from eloquent
@@ -21,7 +21,7 @@ class Education extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name', 'school', 'degree','gradDate', 'course1', 'course2', 'course3'];
+    protected $fillable = ['name', 'mentorname', 'location','discussion', 'email'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -35,7 +35,7 @@ class Education extends Model{
     /**
      * Get the post that owns the comment.
      */
-    public function militaryUser()
+    public function post()
     {
         return $this->belongsTo('App\MilitaryUser', 'name');
     }

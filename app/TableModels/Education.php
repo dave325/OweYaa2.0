@@ -1,17 +1,16 @@
 <?php
-
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Course extends Model{
+class Education extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'courses';
+    protected $table = 'education';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'name';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -22,7 +21,7 @@ class Course extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','course','completed'];
+    protected $fillable = ['name', 'school', 'degree','gradDate', 'course1', 'course2', 'course3'];
 
     /**
      * The attributes excluded from the model's JSON form.

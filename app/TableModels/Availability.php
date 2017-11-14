@@ -1,14 +1,14 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Language extends Model{
+class Availability extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'languages';
+    protected $table = 'availability';
     // Set primary key
     protected $primaryKey = null;
     // Remove default increment from eloquent
@@ -21,7 +21,7 @@ class Language extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','language','rating'];
+    protected $fillable = ['name','dayofweek','starttime','endtime'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,14 +29,14 @@ class Language extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'name'
     ];
 
     /**
      * Get the post that owns the comment.
      */
-    public function post()
+    public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser','name');
     }
 }

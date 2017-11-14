@@ -44,7 +44,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function skill()
     {
-        return $this->hasMany('App\Skill', 'name');
+        return $this->hasMany('App\TableModels\Skill', 'name');
     }
 
     /**
@@ -52,7 +52,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function contactInfo()
     {
-        return $this->hasOne('App\ContactInfo', 'name');
+        return $this->hasOne('App\TableModels\ContactInfo', 'name');
     }
 
     /**
@@ -60,7 +60,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function course()
     {
-        return $this->hasMany('App\Course', 'name');
+        return $this->hasMany('App\TableModels\Course', 'name');
     }
 
     /**
@@ -68,7 +68,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function language()
     {
-        return $this->hasMany('App\Language', 'name');
+        return $this->hasMany('App\TableModels\Language', 'name');
     }
 
     /**
@@ -76,7 +76,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function social()
     {
-        return $this->hasOne('App\Social', 'name');
+        return $this->hasOne('App\TableModels\Social', 'name');
     }
 
     /**
@@ -84,7 +84,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function mentor()
     {
-        return $this->hasOne('App\Mentor', 'name');
+        return $this->hasOne('App\TableModels\Mentor', 'name');
     }
 
     /**
@@ -92,7 +92,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function education()
     {
-        return $this->hasOne('App\Education', 'name');
+        return $this->hasOne('App\TableModels\Education', 'name');
     }
 
     /**
@@ -108,7 +108,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function availability()
     {
-        return $this->hasMany('App\Availability', 'name');
+        return $this->hasMany('App\TableModels\Availability', 'name');
     }
 
     /**
@@ -116,7 +116,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function wantedSkills()
     {
-        return $this->hasMany('App\WantedSkills', 'name');
+        return $this->hasMany('App\TableModels\WantedSkills', 'name');
     }
 
     /**
@@ -124,7 +124,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function events()
     {
-        return $this->hasMany('App\Event', 'name');
+        return $this->hasMany('App\TableModels\Event', 'name');
     }
 
     /**
@@ -132,7 +132,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function goals()
     {
-        return $this->hasMany('App\Goal', 'name');
+        return $this->hasMany('App\TableModels\Goal', 'name');
     }
 
     /**
@@ -140,7 +140,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function careerSearch()
     {
-        return $this->hasMany('App\CareerSearch', 'name');
+        return $this->hasMany('App\TableModels\CareerSearch', 'name');
     }
 
     /**

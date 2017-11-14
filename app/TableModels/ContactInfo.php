@@ -1,42 +1,32 @@
 <?php
-namespace App;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Mentor extends Model{
+class ContactInfo extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'mentor';
+    protected $table = 'contactinfo';
     // Set primary key
-    protected $primaryKey = 'name';
+    protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
-
      /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-    protected $fillable = ['name', 'mentorname', 'location','discussion', 'email'];
-
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'name',
-    ];
+    protected $fillable = ['name','email','phone','location', 'mos','branch'];
 
     /**
      * Get the post that owns the comment.
      */
-    public function post()
+    public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser','name');
     }
 }

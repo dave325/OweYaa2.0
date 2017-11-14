@@ -28,11 +28,11 @@
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
-              <p ng-if="user.education.school">Higher Education:</p>
+              <h3 ng-if="user.education.school">Higher Education:</h3>
               <p ng-if="user.education.school">{{user.education.school}}</p>
-              <p ng-if="use.education.degree">Degree:</p>
+              <h3 ng-if="use.education.degree">Degree:</h3>
               <p ng-if="user.education.degree">{{user.education.degree}}</p>
-              <p ng-if="user.education.graddate">Graduation:</p>
+              <h3 ng-if="user.education.graddate">Graduation:</h3>
               <p ng-if="user.education.graddate">{{user.education.graddate}}</p>
               <div ng-if="user.careerFocus.length > 0">
                 <h3>Career Focus</h3>

@@ -8,7 +8,7 @@
       <article class="col-xs-12 col-md-8">
         <div class="row">
           <div class="col-xs-12 space box">
-            <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}}<span class="glyphicon glyphicon-pencil pull-right" ng-click="portfolioModal()"></span></h2>
+            <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}}<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal(portfolio)"></span></h2>
             <!-- Profile Picture -->
             <div class="col-md-3 col-xs-12 text-center">
               <img src="{{user.contact_info.imgurl}}" height=200 alt="Profile Image"/>
@@ -25,6 +25,10 @@
             </div><!-- End of Basic Information -->
           </div> 
         </div>
+        <!---------------
+          Education Information 
+          -------------->
+          
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework<span class="glyphicon glyphicon-pencil pull-right" ng-click="educationModal()"></span></h2>
@@ -72,6 +76,11 @@
               <p ng-if="user.education.course3">{{user.education.course3}}</p>
             </div> 
         </div>
+
+        <!---------------
+          Career Information 
+          -------------->
+
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="careerModal()"></span></h2>
@@ -88,6 +97,11 @@
                 <p ng-if="user.career_goal.length > 0" ng-repeat="goal in user.career_goal">{{goal.goal}}</p>
               </div> 
         </div>
+
+         <!---------------
+          Skills Information 
+          -------------->
+          
         <div class="row box space">
           <div class="col-xs-12">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="skillModal()"></span></h2>
@@ -114,6 +128,11 @@
                 </ol>
           </div> 
         </div>
+
+         <!---------------
+          Journal and Mentor Information 
+          -------------->
+          
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="journalModal()"></span></h2>
@@ -124,7 +143,7 @@
                 <div ng-repeat="interview in user.interviews track by $index">
                   <h5>Interview #{{$index + 1}}</h5>
                   <p>Company: {{interview.company}}</p>
-                  <p>date: {{interview.date}}</p>
+                  <p>Date: {{interview.date}}</p>
                   <p>Contact: {{interview.contact}}</p>
                   <p>Notes: {{interview.notes}}</p>
                 </div>
@@ -161,6 +180,11 @@
               </div>
             </div> 
         </div>
+
+         <!---------------
+          Availability Information 
+          -------------->
+          
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>

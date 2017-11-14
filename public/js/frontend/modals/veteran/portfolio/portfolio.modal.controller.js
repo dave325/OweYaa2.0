@@ -20,7 +20,9 @@
         url : '/api/update/education', 
         method: 'POST',
         data: portfoliovm.user
-      });
+      }).then(function(data){
+        console.log(data);
+      })
       
     }
 

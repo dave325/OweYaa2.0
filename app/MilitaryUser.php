@@ -140,11 +140,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
     public function careerSearch()
     {
-        $temp = array(
-            'search' => $this->hasMany('App\TableModels\CareerSearch', 'name'),
-            'goals' => $this->hasMany('App\TableModels\CareerGoals', 'name')
-        );
-        return $temp;
+        return $this->hasMany('App\TableModels\CareerSearch', 'name');
     }
 
     /**

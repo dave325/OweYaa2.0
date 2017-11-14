@@ -23,7 +23,9 @@
         responseType:'json'
       }).then(function(data){
         console.log(data);
-      })
+      },function(data){
+        console.log(data);
+      });
       
     }
 

@@ -19,7 +19,7 @@
       $http({
         url : '/api/update/education', 
         method: 'POST',
-        data:portfoliovm.user
+        data: portfoliovm.user
       });
       
     }

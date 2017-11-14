@@ -175,6 +175,14 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
         return $this->hasMany('App\TableModels\ProgrammingSkill', 'name');
     }
 
+    /**
+     * Get the programming skills associated with the user.
+     */
+    public function hobbies()
+    {
+        return $this->hasMany('App\TableModels\Hobby', 'name');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

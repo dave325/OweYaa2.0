@@ -27,7 +27,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      *
      * @var array
      */
-     protected $fillable = ['name','password','email', 'contactinfo', 'course', 'bio', 'programmingskills', 'mentor','social', 'education','actiontask', 'availability','wantedskills','events', 'goals','careersearch', 'bootcamp', 'language'];
+     protected $fillable = ['name','password','email', 'bio'];
 
      /**
      * The attributes excluded from the model's JSON form.

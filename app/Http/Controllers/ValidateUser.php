@@ -49,6 +49,7 @@ class ValidateUser extends Controller
 
     public function updateEducation(Request $request){
         $credentials = $request->only('contact_info');
+        return response()->json($credentials);
         $education = ContactInfo::where('name', '=', $credentials['name'])-update($request);
     }
 }

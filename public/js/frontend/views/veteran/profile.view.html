@@ -144,7 +144,7 @@
                           <p>{{search}}</p>
                         </div>
                     </div>
-                    <div ng-repeat="search in user.careerSearch track by $index">
+                    <div ng-repeat="search in user.career_search track by $index">
                         <h4>Career Search For: **Fix later from career track</h4>
                         <p>Job Title: {{search.title}}</p>
                         <p>Status: {{search.status}}</p>
@@ -152,19 +152,20 @@
               </div>
               <div class="col-md-12">
                 <h3>Mentor Information</h3>
-                <p>Mentor Name: {{user.mentor.mentorname}}</p>
-                <p>Mentor Location: {{user.mentor.location}}</p>
-                <p>Mentor Email: {{user.mentor.email}}</p>
-                <p>Mentor Discussion: {{user.mentor.discussion}}</p>
+                <div ng-if="user.mentor != null"> 
+                  <p>Mentor Name: {{user.mentor.mentorname}}</p>
+                  <p>Mentor Location: {{user.mentor.location}}</p>
+                  <p>Mentor Email: {{user.mentor.email}}</p>
+                  <p>Mentor Discussion: {{user.mentor.discussion}}</p>
+                </div>
               </div>
-              <div class="col-md-6"></div>
             </div> 
         </div>
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="availibilityModal()"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in user.availibility">
-                  <p>{{day.day}} : {{day.begin_time | date:'yyyy-MM-dd'}} - {{day.end_time | date:'yyyy-MM-dd'}}</p>
+                  <p>{{day.dayOfWeek}} : {{day.starttime | date:'yyyy-MM-dd'}} - {{day.endtime | date:'yyyy-MM-dd'}}</p>
                 </div>
               </div> 
           </div>

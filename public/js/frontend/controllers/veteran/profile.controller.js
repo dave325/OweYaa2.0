@@ -21,6 +21,7 @@
 				.then(function (data) {
 					console.log(data);
 					$scope.user = data;
+					User.setUser(data);
 				},function (reason) {
 					console.log(reason);
 				});

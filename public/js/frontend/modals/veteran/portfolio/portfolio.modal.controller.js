@@ -23,7 +23,7 @@
         responseType:'json'
       }).then(function(data){
         User.setUser(data.data);
-        console.log(User.getUser);
+        console.log(User.getUser());
       },function(data){
         console.log(data);
       });

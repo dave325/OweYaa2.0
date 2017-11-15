@@ -1,6 +1,6 @@
 (function(){
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http'];
-  function portfolioModalCtrl($uibModalInstance, CurrUser,$http){
+  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http','User'];
+  function portfolioModalCtrl($uibModalInstance, CurrUser,$http,User){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);
@@ -22,7 +22,8 @@
         data: portfoliovm.user,
         responseType:'json'
       }).then(function(data){
-        console.log(data);
+        User.setUser(data.data);
+        console.log(User.getUser);
       },function(data){
         console.log(data);
       });

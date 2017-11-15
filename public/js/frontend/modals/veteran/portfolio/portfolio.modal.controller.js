@@ -24,6 +24,7 @@
       }).then(function(data){
         User.setUser(data.data);
         console.log(User.getUser());
+        portfoliovm.close();
       },function(data){
         console.log(data);
       });

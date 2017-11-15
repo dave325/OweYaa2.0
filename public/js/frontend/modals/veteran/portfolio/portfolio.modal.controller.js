@@ -22,9 +22,7 @@
         data: portfoliovm.user,
         responseType:'json'
       }).then(function(data){
-        User.setUser(data.data);
-        console.log(User.getUser());
-        portfoliovm.close();
+        portfoliovm.close(data.data);
       },function(data){
         console.log(data);
       });

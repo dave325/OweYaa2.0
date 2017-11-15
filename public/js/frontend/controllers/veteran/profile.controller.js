@@ -20,7 +20,7 @@
 			m.result
 				.then(function (data) {
 					console.log(data);
-					$scope.user = User.getUser();
+					$scope.user = data;
 				},function (reason) {
 					console.log(reason);
 				});

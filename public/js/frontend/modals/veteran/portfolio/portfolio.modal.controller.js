@@ -21,8 +21,7 @@
         data: portfoliovm.user,
         headers:{
           "Authorization" : "Bearer " +  Authentication.getToken()
-        },
-        responseType:'json'
+        }
       }).then(function(data){
         console.log(data);
         portfoliovm.close(portfoliovm.user);

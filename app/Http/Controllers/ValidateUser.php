@@ -51,7 +51,7 @@ class ValidateUser extends Controller
         if($this->checks()){
             $credentials = $request->only('contact_info');
             ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
-            return true;
+            return response()->json(true);
         }else{
             return $this->checks();
         }

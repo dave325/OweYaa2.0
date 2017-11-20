@@ -29,27 +29,22 @@
 
     // Delete one of your plans
     educationvm.deletePlan = function(index) {
-      educationvm.user.splice(index, 1);
+      educationvm.user.plan.splice(index, 1);
     }
 
     // Delete one of your certifications
     educationvm.deleteCertification = function(index) {
-      educationvm.user.splice(index, 1);
+      educationvm.user.certification.splice(index, 1);
     }
 
     // Delete one of your courses
     educationvm.deleteCourse = function(index) {
-      educationvm.user.splice(index, 1);
+      educationvm.user.course.splice(index, 1);
     }
 
     // Delete one of your bootcamps
     educationvm.deleteBootcamp = function(index) {
-      educationvm.user.splice(index, 1);
-    }
-
-    // Delete one of your areas of focus
-    educationvm.deleteFocusArea = function(index) {
-      educationvm.user.splice(index, 1);
+      educationvm.user.bootcamp.splice(index, 1);
     }
 
     // The function that is call when a user cancels the opening of a modal

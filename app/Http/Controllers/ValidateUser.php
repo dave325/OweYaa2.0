@@ -21,10 +21,10 @@ class ValidateUser extends Controller
             $this->apiCall = "company";
         }   
     }
-
-    private function checkUser(){
+    public function checks(){
+        $user = new MilitaryUser();
         try {
-            if (! $userCheck = app('auth')->guard($this->apiCall)->authenticate()) {
+            if (app('auth')->guard($this->apiCall)->authenticate()) {
 
                 return response()->json(['user_not_found'], 404);
             }
@@ -41,23 +41,14 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        return true;
-    }
-
-    public function checks(){
-        $user = new MilitaryUser();
-       if($userInfo = $this->checkUser()){
         $user = MilitaryUser::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'programmingSkills', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('name','=',$userCheck->name)->first();
-         // the token is valid and we have found the user via the sub claim
-         return response()->json(compact('user'));
-       }else{
-        return response()->json(compact('userInfo'));
-       }
+       
+        // the token is valid and we have found the user via the sub claim
+        return response()->json(compact('user'));
     }
 
     public function updateContact(Request $request){
-        $user;
-        if($user = $this->checkUser()){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info');
             ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
             return response()->json(true);

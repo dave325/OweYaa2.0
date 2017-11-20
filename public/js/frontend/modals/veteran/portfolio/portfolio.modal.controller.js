@@ -16,7 +16,7 @@
     portfoliovm.doportfolio = function(){
       //Update server information
       $http({
-        url : 'api/update/contactInfo', 
+        url : '/api/update/contactInfo', 
         method: 'POST',
         data: portfoliovm.user,
         headers:{

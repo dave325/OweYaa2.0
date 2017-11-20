@@ -60,6 +60,7 @@ class ValidateUser extends Controller
     public function updateEducation(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'courses','certifications', 'focusArea');
+            return response()->json($credentials);
             Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
             foreach($credentials['bootcamp'] as $bootcamp){
                 TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->update(['bootcamp' =>$bootcamp['bootcamp']]);

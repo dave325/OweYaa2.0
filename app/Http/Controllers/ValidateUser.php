@@ -53,7 +53,7 @@ class ValidateUser extends Controller
             ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
             return response()->json(true);
         }else{
-            return $this->checks();
+            return response()->json($this->checks());
         }
     }
 }

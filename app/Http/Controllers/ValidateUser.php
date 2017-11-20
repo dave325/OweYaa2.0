@@ -50,7 +50,7 @@ class ValidateUser extends Controller
     public function updateEducation(Request $request){
         if($this->checks()){
             $credentials = $request->only('contact_info');
-            ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            return response()->json($credentials);
         }else{
             return $this->checks();
         }

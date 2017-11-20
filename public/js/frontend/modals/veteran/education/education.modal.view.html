@@ -48,7 +48,7 @@
             <!-- Add a new area of focus -->
             <div>
               <p>New Bootcamps:</p>
-              <input type="text" ng-model="educationvm.newBootcamp" class="add-btn" />
+              <input type="text" ng-model="educationvm.newBootcamp.bootcamp" class="add-btn" />
               <button class="btn" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="educationvm.user.bootcamp.length > 0">

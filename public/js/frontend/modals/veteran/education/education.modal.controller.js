@@ -4,10 +4,10 @@
     educationvm = this;
     educationvm.user = CurrUser;
     // Containers
-    educationvm.newPlan = "";
-    educationvm.newCertification = "";
-    educationvm.newCourse = "";
-    educationvm.newBootcamp = "";
+    educationvm.newPlan = [];
+    educationvm.newCertification ={};
+    educationvm.newCourse = {}}
+    educationvm.newBootcamp = {}
 
     // Add a new certification
     educationvm.addToCertifications = function() {
@@ -24,7 +24,7 @@
     // Add a new bootcamp
     educationvm.addToBootcamps = function() {
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
-      educatinovm.newBootcamp = "";
+      educationvm.newBootcamp = "";
     }
 
     // Delete one of your plans

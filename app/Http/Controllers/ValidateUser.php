@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\TableModels\ContactInfo;
+use App\TableModels\Education;
 use App\MilitaryUser;
-use App\Skill;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;;
 class ValidateUser extends Controller
@@ -51,6 +51,15 @@ class ValidateUser extends Controller
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info');
             ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
+    public function updateEducation(Request $request){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info', 'education', 'bootcamps', 'courses','certifications', 'focusArea');
+            Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

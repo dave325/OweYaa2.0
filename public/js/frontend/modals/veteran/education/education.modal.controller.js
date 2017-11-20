@@ -4,10 +4,10 @@
     educationvm = this;
     educationvm.user = CurrUser;
     // Containers
-    educationvm.newPlan = [];
+    educationvm.newPlan = {};
     educationvm.newCertification ={};
-    educationvm.newCourse = {}}
-    educationvm.newBootcamp = {}
+    educationvm.newCourse = {};
+    educationvm.newBootcamp = {};
 
     // Add a new certification
     educationvm.addToCertifications = function() {

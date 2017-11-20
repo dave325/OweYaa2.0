@@ -50,7 +50,7 @@ class ValidateUser extends Controller
     public function updateEducation(Request $request){
         if($this->checks()){
             $credentials = $request->only('contact_info');
-            return response()->json($credentials);
+            return response()->json($request);
         }else{
             return $this->checks();
         }

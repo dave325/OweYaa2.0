@@ -1,6 +1,6 @@
 (function(){
-  educationModalCtrl.$inject = ['$uibModalInstance', 'Authentication', 'userEd', 'User'];
-  function educationModalCtrl($uibModalInstance, Authentication,userEd,User){
+  educationModalCtrl.$inject = ['$uibModalInstance', 'Authentication', 'CurrUser', 'User'];
+  function educationModalCtrl($uibModalInstance, Authentication,CurrUser,User){
     educationvm = this;
     educationvm.user = userEd;
     // Containers

@@ -63,7 +63,7 @@ class ValidateUser extends Controller
             //return response()->json(compact('credentials'));
             Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
             foreach($credentials['bootcamp'] as $bootcamp){
-                TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->update(['bootcamp' =>$bootcamp['bootcamp']]);
+                TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->update(['bootcamp' =>$bootcamp['updatedCamp']]);
             }
             return response()->json(true);
         }else{

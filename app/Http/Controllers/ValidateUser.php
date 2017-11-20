@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\TableModels\ContactInfo;
 use App\TableModels\Education;
+use App\TableModels;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;;
@@ -58,8 +59,11 @@ class ValidateUser extends Controller
     }
     public function updateEducation(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
-            $credentials = $request->only('contact_info', 'education', 'bootcamps', 'courses','certifications', 'focusArea');
-            Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            $credentials = $request->only('contact_info', 'education', 'bootcamp', 'courses','certifications', 'focusArea');
+            Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
+            foreach($credentials['bootcamp'] as $bootcamp){
+                TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->update(['bootcamp' =>$bootcamp['bootcamp']]);
+            }
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

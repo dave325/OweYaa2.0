@@ -90,7 +90,7 @@
           method: 'POST',
           data: data,
           headers:{
-            "Authorization" : "Bearer " +  token
+            "Authorization" : "Bearer " +  Authentication.getToken()
           }
         });
       }

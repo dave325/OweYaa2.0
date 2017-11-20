@@ -21,27 +21,6 @@ class ValidateUser extends Controller
             $this->apiCall = "company";
         }   
     }
-    public function checks(){
-        $user = new MilitaryUser();
-       if($userInfo = $this->checkUser()){
-        $user = MilitaryUser::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'programmingSkills', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('name','=',$userCheck->name)->first();
-        
-         // the token is valid and we have found the user via the sub claim
-         return response()->json(compact('user'));
-       }else{
-        return response()->json(compact('userInfo'));
-       }
-    }
-
-    public function updateContact(Request $request){
-        if($this->checkUser()){
-            $credentials = $request->only('contact_info');
-            ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
-            return response()->json(true);
-        }else{
-            return response()->json(compact('user'));
-        }
-    }
 
     private function checkUser(){
         try {
@@ -63,5 +42,27 @@ class ValidateUser extends Controller
     
         }
         return true;
+    }
+
+    public function checks(){
+        $user = new MilitaryUser();
+       if($userInfo = $this->checkUser()){
+        $user = MilitaryUser::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'programmingSkills', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('name','=',$userCheck->name)->first();
+         // the token is valid and we have found the user via the sub claim
+         return response()->json(compact('user'));
+       }else{
+        return response()->json(compact('userInfo'));
+       }
+    }
+
+    public function updateContact(Request $request){
+        $user;
+        if($user = $this->checkUser()){
+            $credentials = $request->only('contact_info');
+            ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
     }
 }

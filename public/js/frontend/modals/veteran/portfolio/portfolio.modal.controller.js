@@ -13,17 +13,9 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    portfoliovm.doportfolio = function(){
+    portfoliovm.doportfolio = function(modal, data){
       //Update server information
-      $http({
-        url : '/api/update/contactInfo', 
-        method: 'POST',
-        data: portfoliovm.user,
-        headers:{
-          "Authorization" : "Bearer " +  Authentication.getToken()
-        }
-      }).then(function(data){
-        console.log(data);
+      User.updateUser(modal, data).then(function(data){
         portfoliovm.close(portfoliovm.user);
       },function(data){
         console.log(data);

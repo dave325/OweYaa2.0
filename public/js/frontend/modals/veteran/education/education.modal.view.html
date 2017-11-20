@@ -1,5 +1,5 @@
 <div id="educationModal">
-  <span class="glyphicon glyphicon-remove pull-right" ng-click="educationvm.user.cancel()"></span>
+  <span class="glyphicon glyphicon-remove pull-right" ng-click="educationvm.cancel()"></span>
   <h2>Education Information</h2>
   <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
   <form novalidate method="post" name="education" ng-submit="submit()">
@@ -10,17 +10,17 @@
         <div class="form-group">
           <p>
               <label form="education" for="school">School: </label>
-              <input ng-model="educationvm.user.school" type="text" class="form-control" name="school" id="school"/>
+              <input ng-model="educationvm.user.education.school" type="text" class="form-control" name="school" id="school"/>
               <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.school}}</span> -->
             </p>
             <p>
               <label form="education" for="degree">Degree: </label>
-              <input ng-model="educationvm.user.degree" type="text" class="form-control" name="degree" id="degree"/>
+              <input ng-model="educationvm.user.education.degree" type="text" class="form-control" name="degree" id="degree"/>
               <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.degree}}</span> -->
             </p>
             <p>
               <label form="education" for="graduation">Graduation Date: </label>
-              <input ng-model="educationvm.user.grad" type="text" class="form-control" name="graduation" id="graduation"/>
+              <input ng-model="educationvm.user.education.grad" type="text" class="form-control" name="graduation" id="graduation"/>
               <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.grad}}</span> -->
             </p>
         </div>
@@ -34,7 +34,7 @@
             <h4>Career Focus Area:</h4>
             <p>
               <label form="education" for="focusArea">Focus Area: </label>
-              <input ng-model="educationvm.user.focusArea" type="text" class="form-control" name="focusArea" id="graduation"/>
+              <input ng-model="educationvm.user.educaiton.focusArea" type="text" class="form-control" name="focusArea" id="graduation"/>
               <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.grad}}</span> -->
             </p>
           </div>
@@ -44,15 +44,15 @@
         <div class="form-group">
           <div>
             <h4>Bootcamps:</h4>
-            <p ng-show="educationvm.user.bootcamps.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <p ng-show="educationvm.user.bootcamp.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <p>New Bootcamps:</p>
               <input type="text" ng-model="educationvm.newBootcamp" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.bootcamps.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.user.addToBootcamps()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.user.addToBootcamps()" class="btn btn-primary">Add</button>
             </div><br />
-            <ol ng-if="educationvm.user.bootcamps.length > 0">
-              <li ng-repeat="field in educationvm.user.bootcamps track by $index">
+            <ol ng-if="educationvm.user.bootcamp.length > 0">
+              <li ng-repeat="field in educationvm.user.bootcamp track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.user.deleteBootcamp($index)"></span>
               </li>
@@ -64,15 +64,15 @@
         <div class="form-group">
           <div>
             <h4>Courses:</h4>
-            <p ng-show="educationvm.user.courses.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <p ng-show="educationvm.user.course.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <p>New Courses:</p>
               <input type="text" ng-model="educationvm.newCourse" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.courses.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.user.addToCourses()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.user.course.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.user.addToCourses()" class="btn btn-primary">Add</button>
             </div><br />
-            <ol ng-if="educationvm.user.courses.length > 0">
-              <li ng-repeat="field in educationvm.user.courses track by $index">
+            <ol ng-if="educationvm.user.course.length > 0">
+              <li ng-repeat="field in educationvm.user.course track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.user.deleteCourse($index)"></span>
               </li>
@@ -84,15 +84,15 @@
         <div class="form-group">
           <div>
             <h4>Certifications:</h4>
-            <p ng-show="educationvm.user.certifications.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <p ng-show="educationvm.user.certification.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <p>New Certifications:</p>
               <input type="text" ng-model="educationvm.newCertification" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.certifications.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.user.addToCertifications()" class="btn btn-primary">Add</button>
+              <button class="btn" ng-disabled="educationvm.user.certification.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.user.addToCertifications()" class="btn btn-primary">Add</button>
             </div><br />
-            <ol ng-if="educationvm.user.certifications.length > 0">
-              <li ng-repeat="field in educationvm.user.certifications track by $index">
+            <ol ng-if="educationvm.user.certification.length > 0">
+              <li ng-repeat="field in educationvm.user.certification track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.user.deleteCertification($index)"></span>
               </li>

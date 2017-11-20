@@ -1,6 +1,6 @@
 (function(){
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http','Authorization'];
-  function portfolioModalCtrl($uibModalInstance, CurrUser,$http,Authorization){
+  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http','Authentication'];
+  function portfolioModalCtrl($uibModalInstance, CurrUser,$http,Authentication){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);
@@ -20,7 +20,7 @@
         method: 'POST',
         data: portfoliovm.user,
         headers:{
-          "Authorization" : "Bearer " +  Authorization.getToken()
+          "Authorization" : "Bearer " +  Authentication.getToken()
         },
         responseType:'json'
       }).then(function(data){

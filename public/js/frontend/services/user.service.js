@@ -80,7 +80,20 @@
             }
           });
         }
-      } // End of getCurrentuser
+      }, // End of getCurrentuser
+      updateUser: function(modal, data){
+        if(Authentication.getToken() == null){
+          return;
+        }
+        return $http({
+          url : '/api/update/' + modal, 
+          method: 'POST',
+          data: data,
+          headers:{
+            "Authorization" : "Bearer " +  token
+          }
+        });
+      }
     }
     return User;
   }

@@ -15,13 +15,16 @@
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function(){
       //Update server information
-      console.log(portfoliovm.user);
       $http({
-        url : '/api/update/education', 
+        url : '/api/update/contactInfo', 
         method: 'POST',
         data: portfoliovm.user,
+        headers:{
+          "Authorization" : "Bearer " +  Authorization.getToken()
+        },
         responseType:'json'
       }).then(function(data){
+        console.log(data);
         portfoliovm.close(portfoliovm.user);
       },function(data){
         console.log(data);

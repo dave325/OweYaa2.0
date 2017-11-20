@@ -24,8 +24,8 @@
     }
 
     // Will Submit the form depending if everything is filled out
-		portfoliovm.onSubmit = function(){
-			portfoliovm.doportfolio();
+		portfoliovm.onSubmit = function(modal,data){
+			portfoliovm.doportfolio(modal,data);
     }
 
   }

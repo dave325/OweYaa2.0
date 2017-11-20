@@ -34,7 +34,7 @@ class ValidateUser extends Controller
     }
 
     public function updateContact(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if($this->checkUser()){
             $credentials = $request->only('contact_info');
             ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
             return response()->json(true);

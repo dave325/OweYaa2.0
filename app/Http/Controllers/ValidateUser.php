@@ -47,12 +47,11 @@ class ValidateUser extends Controller
         return response()->json(compact('user'));
     }
 
-    public function updateEducation(Request $request){
+    public function updateContact(Request $request){
         if($user = $this->checks()){
-            $credentials = $user;
-            return  response()->json($credentials);
-            // $request->only('contact_info');
-            //ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            $credentials = $request->only('contact_info');
+            ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            return true;
         }else{
             return $this->checks();
         }

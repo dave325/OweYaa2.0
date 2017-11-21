@@ -2,57 +2,33 @@
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal'];
 	function profileCtrl($scope, User, $uibModal) {
+		// Retrieve current user 
 	    $scope.user = User.getUser();
 		 console.log($scope.user);
 		 $scope.openModal = function(modal){
-			var m = $uibModal.open({
-				templateUrl: '/js/frontend/modals/veteran/' + modal +'/' + modal + '.modal.view.html',
-				controller: modal + 'ModalCtrl',
-				controllerAs: modal + 'vm',
-				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
-				resolve: {
-						CurrUser:function(){
-							return User.getUser();
-						}
-				}
-			});
-
-			m.result
-				.then(function (data) {
-					console.log(data);
-					$scope.user = data;
-					User.setUser(data);
-				},function (reason) {
-					console.log(reason);
+			if(User.getUser()){
+				var m = $uibModal.open({
+					templateUrl: '/js/frontend/modals/veteran/' + modal +'/' + modal + '.modal.view.html',
+					controller: modal + 'ModalCtrl',
+					controllerAs: modal + 'vm',
+					windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
+					resolve: {
+							CurrUser:function(){
+								return User.getUser();
+							}
+					}
 				});
+
+				m.result
+					.then(function (data) {
+						console.log(data);
+						$scope.user = data;
+						User.setUser(data);
+					},function (reason) {
+						console.log(reason);
+					});
+			}
 		 }
-		$scope.educationModal = function() {
-			var em = $uibModal.open({
-				templateUrl: '/js/frontend/modals/veteran/education/education.modal.view.html',
-				controller: 'educationModalCtrl',
-				controllerAs: 'educationvm',
-				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
-				resolve: {
-						userEd:function(){
-							return User.getUser();
-						}
-				}
-			});
-
-			em.result
-				.then(function (data) {
-					console.log(data);
-					$scope.contact.user = User.getUser();
-				},function (reason) {
-					console.log(reason);
-				});
-		}
-
-		$scope.career = {
-			prevField1: "",
-			prevEmployer1: "",
-			goal: ""
-		}
 
 		$scope.careerModal = function() {
 			var cm = $uibModal.open({

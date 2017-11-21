@@ -64,11 +64,7 @@ class ValidateUser extends Controller
                 if($bootcamp['delete']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->delete();   
                 }else if ($bootcamp['update']){
-                    TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->update(['bootcamp' =>$bootcamp['updatedCamp']]);
-                }else if($bootcamp['insert']){
-                    $newCamp = new TableModels\Bootcamp();
-                    $newCamp->name = $credentials['contact_info']['name'];
-                    $newCamp->fill($bootcamp)->save();
+                    TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->updateOrCreate(['bootcamp' =>$bootcamp['updatedCamp']]);
                 }
             }/*
             foreach($credentials['course'] as $course){
@@ -78,6 +74,23 @@ class ValidateUser extends Controller
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
                 }
             }*/
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
+    /**
+     * updateCareer
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateCareer(Request $request){
+        $user = new MilitaryUser();
+        $user->fill($request);
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info','prev_career_fields');
+            $user->prevCareerField()->saveMany($credentials['prev_career_fields']);
+            //TableModels\PreviousCareerFields::where('name', '=', $credentials['contact_info']['name'])->save($credentials['contact_info']);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

@@ -21,7 +21,7 @@ class PreviousCareerField extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','career','employer'];
+    protected $fillable = ['name','career','employer', 'startdate','enddate'];
 
     /**
      * The attributes excluded from the model's JSON form.

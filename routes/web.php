@@ -27,5 +27,6 @@ Route::group(['prefix' => 'api'], function (){
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');
+        Route::post('career', 'ValidateUser@updateCareer');
     });
 });

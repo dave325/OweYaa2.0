@@ -60,13 +60,15 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             // return response()->json(compact('credentials'));
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
+            MilitaryUser::where('name', '=', $credentials['contact_info']['name'])->bootcamps()->sync($credentials['bootcamp']);
+            /*
             foreach($credentials['bootcamp'] as $bootcamp){
                 if($bootcamp['delete']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->delete();   
                 }else if ($bootcamp['update']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->updateOrCreate(['bootcamp' =>$bootcamp['updatedCamp']]);
                 }
-            }/*
+            }
             foreach($credentials['course'] as $course){
                 if($course['delete']){
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->delete();   

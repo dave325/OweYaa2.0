@@ -56,12 +56,12 @@ class ValidateUser extends Controller
         }
     }
     public function updateEducation(Request $request){
-        if($check = app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
 
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             // return response()->json(compact('credentials'));
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
-            $user = new MilitaryUser($check);
+            $user = new MilitaryUser($request->all());
             $user->bootcamp()->sync($credentials['bootcamp']);
             /*
             foreach($credentials['bootcamp'] as $bootcamp){

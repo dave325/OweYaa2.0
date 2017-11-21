@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\TableModels\ContactInfo;
-use App\TableModels\Education;
 use App\TableModels;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
@@ -51,7 +49,7 @@ class ValidateUser extends Controller
     public function updateContact(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info');
-            ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            TableModels\ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));
@@ -59,14 +57,23 @@ class ValidateUser extends Controller
     }
     public function updateEducation(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
-            $credentials = $request->only('contact_info', 'education', 'bootcamp', 'courses','certifications', 'focusArea');
+            $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             // return response()->json(compact('credentials'));
-            Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
+            TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
             foreach($credentials['bootcamp'] as $bootcamp){
                 if($bootcamp['delete']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->delete();   
-                }else{
+                }else if ($bootcamp['update']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->update(['bootcamp' =>$bootcamp['updatedCamp']]);
+                }else if($bootcampp['insert']){
+                    TableModels\Bootcamp::fill($bootcamp)->save();
+                }
+            }
+            foreach($credentials['course'] as $course){
+                if($bootcamp['delete']){
+                    TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->delete();   
+                }else{
+                    TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
                 }
             }
             return response()->json(true);

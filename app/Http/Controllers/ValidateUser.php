@@ -97,6 +97,7 @@ class ValidateUser extends Controller
                 $careers[] = new TableModels\PreviousCareerField($fields);
             }
             $careers[0]->save();
+            // $careers[1]->save();
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

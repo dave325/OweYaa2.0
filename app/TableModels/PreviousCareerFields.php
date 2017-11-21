@@ -10,7 +10,7 @@ class PreviousCareerField extends Model{
      */
     protected $table = 'previouscareerfields';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'careerid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class PreviousCareerField extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','career','employer', 'startdate','enddate'];
+    protected $fillable = ['careerid','name','career','employer', 'startdate','enddate'];
 
     /**
      * Get the post that owns the comment.

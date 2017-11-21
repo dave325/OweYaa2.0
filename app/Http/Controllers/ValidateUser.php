@@ -98,7 +98,7 @@ class ValidateUser extends Controller
             }
             try{
                 $user->prevCareerFields()->save($careers[0]);
-            }catch(exception $e){
+            }catch(\Exception $e){
                 return response()->json($e);
             }
             //TableModels\PreviousCareerFields::where('name', '=', $credentials['contact_info']['name'])->save($credentials['contact_info']);

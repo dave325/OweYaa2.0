@@ -68,14 +68,14 @@ class ValidateUser extends Controller
                 }else if($bootcampp['insert']){
                     TableModels\Bootcamp::fill($bootcamp)->save();
                 }
-            }
+            }/*
             foreach($credentials['course'] as $course){
-                if($bootcamp['delete']){
+                if($course['delete']){
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->delete();   
                 }else{
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
                 }
-            }
+            }*/
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

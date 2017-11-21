@@ -12,19 +12,19 @@
     // Add a new certification
     educationvm.addToCertifications = function() {
       educationvm.user.certification.push(educationvm.newCertification);
-      educationvm.newCertification = "";
+      educationvm.newCertification = {};
     }
 
     // Add a new course
     educationvm.addToCourses = function() {
       educationvm.user.course.push(educationvm.newCourse);
-      educationvm.newCourse = "";
+      educationvm.newCourse = {};
     }
 
     // Add a new bootcamp
     educationvm.addToBootcamps = function() {
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
-      educationvm.newBootcamp = "";
+      educationvm.newBootcamp = {};
     }
 
     // Delete one of your plans

@@ -49,7 +49,7 @@
             <div>
               <p>New Bootcamps:</p>
               <input type="text" ng-model="educationvm.newBootcamp.bootcamp" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()" class="btn btn-add">Add</button>
+              <button class="btn btn-add" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()">Add</button>
             </div><br />
             <ol ng-if="educationvm.user.bootcamp.length > 0">
               <li ng-repeat="field in educationvm.user.bootcamp track by $index">
@@ -69,7 +69,7 @@
             <div>
               <p>New Courses:</p>
               <input type="text" ng-model="educationvm.newCourse.course" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.course.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.addToCourses()" class="btn btn-add">Add</button>
+              <button class="btn btn-add" ng-disabled="educationvm.user.course.length == 9 || !educationvm.newCourse" type="button" ng-click="educationvm.addToCourses()">Add</button>
             </div><br />
             <ol ng-if="educationvm.user.course.length > 0">
               <li ng-repeat="field in educationvm.user.course track by $index">
@@ -89,7 +89,7 @@
             <div>
               <p>New Certifications:</p>
               <input type="text" ng-model="educationvm.newCertification.certification" class="add-btn" />
-              <button class="btn" ng-disabled="educationvm.user.certification.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.addToCertifications()" class="btn btn-add">Add</button>
+              <button class="btn btn-add" ng-disabled="educationvm.user.certification.length == 9 || !educationvm.newCertification" type="button" ng-click="educationvm.addToCertifications()">Add</button>
             </div><br />
             <ol ng-if="educationvm.user.certification.length > 0">
               <li ng-repeat="field in educationvm.user.certification track by $index">

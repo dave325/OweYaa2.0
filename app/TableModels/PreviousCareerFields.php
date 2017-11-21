@@ -23,7 +23,6 @@ class PreviousCareerField extends Model{
     */
     protected $fillable = ['name','career','employer', 'startdate','enddate'];
 
-
     /**
      * Get the post that owns the comment.
      */

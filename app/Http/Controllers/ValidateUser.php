@@ -96,7 +96,7 @@ class ValidateUser extends Controller
             foreach($credentials['prev_career_fields'] as $fields){
                 $careers[] = new TableModels\PreviousCareerField($fields);
             }
-            $user->prevCareerFields()->save($career[0]);
+            $user->prevCareerFields()->save($careers[0]);
             // $careers[1]->save();
             return response()->json(true);
         }else{

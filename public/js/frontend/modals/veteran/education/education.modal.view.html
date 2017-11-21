@@ -54,7 +54,7 @@
             <ol ng-if="educationvm.user.bootcamp.length > 0">
               <li ng-repeat="field in educationvm.user.bootcamp track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.bootcamp" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
+                <input type="text" ng-model="field.bootcamp" class="btn"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
               </li>
             </ol>
           </div>
@@ -74,7 +74,7 @@
             <ol ng-if="educationvm.user.course.length > 0">
               <li ng-repeat="field in educationvm.user.course track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.course" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
+                <input type="text" ng-model="field.course" class="btn"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
               </li>
             </ol>
           </div>
@@ -94,7 +94,7 @@
             <ol ng-if="educationvm.user.certification.length > 0">
               <li ng-repeat="field in educationvm.user.certification track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.certification" class="btn btn-success col-"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>
+                <input type="text" ng-model="field.certification" class="btn"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>
               </li>
             </ol>
           </div>

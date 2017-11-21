@@ -89,7 +89,10 @@ class ValidateUser extends Controller
         $user->fill($request->all());
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
-            $user->prevCareerFields()->saveMany($credentials['prev_career_fields']);
+            $user->prevCareerFields()->saveMany([
+                new TableModels\PreviousCareerFields()->fill($credentials['prev_career_fields'][0]),
+                new TableModels\PreviousCareerFields()->fill($credentials['prev_career_fields'][1])
+            ]);
             //TableModels\PreviousCareerFields::where('name', '=', $credentials['contact_info']['name'])->save($credentials['contact_info']);
             return response()->json(true);
         }else{

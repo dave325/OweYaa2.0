@@ -65,7 +65,7 @@ class ValidateUser extends Controller
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->delete();   
                 }else if ($bootcamp['update']){
                     TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->update(['bootcamp' =>$bootcamp['updatedCamp']]);
-                }else if($bootcampp['insert']){
+                }else if($bootcamp['insert']){
                     TableModels\Bootcamp::fill($bootcamp)->save();
                 }
             }/*

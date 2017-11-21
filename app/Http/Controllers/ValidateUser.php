@@ -86,7 +86,7 @@ class ValidateUser extends Controller
      */
     public function updateCareer(Request $request){
         $user = new MilitaryUser();
-        $user->fill($request);
+        $user->fill($request->all());
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
             $user->prevCareerField()->saveMany($credentials['prev_career_fields']);

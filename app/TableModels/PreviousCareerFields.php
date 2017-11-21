@@ -23,14 +23,6 @@ class PreviousCareerField extends Model{
     */
     protected $fillable = ['name','career','employer', 'startdate','enddate'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'name'
-    ];
 
     /**
      * Get the post that owns the comment.

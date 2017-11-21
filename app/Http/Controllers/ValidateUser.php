@@ -94,7 +94,7 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info','prev_career_fields');
             $careers = [];
             foreach($credentials['prev_career_fields'] as $fields){
-                $careers[] = new PreviousCareerField($fields);
+                $careers[] = new TableModels\PreviousCareerField($fields);
             }
             $user->prevCareerFields()->saveMany($careers);
             //TableModels\PreviousCareerFields::where('name', '=', $credentials['contact_info']['name'])->save($credentials['contact_info']);

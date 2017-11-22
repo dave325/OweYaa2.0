@@ -94,9 +94,15 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info','prev_career_fields');
             $careers = [];
             foreach($credentials['prev_career_fields'] as $fields){
-                $careers[] = new TableModels\PreviousCareerField($fields);
+                if($field['update']){
+                    TableModels\PreviousCareerField::where("careerid","=",$careers[0]['careerid'])->update($careers[0]->toArray());                                    
+                }else if($field['delete']){
+                    TableModels\PreviousCareerField::where("careerid","=",$careers[0]['careerid'])->delete();                                    
+                }else{
+                    $career = new TableModels\PreviousCareerField($field);
+                    $career->save();
+                } 
             }
-            TableModels\PreviousCareerField::where("careerid","=",$careers[0]['careerid'])->update($careers[0]->toArray());
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

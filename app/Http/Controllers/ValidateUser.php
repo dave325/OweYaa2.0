@@ -92,12 +92,16 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info','interviews', 'events','mentor');
             foreach($credentials['interviews'] as $item){
                     $interview = TableModels\Interview::find($item['interviewid']);
-                    $interview->fill($item);
+                    if($interview != null){
+                        $interview->fill($item);
+                    }
                     $interview->save();
             }
             foreach($credentials['events'] as $item){
                 $event = TableModels\Events::find($item['eventid']);
-                $event->fill($item);
+                if($event != null){
+                    $event->fill($item);
+                }
                 $event->save();
             }
             return response()->json(true);

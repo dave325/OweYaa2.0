@@ -1,6 +1,6 @@
 (function(){
-  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','currUser', '$scope'];
-  function availibilityModalCtrl($uibModalInstance, Authentication,currUser, $scope){
+  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope'];
+  function availibilityModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
     availibilityvm = this;
     availabilityvm.user = currUser;
 		availibilityvm.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -51,13 +51,18 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    availibilityvm.doAvailability = function(){
+    availibilityvm.doAvailability = function(modal,data){
       //Update server information
+      User.updateUser(modal,data).then(function(data){
+        availabilityvm.close(availabilityvm.user);
+      },function(error){
+        console.log(data);
+      })
     }
 
     // Will Submit the form depending if everything is filled out
-		availibilityvm.onSubmit = function(){
-			availibilityvm.docareer();
+		availibilityvm.onSubmit = function(modal,data){
+			availibilityvm.doAvailability(modal,data);
     }
   }
   angular.module('oweyaa')

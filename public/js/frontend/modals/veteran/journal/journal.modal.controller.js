@@ -1,8 +1,8 @@
 (function(){
-  journalModalCtrl.$inject = ['$uibModalInstance'];
-  function journalModalCtrl($uibModalInstance){
+  journalModalCtrl.$inject = ['$uibModalInstance','CurrUser','User'];
+  function journalModalCtrl($uibModalInstance,CurrUser,User){
     journalvm = this;
-    journalvm.content = { };
+    journalvm.user = CurrUser;
 
     // The function that is call when a user cancels the opening of a modal
 	  journalvm.cancel = function(){
@@ -15,40 +15,9 @@
     // Will make a call to the server and php file
     journalvm.dojournal = function(){
       //Update server information
+      User.updateUser()
     }
 
-    journalvm.connections = [{
-      company: "Test",
-      date: new Date(2017, 3,15),
-      contact: "test",
-      notes:"snasfjdlkj asf"
-    },
-    {
-      company: "Test",
-      date: new Date(2017, 3,15),
-      contact: "test",
-      notes:"snasfjdlkj asf"
-    }];
-    journalvm.events = [{
-      event: "Test",
-      contacts:[{
-        name: "d"
-      },{
-        name:"e"
-      },{
-        name:"f"
-      }]
-    },
-    {
-      event: "Test",
-      contacts:[{
-        name: "d"
-      },{
-        name:"e"
-      },{
-        name:"f"
-      }]
-    }];
     /*
     * Update the modal to add a new skill
     */

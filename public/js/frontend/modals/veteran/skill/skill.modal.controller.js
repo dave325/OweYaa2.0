@@ -1,8 +1,8 @@
 (function(){
-  skillModalCtrl.$inject = ['$uibModalInstance', 'Authentication','currUser','User'];
-  function skillModalCtrl($uibModalInstance, Authentication,currUser,User){
+  skillModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser','User'];
+  function skillModalCtrl($uibModalInstance, Authentication,CurrUser,User){
     skillvm = this;
-    skillvm.user = currUser();
+    skillvm.user = CurrUser();
 
     // add programming skills
     skillvm.newSkill = {};
@@ -42,11 +42,6 @@
       skillvm.user.languages.splice(index, 1);
     }
 
-    // Allow editing
-    skillvm.triggerEditMode = function() {
-      skillvm.editMode = !skillvm.editMode;
-    }
-
     // The function that is call when a user cancels the opening of a modal
 	  skillvm.cancel = function(){
 	   $uibModalInstance.dismiss('cancel')
@@ -59,7 +54,7 @@
     skillvm.doskill = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
-        skillvm.close(skill.user);
+        skillvm.close(skillvm.user);
       },function(error){
         console.log(data);
       })

@@ -101,7 +101,7 @@ class ValidateUser extends Controller
                     $event = TableModels\Event::findOrFail($item['eventid']);
                     $event->fill($item);
                     $event->save();
-                }catch(\ModelNotFoundException $me){
+                }catch(\Exception $me){
                     $event = new TableModels\Event($item);
                     $event->save();
                 }

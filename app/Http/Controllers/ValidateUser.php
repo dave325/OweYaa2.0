@@ -97,13 +97,12 @@ class ValidateUser extends Controller
                     $interview->save();
             }*/
             foreach($credentials['events'] as $item){
-                $event = null;
                 try{
                     $event = TableModels\Event::findOrFail($item['eventid']);
                     $event->fill($item);
+                    $event->save();
                 }catch(\ModelNotFoundException $me){
                     $event = new TableModels\Event($item);
-                }finally{
                     $event->save();
                 }
             }

@@ -10,13 +10,13 @@ class Event extends Model{
      */
     protected $table = 'events';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'eventid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
     public $timestamps = false;
     protected $casts = [
-        "contact" => 'array'
+        "contactid" => 'array'
     ];
 
      /**
@@ -24,7 +24,7 @@ class Event extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','eventname','contact'];
+    protected $fillable = ['eventid','name','eventname','contactid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -40,7 +40,7 @@ class Event extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','name','eventid');
     }
 
     /**

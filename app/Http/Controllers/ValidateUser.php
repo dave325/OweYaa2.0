@@ -83,21 +83,42 @@ class ValidateUser extends Controller
         }
     }
     /**
+     * updateInterview
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateInterview(Request $request){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info','interview', 'events','mentor');
+            foreach($credentials['interview'] as $item){
+                    $interview = TableModels\Interview::find($item['interviewid']);
+                    $interview->fill($item);
+                    $interview->save();
+            }
+            foreach($credentials['events'] as $item){
+                $event = TableModels\Events::find($item['eventid']);
+                $event->fill($item);
+                $event->save();
+            }
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
+    /**
      * updateCareer
      * @params Request $request
      * update/delete/add information into database based on user input
      */
     public function updateCareer(Request $request){
-        $user = new MilitaryUser();
-        $user->fill($request->all());
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
-            $careers = [];
             foreach($credentials['prev_career_fields'] as $field){
                     $career = TableModels\PreviousCareerField::find($field['careerid']);
                     $career->fill($field);
                     $career->save();
             }
+
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

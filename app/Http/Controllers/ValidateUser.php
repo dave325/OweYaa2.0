@@ -94,7 +94,7 @@ class ValidateUser extends Controller
                 try{
                     $interview = TableModels\Interview::findOrFail($item['interviewid']);
                     $interview->fill($item);
-                    $event->save();
+                    $interview->save();
                 }catch(\Exception $me){
                     $interview = new TableModels\Interview($item);
                     $interview->save();

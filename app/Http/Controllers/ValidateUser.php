@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\TableModels;
 use App\MilitaryUser;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;  
 class ValidateUser extends Controller
 {
     /**
@@ -95,7 +96,7 @@ class ValidateUser extends Controller
                     $interview = TableModels\Interview::findOrFail($item['interviewid']);
                     $interview->fill($item);
                     $interview->save();
-                }catch(\Exception $me){
+                }catch(\ModelNotFoundException $me){
                     $interview = new TableModels\Interview($item);
                     $interview->save();
                 }

@@ -106,10 +106,18 @@ class ValidateUser extends Controller
                     $event = TableModels\Event::findOrFail($item['eventid']);
                     $event->fill($item);
                     $event->save();
-                }catch(\Exception $me){
+                }catch(\ModelNotFoundException $me){
                     $event = new TableModels\Event($item);
                     $event->save();
                 }
+            }
+            try{
+                $mentor = TableModels\Mentor::findOrFail($credentials['contact_info']['name']);
+                $mentor->fill($credentials['mentor']);
+                $mentor->save();
+            }catch(\ModelNotFoundException $me){
+                $event = new TableModels\Mentor($credentials['mentor']);
+                $event->save();
             }
             return response()->json(true);
         }else{

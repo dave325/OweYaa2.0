@@ -10,7 +10,7 @@ class Interview extends Model{
      */
     protected $table = 'interviews';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "interviewid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -20,7 +20,7 @@ class Interview extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','company', 'date','contact', 'notes'];
+    protected $fillable = ['interviewid','name','company', 'date','contact', 'notes'];
 
     /**
      * The attributes excluded from the model's JSON form.

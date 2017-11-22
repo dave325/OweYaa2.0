@@ -93,15 +93,10 @@ class ValidateUser extends Controller
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
             $careers = [];
-            foreach($credentials['prev_career_fields'] as $fields){
-                if($field['update']){
-                    TableModels\PreviousCareerField::where("careerid","=",$careers[0]['careerid'])->update($careers[0]->toArray());                                    
-                }else if($field['delete']){
-                    TableModels\PreviousCareerField::where("careerid","=",$careers[0]['careerid'])->delete();                                    
-                }else{
-                    $career = new TableModels\PreviousCareerField($field);
+            foreach($credentials['prev_career_fields'] as $field){
+                    $career = TableModels\PreviousCareerField::find($field['careerid']);
+                    $career->fill($field);
                     $career->save();
-                } 
             }
             return response()->json(true);
         }else{

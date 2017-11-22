@@ -1,7 +1,8 @@
 (function(){
-  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication', '$scope'];
-  function availibilityModalCtrl($uibModalInstance, Authentication, $scope){
-		availibilityvm = this;
+  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','currUser', '$scope'];
+  function availibilityModalCtrl($uibModalInstance, Authentication,currUser, $scope){
+    availibilityvm = this;
+    availabilityvm.user = currUser;
 		availibilityvm.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     availibilityvm.hours = []; // list of intervals, eg: 12:00 am, 12:30 am, 1:00 am
     // Containers
@@ -50,7 +51,7 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    availibilityvm.docareer = function(){
+    availibilityvm.doAvailability = function(){
       //Update server information
     }
 

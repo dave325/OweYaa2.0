@@ -58,7 +58,11 @@
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){
       //Update server information
-      User.updateUser(modal,data)
+      User.updateUser(modal,data).then(function(data){
+        skillvm.close(skill.user);
+      },function(error){
+        console.log(data);
+      })
     }
 
     // Will Submit the form depending if everything is filled out

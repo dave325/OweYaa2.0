@@ -87,7 +87,7 @@ class ValidateUser extends Controller
      * @params Request $request
      * update/delete/add information into database based on user input
      */
-    public function updateInterview(Request $request){
+    public function updateJournal(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','interview', 'events','mentor');
             foreach($credentials['interview'] as $item){

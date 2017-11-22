@@ -96,8 +96,8 @@ class ValidateUser extends Controller
                         $interview->fill($item);
                     $interview->save();
             }*/
-            $event;
             foreach($credentials['events'] as $item){
+                $event = null;
                 try{
                     $event = TableModels\Event::findOrFail($item['eventid']);
                     $event->fill($item);

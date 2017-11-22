@@ -56,6 +56,11 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+    /**
+     * updateEducation
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
     public function updateEducation(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
 
@@ -83,8 +88,9 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+    
     /**
-     * updateInterview
+     * updateJournal
      * @params Request $request
      * update/delete/add information into database based on user input
      */
@@ -124,6 +130,7 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+
     /**
      * updateCareer
      * @params Request $request
@@ -137,7 +144,6 @@ class ValidateUser extends Controller
                     $career->fill($field);
                     $career->save();
             }
-
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

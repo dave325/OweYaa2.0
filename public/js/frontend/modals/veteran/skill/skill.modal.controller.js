@@ -1,52 +1,45 @@
 (function(){
-  skillModalCtrl.$inject = ['$uibModalInstance', 'Authentication'];
-  function skillModalCtrl($uibModalInstance, Authentication){
+  skillModalCtrl.$inject = ['$uibModalInstance', 'Authentication','currUser','User'];
+  function skillModalCtrl($uibModalInstance, Authentication,currUser,User){
     skillvm = this;
+    skillvm.user = currUser();
 
-    // Containers
-    skillvm.skills = [{
-      skill:"HTML",
-      amount:4
-    }];
-    skillvm.wants = [];
-    skillvm.languages = [];
-
-    skillvm.newSkill;
-    skillvm.newWant = "";
-    skillvm.newLanguage;
+    // add programming skills
+    skillvm.newSkill = {};
+    skillvm.newWant = {};
+    skillvm.newLanguage = {};
 
     // Add a new skill
     skillvm.addToSkills = function() {
-      skillvm.skills.push(skillvm.newSkill);
-      console.log(skillvm.newSkill);
-      skillvm.newSkill = null;
+      skillvm.user.skills.push(skillvm.newSkill);
+      skillvm.newSkill = {};
     }
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.wants.push(skillvm.newWant);
+      skillvm.user.wantedskill.push(skillvm.newWant);
       skillvm.newWant = "";
     }
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.languages.push(skillvm.newLanguage);
+      skillvm.user.languages.push(skillvm.newLanguage);
       skillvm.newLanguage = null;
     }
 
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
-      skillvm.skills.splice(index, 1);
+      skillvm.user.skills.splice(index, 1);
     }
 
     // Delete one of your wanted skills
     skillvm.deleteWant = function(index) {
-      skillvm.wants.splice(index, 1);
+      skillvm.user.wanted.skills.splice(index, 1);
     }
 
     // Delete one of the languages you know
     skillvm.deleteLanguage = function(index) {
-      skillvm.languages.splice(index, 1);
+      skillvm.user.languages.splice(index, 1);
     }
 
     // Allow editing
@@ -63,13 +56,14 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    skillvm.doskill = function(){
+    skillvm.doskill = function(modal,data){
       //Update server information
+      User.updateUser(modal,data)
     }
 
     // Will Submit the form depending if everything is filled out
-		skillvm.onSubmit = function(){
-			skillvm.doskill();
+		skillvm.onSubmit = function(modal,data){
+			skillvm.doskill(modal,data);
     }
   }
   angular.module('oweyaa')

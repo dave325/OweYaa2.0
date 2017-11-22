@@ -21,7 +21,7 @@ class Availability extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','dayofweek','starttime','endtime'];
+    protected $fillable = ['name','dayofweek','start_time','end_time'];
 
     /**
      * The attributes excluded from the model's JSON form.

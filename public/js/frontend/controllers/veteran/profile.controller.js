@@ -29,23 +29,6 @@
 					});
 			}
 		 }
-
-		$scope.careerModal = function() {
-			var cm = $uibModal.open({
-				templateUrl: '/js/frontend/modals/veteran/career/career.modal.view.html',
-				controller: 'careerModalCtrl',
-				controllerAs: 'careervm',
-				windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
-			});
-			$scope.openModalPopup = function () {
-				cm.result
-					.then(function (data) {
-					console.log(data);
-					},function (reason) {
-					console.log(reason);
-					});
-			};
-		}
 		
 		$scope.availibility = [];
 		$scope.availibilityModal = function() {

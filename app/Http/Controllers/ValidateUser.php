@@ -90,12 +90,16 @@ class ValidateUser extends Controller
     public function updateJournal(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','interviews', 'events','mentor');
-            /*
             foreach($credentials['interviews'] as $item){
-                    $interview = TableModels\Interview::find($item['interviewid']);
-                        $interview->fill($item);
+                try{
+                    $interview = TableModels\Interview::findOrFail($item['interviewid']);
+                    $interview->fill($item);
+                    $event->save();
+                }catch(\Exception $me){
+                    $interview = new TableModels\Interview($item);
                     $interview->save();
-            }*/
+                }
+            }
             foreach($credentials['events'] as $item){
                 try{
                     $event = TableModels\Event::findOrFail($item['eventid']);

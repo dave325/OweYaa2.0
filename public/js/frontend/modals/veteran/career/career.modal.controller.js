@@ -1,42 +1,19 @@
 (function(){
-  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication', '$scope'];
-  function careerModalCtrl($uibModalInstance, Authentication, $scope){
+  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope'];
+  function careerModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
     careervm = this;
     // Containers
-    careervm.prevCareer = [
-      {
-        empl: "",
-        contact:"",
-        to: "",
-        present: false
-      },
-      {
-        empl: "",
-        contact:"",
-        to: "",
-        present:false
-      }
-    ];
-    careervm.newFields = [];
-    careervm.hobbies = [];
+    careervm.user = CurrUser;
 
-    careervm.newPrevCareer = "";
-    careervm.newPrevEmpl = "";
+    careervm.newPrevCareer = {};
     careervm.newField = "";
     careervm.newHobby = "";
     careervm.relocate = "";
-    careervm.editMode = false;
 
     // Add a new career
     careervm.addToPrevCareer = function() {
-      careervm.prevCareer.push(careervm.newPrevCareer);
-      careervm.newPrevCareer = "";
-    }
-
-    // Add a new employer
-    careervm.addToPrevEmpl = function() {
-      careervm.prevEmpl.push(careervm.newPrevEmpl);
-      careervm.newPrevEmpl = "";
+      careervm.user.prev_career_fields.push(careervm.newPrevCareer);
+      careervm.newPrevCareer = {};
     }
 
     // Add a new field
@@ -55,12 +32,7 @@
     careervm.deletePrevCareer = function(index) {
       careervm.prevCareer.splice(index, 1);
     }
-
-    // Delete an employer
-    careervm.deletePrevEmpl = function(index) {
-      careervm.prevEmpl.splice(index, 1);
-    }
-
+    
     // Delete a field
     careervm.deleteNewField = function(index) {
       careervm.newFields.splice(index, 1);
@@ -69,10 +41,6 @@
     // Delete a hobby
     careervm.deleteHobby = function(index) {
       careervm.hobbies.splice(index, 1);
-    }
-
-    careervm.triggerEditMode = function() {
-      careervm.editMode = !careervm.editMode;
     }
 
     // The function that is call when a user cancels the opening of a modal
@@ -84,13 +52,18 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    careervm.docareer = function(){
+    careervm.docareer = function(modal,data){
       //Update server information
+      User.updateUser(modal,data).then(function(data){
+        careervm.close(careervm.user);
+      },function(error){
+        console.log(error);
+      });
     }
 
     // Will Submit the form depending if everything is filled out
 		careervm.onSubmit = function(){
-			careervm.docareer();
+			careervm.docareer(modal,data);
     }
     careervm.present = function(c){
       career.from = "Present";

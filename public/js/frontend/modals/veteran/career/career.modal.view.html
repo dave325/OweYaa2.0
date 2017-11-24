@@ -6,7 +6,7 @@
       <!-- Information regarding higher education -->
       <h3>Previous Career</h3>
       <div class="form-group" ng-repeat="career in careervm.user.prev_career_fields track by $index">
-        <div ng-if="career.company">
+        <div>
           <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
           <input ng-model="career.employer" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
         </div>

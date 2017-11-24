@@ -16,11 +16,11 @@
         </div>
         <div>
           <label form="career" form="prevTo{{$index}}">To: </label>
-          <input ng-model="career.start_date" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
+          <input ng-model="career.start_date | shortdate" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
         </div>
         <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>
-          <input ng-model="career.end_date" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
+          <input ng-model="career.end_date | shortdate" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
           <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" />
         </div>
       </div>

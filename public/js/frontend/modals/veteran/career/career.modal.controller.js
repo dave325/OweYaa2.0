@@ -6,7 +6,6 @@
     careervm.user = CurrUser;
 
     careervm.newPrevCareer = {};
-    careervm.newField = {};
     careervm.newHobby = {};
     careervm.relocate = {};
 
@@ -14,12 +13,6 @@
     careervm.addToPrevCareer = function() {
       careervm.user.prev_career_fields.push(careervm.newPrevCareer);
       careervm.newPrevCareer = {};
-    }
-
-    // Add a new field
-    careervm.addToNewFields = function() {
-      careervm.newFields.push(careervm.newField);
-      careervm.newField = {};
     }
 
     // Add a new hobby

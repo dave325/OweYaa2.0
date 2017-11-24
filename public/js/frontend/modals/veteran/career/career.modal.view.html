@@ -37,7 +37,7 @@
             </div><br />
             <ol ng-if="careervm.user.hobbies.length > 0">
               <li ng-repeat="field in careervm.user.hobbies track by $index">
-                <input type="text" ng-model="field" class="btn btn-success"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
+                <input type="text" ng-model="field.hobby" class="btn btn-success"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>
           </div>

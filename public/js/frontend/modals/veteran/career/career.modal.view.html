@@ -6,10 +6,9 @@
       <!-- Information regarding higher education -->
       <h3>Previous Career</h3>
       <div class="form-group" ng-repeat="career in careervm.user.prev_career_fields track by $index">
-        <div>
+        <div ng-if="career.company">
           <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
           <input ng-model="career.employer" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
-          <!-- <span ng-hide="educationvm.editMode">{{educationvm.school}}</span> -->
         </div>
         <div>
           <label form="career" for="prevContact{{$index}}">Contact: </label>
@@ -38,7 +37,6 @@
             </div><br />
             <ol ng-if="careervm.user.hobbies.length > 0">
               <li ng-repeat="field in careervm.user.hobbies track by $index">
-                <!-- <span ng-hide="educationvm.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field" class="btn btn-success"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>
@@ -50,15 +48,16 @@
       <div>
         <h3>Willing to relocate?</h3>
         <label form="relocate">Yes: </label>
-        <input type="radio" name="relocate" value="yes">
+        <input type="radio" name="relocate" ng-model="yes">
         <label form="relocate">No: </label>
-        <input type="radio" name="relocate" value="no">
+        <input type="radio" name="relocate" ng-model="no">
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
-          <button ng-click="careervm.close()" class="btn btn-success" type="submit">Close</button>
+          <button ng-click="careervm.close(careervm.user)" class="btn btn-success" type="submit">Close</button>
+          <button ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-success" type="submit">Save</button>          
         </div>
       </div>
     </div>

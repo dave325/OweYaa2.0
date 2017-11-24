@@ -6,9 +6,9 @@
     careervm.user = CurrUser;
 
     careervm.newPrevCareer = {};
-    careervm.newField = "";
-    careervm.newHobby = "";
-    careervm.relocate = "";
+    careervm.newField = {};
+    careervm.newHobby = {};
+    careervm.relocate = {};
 
     // Add a new career
     careervm.addToPrevCareer = function() {
@@ -19,20 +19,20 @@
     // Add a new field
     careervm.addToNewFields = function() {
       careervm.newFields.push(careervm.newField);
-      careervm.newField = "";
+      careervm.newField = {};
     }
 
     // Add a new hobby
     careervm.addToHobbies = function() {
       careervm.hobbies.push(careervm.newHobby);
-      careervm.newHobby = "";
+      careervm.newHobby = {};
     }
 
     // Delete a career
     careervm.deletePrevCareer = function(index) {
       careervm.prevCareer.splice(index, 1);
     }
-    
+
     // Delete a field
     careervm.deleteNewField = function(index) {
       careervm.newFields.splice(index, 1);
@@ -45,7 +45,7 @@
 
     // The function that is call when a user cancels the opening of a modal
 	  careervm.cancel = function(){
-	   $uibModalInstance.dismiss('cancel')
+	   $uibModalInstance.dismiss('cancel');
 	  }
     // The function that is call when the user closes the modal
 		careervm.close = function(result){
@@ -66,7 +66,7 @@
 			careervm.docareer(modal,data);
     }
     careervm.present = function(c){
-      career.from = "Present";
+      careervm.from = "Present";
       careervm.fromPresent = true;
     }
   }

@@ -7,7 +7,7 @@
         <div class="col-md-12">
           <!-- Information regarding higher journal -->
           <h3>Building Connections</h3>
-          <div class="form-group" ng-repeat="connect in journalvm.connections track by $index">
+          <div class="form-group" ng-repeat="connect in journalvm.user.interviews track by $index">
               <h3>Interview {{$index + 1}}</h3>
             <p>
                 <label form="journal" for="company{{$index}}">Company: </label>
@@ -35,7 +35,7 @@
        <div class="row col-md-12">
             <!-- Information regarding higher journal -->
             <h3>Events</h3>
-            <div class="form-group" ng-repeat="connect in journalvm.events track by $index">
+            <div class="form-group" ng-repeat="connect in journalvm.user.events track by $index">
                 <h3>Event {{$index + 1}}</h3>
                 <p>
                     <label form="journal" for="title{{$index}}">Company: </label>
@@ -77,7 +77,8 @@
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
-            <button ng-click="journalvm.close(journalvm)" class="btn btn-success">Close</button>
+            <button ng-click="journalvm.close(journalvm.user)" class="btn btn-success">Close</button>
+            <button ng-click="journalvm.onSubmit('journal',journalvm.user)" class="btn btn-primary">Save</button>
             </div>
         </div>
         </div>       

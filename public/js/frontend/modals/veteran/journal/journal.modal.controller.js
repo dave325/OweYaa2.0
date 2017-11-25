@@ -13,9 +13,9 @@
 			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
-    journalvm.dojournal = function(){
+    journalvm.dojournal = function(modal,data){
       //Update server information
-      User.updateUser()
+      User.updateUser(modal,data);
     }
 
     /*
@@ -27,8 +27,8 @@
       wrapper.append('<input ng-model="' + value + '_' + container + size + '" type="text" class="btn" ');
     }
     // Will Submit the form depending if everything is filled out
-		journalvm.onSubmit = function(){
-			journalvm.dojournal();
+		journalvm.onSubmit = function(modal,data){
+			journalvm.dojournal(modal,data);
     }
   }
   angular.module('oweyaa')

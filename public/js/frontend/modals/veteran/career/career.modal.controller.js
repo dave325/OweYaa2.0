@@ -17,13 +17,13 @@
 
     // Add a new hobby
     careervm.addToHobbies = function() {
-      careervm.hobbies.push(careervm.newHobby);
+      careervm.user.hobbies.push(careervm.newHobby);
       careervm.newHobby = {};
     }
 
     // Delete a career
     careervm.deletePrevCareer = function(index) {
-      careervm.prevCareer.splice(index, 1);
+      careervm.user.prevCareer.splice(index, 1);
     }
 
     // Delete a field
@@ -33,7 +33,7 @@
 
     // Delete a hobby
     careervm.deleteHobby = function(index) {
-      careervm.hobbies.splice(index, 1);
+      careervm.user.hobbies.splice(index, 1);
     }
 
     // The function that is call when a user cancels the opening of a modal

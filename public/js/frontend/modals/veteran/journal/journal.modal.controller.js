@@ -15,7 +15,11 @@
     // Will make a call to the server and php file
     journalvm.dojournal = function(modal,data){
       //Update server information
-      User.updateUser(modal,data);
+      User.updateUser(modal,data).then(function(data){
+       journalvm.close(journalvm.user); 
+      },function(error){
+        console.log(error);
+      });
     }
 
     /*

@@ -60,7 +60,7 @@
     educationvm.doEducation = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
-        portfoliovm.close(portfoliovm.user);
+        educationvm.close(educationvm.user);
       },function(data){
         console.log(data);
       });

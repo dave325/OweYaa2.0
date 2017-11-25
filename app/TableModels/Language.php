@@ -10,7 +10,7 @@ class Language extends Model{
      */
     protected $table = 'languages';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "langid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent

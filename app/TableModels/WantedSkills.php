@@ -10,7 +10,7 @@ class WantedSkill extends Model{
      */
     protected $table = 'wantedskill';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "skillid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent

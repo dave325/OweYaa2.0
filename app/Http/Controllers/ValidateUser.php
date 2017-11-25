@@ -160,9 +160,11 @@ class ValidateUser extends Controller
                 try{
                     $skill = TableModels\Skill::findOrFail($item['skillid']);
                     $skill->fill($item);
+                    $skill->name = $credentials['name'];
                     $skill->save();
                 }catch(ModelNotFoundException $me){
                     $skill = new TableModels\Skill($item);
+                    $skill->name = $credentials['name'];
                     $skill->save();
                 }
             }
@@ -170,9 +172,11 @@ class ValidateUser extends Controller
                 try{
                     $skill = TableModels\WantedSkill::findOrFail($item['skillid']);
                     $skill->fill($item);
+                    $skill->name = $credentials['name'];
                     $skill->save();
                 }catch(ModelNotFoundException $me){
                     $skill = new TableModels\SKill($item);
+                    $skill->name = $credentials['name'];
                     $skill->save();
                 }
             }
@@ -180,9 +184,11 @@ class ValidateUser extends Controller
                 try{
                     $language = TableModels\Language::findOrFail($item['langid']);
                     $language->fill($item);
+                    $language->name = $credentials['name'];
                     $language->save();
                 }catch(ModelNotFoundException $me){
                     $language = new TableModels\Language($item);
+                    $language->name = $credentials['name'];
                     $language->save();
                 }
             }

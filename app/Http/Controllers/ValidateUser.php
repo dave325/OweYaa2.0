@@ -175,7 +175,7 @@ class ValidateUser extends Controller
                     $skill->name = $credentials['contact_info']['name'];
                     $skill->save();
                 }catch(ModelNotFoundException $me){
-                    $skill = new TableModels\SKill($item);
+                    $skill = new TableModels\WantedSkill($item);
                     $skill->name = $credentials['contact_info']['name'];
                     $skill->save();
                 }

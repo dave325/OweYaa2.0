@@ -41,7 +41,7 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        $user = MilitaryUser::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'programmingSkills', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('name','=',$userCheck->name)->first();
+        $user = MilitaryUser::with('contactInfo','skill' , 'language', 'wantedSkill', 'availability', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'programmingSkills', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('name','=',$userCheck->name)->first();
        
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
@@ -120,8 +120,8 @@ class ValidateUser extends Controller
                 $mentor->fill($credentials['mentor']);
                 $mentor->save();
             }catch(\ModelNotFoundException $me){
-                $event = new TableModels\Mentor($credentials['mentor']);
-                $event->save();
+                $mentor = new TableModels\Mentor($credentials['mentor']);
+                $mentor->save();
             }
             return response()->json(true);
         }else{
@@ -145,6 +145,47 @@ class ValidateUser extends Controller
             return response()->json(true);
         }else{
             return response()->json(compact('user'));
+        }
+    }
+
+    /**
+     * updateJournal
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateSkill(Request $request){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info','skill','language','wanted_skill');
+            foreach($credentials['skill'] as $item){
+                try{
+                    $skill = TableModels\Skill::findOrFail($item['skillid']);
+                    $skill->fill($item);
+                    $skill->save();
+                }catch(\ModelNotFoundException $me){
+                    $skill = new TableModels\Skill($item);
+                    $skill->save();
+                }
+            }
+            foreach($credentials['wanted_skill'] as $item){
+                try{
+                    $skill = TableModels\WantedSkill::findOrFail($item['skillid']);
+                    $skill->fill($item);
+                    $skill->save();
+                }catch(\ModelNotFoundException $me){
+                    $skill = new TableModels\SKill($item);
+                    $skill->save();
+                }
+            }
+            foreach($credentials['language'] as $item){
+                try{
+                    $language = TableModels\Language::findOrFail($item['langid']);
+                    $language->fill($item);
+                    $language->save();
+                }catch(\ModelNotFoundException $me){
+                    $language = new TableModels\Language($item);
+                    $language->save();
+                }
+            }
         }
     }
 }

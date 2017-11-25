@@ -2,7 +2,7 @@
 namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class WantedSkills extends Model{
+class WantedSkill extends Model{
     /**
      * The table associated with the model.
      *

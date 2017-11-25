@@ -55,7 +55,7 @@
     }
 
     // Will Submit the form depending if everything is filled out
-		careervm.onSubmit = function(){
+		careervm.onSubmit = function(modal,data){
 			careervm.docareer(modal,data);
     }
     careervm.present = function(c){

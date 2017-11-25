@@ -21,7 +21,7 @@ class Language extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','language','rating'];
+    protected $fillable = ['langid','name','language','rating'];
 
     /**
      * The attributes excluded from the model's JSON form.

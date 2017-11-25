@@ -21,7 +21,7 @@ class Skill extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','skill','amount'];
+    protected $fillable = ['skillid','name','skill','amount'];
 
     /**
      * The attributes excluded from the model's JSON form.

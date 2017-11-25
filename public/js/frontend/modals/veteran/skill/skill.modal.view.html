@@ -40,7 +40,7 @@
             </div><br />
             <ol ng-if="skillvm.user.wanted_skills.length > 0">
                 <li ng-repeat="field in skillvm.user.wanted_skills track by $index">
-                    <input type="text" ng-model="field">
+                    <input type="text" ng-model="field.skill">
                     <button class="btn" type="button" ng-click="skillvm.deleteWant($index)">Delete</button>
                   </li>
             </ol>
@@ -63,8 +63,8 @@
           </div><br />
           <ol ng-if="skillvm.user.language.length > 0">
               <li ng-repeat="field in skillvm.user.language track by $index">
-                  <input type="text" ng-model="field.skill">
-                  <input type="text" ng-model="field.amount">
+                  <input type="text" ng-model="field.language">
+                  <input type="text" ng-model="field.rating">
                   <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteLanguage($index)"></span>
               </li>
           </ol>

@@ -1,6 +1,6 @@
 (function(){
-  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope'];
-  function careerModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
+  careerModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser','User', '$scope'];
+  function careerModalCtrl($uibModalInstance, Authentication,CurrUser,User, $scope){
     careervm = this;
     // Containers
     careervm.user = CurrUser;

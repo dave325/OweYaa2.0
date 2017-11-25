@@ -17,7 +17,7 @@
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.user.wanted_skill.push(skillvm.newWant);
+      skillvm.user.wanted_skills.push(skillvm.newWant);
       skillvm.newWant = "";
     }
 

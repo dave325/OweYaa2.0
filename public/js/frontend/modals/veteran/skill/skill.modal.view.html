@@ -35,13 +35,13 @@
             <p ng-show="skillvm.user.want.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
-              <input type="text" ng-model="skillvm.newWant" class="add-btn" />
+              <input type="text" ng-model="skillvm.newWant.skill" class="add-btn" />
               <button class="btn" ng-disabled="skillvm.wanted_skills.length == 9 || !skillvm.newWant" type="button" ng-click="skillvm.addToWants()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.wanted_skills.length > 0">
                 <li ng-repeat="field in skillvm.user.wanted_skills track by $index">
                     <input type="text" ng-model="field.skill">
-                    <button class="btn" type="button" ng-click="skillvm.deleteWant($index)">Delete</button>
+                    <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteWant($index)">Delete</span>
                   </li>
             </ol>
           </div>
@@ -74,7 +74,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
-          <button class="btn btn-success" ng-click="skillvm.close()" type="submit">Close</button>
+          <button class="btn btn-success" ng-click="skillvm.close(skillvm.user)" type="submit">Close</button>
           <button class="btn btn-success" ng-click="skillvm.onSubmit('skill',skillvm.user)" type="submit">Close</button>
         </div>
       </div>

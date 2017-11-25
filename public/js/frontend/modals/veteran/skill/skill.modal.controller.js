@@ -25,7 +25,7 @@
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.newLanguagel.langid = "david" + (skillvm.user.language.length + 1);
+      skillvm.newLanguage.langid = "david" + (skillvm.user.language.length + 1);
       skillvm.user.language.push(skillvm.newLanguage);
       skillvm.newLanguage = null;
     }

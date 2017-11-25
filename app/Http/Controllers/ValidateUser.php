@@ -155,7 +155,7 @@ class ValidateUser extends Controller
      */
     public function updateSkill(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
-            $credentials = $request->only('contact_info','skill','language','wanted_skill');
+            $credentials = $request->only('contact_info','skill','language','wanted_skills');
             foreach($credentials['skill'] as $item){
                 try{
                     $skill = TableModels\Skill::findOrFail($item['skillid']);

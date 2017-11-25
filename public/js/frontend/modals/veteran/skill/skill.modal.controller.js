@@ -29,17 +29,17 @@
 
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
-      skillvm.user.skills.splice(index, 1);
+      skillvm.user.skill.splice(index, 1);
     }
 
     // Delete one of your wanted skills
     skillvm.deleteWant = function(index) {
-      skillvm.user.wanted.skills.splice(index, 1);
+      skillvm.user.wanted_skills.splice(index, 1);
     }
 
     // Delete one of the languages you know
     skillvm.deleteLanguage = function(index) {
-      skillvm.user.languages.splice(index, 1);
+      skillvm.user.language.splice(index, 1);
     }
 
     // The function that is call when a user cancels the opening of a modal

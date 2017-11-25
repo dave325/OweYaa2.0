@@ -100,7 +100,7 @@ class ValidateUser extends Controller
                     $interview = TableModels\Interview::findOrFail($item['interviewid']);
                     $interview->fill($item);
                     $interview->save();
-                }catch(\ModelNotFoundException $me){
+                }catch(ModelNotFoundException $me){
                     $interview = new TableModels\Interview($item);
                     $interview->save();
                 }

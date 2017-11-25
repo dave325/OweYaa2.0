@@ -149,7 +149,7 @@ class ValidateUser extends Controller
     }
 
     /**
-     * updateJournal
+     * updateSkill
      * @params Request $request
      * update/delete/add information into database based on user input
      */
@@ -192,6 +192,9 @@ class ValidateUser extends Controller
                     $language->save();
                 }
             }
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
         }
     }
 }

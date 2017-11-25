@@ -17,13 +17,13 @@
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.user.wantedskill.push(skillvm.newWant);
+      skillvm.user.wanted_skill.push(skillvm.newWant);
       skillvm.newWant = "";
     }
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.user.languages.push(skillvm.newLanguage);
+      skillvm.user.language.push(skillvm.newLanguage);
       skillvm.newLanguage = null;
     }
 

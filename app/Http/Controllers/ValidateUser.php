@@ -100,7 +100,7 @@ class ValidateUser extends Controller
                     $interview = TableModels\Interview::findOrFail($item['interviewid']);
                     $interview->fill($item);
                     $interview->save();
-                }catch(ModelNotFoundException $me){
+                }catch(\ModelNotFoundException $me){
                     $interview = new TableModels\Interview($item);
                     $interview->save();
                 }
@@ -161,7 +161,7 @@ class ValidateUser extends Controller
                     $skill = TableModels\Skill::findOrFail($item['skillid']);
                     $skill->fill($item);
                     $skill->save();
-                }catch(\ModelNotFoundException $me){
+                }catch(ModelNotFoundException $me){
                     $skill = new TableModels\Skill($item);
                     $skill->save();
                 }

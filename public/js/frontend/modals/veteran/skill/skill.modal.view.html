@@ -19,7 +19,7 @@
                 <li ng-repeat="field in skillvm.user.skill track by $index">
                     <input type="text" ng-model="field.skill">
                     <input type="text" ng-model="field.amount">
-                    <span class="glyphicon glyphicon-remove" ng-click="skillvm.user.deleteSkill($index)"></span>
+                    <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteSkill($index)"></span>
                   </li>
             </ol>
           </div>
@@ -41,7 +41,7 @@
             <ol ng-if="skillvm.user.wanted_skills.length > 0">
                 <li ng-repeat="field in skillvm.user.wanted_skills track by $index">
                     <input type="text" ng-model="field.skill">
-                    <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteWant($index)">Delete</span>
+                    <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteWant($index)"></span>
                   </li>
             </ol>
           </div>

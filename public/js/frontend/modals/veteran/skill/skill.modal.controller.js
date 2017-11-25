@@ -2,7 +2,7 @@
   skillModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser','User'];
   function skillModalCtrl($uibModalInstance, Authentication,CurrUser,User){
     skillvm = this;
-    skillvm.user = CurrUser();
+    skillvm.user = CurrUser;
 
     // add programming skills
     skillvm.newSkill = {};

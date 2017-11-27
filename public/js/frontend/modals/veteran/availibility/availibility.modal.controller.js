@@ -3,8 +3,6 @@
   function availibilityModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
     availibilityvm = this;
     availibilityvm.user = CurrUser;
-		availibilityvm.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    availibilityvm.hours = []; // list of intervals, eg: 12:00 am, 12:30 am, 1:00 am
     // Containers
     availibilityvm.schedule = [];
 
@@ -29,16 +27,16 @@
     for (var j = 0; j < availibilityvm.weekdays.length; j++) {
         // Pre-populating object literal with working hours 9 am to 5 pm everyday that will be sent to server
         var date = new Date();
-        var begin_time = date.setHours(9);
-        begin_time = date.setMinutes(0);
-        begin_time = date.setSeconds(0);
+        var start_time = date.setHours(9);
+        start = date.setMinutes(0);
+        start = date.setSeconds(0);
         var date2 = new Date();
         date2.setMinutes(0);
         date2.setSeconds(0);
         var end_time = date2.setHours(5);
         availibilityvm.schedule.push({
             day: availibilityvm.weekdays[j],
-            begin_time: begin_time,
+            start: begin_time,
             end_time: end_time
         })
     }

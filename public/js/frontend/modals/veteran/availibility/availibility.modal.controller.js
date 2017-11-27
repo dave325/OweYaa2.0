@@ -2,7 +2,7 @@
   availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope'];
   function availibilityModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
     availibilityvm = this;
-    availabilityvm.user = currUser;
+    availibilityvm.user = currUser;
 		availibilityvm.weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     availibilityvm.hours = []; // list of intervals, eg: 12:00 am, 12:30 am, 1:00 am
     // Containers

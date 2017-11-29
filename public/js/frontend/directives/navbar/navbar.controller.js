@@ -29,7 +29,7 @@
   				templateUrl: '/js/frontend/modals/home/login/login.modal.view.html',
   				controller: 'loginModalCtrl',
   				controllerAs: click + 'vm',
-          windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal"
+          windowClass:"col-xs-12 col-md-4 col-md-offset-4 vetModal"
       });
       /**
        * Returns the modal 

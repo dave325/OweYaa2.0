@@ -10,7 +10,7 @@
       <p class="text-center">Login Company</p>
     </div>
   </div>
-  <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck">
+  <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12">
     <p ng-show="loginvm.formError">{{loginvm.formError}}</p>
     <h2 class="text-center">{{loginvm.displayFormTitle(loginvm.type)}}</h2>
     <div class="form-group">

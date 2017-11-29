@@ -11,16 +11,10 @@
 
     for (var i = 0; i < 24; i++) {
         // push interval of times at every half hour
-        var temp_date = new Date();
-        temp_date.setHours(i);
-        temp_date.setMinutes(0);
-        temp_date.setSeconds(0);
+        var temp_date = i + ": " + "00";
         availibilityvm.hours.push(temp_date);
 
-        var temp_date2 = new Date();
-        temp_date2.setHours(i);
-        temp_date2.setMinutes(30);
-        temp_date2.setSeconds(0);
+        var temp_date2 = i + ": " + "30";
         availibilityvm.hours.push(temp_date2);
     }
 

@@ -4,7 +4,6 @@
     availibilityvm = this;
     availibilityvm.user = CurrUser;
     // Containers
-    availibilityvm.schedule = [];
 
 		availibilityvm.start_time = new Date(), availibilityvm.start_time.setHours(9), availibilityvm.start_time.setMinutes(0), availibilityvm.start_time.setSeconds(0);
     availibilityvm.end_time = new Date(), availibilityvm.end_time.setHours(9), availibilityvm.end_time.setMinutes(0), availibilityvm.end_time.setSeconds(0);
@@ -24,22 +23,6 @@
         availibilityvm.hours.push(temp_date2);
     }
 
-    for (var j = 0; j < availibilityvm.weekdays.length; j++) {
-        // Pre-populating object literal with working hours 9 am to 5 pm everyday that will be sent to server
-        var date = new Date();
-        var start_time = date.setHours(9);
-        start = date.setMinutes(0);
-        start = date.setSeconds(0);
-        var date2 = new Date();
-        date2.setMinutes(0);
-        date2.setSeconds(0);
-        var end_time = date2.setHours(5);
-        availibilityvm.schedule.push({
-            day: availibilityvm.weekdays[j],
-            start: begin_time,
-            end_time: end_time
-        })
-    }
     // The function that is call when a user cancels the opening of a modal
 	  availibilityvm.cancel = function(){
 	   $uibModalInstance.dismiss('cancel')

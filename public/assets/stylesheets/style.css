@@ -642,8 +642,12 @@ Section 7.1 Login Modal
 }
 
 #loginModal p {
-	color:#blue;
+	color:blue;
 	cursor:pointer;
+}
+
+.login .modal-dialog{
+	width:100%;
 }
 
 #loginModal p:hover{

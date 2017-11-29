@@ -31,7 +31,7 @@
   				controllerAs: click + 'vm',
           windowClass:"col-xs-12 col-md-5 col-md-offset-3 vetModal",
           windowTopClass:"col-xs-12",
-          backdropClass:"col-xs-12"
+          openedClass:"col-xs-12"
       });
       /**
        * Returns the modal 

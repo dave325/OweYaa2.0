@@ -6,9 +6,6 @@
     // Containers
     availibilityvm.hours = [];
 
-		availibilityvm.start_time = new Date(), availibilityvm.start_time.setHours(9), availibilityvm.start_time.setMinutes(0), availibilityvm.start_time.setSeconds(0);
-    availibilityvm.end_time = new Date(), availibilityvm.end_time.setHours(9), availibilityvm.end_time.setMinutes(0), availibilityvm.end_time.setSeconds(0);
-
     for (var i = 0; i < 24; i++) {
         // push interval of times at every half hour
         var temp_date = i + ": " + "00";

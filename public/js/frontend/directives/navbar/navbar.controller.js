@@ -29,7 +29,8 @@
   				templateUrl: '/js/frontend/modals/home/login/login.modal.view.html',
   				controller: 'loginModalCtrl',
   				controllerAs: click + 'vm',
-          windowClass:"col-xs-12 col-md-5 col-md-offset-3 vetModal"
+          windowClass:"col-xs-12 col-md-5 col-md-offset-3 vetModal",
+          windowTopClass:"col-xs-12"
       });
       /**
        * Returns the modal 

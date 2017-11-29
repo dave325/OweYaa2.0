@@ -4,6 +4,7 @@
     availibilityvm = this;
     availibilityvm.user = CurrUser;
     // Containers
+    availibilityvm.hours = [];
 
 		availibilityvm.start_time = new Date(), availibilityvm.start_time.setHours(9), availibilityvm.start_time.setMinutes(0), availibilityvm.start_time.setSeconds(0);
     availibilityvm.end_time = new Date(), availibilityvm.end_time.setHours(9), availibilityvm.end_time.setMinutes(0), availibilityvm.end_time.setSeconds(0);

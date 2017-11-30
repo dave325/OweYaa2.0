@@ -11,7 +11,7 @@
         var temp_date = i + ":" + "00:00";
         availibilityvm.hours.push(temp_date);
 
-        var temp_date2 = i + ": " + "30:00";
+        var temp_date2 = i + ":" + "30:00";
         availibilityvm.hours.push(temp_date2);
     }
 

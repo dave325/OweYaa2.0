@@ -5,8 +5,8 @@
       <div class="col-md-12">
       <!-- Information regarding higher education -->
       <h3>Availible worktimes</h3>
-      <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}{{time.start_time}}
-          <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time"><option></option></select>-
+      <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}
+          <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time"></select>-
           <select required="true" name="closeTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.end_time" ng-change="update(time.end_time, $index, 2)"></select>
         </div>
     <div class="row">

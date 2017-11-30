@@ -8,7 +8,7 @@
 
     for (var i = 0; i < 24; i++) {
         // push interval of times at every half hour
-        var temp_date = i + ": " + "00:00";
+        var temp_date = i + ":" + "00:00";
         availibilityvm.hours.push(temp_date);
 
         var temp_date2 = i + ": " + "30:00";

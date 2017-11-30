@@ -188,7 +188,9 @@
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('availibility')"></span></h2>
                 <div class="col-xs-12" ng-repeat="day in user.availability">
-                  <p>{{day.dayofweek}} : {{day.starttime}} - {{day.endtime}}</p>
+                  <div ng-if="day.start_time != '0:00:00' && day.end_time != '0:00:00'">
+                    <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
+                  </div>
                 </div>
               </div> 
           </div>

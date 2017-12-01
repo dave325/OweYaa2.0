@@ -11,7 +11,7 @@ class Bootcamp extends Model{
      */
     protected $table = 'bootcamps';
     // Set primary key
-    protected $primaryKey = 'bootcamp';
+    protected $primaryKey = 'bootcampid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent

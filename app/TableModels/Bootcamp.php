@@ -11,7 +11,7 @@ class Bootcamp extends Model{
      */
     protected $table = 'bootcamps';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'bootcamp';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -22,7 +22,7 @@ class Bootcamp extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','bootcamp'];
+    protected $fillable = ['name','bootcamp','bootcamp'];
 
     /**
      * The attributes excluded from the model's JSON form.

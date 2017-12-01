@@ -69,13 +69,13 @@ class ValidateUser extends Controller
             $delete = array();
             foreach($credentials['bootcamp'] as $item){
                 if($bootcamp['delete']){
-                    array_push($item['bootcampid']);
+                    array_push($delete,$item['bootcampid']);
                    //TableModels\Bootcamp::destroy($item['bootcampid']);
                 }else{
                     $bootcampInsert = array(
                         'bootcampid' => $item['itemid'],
                         'bootcamp' => $item['bootcamp'],
-                        'name' => $item['name']
+                        'name' => $credentials['contact_info']['name']
                     );
                     try{
                         $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
@@ -87,6 +87,10 @@ class ValidateUser extends Controller
                     }
                 }
             }
+            TableModels\Bootcamp::destroy($delete);
+            /*
+            unset($destroy);
+            $destroy = array();
             foreach($credentials['course'] as $course){
                 if($course['delete']){
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->delete();   
@@ -94,6 +98,7 @@ class ValidateUser extends Controller
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
                 }
             }
+            */
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

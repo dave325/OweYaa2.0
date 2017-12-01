@@ -68,7 +68,7 @@ class ValidateUser extends Controller
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
             $delete = array();
             foreach($credentials['bootcamp'] as $item){
-                if($bootcamp['delete']){
+                if($item['delete']){
                     array_push($delete,$item['bootcampid']);
                    //TableModels\Bootcamp::destroy($item['bootcampid']);
                 }else{

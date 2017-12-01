@@ -22,7 +22,7 @@ class Bootcamp extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','bootcamp','bootcamp'];
+    protected $fillable = ['name','bootcamp','bootcampid'];
 
     /**
      * The attributes excluded from the model's JSON form.

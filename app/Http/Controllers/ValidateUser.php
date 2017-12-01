@@ -87,6 +87,7 @@ class ValidateUser extends Controller
                     }
                 }
             }
+            return response()->json($delete);
             TableModels\Bootcamp::destroy($delete);
             /*
             unset($destroy);

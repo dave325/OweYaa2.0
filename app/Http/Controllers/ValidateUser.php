@@ -66,12 +66,25 @@ class ValidateUser extends Controller
 
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
-            /*
-            foreach($credentials['bootcamp'] as $bootcamp){
+            $delete = array();
+            foreach($credentials['bootcamp'] as $item){
                 if($bootcamp['delete']){
-                    TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->delete();   
-                }else if ($bootcamp['update']){
-                    TableModels\Bootcamp::where('name', '=', $credentials['contact_info']['name'])->where("bootcamp", "=" ,$bootcamp['bootcamp'])->updateOrCreate(['bootcamp' =>$bootcamp['updatedCamp']]);
+                    array_push($item['bootcampid']);
+                   //TableModels\Bootcamp::destroy($item['bootcampid']);
+                }else{
+                    $bootcampInsert = array(
+                        'bootcampid' => $item['itemid'],
+                        'bootcamp' => $item['bootcamp'],
+                        'name' => $item['name']
+                    );
+                    try{
+                        $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
+                        $bootcamp->fill($item);
+                        $bootcamp->save();
+                    }catch(\ModelNotFoundException $me){
+                        $bootcamp = new TableModels\Bootcamp($bootcampInsert);
+                        $bootcamp->save();
+                    }
                 }
             }
             foreach($credentials['course'] as $course){
@@ -80,7 +93,7 @@ class ValidateUser extends Controller
                 }else{
                     TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
                 }
-            }*/
+            }
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

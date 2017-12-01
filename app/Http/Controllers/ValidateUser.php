@@ -73,7 +73,7 @@ class ValidateUser extends Controller
                    //TableModels\Bootcamp::destroy($item['bootcampid']);
                 }else{
                     $bootcampInsert = array(
-                        'bootcampid' => $item['itemid'],
+                        'bootcampid' => $item['bootcampid'],
                         'bootcamp' => $item['bootcamp'],
                         'name' => $credentials['contact_info']['name']
                     );

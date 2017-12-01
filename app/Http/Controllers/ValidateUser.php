@@ -79,7 +79,7 @@ class ValidateUser extends Controller
                     );
                     try{
                         $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
-                        $bootcamp->fill($item);
+                        $bootcamp->fill($bootcampInsert);
                         $bootcamp->save();
                     }catch(ModelNotFoundException $me){
                         $bootcamp = new TableModels\Bootcamp($bootcampInsert);

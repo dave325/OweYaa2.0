@@ -67,38 +67,81 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
             $delete = array();
+            $insert = array();
             foreach($credentials['bootcamp'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['bootcampid']);
-                   //TableModels\Bootcamp::destroy($item['bootcampid']);
                 }else{
-                    $bootcampInsert = array(
+                    $insert= array(
                         'bootcampid' => $item['bootcampid'],
                         'bootcamp' => $item['bootcamp'],
                         'name' => $credentials['contact_info']['name']
                     );
                     try{
                         $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
-                        $bootcamp->fill($bootcampInsert);
+                        $bootcamp->fill($insert);
                         $bootcamp->save();
                     }catch(ModelNotFoundException $me){
-                        $bootcamp = new TableModels\Bootcamp($bootcampInsert);
+                        $bootcamp = new TableModels\Bootcamp($insert);
                         $bootcamp->save();
                     }
                 }
             }
-            TableModels\Bootcamp::destroy($delete);
-            /*
-            unset($destroy);
-            $destroy = array();
-            foreach($credentials['course'] as $course){
-                if($course['delete']){
-                    TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->delete();   
+            if(isset($delete)){
+                TableModels\Bootcamp::destroy($delete);
+            }
+            unset($destroy, $insert);
+            $delete = array();
+            $insert = array();
+            foreach($credentials['course'] as $item){
+                if($item['delete']){
+                    array_push($delete,$item['courseid']);
                 }else{
-                    TableModels\Course::where('name', '=', $credentials['contact_info']['name'])->where("course", "=" ,$bootcamp['course'])->update(['course' =>$bootcamp['updatedCourse']]);
+                    $insert = array(
+                        'courseid' => $item['courseid'],
+                        'course' => $item['course'],
+                        'name' => $credentials['contact_info']['name'],
+                        'completed' => $item['completed']
+                    );
+                    try{
+                        $course = TableModels\Course::findOrFail($item['courseid']);
+                        $course->fill($insert);
+                        $course->save();
+                    }catch(ModelNotFoundException $me){
+                        $course = new TableModels\Course($insert);
+                        $course->save();
+                    }
                 }
             }
-            */
+            if(isset($delete)){
+                TableModels\Course::destroy($delete);
+            }
+            unset($delete,$insert);
+            $delete = array();
+            $insert = array();
+            foreach($credentials['certification'] as $item){
+                if($item['delete']){
+                    array_push($delete,$item['certid']);
+                }else{
+                    $insert = array(
+                        'certid' => $item['certid'],
+                        'certification' => $item['certification'],
+                        'name' => $credentials['contact_info']['name']
+                    );
+                    try{
+                        $course = TableModels\Certification::findOrFail($item['certid']);
+                        $course->fill($insert);
+                        $course->save();
+                    }catch(ModelNotFoundException $me){
+                        $course = new TableModels\Certification($insert);
+                        $course->save();
+                    }
+                }
+            }
+            if(isset($delete)){
+                TableModels\Course::destroy($delete);
+            }
+            unset($delete,$insert);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

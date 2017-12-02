@@ -11,7 +11,7 @@ class Course extends Model{
      */
     protected $table = 'courses';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'courseid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -22,7 +22,7 @@ class Course extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','course','completed'];
+    protected $fillable = ['name','course','completed', 'courseid'];
 
     /**
      * The attributes excluded from the model's JSON form.

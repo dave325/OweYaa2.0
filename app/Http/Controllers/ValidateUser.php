@@ -119,7 +119,7 @@ class ValidateUser extends Controller
             unset($delete,$insert);
             $delete = array();
             $insert = array();
-            foreach($credentials['certification'] as $item){
+            foreach($credentials['certifications'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['certid']);
                 }else{
@@ -198,6 +198,7 @@ class ValidateUser extends Controller
     public function updateCareer(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
+            
             foreach($credentials['prev_career_fields'] as $field){
                     $career = TableModels\PreviousCareerField::find($field['careerid']);
                     $career->fill($field);

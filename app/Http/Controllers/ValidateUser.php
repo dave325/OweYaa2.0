@@ -156,6 +156,33 @@ class ValidateUser extends Controller
     public function updateJournal(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','interviews', 'events','mentor');
+            $delete = array();
+            $insert = array();
+            foreach($credentials['interviews'] as $item){
+                if($item['delete']){
+                    array_push($delete,$item['interviewid']);
+                }else{
+                    $insert= array(
+                        'interviewid' => $item['interviewid'],
+                        'company' => $item['company'],
+                        'data' => $item['date'],
+                        'contact' => $item['contact'],
+                        'notes' => $item['notes'],
+                        'name' => $credentials['contact_info']['name']
+                    );
+                    try{
+                        $bootcamp = TableModels\Bootcamp::findOrFail($item['interviewid']);
+                        $bootcamp->fill($insert);
+                        $bootcamp->save();
+                    }catch(ModelNotFoundException $me){
+                        $bootcamp = new TableModels\Bootcamp($insert);
+                        $bootcamp->save();
+                    }
+                }
+            }
+            if(isset($delete)){
+                TableModels\Bootcamp::destroy($delete);
+            }
             foreach($credentials['interviews'] as $item){
                 try{
                     $interview = TableModels\Interview::findOrFail($item['interviewid']);

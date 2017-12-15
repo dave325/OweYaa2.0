@@ -16,7 +16,7 @@
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" minlength="1" required="required" name="newSkillSkill"  />
               <label>Rating(1-5): </label>
               <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
-              <button class="btn" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
+              <button ng-class="{active:!skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid}" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.skill.length > 0">
                 <li ng-repeat="field in skillvm.user.skill track by $index" class="col-xs-12 col-md-5">

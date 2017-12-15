@@ -681,6 +681,11 @@ Section 7.2 Other Modals
     text-align: center;
 }
 
+#skillModal .form-group ol .active{
+	background-color:rgb(247,159,75);
+	border:1px solid rgb(211,211,211);
+}
+
 #socialModal {
 	background-color:#FFF;
 }

@@ -34,12 +34,13 @@
             <p ng-show="careervm.user.hobbies.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
+              <label>Interests/Hobbies</label>
               <input type="text" ng-model="careervm.newHobby.hobby" class="add-btn" />
-              <button class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
+              <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]"  class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="careervm.user.hobbies.length > 0">
               <li ng-repeat="field in careervm.user.hobbies track by $index">
-                <input type="text" ng-model="field.hobby" class="btn btn-success"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
+                <input type="text" ng-model="field.hobby" class=" col-xs-12 col-md-4"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>
           </div>
@@ -58,7 +59,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
-          <button ng-click="careervm.close(careervm.user)" class="btn btn-success" type="submit">Close</button>
+          <button ng-click="careervm.cancel()" class="btn btn-success" type="submit">Close</button>
           <button ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-success" type="submit">Save</button>          
         </div>
       </div>

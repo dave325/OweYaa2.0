@@ -679,12 +679,12 @@ Skill Modal
 #skillModal {
 	background-color:#FFF;
 }
-#skillModal .form-group ol input{
+.form-group ol input{
 	height: 50px;
     text-align: center;
 }
 
-#skillModal .form-group .addEntry{
+.form-group .addEntry{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
 }

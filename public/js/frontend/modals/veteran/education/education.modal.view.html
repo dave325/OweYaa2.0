@@ -1,12 +1,13 @@
 <div id="educationModal">
   <span class="glyphicon glyphicon-remove pull-right" ng-click="educationvm.cancel()"></span>
   <h2>Education Information</h2>
-  <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
+  <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
   <form novalidate method="post" name="education" ng-submit="submit()">
     <div class="row">
       <div class="col-md-12">
         <!-- Information regarding higher education -->
         <h3>Higher Education</h3>
+        <p>Enter any information you have regarding your education!</p>
         <div class="form-group">
           <p>
               <label form="education" for="school">School: </label>
@@ -32,6 +33,7 @@
         <div class="form-group">
           <div>
             <h4>Career Focus Area:</h4>
+            <p>Describe your specific career focus!</p>
             <p>
               <label form="education" for="focusArea">Focus Area: </label>
               <input ng-model="educationvm.user.educaiton.focusArea" type="text" class="form-control" name="focusArea" id="graduation"/>
@@ -44,6 +46,7 @@
         <div class="form-group">
           <div>
             <h4>Bootcamps:</h4>
+            <p>Please indicate any bootcamps you have attended in the past! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.bootcamp.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
@@ -64,6 +67,7 @@
         <div class="form-group">
           <div>
             <h4>Courses:</h4>
+            <p>Please indicate any courses you have taken in the past! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.course.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
@@ -84,6 +88,7 @@
         <div class="form-group">
           <div>
             <h4>Certifications:</h4>
+            <p>Please indicate any certifications you currently have! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.certification.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>

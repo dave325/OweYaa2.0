@@ -5,6 +5,7 @@
       <div class="col-md-12">
       <!-- Information regarding higher education -->
       <h3>Previous Career</h3>
+      <p>Please indicate your past work experiences (Up to 2)!</p>
       <div class="form-group" ng-repeat="career in careervm.user.prev_career_fields track by $index">
         <div>
           <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
@@ -29,6 +30,7 @@
         <div class="form-group">
           <div>
             <h3>Interests / Hobbies:</h3>
+            <p>Please indicate any interests or hobbies you have! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="careervm.user.hobbies.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>

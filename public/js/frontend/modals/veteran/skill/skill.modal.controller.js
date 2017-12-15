@@ -51,7 +51,7 @@
 	  }
     // The function that is call when the user closes the modal
 		skillvm.close = function(result){
-			$uibModalInstance.close(result);
+			$uibModalInstance.cancel();
 		}
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){

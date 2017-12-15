@@ -8,17 +8,20 @@
         <div class="form-group">
           <div>
             <h3>Programming Skills:</h3>
+            <p>Please include up to 10 programming skills.</p>
             <p ng-show="skillvm.user.skill.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
+              <label>Skill:</label>
               <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" minlength="1" required="required" name="newSkillSkill"  />
+              <label>Rating: </label>
               <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
               <button class="btn" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.skill.length > 0">
-                <li ng-repeat="field in skillvm.user.skill track by $index">
-                    <input type="text" ng-model="field.skill">
-                    <input type="text" ng-model="field.amount">
+                <li ng-repeat="field in skillvm.user.skill track by $index" class="col-xs-12 col-md-6">
+                    <input type="text" ng-model="field.skill" class="col-xs-12 col-md-6">
+                    <input type="number" ng-model="field.amount" class="col-xs-12 col-md-2 col-md-offset-1" max="5" min="1">
                     <p ng-model="field.skillsid"></p>
                     <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteSkill($index)"></span>
                   </li>

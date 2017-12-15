@@ -676,6 +676,10 @@ Section 7.2 Other Modals
 #skillModal {
 	background-color:#FFF;
 }
+#skillModal .form-group ol input{
+	height: 50px;
+    text-align: center;
+}
 
 #socialModal {
 	background-color:#FFF;

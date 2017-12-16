@@ -395,6 +395,9 @@ Section 5.2: Modal styles
 
 .form-group .glyphicon-remove{
 	color:red;
+	position: absolute;
+	top:0px;
+	right:0px;
 }
 
 .form-group ol, .skillsModal{

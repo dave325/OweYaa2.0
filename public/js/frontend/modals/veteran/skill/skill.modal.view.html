@@ -11,11 +11,11 @@
             <p>Please include up to 10 programming skills. Include the skill and your skill level ranging from 1-5</p>
             <p ng-show="skillvm.user.skill.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
-            <div>
-              <label>Skill:</label>
-              <input type="text" ng-model="skillvm.newSkill.skill" class="add-btn" minlength="1" required="required" name="newSkillSkill"  />
-              <label>Rating(1-5): </label>
-              <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="add-btn" />
+            <div class="row">
+              <label class="col-md-2">Skill:</label>
+              <input type="text" ng-model="skillvm.newSkill.skill" class="col-md-5" minlength="1" required="required" name="newSkillSkill"  />
+              <label class="col-md-2">Rating(1-5): </label>
+              <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="col-md-3" />
               <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.skill.length > 0">

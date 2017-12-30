@@ -36,10 +36,10 @@
             <div>
               <label>Interests/Hobbies</label>
               <input type="text" ng-model="careervm.newHobby.hobby" class="add-btn" />
-              <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]"  class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
+              <button ng-class="[{'addEntry': careervm.newHobby.hobby}]" class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
             </div><br />
             <ol ng-if="careervm.user.hobbies.length > 0">
-              <li ng-repeat="field in careervm.user.hobbies track by $index" class="col-xs-12 col-md-4">
+              <li ng-repeat="field in careervm.user.hobbies track by $index" class="col-xs-12 col-md-5">
                 <input type="text" ng-model="field.hobby" class="form-control"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>

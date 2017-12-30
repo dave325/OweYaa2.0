@@ -37,7 +37,7 @@
 
     // Delete one of your wanted skills
     skillvm.deleteWant = function(index) {
-      skillvm.user.wanted_skill.splice(index, 1);
+      skillvm.user.wanted_skills.splice(index, 1);
     }
 
     // Delete one of the languages you know

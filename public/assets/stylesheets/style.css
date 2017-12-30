@@ -396,9 +396,9 @@ Section 5.2: Modal styles
 .form-group .glyphicon-remove{
 	color:red;
 	position: absolute;
-	top:-10px;
-	right:5px;
-	font-size:1.5em;
+	top:-5px;
+	right:10px;
+	font-size:1em;
 }
 
 .form-group ol, .skillsModal{
@@ -413,20 +413,12 @@ Section 5.2: Modal styles
 .form-group ol input{
 	background-color:rgb(211,211,211);
 	border:1px solid rgb(247,159,75);
-	font-size:1.5em;
-}
-
-.form-group ol input:hover{
-	background-color:rgb(211,211,211);
-	border:1px solid rgb(247,159,75);
-	font-size:1.5em;
-	transition: 1s all;
+	font-size:1em;
 }
 
 .form-group ol input:hover, .form-group ol input:focus{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
-	font-size:1.5em;
 }
 
 .btn-add{
@@ -698,7 +690,7 @@ Skill Modal
 	background-color:#FFF;
 }
 .form-group ol input{
-	height: 50px;
+	height: 30px;
     text-align: center;
 }
 

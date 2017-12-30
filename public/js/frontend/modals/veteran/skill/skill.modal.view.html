@@ -20,8 +20,8 @@
             </div><br />
             <ol ng-if="skillvm.user.skill.length > 0">
                 <li ng-repeat="field in skillvm.user.skill track by $index" class="col-xs-12 col-md-5">
-                    <input type="text" ng-model="field.skill" class="col-xs-12 col-md-6 col-md-offset-3">
-                    <input type="number" ng-model="field.amount" class="col-xs-12 col-md-2 col-md-offset-1" max="5" min="1">
+                    <input type="text" ng-model="field.skill" class="col-xs-12 col-md-7">
+                    <input type="number" ng-model="field.amount" class="col-xs-12 col-md-4 col-md-offset-1" max="5" min="1">
                     <p ng-model="field.skillsid"></p> 
                     <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteSkill($index)"></span>
                   </li>
@@ -40,7 +40,7 @@
             <!-- Add a new area of focus -->
             <div>
               <input type="text" ng-model="skillvm.newWant.skill" class="add-btn" />
-              <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" class="btn" ng-disabled="skillvm.wanted_skills.length == 9 || !skillvm.newWant" type="button" ng-click="skillvm.addToWants()">Add</button>
+              <button ng-class="[{'addEntry':skillvm.newWant}]" class="btn" ng-disabled="skillvm.wanted_skills.length == 9 || !skillvm.newWant" type="button" ng-click="skillvm.addToWants()">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.wanted_skills.length > 0">
                 <li ng-repeat="field in skillvm.user.wanted_skills track by $index" class="col-xs-12 col-md-4">
@@ -64,12 +64,12 @@
             <input type="text" ng-model="skillvm.newLanguage.language" minlength="1" required="required" name="newLangSkill" class="add-btn" />
             <label>Rating (1-5): </label>            
             <input type="number" max="5" min="1" required="required" name="newLangAmount" ng-model="skillvm.newLanguage.rating" class="add-btn" />
-            <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" class="btn" ng-disabled="skillvm.language.length == 9 || !skills.newLangSkill.$valid || !skills.newLangAmount" type="button" ng-click="skillvm.addToLanguages()">Add</button>
+            <button ng-class="[{'addEntry':skills.newLangSkill.$valid && skills.newLangAmount}]" class="btn" ng-disabled="skillvm.language.length == 9 || !skills.newLangSkill.$valid || !skills.newLangAmount" type="button" ng-click="skillvm.addToLanguages()">Add</button>
           </div><br />
           <ol ng-if="skillvm.user.language.length > 0">
               <li ng-repeat="field in skillvm.user.language track by $index" class="col-md-5">
-                  <input type="text" ng-model="field.language" class="col-md-6 col-md-offset-3">
-                  <input type="number" ng-model="field.rating" class="col-md-offset-1 col-md-2">
+                  <input type="text" ng-model="field.language" class="col-md-7">
+                  <input type="number" ng-model="field.rating" class="col-md-offset-1 col-md-4">
                   <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteLanguage($index)"></span>
               </li>
           </ol>

@@ -159,7 +159,7 @@ class ValidateUser extends Controller
             $delete = array();
             $insert = array();
             foreach($credentials['interviews'] as $item){
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['interviewid']);
                 }else{
                     $insert= array(

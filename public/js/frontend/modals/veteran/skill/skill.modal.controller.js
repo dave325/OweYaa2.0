@@ -27,7 +27,7 @@
     skillvm.addToLanguages = function() {
       skillvm.newLanguage.langid = "david" + (skillvm.user.language.length + 1);
       skillvm.user.language.push(skillvm.newLanguage);
-      skillvm.newLanguage = null;
+      skillvm.newLanguage = {};
     }
 
     // Delete one of your skills
@@ -51,7 +51,7 @@
 	  }
     // The function that is call when the user closes the modal
 		skillvm.close = function(result){
-			$uibModalInstance.cancel();
+			$uibModalInstance.close(result);
 		}
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){

@@ -416,7 +416,7 @@ Section 5.2: Modal styles
 	font-size:1em;
 }
 
-.form-group input:hover, .form-group ol input:focus{
+.form-group input:hover, .form-group input:focus{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
 }

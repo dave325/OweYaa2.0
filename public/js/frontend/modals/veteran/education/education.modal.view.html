@@ -57,7 +57,8 @@
             <ol ng-if="educationvm.user.bootcamp.length > 0">
               <li ng-repeat="field in educationvm.user.bootcamp track by $index">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.bootcamp" class="btn"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
+                <input type="text" ng-model="field.bootcamp" class="col-xs-12 col-md-6">
+                <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
               </li>
             </ol>
           </div>

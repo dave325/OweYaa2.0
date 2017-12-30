@@ -1,8 +1,8 @@
 (function(){
-  contactModalCtrl.$inject = ['$uibModalInstance', 'currUser'];
-  function contactModalCtrl($uibModalInstance, currUser){
+  contactModalCtrl.$inject = ['$uibModalInstance', 'CurrUser'];
+  function contactModalCtrl($uibModalInstance, CurrUser){
     contactvm = this;
-    contactvm.user = currUser;
+    contactvm.user = CurrUser;
     console.log(contactvm.user);
     // The function that is call when a user cancels the opening of a modal
 	  contactvm.cancel = function(){

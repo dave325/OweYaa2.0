@@ -56,7 +56,7 @@
     <div class="col-xs-12">
       <div class="form-group">
         <div>
-          <h3>Language(s) I speak. Please include all of the languages you speak and your skill level of each (1-5_:</h3>
+          <h3>Language(s) I speak. Please include all of the languages you speak and your skill level of each (1-5):</h3>
           <p ng-show="skillvm.user.language.length == 9" class="bg-warning">You may add up to 10 items</p>
           <!-- Add a new area of focus -->
           <div class="row"> 
@@ -64,7 +64,7 @@
             <input type="text" ng-model="skillvm.newLanguage.language" minlength="1" required="required" name="newLangSkill" class="col-md-3" />
             <label class="col-md-2">Rating (1-5): </label>            
             <input type="number" max="5" min="1" required="required" name="newLangAmount" ng-model="skillvm.newLanguage.rating" class="col-md-2" />
-            <button ng-class="[{'addEntry':skillvm.newLanguage.language && skillvm.newLanguage.rating}]" class="btn col-md-1 col-md-offset-1" ng-disabled="skillvm.language.length == 9 || !skills.newLanguage.language || !skills.newLanguage.rating" type="button" ng-click="skillvm.addToLanguages()">Add</button>
+            <button ng-class="[{'addEntry':skillvm.newLanguage.language && skillvm.newLanguage.rating}]" class="btn col-md-1 col-md-offset-1" ng-disabled="skillvm.language.length == 9 || !skillvm.newLanguage.language || !skillvm.newLanguage.rating" type="button" ng-click="skillvm.addToLanguages()">Add</button>
           </div><br />
           <ol ng-if="skillvm.user.language.length > 0">
               <li ng-repeat="field in skillvm.user.language track by $index" class="col-md-5">

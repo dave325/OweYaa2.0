@@ -12,11 +12,11 @@
             <p ng-show="skillvm.user.skill.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div class="row">
-              <label class="col-md-2">Skill:</label>
+              <label class="col-md-1">Skill:</label>
               <input type="text" ng-model="skillvm.newSkill.skill" class="col-md-5" minlength="1" required="required" name="newSkillSkill"  />
               <label class="col-md-2">Rating(1-5): </label>
-              <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="col-md-3" />
-              <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn">Add</button>
+              <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="col-md-2" />
+              <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn col-md-2">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.skill.length > 0">
                 <li ng-repeat="field in skillvm.user.skill track by $index" class="col-xs-12 col-md-5">

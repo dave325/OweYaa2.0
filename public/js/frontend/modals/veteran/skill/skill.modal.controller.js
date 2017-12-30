@@ -20,7 +20,7 @@
     skillvm.addToWants = function() {
       skillvm.newWant.skillid = "david" + (skillvm.user.wanted_skills.length + 1);
       skillvm.user.wanted_skills.push(skillvm.newWant);
-      skillvm.newWant = "";
+      skillvm.newWant = {};
     }
 
     // Add a new language that you know

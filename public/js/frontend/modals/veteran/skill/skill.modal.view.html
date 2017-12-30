@@ -40,7 +40,7 @@
             <!-- Add a new area of focus -->
             <div>
               <input type="text" ng-model="skillvm.newWant.skill" class="add-btn" />
-              <button ng-class="[{'addEntry':skillvm.newWant}]" class="btn" ng-disabled="skillvm.wanted_skills.length == 9 || !skillvm.newWant" type="button" ng-click="skillvm.addToWants()">Add</button>
+              <button ng-class="[{'addEntry':skillvm.newWant.skill}]" class="btn" ng-disabled="skillvm.wanted_skills.length == 9 || !skillvm.newWant.skill" type="button" ng-click="skillvm.addToWants()">Add</button>
             </div><br />
             <ol ng-if="skillvm.user.wanted_skills.length > 0">
                 <li ng-repeat="field in skillvm.user.wanted_skills track by $index" class="col-xs-12 col-md-4">

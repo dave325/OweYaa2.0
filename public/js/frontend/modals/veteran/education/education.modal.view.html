@@ -4,7 +4,7 @@
   <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
   <form novalidate method="post" name="education" ng-submit="submit()">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <!-- Information regarding higher education -->
         <h3>Higher Education</h3>
         <p>Enter any information you have regarding your education!</p>
@@ -30,8 +30,8 @@
         <h3>Coursework / Training: </h3>
 
         <!-- Display list of areas of interest -->
-        <div class="form-group">
-          <div>
+        <div class="col-xs-12">
+          <div class="form-group">
             <h4>Career Focus Area:</h4>
             <p>Describe your specific career focus!</p>
             <p>
@@ -43,8 +43,8 @@
         </div>
 
         <!-- Display all bootcamps attended -->
-        <div class="form-group">
-          <div>
+        <div class="col-xs-12">
+          <div class="form-group">
             <h4>Bootcamps:</h4>
             <p>Please indicate any bootcamps you have attended in the past! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.bootcamp.length == 9" class="bg-warning">You may add up to 10 items</p>
@@ -55,9 +55,9 @@
               <button class="btn btn-add" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp" type="button" ng-click="educationvm.addToBootcamps()">Add</button>
             </div><br />
             <ol ng-if="educationvm.user.bootcamp.length > 0">
-              <li ng-repeat="field in educationvm.user.bootcamp track by $index">
+              <li ng-repeat="field in educationvm.user.bootcamp track by $index" class="col-md-5">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.bootcamp" class="col-xs-12 col-md-6">
+                <input type="text" ng-model="field.bootcamp" class="form-control">
                 <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
               </li>
             </ol>
@@ -65,8 +65,8 @@
         </div>
 
         <!-- Display all courses taken -->
-        <div class="form-group">
-          <div>
+        <div class="col-xs-12">
+          <div class="form-group">
             <h4>Courses:</h4>
             <p>Please indicate any courses you have taken in the past! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.course.length == 9" class="bg-warning">You may add up to 10 items</p>
@@ -86,8 +86,8 @@
         </div>
 
         <!-- Display all certifications -->
-        <div class="form-group">
-          <div>
+        <div class="col-xs-12">
+          <div class="form-group">
             <h4>Certifications:</h4>
             <p>Please indicate any certifications you currently have! You can click on the red X marks next to each section to remove them!</p>
             <p ng-show="educationvm.user.certification.length == 9" class="bg-warning">You may add up to 10 items</p>
@@ -108,7 +108,8 @@
       </div>
 
       <!-- Display the education plan provided -->
-      <div class="col-md-12">
+      <div class="col-xs-12">
+        <div class="form-group">
         <h3>Education Plan: </h3>
         <ul ng-repeat="education in educationvm.user.plan track by $index">
           <li><input type="text" ng-model="educationvm.user.content.plan.$index" value="education.value"></li>

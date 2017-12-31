@@ -4,8 +4,8 @@
 
 (function(){
     $(document).ready(function(){
-        $('.box').hover(function(){
-            $(this).children('infoBox').slideToggle();
+        $('.box').mouseover(function(){
+            $(this).children('infoBox').slideDown();
         });
     });
 })();

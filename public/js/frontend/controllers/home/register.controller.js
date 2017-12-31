@@ -30,7 +30,7 @@
 			});
 		}
 		vm.formTitle = function(){
-			if(vm.credentials.registerModal.type == 1){
+			if(vm.credentials.type == 1){
 				return "Company";
 			}else{
 				return "Veteran";

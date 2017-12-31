@@ -130,10 +130,11 @@ Section 2: Home Page
 	font-weight: 700;
 }
 
-.home-page #valued-partners{
+.home-page .match{
 	background-color:rgb(211,211,211);
 	padding-bottom:15px;
 }
+
 .home-page h2 {
 	color: #000;
 }

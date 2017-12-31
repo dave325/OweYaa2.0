@@ -75,17 +75,17 @@
       </div>
       <p></p>
     </div>
-  <!-- Praise for Oweyaa -->
-  <div class="col-xs-12" id="company-pictures">
-    <hr>
-    <h3> Praise For OweYaa</h3>
-    <div style="margin-top:20px" class="col-xs-12">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" ng-repeat="box in vm.praise">
-        <img id="pics" class="text-center" src="{{box.src}}" height="80">
-        <p>{{box.text}}</p>
+
+    <!-- Partners -->
+    <div class="col-xs-12 match">
+      <h3 class="text-center">Our Valued Partners And Sponsers</h3>
+      <div style="margin-top:20px" class="text-center col-md-12">
+          <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>
       </div>
     </div>
-  </div>
+    <span class="clearfix"></span>
+    
+
   <span class="clearfix"></span>
     <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-12 text-center col-sm-12 col-xs-12"><strong>How It Works For Companies</strong></h2>
     <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="com in vm.boxes.companies">
@@ -98,14 +98,19 @@
   </div>
   <span class="clearfix"></span>
 
-  <div class="col-xs-12 match">
-    <h3 class="text-center">Our Valued Partners And Sponsers</h3>
-    <div style="margin-top:20px" class="text-center col-md-12">
-        <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>
+
+    <!-- Praise for Oweyaa -->
+  <div class="col-xs-12" id="company-pictures">
+    <hr>
+    <h3> Praise For OweYaa</h3>
+    <div style="margin-top:20px" class="col-xs-12">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" ng-repeat="box in vm.praise">
+        <img id="pics" class="text-center" src="{{box.src}}" height="80">
+        <p>{{box.text}}</p>
+      </div>
     </div>
   </div>
-  <span class="clearfix"></span>
-  
+
   <!-- Donate Button -->
   <div class="col-xs-12">
     <hr>

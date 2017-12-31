@@ -83,14 +83,12 @@ Section 2: Home Page
   margin-bottom:20px;
 }
 .home-page h3{
-  font-family:  'Open sans', sans-serif;
   text-align:center
 }
 .home-page #pics{
   border-radius: 10px;
 }
 .home-page p{
-  font-family: 'Open Sans', sans-serif;
   padding-left: 20px;
 }
 /*This is the boxes which take up the center of the page: 4 under Veterans and 4 under Companies*/

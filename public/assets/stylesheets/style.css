@@ -677,7 +677,7 @@ Section 7: Modals
 Section 7.1 Login Modal
 *******/
 #loginModal {
-	background-color:#FFF;
+	background-color:#9d9d9d;;
 }
 
 #loginModal .login-image{
@@ -727,6 +727,7 @@ Section 7.1 Login Modal
 [name="loginModal"] h2{
 	background-color:#000;
 	color:rgb(247,159,75);
+	padding:10px 0px;
 }
 
 /********

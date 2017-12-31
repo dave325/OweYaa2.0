@@ -83,12 +83,20 @@
 </div>
 <span class="clearfix"></span>
 
-
-
+<!-- Praise for Oweyaa -->
+  <div class="col-xs-12 match" id="company-pictures">
+    <h3> Praise For OweYaa</h3>
+    <div style="margin-top:20px" class="col-xs-12">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" ng-repeat="box in vm.praise">
+        <img id="pics" class="text-center" src="{{box.src}}" height="80">
+        <p>{{box.text}}</p>
+      </div>
+    </div>
+  </div>
+  <span class="clearfix"></span>
 
   <!-- Skill Cards -->
   <div>
-    <hr>
     <h2 class="text-center">Skills You Can Gain</h2>
     <div class="col-lg-12 col-md-12">
       <div class="row col-lg-10 col-lg-offset-1" >
@@ -109,26 +117,12 @@
 
   <!-- Donate Button -->
   <div class="col-xs-12">
-    <hr>
     <button style="margin-top:20px" class="row btn btn-primary col-lg-4 col-lg-offset-4 col-sm-12 col-xs-12" id = "donate"> Donate Now </button>
   </div>
   <span class="clearfix"></span>
 
-  <!-- Praise for Oweyaa -->
-  <div class="col-xs-12" id = "company-pictures">
-    <hr>
-    <h3> Praise For OweYaa</h3>
-    <div style="margin-top:20px" class="col-xs-12">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" ng-repeat="box in vm.praise">
-        <img id="pics" class="text-center" src="{{box.src}}" height="80">
-        <p>{{box.text}}</p>
-      </div>
-    </div>
-  </div>
-  <span class="clearfix"></span>
 
-  <div class="col-xs-12">
-    <hr>
+  <div class="col-xs-12 match">
     <h3 class="text-center">Our Valued Partners And Sponsers</h3>
     <div style="margin-top:20px" class="text-center col-md-12">
         <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>

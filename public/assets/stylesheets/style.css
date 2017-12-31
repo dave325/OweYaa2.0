@@ -204,7 +204,7 @@ container col-lg-12 col-md-12{
   color: #4686ac;
 }
 
-#vet-home-page .match{
+#vet-home-page .match, #comp-page .match{
 	margin:25px 0px;
 }
 /*************

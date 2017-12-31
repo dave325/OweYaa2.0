@@ -10,6 +10,7 @@ Table of Contents:
 5. Veteran Dashboard
   5.1 Veteran Dashboard
   5.2 Modals
+	5.2.1 Modals Input Style
 6. Footer
   6.1 Footer Overall Style
   6.2 Footer center
@@ -397,6 +398,12 @@ Section 5.2: Modal styles
 	min-width:100% !important;
 }
 
+/**********
+
+Section 5.2.1: Modal Input styles
+
+************/
+
 .form-group .glyphicon-remove{
 	color:red;
 	position: absolute;
@@ -425,8 +432,18 @@ Section 5.2: Modal styles
 	border:1px solid rgb(211,211,211);
 }
 
-.btn-add{
-	border:1px solid rgb(247,159,75);
+.form-group ol input{
+	height: 30px;
+    text-align: center;
+}
+
+.form-group .addEntry{
+	background-color:rgb(247,159,75);
+	border:1px solid rgb(211,211,211);
+}
+
+.add-btn{
+	border:1px solid rgb(211,211,211);
 }
 
 .progress{
@@ -440,6 +457,13 @@ Section 5.2: Modal styles
 
 .glyphicon-pencil:hover{
 	color:blue !important;
+}
+
+.error{
+	border:1px solid red;
+}
+.success{
+	border:1px solid green;
 }
 /**********************************************************
 END OF SECTION 5
@@ -617,8 +641,6 @@ Section 6.3: Footer Left
 	margin-top: 40px;
 }
 
-
-
 /**********
 
 Section 6.4: Footer Mobile
@@ -674,51 +696,10 @@ Section 7.1 Login Modal
 /********
 Section 7.2 Other Modals
 ********/
-#actionModal {
+#actionModal, #careerModal, #educationModal, #journalModal, #skillModal, #socialModal   {
 	background-color:#FFF;
 }
 
-#careerModal {
-	background-color:#FFF;
-}
-
-#educationModal {
-	background-color:#FFF;
-}
-
-#journalModal {
-	background-color:#FFF;
-}
-
-/******
-Skill Modal
-******/
-#skillModal {
-	background-color:#FFF;
-}
-.form-group ol input{
-	height: 30px;
-    text-align: center;
-}
-
-.form-group .addEntry{
-	background-color:rgb(247,159,75);
-	border:1px solid rgb(211,211,211);
-}
-
-.add-btn{
-	border:1px solid rgb(211,211,211);
-}
-#socialModal {
-	background-color:#FFF;
-}
-
-.error{
-	border:1px solid red;
-}
-.success{
-	border:1px solid green;
-}
 /**********************************************************
 END OF SECTION 7
 **********************************************************/

@@ -18,8 +18,6 @@
 				email : credentials.email,
 				type : credentials.type
 			};
-			console.log(user);
-			return;
 			User.register(user).then(function(data){
 				if(data){
 					vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";

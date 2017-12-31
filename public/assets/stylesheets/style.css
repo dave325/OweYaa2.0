@@ -130,6 +130,8 @@ Section 2: Home Page
 	display:none;
 	background-color:#000;
 	color:#fff;
+	height:505px;
+	width:100%;
 }
 .home-page h2 {
 	color: #000;

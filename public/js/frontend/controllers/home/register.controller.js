@@ -6,11 +6,9 @@
 		vm.formError = " ";
 		// Stores the credentials the users add in
 		vm.credentials = {
-			registerModal : {
 				username : "",
 				email : "",
 				password: ""
-			}
 		};
 		// Will make a call to the server and php file
 		vm.doRegister = function(credentials){

@@ -393,6 +393,7 @@ Section 5.2: Modal styles
 
 .vetModal .modal-content{
 	padding:20px;
+	background-color:#9d9d9d;
 }
 .vetModal .modal-dialog{
 	min-width:100% !important;
@@ -676,9 +677,6 @@ Section 7: Modals
 /********
 Section 7.1 Login Modal
 *******/
-#loginModal {
-	background-color:#9d9d9d;;
-}
 
 #loginModal .login-image{
 	height:200px;

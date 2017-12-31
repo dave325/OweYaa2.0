@@ -680,6 +680,10 @@ Section 7.1 Login Modal
 	background-color:#FFF;
 }
 
+#loginModal .login-image{
+	height:100px;
+}
+
 #loginModal p {
 	color:blue;
 	cursor:pointer;

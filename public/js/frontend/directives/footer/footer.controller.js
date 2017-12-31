@@ -4,27 +4,27 @@
     var footervm = this;
     footervm.links = {
       link1 :{
-        name : ' Home',
+        name : 'Home-',
         link : '/'
       },
 
       link2 :{
-        name : 'About | ',
+        name : 'About-',
         link : ''
       },
 
       link3 :{
-        name : 'Blog | ',
+        name : 'Blog-',
         link : ''
       },
 
       link5 :{
-        name : ' FAQ | ',
+        name : ' FAQ-',
         link : ''
       },
 
       link6 :{
-        name : ' Contact | ',
+        name : ' Contact',
         link : 'contact'
       }
     };

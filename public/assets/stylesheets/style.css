@@ -74,7 +74,8 @@ END OF SECTION 1
 Section 2: Home Page
 
 **********************************/
-.home-page #company-pictures {
+.home-page #company-pictures h3{
+	border-bottom:1px solid #000;
 	border-top:1px solid #000;
 }
 .home-page #donate {
@@ -454,7 +455,7 @@ Section 6.1: footer overall styles
 ************/
 .footer-distributed{
 	background-color: #292c2f;
-	font: bold 16px sans-serif;
+	font-size:16px;
 	padding: 70px 50px;
 	margin:30px 0px 0px 0px;
 	padding-top:5px;

@@ -69,9 +69,9 @@
     <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 text-center col-sm-12 col-xs-12 ">How It Works For Veterans</h2>
     <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="vet in vm.boxes.veterans"> <!-- ng repeat -->
       <div class="box">
-        <div class="infoBox"><h4 class="header">{{vet.header}}</h4></div>
         <h3 class="header">{{vet.name}}</h3>
         <img id="pics" class="content" src="{{vet.img}}"/>
+        <h4 class="header">{{vet.header}}</h4>
       </div>
       <p></p>
     </div>
@@ -98,19 +98,19 @@
   </div>
   <span class="clearfix"></span>
 
-  <!-- Donate Button -->
-  <div class="col-xs-12">
-    <hr>
-    <button style="margin-top:20px" class="row btn btn-primary col-lg-4 col-lg-offset-4 col-sm-12 col-xs-12" id = "donate"> Donate Now </button>
-  </div>
-  <span class="clearfix"></span>
-
   <div class="col-xs-12">
     <hr>
     <h3 class="text-center">Our Valued Partners And Sponsers</h3>
     <div style="margin-top:20px" class="text-center col-md-12">
         <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>
     </div>
+  </div>
+  <span class="clearfix"></span>
+  
+  <!-- Donate Button -->
+  <div class="col-xs-12">
+    <hr>
+    <button style="margin-top:20px" class="row btn btn-primary col-lg-4 col-lg-offset-4 col-sm-12 col-xs-12" id = "donate"> Donate Now </button>
   </div>
   <span class="clearfix"></span>
 

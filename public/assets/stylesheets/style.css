@@ -75,7 +75,7 @@ Section 2: Home Page
 
 **********************************/
 .home-page #company-pictures {
- background-color: #FFF;
+	border-top:1px solid #000;
 }
 .home-page #donate {
   height : 90px;

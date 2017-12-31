@@ -697,6 +697,10 @@ Section 7.1 Login Modal
 	text-decoration: underline;
 }
 
+#loginVeteran, #loginCompany{
+	cursor:pointer;
+}
+
 /********
 Section 7.2 Other Modals
 ********/

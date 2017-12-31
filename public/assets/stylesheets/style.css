@@ -716,12 +716,17 @@ Section 7.1 Login Modal
 	color:rgb(247,159,75);
 }
 
-.loginHover{
+.login-image h3:hover{
 	color:#FFF;
 }
 
 .login-image{
 	cursor:pointer;
+}
+
+[name="loginModal"] h2{
+	background-color:#000;
+	color:rgb(247,159,75);
 }
 
 /********

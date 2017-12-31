@@ -3,6 +3,7 @@
 */
 $(document).ready(function(){
     $('.login-image').mouseenter(function(){
+        console.log('touch');
         if($(this).children().hasClass('loginHover')){
             $(this).children('h3').removeClass('loginHover');
         }else{

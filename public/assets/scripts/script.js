@@ -3,10 +3,10 @@
 */
 $(document).ready(function(){
     $('.login-image').hover(function(){
-        if($(this).hasClass('loginHover')){
-            $(this).removeClass('loginHover');
+        if($(this).children().hasClass('loginHover')){
+            $(this).children().removeClass('loginHover');
         }else{
-            $(this).addClass('loginHover');
+            $(this).children().addClass('loginHover');
         }
     });
 });

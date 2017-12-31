@@ -720,6 +720,9 @@ Section 7.1 Login Modal
 	color:#FFF;
 }
 
+.login-image{
+	cursor:pointer;
+}
 
 /********
 Section 7.2 Other Modals

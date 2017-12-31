@@ -5,7 +5,7 @@
 (function(){
     $(document).ready(function(){
         $('.box').hover(function(){
-            $(this).slideToggle();
+            $(this).children('infoBox').slideToggle();
         });
     });
 })();

@@ -9,27 +9,22 @@
       },
 
       link2 :{
-        name : ' About',
+        name : 'About | ',
         link : ''
       },
 
       link3 :{
-        name : ' Blog',
-        link : ''
-      },
-
-      link4 :{
-        name : ' Pricing',
+        name : 'Blog | ',
         link : ''
       },
 
       link5 :{
-        name : ' FAQ',
+        name : ' FAQ | ',
         link : ''
       },
 
       link6 :{
-        name : ' Contact',
+        name : ' Contact | ',
         link : 'contact'
       }
     };

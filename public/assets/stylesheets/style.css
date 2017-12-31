@@ -204,7 +204,9 @@ container col-lg-12 col-md-12{
   color: #4686ac;
 }
 
-
+#vet-home-page .match{
+	margin:15px 0px;
+}
 /*************
 
 Section 3.2 Classes

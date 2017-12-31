@@ -2,12 +2,18 @@
  * Home Page 
 */
 $(document).ready(function(){
-    $('.login-image').hover(function(){
-        console.log('touch');
+    $('.login-image').mouseenter(function(){
         if($(this).children().hasClass('loginHover')){
+            $(this).children('h3').removeClass('loginHover');
+        }else{
+            $(this).children('h3').addClass('loginHover');
+        }
+    });
+    $('.login-image').mouseleave(function(){
+        if($(this).children('h3').hasClass('loginHover')){
             $(this).children().removeClass('loginHover');
         }else{
-            $(this).children().addClass('loginHover');
+            $(this).children('h3').addClass('loginHover');
         }
     });
 });

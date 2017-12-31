@@ -710,8 +710,16 @@ Section 7.1 Login Modal
 	color:#000;
 }
 
+#loginCompany h3:hover{
+	color:#FFF;
+}
+
 #loginVeteran h3{
 	color:rgb(247,159,75);
+}
+
+#loginVeteran h3:hover{
+	color:#FFF;
 }
 
 #loginVeteran, #loginCompany{

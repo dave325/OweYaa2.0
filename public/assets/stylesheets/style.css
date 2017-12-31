@@ -132,6 +132,7 @@ Section 2: Home Page
 
 .home-page #valued-partners{
 	background-color:rgb(211,211,211);
+	padding-bottom:15px;
 }
 .home-page h2 {
 	color: #000;

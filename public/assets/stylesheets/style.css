@@ -497,16 +497,15 @@ footer .comp-info p{
 /* Footer links */
 
 .footer-distributed .footer-links{
-	color:  #ffffff;
 	margin: 20px 0 12px;
 	padding: 0;
 }
 
 .footer-distributed .footer-links a{
+	color:#9d9d9d;
 	display:inline-block;
 	line-height: 1.8;
 	text-decoration: none;
-	color:  inherit;
 }
 
 .footer-distributed .footer-company-name{

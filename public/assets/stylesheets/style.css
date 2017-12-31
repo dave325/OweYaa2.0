@@ -508,6 +508,10 @@ footer .comp-info p{
 	text-decoration: none;
 }
 
+.footer-distributed .footer-links a:hover{
+	color:#FFF;
+}
+
 .footer-distributed .footer-company-name{
 	color:  #8f9296;
 	font-size: 14px;

@@ -58,7 +58,6 @@ Section 1.1 Navbar Styles
   padding-left:0px;
 	font-size: 18px;
 	font-weight: 700;
-	font-family:  'Open sans', sans-serif;
 }
 
 .navbar .alert{
@@ -113,9 +112,11 @@ Section 2: Home Page
 	background-color: #fff;
 	border-top: 1px solid #000;
 }
+
 .home-page .vet-container:nth-child(odd), #home-page .com-container:nth-child(even){
 	margin-left:12.4% !important;
 }
+
 .home-page .textBox h3 {
 	font-size: 120%;
 	letter-spacing: 1px;
@@ -123,17 +124,14 @@ Section 2: Home Page
 	line-height: 200%;
 	margin: 10px 10px;
 }
+
 .home-page .box .header {
 	color: #000;
 	font-weight: 700;
 }
 
-.infoBox{
-	display:none;
-	background-color:#000;
-	color:#fff;
-	height:505px;
-	width:100%;
+.home-page #valued-partners{
+	background-color:rgb(211,211,211);
 }
 .home-page h2 {
 	color: #000;

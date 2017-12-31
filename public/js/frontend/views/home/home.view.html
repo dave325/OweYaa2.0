@@ -64,14 +64,14 @@
 
 
   <!--- Boxes for veterans and companies -->
-  <div class="container-fluid col-xs-12"> <!-- ng repeat -->
+  <div class="container-fluid col-xs-12">
     <!-- Veteran boxes -->
-    <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 text-center col-sm-12 col-xs-12 "><strong>How It Works For Veterans</strong></h2>
-    <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="vet in vm.boxes.veterans">
+    <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 text-center col-sm-12 col-xs-12 ">How It Works For Veterans</h2>
+    <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="vet in vm.boxes.veterans"> <!-- ng repeat -->
       <div class="box">
+        <div class="infoBox"><h4 class="header">{{vet.header}}</h4></div>
         <h3 class="header">{{vet.name}}</h3>
         <img id="pics" class="content" src="{{vet.img}}"/>
-        <h4 class="header">{{vet.header}}</h4>
       </div>
       <p></p>
     </div>

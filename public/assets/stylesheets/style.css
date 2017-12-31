@@ -697,6 +697,23 @@ Section 7.1 Login Modal
 	text-decoration: underline;
 }
 
+
+#loginVeteran{
+	background-color:#000;
+}
+
+#loginCompany{
+	background-color:rgb(247,159,75);
+}
+
+#loginCompany h3{
+	color:#000;
+}
+
+#loginVeteran h3{
+	color:rgb(247,159,75);
+}
+
 #loginVeteran, #loginCompany{
 	cursor:pointer;
 }

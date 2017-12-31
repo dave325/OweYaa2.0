@@ -1,13 +1,11 @@
 <div id="loginModal">
   <span class="glyphicon glyphicon-remove pull-right" ng-click="loginvm.cancel()"></span>
   <div id="loginUserType" class="col-xs-12" ng-if="loginvm.userTypeCheck">
-    <div id="loginVeteran" class="col-md-6 col-xs-12" ng-click="loginvm.registerVetCheck()" >
-      <img src="assets/images/veteran_login.jpg" class="pull-left login-image col-xs-12"/>
-      <p class="text-center">Login as Veteran</p>
+    <div id="loginVeteran" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerVetCheck()" >
+      <h3 class="text-center">Login as Veteran</h3>
     </div>
-    <div id="loginCompany" class="col-md-6 col-xs-12" ng-click="loginvm.registerCompCheck()">
-      <img src="assets/images/project-process-1.jpg" class="pull-left login-image col-xs-12" />
-      <p class="text-center">Login as Company</p>
+    <div id="loginCompany" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerCompCheck()">
+      <h3 class="text-center">Login as Company</h3>
     </div>
   </div>
   <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12">

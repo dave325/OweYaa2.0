@@ -728,6 +728,12 @@ Section 7.1 Login Modal
 	padding:10px 0px;
 }
 
+#loginOptions{
+	background-color:#000;
+	color:#FFF;
+	text-align: center;
+}
+
 /********
 Section 7.2 Other Modals
 ********/

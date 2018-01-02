@@ -118,22 +118,17 @@ class ValidateUser extends Controller
             }
             unset($delete,$insert);
             $delete = array();
-            $insert = array();
             foreach($credentials['certifications'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['certid']);
                 }else{
-                    $insert = array(
-                        'certid' => $item['certid'],
-                        'certification' => $item['certification'],
-                        'name' => $credentials['contact_info']['name']
-                    );
+                    unset($item['delete']);
                     try{
                         $course = TableModels\Certification::findOrFail($item['certid']);
-                        $course->fill($insert);
+                        $course->fill($item);
                         $course->save();
                     }catch(ModelNotFoundException $me){
-                        $course = new TableModels\Certification($insert);
+                        $course = new TableModels\Certification($item);
                         $course->save();
                     }
                 }
@@ -157,22 +152,11 @@ class ValidateUser extends Controller
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','interviews', 'events','mentor');
             $delete = array();
-            $insert = array();
             foreach($credentials['interviews'] as $item){
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['interviewid']);
                 }else{
                     unset($item['delete']);
-                    /*
-                    $insert= array(
-                        'interviewid' => $item['interviewid'],
-                        'company' => $item['company'],
-                        'data' => $item['date'],
-                        'contact' => $item['contact'],
-                        'notes' => $item['notes'],
-                        'name' => $credentials['contact_info']['name']
-                    );
-                    */
                     $item['name'] = $credentials['contact_info']['name'];
                     try{
                         $interview = TableModels\Interview::findOrFail($item['interviewid']);
@@ -186,6 +170,7 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\Interview::destroy($delete);
+                unset($delete);
             }
             foreach($credentials['events'] as $item){
                 try{
@@ -240,20 +225,18 @@ class ValidateUser extends Controller
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','skill','language','wanted_skills');
             $delete = array();
-            $insert = array();
             foreach($credentials['skill'] as $item){
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['sklilid']);
                 }else{
                     try{
                         unset($item['delete']);
+                        $item['name'] = $credentials['contact_info']['name'];
                         $skill = TableModels\Skill::findOrFail($item['skillid']);
                         $skill->fill($item);
-                        $skill->name = $credentials['contact_info']['name'];
                         $skill->save();
                     }catch(\ModelNotFoundException $me){
                         $skill = new TableModels\Skill($item);
-                        $skill->name = $credentials['contact_info']['name'];
                         $skill->save();
                     }
                 }
@@ -263,29 +246,45 @@ class ValidateUser extends Controller
             }
             unset($delete);
             foreach($credentials['wanted_skills'] as $item){
-                try{
-                    $skill = TableModels\WantedSkill::findOrFail($item['skillid']);
-                    $skill->fill($item);
-                    $skill->name = $credentials['contact_info']['name'];
-                    $skill->save();
-                }catch(ModelNotFoundException $me){
-                    $skill = new TableModels\WantedSkill($item);
-                    $skill->name = $credentials['contact_info']['name'];
-                    $skill->save();
+                if(isset($item['delete']) && $item['delete']){
+                    array_push($delete,$item['sklilid']);
+                }else{
+                    unset($item['delete']);
+                    $item['name'] = $credentials['contact_info']['name'];
+                    try{
+                        $skill = TableModels\WantedSkill::findOrFail($item['skillid']);
+                        $skill->fill($item);
+                        $skill->save();
+                    }catch(ModelNotFoundException $me){
+                        $skill = new TableModels\WantedSkill($item);
+                        $skill->save();
+                    }
                 }
             }
+            if(isset($delete)){
+                TableModels\WantedSkill::destroy($delete);
+            }
+            unset($delete);
             foreach($credentials['language'] as $item){
-                try{
-                    $language = TableModels\Language::findOrFail($item['langid']);
-                    $language->fill($item);
-                    $language->name = $credentials['contact_info']['name'];
-                    $language->save();
-                }catch(ModelNotFoundException $me){
-                    $language = new TableModels\Language($item);
-                    $language->name = $credentials['contact_info']['name'];
-                    $language->save();
+                if(isset($item['delete']) && $item['delete']){
+                    array_push($delete,$item['langid']);
+                }else{
+                    unset($item['delete']);
+                    $item['name'] = $credentials['contact_info']['name'];
+                    try{
+                        $language = TableModels\Language::findOrFail($item['langid']);
+                        $language->fill($item);
+                        $language->save();
+                    }catch(ModelNotFoundException $me){
+                        $language = new TableModels\Language($item);
+                        $language->save();
+                    }
                 }
             }
+            if(isset($delete)){
+                TableModels\Language::destroy($delete);
+            }
+            unset($delete);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));

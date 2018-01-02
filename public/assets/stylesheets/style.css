@@ -735,18 +735,20 @@ Section 7.1 Login Modal
 }
 
 #changeLoginForm{
+	color:blue;
 	cursor: pointer;
 }
 
 [name="loginModal"] h2{
 	background-color:rgb(211,211,211);
-	color:rgb(247,159,75);
+	color:#000;
 	padding:10px 0px;
 }
 
 [name="loginModal"] input {
 	border:2px solid rgb(247,159,75);
 	height:50px;
+	transition:.5s all;
 }
 
 [name="loginModal"] button{

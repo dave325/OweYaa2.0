@@ -162,8 +162,8 @@ class ValidateUser extends Controller
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['interviewid']);
                 }else{
-                    //unset($item['delete']);
-                    
+                    unset($item['delete']);
+                    /*
                     $insert= array(
                         'interviewid' => $item['interviewid'],
                         'company' => $item['company'],
@@ -172,12 +172,14 @@ class ValidateUser extends Controller
                         'notes' => $item['notes'],
                         'name' => $credentials['contact_info']['name']
                     );
+                    */
+                    $item['name'] = $credentials['contact_info']['name'];
                     try{
                         $interview = TableModels\Interview::findOrFail($item['interviewid']);
-                        $interview->fill($insert);
+                        $interview->fill($item);
                         $interview->save();
                     }catch(ModelNotFoundException $me){
-                        $interview = new TableModels\Interview($insert);
+                        $interview = new TableModels\Interview($item);
                         $interview->save();
                     }
                 }

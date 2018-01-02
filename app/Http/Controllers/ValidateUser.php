@@ -309,11 +309,12 @@ class ValidateUser extends Controller
                     $availability = TableModels\Availability::findOrFail($item['timeid']);
                     $availability->fill($item);
                     $availability->save();
-                }catch(ModelNotFoundException $me){
+                }catch(\ModelNotFoundException $me){
                     $availability = new TableModels\Availability($item);
                     $availability->save();
                 }
             }
+            return response()->json(true);
         }else{
             return response()->json(compact('user'));
         }

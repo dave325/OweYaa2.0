@@ -455,7 +455,7 @@ Section 5.2.1: Modal Input styles
 }
 
 .vetModal .modal-content{
-	background-color:rgb(211,211,211);
+	background-color:#FFF;
 	padding:15px;
 }
 
@@ -674,6 +674,9 @@ Section 7: Modals
 Section 7.1 Login Modal
 *******/
 
+.login .modal-content{
+	background-color:rgb(211,211,211);
+}
 
 #loginUserType{
 	margin-top:15px;

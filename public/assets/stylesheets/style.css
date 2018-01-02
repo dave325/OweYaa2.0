@@ -753,6 +753,9 @@ Section 7.1 Login Modal
 	height:50px;
 }
 
+[name="loginModal"] button{
+	height:50px;
+}
 #loginOptions{
 	margin-top:15px;
 	padding:0px;

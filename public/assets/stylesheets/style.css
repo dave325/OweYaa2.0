@@ -707,8 +707,8 @@ Section 7.1 Login Modal
 }
 
 #loginVeteran{
-	background-color:#000;
-	color:rgb(247,159,75);
+	background-color:rgb(211,211,211);
+	color:#000;
 	transition:.7s all;
 }
 
@@ -751,13 +751,13 @@ Section 7.1 Login Modal
 
 #loginOptions a:first-child{
 	padding:5px 0px;
-	background-color:rgb(211,211,211);
-	color:#FFF;
+	background-color:#FFF;
+	color:#000;
 }
 
 #loginOptions a:last-child{
 	padding:5px 0px;
-	background-color:#FFF;
+	background-color:rgb(211,211,211);
 	color:#000;
 }
 

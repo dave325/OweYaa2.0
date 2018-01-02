@@ -685,8 +685,15 @@ Section 7.1 Login Modal
 	background-color: #000;
     color: #FFF;
     font-size: 1.3em;
-    padding: 3px;
+	padding: 3px;
+	transition:.5s all;
 }
+
+#loginModal .glyphicon-remove:hover{
+	background-color: #FFF;
+    color: #000;
+}
+
 .login .modal-dialog{
 	width:100%;
 }

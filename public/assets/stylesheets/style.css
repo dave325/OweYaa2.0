@@ -439,7 +439,7 @@ Section 5.2.1: Modal Input styles
 	color:blue !important;
 }
 
-.glyphicon-remove{
+.close-btn {
 	background-color: #000;
     color: #FFF;
     font-size: 1.3em;
@@ -447,7 +447,7 @@ Section 5.2.1: Modal Input styles
 	transition:.5s all;
 }
 
-.glyphicon-remove:hover{
+.close-btn :hover{
 	background-color: #FFF;
     color: #F00;
 }

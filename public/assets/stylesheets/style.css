@@ -762,7 +762,7 @@ Section 7.1 Login Modal
 #loginOptions a:first-child{
 	padding:15px 0px;
 	background-color:#000;
-	color:#000;
+	color:#FFF;
 	font-size:1.2em;
 	transition:.5s all;
 }

@@ -1,4 +1,5 @@
 <div id="loginModal">
+  <span class="glyphicon glyphicon-remove pull-right" ng-click="loginvm.cancel()"></span>
   <div id="loginUserType" class="col-xs-12" ng-if="loginvm.userTypeCheck">
     <div id="loginVeteran" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerVetCheck()" >
       <h3 class="text-center">Login as Veteran</h3>
@@ -8,7 +9,6 @@
     </div>
   </div>
   <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12">
-    <span class="glyphicon glyphicon-remove pull-right" ng-click="loginvm.cancel()"></span>
     <p ng-show="loginvm.formError">{{loginvm.formError}}</p>
     <h2 class="text-center">{{loginvm.displayFormTitle(loginvm.type)}}</h2>
     <div class="form-group">

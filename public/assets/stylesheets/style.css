@@ -392,14 +392,6 @@ Section 5.2.1: Modal Input styles
 
 ************/
 
-.form-group .glyphicon-remove{
-	color:red;
-	position: absolute;
-	top:-5px;
-	right:10px;
-	font-size:1em;
-}
-
 .form-group ol, .skillsModal{
 	list-style-type:none;
 }
@@ -445,6 +437,27 @@ Section 5.2.1: Modal Input styles
 
 .glyphicon-pencil:hover{
 	color:blue !important;
+}
+
+.glyphicon-remove{
+	background-color: #000;
+    color: #FFF;
+    font-size: 1.3em;
+	padding: 3px;
+	transition:.5s all;
+}
+
+.glyphicon-remove:hover{
+	background-color: #FFF;
+    color: #F00;
+}
+
+.form-group .glyphicon-remove{
+	color:red;
+	position: absolute;
+	top:-5px;
+	right:10px;
+	font-size:1em;
 }
 
 .error{
@@ -684,19 +697,6 @@ Section 7.1 Login Modal
 
 #loginModal .login-image{
 	height:200px;
-}
-
-.glyphicon-remove{
-	background-color: #000;
-    color: #FFF;
-    font-size: 1.3em;
-	padding: 3px;
-	transition:.5s all;
-}
-
-.glyphicon-remove:hover{
-	background-color: #FFF;
-    color: #F00;
 }
 
 .login .modal-dialog{

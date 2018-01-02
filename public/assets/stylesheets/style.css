@@ -447,7 +447,7 @@ Section 5.2.1: Modal Input styles
 	transition:.5s all;
 }
 
-.close-btn :hover{
+.close-btn:hover{
 	background-color: #FFF;
     color: #F00;
 }

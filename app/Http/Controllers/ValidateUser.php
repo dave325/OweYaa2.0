@@ -90,7 +90,7 @@ class ValidateUser extends Controller
             if(isset($delete)){
                 TableModels\Bootcamp::destroy($delete);
             }
-            unset($destroy, $insert);
+            unset($delete, $insert);
             $delete = array();
             $insert = array();
             foreach($credentials['course'] as $item){
@@ -162,6 +162,8 @@ class ValidateUser extends Controller
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['interviewid']);
                 }else{
+                    unset($item['delete']);
+                    /*
                     $insert= array(
                         'interviewid' => $item['interviewid'],
                         'company' => $item['company'],
@@ -169,29 +171,19 @@ class ValidateUser extends Controller
                         'contact' => $item['contact'],
                         'notes' => $item['notes'],
                         'name' => $credentials['contact_info']['name']
-                    );
+                    );*/
                     try{
-                        $bootcamp = TableModels\Bootcamp::findOrFail($item['interviewid']);
-                        $bootcamp->fill($insert);
-                        $bootcamp->save();
+                        $interview = TableModels\Interview::findOrFail($item['interviewid']);
+                        $interview->fill($insert);
+                        $interview->save();
                     }catch(ModelNotFoundException $me){
-                        $bootcamp = new TableModels\Bootcamp($insert);
-                        $bootcamp->save();
+                        $interview = new TableModels\Interview($insert);
+                        $interview->save();
                     }
                 }
             }
             if(isset($delete)){
-                TableModels\Bootcamp::destroy($delete);
-            }
-            foreach($credentials['interviews'] as $item){
-                try{
-                    $interview = TableModels\Interview::findOrFail($item['interviewid']);
-                    $interview->fill($item);
-                    $interview->save();
-                }catch(\ModelNotFoundException $me){
-                    $interview = new TableModels\Interview($item);
-                    $interview->save();
-                }
+                TableModels\Interview::destroy($delete);
             }
             foreach($credentials['events'] as $item){
                 try{
@@ -245,18 +237,29 @@ class ValidateUser extends Controller
     public function updateSkill(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','skill','language','wanted_skills');
+            $delete = array();
+            $insert = array();
             foreach($credentials['skill'] as $item){
-                try{
-                    $skill = TableModels\Skill::findOrFail($item['skillid']);
-                    $skill->fill($item);
-                    $skill->name = $credentials['contact_info']['name'];
-                    $skill->save();
-                }catch(ModelNotFoundException $me){
-                    $skill = new TableModels\Skill($item);
-                    $skill->name = $credentials['contact_info']['name'];
-                    $skill->save();
+                if(isset($item['delete']) && $item['delete']){
+                    array_push($delete,$item['sklilid']);
+                }else{
+                    try{
+                        unset($item['delete']);
+                        $skill = TableModels\Skill::findOrFail($item['skillid']);
+                        $skill->fill($item);
+                        $skill->name = $credentials['contact_info']['name'];
+                        $skill->save();
+                    }catch(\ModelNotFoundException $me){
+                        $skill = new TableModels\Skill($item);
+                        $skill->name = $credentials['contact_info']['name'];
+                        $skill->save();
+                    }
                 }
             }
+            if(isset($delete)){
+                TableModels\Skill::destroy($delete);
+            }
+            unset($delete);
             foreach($credentials['wanted_skills'] as $item){
                 try{
                     $skill = TableModels\WantedSkill::findOrFail($item['skillid']);

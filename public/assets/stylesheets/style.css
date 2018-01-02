@@ -710,20 +710,22 @@ Section 7.1 Login Modal
 	background-color:rgb(211,211,211);
 	color:#000;
 	position: relative;
-	transition:.7s all;
+	transition:.5s all;
 }
 
 #loginVeteran:hover{
+	border:1px solid #000;
 	color:rgb(247,159,75);
 	font-weight: 800;
 }
 #loginCompany{
 	background-color:rgb(247,159,75);
 	color:#000;
-	transition:1s all;
+	transition:.5s all;
 }
 
 #loginCompany:hover{
+	border:1px solid #000;
 	color:#FFF;
 	font-weight: 800;
 }
@@ -766,11 +768,10 @@ Section 7.1 Login Modal
 	background-color:rgb(247,159,75);
 	color:#000;
 }
-
-.login-image:first:hover{
-	background-color:rgb(211,211,211);
-	color:#FFF;
+#loginOptions a:hover{
+	color:#5383d3;
 }
+
 /********
 Section 7.2 Other Modals
 ********/

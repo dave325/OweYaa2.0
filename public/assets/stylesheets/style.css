@@ -746,7 +746,7 @@ Section 7.1 Login Modal
 }
 
 [name="loginModal"] h2{
-	background-color:rgb(153, 153, 153);
+	background-color:rgb(211,211,211);
 	color:#000;
 	padding:10px 0px;
 }
@@ -769,7 +769,7 @@ Section 7.1 Login Modal
 
 #loginOptions a:first-child{
 	padding:15px 0px;
-	background-color:#000;
+	background-color:rgb(153, 153, 153);
 	color:#FFF;
 	font-size:1.2em;
 	transition:.5s all;

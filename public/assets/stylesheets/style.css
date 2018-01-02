@@ -666,7 +666,7 @@ Section 7.1 Login Modal
 *******/
 
 .vetModal .modal-content{
-	background-color:#FFF;
+	background-color:rgb(211,211,211);
 }
 .vetModal .modal-dialog{
 	min-width:100% !important;
@@ -730,15 +730,6 @@ Section 7.1 Login Modal
 	font-weight: 900;
 }
 
-/*
-#loginCompany h3{
-	color:#000;
-}
-
-#loginVeteran h3{
-	color:rgb(247,159,75);
-}*/
-
 .login-image h3{
 	position: absolute;
     top: 50%;
@@ -753,18 +744,24 @@ Section 7.1 Login Modal
 }
 
 [name="loginModal"] h2{
-	background-color:#000;
+	background-color:rgb(211,211,211);
 	color:rgb(247,159,75);
 	padding:10px 0px;
 }
 
+[name="loginModal"] input {
+	height:50px;
+}
+
 #loginOptions{
+	margin-top:15px;
+	padding:0px;
 	text-align: center;
 }
 
 #loginOptions a:first-child{
 	padding:15px 0px;
-	background-color:rgb(211,211,211);
+	background-color:#000;
 	color:#000;
 	font-size:1.2em;
 	transition:.5s all;

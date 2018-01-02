@@ -782,8 +782,10 @@ Section 7.1 Login Modal
 	font-size:1.2em;
 	transition:.5s all;
 }
+
 #loginOptions a:hover{
 	color:#5383d3;
+	font-weight: bold;
 }
 
 /********

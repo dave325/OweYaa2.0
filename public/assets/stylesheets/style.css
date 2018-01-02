@@ -672,6 +672,10 @@ Section 7.1 Login Modal
 	min-width:100% !important;
 }
 
+#loginUserType{
+	margin-top:15px;
+}
+
 #loginModal .login-image{
 	height:200px;
 }
@@ -702,12 +706,14 @@ Section 7.1 Login Modal
 	text-decoration: underline;
 }
 
-
 #loginVeteran{
 	background-color:#000;
 	transition:1s all;
 }
 
+#loginVeteran:hover{
+	background-color:rgb(247,159,75);
+}
 #loginCompany{
 	background-color:rgb(247,159,75);
 	transition:1s all;

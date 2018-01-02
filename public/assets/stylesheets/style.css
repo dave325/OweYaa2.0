@@ -716,7 +716,7 @@ Section 7.1 Login Modal
 #loginVeteran:hover{
 	border:1px solid #000;
 	color:rgb(247,159,75);
-	font-weight: 800;
+	font-weight:900;
 }
 #loginCompany{
 	background-color:rgb(247,159,75);
@@ -727,7 +727,7 @@ Section 7.1 Login Modal
 #loginCompany:hover{
 	border:1px solid #000;
 	color:#FFF;
-	font-weight: 800;
+	font-weight: 900;
 }
 
 /*
@@ -739,8 +739,15 @@ Section 7.1 Login Modal
 	color:rgb(247,159,75);
 }*/
 
-.login-image h3:hover{
-	color:#FFF;
+.login-image h3{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+}
+
 }
 
 .login-image{

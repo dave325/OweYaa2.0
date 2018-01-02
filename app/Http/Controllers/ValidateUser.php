@@ -162,14 +162,22 @@ class ValidateUser extends Controller
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['interviewid']);
                 }else{
-                    unset($item['delete']);
+                    //unset($item['delete']);
+                    
+                    $insert= array(
+                        'interviewid' => $item['interviewid'],
+                        'company' => $item['company'],
+                        'data' => $item['date'],
+                        'contact' => $item['contact'],
+                        'notes' => $item['notes'],
+                        'name' => $credentials['contact_info']['name']
+                    );
                     try{
                         $interview = TableModels\Interview::findOrFail($item['interviewid']);
                         $interview->fill($insert);
                         $interview->save();
                     }catch(ModelNotFoundException $me){
                         $interview = new TableModels\Interview($insert);
-                        $interview->name = $credentials['contact_info']['name'];
                         $interview->save();
                     }
                 }

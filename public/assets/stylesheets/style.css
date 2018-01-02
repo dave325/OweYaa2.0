@@ -734,6 +734,10 @@ Section 7.1 Login Modal
 	cursor:pointer;
 }
 
+#changeLoginForm{
+	cursor: pointer;
+}
+
 [name="loginModal"] h2{
 	background-color:rgb(211,211,211);
 	color:rgb(247,159,75);
@@ -747,6 +751,7 @@ Section 7.1 Login Modal
 [name="loginModal"] button{
 	height:50px;
 }
+
 #loginOptions{
 	margin-top:15px;
 	padding:0px;

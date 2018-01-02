@@ -22,6 +22,7 @@ Table of Contents:
 *****/
 
 body{
+	background-color:#9d9d9d;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15.5px;
 }
@@ -137,7 +138,7 @@ Section 2: Home Page
 }
 
 .home-page h2 {
-	color: #000;
+	color: rgb(247,159,75);
 }
 
 .home-page #match {

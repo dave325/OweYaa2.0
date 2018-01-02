@@ -338,7 +338,7 @@ class ValidateUser extends Controller
             }catch(\ModelNotFoundException $me){
                 return response()->json('Not Found!');
             }
-            return response()->json('Not Found!');
+            return response()->json(true);
         }else{
             return response()->json(compact('user'));
         }

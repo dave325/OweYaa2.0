@@ -31,5 +31,6 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('journal', 'ValidateUser@updateJournal');
         Route::post('skill', 'ValidateUser@updateSkill');
         Route::post('availability', 'ValidateUser@updateAvailability');
+        Route::post('social', 'ValidateUser@updateSocial');
     });
 });

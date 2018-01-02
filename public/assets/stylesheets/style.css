@@ -688,7 +688,7 @@ Section 7.1 Login Modal
 *******/
 
 .login .modal-content{
-	background-color:rgb(211,211,211);
+	background-color:rgb(217, 217, 217);
 }
 
 #loginUserType{
@@ -704,7 +704,7 @@ Section 7.1 Login Modal
 }
 
 #loginVeteran{
-	background-color:rgb(211,211,211);
+	background-color:rgb(153, 153, 153);
 	color:#000;
 	position: relative;
 	transition:.5s all;

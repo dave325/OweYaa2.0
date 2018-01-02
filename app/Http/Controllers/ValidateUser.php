@@ -292,4 +292,30 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+
+     /**
+     * updateAvailability
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateAvailability(Request $request){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info','availability');
+            $delete = array();
+            foreach($credentials['availability'] as $item){
+                unset($item['delete']);
+                $item['name'] = $credentials['contact_info']['name'];
+                try{
+                    $availability = TableModels\Availability::findOrFail($item['timeId']);
+                    $availability->fill($item);
+                    $availability->save();
+                }catch(ModelNotFoundException $me){
+                    $availability = new TableModels\Availability($item);
+                    $availability->save();
+                }
+            }
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
 }

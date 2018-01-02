@@ -745,6 +745,7 @@ Section 7.1 Login Modal
 }
 
 [name="loginModal"] input {
+	border:2px solid rgb(247,159,75);
 	height:50px;
 }
 

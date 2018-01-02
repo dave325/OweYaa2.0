@@ -319,4 +319,28 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+
+    /**
+     * updateAvailability
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateSocial(Request $request){
+        if(app('auth')->guard($this->apiCall)->authenticate()){
+            $credentials = $request->only('contact_info','social');
+            try{
+                $contact = TableModels\ContactInfo::findOrFail($credentials['contact_info']['name']);
+                $social = TableModels\Social::findOrFail($credentials['contact_info']['name']);
+                $contact->fill($credentials['contact_info']);
+                $social->fill($credentials['social']);
+                $contact->save();
+                $social->save();
+            }catch(\ModelNotFoundException $me){
+                return response()->json('Not Found!');
+            }
+            return response()->json('Not Found!');
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
 }

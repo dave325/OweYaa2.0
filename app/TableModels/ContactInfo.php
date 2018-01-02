@@ -10,7 +10,7 @@ class ContactInfo extends Model{
      */
     protected $table = 'contactinfo';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "username";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -20,7 +20,7 @@ class ContactInfo extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','email','phone','location', 'mos','branch'];
+    protected $fillable = ['name','email','phone','location', 'mos','branch',"username"];
 
     /**
      * Get the post that owns the comment.

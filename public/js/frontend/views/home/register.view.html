@@ -12,7 +12,7 @@
     <div class="form-group">
       <label form="email">Email: </label>
       <p ng-show="!registerModal.email.$valid && registerModal.email.$touched" class="alert alert-warning">Please enter a valid email</p>
-      <input ng-model="vm.credentials.registerModal.email" type="text" ng-class="[{error: !registerModal.email.$valid && registerModal.email.$touched}, {success: registerModal.email.$valid}]" id="email" ng-minlength="5" ng-required="true" name="email" class="form-control"/>
+      <input ng-model="vm.credentials.registerModal.email" type="email" ng-class="[{error: !registerModal.email.$valid && registerModal.email.$touched}, {success: registerModal.email.$valid}]" id="email" ng-minlength="5" ng-required="true" name="email" class="form-control"/>
     </div>
     <div class="form-group">
       <label form="password">Password: </label>

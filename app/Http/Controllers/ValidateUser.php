@@ -329,7 +329,7 @@ class ValidateUser extends Controller
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','social');
             try{
-                $contact = TableModels\ContactInfo::findOrFail($credentials['contact_info']['name']);
+                $contact = TableModels\ContactInfo::findOrFail($credentials['contact_info']['username']);
                 $social = TableModels\Social::findOrFail($credentials['contact_info']['name']);
                 $contact->fill($credentials['contact_info']);
                 $social->fill($credentials['social']);

@@ -227,7 +227,7 @@ class ValidateUser extends Controller
             $delete = array();
             foreach($credentials['skill'] as $item){
                 if(isset($item['delete']) && $item['delete']){
-                    array_push($delete,$item['sklilid']);
+                    array_push($delete,$item['skillid']);
                 }else{
                     try{
                         unset($item['delete']);

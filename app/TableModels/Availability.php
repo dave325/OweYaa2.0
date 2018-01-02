@@ -10,7 +10,7 @@ class Availability extends Model{
      */
     protected $table = 'availability';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "timeid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class Availability extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','dayofweek','start_time','end_time'];
+    protected $fillable = ['name','dayofweek','start_time','end_time',"timeid"];
 
     /**
      * The attributes excluded from the model's JSON form.

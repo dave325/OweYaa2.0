@@ -243,8 +243,9 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\Skill::destroy($delete);
+                unset($delete);
+                $delete = array();
             }
-            unset($delete);
             foreach($credentials['wanted_skills'] as $item){
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['sklilid']);
@@ -263,8 +264,9 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\WantedSkill::destroy($delete);
+                unset($delete);
+                $delete = array();
             }
-            unset($delete);
             foreach($credentials['language'] as $item){
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['langid']);

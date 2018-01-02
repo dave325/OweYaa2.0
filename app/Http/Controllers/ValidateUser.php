@@ -306,7 +306,7 @@ class ValidateUser extends Controller
                 unset($item['delete']);
                 $item['name'] = $credentials['contact_info']['name'];
                 try{
-                    $availability = TableModels\Availability::findOrFail($item['timeId']);
+                    $availability = TableModels\Availability::findOrFail($item['timeid']);
                     $availability->fill($item);
                     $availability->save();
                 }catch(ModelNotFoundException $me){

@@ -453,6 +453,15 @@ Section 5.2.1: Modal Input styles
 .success{
 	border:1px solid green;
 }
+
+.vetModal .modal-content{
+	background-color:rgb(211,211,211);
+	padding:15px;
+}
+
+.vetModal .modal-dialog{
+	min-width:100% !important;
+}
 /**********************************************************
 END OF SECTION 5
 **********************************************************/
@@ -665,12 +674,6 @@ Section 7: Modals
 Section 7.1 Login Modal
 *******/
 
-.vetModal .modal-content{
-	background-color:rgb(211,211,211);
-}
-.vetModal .modal-dialog{
-	min-width:100% !important;
-}
 
 #loginUserType{
 	margin-top:15px;
@@ -680,7 +683,7 @@ Section 7.1 Login Modal
 	height:200px;
 }
 
-#loginModal .glyphicon-remove{
+.glyphicon-remove{
 	background-color: #000;
     color: #FFF;
     font-size: 1.3em;
@@ -688,7 +691,7 @@ Section 7.1 Login Modal
 	transition:.5s all;
 }
 
-#loginModal .glyphicon-remove:hover{
+.glyphicon-remove:hover{
 	background-color: #FFF;
     color: #F00;
 }

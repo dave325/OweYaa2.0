@@ -708,24 +708,28 @@ Section 7.1 Login Modal
 
 #loginVeteran{
 	background-color:#000;
-	transition:1s all;
+	color:rgb(247,159,75);
+	transition:.7s all;
 }
 
 #loginVeteran:hover{
 	background-color:rgb(247,159,75);
+	color:color:#000;
 }
 #loginCompany{
 	background-color:rgb(247,159,75);
+	color:#000;
 	transition:1s all;
 }
 
+/*
 #loginCompany h3{
 	color:#000;
 }
 
 #loginVeteran h3{
 	color:rgb(247,159,75);
-}
+}*/
 
 .login-image h3:hover{
 	color:#FFF;

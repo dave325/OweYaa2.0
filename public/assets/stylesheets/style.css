@@ -680,11 +680,6 @@ Section 7.1 Login Modal
 	height:200px;
 }
 
-#loginModal p {
-	color:blue;
-	cursor:pointer;
-}
-
 #loginModal .glyphicon-remove{
 	background-color: #000;
     color: #FFF;
@@ -700,10 +695,6 @@ Section 7.1 Login Modal
 
 .login .modal-dialog{
 	width:100%;
-}
-
-#loginModal p:hover{
-	text-decoration: underline;
 }
 
 #loginVeteran{

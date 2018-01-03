@@ -10,7 +10,7 @@ class Hobby extends Model{
      */
     protected $table = 'hobbies';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'hobbyid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -20,7 +20,7 @@ class Hobby extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','hobby'];
+    protected $fillable = ['name','hobby','hobbyid'];
 
     /**
      * The attributes excluded from the model's JSON form.

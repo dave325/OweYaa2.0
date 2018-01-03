@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
 use App\CompanyUser;
+use App\TableModels;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
@@ -41,7 +42,7 @@ class ExampleController extends Controller
     // Adds User
     public function addUser(Request $request){
         // grab credentials from the request
-        $credentials = $request->only('name', 'email', 'password', 'type');
+        $credentials = $request->only('name', 'email', 'password', 'type', user);
         // Creates user based on what type is submitted
         if($credentials['type'] == 0){
             $user = new MilitaryUser();
@@ -50,11 +51,24 @@ class ExampleController extends Controller
             $user->compid = Hash::make($credentials['email']);
         }
         $user->name = $credentials['name'];
+        $user->username = $credentials['username'];
         $user->email = $credentials['email'];
         $user->password = Hash::make($credentials['password']);
         $user->type = $credentials['type'];
         if($user->save()){
-            
+            TableModels\ContactInfo::create(["name"=> $credentials['name'], ['username' =>$credentials['username']], ['email'=>$credentials['email']]]);
+            for($i = 0; $i < 2; $i++){
+                TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i]);
+                TableModels\Event::create(['eventid'=> $credentials['username'] . $i]);
+                TableModels\PreviousCareerFields::create(['careerid'=> $credentials['username'] . $i]);
+            }
+            TableModels\Social::create(['username'=> $credentials['username']]);
+            TableModels\Goal::create(['username'=> $credentials['username']]);
+            TableModels\ActionTask::create(['username'=> $credentials['username']]);
+            for($i = 0; $i < 7; $i++){
+                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i]);
+            }
+            TableModels\Mentor::create(['username'=> $credentials['username']]);
             return response()->json("success");
         }else{
             return response()->json("error");

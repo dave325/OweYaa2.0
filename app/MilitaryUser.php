@@ -17,7 +17,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      */
      protected $table = 'militaryusers';
      // Set primary key
-     protected $primaryKey = "name";
+     protected $primaryKey = "username";
      // Remove default increment from eloquent
      public $incrementing = false;
      // Remove default timestamp from eloquent
@@ -27,7 +27,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
      *
      * @var array
      */
-     protected $fillable = ['name','password','email', 'bio'];
+     protected $fillable = ['name','password','email', 'bio', 'username'];
 
      /**
      * The attributes excluded from the model's JSON form.

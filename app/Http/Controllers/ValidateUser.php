@@ -301,9 +301,7 @@ class ValidateUser extends Controller
     public function updateAvailability(Request $request){
         if(app('auth')->guard($this->apiCall)->authenticate()){
             $credentials = $request->only('contact_info','availability');
-            $delete = array();
             foreach($credentials['availability'] as $item){
-                unset($item['delete']);
                 $item['name'] = $credentials['contact_info']['name'];
                 try{
                     $availability = TableModels\Availability::findOrFail($item['timeid']);

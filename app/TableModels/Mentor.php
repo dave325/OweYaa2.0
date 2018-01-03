@@ -10,7 +10,7 @@ class Mentor extends Model{
      */
     protected $table = 'mentor';
     // Set primary key
-    protected $primaryKey = 'name';
+    protected $primaryKey = 'username';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class Mentor extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name', 'mentorname', 'location','discussion', 'email'];
+    protected $fillable = ['username', 'mentorname', 'location','discussion', 'email'];
 
     /**
      * The attributes excluded from the model's JSON form.

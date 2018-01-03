@@ -10,7 +10,7 @@ class Goal extends Model{
      */
     protected $table = 'goals';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = "username";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -20,7 +20,7 @@ class Goal extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','goal1','goal2','goal3'];
+    protected $fillable = ['username','goal1','goal2','goal3'];
 
     /**
      * The attributes excluded from the model's JSON form.

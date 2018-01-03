@@ -21,7 +21,7 @@ class Social extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','linkedin','skype', 'blog','github', 'portfolio'];
+    protected $fillable = ['username','linkedin','skype', 'blog','github', 'portfolio'];
 
     /**
      * The attributes excluded from the model's JSON form.

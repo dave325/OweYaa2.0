@@ -22,7 +22,7 @@ class Course extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','course','completed', 'courseid'];
+    protected $fillable = ['username','course','completed', 'courseid'];
 
     /**
      * The attributes excluded from the model's JSON form.

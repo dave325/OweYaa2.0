@@ -10,7 +10,7 @@ class CareerSearch extends Model{
      */
     protected $table = 'careersearch';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'careerid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -20,7 +20,7 @@ class CareerSearch extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','title','status'];
+    protected $fillable = ['name','title','status','careerid'];
 
     /**
      * The attributes excluded from the model's JSON form.

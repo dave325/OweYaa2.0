@@ -22,7 +22,7 @@ class Bootcamp extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','bootcamp','bootcampid'];
+    protected $fillable = ['username','bootcamp','bootcampid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,7 +30,7 @@ class Bootcamp extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -38,6 +38,6 @@ class Bootcamp extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

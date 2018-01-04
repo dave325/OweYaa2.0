@@ -24,7 +24,7 @@ class Event extends Model{
     *
     * @var array
     */
-    protected $fillable = ['eventid','name','eventname','contactid'];
+    protected $fillable = ['eventid','username','eventname','contactid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,7 +32,7 @@ class Event extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
 
     /**
@@ -40,13 +40,13 @@ class Event extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name','eventid');
+        return $this->belongsTo('App\MilitaryUser','username','eventid');
     }
 
     /**
      * 
      */
     public function contact(){
-        return $this->hasMany('App\Contact', 'name');
+        return $this->hasMany('App\Contact', 'eventid');
     }
 }

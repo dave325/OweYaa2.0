@@ -21,7 +21,7 @@ class CareerGoal extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','goal'];
+    protected $fillable = ['username','goal', 'goalid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class CareerGoal extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -37,6 +37,6 @@ class CareerGoal extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

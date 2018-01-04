@@ -28,7 +28,7 @@ class Goal extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
 
     /**
@@ -36,6 +36,6 @@ class Goal extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','username');
     }
 }

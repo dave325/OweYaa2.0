@@ -21,7 +21,7 @@ class Availability extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','dayofweek','start_time','end_time',"timeid"];
+    protected $fillable = ['username','dayofweek','start_time','end_time',"timeid"];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class Availability extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
 
     /**
@@ -37,6 +37,6 @@ class Availability extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','username');
     }
 }

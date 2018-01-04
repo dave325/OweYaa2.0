@@ -21,7 +21,7 @@ class Language extends Model{
     *
     * @var array
     */
-    protected $fillable = ['langid','name','language','rating'];
+    protected $fillable = ['langid','username','language','rating'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class Language extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -37,6 +37,6 @@ class Language extends Model{
      */
     public function post()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

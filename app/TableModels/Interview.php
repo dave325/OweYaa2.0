@@ -20,7 +20,7 @@ class Interview extends Model{
     *
     * @var array
     */
-    protected $fillable = ['interviewid','name','company', 'date','contact', 'notes'];
+    protected $fillable = ['interviewid','username','company', 'date','contact', 'notes'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -28,7 +28,7 @@ class Interview extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
     
     /**
@@ -36,6 +36,6 @@ class Interview extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','username');
     }
 }

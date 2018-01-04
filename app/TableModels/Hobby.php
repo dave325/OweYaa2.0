@@ -20,7 +20,7 @@ class Hobby extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','hobby','hobbyid'];
+    protected $fillable = ['username','hobby','hobbyid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -28,7 +28,7 @@ class Hobby extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
     
     /**
@@ -36,6 +36,6 @@ class Hobby extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','username');
     }
 }

@@ -29,7 +29,7 @@ class Mentor extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -37,6 +37,6 @@ class Mentor extends Model{
      */
     public function post()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

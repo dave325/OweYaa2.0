@@ -20,7 +20,7 @@ class CareerSearch extends Model{
     *
     * @var array
     */
-    protected $fillable = ['name','title','status','careerid'];
+    protected $fillable = ['username','title','status','careerid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -28,7 +28,7 @@ class CareerSearch extends Model{
      * @var array
      */
     protected $hidden = [
-        'name'
+        'username'
     ];
 
     /**
@@ -36,7 +36,7 @@ class CareerSearch extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name');
+        return $this->belongsTo('App\MilitaryUser','username');
     }
 
 }

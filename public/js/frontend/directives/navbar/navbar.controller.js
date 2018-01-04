@@ -36,7 +36,6 @@
        */
       modal.result
          .then(function (data) {
-           console.log(data);
            var curUser = data.contact_info.name;
            if(data.type == 1){
    					$location.path('/company/' + curUser +'/dashboard');

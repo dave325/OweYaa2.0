@@ -29,7 +29,7 @@ class Education extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -37,6 +37,6 @@ class Education extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

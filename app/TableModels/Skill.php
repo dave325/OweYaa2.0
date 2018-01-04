@@ -1,5 +1,5 @@
 <?php
-namespace App\TableModels;
+usernamespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
 class Skill extends Model{
@@ -21,7 +21,7 @@ class Skill extends Model{
     *
     * @var array
     */
-    protected $fillable = ['skillid','name','skill','amount'];
+    protected $fillable = ['skillid','username','skill','amount'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class Skill extends Model{
      * @var array
      */
     protected $hidden = [
-        'name',
+        'username',
     ];
 
     /**
@@ -37,6 +37,6 @@ class Skill extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser', 'name');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

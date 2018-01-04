@@ -704,7 +704,7 @@ Section 7.1 Login Modal
 }
 
 #loginVeteran{
-	background-color:rgb(153, 153, 153);
+	background-color:rgb(191,191,191);
 	color:#000;
 	position: relative;
 	transition:.5s all;

@@ -1,5 +1,5 @@
 <?php
-usernamespace App\TableModels;
+namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
 class Skill extends Model{

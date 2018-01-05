@@ -47,6 +47,8 @@
           var user = $window.sessionStorage.getItem('user');
         }
         if(user != null){
+          return true;
+          /*
           switch(user.type){
             case 0 :
               return "Veteran";
@@ -58,8 +60,9 @@
               return null;
               break;
           }
+          */
         }else{
-          return null;
+          return false;
         }
       },
       /*

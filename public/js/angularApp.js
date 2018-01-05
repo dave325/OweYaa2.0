@@ -78,7 +78,7 @@
         if (!User.isLoggedIn()) {
             console.log('DENY');
             event.preventDefault();
-            $location.path('/');
+            $location.path('/').replace();
         }
         else {
             console.log('ALLOW');

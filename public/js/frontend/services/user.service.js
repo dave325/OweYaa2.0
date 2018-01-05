@@ -48,19 +48,6 @@
         }
         if(user != null){
           return true;
-          /*
-          switch(user.type){
-            case 0 :
-              return "Veteran";
-              break;
-            case 1:
-              return "Company";
-              break;
-            default :
-              return null;
-              break;
-          }
-          */
         }else{
           return false;
         }

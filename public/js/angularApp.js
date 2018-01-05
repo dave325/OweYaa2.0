@@ -74,13 +74,14 @@
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig])
     .run(['$rootScope', '$location', 'User', function ($rootScope, $location, User) {
+    /**
+     * Checks everytime user tries to enter a login area and then validates whether 
+     * user exists. If not redirects user to home page
+     */
     $rootScope.$on('$routeChangeStart', function (event) {
-        if (!User.isLoggedIn()) {
-            console.log('DENY');
+      console.log($location.url().substring(1,7))
+        if (!User.isLoggedIn() && $location.url().substring(1,7) == 'veteran' || $location.url().substring(1,7) == 'company') {
             $location.url('/');
-        }
-        else {
-            console.log('ALLOW');
         }
     });
   }]);

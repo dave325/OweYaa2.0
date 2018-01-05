@@ -42,7 +42,7 @@ class ExampleController extends Controller
     // Adds User
     public function addUser(Request $request){
         // grab credentials from the request
-        $credentials = $request->only('name', 'email', 'password', 'type', user);
+        $credentials = $request->only('name', 'email', 'password', 'type', 'username');
         // Creates user based on what type is submitted
         if($credentials['type'] == 0){
             $user = new MilitaryUser();

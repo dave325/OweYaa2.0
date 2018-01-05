@@ -80,7 +80,7 @@
      */
     $rootScope.$on('$routeChangeStart', function (event) {
       console.log($location.url().substring(1,7))
-        if (!User.isLoggedIn() && $location.url().substring(1,7) == 'veteran' || $location.url().substring(1,7) == 'company') {
+        if (!User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/') {
             $location.url('/');
         }
     });

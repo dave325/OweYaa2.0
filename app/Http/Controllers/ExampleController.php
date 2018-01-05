@@ -60,7 +60,7 @@ class ExampleController extends Controller
             for($i = 0; $i < 2; $i++){
                 TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i]);
                 TableModels\Event::create(['eventid'=> $credentials['username'] . $i]);
-                TableModels\PreviousCareerFields::create(['careerid'=> $credentials['username'] . $i]);
+                TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i]);
             }
             TableModels\Social::create(['username'=> $credentials['username']]);
             TableModels\Goal::create(['username'=> $credentials['username']]);

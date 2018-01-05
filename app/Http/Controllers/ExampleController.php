@@ -58,15 +58,15 @@ class ExampleController extends Controller
         if($user->save()){
             TableModels\ContactInfo::create(["name"=> $credentials['name'], ['username' =>$credentials['username']],['email'=>$credentials['email']]]);
             for($i = 0; $i < 2; $i++){
-                TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i]);
-                TableModels\Event::create(['eventid'=> $credentials['username'] . $i]);
-                TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i]);
+                TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i],['username' =>$credentials['username']]);
+                TableModels\Event::create(['eventid'=> $credentials['username'] . $i],['username' =>$credentials['username']]);
+                TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i],['username' =>$credentials['username']]);
             }
             TableModels\Social::create(['username'=> $credentials['username']]);
             TableModels\Goal::create(['username'=> $credentials['username']]);
             TableModels\ActionTask::create(['username'=> $credentials['username']]);
             for($i = 0; $i < 7; $i++){
-                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i], ['start_time' => "00:00:00"], ['end_time' => "00:00:00"]);
+                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i], ['start_time' => "00:00:00"], ['end_time' => "00:00:00"],['username' =>$credentials['username']]);
             }
             TableModels\Mentor::create(['username'=> $credentials['username']]);
             return response()->json("success");

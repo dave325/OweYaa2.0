@@ -66,7 +66,7 @@ class ExampleController extends Controller
             TableModels\Goal::create(['username'=> $credentials['username']]);
             TableModels\ActionTask::create(['username'=> $credentials['username']]);
             for($i = 0; $i < 7; $i++){
-                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i]);
+                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00"]);
             }
             TableModels\Mentor::create(['username'=> $credentials['username']]);
             return response()->json("success");

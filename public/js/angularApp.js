@@ -72,8 +72,8 @@
   }
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
-    .config(['$locationProvider', locationConfig]);
-  app.run(['$rootScope', '$location', 'User', function ($rootScope, $location, Auth) {
+    .config(['$locationProvider', locationConfig])
+    .run(['$rootScope', '$location', 'User', function ($rootScope, $location, User) {
     $rootScope.$on('$routeChangeStart', function (event) {
         if (!User.isLoggedIn()) {
             console.log('DENY');

@@ -73,4 +73,16 @@
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig]);
+  app.run(['$rootScope', '$location', 'User', function ($rootScope, $location, Auth) {
+    $rootScope.$on('$routeChangeStart', function (event) {
+        if (!User.isLoggedIn()) {
+            console.log('DENY');
+            event.preventDefault();
+            $location.path('/');
+        }
+        else {
+            console.log('ALLOW');
+        }
+    });
+  }]);
 })();

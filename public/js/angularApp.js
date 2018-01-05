@@ -77,7 +77,6 @@
     $rootScope.$on('$routeChangeStart', function (event) {
         if (!User.isLoggedIn()) {
             console.log('DENY');
-            event.preventDefault();
             $location.url('/');
         }
         else {

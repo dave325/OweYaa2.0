@@ -43,14 +43,22 @@
       isLoggedIn: function(){
         // Checks if user is set and if not return null
         // Checks if user is set and stores the user inside a variable
-        if($window.sessionStorage.getItem('user') != null){
-          var user = $window.sessionStorage.getItem('user');
-        }
-        if(user != null){
-          return true;
-        }else{
+        if(Authentication.getToken() == null){
           return false;
         }
+        $http({
+          url : '/api/check', 
+          method: 'POST',
+          data:{"type" : type},
+          headers:{
+            "Authorization" : "Bearer " +  Authentication.getToken()
+          }
+        }).then(function(response){
+          return true; 
+        },function(response){
+          console.log(response);
+          return false;
+        });
       },
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user

@@ -1,6 +1,6 @@
 (function(){
-  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope'];
-  function availibilityModalCtrl($uibModalInstance, Authentication,CurrUser, $scope){
+  availibilityModalCtrl.$inject = ['$uibModalInstance', 'Authentication','CurrUser', '$scope','User'];
+  function availibilityModalCtrl($uibModalInstance, Authentication,CurrUser, $scope, User){
     availibilityvm = this;
     availibilityvm.user = CurrUser;
     // Containers

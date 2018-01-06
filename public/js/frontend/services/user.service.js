@@ -46,9 +46,12 @@
         if(Authentication.getToken() == null){
           return false;
         }
+        user = JSON.parse($window.sessionStorage.getItem('user'));
+        type = user.type;
         $http({
           url : '/api/check', 
           method: 'POST',
+          data:{"type" : type},
           headers:{
             "Authorization" : "Bearer " +  Authentication.getToken()
           }

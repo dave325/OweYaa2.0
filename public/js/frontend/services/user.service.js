@@ -58,6 +58,7 @@
         }).then(function(response){
           return true; 
         },function(response){
+          console.log(response);
           return false;
         });
         return false;

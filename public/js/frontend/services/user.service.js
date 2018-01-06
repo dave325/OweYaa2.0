@@ -46,6 +46,7 @@
         if(Authentication.getToken() == null){
           return false;
         }
+        success = false;
         user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;
         $http({
@@ -56,10 +57,10 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(response){
-          return true; 
+          success =  true; 
         },function(response){
-            return false;
         });
+        return success;
       },
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user

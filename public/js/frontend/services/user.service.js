@@ -43,19 +43,23 @@
       isLoggedIn: function(){
         // Checks if user is set and if not return null
         // Checks if user is set and stores the user inside a variable
-        if(Authentication.getToken() == null){
-          return;
+        if(Authentication.getToken() == null || window.sessionStorage.getItem('user') == null){
+          return false;
         }
         success = false;
         user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;
-        return $http({
+        $http({
           url : '/api/check', 
           method: 'POST',
           data:{"type" : type},
           headers:{
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
+        }).then(function(){
+          return true;
+        },function(){
+          return false;
         });
       },
       /*

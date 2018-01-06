@@ -21,13 +21,13 @@ class PreviousCareerField extends Model{
     *
     * @var array
     */
-    protected $fillable = ['careerid','name','career','employer', 'start_date','end_date'];
+    protected $fillable = ['careerid','username','career','employer', 'start_date','end_date'];
 
     /**
      * Get the post that owns the comment.
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','name','careerid');
+        return $this->belongsTo('App\MilitaryUser','username','careerid');
     }
 }

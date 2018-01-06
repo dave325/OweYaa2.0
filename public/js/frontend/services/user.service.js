@@ -49,7 +49,6 @@
         $http({
           url : '/api/check', 
           method: 'POST',
-          data:{"type" : type},
           headers:{
             "Authorization" : "Bearer " +  Authentication.getToken()
           }

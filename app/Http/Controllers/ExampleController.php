@@ -66,6 +66,7 @@ class ExampleController extends Controller
             TableModels\Social::create(['username'=> $credentials['username']]);
             TableModels\Goal::create(['username'=> $credentials['username']]);
             TableModels\ActionTask::create(['username'=> $credentials['username']]);
+            TableModels\Education::create(['username'=> $credentials['username']]);
             $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
             for($i = 0; $i < 7; $i++){
                 TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00",'username' =>$credentials['username'], "dayofweek" => $daysOfWeek[$i]]);

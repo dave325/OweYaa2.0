@@ -712,7 +712,7 @@ Section 7.1 Login Modal
 
 #loginVeteran:hover{
 	border:2px solid #000;
-	color:rgb(191, 191, 191);
+	color:#FFF;
 	font-weight:900;
 }
 #loginCompany{

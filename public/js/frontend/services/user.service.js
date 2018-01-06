@@ -61,6 +61,7 @@
         },function(){
           return false;
         });
+        console.log('d');
       },
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user

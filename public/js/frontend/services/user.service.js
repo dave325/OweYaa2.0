@@ -56,7 +56,7 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(response){
-          console.log(response);
+          console.log("response");
           return true; 
         },function(response){
           console.log("response");

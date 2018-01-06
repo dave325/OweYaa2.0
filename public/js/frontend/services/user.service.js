@@ -48,6 +48,7 @@
         }
         user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;
+        console.log(type);
         $http({
           url : '/api/check', 
           method: 'POST',
@@ -56,11 +57,9 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(response){
-          console.log("response");
           return true; 
         },function(response){
-          console.log("response");
-          return false;
+            return false;
         });
         return false;
       },

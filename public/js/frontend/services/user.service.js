@@ -46,7 +46,6 @@
         if(Authentication.getToken() == null || window.sessionStorage.getItem('user') == null){
           return false;
         }
-        success = false;
         user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;
         $http({
@@ -57,7 +56,6 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(){
-          console.log('f');
           return true;
         },function(){
           return false;

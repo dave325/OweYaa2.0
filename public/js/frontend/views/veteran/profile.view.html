@@ -172,14 +172,13 @@
                       </div>
                   </div>
                 </div>
-                <div>
+                <div ng-if="user.career_search[0].title.length > 0 || user.career_search[1].title.length > 0"> 
                   <div ng-repeat="search in user.career_search track by $index">
                       <h4>Career Search For: **Fix later from career track</h4>
                       <p>Job Title: {{search.title}}</p>
                       <p>Status: {{search.status}}</p>
                   </div> 
                 </div>
-              </div>
                 <div ng-if="user.mentor.mentorname.length > 0">
                   <h3>Mentor Information</h3>
                     <p>Mentor Name: {{user.mentor.mentorname}}</p>

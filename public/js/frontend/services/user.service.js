@@ -56,9 +56,11 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(response){
+          console.log("true");
           console.log(response);
           return true; 
         },function(response){
+          console.log("false");
           console.log(response);
           return false;
         });

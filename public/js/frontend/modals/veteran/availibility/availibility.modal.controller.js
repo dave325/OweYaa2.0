@@ -27,7 +27,7 @@
     availibilityvm.doAvailability = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
-        availabilityvm.close(availabilityvm.user);
+        availibilityvm.close(availibilityvm.user);
       },function(error){
         console.log(data);
       })

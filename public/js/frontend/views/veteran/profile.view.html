@@ -82,7 +82,7 @@
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('career')"></span></h2>
-                <div ng-if="user.prev_career_fields.length > 0">
+                <div ng-if="user.prev_career_fields.length > 0 && user.prev_career_fields[0].career.length > 0 && user.prev_career_fields[1].career.length > 0">
                   <h3>Previous Career Fields</h3>
                   <div ng-repeat="field in user.prev_career_fields track by $index">
                     <div ng-if="field.career.length > 0" >
@@ -92,8 +92,12 @@
                     </div>
                   </div>
                 </div>
-                <p>Goals &amp; Objectives:</p>
-                <p ng-if="user.career_goal.length > 0" ng-repeat="goal in user.career_goal">{{goal.goal}}</p>
+                <div ng-if="user.career_goal.goal1.length > 0 || user.career_goal.goal2.length > 0 || user.career_goal.goal3.length > 0">
+                  <p>Goals &amp; Objectives:</p>
+                  <p ng-if="user.career_goal.goal1.length > 0">Goal 1: {{user.career_goal.goal1}}</p>
+                  <p ng-if="user.career_goal.goal2.length > 0">Goal 2: {{user.career_goal.goal2}}</p>
+                  <p ng-if="user.career_goal.goal3.length > 0">Goal 3: {{user.career_goal.goal3}}</p>
+                </div>  
               </div> 
         </div>
 
@@ -137,48 +141,55 @@
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Journal and Mentor<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('journal')"></span></h2>
               <p>Record all your career development efforts here!</p>
               <div class="col-md-6">
-                <h3>Building Connections:</h3>
-                <p>Informational Interviews</p>
-                <div ng-repeat="interview in user.interviews track by $index">
-                  <h5>Interview #{{$index + 1}}</h5>
-                  <p>Company: {{interview.company}}</p>
-                  <p>Date: {{interview.date}}</p>
-                  <p>Contact: {{interview.contact}}</p>
-                  <p>Notes: {{interview.notes}}</p>
-                </div>
-                <h3 ng-if="user.events.length > 0">Networking Events:</h3>
-                <div ng-repeat="events in user.events track by $index">
-                    <h5>Event #{{$index + 1}}</h5>
-                    <p>Event: {{events.eventname}}</p>
-                    <!-- Add contacts here -->
+                <div ng-if="user.interviews[0].company.length > 0 || user.interviews[1].company.length > 0">
+                  <h3>Building Connections:</h3>
+                  <p>Informational Interviews</p>
+                  <div ng-repeat="interview in user.interviews track by $index">
+                    <h5>Interview #{{$index + 1}}</h5>
+                    <p>Company: {{interview.company}}</p>
+                    <p>Date: {{interview.date}}</p>
+                    <p>Contact: {{interview.contact}}</p>
+                    <p>Notes: {{interview.notes}}</p>
                   </div>
-              </div>
+                </div>
+                <div ng-if="user.events[0].eventname.length > 0 || user.events[1].eventname.length > 0">
+                  <h3 ng-if="user.events.length > 0">Networking Events:</h3>
+                  <div ng-repeat="events in user.events track by $index">
+                      <h5>Event #{{$index + 1}}</h5>
+                      <p>Event: {{events.eventname}}</p>
+                      <!-- Add contacts here -->
+                  </div>
+                </div>
+              </div><!-- End of left side journal and mentor box -->
               <div class="col-md-6">
-                <h3>Job Search</h3>
-                <p>My professional goals</p>
-                    <div ng-repeat="(key,search) in jobSearch.goal track by $index">
-                        <div ng-if="search.length > 0">
-                          <h4>{{key}} year goal</h4>
-                          <p>{{search}}</p>
-                        </div>
-                    </div>
-                    <div ng-repeat="search in user.career_search track by $index">
-                        <h4>Career Search For: **Fix later from career track</h4>
-                        <p>Job Title: {{search.title}}</p>
-                        <p>Status: {{search.status}}</p>
+                <div ng-if="user.mentor.mentorname != null">
+                  <h3>Job Search</h3>
+                  <p>My professional goals</p>
+                  <div ng-repeat="(key,search) in user.goals track by $index">
+                      <div ng-if="search.length > 0">
+                        <h4>{{key}} year goal</h4>
+                        <p>{{search}}</p>
+                      </div>
                   </div>
-              </div>
-              <div class="col-md-12">
-                <h3>Mentor Information</h3>
-                <div ng-if="user.mentor != null"> 
-                  <p>Mentor Name: {{user.mentor.mentorname}}</p>
-                  <p>Mentor Location: {{user.mentor.location}}</p>
-                  <p>Mentor Email: {{user.mentor.email}}</p>
-                  <p>Mentor Discussion: {{user.mentor.discussion}}</p>
+                </div>
+                <div>
+                  <div ng-repeat="search in user.career_search track by $index">
+                      <h4>Career Search For: **Fix later from career track</h4>
+                      <p>Job Title: {{search.title}}</p>
+                      <p>Status: {{search.status}}</p>
+                  </div> 
                 </div>
               </div>
-            </div> 
-        </div>
+                <div ng-if="user.mentor.mentorname.length > 0">
+                  <h3>Mentor Information</h3>
+                    <p>Mentor Name: {{user.mentor.mentorname}}</p>
+                    <p>Mentor Location: {{user.mentor.location}}</p>
+                    <p>Mentor Email: {{user.mentor.email}}</p>
+                    <p ng-if="user.mentor.discussion.length > 0">Mentor Discussion: {{user.mentor.discussion}}</p>
+                </div> <!-- End of Mentor div -->
+              </div> <!-- End of right side container -->
+            </div> <!-- End of space box class div --> 
+        </div> <!-- End of journal and mentor box -->
 
          <!---------------
           Availability Information 

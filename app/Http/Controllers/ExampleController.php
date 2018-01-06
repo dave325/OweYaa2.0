@@ -61,11 +61,12 @@ class ExampleController extends Controller
                 TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i,'username' => $credentials['username']]);
                 TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
                 TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
+                TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
             }
             TableModels\Social::create(['username'=> $credentials['username']]);
             TableModels\Goal::create(['username'=> $credentials['username']]);
             TableModels\ActionTask::create(['username'=> $credentials['username']]);
-            $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","thursday","Friday","Saturday");
+            $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
             for($i = 0; $i < 7; $i++){
                 TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00",'username' =>$credentials['username'], "dayofweek" => $daysOfWeek[$i]]);
             }

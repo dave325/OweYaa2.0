@@ -82,7 +82,6 @@
       if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
         user = User.getUser();
         if(Authentication.getToken() == null || user == null){
-          console.log(1);
             $location.path("/");
         }
         return $http({
@@ -92,9 +91,12 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(){
-          console.log(2);
+          if(user.type == 1){
+            $location.path('/company/' + curUser +'/dashboard');
+          }else{
+            $location.path('/veteran/' + curUser + '/profile');
+          }
         },function(){
-          console.log(3);
           $location.path('/');
         });
       }

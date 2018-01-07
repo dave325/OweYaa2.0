@@ -59,7 +59,7 @@
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user
       */
-      getCurrentUser: function(type, token){
+      getCurrentUser: function(){
         var user;
         if(token == null){
           return;
@@ -69,7 +69,7 @@
             url : '/api/check', 
             method: 'POST',
             headers:{
-              "Authorization" : "Bearer " +  token
+              "Authorization" : "Bearer " +  Authentication.getToken()
             }
           });
         }

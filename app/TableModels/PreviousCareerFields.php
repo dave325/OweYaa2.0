@@ -28,6 +28,6 @@ class PreviousCareerField extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','username','careerid');
+        return $this->belongsTo('App\User','username','careerid');
     }
 }

@@ -36,6 +36,6 @@ class Hobby extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','username');
+        return $this->belongsTo('App\User','username');
     }
 }

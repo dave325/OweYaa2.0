@@ -39,14 +39,6 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
-        'veteran' => [
-            'driver' => 'jwt',
-            'provider' => 'militaryuser',
-        ],
-        'company' => [
-            'driver' => 'jwt',
-            'provider' => 'companyuser',
-        ],
     ],
     
     /*
@@ -70,14 +62,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],
-        'militaryuser' =>[
-            'driver' => 'eloquent',
-            'model' => App\MilitaryUser::class,
-        ],
-        'companyuser' => [
-            'driver' => 'eloquent',
-            'model' => App\CompanyUser::class,
         ],
     ],
     

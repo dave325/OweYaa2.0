@@ -40,7 +40,7 @@ class Event extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\MilitaryUser','username','eventid');
+        return $this->belongsTo('App\User','username','eventid');
     }
 
     /**

@@ -37,6 +37,6 @@ class Social extends Model{
      */
     public function post()
     {
-        return $this->belongsTo('App\MilitaryUser', 'username');
+        return $this->belongsTo('App\User', 'username');
     }
 }

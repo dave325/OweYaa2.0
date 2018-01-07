@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-     protected $fillable = ['username','password', 'type'];
+     protected $fillable = ['username','password', 'email','type'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -35,6 +35,157 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+    /**
+     * Get the skills associated with the user.
+     */
+    public function skill()
+    {
+        return $this->hasMany('App\TableModels\Skill', 'username');
+    }
+
+    /**
+     * Get the skills associated with the user.
+     */
+    public function contactInfo()
+    {
+        return $this->hasOne('App\TableModels\ContactInfo', 'username');
+    }
+
+    /**
+     * Get the courses associated with the user.
+     */
+    public function course()
+    {
+        return $this->hasMany('App\TableModels\Course', 'username');
+    }
+
+    /**
+     * Get the languages associated with the user.
+     */
+    public function language()
+    {
+        return $this->hasMany('App\TableModels\Language', 'username');
+    }
+
+    /**
+     * Get the social media associated with the user.
+     */
+    public function social()
+    {
+        return $this->hasOne('App\TableModels\Social', 'username');
+    }
+
+    /**
+     * Get the mentor associated with the user.
+     */
+    public function mentor()
+    {
+        return $this->hasOne('App\TableModels\Mentor', 'username');
+    }
+
+    /**
+     * Get the education associated with the user.
+     */
+    public function education()
+    {
+        return $this->hasOne('App\TableModels\Education', 'username');
+    }
+
+    /**
+     * Get the action task associated with the user.
+     */
+    public function actionTask()
+    {
+        return $this->hasOne('App\TableModels\ActionTask', 'username');
+    }
+
+    /**
+     * Get the availability associated with the user.
+     */
+    public function availability()
+    {
+        return $this->hasMany('App\TableModels\Availability', 'username');
+    }
+
+    /**
+     * Get the wanted skills associated with the user.
+     */
+    public function wantedSkills()
+    {
+        return $this->hasMany('App\TableModels\WantedSkill', 'username');
+    }
+
+    /**
+     * Get the events associated with the user.
+     */
+    public function events()
+    {
+        return $this->hasMany('App\TableModels\Event', 'username');
+    }
+
+    /**
+     * Get the goals associated with the user.
+     */
+    public function goals()
+    {
+        return $this->hasMany('App\TableModels\Goal', 'username');
+    }
+
+    /**
+     * Get the career search associated with the user.
+     */
+    public function careerSearch()
+    {
+        return $this->hasMany('App\TableModels\CareerSearch', 'username');
+    }
+
+    /**
+     * Get the bootcamp associated with the user.
+     */
+    public function bootcamp()
+    {
+        return $this->hasMany('App\TableModels\Bootcamp', 'username');
+    }
+
+    /**
+     * Get the previous career fields associated with the user.
+     */
+    public function prevCareerFields()
+    {
+        return $this->hasMany('App\TableModels\PreviousCareerField', 'username');
+    }
+
+    /**
+     * Get the career goals associated with the user.
+     */
+    public function careerGoals()
+    {
+        return $this->hasMany('App\TableModels\CareerGoal', 'username');
+    }
+
+    /**
+     * Get the programming skills associated with the user.
+     
+    public function programmingSkills()
+    {
+        return $this->hasMany('App\TableModels\ProgrammingSkill', 'username');
+    }
+    */
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function interviews()
+    {
+        return $this->hasMany('App\TableModels\Interview', 'username');
+    }
+
+    /**
+     * Get the programming skills associated with the user.
+     */
+    public function hobbies()
+    {
+        return $this->hasMany('App\TableModels\Hobby', 'username');
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();

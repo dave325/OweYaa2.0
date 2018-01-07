@@ -24,7 +24,7 @@ class ValidateUser extends Controller
     public function checks(){
         $user = new MilitaryUser();
         try {
-            if (!$userCheck = app('auth')->guard($this->apiCall)->authenticate()) {
+            if (!$userCheck = app('auth')->guard()->authenticate()) {
 
                 return response()->json(['user_not_found'], 404);
             }

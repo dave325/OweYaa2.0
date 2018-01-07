@@ -2,8 +2,8 @@
   // Fix issue with session that is not updating when user logs in
   userLogin.$inject = ['$window', '$http', 'Authentication'];
   function userLogin($window, $http, Authentication){
+    var data = {};
     var User = {
-      data: {},
       /*
       * Login function that will check the database for a specific user and password
       * @params user - the information from the login modal
@@ -61,7 +61,6 @@
         },function(){
           data.isLoggedIn = false;
         });
-        return data;
       },
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user

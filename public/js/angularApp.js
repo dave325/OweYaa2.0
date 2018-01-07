@@ -91,11 +91,7 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         }).then(function(){
-          if(user.type == 1){
-            $location.path('/company/' + user.contact_info.username +'/dashboard');
-          }else{
-            $location.path('/veteran/' + user.contact_info.username + '/profile');
-          }
+          return;
         },function(){
           $location.path('/');
         });

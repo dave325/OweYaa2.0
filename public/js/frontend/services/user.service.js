@@ -43,7 +43,8 @@
       isLoggedIn: function(){
         // Checks if user is set and if not return null
         // Checks if user is set and stores the user inside a variable
-        if(Authentication.getToken() == null || $window.sessionStorage.getItem('user').type == null){
+        user = JSON.parse($window.sessionStorage.getItem('user'));
+        if(Authentication.getToken() == null || user == null || user.type == null){
           data.isLoggedIn = false;
         }
         user = JSON.parse($window.sessionStorage.getItem('user'));

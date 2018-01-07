@@ -45,23 +45,16 @@
         // Checks if user is set and stores the user inside a variable
         user = JSON.parse($window.sessionStorage.getItem('user'));
         if(Authentication.getToken() == null || user == null || user.type == null){
-          data = false;
-          return data;
+          return;
         }
         type = user.type;
-        $http({
+        return $http({
           url : '/api/check', 
           method: 'POST',
-          data:{"type" : type},
           headers:{
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
-        }).then(function(){
-          data = true;
-        },function(){
-          data = false;
         });
-        return data;
       },
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user
@@ -75,7 +68,6 @@
           return $http({
             url : '/api/check', 
             method: 'POST',
-            data:{"type" : type},
             headers:{
               "Authorization" : "Bearer " +  token
             }

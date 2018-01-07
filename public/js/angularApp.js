@@ -73,16 +73,18 @@
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig])
-    .run(['$rootScope', '$location', 'User', function ($rootScope, $location, User) {
+    .run(['$rootScope', '$location', 'User', function ($rootScope, $location, User, $timeout) {
     /**
      * Checks everytime user tries to enter a login area and then validates whether 
      * user exists. If not redirects user to home page
      */
-    $rootScope.$on('$routeChangeStart', function (event) {
-      if(!User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/') {
-        $location.url('/');
-      }else{
-        return;
+    $rootScope.$on('$routeChangeStart', function (event,$timeout) {
+      if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
+        $timeout(function(){
+          if(!User.isLoggedIn()) {
+            $location.url('/');
+          }
+        },2000);
       }
     });
   }]);

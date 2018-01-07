@@ -92,9 +92,9 @@
           }
         }).then(function(){
           if(user.type == 1){
-            $location.path('/company/' + curUser +'/dashboard');
+            $location.path('/company/' + user.contact_info.username +'/dashboard');
           }else{
-            $location.path('/veteran/' + curUser + '/profile');
+            $location.path('/veteran/' + user.contact_info.username + '/profile');
           }
         },function(){
           $location.path('/');

@@ -48,7 +48,6 @@
           data = false;
           return data;
         }
-        user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;
         $http({
           url : '/api/check', 

@@ -81,7 +81,7 @@
     $rootScope.$on('$routeChangeStart', function (event) {
       if(!User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/') {
         $location.url('/');
-      }else{
+      }else if(User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
         var curUser = User.getCurrentUser().contact_info.username;
         if(data.type == 1){
         $location.path('/company/' + curUser +'/dashboard');

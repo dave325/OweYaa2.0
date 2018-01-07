@@ -45,7 +45,6 @@
         // Checks if user is set and stores the user inside a variable
         user = JSON.parse($window.sessionStorage.getItem('user'));
         if(Authentication.getToken() == null || user == null || user.type == null){
-          console.log('n');
           data = false;
           return data;
         }

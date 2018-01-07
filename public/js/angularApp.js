@@ -80,9 +80,27 @@
      */
     $rootScope.$on('$routeChangeStart', function (event) {
       if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
-          if(!User.isLoggedIn()) {
-            $location.url('/');
+        var user = User.getUser();
+        var data;
+        if(Authentication.getToken() == null || user == null || user.type == null){
+          data = false;
+          return data;
+        }
+        $http({
+          url : '/api/check', 
+          method: 'POST',
+          data:{"type" : user.type},
+          headers:{
+            "Authorization" : "Bearer " +  Authentication.getToken()
           }
+        }).then(function(){
+          data = true;
+        },function(){
+          data = false;
+        });
+        if(!data){
+          $location.path("/");
+        }
       }
     });
   }]);

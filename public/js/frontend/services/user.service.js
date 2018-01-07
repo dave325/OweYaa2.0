@@ -46,6 +46,7 @@
         user = JSON.parse($window.sessionStorage.getItem('user'));
         if(Authentication.getToken() == null || user == null || user.type == null){
           data.isLoggedIn = false;
+          return data;
         }
         user = JSON.parse($window.sessionStorage.getItem('user'));
         type = user.type;

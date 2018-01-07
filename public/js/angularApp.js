@@ -82,11 +82,11 @@
       if(!User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/') {
         $location.url('/');
       }else if(User.isLoggedIn() && $location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
-        var curUser = User.getUser().contact_info.username;
-        if(data.type == 1){
-        $location.path('/company/' + curUser +'/dashboard');
+        var curUser = User.getUser();
+        if(curUser.type == 1){
+        $location.path('/company/' + curUser.contact_info.username +'/dashboard');
         }else{
-          $location.path('/veteran/' + curUser + '/profile');
+          $location.path('/veteran/' + curUser.contact_info.username + '/profile');
         }
       }
     });

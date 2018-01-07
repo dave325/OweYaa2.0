@@ -36,12 +36,16 @@
        */
       modal.result
          .then(function (data) {
+          navbarvm.message = "Thank you. Please wait until you are successfully logged in.";
+          navbarvm.showMessage = true;
+           $timeout(function(){
             var curUser = data.contact_info.username;
             if(data.type == 1){
               $location.path('/company/' + curUser +'/dashboard');
             }else{
               $location.path('/veteran/' + curUser + '/profile');
             }
+          },3000);
          },function (reason) {
            console.log(reason);
          })

@@ -83,8 +83,7 @@
         var user = User.getUser();
         var data;
         if(Authentication.getToken() == null || user == null || user.type == null){
-          data = false;
-          return data;
+          $location.path("/");
         }
         $http({
           url : '/api/check', 

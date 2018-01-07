@@ -73,7 +73,7 @@
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig])
-    .run(['$rootScope', '$location', 'User','Authentication', function ($rootScope, $location, User,Authentication) {
+    .run(['$rootScope', '$location', 'User','Authentication','$http', function ($rootScope, $location, User,Authentication,$http) {
     /**
      * Checks everytime user tries to enter a login area and then validates whether 
      * user exists. If not redirects user to home page

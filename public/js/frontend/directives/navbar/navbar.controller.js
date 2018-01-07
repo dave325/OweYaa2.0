@@ -36,12 +36,14 @@
        */
       modal.result
          .then(function (data) {
+           $timeout(function(){
            var curUser = data.contact_info.username;
-           if(data.type == 1){
-   					$location.path('/company/' + curUser +'/dashboard');
-   				}else{
-   					$location.path('/veteran/' + curUser + '/profile');
-   				}
+            if(data.type == 1){
+              $location.path('/company/' + curUser +'/dashboard');
+              }else{
+                $location.path('/veteran/' + curUser + '/profile');
+              }
+            },1500);
          },function (reason) {
            console.log(reason);
          })

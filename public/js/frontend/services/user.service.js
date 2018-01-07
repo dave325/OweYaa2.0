@@ -2,7 +2,7 @@
   // Fix issue with session that is not updating when user logs in
   userLogin.$inject = ['$window', '$http', 'Authentication'];
   function userLogin($window, $http, Authentication){
-    var data = {};
+    var data;
     var User = {
       /*
       * Login function that will check the database for a specific user and password
@@ -45,7 +45,7 @@
         // Checks if user is set and stores the user inside a variable
         user = JSON.parse($window.sessionStorage.getItem('user'));
         if(Authentication.getToken() == null || user == null || user.type == null){
-          data.isLoggedIn = false;
+          data = false;
           return data;
         }
         user = JSON.parse($window.sessionStorage.getItem('user'));
@@ -59,9 +59,9 @@
           }
         }).then(function(){
           console.log('here');
-          data.isLoggedIn = true;
+          data = true;
         },function(){
-          data.isLoggedIn = false;
+          data = false;
         });
         return data;
       },

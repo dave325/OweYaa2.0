@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\TableModels;
-use App\MilitaryUser;
+use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;  

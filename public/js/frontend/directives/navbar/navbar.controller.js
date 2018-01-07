@@ -4,7 +4,7 @@
     var navbarvm = this;
     // Sets the user name
     if(User.getUser()){
-      navbarvm.user = User.getUser().name;
+      navbarvm.user = User.getUser().contact_info.username;
     }else{
       navbarvm.user = ""
     }

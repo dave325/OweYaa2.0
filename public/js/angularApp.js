@@ -82,7 +82,7 @@
       if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
         var user = User.getUser();
         var data;
-        if(Authentication.getToken() == null || user == null || user.type == null){
+        if(Authentication.getToken() == undefined || user == null || user.type == null){
           data = false;
           return data;
         }

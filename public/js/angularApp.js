@@ -73,33 +73,18 @@
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig])
-    .run(['$rootScope', '$location', 'User','Authentication','$http', function ($rootScope, $location, User,Authentication,$http) {
+    .run(['$rootScope', '$location', 'User',,'$timeout', function ($rootScope, $location, User,$timeout) {
     /**
      * Checks everytime user tries to enter a login area and then validates whether 
      * user exists. If not redirects user to home page
      */
     $rootScope.$on('$routeChangeStart', function (event) {
       if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
-        var user = User.getUser();
-        var data;
-        if(Authentication.getToken() == null || user == null || user.type == null){
-          $location.path("/");
-        }
-        $http({
-          url : '/api/check', 
-          method: 'POST',
-          data:{"type" : user.type},
-          headers:{
-            "Authorization" : "Bearer " +  Authentication.getToken()
+        $timeout(function(){
+          if(!User.isLoggedIn()){
+            $location.path("/");
           }
-        }).then(function(){
-          data = true;
-        },function(){
-          data = false;
-        });
-        if(!data){
-          $location.path("/");
-        }
+        },2000);
       }
     });
   }]);

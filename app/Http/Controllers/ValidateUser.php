@@ -48,9 +48,9 @@ class ValidateUser extends Controller
     }
 
     public function updateContact(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info');
-            TableModels\ContactInfo::where('name', '=', $credentials['contact_info']['name'])->update($credentials['contact_info']);
+            TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));
@@ -62,7 +62,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateEducation(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
 
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);

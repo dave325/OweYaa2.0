@@ -72,12 +72,14 @@
   }
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
-    .config(['$locationProvider', locationConfig])
-    .run(['$rootScope', '$location', '$http','User','Authentication', function ($rootScope, $location, $http,User,Authentication) {
+    .config(['$locationProvider', locationConfig]);
+    
+    //.run(['$rootScope', '$location', '$http','User','Authentication', function ($rootScope, $location, $http,User,Authentication) {
     /**
      * Checks everytime user tries to enter a login area and then validates whether 
      * user exists. If not redirects user to home page
      */
+    /*
     $rootScope.$on('$routeChangeStart', function (event) {
       if($location.url().substring(1,9) == 'veteran/' || $location.url().substring(1,9) == 'company/'){
         user = User.getUser();
@@ -97,5 +99,5 @@
         });
       }
     });
-  }]);
+  }]);*/
 })();

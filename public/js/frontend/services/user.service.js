@@ -60,8 +60,7 @@
       * getCurrentuser functoin will check if User is logged in and then return the information of the user
       */
       getCurrentUser: function(){
-        var user;
-        if(token == null){
+        if(Authentication.getToken() == null){
           return;
         }else{
           // returns the http call that register the user variable in the database

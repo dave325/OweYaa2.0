@@ -149,7 +149,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateJournal(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info','interviews', 'events','mentor');
             $delete = array();
             foreach($credentials['interviews'] as $item){
@@ -202,7 +202,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateCareer(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info','prev_career_fields');
             
             foreach($credentials['prev_career_fields'] as $field){
@@ -222,7 +222,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateSkill(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info','skill','language','wanted_skills');
             $delete = array();
             foreach($credentials['skill'] as $item){
@@ -299,7 +299,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateAvailability(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info','availability');
             foreach($credentials['availability'] as $item){
                 $item['name'] = $credentials['contact_info']['name'];
@@ -324,7 +324,7 @@ class ValidateUser extends Controller
      * update/delete/add information into database based on user input
      */
     public function updateSocial(Request $request){
-        if(app('auth')->guard($this->apiCall)->authenticate()){
+        if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info','social');
             try{
                 $contact = TableModels\ContactInfo::findOrFail($credentials['contact_info']['username']);

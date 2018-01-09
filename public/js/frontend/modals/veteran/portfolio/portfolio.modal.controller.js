@@ -22,7 +22,7 @@
         });
         uploadPic.then(function (response) {
           $timeout(function () {
-            console.log("Worked \n" + response);
+            console.log(response);
           });
         }, function (response) {
           console.log(response);

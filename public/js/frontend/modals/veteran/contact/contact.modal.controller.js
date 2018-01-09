@@ -1,6 +1,6 @@
 (function(){
-  contactModalCtrl.$inject = ['$uibModalInstance', 'CurrUser'];
-  function contactModalCtrl($uibModalInstance, CurrUser){
+  contactModalCtrl.$inject = ['$uibModalInstance', 'CurrUser', 'User'];
+  function contactModalCtrl($uibModalInstance, CurrUser, User){
     contactvm = this;
     contactvm.user = CurrUser;
     console.log(contactvm.user);

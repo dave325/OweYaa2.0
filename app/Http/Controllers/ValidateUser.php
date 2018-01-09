@@ -86,10 +86,10 @@ class ValidateUser extends Controller
                     $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
-                        $bootcamp->fill($insert);
+                        $bootcamp->fill($item);
                         $bootcamp->save();
                     }catch(ModelNotFoundException $me){
-                        $bootcamp = new TableModels\Bootcamp($insert);
+                        $bootcamp = new TableModels\Bootcamp($item);
                         $bootcamp->save();
                     }
                 }
@@ -107,10 +107,10 @@ class ValidateUser extends Controller
                     $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $course = TableModels\Course::findOrFail($item['courseid']);
-                        $course->fill($insert);
+                        $course->fill($item);
                         $course->save();
                     }catch(ModelNotFoundException $me){
-                        $course = new TableModels\Course($insert);
+                        $course = new TableModels\Course($item);
                         $course->save();
                     }
                 }

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;  
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 class ValidateUser extends Controller
 {
@@ -51,8 +52,7 @@ class ValidateUser extends Controller
     public function uploadFiles(Request $request){
         $credentials = $request->only('username');
         $pic = $request->file('file');
-        return response()->json($pic);
-        Storage::disk('local')->putFileAs('/', $pic, $credentials['username'] . '.doc');
+        Storage::disk('local')->putFileAs('/', new File($pic), $credentials['username'] . '.doc');
         $directories = Storage::disk('local');
         return response()->json($pic);
     }

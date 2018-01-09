@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;  
+use Illuminate\Support\Facades\Storage;
 class ValidateUser extends Controller
 {
     /**
@@ -49,9 +50,10 @@ class ValidateUser extends Controller
 
     public function updateContact(Request $request){
         if(app('auth')->guard()->authenticate()){
-            $credentials = $request->only('contact_info');
+            $credentials = $request->only('contact_info', 'pic');
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
-            return response()->json(true);
+            $directories = Storage::directories($directory);
+            return response()->json($directories);
         }else{
             return response()->json(compact('user'));
         }

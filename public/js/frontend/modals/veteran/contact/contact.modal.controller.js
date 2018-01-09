@@ -11,7 +11,11 @@
     // The function that is call when the user closes the modal
 		contactvm.close = function(result){
 			$uibModalInstance.close(result);
-		}
+    }
+    
+    contacvm.concatModel = function(key){
+      return "contactvm.user.social."+key;
+    }
     // Will make a call to the server and php file
     contactvm.docontact = function(modal, data){
       //Update server information

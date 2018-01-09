@@ -230,9 +230,14 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info','prev_career_fields');
             
             foreach($credentials['prev_career_fields'] as $field){
-                    $career = TableModels\PreviousCareerField::find($field['careerid']);
+                try{
+                    $career = TableModels\PreviousCareerField::findOrFail($field['careerid']);
                     $career->fill($field);
                     $career->save();
+                }catch(ModelNotFoundException $me){
+                    $career = new TableModels\PreviousCareerField($field);
+                    $career->save();
+                }
             }
             return response()->json(true);
         }else{

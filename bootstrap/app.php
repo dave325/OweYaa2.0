@@ -109,4 +109,11 @@ $app->singleton('filesystem.disk', function () {
     return $app['filesystem']->disk($this->getDefaultDriver());
 });
 
+$app->singleton(
+    Illuminate\Contracts\Filesystem\Factory::class,
+    function ($app) {
+        return new Illuminate\Filesystem\FilesystemManager($app);
+    }
+);
+
 return $app;

@@ -3,7 +3,6 @@
   function portfolioModalCtrl($uibModalInstance, CurrUser,$http,$timeout,Upload,User){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
-    portfoliovm.pic = '';
     console.log(portfoliovm.user);
     // The function that is call when a user cancels the opening of a modal
 	  portfoliovm.cancel = function(){
@@ -16,10 +15,7 @@
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function(modal, data){
       //Update server information
-      console.log(portfoliovm.pic);
       User.updateUser(modal, data).then(function(data){
-        console.log(portfoliovm.user.pic);
-        return;
         var uploadPic = Upload.upload({
           url:"/api/uploadFile",
           data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}

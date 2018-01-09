@@ -3,7 +3,9 @@ return [
     'disks' =>[
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/resources/profile_pics')
+            'root' => storage_path('app/resources/profile_pics'),
+            'url' => env('APP_URL').'resources/profile_pics',
+            'visibility' => 'public',
         ],
     ],
 ];

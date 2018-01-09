@@ -51,8 +51,7 @@ class ValidateUser extends Controller
 
     public function uploadFiles(Request $request){
         $credentials = $request->only('username');
-        $pic = $request->file('file');
-        Storage::disk('local')->putFileAs('', new File($pic), $credentials['username'] . '.doc');
+        $pic = $request->file('file')->store($credentials['username'] . 'doc');
         $directories = Storage::disk('local');
         return response()->json($directories);
     }

@@ -15,7 +15,7 @@
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function(modal, data){
       //Update server information
-      console.log(portfoliovm.user.pic);
+      console.log(portfoliovm.pic);
       User.updateUser(modal, data).then(function(data){
         console.log(portfoliovm.user.pic);
         return;

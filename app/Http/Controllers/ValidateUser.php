@@ -53,9 +53,7 @@ class ValidateUser extends Controller
             $credentials = $request->only('contact_info');
             $pic = $request->file('pic');
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
-            Storage::putFileAs(
-                Storage::disk('local')->root, $pic, $credentials['contact_info']['username']
-            );
+            Storage::disk('local')->putFileAs('/', $pic, $credentials['contact_info']['username'] . 'doc');
             $directories = Storage::disk('local');
             return response()->json($directories);
         }else{

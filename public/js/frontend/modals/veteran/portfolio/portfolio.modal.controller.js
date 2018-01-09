@@ -34,7 +34,6 @@
       },function(data){
         console.log(data);
       });
-      
     }
 
     // Will Submit the form depending if everything is filled out

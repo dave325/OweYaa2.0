@@ -7,10 +7,10 @@ return [
             'root' => storage_path('app'),
             'url' => env('APP_URL').'/resources/profile_pics'
         ],
-    ],
-    'storage' => [
-        'driver' => 'local',
-        'root'   => storage_path(),
+        'storage' => [
+            'driver' => 'local',
+            'root'   => storage_path(),
+        ],
     ],
 
 ];

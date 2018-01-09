@@ -76,6 +76,14 @@ class ValidateUser extends Controller
         if(app('auth')->guard()->authenticate()){
 
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
+            try{
+                $education = TableModels\Education::findOrFail($credentials['contact_info']['username']);
+                $education->fill($credentials['education']);
+                $education->save();
+            }catch(ModelNotFoundException $me){
+                $education = new TableModels\Education($credentials['education']);
+                $education->save();
+            }
             TableModels\Education::where('username', '=', $credentials['contact_info']['username'])->update($credentials['education']);
             $delete = array();
             foreach($credentials['bootcamp'] as $item){

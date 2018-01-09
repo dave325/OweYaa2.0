@@ -54,7 +54,7 @@ class ValidateUser extends Controller
         $directories = Storage::disk('local');
         return response()->json($directories);
         //$pic = $request->file('file')->storeAs('resources/profile_pics', $credentials['username'] . 'doc');
-        Storage::disk('local')->putFileAs('/resources/profile_pics', new File($request->file('file')), $credentials['username'] . 'doc');
+        Storage::disk('local')->putFileAs('/resources/profile_pics', $request->file('file'), $credentials['username'] . 'doc');
         $directories = Storage::disk('local');
         return response()->json($directories);
     }

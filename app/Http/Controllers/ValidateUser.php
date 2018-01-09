@@ -52,7 +52,7 @@ class ValidateUser extends Controller
         if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info', 'pic');
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
-            $directories = Storage::directories($directory);
+            $directories = Storage::directories();
             return response()->json($directories);
         }else{
             return response()->json(compact('user'));

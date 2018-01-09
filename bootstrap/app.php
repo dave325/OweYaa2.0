@@ -105,5 +105,8 @@ $app->router->group([
 $app->singleton('filesystem', function ($app) {
     return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem');
 });
+$this->app->singleton('filesystem.disk', function () {
+    return $this->app['filesystem']->disk($this->getDefaultDriver());
+});
 
 return $app;

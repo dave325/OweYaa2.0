@@ -52,9 +52,9 @@ class ValidateUser extends Controller
     public function uploadFiles(Request $request){
         $credentials = $request->only('username');
         $pic = $request->file('file');
-        Storage::disk('local')->putFileAs('/', new File($pic), $credentials['username'] . '.doc');
+        Storage::disk('local')->putFileAs('', new File($pic), $credentials['username'] . '.doc');
         $directories = Storage::disk('local');
-        return response()->json($pic);
+        return response()->json($directories);
     }
     public function updateContact(Request $request){
         if(app('auth')->guard()->authenticate()){

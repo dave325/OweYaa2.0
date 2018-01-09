@@ -49,6 +49,7 @@ class ValidateUser extends Controller
         return response()->json(compact('user'));
     }
 
+    // look into sotirng files in the cloud
     public function uploadFiles(Request $request){
         $credentials = $request->only('username');
         //$pic = $request->file('file')->storeAs('resources/profile_pics', $credentials['username'] . 'doc');

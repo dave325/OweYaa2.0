@@ -217,7 +217,7 @@
           <h2 class="col-xs-12 bg-primary">Contact Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('contact')"></span></h2>
           <p><strong>Email</strong>: {{user.contact_info.email}} </p>
           <p><strong>Phone Number</strong>: {{user.contact_info.phone}} </p>
-          <p ng-repeat="(key,contact) in user.social" ng-if="user.social">
+          <p ng-repeat="(key,contact) in user.social" ng-if="contact.length > 0">
             <b>{{key}}: </b> {{contact}}
           </p>
         </div> <!-- End of Contact Information -->

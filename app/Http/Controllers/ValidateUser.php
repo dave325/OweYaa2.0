@@ -76,18 +76,14 @@ class ValidateUser extends Controller
         if(app('auth')->guard()->authenticate()){
 
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
-            TableModels\Education::where('name', '=', $credentials['contact_info']['name'])->update($credentials['education']);
+            TableModels\Education::where('username', '=', $credentials['contact_info']['username'])->update($credentials['education']);
             $delete = array();
-            $insert = array();
             foreach($credentials['bootcamp'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['bootcampid']);
                 }else{
-                    $insert= array(
-                        'bootcampid' => $item['bootcampid'],
-                        'bootcamp' => $item['bootcamp'],
-                        'name' => $credentials['contact_info']['name']
-                    );
+                    unset($item['delete']);
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $bootcamp = TableModels\Bootcamp::findOrFail($item['bootcampid']);
                         $bootcamp->fill($insert);
@@ -100,20 +96,15 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\Bootcamp::destroy($delete);
+                unset($delete);
+                $delete = array();
             }
-            unset($delete, $insert);
-            $delete = array();
-            $insert = array();
             foreach($credentials['course'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['courseid']);
                 }else{
-                    $insert = array(
-                        'courseid' => $item['courseid'],
-                        'course' => $item['course'],
-                        'name' => $credentials['contact_info']['name'],
-                        'completed' => $item['completed']
-                    );
+                    unset($item['delete']);
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $course = TableModels\Course::findOrFail($item['courseid']);
                         $course->fill($insert);
@@ -126,14 +117,16 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\Course::destroy($delete);
+                unset($delete);
+                $delete = array();
             }
-            unset($delete,$insert);
-            $delete = array();
+
             foreach($credentials['certifications'] as $item){
                 if($item['delete']){
                     array_push($delete,$item['certid']);
                 }else{
                     unset($item['delete']);
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $course = TableModels\Certification::findOrFail($item['certid']);
                         $course->fill($item);
@@ -146,8 +139,9 @@ class ValidateUser extends Controller
             }
             if(isset($delete)){
                 TableModels\Course::destroy($delete);
+                unset($delete);
+                $delete = array();
             }
-            unset($delete,$insert);
             return response()->json(true);
         }else{
             return response()->json(compact('user'));
@@ -182,19 +176,31 @@ class ValidateUser extends Controller
             if(isset($delete)){
                 TableModels\Interview::destroy($delete);
                 unset($delete);
+                $delete = array();
             }
             foreach($credentials['events'] as $item){
-                try{
-                    $event = TableModels\Event::findOrFail($item['eventid']);
-                    $event->fill($item);
-                    $event->save();
-                }catch(\ModelNotFoundException $me){
-                    $event = new TableModels\Event($item);
-                    $event->save();
+                if(isset($item['delete']) && $item['delete']){
+                    array_push($delete,$item['interviewid']);
+                }else{
+                    unset($item['delete']);
+                    $item['name'] = $credentials['contact_info']['name'];
+                    try{
+                        $event = TableModels\Event::findOrFail($item['eventid']);
+                        $event->fill($item);
+                        $event->save();
+                    }catch(\ModelNotFoundException $me){
+                        $event = new TableModels\Event($item);
+                        $event->save();
+                    }
                 }
             }
+            if(isset($delete)){
+                TableModels\Event::destroy($delete);
+                unset($delete);
+                $delete = array();
+            }
             try{
-                $mentor = TableModels\Mentor::findOrFail($credentials['contact_info']['name']);
+                $mentor = TableModels\Mentor::findOrFail($credentials['contact_info']['username']);
                 $mentor->fill($credentials['mentor']);
                 $mentor->save();
             }catch(\ModelNotFoundException $me){

@@ -17,6 +17,7 @@
       //Update server information
       User.updateUser(modal, data).then(function(data){
         console.log(portfoliovm.user.pic);
+        return;
         var uploadPic = Upload.upload({
           url:"/api/uploadFile",
           data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}

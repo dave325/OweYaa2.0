@@ -1,6 +1,6 @@
 (function(){
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http','User'];
-  function portfolioModalCtrl($uibModalInstance, CurrUser,$http,User){
+  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser','$http','$timeout','Upload','User'];
+  function portfolioModalCtrl($uibModalInstance, CurrUser,$http,$timeout,Upload,User){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);
@@ -16,6 +16,18 @@
     portfoliovm.doportfolio = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
+        var uploadPic = Upload.upload({
+          url:"/api/uploadFile",
+          data:{file:portfoliovm.user.pic}
+        });
+        uploadPic.then(function (response) {
+          $timeout(function () {
+            console.log(response.data);
+          });
+        }, function (response) {
+          if (response.status > 0)
+            console.log(response.status + ': ' + response.data);
+        });
         portfoliovm.close(portfoliovm.user);
       },function(data){
         console.log(data);

@@ -10,7 +10,7 @@ class Social extends Model{
      */
     protected $table = 'social';
     // Set primary key
-    protected $primaryKey = 'name';
+    protected $primaryKey = 'username';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent

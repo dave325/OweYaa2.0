@@ -13,7 +13,7 @@
 			$uibModalInstance.close(result);
     }
     
-    contacvm.concatModel = function(key){
+    contactvm.concatModel = function(key){
       return "contactvm.user.social."+key;
     }
     // Will make a call to the server and php file

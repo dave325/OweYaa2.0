@@ -14,7 +14,7 @@
           </div>
           <div class="form-group" ng-repeat="(key,connect) in contactvm.user.social track by $index">
                 <label form="contact" for="key">{{key}}: </label>
-                <input ng-model="contacvm.concatModel([key])" type="text" class="form-control" name="{{key}}"/>
+                <input ng-model="contactvm.user.key" ng-init="contactvm.user.key = contacvm.concatModel({{key}})"type="text" class="form-control" name="{{key}}"/>
           </div>
           </div>
        <div class="row">

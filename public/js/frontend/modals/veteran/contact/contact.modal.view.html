@@ -1,9 +1,9 @@
+<span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="contactvm.cancel()"></span>
 <div id="contactModal">
-    <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="contactvm.cancel()"></span>
     <h2>Contact Information</h2>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
-      <div class="row">
+      <div class="row col-xs-12">
           <div class="form-group">
                     <label form="contact" for="email">Email: </label>
                     <input ng-model="contactvm.user.contact_info.email" type="text" class="form-control" name="email"/>
@@ -17,12 +17,11 @@
                 <input ng-model="connect" type="text" class="form-control" name="{{key}}"/>
           </div>
           </div>
-       </div>   
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
                 <button ng-click="contactvm.cancel()" class="btn btn-success">Close</button>
-                <button ng-click="contactvm.onSubmit('contact',contactvm.user)" class="btn btn-primary">Save</button>
+                <button ng-click="contactvm.onSubmit('social',contactvm.user)" class="btn btn-primary">Save</button>
             </div>
         </div>
         </div>       

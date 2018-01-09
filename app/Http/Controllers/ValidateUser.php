@@ -48,11 +48,16 @@ class ValidateUser extends Controller
         return response()->json(compact('user'));
     }
 
+    public function uploadFiles(Request $request){
+        $credentials = $request->only('username');
+        $pic = $request->file('file');
+        Storage::disk('local')->putFileAs('/', $pic, $credentials['username'] . '.doc');
+        $directories = Storage::disk('local');
+        return response()->json($directories);
+    }
     public function updateContact(Request $request){
         if(app('auth')->guard()->authenticate()){
             $credentials = $request->only('contact_info');
-            $pic = $request->file('pic');
-            return response()->json($pic);
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
             Storage::disk('local')->putFileAs('/', $pic, $credentials['contact_info']['username'] . '.doc');
             $directories = Storage::disk('local');

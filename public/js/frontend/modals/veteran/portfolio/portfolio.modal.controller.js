@@ -18,7 +18,7 @@
       User.updateUser(modal, data).then(function(data){
         var uploadPic = Upload.upload({
           url:"/api/uploadFile",
-          data:{file:portfoliovm.user.pic}
+          data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}
         });
         uploadPic.then(function (response) {
           $timeout(function () {

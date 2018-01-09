@@ -81,8 +81,7 @@ class ValidateUser extends Controller
                 $education->fill($credentials['education']);
                 $education->save();
             }catch(ModelNotFoundException $me){
-                $education = new TableModels\Education($credentials['education']);
-                $education->save();
+                respone()->json("Not Found!");
             }
             TableModels\Education::where('username', '=', $credentials['contact_info']['username'])->update($credentials['education']);
             $delete = array();

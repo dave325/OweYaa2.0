@@ -3,6 +3,7 @@
   function portfolioModalCtrl($uibModalInstance, CurrUser,$http,$timeout,Upload,User){
     portfoliovm = this;
     portfoliovm.user = CurrUser;
+    portfoliovm.pic = '';
     console.log(portfoliovm.user);
     // The function that is call when a user cancels the opening of a modal
 	  portfoliovm.cancel = function(){

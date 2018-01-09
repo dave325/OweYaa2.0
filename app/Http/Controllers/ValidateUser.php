@@ -195,7 +195,7 @@ class ValidateUser extends Controller
                         $event = TableModels\Event::findOrFail($item['eventid']);
                         $event->fill($item);
                         $event->save();
-                    }catch(\ModelNotFoundException $me){
+                    }catch(ModelNotFoundException $me){
                         $event = new TableModels\Event($item);
                         $event->save();
                     }
@@ -210,7 +210,7 @@ class ValidateUser extends Controller
                 $mentor = TableModels\Mentor::findOrFail($credentials['contact_info']['username']);
                 $mentor->fill($credentials['mentor']);
                 $mentor->save();
-            }catch(\ModelNotFoundException $me){
+            }catch(ModelNotFoundException $me){
                 $mentor = new TableModels\Mentor($credentials['mentor']);
                 $mentor->save();
             }

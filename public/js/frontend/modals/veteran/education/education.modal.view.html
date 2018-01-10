@@ -89,15 +89,15 @@
           <div class="form-group">
             <h4>Certifications:</h4>
             <p>Please indicate any certifications you currently have! You can click on the red X marks next to each section to remove them!</p>
-            <p ng-show="educationvm.user.certification.length == 9" class="bg-warning">You may add up to 10 items</p>
+            <p ng-show="educationvm.user.certifications.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
               <p>New Certifications:</p>
               <input type="text" ng-model="educationvm.newCertification.certification" class="add-btn" />
-              <button ng-class="[{'addEntry':educationvm.newCertification.certification}]" class="btn" ng-disabled="educationvm.user.certification.length == 9 || !educationvm.newCertification.certification" type="button" ng-click="educationvm.addToCertifications()">Add</button>
+              <button ng-class="[{'addEntry':educationvm.newCertification.certification}]" class="btn" ng-disabled="educationvm.user.certifications.length == 9 || !educationvm.newCertification.certification" type="button" ng-click="educationvm.addToCertifications()">Add</button>
             </div><br />
-            <ol ng-if="educationvm.user.certification.length > 0">
-              <li ng-repeat="field in educationvm.user.certification track by $index"  class="col-md-5">
+            <ol ng-if="educationvm.user.certifications.length > 0">
+              <li ng-repeat="field in educationvm.user.certifications track by $index"  class="col-md-5">
                 <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                 <input type="text" ng-model="field.certification" class="form-control"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>
               </li>

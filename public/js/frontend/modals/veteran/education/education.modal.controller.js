@@ -11,7 +11,7 @@
 
     // Add a new certification
     educationvm.addToCertifications = function() {
-      educationvm.user.certification.push(educationvm.newCertification);
+      educationvm.user.certifications.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }
 
@@ -34,7 +34,7 @@
 
     // Delete one of your certifications
     educationvm.deleteCertification = function(index) {
-      educationvm.user.certification.splice(index, 1);
+      educationvm.user.certifications.splice(index, 1);
     }
 
     // Delete one of your courses

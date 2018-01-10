@@ -56,7 +56,7 @@
       controller: "browseInternsCtrl",
       controllerAs:"vm"
     })
-    .when('/company/:compbrowseInternsCtrlanyid/favorite-intern',{
+    .when('/company/:companyid/favorite-intern',{
       templateUrl:"/js/frontend/views/company/favorite-interns.view.html",
       controller:"favoriteInternsCtrl",
       controllerAs:"vm"

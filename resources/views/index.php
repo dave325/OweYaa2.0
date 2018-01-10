@@ -50,6 +50,7 @@
         <script src="js/frontend/modals/veteran/availibility/availibility.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/contact/contact.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/portfolio/portfolio.modal.controller.js"></script>
+        <script src="js/frontend/modals/veteran/task/task.modal.controller.js"></script>
 
         <!-- Typography -->
         <!-- Roboto -->

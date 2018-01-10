@@ -165,12 +165,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     /**
      * Get the programming skills associated with the user.
-     
-    public function programmingSkills()
-    {
-        return $this->hasMany('App\TableModels\ProgrammingSkill', 'username');
-    }
     */
+    public function certifications()
+    {
+        return $this->hasMany('App\TableModels\Certification', 'username');
+    }
+    
     /**
      * Get the interviews associated with the user.
      */

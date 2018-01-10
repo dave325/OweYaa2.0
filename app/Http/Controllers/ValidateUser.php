@@ -370,4 +370,19 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+
+    /**
+     * updateTask
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateTask(Request $request){
+        if(app('auth')->guard()->authenticate()){
+            $credentials = $request->only('contact_info','action_task');
+            
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
 }

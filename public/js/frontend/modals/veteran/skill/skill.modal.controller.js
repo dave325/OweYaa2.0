@@ -11,21 +11,21 @@
 
     // Add a new skill
     skillvm.addToSkills = function() {
-      skillvm.newSkill.skillid = "david" + (skillvm.user.skill.length + 1);
+      skillvm.newSkill.skillid = skillvm.user.contact_info.username + (skillvm.user.skill.length + 1);
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};
     }
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.newWant.skillid = "david" + (skillvm.user.wanted_skills.length + 1);
+      skillvm.newWant.skillid = skillvm.user.contact_info.username+ (skillvm.user.wanted_skills.length + 1);
       skillvm.user.wanted_skills.push(skillvm.newWant);
       skillvm.newWant = {};
     }
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.newLanguage.langid = "david" + (skillvm.user.language.length + 1);
+      skillvm.newLanguage.langid = skillvm.user.contact_info.username + (skillvm.user.language.length + 1);
       skillvm.user.language.push(skillvm.newLanguage);
       skillvm.newLanguage = {};
     }
@@ -59,7 +59,7 @@
       User.updateUser(modal,data).then(function(data){
         skillvm.close(skillvm.user);
       },function(error){
-        console.log(data);
+        console.log(error);
       })
     }
 

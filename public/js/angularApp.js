@@ -46,6 +46,11 @@
       controller:"dashboardCtrl",
       controllerAs:"vm"
     })
+    .when('/company/:companyid/project/:projectid',{
+      templateUrl:"/js/frontend/views/company/dashboard.view.html",
+      controller:"dashboardCtrl",
+      controllerAs:"vm"
+    })
     .when('/company/:companyid/browse-intern',{
       templateUrl:"/js/frontend/views/company/browse-interns.view.html",
       controller: "browseInternsCtrl",

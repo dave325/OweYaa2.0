@@ -4,7 +4,7 @@
     careervm = this;
     // Containers
     careervm.user = CurrUser;
-
+    
     careervm.newPrevCareer = {};
     careervm.newHobby = {};
     careervm.relocate = {};
@@ -59,7 +59,7 @@
 			careervm.docareer(modal,data);
     }
     careervm.present = function(c){
-      careervm.from = "Present";
+      careervm.from = Date();
       careervm.fromPresent = true;
     }
   }

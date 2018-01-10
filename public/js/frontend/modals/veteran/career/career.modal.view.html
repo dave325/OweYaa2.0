@@ -17,7 +17,7 @@
         </div>
         <div>
           <label form="career" form="prevTo{{$index}}">To: </label>
-          <input ng-model="career.start_date | 'shortDate'" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
+          <input ng-model="career.start_date | date:'yyyy-mm-dd'" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
         </div>
         <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>

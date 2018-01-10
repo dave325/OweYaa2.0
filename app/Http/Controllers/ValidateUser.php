@@ -264,7 +264,7 @@ class ValidateUser extends Controller
                         $skill = TableModels\Skill::findOrFail($item['skillid']);
                         $skill->fill($item);
                         $skill->save();
-                    }catch(\ModelNotFoundException $me){
+                    }catch(ModelNotFoundException $me){
                         $skill = new TableModels\Skill($item);
                         $skill->save();
                     }

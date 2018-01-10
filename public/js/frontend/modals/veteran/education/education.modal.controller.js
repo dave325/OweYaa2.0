@@ -19,7 +19,7 @@
     educationvm.addToCourses = function() {
       educationvm.user.course.push(educationvm.newCourse);
       educationvm.newCourse = {};
-    }//
+    }
 
     // Add a new bootcamp
     educationvm.addToBootcamps = function() {

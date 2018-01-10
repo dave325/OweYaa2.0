@@ -224,13 +224,14 @@
         <!-- Action Tasks-->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
           <h2 class="col-xs-12 bg-primary">Action Tasks</h2>
-          <div ng-if="user.action_task">
+          <div ng-if="user.action_task[0].task.length > 0 || user.action_task[1].task.length > 0">
               <p>Current Tasks:</p>
-              <p>{{user.action_task.task1}}</p>
-              <p>{{user.action_task.task2}}</p>
+              <div ng-repeat="task in user.action_task track by $index">
+                  <p ng-if="task.task.length > 0">{{task.task}}</p>
+              </div>
           </div>
-          <div ng-if="!user.action_task">
-            <p>No actions tasks at the moment</p>
+          <div ng-if="!user.action_task || user.action_task[0].task.length == 0 && user.action_task[1].task.length == 0 ">
+            <p>No actions tasks at the moment!</p>
           </div>
         </div> <!-- End of Action Tasks -->
       </aside>

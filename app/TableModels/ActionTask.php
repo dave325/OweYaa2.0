@@ -10,7 +10,7 @@ class ActionTask extends Model{
      */
     protected $table = 'actiontask';
     // Set primary key
-    protected $primaryKey = "username";
+    protected $primaryKey = "taskid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class ActionTask extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','task1','task2','task3','completed1', 'completed2','completed3'];
+    protected $fillable = ['username','task','taskid','completed'];
 
     /**
      * The attributes excluded from the model's JSON form.

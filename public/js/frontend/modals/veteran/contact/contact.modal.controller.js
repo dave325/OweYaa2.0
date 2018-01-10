@@ -12,9 +12,6 @@
 			$uibModalInstance.close(result);
     }
     
-    contactvm.concatModel = function(key){
-      return "contactvm.user.social."+key;
-    }
     // Will make a call to the server and php file
     contactvm.docontact = function(modal, data){
       //Update server information

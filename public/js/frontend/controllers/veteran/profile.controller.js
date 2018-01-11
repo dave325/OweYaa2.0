@@ -14,7 +14,11 @@
 					windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
 					resolve: {
 							CurrUser:function(){
-								return User.getUser();
+								for(var i = 0; i < 2; i++){
+									$scope.user.prev_career_fields[i].start_date = new Date($scope.user.prev_career_fields[i].start_date);
+									$scope.user.prev_career_fields[i].end_date = new Date($scope.user.prev_career_fields[i].end_date);
+								  }
+								  return $scope.user;
 							}
 					}
 				});

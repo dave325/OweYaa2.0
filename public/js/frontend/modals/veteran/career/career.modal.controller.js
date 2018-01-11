@@ -4,10 +4,6 @@
     careervm = this;
     // Containers
     careervm.user = CurrUser;
-    for(var i = 0; i < 2; i++){
-      careervm.user.prev_career_fields[i].start_date = new Date(careervm.user.prev_career_fields[i].start_date);
-      careervm.user.prev_career_fields[i].end_date = new Date(careervm.user.prev_career_fields[i].end_date);
-    }
     careervm.newPrevCareer = {};
     careervm.newHobby = {};
     careervm.relocate = {};

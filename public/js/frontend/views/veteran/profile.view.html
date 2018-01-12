@@ -149,7 +149,7 @@
                     <div ng-if="interview.company.length > 0">
                       <h5>Interview #{{$index + 1}}</h5>
                       <p>Company: {{interview.company}}</p>
-                      <p>Date: {{interview.date | 'shortDate'}}</p>
+                      <p>Date: {{interview.date | date: 'shortDate'}}</p>
                       <p>Contact: {{interview.contact}}</p>
                       <p>Notes: {{interview.notes}}</p>
                     </div>

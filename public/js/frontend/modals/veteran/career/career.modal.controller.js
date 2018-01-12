@@ -58,7 +58,7 @@
 			careervm.docareer(modal,data);
     }
     careervm.present = function(c){
-      careervm.from = Date.now();
+      careervm.from = Date.now().getMilliseconds();
       careervm.fromPresent = true;
     }
   }

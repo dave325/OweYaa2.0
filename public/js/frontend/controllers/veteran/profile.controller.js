@@ -14,7 +14,6 @@
 					windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
 					resolve: {
 							CurrUser:function(){
-								
 								return $scope.user;
 							}
 					}

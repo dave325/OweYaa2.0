@@ -15,10 +15,10 @@
 					resolve: {
 							CurrUser:function(){
 								for(var i = 0; i < 2; i++){
-									if($scope.user.prev_career_fields[i].start_date.length > 0){
+									if($scope.user.prev_career_fields[i].start_date == null){
 										$scope.user.prev_career_fields[i].start_date = new Date($scope.user.prev_career_fields[i].start_date);
 									}
-									if($scope.user.prev_career_fields[i].end_date.length > 0){
+									if($scope.user.prev_career_fields[i].end_date == null){
 										$scope.user.prev_career_fields[i].end_date = new Date($scope.user.prev_career_fields[i].end_date);
 									}
 								}

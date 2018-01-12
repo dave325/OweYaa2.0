@@ -35,14 +35,6 @@
       Authentication.setToken(checkUser).then(function(data){
         if(data){
           User.getCurrentUser().then(function(data){
-            for(var i = 0; i < 2; i++){
-              if(data.data.user.prev_career_fields[i].start_date != null){
-                data.data.user.prev_career_fields[i].start_date = new Date(data.data.user.prev_career_fields[i].start_date.substring(0,3),data.data.user.prev_career_fields[i].start_date.substring(5,6),data.data.user.prev_career_fields[i].start_date.substring(8,9),0,0,0,0 );
-              }
-              if(data.data.user.prev_career_fields[i].end_date != null){
-                data.data.user.prev_career_fields[i].end_date = new Date(data.data.user.prev_career_fields[i].end_date);
-              }
-            }
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
           },function(data){

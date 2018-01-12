@@ -16,6 +16,11 @@
     journalvm.dojournal = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
+        for(var i = 0; i < 2; i++){
+          if(journalvm.user.interviews[i].date != null){
+            journalvm.user.interviews[i].date = new Date($filter('date')(journalvm.user.interviews[i].date,"yyyy-MM-dd"));
+          }
+        }
        journalvm.close(journalvm.user); 
       },function(error){
         console.log(error);

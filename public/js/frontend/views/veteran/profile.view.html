@@ -146,11 +146,13 @@
                   <h3>Building Connections:</h3>
                   <p>Informational Interviews</p>
                   <div ng-repeat="interview in user.interviews track by $index">
-                    <h5>Interview #{{$index + 1}}</h5>
-                    <p>Company: {{interview.company}}</p>
-                    <p>Date: {{interview.date}}</p>
-                    <p>Contact: {{interview.contact}}</p>
-                    <p>Notes: {{interview.notes}}</p>
+                    <div ng-if="interview.company.length > 0">
+                      <h5>Interview #{{$index + 1}}</h5>
+                      <p>Company: {{interview.company}}</p>
+                      <p>Date: {{interview.date | 'shortDate'}}</p>
+                      <p>Contact: {{interview.contact}}</p>
+                      <p>Notes: {{interview.notes}}</p>
+                    </div>
                   </div>
                 </div>
                 <div ng-if="user.events[0].eventname.length > 0 || user.events[1].eventname.length > 0">

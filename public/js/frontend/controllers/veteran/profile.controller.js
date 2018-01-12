@@ -21,6 +21,9 @@
 									if($scope.user.prev_career_fields[i].end_date != null){
 										$scope.user.prev_career_fields[i].end_date = new Date($filter('date')($scope.user.prev_career_fields[i].end_date,"yyyy-MM-dd"));
 									}
+									if($scope.user.interviews[i].date != null){
+										$scope.user.interviews[i].date = new Date($filter('date')($scope.user.interviews[i].date,"yyyy-MM-dd"));
+									}
 								}
 								return $scope.user;
 							}

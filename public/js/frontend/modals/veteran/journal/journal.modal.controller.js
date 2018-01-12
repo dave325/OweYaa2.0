@@ -1,6 +1,6 @@
 (function(){
-  journalModalCtrl.$inject = ['$uibModalInstance','CurrUser','User'];
-  function journalModalCtrl($uibModalInstance,CurrUser,User){
+  journalModalCtrl.$inject = ['$uibModalInstance','CurrUser','User','$filter'];
+  function journalModalCtrl($uibModalInstance,CurrUser,User,$filter){
     journalvm = this;
     journalvm.user = CurrUser;
 

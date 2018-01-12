@@ -82,7 +82,7 @@
         <div class="row">
             <div class="col-xs-12 space box">
                 <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Career Information<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('career')"></span></h2>
-                <div ng-if="user.prev_career_fields.length > 0 && user.prev_career_fields[0].career.length > 0 && user.prev_career_fields[1].career.length > 0">
+                <div ng-if="user.prev_career_fields.length > 0 && user.prev_career_fields[0].employer.length > 0 && user.prev_career_fields[1].employer.length > 0">
                   <h3>Previous Career Fields</h3>
                   <div ng-repeat="field in user.prev_career_fields track by $index">
                     <div ng-if="field.career.length > 0" >

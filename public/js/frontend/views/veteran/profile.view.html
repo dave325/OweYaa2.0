@@ -115,9 +115,9 @@
                   <p  class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount" class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
-              <ol ng-if="user.languages.length > 0" class="skillsModal col-md-6">
+              <ol ng-if="user.language.length > 0" class="skillsModal col-md-6">
                 <h4>Programming Skills</h4>
-                <li ng-repeat="field in user.languages | limitTo: 8">
+                <li ng-repeat="field in user.language | limitTo: 8">
                     <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>

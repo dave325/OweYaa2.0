@@ -47,6 +47,14 @@
     careervm.docareer = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
+        for(var i = 0; i < 2; i++){
+          if(careervm.user.prev_career_fields[i].start_date != null){
+            careervm.user.prev_career_fields[i].start_date = new Date($filter('date')(careervm.user.prev_career_fields[i].start_date,"yyyy-MM-dd"));
+          }
+          if(careervm.user.prev_career_fields[i].end_date != null){
+            careervm.user.prev_career_fields[i].end_date = new Date($filter('date')(careervm.user.prev_career_fields[i].end_date,"yyyy-MM-dd"));
+          }
+        }
         careervm.close(careervm.user);
       },function(error){
         console.log(error);
@@ -57,10 +65,10 @@
 		careervm.onSubmit = function(modal,data){
       for(var i = 0; i < 2; i++){
         if(data.prev_career_fields[i].start_date != null){
-          data.prev_career_fields[i].start_date = data.prev_career_fields[i].start_date.getMilliseconds();
+          data.prev_career_fields[i].start_date = data.prev_career_fields[i].start_date.getTime();
         }
         if(data.prev_career_fields[i].end_date != null){
-          data.prev_career_fields[i].end_date = data.prev_career_fields[i].end_date.getMilliseconds();
+          data.prev_career_fields[i].end_date = data.prev_career_fields[i].end_date.getTime();
         }
       }
 			careervm.docareer(modal,data);

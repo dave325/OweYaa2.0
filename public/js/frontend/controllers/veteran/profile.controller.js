@@ -15,10 +15,14 @@
 					resolve: {
 							CurrUser:function(){
 								for(var i = 0; i < 2; i++){
-									$scope.user.prev_career_fields[i].start_date = new Date($scope.user.prev_career_fields[i].start_date);
-									$scope.user.prev_career_fields[i].end_date = new Date($scope.user.prev_career_fields[i].end_date);
-								  }
-								  return $scope.user;
+									if($scope.user.prev_career_fields[i].start_date.length > 0){
+										$scope.user.prev_career_fields[i].start_date = new Date($scope.user.prev_career_fields[i].start_date);
+									}
+									if($scope.user.prev_career_fields[i].end_date.length > 0){
+										$scope.user.prev_career_fields[i].end_date = new Date($scope.user.prev_career_fields[i].end_date);
+									}
+								}
+								return $scope.user;
 							}
 					}
 				});

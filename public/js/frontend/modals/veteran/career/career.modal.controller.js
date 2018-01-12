@@ -55,6 +55,14 @@
 
     // Will Submit the form depending if everything is filled out
 		careervm.onSubmit = function(modal,data){
+      for(var i = 0; i < 2; i++){
+        if(data.prev_career_fields[i].start_date != null){
+          data.prev_career_fields[i].start_date = data.prev_career_fields[i].start_date.getMilliseconds();
+        }
+        if(data.prev_career_fields[i].end_date != null){
+          data.prev_career_fields[i].end_date = data.prev_career_fields[i].end_date.getMilliseconds();
+        }
+      }
 			careervm.docareer(modal,data);
     }
     careervm.present = function(c){

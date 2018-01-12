@@ -1,7 +1,7 @@
 (function(){
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal'];
-	function profileCtrl($scope, User, $uibModal) {
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal','$filter'];
+	function profileCtrl($scope, User, $uibModal,$filter) {
 		// Retrieve current user 
 	    $scope.user = User.getUser();
 		 console.log($scope.user);
@@ -16,10 +16,10 @@
 							CurrUser:function(){
 								for(var i = 0; i < 2; i++){
 									if($scope.user.prev_career_fields[i].start_date != null){
-										$scope.user.prev_career_fields[i].start_date = new Date($scope.user.prev_career_fields[i].start_date);
+										$scope.user.prev_career_fields[i].start_date = $filter('date')($scope.user.prev_career_fields[i].start_date,'"yyyy-MM-dd"');
 									}
 									if($scope.user.prev_career_fields[i].end_date != null){
-										$scope.user.prev_career_fields[i].end_date = new Date($scope.user.prev_career_fields[i].end_date);
+										$scope.user.prev_career_fields[i].end_date = $filter('date')($scope.user.prev_career_fields[i].end_date,'"yyyy-MM-dd"');
 									}
 								}
 								return $scope.user;

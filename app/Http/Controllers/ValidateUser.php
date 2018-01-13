@@ -258,6 +258,8 @@ class ValidateUser extends Controller
                 if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['skillid']);
                 }else{
+                    unset($item['delete']);
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         unset($item['delete']);
                         $item['name'] = $credentials['contact_info']['name'];
@@ -280,7 +282,7 @@ class ValidateUser extends Controller
                     array_push($delete,$item['sklilid']);
                 }else{
                     unset($item['delete']);
-                    $item['name'] = $credentials['contact_info']['name'];
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $skill = TableModels\WantedSkill::findOrFail($item['skillid']);
                         $skill->fill($item);
@@ -301,7 +303,7 @@ class ValidateUser extends Controller
                     array_push($delete,$item['langid']);
                 }else{
                     unset($item['delete']);
-                    $item['name'] = $credentials['contact_info']['name'];
+                    $item['username'] = $credentials['contact_info']['username'];
                     try{
                         $language = TableModels\Language::findOrFail($item['langid']);
                         $language->fill($item);

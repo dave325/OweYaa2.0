@@ -1,0 +1,126 @@
+<navbar content="{{navbarvm.activeNav}}">
+</navbar>
+
+<style>
+  .row.content {
+    height: 550px
+  }
+
+  .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  .sidenav h2 {
+    padding: 5px;
+    background-color: orange;
+    border-bottom: 5px solid;
+  }
+
+  .sidenav .projectpane {
+    padding: 5%;
+  }
+
+  .sidenav li {
+    margin: 5px;
+    font-size: 15px;
+
+  }
+
+  .teammember {
+    margin: 5px;
+    background-color: white;
+  }
+
+  .task{
+    color: orange;
+    border-bottom: 3px solid;
+    display: table; 
+    background-color: white;
+    padding: 5px;
+    border-radius: 2px
+  }
+
+  .stat {
+    margin: 20px;
+    padding: 3px;
+  }
+
+  
+</style>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav">
+        <h2>PROJECTS</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li>
+            <a href="#section2">
+              <strong>Project 1</strong>
+            </a>
+          </li>
+          <li>
+            <a href="#section2">
+              <strong>Project 2</strong>
+            </a>
+          </li>
+          <li>
+            <a href="#section2">
+              <strong>Project 3</strong>
+            </a>
+          </li>
+        </ul>
+        <br>
+      </div>
+      <br>
+
+      <div class="col-sm-3">
+        <div class="well">
+          <h4>Project Name</h4>
+          <input type="text" style="min-width: 100%" placeholder="Project Name">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="well">
+          <h4>Project Description</h4>
+          <textarea class="form-control" style="min-width: 100%"></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="well">
+          <h4>Team Members</h4>
+          <div class="teammember">Intern Intern
+            <br> intern@intern.com</div>
+          <div class="teammember">Intern Intern
+            <br> intern@intern.com</div>
+          <div class="teammember">Intern Intern
+            <br> intern@intern.com</div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="well">
+          <h4>Project Status</h4>
+          <div class="stat"><div class="task">Presentation in Manhattan</div></div>
+          <div class="stat"><div class="task">Submit Patents</div></div>
+          <div class="stat"><div class="task">Create Blueprint Presentation Models</div></div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+</body>
+
+
+
+<footer-base></footer-base>

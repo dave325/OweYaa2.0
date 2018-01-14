@@ -4,7 +4,8 @@ dashboardCtrl.$inject = ['User'];
 function dashboardCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
-    vm.companyName = CurrUser.name;
+    console.log(vm.user);
+    vm.companyName = vm.user.name;
     // Fake information. Once testing has progressed far enough we will add the info from the database
     vm.projects = {
      projectCard1: {

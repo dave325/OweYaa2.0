@@ -42,6 +42,9 @@ Section 1.1 Navbar Styles
 
 *************/
 
+.nav a{
+	cursor:pointer;
+}
 .navbar{
       padding-bottom: 10px;
 			padding-top: 10px;

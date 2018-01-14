@@ -10,6 +10,7 @@ use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 class ValidateUser extends Controller
 {
+    private $apiCall;
     /**
      * Create a new controller instance.
      *

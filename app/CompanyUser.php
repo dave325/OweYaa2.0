@@ -2,7 +2,7 @@
 namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Company extends Model{
+class CompanyUser extends Model{
     /**
      * The table associated with the model.
      *

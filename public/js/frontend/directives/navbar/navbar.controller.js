@@ -166,17 +166,17 @@
           links : {
             link1: {
               name : "Browse Interns",
-              link : '/company/' + navbarvm.user +'/browse-intern',
+              link : 'company/' + navbarvm.user +'/browse-intern',
               click:''
             },
             link2 : {
               name : 'Favorite Interns',
-              link : '/company/' + navbarvm.user +'/favorite-intern',
+              link : 'company/' + navbarvm.user +'/favorite-intern',
               click:''
             },
             link3 : {
               name : 'Project Submission',
-              link : '/company/' + navbarvm.user +'/project-submission',
+              link : 'company/' + navbarvm.user +'/project-submission',
               click:''
             }
           }

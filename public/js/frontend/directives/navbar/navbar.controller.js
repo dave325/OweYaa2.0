@@ -4,11 +4,11 @@
     var navbarvm = this;
     // Sets the user name
     if(User.getUser()){
-      if(data.type == 1){
-        navbarvm.user = data.company.username;
+      if(User.getUser().type == 1){
+        navbarvm.user = User.getUser().company.username;
         $location.path('/company/' + navbarvm.user +'/dashboard');
       }else{
-        navbarvm.user = data.contact_info.username;
+        navbarvm.user = User.getUser().contact_info.username;
         $location.path('/veteran/' + navbarvm.user + '/profile');
       }
     }else{

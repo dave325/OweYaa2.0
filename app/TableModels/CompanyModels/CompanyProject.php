@@ -39,4 +39,5 @@ class CompanyProject extends Model{
     {
         return $this->belongsTo('App\User','username');
     }
+
 }

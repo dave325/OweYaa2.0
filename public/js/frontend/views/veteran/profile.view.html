@@ -110,13 +110,13 @@
           <div class="col-xs-12">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Skills<span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('skill')"></span></h2>
               <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
-                <h4>Skills I have</h4>
+                <h4>Skills I have:</h4>
                 <li ng-repeat="field in user.skill | limitTo: 8">
                   <p  class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount" class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
               <ol ng-if="user.language.length > 0" class="skillsModal col-md-6">
-                <h4>Programming Skills</h4>
+                <h4>Languages I know:</h4>
                 <li ng-repeat="field in user.language | limitTo: 8">
                     <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
@@ -125,7 +125,7 @@
               <div class="col-xs-12">
               <!-- Create for loop for given skills and alllow user to delete and add them -->  
               <ol ng-if="user.wanted_skills.length > 0" class="skillsModal col-md-6">
-                  <h4>Skills I want</h4>
+                  <h4>Skills I want:</h4>
                   <li ng-repeat="field in user.wanted_skills | limitTo: 8">
                     {{field.skill}}
                   </li> <br />

@@ -43,38 +43,37 @@ class ExampleController extends Controller
     public function addUser(Request $request){
         // grab credentials from the request
         $credentials = $request->only('name', 'email', 'password', 'type', 'username');
-        // Creates user based on what type is submitted
-        if($credentials['type'] == 0){
-            $user = new User();
-        }else{
-            $user = new User();
-            $user->compid = Hash::make($credentials['email']);
-        }
+        $user = new User();
         $user->username = $credentials['username'];
         $user->email = $credentials['email'];
         $user->password = Hash::make($credentials['password']);
         $user->type = $credentials['type'];
         if($user->save()){
-            TableModels\ContactInfo::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
-            for($i = 0; $i < 2; $i++){
-                TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i,'username' => $credentials['username']]);
-                TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
-                TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
-                TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
-                TableModels\ActionTask::create(['taskid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
+            if($user->type == 0){
+                MilitaryUser::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
+                TableModels\ContactInfo::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
+                for($i = 0; $i < 2; $i++){
+                    TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i,'username' => $credentials['username']]);
+                    TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
+                    TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
+                    TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
+                    TableModels\ActionTask::create(['taskid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
+                }
+                TableModels\Social::create(['username'=> $credentials['username']]);
+                TableModels\Goal::create(['username'=> $credentials['username']]);
+                TableModels\ActionTask::create(['username'=> $credentials['username']]);
+                TableModels\Education::create(['username'=> $credentials['username']]);
+                $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+                for($i = 0; $i < 7; $i++){
+                    TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00",'username' =>$credentials['username'], "dayofweek" => $daysOfWeek[$i]]);
+                }
+                TableModels\Mentor::create(['username'=> $credentials['username']]);
+            }else{
+                CompanyUser::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
             }
-            TableModels\Social::create(['username'=> $credentials['username']]);
-            TableModels\Goal::create(['username'=> $credentials['username']]);
-            TableModels\ActionTask::create(['username'=> $credentials['username']]);
-            TableModels\Education::create(['username'=> $credentials['username']]);
-            $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-            for($i = 0; $i < 7; $i++){
-                TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00",'username' =>$credentials['username'], "dayofweek" => $daysOfWeek[$i]]);
-            }
-            TableModels\Mentor::create(['username'=> $credentials['username']]);
-            return response()->json("success");
+            return response()->json(true);
         }else{
-            return response()->json("error");
+            return response()->json(['error' => 'User not Created'], 500);
         }
     }
 }

@@ -186,6 +186,39 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany('App\TableModels\Hobby', 'username');
     }
+
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function company()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\Company', 'username');
+    }
+
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function companyFavorite()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\CompanyFavorite', 'username');
+    }
+
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function companyProject()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\CompanyProject', 'username');
+    }
+
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function companySearch()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\CompanySearch', 'username');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

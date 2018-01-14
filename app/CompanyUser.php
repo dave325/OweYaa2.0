@@ -1,46 +1,42 @@
 <?php
+namespace App\TableModels;
 
-namespace App;
-
-use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Tymon\JWTAuth\Contracts\JWTSubject as JWTSubject;
-class CompanyUser extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
-{
-    use Authenticatable, Authorizable;
+class Company extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-     protected $table = 'companies';
-     protected $primaryKey = "compid";
-     public $incrementing = false;
-     public $timestamps = false;
+    protected $table = 'companies';
+    // Set primary key
+    protected $primaryKey = "username";
+    // Remove default increment from eloquent
+    public $incrementing = false;
+    // Remove default timestamp from eloquent
+    public $timestamps = false;
+
+     /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    protected $fillable = ['username','name','email','matchNum','stripeToken', 'memberToken', 'companyPhone'];
+
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-     protected $fillable = ['compid', 'name','email','password'. 'matchNum', 'stripetoken', 'membertoken', 'phone', 'searchcomplete1', 'searchcomplete2', 'companyfav', 'type'];
-    /** 
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
     protected $hidden = [
-        'password',
+        'username'
     ];
-    public function getJWTIdentifier()
+
+    /**
+     * Get the post that owns the comment.
+     */
+    public function user()
     {
-        return $this->getKey();
-    }
-    
-    public function getJWTCustomClaims()
-    {
-        return [];
+        return $this->belongsTo('App\User','username');
     }
 }

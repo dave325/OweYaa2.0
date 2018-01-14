@@ -1,15 +1,16 @@
 (function(){
 //Injector will protect against minification
-dashboardCtrl.$inject = [];
-function dashboardCtrl() {
+dashboardCtrl.$inject = ['CurrUser'];
+function dashboardCtrl(CurrUser) {
     var vm = this;
-    vm.companyName = 'Name of Company';
+    vm.user = CurrUser;
+    vm.companyName = CurrUser.name;
     // Fake information. Once testing has progressed far enough we will add the info from the database
     vm.projects = {
      projectCard1: {
         text: "Total Projects With OweYaa",
         detail: "Count",
-        amount: 0,
+        amount: vm.user.companyProject.length,
         img: "assets/images/signUpIcon.png"
     },
     projectCard2: {
@@ -25,7 +26,7 @@ function dashboardCtrl() {
         img: "assets/images/Computer.PNG"
     },
     projectCard4: {
-        text: "#Of Hires From Projects",
+        text: "# Of Hires From Projects",
         detail: "Count",
         amount: 0,
         img: "assets/images/check.png"

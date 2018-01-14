@@ -43,8 +43,14 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
-       
+        if($this->apiCall = "veteran"){
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
+        }
+        if($this->apiCall = "company"){
+            $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
+        }else{
+            return response()->json(['user_not_found'], 404);
+        }
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

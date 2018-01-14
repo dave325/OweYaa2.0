@@ -11,7 +11,7 @@ function dashboardCtrl(User) {
      projectCard1: {
         text: "Total Projects With OweYaa",
         detail: "Count",
-        amount: vm.user.companyProject.length,
+        amount: vm.user.company_project.length,
         img: "assets/images/signUpIcon.png"
     },
     projectCard2: {

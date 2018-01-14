@@ -6,10 +6,8 @@
     if(User.getUser()){
       if(User.getUser().type == 1){
         navbarvm.user = User.getUser().company.username;
-        $location.path('/company/' + navbarvm.user +'/dashboard');
       }else{
         navbarvm.user = User.getUser().contact_info.username;
-        $location.path('/veteran/' + navbarvm.user + '/profile');
       }
     }else{
       navbarvm.user = ""

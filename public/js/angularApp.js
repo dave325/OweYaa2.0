@@ -66,6 +66,11 @@
       controller:"projectSubmissionCtrl",
       controllerAs:"vm"
     })
+
+    .when('/company/:companyid/projects-dashboard',{
+      templateUrl:"/js/frontend/views/company/projects-dashboard.view.html"
+    })
+
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
       controller:"error.controller.js",

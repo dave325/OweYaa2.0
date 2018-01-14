@@ -148,30 +148,36 @@
     navbarvm.companyUser = {
       link1: {
         name: 'Home',
-        link : '/'
+        link : '/',
+        click:''
       },
       link2: {
         name: 'Veteran',
-        link : 'veteran'
+        link : 'veteran',
+        click:''
       },
       link3: {
           name: 'Company',
-          link : 'company'
+          link : 'company',
+          click:''
         },
         link4 : {
           name: 'Company Dashboard',
           links : {
             link1: {
               name : "Browse Interns",
-              link : 'company/' + navbarvm.user +'/browse-intern'
+              link : '/company/' + navbarvm.user +'/browse-intern',
+              click:''
             },
             link2 : {
               name : 'Favorite Interns',
-              link : 'company/' + navbarvm.user +'/favorite-intern'
+              link : '/company/' + navbarvm.user +'/favorite-intern',
+              click:''
             },
             link3 : {
               name : 'Project Submission',
-              link : 'company/' + navbarvm.user +'/project-submission'
+              link : '/company/' + navbarvm.user +'/project-submission',
+              click:''
             }
           }
         },
@@ -181,7 +187,8 @@
         },
       link6: {
         name: 'Contact',
-        link : 'contact'
+        link : 'contact',
+        click:''
       }
     };
     /*

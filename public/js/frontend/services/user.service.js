@@ -59,7 +59,7 @@
       /*
       * getCurrentuser functoin will check if User is logged in and then return the information of the user
       */
-      getCurrentUser: function(){
+      getCurrentUser: function(user){
         if(Authentication.getToken() == null){
           return;
         }else{
@@ -67,6 +67,7 @@
           return $http({
             url : '/api/check', 
             method: 'POST',
+            data:{type:user.type},
             headers:{
               "Authorization" : "Bearer " +  Authentication.getToken()
             }

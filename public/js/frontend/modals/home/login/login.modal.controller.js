@@ -32,10 +32,9 @@
         'password' : user.password,
         'type' : loginvm.type
       }
-      console.log(loginvm.type);
       Authentication.setToken(checkUser).then(function(data){
         if(data){
-          User.getCurrentUser().then(function(data){
+          User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
           },function(data){

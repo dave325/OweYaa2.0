@@ -34,6 +34,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $hidden = [
         'password',
+        'email',
+        'username'
     ];
     /**
      * Get the skills associated with the user.
@@ -192,7 +194,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function company()
     {
-        return $this->hasMany('App\TableModels\CompanyModels\Company', 'username');
+        return $this->hasOne('App\TableModels\CompanyModels\Company', 'username');
     }
 
     /**

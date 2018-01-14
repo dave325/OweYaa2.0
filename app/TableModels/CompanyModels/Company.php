@@ -24,15 +24,6 @@ class Company extends Model{
     protected $fillable = ['username','name','email','matchNum','stripeToken'];
 
     /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'username'
-    ];
-
-    /**
      * Get the post that owns the comment.
      */
     public function user()

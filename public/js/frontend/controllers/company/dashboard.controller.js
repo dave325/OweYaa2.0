@@ -1,9 +1,9 @@
 (function(){
 //Injector will protect against minification
-dashboardCtrl.$inject = ['CurrUser'];
-function dashboardCtrl(CurrUser) {
+dashboardCtrl.$inject = ['User'];
+function dashboardCtrl(User) {
     var vm = this;
-    vm.user = CurrUser;
+    vm.user = User.getUser();
     vm.companyName = CurrUser.name;
     // Fake information. Once testing has progressed far enough we will add the info from the database
     vm.projects = {

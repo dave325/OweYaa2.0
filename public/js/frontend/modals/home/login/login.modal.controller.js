@@ -32,6 +32,7 @@
         'password' : user.password,
         'type' : loginvm.type
       }
+      console.log(loginvm.type);
       Authentication.setToken(checkUser).then(function(data){
         if(data){
           User.getCurrentUser().then(function(data){

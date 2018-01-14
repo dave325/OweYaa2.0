@@ -44,6 +44,7 @@
          .then(function (data) {
           navbarvm.message = "Thank you. Please wait until you are successfully logged in.";
           navbarvm.showMessage = true;
+          console.log(data);
            $timeout(function(){
             if(data.type == 1){
               var curUser = data.company.username;

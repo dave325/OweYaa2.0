@@ -42,7 +42,8 @@ function projectSubmissionCtrl(User) {
       }
     }
     vm.prevPage = function(){
-
+      vm.steps.page2 = false;
+      vm.steps.page1 = true;
     }
   }
    angular.module('oweyaa')

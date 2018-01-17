@@ -26,13 +26,13 @@ function dashboardCtrl(User) {
     projectCard2: {
         text: "Total Projects With Matched",
         detail: "Count",
-        amount: vm.user.matched_projects,
+        amount: vm.user.matched_projects.length,
         img: "assets/images/hands.PNG"
     },
     projectCard3: {
         text: "Projects With Unmatched",
         detail: "Count",
-        amount: vm.user.unmatched_projects,
+        amount: vm.user.unmatched_projects.length,
         img: "assets/images/Computer.PNG"
     },
     projectCard4: {

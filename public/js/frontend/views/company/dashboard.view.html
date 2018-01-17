@@ -40,7 +40,7 @@
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
 			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
 				<h3>{{type.title}}</h3>
-				<div ng-if="type.project != null || type.project != undefined">
+				<div ng-if="type.project.length > 0">
 					<p>Project Manager: {{type.project.projectmanager}}</p>
 				</div>
 				

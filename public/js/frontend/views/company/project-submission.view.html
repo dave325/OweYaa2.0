@@ -2,19 +2,19 @@
 
   <navbar content="navbarvm.activeNav"></navbar>
   <section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" id="proj-submit">
-		<!-- Status Bar  -->
-		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression">
-			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-bind="vm.steps.page1"> Step 1:Submit Project </p>
-			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-bind="vm.steps.page2"> Step 2:Submit Project </p>
-			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-class="{'active': vm.steps.active2}" ng-bind="vm.steps.page3"> Step 3:Submit Project </p>
-		</div>
 		<span class="clearfix"></span>
 		<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 col-sm-12 col-xs-12">
 			<h1 class="text-center">Contact form</h1>
 			<!-- Change to angular binding for specific name -->
 			<h2 class="text-center">{{vm.user.company.name}}</h2>
 		</div>
-		<h3 class="col-lg-12 col-md-12 text-center">Page {{vm.currentStep()}} of 3</h3>
+		<!-- Status Bar  -->
+		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression">
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-if="vm.steps.page1"> Step 1:Submit Project </p>
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-if="vm.steps.page2"> Step 2:Submit Project </p>
+			<p class="col-lg-4 col-md-4 text-center col-sm-12 col-xs-12" ng-class="{'active': vm.steps.active2}" ng-if="vm.steps.page3"> Step 3:Submit Project </p>
+			<uib-progressbar max="3" value="vm.currentStep()"  class="col-md-12"></uib-progressbar>
+		</div>
 		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
 			<form class="form" name="submissionForm">
 				<div class="step" id="step1" ng-class="{'active': vm.steps.active1}" ng-if="vm.steps.page1">

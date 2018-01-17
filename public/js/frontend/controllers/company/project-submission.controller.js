@@ -23,19 +23,19 @@ function projectSubmissionCtrl() {
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in
-      angular.forEach(vm.steps,function(key){
+      angular.forEach(vm.steps,function(value,key){
         let i = false;
-        if(key){
+        if(value){
           i = true;
           key = false;
+          console.log(key);
         }
         if(i){
           key = true;
+          console.log(key);
           return;
         }
-        console.log(key);
       });
-      console.log(vm.steps[2]);
       
     }
   }

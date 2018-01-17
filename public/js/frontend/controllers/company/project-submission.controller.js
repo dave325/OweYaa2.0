@@ -23,6 +23,21 @@ function projectSubmissionCtrl() {
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in
+      let check = false;
+      for(var key in vm.steps){
+
+        if (!vm.steps.hasOwnProperty(key)) continue;
+        if(vm.steps[key]){
+          check = true;
+          vm.steps[key] = false;
+          console.log(key + ":1 " + vm.steps[key]);
+        }
+        if(check){
+          vm.steps[key] = true;
+          console.log(key + ":1 " + vm.steps[key]);
+          return;
+        }
+      }/*
       angular.forEach(vm.steps,function(value,key){
         let i = false;
         if(i){
@@ -36,7 +51,7 @@ function projectSubmissionCtrl() {
           console.log(value+ " " + key);
         }
       },vm.steps);
-      
+      */
     }
   }
    angular.module('oweyaa')

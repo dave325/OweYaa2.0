@@ -11,13 +11,15 @@ function projectSubmissionCtrl() {
       active3:false
     };
     vm.currentStep = function(){
+      var curStep;
       angular.forEach(vm.steps,function(value,key){
         if(value){
           var size = key.length;
           var strNum = key.substring(size-1);
-          return "Page " + strNum;
+          curStep = strNum;
         }
       });
+      return curStep;
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in

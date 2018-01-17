@@ -38,7 +38,7 @@
 						<label for="comp-proj-description">Tell us what project/task you would like a military intern to work on with you?</label>
 						<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.compProjDescription" required  id="comp-proj-description"/>
 					</div>
-					<input type="button" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" ng-disabled="submissionForm.compManagerName.$error.required || submissionForm.compIndustry.$error.required || submissionForm.compLocation.$error.required || submissionForm.compPhone.$error.required || submissionForm.compProjDescription.$error.required"value="Next Page" ng-click="nextPage()"/>
+					<input type="button" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" ng-disabled="submissionForm.compManagerName.$error.required || submissionForm.compIndustry.$error.required || submissionForm.compLocation.$error.required || submissionForm.compPhone.$error.required || submissionForm.compProjDescription.$error.required"value="Next Page" ng-click="vm.nextPage()"/>
 				</div>
 				<div class="step" id="step2" ng-class="{'active': vm.steps.active2}" ng-if="!vm.page2 && vm.page1">
 					<div class="form-group">

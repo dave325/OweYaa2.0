@@ -23,7 +23,8 @@ function projectSubmissionCtrl() {
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in
-      console.log("Works");
+      console.log(vm.steps[2]);
+      
     }
   }
    angular.module('oweyaa')

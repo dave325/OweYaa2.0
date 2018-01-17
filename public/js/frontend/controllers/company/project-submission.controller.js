@@ -23,6 +23,17 @@ function projectSubmissionCtrl() {
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in
+      Object.keys(vm.steps).forEach(function(key){
+        if(key){
+          let i = true;
+          key = false;
+        }
+        if(i){
+          key = true;
+          return;
+        }
+        console.log(key);
+      });
       console.log(vm.steps[2]);
       
     }

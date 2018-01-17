@@ -27,15 +27,15 @@ function projectSubmissionCtrl() {
       for(var key in vm.steps){
 
         if (!vm.steps.hasOwnProperty(key)) continue;
-        if(vm.steps[key]){
-          check = true;
-          vm.steps[key] = false;
-          console.log(key + ":1 " + vm.steps[key]);
-        }
         if(check){
           vm.steps[key] = true;
           console.log(key + ":1 " + vm.steps[key]);
           return;
+        }
+        if(vm.steps[key]){
+          check = true;
+          vm.steps[key] = false;
+          console.log(key + ":1 " + vm.steps[key]);
         }
       }/*
       angular.forEach(vm.steps,function(value,key){

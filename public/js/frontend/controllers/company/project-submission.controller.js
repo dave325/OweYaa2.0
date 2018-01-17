@@ -13,6 +13,8 @@ function projectSubmissionCtrl() {
     vm.currentStep = function(){
       angular.forEach(vm.steps,function(value,key){
         if(value){
+          console.log(value);
+          return;
           var size = value.length;
           var strNum = value.substring(size-1);
           return vm.steps.step + strNum;

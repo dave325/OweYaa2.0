@@ -46,8 +46,9 @@ function projectSubmissionCtrl(User) {
       vm.steps.page1 = true;
     }
     vm.submitProjForm = function(){
-      vm.steps.page2 = false;
       vm.steps.page1 = false;
+      vm.steps.page2 = false;
+      vm.steps.page3 = true;
     }
   }
    angular.module('oweyaa')

@@ -28,11 +28,11 @@ function projectSubmissionCtrl() {
         if(value){
           i = true;
           key = false;
-          console.log(key);
+          console.log(value+ " " + key);
         }
         if(i){
           key = true;
-          console.log(key);
+          console.log(value + " " + key);
           return;
         }
       });

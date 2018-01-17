@@ -1,15 +1,16 @@
 (function(){
 //Injector will protect against minification
-projectSubmissionCtrl.$inject = [];
-function projectSubmissionCtrl() {
+projectSubmissionCtrl.$inject = ['User'];
+function projectSubmissionCtrl(User) {
     var vm = this;
-    vm.companyName ='Name of Company';
+    vm.user = User.getUser();
     vm.submissionForm = {};
     vm.steps = {
       page1:true,
       page2:false,
       page3:false
     };
+
     vm.currentStep = function(){
       var curStep;
       angular.forEach(vm.steps,function(value,key){
@@ -21,6 +22,7 @@ function projectSubmissionCtrl() {
       });
       return curStep;
     };
+
     vm.nextPage = function(){
       // Iterate to next page and slide that in
       let check = false;
@@ -38,7 +40,10 @@ function projectSubmissionCtrl() {
           console.log(key + ":1 " + vm.steps[key]);
         }
       }
-    }
+    };
+    vm.nextPage = function(){
+
+    };
   }
    angular.module('oweyaa')
 	.controller('projectSubmissionCtrl', projectSubmissionCtrl);

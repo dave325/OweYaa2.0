@@ -15,6 +15,7 @@ function projectSubmissionCtrl() {
         if(value){
           var size = key.length;
           var strNum = key.substring(size-1);
+          console.log(strNum);
           return strNum;
         }
       })

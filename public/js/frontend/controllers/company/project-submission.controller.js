@@ -26,16 +26,16 @@ function projectSubmissionCtrl() {
       angular.forEach(vm.steps,function(value,key){
         let i = false;
         if(i){
-          value = true;
+          this.key = true;
           console.log(value + " " + key);
           return;
         }
         if(value){
           i = true;
-          value = false;
+          this.key = false;
           console.log(value+ " " + key);
         }
-      });
+      },vm.steps);
       
     }
   }

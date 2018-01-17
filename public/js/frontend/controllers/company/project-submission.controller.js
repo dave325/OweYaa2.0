@@ -26,9 +26,8 @@ function projectSubmissionCtrl() {
       Object.keys(vm.steps).forEach(function(key){
         let i = false;
         if(key){
-          let i = true;
+          i = true;
           key = false;
-          continue;
         }
         if(i){
           key = true;

@@ -9,7 +9,7 @@ function projectSubmissionCtrl(User) {
       page1:true,
       page2:false,
       page3:false
-    };
+    }
 
     vm.currentStep = function(){
       var curStep;
@@ -41,9 +41,9 @@ function projectSubmissionCtrl(User) {
         }
       }
     }
-    vm.nextPage = function(){
+    vm.prevPage = function(){
 
-    };
+    }
   }
    angular.module('oweyaa')
 	.controller('projectSubmissionCtrl', projectSubmissionCtrl);

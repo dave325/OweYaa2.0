@@ -27,11 +27,11 @@ function projectSubmissionCtrl() {
         let i = false;
         if(value){
           i = true;
-          key = false;
+          value = false;
           console.log(value+ " " + key);
         }
         if(i){
-          key = true;
+          value = true;
           console.log(value + " " + key);
           return;
         }

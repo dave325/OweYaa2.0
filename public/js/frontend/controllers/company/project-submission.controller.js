@@ -23,7 +23,7 @@ function projectSubmissionCtrl() {
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in
-      Object.keys(vm.steps).forEach(function(key){
+      angular.forEach(vm.steps,function(key){
         let i = false;
         if(key){
           i = true;

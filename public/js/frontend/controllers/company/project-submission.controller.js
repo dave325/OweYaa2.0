@@ -21,7 +21,7 @@ function projectSubmissionCtrl(User) {
         }
       });
       return curStep;
-    };
+    }
 
     vm.nextPage = function(){
       // Iterate to next page and slide that in
@@ -40,7 +40,7 @@ function projectSubmissionCtrl(User) {
           console.log(key + ":1 " + vm.steps[key]);
         }
       }
-    };
+    }
     vm.nextPage = function(){
 
     };

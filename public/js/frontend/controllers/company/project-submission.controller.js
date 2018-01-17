@@ -24,9 +24,11 @@ function projectSubmissionCtrl() {
     vm.nextPage = function(){
       // Iterate to next page and slide that in
       Object.keys(vm.steps).forEach(function(key){
+        let i = false;
         if(key){
           let i = true;
           key = false;
+          continue;
         }
         if(i){
           key = true;

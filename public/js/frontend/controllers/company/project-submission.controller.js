@@ -6,9 +6,9 @@ function projectSubmissionCtrl() {
     vm.companyName ='Name of Company';
     vm.submissionForm = {};
     vm.steps = {
-      active1:true,
-      active2:false,
-      active3:false
+      page1:true,
+      page2:false,
+      page3:false
     };
     vm.currentStep = function(){
       var curStep;

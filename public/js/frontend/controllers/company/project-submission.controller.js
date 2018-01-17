@@ -15,10 +15,9 @@ function projectSubmissionCtrl() {
         if(value){
           var size = key.length;
           var strNum = key.substring(size-1);
-          console.log(strNum);
-          return strNum;
+          return "Page " + strNum;
         }
-      })
+      });
     };
     vm.nextPage = function(){
       // Iterate to next page and slide that in

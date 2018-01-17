@@ -43,7 +43,7 @@
 				<div ng-if="type.project.length > 0">
 					<p>Project Manager: {{type.project.projectmanager}}</p>
 				</div>
-				
+				<p ng-if="type.project.length == 0">No projects in {{type.title}}!</p>
 			</div>
 		</div>
 	</div>

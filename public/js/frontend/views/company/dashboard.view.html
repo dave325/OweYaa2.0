@@ -3,7 +3,6 @@
 		background-color: orange;
 		padding-bottom: 15px;
 		padding-top: 15px;
-
 		border-bottom: 4px solid darkgray;
 	}
 </style>
@@ -40,7 +39,11 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
 			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
-				<p>{{type.text}}</p>
+				<h3>{{type.title}}</h3>
+				<div ng-if="type.project != null || type.project != undefined">
+					<p>Project Manager: {{type.project.projectmanager}}</p>
+				</div>
+				
 			</div>
 		</div>
 	</div>

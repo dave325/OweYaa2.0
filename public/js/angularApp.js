@@ -67,7 +67,7 @@
       controllerAs:"vm"
     })
 
-    .when('/company/:companyid/projects-dashboard',{
+    .when('/company/:companyid/project-dashboard',{
       templateUrl:"/js/frontend/views/company/projects-dashboard.view.html"
     })
 

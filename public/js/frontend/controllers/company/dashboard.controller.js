@@ -5,10 +5,14 @@ function dashboardCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
     console.log(vm.user);
-    vm.user.matched_projects = 0;
+    vm.user.matched_projects = [];
+    vm.user.unmatched_projects = [];
+    vm.user.total_interns = 0;
     for(let i = 0; i < vm.user.company_project;i++){
-        if(vm.company.user.company_project.initiated == 1){
-            vm.user.matched_projects++;
+        if(vm.company.user.company_project[i].initiated == 1){
+            vm.user.matched_projects.push(vm.company.user.company_project[i]);
+        }else{
+            vm.user.unmatched_projects.push(vm.company.user.company_project[i]);
         }
     }
     // Fake information. Once testing has progressed far enough we will add the info from the database
@@ -28,7 +32,7 @@ function dashboardCtrl(User) {
     projectCard3: {
         text: "Projects With Unmatched",
         detail: "Count",
-        amount: 0,
+        amount: vm.user.unmatched_projects,
         img: "assets/images/Computer.PNG"
     },
     projectCard4: {
@@ -41,10 +45,12 @@ function dashboardCtrl(User) {
 
   vm.projectTypes ={
       projectMatched: {
-          text: "Matched Project"
+          title: "Matched Project",
+          project: vm.user.matched_projects
     },
       projectQueued: {
-          text: "Queued Project"
+          title: "Queued Project",
+          project: vm.user.unmatched_projects
     }
   }
 }

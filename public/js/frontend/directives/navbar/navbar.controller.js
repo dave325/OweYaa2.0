@@ -178,6 +178,11 @@
               click:''
             },
             link4: {
+              name : 'Project Dashboard',
+              link : 'company/' + navbarvm.user +'/project-dashboard',
+              click:''
+            },
+            link4: {
               name : 'Project Submission',
               link : 'company/' + navbarvm.user +'/project-submission',
               click:''

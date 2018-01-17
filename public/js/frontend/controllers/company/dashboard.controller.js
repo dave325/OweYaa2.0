@@ -6,6 +6,12 @@ function dashboardCtrl(User) {
     vm.user = User.getUser();
     console.log(vm.user);
     vm.companyName = vm.user.name;
+    vm.user.matched_projects = 0;
+    for(let i = 0; i < vm.user.company_project;i++){
+        if(vm.company.user.company_project.initiated == 1){
+            vm.user.matched_projects++;
+        }
+    }
     // Fake information. Once testing has progressed far enough we will add the info from the database
     vm.projects = {
      projectCard1: {
@@ -17,7 +23,7 @@ function dashboardCtrl(User) {
     projectCard2: {
         text: "Total Projects With Matched",
         detail: "Count",
-        amount: 0,
+        amount: vm.user.matched_projects,
         img: "assets/images/hands.PNG"
     },
     projectCard3: {

@@ -25,15 +25,15 @@ function projectSubmissionCtrl() {
       // Iterate to next page and slide that in
       angular.forEach(vm.steps,function(value,key){
         let i = false;
-        if(value){
-          i = true;
-          value = false;
-          console.log(value+ " " + key);
-        }
         if(i){
           value = true;
           console.log(value + " " + key);
           return;
+        }
+        if(value){
+          i = true;
+          value = false;
+          console.log(value+ " " + key);
         }
       });
       

@@ -182,7 +182,7 @@
               link : 'company/' + navbarvm.user +'/project-dashboard',
               click:''
             },
-            link4: {
+            link5: {
               name : 'Project Submission',
               link : 'company/' + navbarvm.user +'/project-submission',
               click:''

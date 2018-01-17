@@ -45,7 +45,7 @@ function projectSubmissionCtrl(User) {
       vm.steps.page2 = false;
       vm.steps.page1 = true;
     }
-    vm.submitProjForm() = function(){
+    vm.submitProjForm = function(){
       vm.steps.page2 = false;
       vm.steps.page1 = false;
     }

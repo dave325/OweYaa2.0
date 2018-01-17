@@ -5,7 +5,6 @@ function dashboardCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
     console.log(vm.user);
-    vm.companyName = vm.user.name;
     vm.user.matched_projects = 0;
     for(let i = 0; i < vm.user.company_project;i++){
         if(vm.company.user.company_project.initiated == 1){

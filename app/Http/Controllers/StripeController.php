@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;  
 use Stripe\Stripe;
-class CompanyController extends Controller{
+class StripeController extends Controller{
 
     public function test(Request $request){
        $user = Stripe\Charge::retrieve(array(

@@ -47,7 +47,7 @@ class ValidateUser extends Controller
         }
         elseif($request->input('type') == 1){
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
-            $user['stripe_key'] = env('publishable_key');
+            $user['stripe_key'] = env('publishable_api');
         }else{
             return response()->json(['user_not_found'], 404);
         }

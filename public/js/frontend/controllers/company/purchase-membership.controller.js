@@ -6,7 +6,7 @@
         vm.user = User.getUser();
     }
       angular.module('oweyaa')
-        .controller('favoriteInternsCtrl', favoriteInternsCtrl);
+        .controller('purchaseMembershipCtrl', purchaseMembershipCtrl);
     
     })();
     

@@ -59,7 +59,7 @@ class ValidateUser extends Controller
         $credentials = $request->only('username');
         //$pic = $request->file('file')->storeAs('resources/profile_pics', $credentials['username'] . 'doc');
         
-        Storage::disk('s3')->putFileAs('/', $request->file('file'), $credentials['username'] . 'doc');
+        Storage::disk('s3')->putFileAs('/', $request->file('file'), $credentials['username'] . $request->photo->extension());
         $directories = Storage::disk('s3');
         return response()->json($directories);
     }

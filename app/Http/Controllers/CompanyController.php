@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
 use App\CompanyUser;
-use App\TableModels;
+use App\TableModels\CompanyModels as CModel;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;  
@@ -15,11 +15,11 @@ class CompanyController extends Controller{
         $credentials = $request->all();
         if($user = app('auth')->guard()->authenticate()){
             try{
-                $project = TableModels\CompanyProject::findOrFail($credentials['projid']);
+                $project = CModel\CompanyProject::findOrFail($credentials['projid']);
                 $project->fill($credentials);
                 $project->save();
             }catch(ModelNotFoundException $me){
-                TableModels\CompanyProject::create($credentials);
+                CModel\CompanyProject::create($credentials);
             }
         }else{
             return response()->json(compact('user'));

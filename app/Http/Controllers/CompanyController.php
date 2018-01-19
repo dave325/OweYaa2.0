@@ -21,6 +21,7 @@ class CompanyController extends Controller{
             }catch(ModelNotFoundException $me){
                 CModel\CompanyProject::create($credentials);
             }
+            return response()->json($credentials);
         }else{
             return response()->json(compact('user'));
         }

@@ -115,5 +115,6 @@ $app->singleton(
         return new Illuminate\Filesystem\FilesystemManager($app);
     }
 );
+\Stripe\Stripe::setApiKey(env('stripe_api'));
 
 return $app;

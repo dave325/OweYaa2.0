@@ -39,20 +39,15 @@
 					</div>
 					<input type="button" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" ng-disabled="submissionForm.compManagerName.$error.required || submissionForm.compIndustry.$error.required || submissionForm.compLocation.$error.required || submissionForm.compPhone.$error.required || submissionForm.compProjDescription.$error.required" value="Next Page" ng-click="vm.nextPage()"/>
 				</div>
-				<div class="step" id="step2" ng-class="{'active': vm.steps.active2}" ng-if="vm.steps.page2 && !vm.steps.page1">
-					<div class="form-group">
-						<label for="field1">Label 1: </label>
-						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field1" id="field1"/>
-					</div>
-					<div class="form-group">
-						<label for="field2">Label 2: </label>
-						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field2" id="field2"/>
-					</div>
-					<div class="form-group">
-						<label for="field3">Label 3: </label>
-						<input type="text" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.field3" id="field3"/>
-					</div>
-					<input type="button" class="btn btn-default pull-left btn-primary  col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()"/>
+				<div class="step" id="step2" ng-class="{'active': vm.steps.active2}" ng-if="vm.steps.page2 && !vm.steps.page1">							
+							<img src="assets/images/project-submission.png" style="width:90%; height:905;">
+							<br/>
+							<br/>
+							<h5>Not ready for a project? </h5> 
+							<img src="assets/images/browse.png" style="height:90%; width:90%;">
+							
+							<p>Purchase includes 3 Months of Browsing Access and 2 Personal Intern Searches. If we do not find the Intern for you within the 3 Months a full credit can be authorized. Click "Browse Interns" to get started.</p>
+							<input type="button" class="btn btn-default pull-left btn-primary  col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()"/>
 					<input type="submit" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm()"/>
 				</div>
 				<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page2 && !vm.steps.page1">

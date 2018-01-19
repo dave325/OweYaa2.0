@@ -71,6 +71,12 @@
       templateUrl:"/js/frontend/views/company/projects-dashboard.view.html"
     })
 
+    .when('/company/:companyid/purchaseMembership',{
+      templateUrl:"/js/frontend/views/company/purchaseMembership.view.html",
+      controller:"purchaseMembershipCtrl",
+      controllerAs:"vm"
+    })
+
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
       controller:"error.controller.js",

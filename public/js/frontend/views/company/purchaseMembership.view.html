@@ -1,0 +1,8 @@
+<form action="/api/payment/test" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="{{vm.user.stripe_key}}"
+      data-amount="999"
+      data-locale="auto">
+    </script>
+  </form>

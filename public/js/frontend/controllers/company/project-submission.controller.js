@@ -6,6 +6,7 @@ function projectSubmissionCtrl(User) {
     vm.user = User.getUser();
     vm.submissionForm = {};
     vm.submissionForm.projid = vm.user.company_project.length;
+    vm.submissionForm.username = vm.user.company.username;
     vm.steps = {
       page1:true,
       page2:false,

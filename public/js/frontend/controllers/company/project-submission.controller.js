@@ -45,10 +45,15 @@ function projectSubmissionCtrl(User) {
       vm.steps.page2 = false;
       vm.steps.page1 = true;
     }
-    vm.submitProjForm = function(){
+    vm.submitProjForm = function(modal,data){
       vm.steps.page1 = false;
       vm.steps.page2 = false;
       vm.steps.page3 = true;
+      User.updateUser(modal,data).then(function(response){
+        console.log(response);
+      },function(error){
+        console.log(error);
+      });
     }
   }
    angular.module('oweyaa')

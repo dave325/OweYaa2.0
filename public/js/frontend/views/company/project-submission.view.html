@@ -19,7 +19,7 @@
 				<div class="step" id="step1" ng-class="{'active': vm.steps.active1}" ng-if="vm.steps.page1">
 					<div class="form-group">
 						<label for="manager-name">What the Project Manager's Name?  </label>
-						<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.managerName" required id="manager-name"/>
+						<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanager" required id="manager-name"/>
 					</div>
 					<div class="form-group">
 						<label for="comp-industry">What industry is your company in? </label>
@@ -48,7 +48,7 @@
 							
 							<p>Purchase includes 3 Months of Browsing Access and 2 Personal Intern Searches. If we do not find the Intern for you within the 3 Months a full credit can be authorized. Click "Browse Interns" to get started.</p>
 							<input type="button" class="btn btn-default pull-left btn-primary  col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()"/>
-					<input type="submit" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm()"/>
+					<input type="submit" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"/>
 				</div>
 				<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page2 && !vm.steps.page1">
 					<h3 class="text-center">Thank you very much! <br />Your project has been added and we will notify you when a match has been made!</h3>

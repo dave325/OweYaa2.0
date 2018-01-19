@@ -47,7 +47,7 @@
 					<input type="submit" class="btn btn-default btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"/>
 				</div>
 				<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="!vm.steps.page1">
-					<h3 class="text-center">Thank you very much! <br />Your project has been added and we will notify you when a match has been made!</h3>
+					<h3 class="text-center">Thank you very much! <br />Project Submitted! Click <a href="company/{{vm.user.company.username}}/purchaseMembership.php">Here</a> To Purchase your Membership and begin the Matching Process. </br> Or Go to your <a href="company/{{vm.user.company.username}}/dashboard.php">Dashboard </a>if Already Purchased.</h3>
 				</div>
 			</form>
 		</div><!-- Form Container -->

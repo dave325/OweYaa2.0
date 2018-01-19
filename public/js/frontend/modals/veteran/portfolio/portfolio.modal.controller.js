@@ -16,7 +16,6 @@
     portfoliovm.doportfolio = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
-        /*
         var uploadPic = Upload.upload({
           url:"/api/uploadFile",
           data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}
@@ -29,7 +28,7 @@
           console.log(response);
           if (response.status > 0)
             console.log(response.status + ': ' + response.data);
-        });*/
+        });
         portfoliovm.close(portfoliovm.user);
       },function(data){
         console.log(data);

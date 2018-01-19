@@ -5,13 +5,7 @@ function projectSubmissionCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
     vm.submissionForm = {};
-    let i = 0;
-    for(var proj in vm.user.company_project){
-      if(proj.projid.length == 0){
-        proj.projid = vm.user.company.username + i;
-      }
-      i++;
-    }
+    vm.submissionForm.projid = vm.user.company_project.length;
     vm.steps = {
       page1:true,
       page2:false,

@@ -10,7 +10,7 @@
         // Create an instance of Elements
         var elements = stripe.elements();
         // Create an instance of the card Element
-        vm.payment= elements.create('card', {style: style});
+        vm.payment= elements.create('card');
 
         // Add an instance of the card Element into the `card-element` <div>
         vm.payment.mount('#card-element');

@@ -1,9 +1,5 @@
-<form action="/api/payment/test" method="POST">
-    <h1>Form</h1>
-    <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="{{vm.user.stripe_key}}"
-      data-amount="999"
-      data-locale="auto">
-    </script>
+<form novalidate>
+    <input ng-model="vm.payment.card">
+    <input ng-model="vm.payment.id">
+    <input type="submit" class="btn btn-primary" ng-click="vm.charge()">
 </form>

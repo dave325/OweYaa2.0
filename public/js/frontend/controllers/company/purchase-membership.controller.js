@@ -39,13 +39,29 @@
         vm.payment.cardExpiry.mount('#card-elements');
 
         // Handle real-time validation errors from the card Element.
-        vm.payment.addEventListener('change', function(event) {
+        vm.payment.CardNum.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
             displayError.textContent = event.error.message;
         } else {
             displayError.textContent = '';
         }
+        });
+        vm.payment.CardCvc.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+        vm.payment.CardExpiry.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
         });
 
         vm.charge = function charge() {

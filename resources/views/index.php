@@ -75,7 +75,9 @@
 	    <link href="assets/stylesheets/style.css" rel="stylesheet"/>
 
     </head>
-    <body ng-view>
+    <body>
+        <div ng-view>
+        </div>
     <script src="https://js.stripe.com/v3/"></script>
 
     </body>

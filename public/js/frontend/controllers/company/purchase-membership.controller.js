@@ -5,10 +5,10 @@
         var vm = this;
         vm.user = User.getUser();
         // Create a Stripe client
-        var stripe = Stripe(vm.user.stripe_key);
+        const stripe = Stripe(vm.user.stripe_key);
 
         // Create an instance of Elements
-        var elements = stripe.elements();
+        const elements = stripe.elements();
 
         // Custom styling can be passed to options when creating an Element.
         // (Note that this demo uses a wider set of styles than the guide below.)
@@ -29,7 +29,7 @@
             }
         };
         // Create an instance of the card Element
-        vm.payment= elements.create('card', {style: style});
+        vm.payment = elements.create('card', {style: style});
 
         // Add an instance of the card Element into the `card-element` <div>
         vm.payment.mount('#card-elements');
@@ -45,6 +45,16 @@
         });
 
         vm.charge = function charge() {
+            const {token, error} = await stripe.createToken(card);
+
+            if (error) {
+              // Inform the customer that there was an error
+              const errorElement = document.getElementById('card-errors');
+              errorElement.textContent = error.message;
+            } else {
+              // Send the token to your server
+              vm.payment.stripetoken = token;
+            }
             $http.post('/api/payment/test', vm.payment)
               .then(function (payment) {
                 console.log(payment)

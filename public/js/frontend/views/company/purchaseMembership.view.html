@@ -28,5 +28,7 @@
 </style>
 <form novalidate ng-submit="charge()">
     <div id="card-elements"></div>
+    <!-- Used to display Element errors -->
+    <div id="card-errors" role="alert"></div>
     <input type="submit" class="btn btn-primary" ng-click="vm.charge()">
 </form>

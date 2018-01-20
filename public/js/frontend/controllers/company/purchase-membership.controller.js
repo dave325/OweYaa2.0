@@ -16,7 +16,7 @@
         vm.payment.mount('#card-elements');
 
         // Handle real-time validation errors from the card Element.
-        card.addEventListener('change', function(event) {
+        vm.payment.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
             displayError.textContent = event.error.message;

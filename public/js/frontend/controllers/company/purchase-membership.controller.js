@@ -27,8 +27,8 @@
               })
           }
     }
-      angular.module('oweyaa')
-        .controller('purchaseMembershipCtrl', purchaseMembershipCtrl);
+    angular.module('oweyaa')
+    .controller('purchaseMembershipCtrl', purchaseMembershipCtrl);
     
-    })();
+})();
     

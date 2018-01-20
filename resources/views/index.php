@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="assets/angularjs/angular-strip.js"></script>
+        <script src="assets/angularjs/angular-stripe.js"></script>
         <script src="js/angularApp.js"></script>
 
         <!-- Company Controllers -->

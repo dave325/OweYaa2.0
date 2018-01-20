@@ -1,5 +1,5 @@
 (function(){
-  angular.module('oweyaa',['ngRoute', 'ui.bootstrap', 'ngSanitize','ngFileUpload','angular-stripe']);
+  angular.module('oweyaa',['ngRoute', 'ui.bootstrap', 'ngSanitize','ngFileUpload']);
   function routeConfig($routeProvider){
     $routeProvider.when('/', {
       templateUrl:"/js/frontend/views/home/home.view.html",
@@ -88,10 +88,7 @@
   }
   angular.module('oweyaa')
     .config(['$routeProvider', routeConfig])
-    .config(['$locationProvider', locationConfig])
-    .config(['stripeProvider',function (stripeProvider) {
-      stripeProvider.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh')
-    }]);
+    .config(['$locationProvider', locationConfig]);
     
     //.run(['$rootScope', '$location', '$http','User','Authentication', function ($rootScope, $location, $http,User,Authentication) {
     /**

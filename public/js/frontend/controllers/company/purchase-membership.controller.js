@@ -1,7 +1,7 @@
 (function(){
     //Injector will protect against minification
-    purchaseMembershipCtrl.$inject = ['User'];
-    function purchaseMembershipCtrl(User) {
+    purchaseMembershipCtrl.$inject = ['User','$http'];
+    function purchaseMembershipCtrl(User,$http) {
         var vm = this;
         vm.user = User.getUser();
         vm.payment = {};

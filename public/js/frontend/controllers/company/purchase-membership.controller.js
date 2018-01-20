@@ -6,7 +6,7 @@
         vm.user = User.getUser();
         vm.payment = {};
         vm.charge = function charge() {
-            return stripe.card.createToken(vm.payment.card)
+            return stripe.card.createToken(vm.payment)
               .then(function (response) {
                 console.log('token created for card ending in ', response.card.last4)
                 var payment = angular.copy(vm.member.payment)

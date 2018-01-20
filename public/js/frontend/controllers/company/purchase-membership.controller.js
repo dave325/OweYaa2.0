@@ -6,7 +6,7 @@
         vm.user = User.getUser();
         vm.payment = {};
         vm.charge = function charge() {
-            $http.post('/api/payment/test', payment)
+            $http.post('/api/payment/test', vm.payment)
               .then(function (payment) {
                 console.log(payment)
               },function(data){

@@ -9,7 +9,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="https://js.stripe.com/v3/"></script>
         <script src="js/angularApp.js"></script>
 
         <!-- Company Controllers -->
@@ -77,6 +76,7 @@
 
     </head>
     <body ng-view>
+    <script src="https://js.stripe.com/v3/"></script>
 
     </body>
 </html>

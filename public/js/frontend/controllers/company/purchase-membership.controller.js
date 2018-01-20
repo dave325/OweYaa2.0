@@ -45,21 +45,21 @@
         });
 
         vm.charge = function charge() {
-            const {token, error} = await stripe.createToken(card);
-
-            if (error) {
-              // Inform the customer that there was an error
-              const errorElement = document.getElementById('card-errors');
-              errorElement.textContent = error.message;
-            } else {
-              // Send the token to your server
-              vm.payment.stripetoken = token;
-            }
-            $http.post('/api/payment/test', vm.payment)
-              .then(function (payment) {
-                console.log(payment)
-              },function(data){
-                console.log(data);
+            stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                  // Inform the customer that there was an error
+                  var errorElement = document.getElementById('card-errors');
+                  errorElement.textContent = result.error.message;
+                } else {
+                    console.log(result);
+                    vm.payment.stripetoken = result.token.id;
+                    $http.post('/api/payment/test', vm.payment)
+                    .then(function (payment) {
+                      console.log(payment)
+                    },function(data){
+                      console.log(data);
+                    });
+                }
               });
           }
     }

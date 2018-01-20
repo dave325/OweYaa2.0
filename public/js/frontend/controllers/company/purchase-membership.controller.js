@@ -13,7 +13,7 @@
         vm.payment= elements.create('card');
 
         // Add an instance of the card Element into the `card-element` <div>
-        vm.payment.mount('#card-element');
+        vm.payment.mount('#card-elements');
 
         // Handle real-time validation errors from the card Element.
         card.addEventListener('change', function(event) {

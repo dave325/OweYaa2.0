@@ -45,7 +45,7 @@
         });
 
         vm.charge = function charge() {
-            stripe.createToken(card).then(function(result) {
+            stripe.createToken(vm.payment).then(function(result) {
                 if (result.error) {
                   // Inform the customer that there was an error
                   var errorElement = document.getElementById('card-errors');

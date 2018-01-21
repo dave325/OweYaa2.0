@@ -26,42 +26,44 @@
   background-color: #fefde5 !important;
 }
 </style>
-<div id="purchaseMembership" class="col-xs-12 col-md-8 col-md-2">
+<div id="purchaseMembership">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
     <h1>Purchase Your Internship Membership</h5>
     <a href="company/{{vm.user.company.username}}/project-submission"><h2 ng-if="vm.user.copmany_project.length == 0">Submit a project first! Click here to be redirected.</h2></a>
     <div ng-if="vm.user.copmany_project.length > 0">
         <h2>Select your Membership to Initiate the Matching Process</h2>
         <p class="col-md-8 text-center">We make internships easy. Select your flexible membership package and everything is covered. We will tailor match you an intern, grant you the desired working hours per pay period, take care of the intern stipen, we will donate 10% to a education fund to help veterans and military spouses complete more great training. Purchase your package today and we will begin the process of matching your submitted project to an intern!</p>
-        <div id="monthMembership">
-                <h3>Monthly Membership</h3>
-                <ul>
-                    <li>$1,600 Per Month</li>
-                    <li>30 Project Hours Per Month</li>
-                    <li>Tailored Intern Match per Project</li>
-                    <li>Intern Stipend Included</li>
-                    <li>% of Membership goes towards Free Vet Education</li>
-                </ul>
-        </div>
-        <div id="quarterlyMembership">
-                <h3>Quarterly Membership</h3>
-                <ul>
-                    <li>$5,000 Per Quarter</li>
-                    <li>30 Project Hours Per Month</li>
-                    <li>Tailored Intern Match per Project</li>
-                    <li>Intern Stipend Included</li>
-                    <li>% of Membership goes towards Free Vet Education</li>
-                </ul>
-        </div>
-        <div id="annualMembership">
-                <h3>Annual Membership</h3>
-                <ul>
-                    <li>$16,000 Annually</li>
-                    <li>40 Project Hours Per Month</li>
-                    <li>Tailored Intern Match per Project</li>
-                    <li>Intern Stipend Included</li>
-                    <li>% of Membership goes towards Free Vet Education</li>
-                </ul>
+        <div class="col-md-8 col-md-offset-2">
+            <div id="monthMembership" class="col-md-8 col-md-offset-2">
+                    <h3>Monthly Membership</h3>
+                    <ul>
+                        <li>$1,600 Per Month</li>
+                        <li>30 Project Hours Per Month</li>
+                        <li>Tailored Intern Match per Project</li>
+                        <li>Intern Stipend Included</li>
+                        <li>% of Membership goes towards Free Vet Education</li>
+                    </ul>
+            </div>
+            <div id="quarterlyMembership">
+                    <h3>Quarterly Membership</h3>
+                    <ul>
+                        <li>$5,000 Per Quarter</li>
+                        <li>30 Project Hours Per Month</li>
+                        <li>Tailored Intern Match per Project</li>
+                        <li>Intern Stipend Included</li>
+                        <li>% of Membership goes towards Free Vet Education</li>
+                    </ul>
+            </div>
+            <div id="annualMembership">
+                    <h3>Annual Membership</h3>
+                    <ul>
+                        <li>$16,000 Annually</li>
+                        <li>40 Project Hours Per Month</li>
+                        <li>Tailored Intern Match per Project</li>
+                        <li>Intern Stipend Included</li>
+                        <li>% of Membership goes towards Free Vet Education</li>
+                    </ul>
+            </div>
         </div>
         <p>We believe in workplace inclusion and availability for all. If you are a company with under $5 Million in revenue apply for our "Building Best Inclusive Workplaces Scholarship" to receive a discount on membership. Discount rates are calculated by company size.</p>
         <a class="btn" href="requestdiscount.php" ><b style="color:white;">Apply Here</b></a>

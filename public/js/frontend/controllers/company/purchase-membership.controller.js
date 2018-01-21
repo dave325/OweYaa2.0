@@ -4,7 +4,6 @@
     function purchaseMembershipCtrl(User,$http) {
         var vm = this;
         vm.user = User.getUser();
-        vm.payment = {};
         // Create a Stripe client
         const stripe = Stripe(vm.user.stripe_key);
 
@@ -30,38 +29,19 @@
             }
         };
         // Create an instance of the card Element
-        vm.payment.cardNum = elements.create('cardNumber', {style: style});
-        vm.payment.cardCvc = elements.create('cardCvc', {style: style});
-        vm.payment.cardExpiry = elements.create('cardExpiry', {style: style});
+        vm.payment = elements.create('card', {style: style});
+
         // Add an instance of the card Element into the `card-element` <div>
-        vm.payment.cardNum.mount('#card-elements');
-        vm.payment.cardCvc.mount('#card-elements');
-        vm.payment.cardExpiry.mount('#card-elements');
+        vm.payment.mount('#card-elements');
 
         // Handle real-time validation errors from the card Element.
-        vm.payment.CardNum.addEventListener('change', function(event) {
+        vm.payment.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
             displayError.textContent = event.error.message;
         } else {
             displayError.textContent = '';
         }
-        });
-        vm.payment.CardCvc.addEventListener('change', function(event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-        vm.payment.CardExpiry.addEventListener('change', function(event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
         });
 
         vm.charge = function charge() {

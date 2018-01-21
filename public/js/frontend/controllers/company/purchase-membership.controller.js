@@ -4,6 +4,7 @@
     function purchaseMembershipCtrl(User,$http) {
         var vm = this;
         vm.user = User.getUser();
+        vm.user.company.stripetoken = "card_1Bmbcp2eZvKYlo2CXwVHVPch";
         // Create a Stripe client
         const stripe = Stripe(vm.user.stripe_key);
 
@@ -62,7 +63,7 @@
                     }
               });
             }else{
-                vm.payment.stripetoken = vm.user.company.stripetoken
+                vm.payment.stripetoken = "card_1Bmbcp2eZvKYlo2CXwVHVPch";
                 $http.post('/api/payment/test', vm.payment).then(function (payment) {
                     console.log(payment)
                 },function(data){

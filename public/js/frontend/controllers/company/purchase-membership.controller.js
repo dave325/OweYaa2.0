@@ -63,7 +63,7 @@
                     }
               });
             }else{
-                vm.payment.stripetoken = "card_1Bmbcp2eZvKYlo2CXwVHVPch";
+                vm.payment.stripetoken = vm.user.company.stripetoken;
                 $http.post('/api/payment/test', vm.payment).then(function (payment) {
                     console.log(payment)
                 },function(data){

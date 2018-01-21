@@ -4,7 +4,7 @@
     function purchaseMembershipCtrl(User,$http) {
         var vm = this;
         vm.user = User.getUser();
-        vm.user.company.stripetoken = "card_1Bmbcp2eZvKYlo2CXwVHVPch";
+        vm.user.company.stripetoken = "ch_1Bm7ha2eZvKYlo2CSixUsnPq";
         // Create a Stripe client
         const stripe = Stripe(vm.user.stripe_key);
 

@@ -29,7 +29,7 @@
 <div id="purchaseMembership">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
     <h1>Purchase Your Internship Membership</h5>
-    <a href="company/{{vm.user.company.username}}/project-submission"><h2 ng-if="vm.user.copmany_project.length == 0">Submit a project first! Click here to be redirected.</h2></a>
+    <a href="company/{{vm.user.company.username}}/project-submission"><h2 ng-if="vm.user.company_project.length == 0">Submit a project first! Click here to be redirected.</h2></a>
     <div ng-if="vm.user.copmany_project.length > 0">
         <h2>Select your Membership to Initiate the Matching Process</h2>
         <p class="col-md-8 text-center">We make internships easy. Select your flexible membership package and everything is covered. We will tailor match you an intern, grant you the desired working hours per pay period, take care of the intern stipen, we will donate 10% to a education fund to help veterans and military spouses complete more great training. Purchase your package today and we will begin the process of matching your submitted project to an intern!</p>

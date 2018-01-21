@@ -45,22 +45,30 @@
         });
 
         vm.charge = function charge() {
-            stripe.createToken(vm.payment).then(function(result) {
-                if (result.error) {
-                  // Inform the customer that there was an error
-                  var errorElement = document.getElementById('card-errors');
-                  errorElement.textContent = result.error.message;
-                } else {
-                    console.log(result);
-                    vm.payment.stripetoken = result.token.id;
-                    $http.post('/api/payment/test', vm.payment)
-                    .then(function (payment) {
-                      console.log(payment)
-                    },function(data){
-                      console.log(data);
-                    });
-                }
+            if(vm.user.company.stripetoken == null || vm.user.company.stripetoken == undefined){
+                stripe.createToken(vm.payment).then(function(result) {
+                    if (result.error) {
+                    // Inform the customer that there was an error
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                    } else {
+                        console.log(result);
+                        vm.payment.stripetoken = result.token.id;
+                        $http.post('/api/payment/test', vm.payment).then(function (payment) {
+                            console.log(payment)
+                        },function(data){
+                            console.log(data);
+                        });
+                    }
               });
+            }else{
+                vm.payment.stripetoken = vm.user.company.stripetoken
+                $http.post('/api/payment/test', vm.payment).then(function (payment) {
+                    console.log(payment)
+                },function(data){
+                    console.log(data);
+                });
+            }
           }
     }
     angular.module('oweyaa')

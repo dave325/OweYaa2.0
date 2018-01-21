@@ -27,10 +27,10 @@
 }
 </style>
 <navbar content="{{navbarvm.activeNav}}"></navbar>
-<form novalidate ng-submit="charge()">
-    <div id="card-elements" class="col-xs-12 col-md-6"></div>
+<form novalidate ng-submit="charge()" class="col-xs-12 col-md-6 col-md-offset-3">
+    <div id="card-elements" class="col-xs-12"></div>
     <!-- Used to display Element errors -->
     <div id="card-errors" role="alert"></div>
-    <input type="submit" class="btn btn-primary col-md-3" ng-click="vm.charge()">
+    <input type="submit" class="btn btn-primary col-md-12" ng-click="vm.charge()">
 </form>
 <footer-base></footer-base>

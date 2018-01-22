@@ -30,11 +30,11 @@
             }
         };
         // Create an instance of the card Element
-        vm.payment = elements.create('card', {style: style});
-
+        vm.payment.card = elements.create('cardNumber',);
+        vm.payment.cardCvc = elements.create('cardCvc');
         // Add an instance of the card Element into the `card-element` <div>
-        vm.payment.mount('#card-elements');
-
+        vm.payment.card.mount('#card-elements');
+        vm.payment.cardCvc.mount('#card-elements');
         // Handle real-time validation errors from the card Element.
         vm.payment.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');

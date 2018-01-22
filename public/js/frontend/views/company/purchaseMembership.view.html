@@ -28,7 +28,7 @@
 </style>
 <div id="purchaseMembership">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
-    <h1>Purchase Your Internship Membership</h5>
+    <h1 class="text-center">Purchase Your Internship Membership</h5>
     <a href="company/{{vm.user.company.username}}/project-submission"><h2 ng-if="vm.user.company_project.length == 0" class="text-center">Submit a project first! Click here to be redirected.</h2></a>
     <div ng-if="vm.user.company_project.length > 0">
         <h2 class="text-center">Select your Membership to Initiate the Matching Process</h2>

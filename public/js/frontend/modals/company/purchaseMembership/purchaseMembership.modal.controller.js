@@ -32,7 +32,7 @@
      }
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
-     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType];
+     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType].label;
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
 
@@ -107,10 +107,9 @@
                  var errorElement = document.getElementById('card-errors');
                  errorElement.textContent = result.error.message;
                  } else {
-                     console.log(result);
                      purchaseMembershipModalvm.payment.stripetoken = result.token.id;
                      $http.post('/api/payment/test', purchaseMembershipModalvm.payment).then(function (payment) {
-                         console.log(payment)
+                        console.log(payment)
                      },function(data){
                          console.log(data);
                      });
@@ -119,7 +118,7 @@
          }else{
              purchaseMembershipModalvm.payment.stripetoken = purchaseMembershipModalvm.user.company.stripetoken;
              $http.post('/api/payment/test', purchaseMembershipModalvm.payment).then(function (payment) {
-                 console.log(payment)
+                 console.log(payment);
              },function(data){
                  console.log(data);
              });

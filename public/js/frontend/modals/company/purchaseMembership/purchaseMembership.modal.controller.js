@@ -32,7 +32,7 @@
      }
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
-     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType].label;
+     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType];
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
 

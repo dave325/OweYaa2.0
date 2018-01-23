@@ -40,7 +40,7 @@
         <script src="js/frontend/services/authentication.service.js"></script>
         <script src="js/frontend/services/user.service.js"></script>
 
-        <!-- Modal Controllers -->
+        <!-- Veteran Modal Controllers -->
         <script src="js/frontend/modals/home/login/login.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/action/action.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/career/career.modal.controller.js"></script>
@@ -52,6 +52,9 @@
         <script src="js/frontend/modals/veteran/contact/contact.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/portfolio/portfolio.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/task/task.modal.controller.js"></script>
+
+         <!-- Copmany Modal Controllers -->
+        <script src="js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.controller.js"></script>
 
         <!-- Typography -->
         <!-- Roboto -->

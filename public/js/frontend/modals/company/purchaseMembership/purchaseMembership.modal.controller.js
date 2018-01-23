@@ -118,5 +118,5 @@
      
  }
  angular.module('oweyaa')
- .controller('purchaseMembershipModalCtrl', purchaseMembershipCtrlModal);
+ .controller('purchaseMembershipModalCtrl', purchaseMembershipModalCtrl);
 })();

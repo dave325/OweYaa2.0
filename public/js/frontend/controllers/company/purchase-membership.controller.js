@@ -4,74 +4,26 @@
     function purchaseMembershipCtrl(User,$http) {
         var vm = this;
         vm.user = User.getUser();
-        vm.payment = {};
-        vm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
-        // Create a Stripe client
-        const stripe = Stripe(vm.user.stripe_key);
-
-        // Create an instance of Elements
-        const elements = stripe.elements();
-
-        // Custom styling can be passed to options when creating an Element.
-        // (Note that this demo uses a wider set of styles than the guide below.)
-        var style = {
-            base: {
-            color: '#32325d',
-            lineHeight: '18px',
-            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#aab7c4'
-            }
-            },
-            invalid: {
-            color: '#fa755a',
-            iconColor: '#fa755a'
-            }
-        };
-        // Create an instance of the card Element
-        vm.payment.card = elements.create('cardNumber',);
-        vm.payment.cardCvc = elements.create('cardCvc');
-        // Add an instance of the card Element into the `card-element` <div>
-        vm.payment.card.mount('#card-elements');
-        vm.payment.cardCvc.mount('#card-elements');
-        // Handle real-time validation errors from the card Element.
-        vm.payment.card.addEventListener('change', function(event) {
-        var displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
-        });
-
-        vm.charge = function charge() {
-            if(vm.user.company.stripetoken == null || vm.user.company.stripetoken == undefined){
-                stripe.createToken(vm.payment).then(function(result) {
-                    if (result.error) {
-                    // Inform the customer that there was an error
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                    } else {
-                        console.log(result);
-                        vm.payment.stripetoken = result.token.id;
-                        $http.post('/api/payment/test', vm.payment).then(function (payment) {
-                            console.log(payment)
-                        },function(data){
-                            console.log(data);
-                        });
+        vm.openPayment = function(payType){
+            if(User.getUser()){
+                var m = $uibModal.open({
+                    templateUrl: '/js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.view.html',
+                    controller: 'purchaseMembershipModalCtrl',
+                    controllerAs: 'purchaseMembershipModalvm',
+                    windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
+                    resolve:{
+                        PayType:payType
                     }
-              });
-            }else{
-                vm.payment.stripetoken = vm.user.company.stripetoken;
-                $http.post('/api/payment/test', vm.payment).then(function (payment) {
-                    console.log(payment)
-                },function(data){
-                    console.log(data);
                 });
+
+                m.result
+                    .then(function (data) {
+                        console.log(data);
+                    },function (reason) {
+                        console.log(reason);
+                    });
             }
-          }
+        }
     }
     angular.module('oweyaa')
     .controller('purchaseMembershipCtrl', purchaseMembershipCtrl);

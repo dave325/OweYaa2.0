@@ -80,6 +80,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
+                    <button class="btn" ng-click="vmopenPayment('month')">Choose Monthly Membership</button>
             </div>
             <div id="quarterlyMembership" class="col-md-4 payOption">
                     <h3>Quarterly Membership</h3>
@@ -90,6 +91,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
+                    <button class="btn" ng-click="vm.openPayment('quarter')">Choose Monthly Membership</button>
             </div>
             <div id="annualMembership" class="col-md-4 payOption">
                     <h3>Annual Membership</h3>
@@ -100,6 +102,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
+                    <button class="btn" ng-click="vm.openPayment('annual')">Choose Monthly Membership</button>
             </div>
         </div>
         <span class="clearfix"></span>
@@ -110,10 +113,4 @@
     </div>
 </div>
 
-<form novalidate ng-submit="charge()" class="col-xs-12 col-md-6 col-md-offset-3">
-    <div id="card-elements" class="col-xs-12"></div>
-    <!-- Used to display Element errors -->
-    <div id="card-errors" role="alert"></div>
-    <input type="submit" class="btn btn-primary col-md-12" ng-click="vm.charge()">
-</form>
 <footer-base></footer-base>

@@ -1,0 +1,15 @@
+<div id="membershipPaymentModal">
+    <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12 col-md-6 col-md-offset-3">
+        <label for="card-number">Card Number</label>
+        <div id="card-number" class="col-xs-12"></div>
+        <label for="card-cvc">Card Number</label>
+        <div id="card-cvc" class="col-xs-12"></div>
+        <label for="card-expiry">Card Number</label>
+        <div id="card-expiry" class="col-xs-12"></div>
+        <div id="payment-request-button">
+        </div>         
+        <!-- Used to display Element errors -->
+        <div id="card-errors" role="alert"></div>
+        <input type="submit" class="btn btn-primary col-md-12" ng-click="purchaseMembershipModalvm.charge()">
+    </form>
+</div>

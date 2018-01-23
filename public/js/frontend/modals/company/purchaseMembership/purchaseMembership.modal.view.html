@@ -1,6 +1,6 @@
 <style>
     #membershipPaymentModal{
-        height:400px;
+        padding-bottom:40px;
     }
     .compModal .modal-dialog{
         width:100%;
@@ -10,6 +10,13 @@
         padding:30px 0px;
         color:#FFF;
         background-color:rgb(247,159,75);
+    }
+    #membershipPaymentModal form{
+        padding:0px;
+    }
+    .submitBtn{
+        background-color:rgb(211,211,211);
+        padding:30px 0px;
     }
 </style>
 <div id="membershipPaymentModal">
@@ -33,7 +40,9 @@
         </div>
         <!-- Used to display Element errors -->
         <div id="card-errors" role="alert"></div>
-        <button ng-click="purchaseMembershipModalvm.charge()">Submit Payment</button>
+        <div class="submitBtn col-xs-12">
+            <button ng-click="purchaseMembershipModalvm.charge()" class="btn btn-primary col-xs-12">Submit Payment</button>
+        </div>
     </form>
     <span class="clearfix"></span>
 </div>

@@ -57,7 +57,7 @@
          }
      };
 
-     const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType]);
+     const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
      // Create an instance of the card Element
      purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
      purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');

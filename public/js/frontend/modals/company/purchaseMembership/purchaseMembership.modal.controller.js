@@ -32,7 +32,7 @@
      }
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
-     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
+     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType];
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
 
@@ -62,38 +62,12 @@
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
         purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
-        console.log(purchaseMembershipModalvm.type);
-        var paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.type);
-        paymentRequest.on("token", function(result) {
-            var example = document.querySelector("#card-errors");
-            example.querySelector(".token").innerText = result.token.id;
-            console.log(result.token.id);
-            example.classList.add("submitted");
-            result.complete("success");
-          });
-        
-          var paymentRequestElement = elements.create("paymentRequestButton", {
-            paymentRequest: paymentRequest,
-            style: {
-              paymentRequestButton: {
-                theme: "light"
-              }
-            }
-          });
-        
-          paymentRequest.canMakePayment().then(function(result) {
-            if (result) {
-              console.log(result);
-              paymentRequestElement.mount("#card-errors");
-            }
-          });
         
         // Add an instance of the card Element into the `card-element` <div>
         purchaseMembershipModalvm.payment.card.mount('#card-number');
         purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
         purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
         // Handle real-time validation errors from the card Element.
-        
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-number-errors');
             if (event.error) {
@@ -126,8 +100,8 @@
         });
     },1000);
      purchaseMembershipModalvm.charge = function charge() {
-        stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {
-            console.log(result);
+        stripe.createSource(purchaseMembershipModalvm.payment).then(function(result) {
+            console.log(payment);
             if (result.error) {
             // Inform the customer that there was an error
             var errorElement = document.getElementById('card-errors');

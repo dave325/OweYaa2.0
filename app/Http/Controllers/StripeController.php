@@ -11,8 +11,12 @@ use Stripe;
 class StripeController extends Controller{
 
     public function test(Request $request){
-       $user["customer"] = Stripe\Customer::retrieve($request->input("stripetoken"));
-       $user["charge"] = Stripe\Charge::retrieve("ch_1BmbWH2eZvKYlo2CcKyWK40x");
+        if($request->input("stripetoken")){
+            $user["customer"] = Stripe\Customer::retrieve($request->input("stripetoken"));
+            $user["charge"] = Stripe\Charge::create(array(
+                
+            ));
+        }
        return response()->json($user);
     }
 }

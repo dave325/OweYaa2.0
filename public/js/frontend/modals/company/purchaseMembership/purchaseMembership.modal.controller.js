@@ -100,30 +100,22 @@
         });
     },1000);
      purchaseMembershipModalvm.charge = function charge() {
-         if(purchaseMembershipModalvm.user.company.stripetoken == null || purchaseMembershipModalvm.user.company.stripetoken == undefined){
-             stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {
-                 if (result.error) {
-                 // Inform the customer that there was an error
-                 var errorElement = document.getElementById('card-errors');
-                 errorElement.textContent = result.error.message;
-                 } else {
-                     purchaseMembershipModalvm.payment.stripetoken = result.token.id;
-                     $http.post('/api/payment/test', purchaseMembershipModalvm.payment).then(function (payment) {
-                        console.log(payment)
-                     },function(data){
-                         console.log(data);
-                     });
-                 }
-           });
-         }else{
-             purchaseMembershipModalvm.payment.stripetoken = purchaseMembershipModalvm.user.company.stripetoken;
-             $http.post('/api/payment/test', purchaseMembershipModalvm.payment).then(function (payment) {
-                 console.log(payment);
-             },function(data){
-                 console.log(data);
-             });
-         }
-       }
+        stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {
+            console.log(result);
+            if (result.error) {
+            // Inform the customer that there was an error
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+            } else {
+                purchaseMembershipModalvm.payment.stripetoken = result.token.id;
+                $http.post('/api/payment/test', purchaseMembershipModalvm.payment).then(function (payment) {
+                console.log(payment);
+                },function(data){
+                    console.log(data);
+                });
+            }
+        });
+    }
      
  }
  angular.module('oweyaa')

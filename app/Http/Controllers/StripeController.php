@@ -24,7 +24,6 @@ class StripeController extends Controller{
                     "source" => $info['tempToken'],
                     "customer" => $user['customer']->id
                 ));
-                return response()->json($user);
             }else{
                 $user["customer"] = Stripe\Customer::create(array(
                     "email" =>$info['user']['company']['email'],
@@ -38,7 +37,6 @@ class StripeController extends Controller{
                     "source" => $info['tempToken'],
                     "customer" => $user['customer']->id
                 ));
-                return response()->json($user);
             }
           } catch(\Stripe\Error\Card $e) {
             // Since it's a decline, \Stripe\Error\Card will be caught
@@ -61,5 +59,6 @@ class StripeController extends Controller{
           } catch (Exception $e) {
             // Something else happened, completely unrelated to Stripe
           }
+          return response()->json($user);
     }
 }

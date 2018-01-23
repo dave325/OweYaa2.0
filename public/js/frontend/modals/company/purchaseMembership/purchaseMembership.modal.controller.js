@@ -71,7 +71,7 @@
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-number-errors');
             if (event.error) {
-                displayError.textContent = event.error.message;
+                purchaseMembershipModalvm.error.card = event.error.message;
             } else {
                 displayError.textContent = '';
             }
@@ -79,7 +79,7 @@
         purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-cvc-errors');
             if (event.error) {
-                displayError.textContent = event.error.message;
+                purchaseMembershipModalvm.error.cvc = event.error.message;
             } else {
                 displayError.textContent = '';
             }
@@ -87,7 +87,7 @@
         purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-expiry-errors');
             if (event.error) {
-                displayError.textContent = event.error.message;
+                purchaseMembershipModalvm.error.expiry = event.error.message;
             } else {
                 displayError.textContent = '';
             }

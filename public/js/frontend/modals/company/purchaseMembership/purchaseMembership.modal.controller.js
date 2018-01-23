@@ -71,7 +71,7 @@
         purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
         purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
         // Check the availability of the Payment Request API first.
-        purchaseMembershipModalvm.payment.paymentRequest.canMakePayment().then(function(result) {
+        paymentRequest.canMakePayment().then(function(result) {
             if (result) {
                 console.log(result);
                 purchaseMembershipModalvm.payment.paymentRequest.mount('#payment-request-button');

@@ -32,7 +32,7 @@
      }
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.pay = {};
-     purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
+     purchaseMembershipModalvm.user.company.stripetoken = "";
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
@@ -109,7 +109,7 @@
             errorElement.textContent = result.error.message;
             } else {
                 purchaseMembershipModalvm.pay.tempToken = result.token.id;
-                purchaseMembershipModalvm.pay.stripetoken = purchaseMembershipModalvm.user.company.stripetoken;
+                purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
                 purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
                 $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                     console.log(payment);

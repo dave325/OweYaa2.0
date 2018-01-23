@@ -31,6 +31,7 @@
         }
      }
      purchaseMembershipModalvm.payment = {};
+     purchaseMembershipModalvm.pay = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client

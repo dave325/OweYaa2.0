@@ -4,7 +4,7 @@
     }
 </style>
 <div id="membershipPaymentModal">
-    <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12 col-md-6 col-md-offset-3">
+    <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12">
         <div class="form-group col-xs-12">
             <label for="card-number">Card Number</label>
             <div id="card-number" class="col-xs-12"></div>
@@ -23,5 +23,6 @@
         </div>
         <!-- Used to display Element errors -->
         <div id="card-errors" role="alert"></div>
+        <button ng-click="purchaseMembershipModalvm.charge()">Submit Payment</button>
     </form>
 </div>

@@ -57,29 +57,15 @@
          }
      };
      $timeout(function(){
-        var paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
         purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
-        purchaseMembershipModalvm.payment.paymentRequest = elements.create('paymentRequestButton',{
-            paymentRequest:paymentRequest
-        });
         
         // Add an instance of the card Element into the `card-element` <div>
         purchaseMembershipModalvm.payment.card.mount('#card-number');
         purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
-        purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
-        // Check the availability of the Payment Request API first.
-        paymentRequest.canMakePayment().then(function(result) {
-            if (result) {
-                console.log(result);
-                purchaseMembershipModalvm.payment.paymentRequest.mount('#payment-request-button');
-            } else {
-                console.log(result);
-                document.getElementById('payment-request-button').style.display = 'none';
-            }
-        });
+        purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');\
         // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');

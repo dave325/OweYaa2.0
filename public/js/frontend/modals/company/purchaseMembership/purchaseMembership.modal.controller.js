@@ -62,7 +62,8 @@
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
         purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
-        var paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType]);
+        console.log(purchaseMembershipModalvm.type);
+        var paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.type);
         paymentRequest.on("token", function(result) {
             var example = document.querySelector("#card-errors");
             example.querySelector(".token").innerText = result.token.id;

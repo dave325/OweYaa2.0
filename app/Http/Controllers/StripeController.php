@@ -12,6 +12,7 @@ class StripeController extends Controller{
 
     public function test(Request $request){
         $info = $request->all();
+        $user = array();
         try {
             // Use Stripe's library to make requests...
             if(Stripe\Customer::retrieve($info['user']['company']['stripetoken'])){

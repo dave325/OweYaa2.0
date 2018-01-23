@@ -32,6 +32,7 @@
      }
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
+     purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType];
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
 
@@ -68,12 +69,28 @@
         purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
         // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
-        var displayError = document.getElementById('card-errors');
+        var displayError = document.getElementById('card-number-errors');
         if (event.error) {
             displayError.textContent = event.error.message;
         } else {
             displayError.textContent = '';
         }
+        });
+        purchaseMembershipModalvm.payment.cvc.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-cvc-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+        purchaseMembershipModalvm.payment.expiry.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-expiry-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
         });
     },1000);
      purchaseMembershipModalvm.charge = function charge() {

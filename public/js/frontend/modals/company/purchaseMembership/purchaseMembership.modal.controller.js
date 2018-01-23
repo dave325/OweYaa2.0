@@ -4,7 +4,6 @@
  function purchaseMembershipModalCtrl(User,$http,PayType,$timeout) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
-     document.getElementsByClassName("payAlert").style.display = "none";
      purchaseMembershipModalvm.paymentType = {
         "month":{
             country: 'US',
@@ -59,6 +58,7 @@
          }
      };
      $timeout(function(){
+        document.getElementsByClassName("payAlert").style.display = "none";
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');

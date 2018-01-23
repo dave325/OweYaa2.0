@@ -1,7 +1,7 @@
 (function(){
  //Injector will protect against minification
- purchaseMembershipModalCtrl.$inject = ['User','$http','PayType'];
- function purchaseMembershipModalCtrl(User,$http,PayType) {
+ purchaseMembershipModalCtrl.$inject = ['User','$http','PayType','$timeout'];
+ function purchaseMembershipModalCtrl(User,$http,PayType,$timeout) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
      purchaseMembershipModalvm.paymentType = {
@@ -56,39 +56,40 @@
          iconColor: '#fa755a'
          }
      };
-
-     const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
-     // Create an instance of the card Element
-     purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
-     purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
-     purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
-     purchaseMembershipModalvm.payment.paymentRequest = elements.create('paymentRequestButton',{
-         paymentRequest:paymentRequest
-     });
-     // Add an instance of the card Element into the `card-element` <div>
-     purchaseMembershipModalvm.payment.card.mount('#card-number');
-     purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
-     purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
-     // Check the availability of the Payment Request API first.
-     purchaseMembershipModalvm.payment.paymentRequest.canMakePayment().then(function(result) {
-        if (result) {
-            console.log(result);
-            purchaseMembershipModalvm.payment.paymentRequest.mount('#payment-request-button');
+     $timeout(function(){
+        const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
+        // Create an instance of the card Element
+        purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
+        purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
+        purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
+        purchaseMembershipModalvm.payment.paymentRequest = elements.create('paymentRequestButton',{
+            paymentRequest:paymentRequest
+        });
+        
+        // Add an instance of the card Element into the `card-element` <div>
+        purchaseMembershipModalvm.payment.card.mount('#card-number');
+        purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
+        purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
+        // Check the availability of the Payment Request API first.
+        purchaseMembershipModalvm.payment.paymentRequest.canMakePayment().then(function(result) {
+            if (result) {
+                console.log(result);
+                purchaseMembershipModalvm.payment.paymentRequest.mount('#payment-request-button');
+            } else {
+                console.log(result);
+                document.getElementById('payment-request-button').style.display = 'none';
+            }
+        });
+        // Handle real-time validation errors from the card Element.
+        purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
         } else {
-            console.log(result);
-            document.getElementById('payment-request-button').style.display = 'none';
+            displayError.textContent = '';
         }
-    });
-     // Handle real-time validation errors from the card Element.
-     purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
-     var displayError = document.getElementById('card-errors');
-     if (event.error) {
-         displayError.textContent = event.error.message;
-     } else {
-         displayError.textContent = '';
-     }
-     });
-
+        });
+    },2000);
      purchaseMembershipModalvm.charge = function charge() {
          if(purchaseMembershipModalvm.user.company.stripetoken == null || purchaseMembershipModalvm.user.company.stripetoken == undefined){
              stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {

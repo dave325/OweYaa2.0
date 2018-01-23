@@ -110,7 +110,7 @@
                 purchaseMembershipModalvm.pay.tempToken = result.token.id;
                 purchaseMembershipModalvm.pay.stripetoken = purchaseMembershipModalvm.user.company.stripetoken;
                 purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
-                $http.post('/api/payment/test', purchaseMembershipModalvm.user).then(function (payment) {
+                $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                     console.log(payment);
                 },function(data){
                     console.log(data);

@@ -71,6 +71,7 @@
         // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-number-errors');
+            console.log(event.error);
             if (event.error) {
                 purchaseMembershipModalvm.error.card = event.error.message;
             } else {
@@ -79,6 +80,7 @@
         });
         purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-cvc-errors');
+            console.log(event.error);
             if (event.error) {
                 purchaseMembershipModalvm.error.cvc = event.error.message;
             } else {
@@ -87,6 +89,7 @@
         });
         purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-expiry-errors');
+            console.log(event.error);
             if (event.error) {
                 purchaseMembershipModalvm.error.expiry = event.error.message;
             } else {

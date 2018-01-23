@@ -4,6 +4,7 @@
  function purchaseMembershipModalCtrl(User,$http,PayType,$timeout) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
+     document.getElementsByClassName("payAlert").style.display = "none";
      purchaseMembershipModalvm.paymentType = {
         "month":{
             country: 'US',
@@ -31,7 +32,6 @@
         }
      }
      purchaseMembershipModalvm.payment = {};
-     purchaseMembershipModalvm.error = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType];
      // Create a Stripe client
@@ -71,29 +71,32 @@
         // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-number-errors');
-            console.log(event.error);
             if (event.error) {
-                purchaseMembershipModalvm.error.card = event.error.message;
+                displayError.textContent = event.error.message;
+                displayError.style.display = "block";
             } else {
-                purchaseMembershipModalvm.error.card = '';
+                displayError.textContent = '';
+                displayError.style.display = "none";
             }
         });
         purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-cvc-errors');
-            console.log(event.error);
             if (event.error) {
-                purchaseMembershipModalvm.error.cvc = event.error.message;
+                displayError.textContent = event.error.message;
+                displayError.style.display = "block";
             } else {
-                purchaseMembershipModalvm.error.cvc = '';
+                displayError.textContent = '';
+                displayError.style.display = "none";
             }
         });
         purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-expiry-errors');
-            console.log(event.error);
             if (event.error) {
-                purchaseMembershipModalvm.error.expiry = event.error.message;
+                displayError.textContent = event.error.message;
+                displayError.style.display = "block";
             } else {
-                purchaseMembershipModalvm.error.expiry = '';
+                displayError.textContent = '';
+                displayError.style.display = "none";
             }
         });
     },1000);

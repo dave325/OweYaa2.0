@@ -89,7 +89,7 @@
             displayError.textContent = '';
         }
         });
-    },2000);
+    },1000);
      purchaseMembershipModalvm.charge = function charge() {
          if(purchaseMembershipModalvm.user.company.stripetoken == null || purchaseMembershipModalvm.user.company.stripetoken == undefined){
              stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {

@@ -74,7 +74,7 @@
             if (event.error) {
                 purchaseMembershipModalvm.error.card = event.error.message;
             } else {
-                displayError.textContent = '';
+                purchaseMembershipModalvm.error.card = '';
             }
         });
         purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
@@ -82,7 +82,7 @@
             if (event.error) {
                 purchaseMembershipModalvm.error.cvc = event.error.message;
             } else {
-                displayError.textContent = '';
+                purchaseMembershipModalvm.error.cvc = '';
             }
         });
         purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
@@ -90,7 +90,7 @@
             if (event.error) {
                 purchaseMembershipModalvm.error.expiry = event.error.message;
             } else {
-                displayError.textContent = '';
+                purchaseMembershipModalvm.error.expiry = '';
             }
         });
     },1000);

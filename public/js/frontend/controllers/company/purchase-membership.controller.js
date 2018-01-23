@@ -10,7 +10,7 @@
                     templateUrl: '/js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.view.html',
                     controller: 'purchaseMembershipModalCtrl',
                     controllerAs: 'purchaseMembershipModalvm',
-                    windowClass:"col-xs-12 col-md-4 col-md-offset-4 vetModal",
+                    windowClass:"col-xs-12 col-md-4 col-md-offset-4 compModal",
                     windowTopClass:"col-xs-12 ",
                     resolve:{
                         PayType:{type:payType}

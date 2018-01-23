@@ -29,7 +29,7 @@ class StripeController extends Controller{
                     "email" =>$info['user']['company']['email'],
                     "source" => $info['tempToken']
                 ));
-                $user["charge"] = $user["charge"] = Stripe\Charge::create(array(
+                $user["charge"] = Stripe\Charge::create(array(
                     "amount" => $info['type']['total']['amount'],
                     "currency" => $info['type']['currency'],
                     "description" => "Example charge",

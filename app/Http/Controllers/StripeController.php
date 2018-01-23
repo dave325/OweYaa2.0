@@ -23,7 +23,7 @@ class StripeController extends Controller{
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
                     "source" => $info['tempToken'],
-                    "customer" => $user['customer']->id
+                    "customer" => $user['customer']['id']
                 ));
             }else{
                 $user["customer"] = Stripe\Customer::create(array(

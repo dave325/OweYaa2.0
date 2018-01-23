@@ -58,7 +58,6 @@
          }
      };
      $timeout(function(){
-        document.getElementsByClassName("payAlert").style.display = "none";
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');

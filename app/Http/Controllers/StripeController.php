@@ -14,7 +14,7 @@ class StripeController extends Controller{
         $info = $request->all();
         try {
             // Use Stripe's library to make requests...
-            if($request->input("stripetoken") && Stripe\Customer::retrieve($info['user']['company']['stripetoken'])){
+            if(Stripe\Customer::retrieve($info['user']['company']['stripetoken'])){
                 $user["customer"] = Stripe\Customer::retrieve($info['user']['company']['stripetoken']);
                 $user["charge"] = Stripe\Charge::create(array(
                     "amount" => $info['type']['total']['amount'],

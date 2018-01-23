@@ -68,7 +68,7 @@
      // Add an instance of the card Element into the `card-element` <div>
      purchaseMembershipModalvm.payment.card.mount('#card-number');
      purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
-     purchaseMembershipModalvm.payment.cardCvc.mount('#card-expiry');
+     purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
      // Check the availability of the Payment Request API first.
     paymentRequest.canMakePayment().then(function(result) {
         if (result) {

@@ -62,12 +62,37 @@
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
         purchaseMembershipModalvm.payment.cardExpiry = elements.create('cardExpiry');
+        var paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType]);
+        paymentRequest.on("token", function(result) {
+            var example = document.querySelector("#card-errors");
+            example.querySelector(".token").innerText = result.token.id;
+            console.log(result.token.id);
+            example.classList.add("submitted");
+            result.complete("success");
+          });
+        
+          var paymentRequestElement = elements.create("paymentRequestButton", {
+            paymentRequest: paymentRequest,
+            style: {
+              paymentRequestButton: {
+                theme: "light"
+              }
+            }
+          });
+        
+          paymentRequest.canMakePayment().then(function(result) {
+            if (result) {
+              console.log(result);
+              paymentRequestElement.mount("#card-errors");
+            }
+          });
         
         // Add an instance of the card Element into the `card-element` <div>
         purchaseMembershipModalvm.payment.card.mount('#card-number');
         purchaseMembershipModalvm.payment.cardCvc.mount('#card-cvc');
         purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
         // Handle real-time validation errors from the card Element.
+        
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-number-errors');
             if (event.error) {

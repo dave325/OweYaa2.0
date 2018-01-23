@@ -56,7 +56,6 @@
          iconColor: '#fa755a'
          }
      };
-     $timeout(function(){
         const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
@@ -89,7 +88,6 @@
             displayError.textContent = '';
         }
         });
-    },1000);
      purchaseMembershipModalvm.charge = function charge() {
          if(purchaseMembershipModalvm.user.company.stripetoken == null || purchaseMembershipModalvm.user.company.stripetoken == undefined){
              stripe.createToken(purchaseMembershipModalvm.payment).then(function(result) {

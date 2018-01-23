@@ -69,14 +69,14 @@
         purchaseMembershipModalvm.payment.cardExpiry.mount('#card-expiry');
         // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.card.addEventListener('change', function(event) {
-        var displayError = document.getElementById('card-number-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
+            var displayError = document.getElementById('card-number-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
         });
-        purchaseMembershipModalvm.payment.cvc.addEventListener('change', function(event) {
+        purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-cvc-errors');
             if (event.error) {
                 displayError.textContent = event.error.message;
@@ -84,7 +84,7 @@
                 displayError.textContent = '';
             }
         });
-        purchaseMembershipModalvm.payment.expiry.addEventListener('change', function(event) {
+        purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-expiry-errors');
             if (event.error) {
                 displayError.textContent = event.error.message;

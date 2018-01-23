@@ -11,6 +11,7 @@
                     controller: 'purchaseMembershipModalCtrl',
                     controllerAs: 'purchaseMembershipModalvm',
                     windowClass:"col-xs-12 col-md-4 col-md-offset-4 vetModal",
+                    windowTopClass:"col-xs-12 ",
                     resolve:{
                         PayType:{type:payType}
                     }

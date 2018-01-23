@@ -35,7 +35,7 @@ class StripeController extends Controller{
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
                     "source" => $info['tempToken'],
-                    "customer" => $user['customer']->id
+                    "customer" => $user['customer']['id']
                 ));
             }
           } catch(\Stripe\Error\Card $e) {

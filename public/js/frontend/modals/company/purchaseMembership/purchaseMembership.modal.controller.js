@@ -57,6 +57,7 @@
          }
      };
      $timeout(function(){
+         console.log(purchaseMembershipModalvm.paymentType[PayType.type]);
         const paymentRequest = stripe.paymentRequest(purchaseMembershipModalvm.paymentType[PayType.type]);
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
@@ -76,7 +77,6 @@
                 console.log(result);
                 purchaseMembershipModalvm.payment.paymentRequest.mount('#payment-request-button');
             } else {
-                console.log(result);
                 document.getElementById('payment-request-button').style.display = 'none';
             }
         });

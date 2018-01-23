@@ -101,7 +101,7 @@
     },1000);
      purchaseMembershipModalvm.charge = function charge() {
         stripe.createToken(purchaseMembershipModalvm.payment.card).then(function(result) {
-            console.log(payment);
+            console.log(result);
             if (result.error) {
             // Inform the customer that there was an error
             var errorElement = document.getElementById('card-errors');

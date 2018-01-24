@@ -17,13 +17,13 @@ class StripeController extends Controller{
             // Use Stripe's library to make requests...
             if(Stripe\Customer::retrieve($info['user']['company']['stripetoken'])){
                 $user["customer"] = Stripe\Customer::retrieve($info['user']['company']['stripetoken']);
-                $user["customer"]->sources->create(array("source" => $info['tempToken']));
+                $user["customer"]->sources->create(array("source" => 'tok_visa'));
                 $user["charge"] = Stripe\Charge::create(array(
                     "amount" => $info['type']['total']['amount'],
                     "currency" => $info['type']['currency'],
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
-                    "source" => $info['tempToken'],
+                    "source" => 'tok_visa',
                     "customer" => $user['customer']['id']
                 ));
                 return response()->json(compact('user'));

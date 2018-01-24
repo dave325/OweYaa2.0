@@ -10,7 +10,7 @@
             currency: 'usd',
             total: {
                 label: 'Monthly Membership',
-                amount: 16000,
+                amount: 160000,
             },
         },
         "quarter":{
@@ -18,7 +18,7 @@
             currency: 'usd',
             total: {
                 label: 'Quarter Membership',
-                amount: 50000,
+                amount: 500000,
             },
         },
         "annual":{
@@ -26,7 +26,7 @@
             currency: 'usd',
             total: {
                 label: 'Annual Membership',
-                amount: 160000,
+                amount: 1600000,
             },
         }
      }

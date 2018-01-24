@@ -76,7 +76,11 @@
       controller:"purchaseMembershipCtrl",
       controllerAs:"vm"
     })
-
+    .when('/company/:companyid/requestdiscount',{
+      templateUrl:"/js/frontend/views/company/request-discount.view.html",
+      controller:"requestdiscountCtrl",
+      controllerAs:"vm"
+    })
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
       controller:"error.controller.js",

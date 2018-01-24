@@ -78,7 +78,7 @@
     })
     .when('/company/:companyid/request-discount',{
       templateUrl:"/js/frontend/views/company/request-discount.view.html",
-      controller:"requestdiscountCtrl",
+      controller:"requestDiscountCtrl",
       controllerAs:"vm"
     })
     .when('/notFound',{

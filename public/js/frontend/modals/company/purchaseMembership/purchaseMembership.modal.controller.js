@@ -1,7 +1,7 @@
 (function(){
  //Injector will protect against minification
- purchaseMembershipModalCtrl.$inject = ['User','$http','PayType','$timeout'];
- function purchaseMembershipModalCtrl(User,$http,PayType,$timeout) {
+ purchaseMembershipModalCtrl.$inject = ['User','$http','PayType','$timeout','$uibModalInstance'];
+ function purchaseMembershipModalCtrl(User,$http,PayType,$timeout,$uibModalInstance) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
      purchaseMembershipModalvm.paymentType = {
@@ -118,6 +118,14 @@
             }
         });
     }
+    // The function that is call when a user cancels the opening of a modal
+    purchaseMembershipModalvm.cancel = function(){
+        $uibModalInstance.dismiss('cancel')
+    };
+    // The function that is call when the user closes the modal
+    purchaseMembershipModalvm.close = function(result){
+        $uibModalInstance.close(result);
+    };
      
  }
  angular.module('oweyaa')

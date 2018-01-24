@@ -4,7 +4,7 @@
     }
     #membershipPaymentModal h2{
         margin:0px 0px 40px 0px;
-        padding:30px 0px;
+        padding:30px 10px;
         color:#FFF;
         background-color:rgb(247,159,75);
     }
@@ -20,6 +20,7 @@
     }
 </style>
 <div id="membershipPaymentModal">
+    <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="purchaseMembershipModalvm.cancel()"></span>
     <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12">
         <h2 class="text-center">Payment Method for {{purchaseMembershipModalvm.type.total.label}}</h2>
         <div id="card-errors" class="alert alert-warning payAlert" role="alert"></div>

@@ -4,6 +4,7 @@
 	function requestDiscountCtrl($scope,$uibModal, User) {
         const reqDis = this;
         reqDis.user = User.getUser();
+        console.log(reqDis.user);
         reqDis.request = {};
 	}
 	angular

@@ -73,12 +73,16 @@
       controllerAs:"vm"
     })
 
-    .when('/company/:companyid/purchaseMembership',{
+    .when('/company/:companyid/purchase-membership',{
       templateUrl:"/js/frontend/views/company/purchaseMembership.view.html",
       controller:"purchaseMembershipCtrl",
       controllerAs:"vm"
     })
-
+    .when('/company/:companyid/request-discount',{
+      templateUrl:"/js/frontend/views/company/request-discount.view.html",
+      controller:"requestDiscountCtrl",
+      controllerAs:"vm"
+    })
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
       controller:"error.controller.js",

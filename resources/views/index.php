@@ -9,7 +9,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="https://js.stripe.com/v3/"></script>
         <script src="js/angularApp.js"></script>
 
         <!-- Company Controllers -->
@@ -19,6 +18,7 @@
         <script src="js/frontend/controllers/company/project-submission.controller.js"></script>
         <script src="js/frontend/controllers/company/project-dashboard.controller.js"></script>
         <script src="js/frontend/controllers/company/purchase-membership.controller.js"></script>
+        <script src="js/frontend/controllers/company/request-discount.controller.js"></script>
 
         <!-- Home Page controllers -->
         <script src="js/frontend/controllers/home/company.controller.js"></script>
@@ -42,7 +42,7 @@
         <script src="js/frontend/services/authentication.service.js"></script>
         <script src="js/frontend/services/user.service.js"></script>
 
-        <!-- Modal Controllers -->
+        <!-- Veteran Modal Controllers -->
         <script src="js/frontend/modals/home/login/login.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/action/action.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/career/career.modal.controller.js"></script>
@@ -54,6 +54,9 @@
         <script src="js/frontend/modals/veteran/contact/contact.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/portfolio/portfolio.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/task/task.modal.controller.js"></script>
+
+         <!-- Copmany Modal Controllers -->
+        <script src="js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.controller.js"></script>
 
         <!-- Typography -->
         <!-- Roboto -->
@@ -77,7 +80,10 @@
 	    <link href="assets/stylesheets/style.css" rel="stylesheet"/>
 
     </head>
-    <body ng-view>
+    <body>
+        <div ng-view>
+        </div>
+    <script src="https://js.stripe.com/v3/"></script>
 
     </body>
 </html>

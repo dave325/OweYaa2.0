@@ -71,12 +71,12 @@
       templateUrl:"/js/frontend/views/company/projects-dashboard.view.html"
     })
 
-    .when('/company/:companyid/purchaseMembership',{
+    .when('/company/:companyid/purchase-membership',{
       templateUrl:"/js/frontend/views/company/purchaseMembership.view.html",
       controller:"purchaseMembershipCtrl",
       controllerAs:"vm"
     })
-    .when('/company/:companyid/requestdiscount',{
+    .when('/company/:companyid/request-discount',{
       templateUrl:"/js/frontend/views/company/request-discount.view.html",
       controller:"requestdiscountCtrl",
       controllerAs:"vm"

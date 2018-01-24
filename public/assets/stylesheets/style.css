@@ -12,14 +12,17 @@ Table of Contents:
   5.2 Modals
 	5.2.1 Modals Input Style
 6. Company Portal
-6. Footer
-  6.1 Footer Overall Style
-  6.2 Footer center
-  6.3 Footer Right
-  6.4 Footer Mobile
-7. Modals
-	7.1 Login Modal
-	7.2 Other modals
+  6.1 Company Dashboard
+  6.2 Projects Dashboard
+  6.3 Favorite Interns
+7. Footer
+  7.1 Footer Overall Style
+  7.2 Footer center
+  7.3 Footer Right
+  7.4 Footer Mobile
+8. Modals
+	8.1 Login Modal
+	8.2 Other modals
 *****/
 
 body{
@@ -483,15 +486,107 @@ Section 5.2.1: Modal Input styles
 END OF SECTION 5
 **********************************************************/
 
+/**********
+
+Section 6: company pages
+
+************/
+
+/**********
+
+Section 6.1: company dashboard
+
+************/
+
+#comp-name{
+	background-color: orange;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	border-bottom: 4px solid darkgray;
+}
+
+/**********
+
+Section 6.2: projects dashboard
+
+************/
+
+#proj-dash .row.content {
+    height: 550px
+  }
+
+  #proj-dash .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  #proj-dash .sidenav h2 {
+    padding: 5px;
+    background-color: orange;
+    border-bottom: 5px solid;
+  }
+
+  #proj-dash .sidenav .projectpane {
+    padding: 5%;
+  }
+
+  #proj-dash .sidenav li {
+    margin: 5px;
+    font-size: 15px;
+
+  }
+
+  #proj-dash .teammember {
+    margin: 5px;
+    background-color: white;
+  }
+
+  #proj-dash .task{
+    color: orange;
+    border-bottom: 3px solid;
+    display: table; 
+    background-color: white;
+    padding: 5px;
+    border-radius: 2px
+  }
+
+  #proj-dash .stat {
+    margin: 20px;
+    padding: 3px;
+  }
+
+/**********
+
+Section 6.3: favorite-itern
+
+************/
+
+.INTERN {
+	border-top: 2px solid darkgray;
+	border-bottom: 2px solid darkgray;
+	min-height: 200px;
+	text-align: left;
+
+}
+
+.specialText {
+	background-color: lightgray;
+	color: rgb(140, 72, 0);
+	padding: 3px;
+	display: table;
+}
+
+
 /*******************************************************************
 
-Section 6: Footer
+Section 7: Footer
 
 *******************************************************************/
 
 /**********
 
-Section 6.1: footer overall styles
+Section 7.1: footer overall styles
 
 ************/
 .footer-distributed{
@@ -560,7 +655,7 @@ footer .comp-info p{
 
 /**********
 
-Section 6.2: Footer Center
+Section 7.2: Footer Center
 
 ************/
 
@@ -604,7 +699,7 @@ Section 6.2: Footer Center
 
 /**********
 
-Section 6.3: Footer Right
+Section 7.3: Footer Right
 
 ************/
 
@@ -647,7 +742,7 @@ Section 6.3: Footer Right
 
 /**********
 
-Section 6.3: Footer Left
+Section 7.3: Footer Left
 
 ************/
 
@@ -657,7 +752,7 @@ Section 6.3: Footer Left
 
 /**********
 
-Section 6.4: Footer Mobile
+Section 7.4: Footer Mobile
 
 ************/
 @media (max-width: 880px) {
@@ -680,15 +775,15 @@ Section 6.4: Footer Mobile
 	}
 }
 /**********************************************************
-END OF SECTION 6
+END OF SECTION 7
 **********************************************************/
 
 /*********************************************************
-Section 7: Modals
+Section 8: Modals
 *********************************************************/
 
 /********
-Section 7.1 Login Modal
+Section 8.1 Login Modal
 *******/
 
 .login .modal-content{
@@ -792,12 +887,12 @@ Section 7.1 Login Modal
 }
 
 /********
-Section 7.2 Other Modals
+Section 8.2 Other Modals
 ********/
 #actionModal, #careerModal, #educationModal, #journalModal, #skillModal, #socialModal   {
 	background-color:#FFF;
 }
 
 /**********************************************************
-END OF SECTION 7
+END OF SECTION 8
 **********************************************************/

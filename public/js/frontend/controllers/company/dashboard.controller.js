@@ -53,6 +53,18 @@ function dashboardCtrl(User) {
           project: vm.user.unmatched_projects
     }
   }
+
+  vm.openModal = function(modal){
+    if(User.getUser()){ 
+        var m = $uibModal.open({
+            templateUrl: '/js/frontend/modals/company/' + modal +'/' + modal + '.modal.view.html',
+            controller: modal + 'ModalCtrl',
+            controllerAs: modal + 'vm',
+            windowClass:"col-xs-12 col-md-8 col-md-offset-2 vetModal",
+            resolve: {
+                    CurrUser: vm.user
+            }
+        });
 }
 
 angular.module('oweyaa')

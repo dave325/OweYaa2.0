@@ -68,7 +68,9 @@
     })
 
     .when('/company/:companyid/project-dashboard',{
-      templateUrl:"/js/frontend/views/company/projects-dashboard.view.html"
+      templateUrl:"/js/frontend/views/company/projects-dashboard.view.html",
+      controller: "projectDashboardCtrl",
+      controllerAs:"vm"
     })
 
     .when('/company/:companyid/purchase-membership',{

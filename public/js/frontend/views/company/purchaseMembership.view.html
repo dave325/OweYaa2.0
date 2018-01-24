@@ -62,12 +62,17 @@
 #purchaseMembership #annualMembership{
     background-color:rgb(211,211,211);
 }
+#purchaseMembership h2{
+        background-color:rgb(247,159,75);
+        border-bottom:5px solid darkgray;
+        padding:10px 0px;
+}
 </style>
 <div id="purchaseMembership">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
-    <h1 class="text-center">Purchase Your Internship Membership</h5>
+    <h1 class="text-center col-md-8 col-md-offset-2">Purchase Your Internship Membership</h5>
     <a href="company/{{vm.user.company.username}}/project-submission"><h2 ng-if="vm.user.company_project.length == 0" class="text-center">Submit a project first! Click here to be redirected.</h2></a>
-    <div ng-if="vm.user.company_project.length > 0">
+    <div ng-if="vm.user.company_project.length > 0" class="col-xs-12">
         <h2 class="text-center" id="comp-name">Select your Membership to Initiate the Matching Process</h2>
         <p class="col-md-8 col-md-offset-2 text-center">We make internships easy. Select your flexible membership package and everything is covered. We will tailor match you an intern, grant you the desired working hours per pay period, take care of the intern stipen, we will donate 10% to a education fund to help veterans and military spouses complete more great training. Purchase your package today and we will begin the process of matching your submitted project to an intern!</p>
         <div class="col-md-8 col-md-offset-2 row">
@@ -80,7 +85,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
-                    <button class="btn" ng-click="vm.openPayment('month')">Choose Monthly Membership</button>
+                    <button class="btn col-xs-12" ng-click="vm.openPayment('month')">Choose Monthly Membership</button>
             </div>
             <div id="quarterlyMembership" class="col-md-4 payOption">
                     <h3>Quarterly Membership</h3>
@@ -91,7 +96,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
-                    <button class="btn" ng-click="vm.openPayment('quarter')">Choose Quarterly Membership</button>
+                    <button class="btn col-xs-12" ng-click="vm.openPayment('quarter')">Choose Quarterly Membership</button>
             </div>
             <div id="annualMembership" class="col-md-4 payOption">
                     <h3>Annual Membership</h3>
@@ -102,7 +107,7 @@
                         <li>Intern Stipend Included</li>
                         <li>% of Membership goes towards Free Vet Education</li>
                     </ul>
-                    <button class="btn" ng-click="vm.openPayment('annual')">Choose Annual Membership</button>
+                    <button class="btn col-xs-12" ng-click="vm.openPayment('annual')">Choose Annual Membership</button>
             </div>
         </div>
         <span class="clearfix"></span>

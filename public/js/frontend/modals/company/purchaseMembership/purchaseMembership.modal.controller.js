@@ -107,7 +107,7 @@
             var errorElement = document.getElementById('card-errors');
             errorElement.textContent = result.error.message;
             } else {
-                purchaseMembershipModalvm.pay.tempToken = result.token.id;
+                purchaseMembershipModalvm.pay.tempToken = purchaseMembershipModalvm.payment;
                 purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
                 purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
                 $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {

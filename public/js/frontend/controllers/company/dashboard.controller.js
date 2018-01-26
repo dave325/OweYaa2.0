@@ -59,7 +59,7 @@
                 var m = $uibModal.open({                       
                     templateUrl: '/js/frontend/modals/company/companySettings/company-settings.modal.view.html',
                     controller: 'companySettingsModalCtrl',
-                    controllerAs: 'compSetvm',
+                    controllerAs: 'compSet',
                     windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
                     resolve: {
                         CurrUser: vm.user

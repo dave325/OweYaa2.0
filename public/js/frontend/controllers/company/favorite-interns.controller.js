@@ -22,10 +22,10 @@
       method: 'POST'
     }).then(function (response) {
       console.log(response);
-      vm.users=response.data.user; 
+      vm.users = response.data.user;
     }, function (data) {
-        console.log(data);
-      });
+      console.log(data);
+    });
   }
 
 

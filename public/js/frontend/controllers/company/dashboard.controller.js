@@ -1,12 +1,7 @@
 (function () {
     //Injector will protect against minification
-<<<<<<< HEAD
     dashboardCtrl.$inject = ['User','$uibModal'];
     function dashboardCtrl(User,$uibModal) {
-=======
-    dashboardCtrl.$inject = ['User'];
-    function dashboardCtrl(User) {
->>>>>>> refs/remotes/origin/CompanyPortal
         var vm = this;
         vm.user = User.getUser();
         console.log(vm.user);

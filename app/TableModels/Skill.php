@@ -37,6 +37,6 @@ class Skill extends Model{
      */
     public function skill()
     {
-        return $this->hasManyThrough('App\User', 'App\MilitaruUser');
+        return $this->hasManyThrough('App\User', 'App\MilitaryUser');
     }
 }

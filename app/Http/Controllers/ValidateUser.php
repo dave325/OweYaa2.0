@@ -44,8 +44,8 @@ class ValidateUser extends Controller
         }
         if($request->input('type') == 0){
             
-            $user = User::with('milUser.skill')->where('username','=',$userCheck->username)->get();
-            //$user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
+            //$user = User::with('milUser.skill')->where('username','=',$userCheck->username)->get();
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
         }
         elseif($request->input('type') == 1){
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();

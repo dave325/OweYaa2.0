@@ -57,6 +57,8 @@
 
          <!-- Copmany Modal Controllers -->
         <script src="js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.controller.js"></script>
+        <script src="js/frontend/modals/company/companySettings/company-settings.modal.controller.js"></script>
+
 
         <!-- Typography -->
         <!-- Roboto -->

@@ -1,7 +1,12 @@
 (function () {
     //Injector will protect against minification
+<<<<<<< HEAD
+    dashboardCtrl.$inject = ['User','$uibModal'];
+    function dashboardCtrl(User,$uibModal) {
+=======
     dashboardCtrl.$inject = ['User'];
     function dashboardCtrl(User) {
+>>>>>>> refs/remotes/origin/CompanyPortal
         var vm = this;
         vm.user = User.getUser();
         console.log(vm.user);
@@ -54,18 +59,26 @@
             }
         }
 
-        vm.openModal = function (modal) {
+        vm.openModal = function () {
             if (User.getUser()) {
-                var m = $uibModal.open({
-                    templateUrl: '/js/frontend/modals/company/' + modal + '/' + modal + '.modal.view.html',
-                    controller: modal + 'ModalCtrl',
-                    controllerAs: modal + 'vm',
+                var m = $uibModal.open({                       
+                    templateUrl: '/js/frontend/modals/company/companySettings/company-settings.modal.view.html',
+                    controller: 'companySettingsModalCtrl',
+                    controllerAs: 'compSetvm',
                     windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
                     resolve: {
                         CurrUser: vm.user
                     }
                 });
-                
+    
+                m.result.then(
+                function(data){
+                    console.log(data);
+                },
+                function(data){
+                    console.log(data);
+                }
+                );
             }
         }
     }

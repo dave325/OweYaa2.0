@@ -33,16 +33,9 @@ class Skill extends Model{
     ];
 
     /**
-     * Get the post that owns the comment.
-     */
-    public function militaryUser()
-    {
-        return $this->belongsTo('App\User', 'username');
-    }
-    /**
      * Get all of the posts for the country.
      */
-    public function posts()
+    public function skill()
     {
         return $this->hasManyThrough('App\User', 'App\MilitaruUser');
     }

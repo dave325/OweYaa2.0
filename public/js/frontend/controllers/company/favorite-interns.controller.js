@@ -3,6 +3,7 @@
 favoriteInternsCtrl.$inject = [];
 function favoriteInternsCtrl() {
     var vm = this;
+    vm.user = "bla";
     // Information will be retrieved from database
     vm.contents = {
      content1: {

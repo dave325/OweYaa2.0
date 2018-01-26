@@ -20,7 +20,9 @@ $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
 
+
 Route::group(['prefix' => 'api'], function (){
+    Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('check','ValidateUser@checks');
@@ -40,4 +42,6 @@ Route::group(['prefix' => 'api'], function (){
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');
     });
+
+
 });

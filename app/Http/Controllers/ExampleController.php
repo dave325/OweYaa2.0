@@ -24,6 +24,9 @@ class ExampleController extends Controller
             $this->apiCall = "company";
         }
     }
+
+
+
     public function loginTest(Request $request){
          // grab credentials from the request
          $credentials = $request->only('username', 'password');

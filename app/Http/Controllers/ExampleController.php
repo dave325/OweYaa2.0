@@ -76,4 +76,8 @@ class ExampleController extends Controller
             return response()->json(['error' => 'User not Created'], 500);
         }
     }
+    public function returnAllUsers(){
+        $user = User::all();
+        return response()->json(compacy('user'));
+    }
 }

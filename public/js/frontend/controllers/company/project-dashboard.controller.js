@@ -1,6 +1,6 @@
 (function(){
     //Injector will protect against minification
-    favoriteInternsCtrl.$inject = [];
+    projectDashboardCtrl.$inject = [];
     function projectDashboardCtrl() {
         var vm = this;
         //Retrieve project information

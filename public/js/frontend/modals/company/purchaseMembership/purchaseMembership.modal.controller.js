@@ -4,6 +4,7 @@
  function purchaseMembershipModalCtrl(User,$http,PayType,$timeout,$uibModalInstance) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
+     // List of different types of payments 
      purchaseMembershipModalvm.paymentType = {
         "month":{
             country: 'US',
@@ -30,9 +31,11 @@
             },
         }
      }
+     // List to store payment information in form and to send to server 
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.pay = {};
      purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
+     // Dictates the type of payment to charge 
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client
      const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
@@ -79,6 +82,7 @@
                 displayError.style.display = "none";
             }
         });
+        // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.cardCvc.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-cvc-errors');
             if (event.error) {
@@ -89,6 +93,7 @@
                 displayError.style.display = "none";
             }
         });
+        // Handle real-time validation errors from the card Element.
         purchaseMembershipModalvm.payment.cardExpiry.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-expiry-errors');
             if (event.error) {
@@ -100,16 +105,20 @@
             }
         });
     },1000);
+    // Handle submition process 
      purchaseMembershipModalvm.charge = function charge() {
+         // Create token from card information
         stripe.createToken(purchaseMembershipModalvm.payment.card).then(function(result) {
             if (result.error) {
             // Inform the customer that there was an error
             var errorElement = document.getElementById('card-errors');
             errorElement.textContent = result.error.message;
             } else {
+                // Creates an object containing information server needs to process payment
                 purchaseMembershipModalvm.pay.tempToken = result.token.id;
                 purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
                 purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
+                // Sends request to server
                 $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                     console.log(payment);
                 },function(data){

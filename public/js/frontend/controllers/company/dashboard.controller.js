@@ -65,6 +65,7 @@
                         CurrUser: vm.user
                     }
                 });
+                
             }
         }
     }

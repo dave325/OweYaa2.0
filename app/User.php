@@ -37,6 +37,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'email',
         'username'
     ];
+
+    public function skill()
+    {
+        return $this->hasMany('App\TableModels\Skill', 'username');
+    }
+
     public function milUser()
     {
         return $this->hasOne('App\MilitaryUser', 'username');

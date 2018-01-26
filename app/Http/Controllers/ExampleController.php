@@ -77,7 +77,7 @@ class ExampleController extends Controller
         }
     }
     public function returnAllUsers(){
-        $user = User::all();
-        return response()->json(compacy('user'));
+        $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type','=', 0)->all();
+        return response()->json(compact('user'));
     }
 }

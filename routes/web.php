@@ -25,6 +25,7 @@ Route::group(['prefix' => 'api'], function (){
     Route::post('addUser', "ExampleController@addUser");
     Route::post('check','ValidateUser@checks');
     Route::post('uploadFile','ValidateUser@uploadFiles');
+    Route::post('getUsers', 'ExampleController@returnAllUsers');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');

@@ -78,6 +78,6 @@ class ExampleController extends Controller
     }
     public function returnAllUsers(){
         $user = User::all();
-        return response()->json(compacy('user'));
+        return response()->json(compact('user'));
     }
 }

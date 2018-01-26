@@ -39,4 +39,11 @@ class Skill extends Model{
     {
         return $this->belongsTo('App\User', 'username');
     }
+    /**
+     * Get all of the posts for the country.
+     */
+    public function posts()
+    {
+        return $this->hasManyThrough('App\User', 'App\MilitaruUser');
+    }
 }

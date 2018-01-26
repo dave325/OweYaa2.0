@@ -4,6 +4,7 @@
     function purchaseMembershipCtrl(User,$http,$uibModal) {
         var vm = this;
         vm.user = User.getUser();
+        // Opens modal to begin payment
         vm.openPayment = function(payType){
             if(User.getUser()){
                 var m = $uibModal.open({

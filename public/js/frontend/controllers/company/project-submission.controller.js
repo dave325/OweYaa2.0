@@ -4,15 +4,18 @@ projectSubmissionCtrl.$inject = ['User'];
 function projectSubmissionCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
+    // Stores information from form fields 
     vm.submissionForm = {};
+
     vm.submissionForm.projid = vm.user.company_project.length;
     vm.submissionForm.username = vm.user.company.username;
+    // Stores steps needed to submit project 
     vm.steps = {
       page1:true,
       page2:false,
-      page3:false
     }
 
+    // Returns current step based on what user selected 
     vm.currentStep = function(){
       var curStep;
       angular.forEach(vm.steps,function(value,key){
@@ -25,32 +28,10 @@ function projectSubmissionCtrl(User) {
       return curStep;
     }
 
-    vm.nextPage = function(){
-      // Iterate to next page and slide that in
-      let check = false;
-      for(var key in vm.steps){
-
-        if (!vm.steps.hasOwnProperty(key)) continue;
-        if(check){
-          vm.steps[key] = true;
-          console.log(key + ":1 " + vm.steps[key]);
-          return;
-        }
-        if(vm.steps[key]){
-          check = true;
-          vm.steps[key] = false;
-          console.log(key + ":1 " + vm.steps[key]);
-        }
-      }
-    }
-    vm.prevPage = function(){
-      vm.steps.page2 = false;
-      vm.steps.page1 = true;
-    }
+    // Submits project and sends data to server 
     vm.submitProjForm = function(modal,data){
       vm.steps.page1 = false;
-      vm.steps.page2 = false;
-      vm.steps.page3 = true;
+      vm.steps.page2 = true;
       User.updateUser(modal,data).then(function(response){
         console.log(response);
       },function(error){

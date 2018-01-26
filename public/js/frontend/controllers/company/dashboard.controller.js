@@ -1,7 +1,12 @@
 (function () {
     //Injector will protect against minification
+<<<<<<< HEAD
     dashboardCtrl.$inject = ['User','$uibModal'];
     function dashboardCtrl(User,$uibModal) {
+=======
+    dashboardCtrl.$inject = ['User'];
+    function dashboardCtrl(User) {
+>>>>>>> refs/remotes/origin/CompanyPortal
         var vm = this;
         vm.user = User.getUser();
         console.log(vm.user);
@@ -65,6 +70,7 @@
                         CurrUser: vm.user
                     }
                 });
+    
                 m.result.then(
                 function(data){
                     console.log(data);
@@ -76,7 +82,6 @@
             }
         }
     }
-
 
     angular.module('oweyaa')
         .controller('dashboardCtrl', dashboardCtrl);

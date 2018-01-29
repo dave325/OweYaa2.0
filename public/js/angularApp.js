@@ -6,61 +6,73 @@
       controller:"homeCtrl",
       controllerAs:"vm"
     })
+    
     .when('/company',{
       templateUrl:"/js/frontend/views/home/company.view.html",
       controller:"compHomeCtrl",
       controllerAs:"vm"
     })
+
     .when('/veteran',{
       templateUrl:"/js/frontend/views/home/veteran.view.html",
       controller:"vetHomeCtrl",
       controllerAs:"vm"
     })
+
     .when('/contact',{
       templateUrl:"/js/frontend/views/home/contact.view.html",
       controller:"contactCtrl",
       controllerAs:"vm"
     })
+
     .when('/register',{
       templateUrl:"/js/frontend/views/home/register.view.html",
       controller:"registerCtrl",
       controllerAs:"vm"
     })
+
     .when('/veteran/:veteranid/profile',{
       templateUrl:"/js/frontend/views/veteran/profile.view.html",
       controller:"profileCtrl",
       controllerAs:"vm"
     })
+
     .when('/veteran/:veteranid/career',{
       templateUrl:"/js/frontend/views/veteran/career.view.html",
       controller:"careerCtrl",
       controllerAs:"vm"
     })
+
     .when('/veteran/:veteranid/internship',{
       templateUrl:"/js/frontend/views/veteran/internship.view.html",
       controller:"internshipCtrl",
       controllerAs:"vm"
     })
+
     .when('/company/:companyid/dashboard',{
       templateUrl:"/js/frontend/views/company/dashboard.view.html",
       controller:"dashboardCtrl",
       controllerAs:"vm"
     })
+
     .when('/company/:companyid/project/:projectid',{
       templateUrl:"/js/frontend/views/company/dashboard.view.html",
       controller:"dashboardCtrl",
       controllerAs:"vm"
     })
+
     .when('/company/:companyid/browse-intern',{
       templateUrl:"/js/frontend/views/company/browse-interns.view.html",
       controller: "browseInternsCtrl",
       controllerAs:"vm"
     })
+
     .when('/company/:companyid/favorite-intern',{
       templateUrl:"/js/frontend/views/company/favorite-interns.view.html",
       controller:"favoriteInternsCtrl",
       controllerAs:"vm"
     })
+
     .when('/company/:companyid/project-submission',{
       templateUrl:"/js/frontend/views/company/project-submission.view.html",
       controller:"projectSubmissionCtrl",
@@ -83,11 +95,26 @@
       controller:"requestDiscountCtrl",
       controllerAs:"vm"
     })
+
+    .when('/admin/dashboard',{
+      templateUrl:"/js/frontend/views/admin/dashboard.view.html",
+      controller:"adminDashboardCtrl",
+      controllerAs:"vm"
+    })
+
+    .when('/admin/match-projects',{
+      templateUrl:"/js/frontend/views/admin/match-project.view.html",
+      controller:"adminMatchProjectdCtrl",
+      controllerAs:"vm"
+    })
+
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
       controller:"error.controller.js",
       controllerAs:"vm"
     })
+
+    .otherwise('/notFound')
   }
   function locationConfig($locationProvider){
     $locationProvider.html5Mode(true);

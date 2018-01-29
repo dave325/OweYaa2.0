@@ -1,9 +1,9 @@
 (function () {
   //Injector will protect against minification
-  favoriteInternsCtrl.$inject = ['$http'];
-  function favoriteInternsCtrl($http) {
+  favoriteInternsCtrl.$inject = ['$http', 'User'];
+  function favoriteInternsCtrl($http,User) {
     var vm = this;
-    vm.user = "bla";
+    vm.user = User.getUser();
     // Information will be retrieved from database
     vm.contents = {
       content1: {

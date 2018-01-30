@@ -37,6 +37,6 @@ class Skill extends Model{
      */
     public function skill()
     {
-        return $this->belongsTo('App\User', 'username');
+        return $this->belongsTo('App\MilitaryUser', 'username');
     }
 }

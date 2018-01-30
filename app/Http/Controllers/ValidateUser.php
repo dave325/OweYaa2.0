@@ -39,11 +39,10 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        if($request->input('type') == NULL &&  $request->input('type') != $userCheck->type){
+        if(empty($request->input('type')) == NULL && $request->input('type') != $userCheck->type){
             return response()->json(['user_not_found'], 404);
         }
         if($request->input('type') == 0){
-            
             $user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
             //$user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
         }

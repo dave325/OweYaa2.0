@@ -96,6 +96,11 @@
       controllerAs:"vm"
     })
 
+    .when('/admin/login',{
+      templateUrl:"/js/frontend/views/admin/login.view.html",
+      controller:"adminLoginCtrl",
+      controllerAs:"adminLogin"
+    })
     .when('/admin/dashboard',{
       templateUrl:"/js/frontend/views/admin/dashboard.view.html",
       controller:"adminDashboardCtrl",

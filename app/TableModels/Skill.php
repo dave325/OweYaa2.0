@@ -29,7 +29,7 @@ class Skill extends Model{
      * @var array
      */
     protected $hidden = [
-        'username',
+        'username'
     ];
 
     /**

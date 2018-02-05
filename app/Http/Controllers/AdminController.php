@@ -26,7 +26,7 @@ class AdminController extends Controller{
         $vet = User::with('contactInfo')->where("type","=","0")->get();
         $vets = array();
         foreach($vet as $name){
-            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name)->first();
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
             array_push($vets,$user);
         }
         return response()->json(compact('vets'));

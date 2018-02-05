@@ -1,3 +1,15 @@
 <div id="adminDashboard">
-    
+    <section id="stats">
+        <p>Number of copmanies: {{adminDash.compInfo.length}}</p>
+        <p>Number of projects: {{adminDash.numProjects}}</p>
+        <p>Number of Veterans: {{adminDash.vet.length}}</p>
+    </section>
+    <section>
+        <form name="internSearch">
+            <div class="form-group" novalidate>
+                <input type="text" name="username" ng-model="adminDash.internSearch.username" class="form-control col-xs-12 col-md-6"/>
+                <input type="submit" ng-click="adminDash.retrieveVet()" value="Search"/>
+            </div>
+        </form>
+    </section>
 </div>

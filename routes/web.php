@@ -42,6 +42,13 @@ Route::group(['prefix' => 'api'], function (){
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');
     });
+    Route::group(['prefix'=>'admin'],function(){
+        Route::post('login','AdminController@login');
+        Route::post('updateUser','AdminController@updateUser');
+        Route::post('retrieveVet','AdminController@retrieveVet');
+        Route::post('retrieveAllVet','AdminController@retrieveAllVet');
+        Route::post('retrieveComp','AdminController@retrieveComp');
+    });
 
 
 });

@@ -29,7 +29,7 @@ class AdminController extends Controller{
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
             array_push($vets,$user);
         }
-        return response()->json(compact('vets'));
+        return response()->json(['users' =>compact('vets')],200);
     }
 
     public function retrieveVet(Request $rq){
@@ -43,7 +43,12 @@ class AdminController extends Controller{
     }
 
     public function retrieveComp(){
-        $comps = User::where("type","=","1")->get();
-        return response()->json(compact('comps'));
+        $username = User::with('company')->get();
+        $companies = array();
+        foreach($username as $name){
+            $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$name)->first();
+            array_push($companies, $user);
+        }
+        return response()->json(['user' => compact('comps')], 200);
     }
 }

@@ -46,7 +46,7 @@ class AdminController extends Controller{
         $username = User::with('company')->get();
         $companies = array();
         foreach($username as $name){
-            $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$name)->first();
+            $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$name['username'])->first();
             array_push($companies, $user);
         }
         return response()->json(['user' => compact('companies')], 200);

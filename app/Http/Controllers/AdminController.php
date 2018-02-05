@@ -23,7 +23,12 @@ class AdminController extends Controller{
     }
 
     public function retrieveAllVet(){
-        $vets = User::with('contactInfo')->where("type","=","0")->get();
+        $vet = User::with('contactInfo')->where("type","=","0")->get();
+        $vets = array();
+        foreach($vet as $name){
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name)->first();
+            array_push($vets,$user);
+        }
         return response()->json(compact('vets'));
     }
 

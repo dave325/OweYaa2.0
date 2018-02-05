@@ -23,7 +23,7 @@ class AdminController extends Controller{
     }
 
     public function retrieveAllVet(){
-        $vets = User::where("type","=","0")->get();
+        $vets = User::with('company','companyFavorite','companyProject','CompanySearch')->where("type","=","0")->get();
         return response()->json(compact('vets'));
     }
 

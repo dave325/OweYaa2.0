@@ -4,7 +4,6 @@
     var navbarvm = this;
     // Sets the user name
     if(User.getUser()){
-      console.log(User.getUser());
       if(User.getUser().type == 1){
         navbarvm.user = User.getUser().company.username;
       }else{

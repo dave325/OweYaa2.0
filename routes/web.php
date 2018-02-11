@@ -37,7 +37,9 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('availability', 'ValidateUser@updateAvailability');
         Route::post('social', 'ValidateUser@updateSocial');
         Route::post('task', 'ValidateUser@updateTask');
+        Route::post('retrieveProject','ValidateUser@retrieveProj');
         Route::post('project', 'CompanyController@updateProject');
+        Route::post('milestone','CompanyController@updateMilestone');
     });
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');
@@ -48,7 +50,7 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('retrieveVet','AdminController@retrieveVet');
         Route::post('retrieveAllVet','AdminController@retrieveAllVet');
         Route::post('retrieveComp','AdminController@retrieveComp');
+        // Need to implement
+        Route::post('matchComp','AdminController@matchComp');
     });
-
-
 });

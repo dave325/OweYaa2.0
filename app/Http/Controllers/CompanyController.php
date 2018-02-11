@@ -21,7 +21,23 @@ class CompanyController extends Controller{
             }catch(ModelNotFoundException $me){
                 CModel\CompanyProject::create($credentials);
             }
-            return response()->json($credentials);
+            return response()->json(true);
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
+
+    public function updateMilestone(Request $request){
+        $credentials = $request->all();
+        if($user = app('auth')->guard()->authenticate()){
+            try{
+                $milestone = CModel\Milestone::findOrFail($credentials['milestone']);
+                $milestone->fill($credentials);
+                $milestone->save();
+            }catch(ModelNotFoundException $me){
+                CModel\CompanyProject::create($credentials);
+            }
+            return response()->json(true);
         }else{
             return response()->json(compact('user'));
         }

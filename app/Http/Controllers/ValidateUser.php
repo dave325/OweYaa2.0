@@ -395,4 +395,18 @@ class ValidateUser extends Controller
             return response()->json(compact('user'));
         }
     }
+
+    /**
+     * retrieveProj
+     * @params Request $request
+     * retrieves all the projects from the database that are not matched
+     */
+    public function retrieveProj(Request $request){
+        if(app('auth')->guard()->authenticate()){
+            $projects = TableModels\CompanyModels\CompanyProject::where('ismatched','!=','true')->get();
+            return response()->json(compact('projects'));
+        }else{
+            return response()->json(compact('user'));
+        }
+    }
 }

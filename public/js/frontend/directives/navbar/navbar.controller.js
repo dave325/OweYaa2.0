@@ -44,10 +44,10 @@
           navbarvm.showMessage = true;
            $timeout(function(){
             if(data.type == 1){
-              var curUser = data.company.username;
+              var curUser = data.user.company.username;
               $location.path('/company/' + curUser +'/dashboard');
             }else{
-              var curUser = data.contact_info.username;
+              var curUser = data.user.contact_info.username;
               $location.path('/veteran/' + curUser + '/profile');
             }
           },3000);

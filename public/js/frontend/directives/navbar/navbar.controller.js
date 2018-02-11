@@ -8,7 +8,7 @@
       if(User.getUser().type == 1){
         navbarvm.user = User.getUser().company.username;
       }else{
-        navbarvm.user = User.getUser().user.contact_info.username;
+        navbarvm.user = User.getUser().contact_info.username;
       }
     }else{
       navbarvm.user = ""
@@ -46,10 +46,10 @@
            $timeout(function(){
              console.log(data);
             if(data.type == 1){
-              var curUser = data.user.company.username;
+              var curUser = data.company.username;
               $location.path('/company/' + curUser +'/dashboard');
             }else{
-              var curUser = data.user.contact_info.username;
+              var curUser = data.contact_info.username;
               $location.path('/veteran/' + curUser + '/profile');
             }
           },3000);

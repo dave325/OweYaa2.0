@@ -7,7 +7,7 @@
       if(User.getUser().type == 1){
         navbarvm.user = User.getUser().company.username;
       }else{
-        navbarvm.user = User.getUser().contact_info.username;
+        navbarvm.user = User.getUser().user.contact_info.username;
       }
     }else{
       navbarvm.user = ""

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class AdminController extends Controller{
 
     public function login(Request $request){
-        $credentials = $request->all();
+        $credentials = $request->only('username','password');
         try {
             // attempt to verify the credentials and create a token for the user
             if (! $token = app('auth')->guard()->attempt($credentials)) {

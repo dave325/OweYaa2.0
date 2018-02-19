@@ -4,6 +4,8 @@
         var adminDash = this;
         adminDash.compInfo = AdminService.retrieveCompInfo();
         adminDash.vet = AdminService.retrieveAllVet();
+        console.log(adminDash.vet);
+        console.log(adminDash.compInfo);
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

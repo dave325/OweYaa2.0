@@ -39,7 +39,7 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        return response()->json(compact('userCheck'));
+        return response()->json($userCheck->type);
         if($request->has('type') || $request->input('type') != $userCheck->type){
             return response()->json(['user_not_found1'], 404);
         }

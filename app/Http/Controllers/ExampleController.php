@@ -51,6 +51,7 @@ class ExampleController extends Controller
         $user->email = $credentials['email'];
         $user->password = Hash::make($credentials['password']);
         $user->type = $credentials['type'];
+        $user->admin = false;
         if($user->save()){
             if($user->type == 0){
                 MilitaryUser::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);

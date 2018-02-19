@@ -24,7 +24,11 @@
         }
 
         adminDash.retrieveVet = function(){
-            AdminService.retrieveVet(adminDash.internSearch);
+            AdminService.retrieveVet(adminDash.internSearch).then(function(response){
+                console.log(response);
+            },function(error){
+                console.log(error);
+            });
             $location.path('/veteran/dashboard');
         }
     }

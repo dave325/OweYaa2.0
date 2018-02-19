@@ -25,7 +25,7 @@
 
         adminDash.retrieveVet = function(){
             AdminService.retrieveVet(adminDash.internSearch).then(function(response){
-                console.log(response);
+                console.log(response.data.user);
             },function(error){
                 console.log(error);
             });

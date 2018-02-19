@@ -6,8 +6,8 @@
 
         adminLogin.loginUser = function(){
             AdminService.login(adminLogin.user).then(function(response){
-                console.log(response);
                 if(response.status === 200){
+                    console.log(response);
                     $location.path('/veteran/dashboard');
                 }
             },function(error){

@@ -6,13 +6,13 @@
         adminDash.vet = {};
         AdminService.retrieveCompInfo().then(function(response){
             console.log(response);
-            adminDash.compInfo = response.data.user;    
+            adminDash.compInfo = response.data.user.companies;    
         },function(error){
             console.log(error);
         });
         AdminService.retrieveAllVet().then(function(response){
             console.log(response);
-            adminDash.vet = response.data.user;    
+            adminDash.vet = response.data.users;    
         },function(error){
             console.log(error);
         });;

@@ -1,23 +1,10 @@
 (function(){
-    adminDashboardCtrl.$inject = ['AdminService'];
-    function adminDashboardCtrl(AdminService){
+    adminDashboardCtrl.$inject = ['AdminService', 'Vets', 'Companies'];
+    function adminDashboardCtrl(AdminService, Vets,Companies){
         var adminDash = this;
-        adminDash.compInfo = {};
-        adminDash.vet = {};
-        AdminService.retrieveCompInfo().then(function(response){
-            console.log(response);
-            adminDash.compInfo = response.data.user.companies;    
-        },function(error){
-            console.log(error);
-        });
-        AdminService.retrieveAllVet().then(function(response){
-            console.log(response);
-            adminDash.vet = response.data.users;    
-        },function(error){
-            console.log(error);
-        });;
-        console.log(adminDash.vet);
-        console.log(adminDash.compInfo);
+        adminDash.compInfo = Companies;
+        adminDash.vet = Vets;
+        
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

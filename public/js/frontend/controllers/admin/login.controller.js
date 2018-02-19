@@ -8,7 +8,7 @@
             AdminService.login(adminLogin.user).then(function(response){
                 if(response.status === 200){
                     console.log(response);
-                    $location.path('/veteran/dashboard');
+                    $location.path('/admin/dashboard');
                 }
             },function(error){
                 console.log(error);

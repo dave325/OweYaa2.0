@@ -2,8 +2,16 @@
     adminDashboardCtrl.$inject = ['AdminService', 'Vets', 'Companies'];
     function adminDashboardCtrl(AdminService, Vets,Companies){
         var adminDash = this;
-        adminDash.compInfo = Companies;
-        adminDash.vet = Vets;
+        Companies.then(function(response){
+            adminDash.compInfo = response.data.user.companies;
+        },function(error){
+            console.log(error);
+        })
+        Vets.then(function(response){
+            adminDash.vet = response.data.users;
+        },function(error){
+            console.log(error);
+        });
         
         adminDash.internSearch = {};
         adminDash.numProjects = 0;

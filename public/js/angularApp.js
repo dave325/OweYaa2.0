@@ -107,18 +107,10 @@
       controllerAs:"adminDash",
       resolve:{
         Vets:function(AdminService){
-          AdminService.retrieveAllVet().then(function(response){
-            return response.data.users;    
-        },function(error){
-            console.log(error);
-        });
+          return AdminService.retrieveAllVet()
         },
         Companies:function(AdminService){
-          AdminService.retrieveCompInfo().then(function(response){
-            return response.data.user.companies;    
-          },function(error){
-              console.log(error);
-          });
+          return AdminService.retrieveCompInfo();
         }
       }
     })

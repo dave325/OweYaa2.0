@@ -3,7 +3,7 @@
     function adminDashboardCtrl(AdminService){
         var adminDash = this;
         adminDash.compInfo = AdminService.retrieveCompInfo();
-        adminDash.vet = AdminService.retrievAllVet();
+        adminDash.vet = AdminService.retrieveAllVet();
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

@@ -42,18 +42,20 @@ class ValidateUser extends Controller
         if($request->has('type') || $request->input('type') != $userCheck->type){
             return response()->json(['user_not_found'], 404);
         }
-        elseif($request->input('type') == 0){
+        elseif($request->has('type') && $request->input('type') == 0){
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
+            return response()->json(compact('user'));
         }
-        elseif($request->input('type') == 1){
+        elseif($request->has('type') && $request->input('type') == 1){
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
             $user['stripe_key'] = env('publishable_api');
+            return response()->json(compact('user'));
         }else{
             return response()->json(['user_not_found'], 404);
         }
         // the token is valid and we have found the user via the sub claim
-        return response()->json(compact('user'));
+        
     }
 
     // look into sotirng files in the cloud

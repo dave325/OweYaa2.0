@@ -12,6 +12,8 @@
         },function(error){
             console.log(error);
         });;
+        console.log(adminDash.vet);
+        console.log(adminDash.compInfo);
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

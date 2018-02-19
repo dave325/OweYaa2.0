@@ -10,6 +10,6 @@
             <p ng-show="!adminLoginForm.password.$valid && adminLoginForm.username.$touched" class="alert alert-warning">Password too short</p>
             <input ng-model="adminLogin.user.password" type="text" name="password" ng-class="[{error: !adminLoginForm.password.$valid && adminLoginForm.password.$touched}, {success: adminLoginForm.username.$valid}]" ng-minlength="5" ng-required="true" class="form-control" id="password"/>
         </div>
-        <input type="button" ng-click="adminLoginForm.loginUser()" value="Submit" class="btn btn-primary pull-right">
+        <input type="button" ng-click="adminLogin.loginUser()" value="Submit" class="btn btn-primary pull-right">
     </form>
 </div>

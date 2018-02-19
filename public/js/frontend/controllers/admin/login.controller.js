@@ -4,7 +4,7 @@
         var adminLogin = this;
         adminLogin.user = {};
 
-        adminLogin.login = function(){
+        adminLogin.loginUser = function(){
             AdminService.login().then(function(response){
                 console.log(response);
                 if(response){

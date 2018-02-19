@@ -2,6 +2,10 @@
     adminDashboardCtrl.$inject = ['AdminService', 'Vets', 'Companies'];
     function adminDashboardCtrl(AdminService, Vets,Companies){
         var adminDash = this;
+        adminDash.internSearch = {};
+        adminDash.numProjects = 0;
+        adminDash.numInterviewed = 0;
+        adminDash.vetInProject = 0;
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user.companies;
             for(let comp in adminDash.compInfo){
@@ -23,10 +27,6 @@
         },function(error){
             console.log(error);
         });
-        adminDash.internSearch = {};
-        adminDash.numProjects = 0;
-        adminDash.numInterviewed = 0;
-        adminDash.vetInProject = 0;
 
         adminDash.retrieveVet = function(){
             AdminService.retrieveVet(adminDash.internSearch).then(function(response){

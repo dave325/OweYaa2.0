@@ -39,7 +39,7 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
     
         }
-        if(!$request->input('admin') || !$request->has('type') || $request->input('type') != $userCheck->type){
+        if(!$request->has('admin') || !$request->has('type') || $request->input('type') != $userCheck->type){
             return response()->json(['user_not_found'], 404);
         }
         elseif($request->has('type') && $request->input('type') == 0){
@@ -51,8 +51,8 @@ class ValidateUser extends Controller
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
             $user['stripe_key'] = env('publishable_api');
             return response()->json(compact('user'));
-        }elseif($request->has('type') && $request->input('type') == 2 && $request->input('admin')){
-            
+        }elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
+            return response()->json(compact('userCheck'));
         }else{
             return response()->json(['user_not_found'], 404);
         }

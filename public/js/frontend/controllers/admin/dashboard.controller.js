@@ -4,15 +4,13 @@
         var adminDash = this;
         adminDash.compInfo = {};
         adminDash.vet = {};
-        AdminService.retrieveCompInfo().then(function(response){
-            console.log(response);
-            adminDash.compInfo = response.data.user.companies;    
+        adminDash.compInfo = AdminService.retrieveCompInfo().then(function(response){
+            return response.data.user.companies;    
         },function(error){
             console.log(error);
         });
-        AdminService.retrieveAllVet().then(function(response){
-            console.log(response);
-            adminDash.vet = response.data.users;    
+        adminDash.vet = AdminService.retrieveAllVet().then(function(response){
+            return response.data.users;    
         },function(error){
             console.log(error);
         });;

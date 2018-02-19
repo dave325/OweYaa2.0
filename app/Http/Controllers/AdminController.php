@@ -19,7 +19,7 @@ class AdminController extends Controller{
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
         // all good so return the token
-        return response()->json(['token' => compact('token')],200);
+        return response()->json(['token' => $token],200);
     }
 
     public function retrieveAllVet(){

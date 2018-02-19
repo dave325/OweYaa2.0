@@ -18,7 +18,7 @@
             }
         }
         for(let vet in adminDash.vet){
-            if(vet.interview.length > 0){
+            if(vet.interview != undefined && vet.interview.length > 0){
                 adminDash.numInterviewed++;
             }
         }

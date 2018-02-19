@@ -19,8 +19,8 @@
         adminDash.vetInProject = 0;
         for(let comp in adminDash.compInfo){
             if(comp.company_project === undefined){
-                adminDash.numProjects = 0;
-                adminDash.vetInProject = 0;
+                adminDash.numProjects;
+                adminDash.vetInProject;
             }else{
                 adminDash.numProjects += comp.company_project.length;
                 adminDash.vetInProject += comp.company_project.intern.length;

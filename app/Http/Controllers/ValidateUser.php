@@ -51,7 +51,7 @@ class ValidateUser extends Controller
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
             $user['stripe_key'] = env('publishable_api');
             return response()->json(compact('user'));
-        }elseif($request->has('type') && $request->input('admin')){
+        }elseif($request->input('admin')){
             
         }else{
             return response()->json(['user_not_found'], 404);

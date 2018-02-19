@@ -29,7 +29,7 @@
             },function(error){
                 console.log(error);
             });
-            $location.path('/veteran/dashboard');
+            
         }
     }
     angular.module('oweyaa')

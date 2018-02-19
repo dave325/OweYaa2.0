@@ -23,7 +23,7 @@
                 return $http.post('/api/admin/retrieveComp');
             }
         }
-        return adminSevice;
+        return adminService;
     }
     angular.module('oweyaa')
         .factory('AdminService',adminSer);

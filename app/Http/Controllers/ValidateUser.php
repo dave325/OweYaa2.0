@@ -40,7 +40,7 @@ class ValidateUser extends Controller
     
         }
         if(!$request->has('admin') || !$request->has('type') || $request->input('type') != $userCheck->type){
-            return response()->json(['user_not_found'], 404);
+            return response()->json(['user_not_found1'], 404);
         }
         elseif($request->has('type') && $request->input('type') == 0){
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
@@ -54,7 +54,7 @@ class ValidateUser extends Controller
         }elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
             return response()->json(compact('userCheck'));
         }else{
-            return response()->json(['user_not_found'], 404);
+            return response()->json(['user_not_found2'], 404);
         }
         // the token is valid and we have found the user via the sub claim
         

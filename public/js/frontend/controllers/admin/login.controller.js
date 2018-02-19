@@ -5,9 +5,9 @@
         adminLogin.user = {};
 
         adminLogin.loginUser = function(){
-            AdminService.login().then(function(response){
+            AdminService.login(adminLogin.user).then(function(response){
                 console.log(response);
-                if(response){
+                if(response.status === 200){
                     $location.path('/veteran/dashboard');
                 }
             },function(error){

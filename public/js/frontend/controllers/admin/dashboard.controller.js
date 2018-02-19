@@ -4,6 +4,7 @@
         var adminDash = this;
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user.companies;
+            console.log(adminDash.compInfo);
         },function(error){
             console.log(error);
         })
@@ -12,7 +13,6 @@
         },function(error){
             console.log(error);
         });
-        
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

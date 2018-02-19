@@ -19,7 +19,7 @@ class ValidateUser extends Controller
     public function __construct(Request $request)
     {
     }
-    public function checks(Request $request){
+    public static function checks(Request $request){
         $user = new User();
         try {
             if (!$userCheck = app('auth')->guard()->authenticate()) {

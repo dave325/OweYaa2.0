@@ -104,21 +104,13 @@
     .when('/admin/dashboard',{
       templateUrl:"/js/frontend/views/admin/dashboard.view.html",
       controller:"adminDashboardCtrl",
-      controllerAs:"adminDash",
-      resolve:{
-        Vets:function(AdminService){
-          return AdminService.retrieveAllVet()
-        },
-        Companies:function(AdminService){
-          return AdminService.retrieveCompInfo();
-        }
-      }
+      controllerAs:"adminDash"
     })
 
     .when('/admin/match-projects',{
       templateUrl:"/js/frontend/views/admin/match-project.view.html",
       controller:"adminMatchProjectdCtrl",
-      controllerAs:"vm"
+      controllerAs:"matchedProjects"
     })
 
     .when('/notFound',{

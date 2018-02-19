@@ -12,9 +12,10 @@
             if(comp.company_project === undefined){
                 adminDash.numProjects = 0;
                 adminDash.vetInProject = 0;
+            }else{
+                adminDash.numProjects += comp.company_project.length;
+                adminDash.vetInProject += comp.company_project.intern.length;
             }
-            adminDash.numProjects += comp.company_project.length;
-            adminDash.vetInProject += comp.company_project.intern.length;
         }
         for(let vet in adminDash.vet){
             if(vet.interview.length > 0){

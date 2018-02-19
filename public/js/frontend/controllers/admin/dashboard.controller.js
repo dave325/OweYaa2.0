@@ -2,10 +2,16 @@
     adminDashboardCtrl.$inject = ['AdminService'];
     function adminDashboardCtrl(AdminService){
         var adminDash = this;
-        adminDash.compInfo = AdminService.retrieveCompInfo();
-        adminDash.vet = AdminService.retrieveAllVet();
-        console.log(adminDash.vet);
-        console.log(adminDash.compInfo);
+        AdminService.retrieveCompInfo().then(function(response){
+            adminDash.compInfo = response.data.user;    
+        },function(error){
+            console.log(error);
+        });
+        AdminService.retrieveAllVet().then(function(response){
+            adminDash.vet = response.data.user;    
+        },function(error){
+            console.log(error);
+        });;
         adminDash.internSearch = {};
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;

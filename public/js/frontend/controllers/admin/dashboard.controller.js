@@ -24,14 +24,11 @@
         }
 
         adminDash.retrieveVet = function(){
-            console.log(AdminService.retrieveVet(adminDash.internSearch.username));
-            /*
             AdminService.retrieveVet(adminDash.internSearch.username).then(function(response){
                 console.log(response);
             },function(error){
                 console.log(error);
             });
-            */
         }
     }
     angular.module('oweyaa')

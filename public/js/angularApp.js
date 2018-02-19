@@ -104,7 +104,7 @@
     .when('/admin/dashboard',{
       templateUrl:"/js/frontend/views/admin/dashboard.view.html",
       controller:"adminDashboardCtrl",
-      controllerAs:"vm"
+      controllerAs:"adminDash"
     })
 
     .when('/admin/match-projects',{

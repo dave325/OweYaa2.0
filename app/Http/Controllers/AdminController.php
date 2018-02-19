@@ -18,8 +18,6 @@ class AdminController extends Controller{
             // something went wrong whilst attempting to encode the token
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
-        $test = ValidateUser::checks();
-        return response()->json(compact('test'));
         // all good so return the token
         return response()->json(['token' => $token],200);
     }

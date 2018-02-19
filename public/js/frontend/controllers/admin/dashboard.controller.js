@@ -5,11 +5,13 @@
         adminDash.compInfo = {};
         adminDash.vet = {};
         AdminService.retrieveCompInfo().then(function(response){
+            console.log(response);
             adminDash.compInfo = response.data.user;    
         },function(error){
             console.log(error);
         });
         AdminService.retrieveAllVet().then(function(response){
+            console.log(response);
             adminDash.vet = response.data.user;    
         },function(error){
             console.log(error);

@@ -29,7 +29,7 @@ class AdminController extends Controller{
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
             array_push($vets,$user);
         }
-        return response()->json(['users' =>compact('vets')],200);
+        return response()->json(['users' => $vets],200);
     }
 
     public function retrieveVet(Request $rq){

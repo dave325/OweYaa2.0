@@ -32,6 +32,11 @@
         <script src="js/frontend/controllers/veteran/internship.controller.js"></script>
         <script src="js/frontend/controllers/veteran/profile.controller.js"></script>
 
+        <!-- Admin Controllers -->
+        <script src="js/frontend/controllers/admin/login.controller.js"></script>
+        <script src="js/frontend/controllers/admin/dashboard.controller.js"></script>
+        <script src="js/frontend/controllers/admin/match-project.controller.js"></script>
+
         <!-- Directive Controllers -->
         <script src="js/frontend/directives/footer/footer.directive.js"></script>
         <script src="js/frontend/directives/navbar/navbar.directive.js"></script>

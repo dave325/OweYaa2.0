@@ -46,6 +46,7 @@
         <!-- Services/Factories -->
         <script src="js/frontend/services/authentication.service.js"></script>
         <script src="js/frontend/services/user.service.js"></script>
+        <script src="js/frontend/services/admin.service.js"></script>
 
         <!-- Veteran Modal Controllers -->
         <script src="js/frontend/modals/home/login/login.modal.controller.js"></script>

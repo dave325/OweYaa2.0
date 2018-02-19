@@ -12,12 +12,7 @@
                 return $http.post('/api/admin/retrieveAllVet');
             },
             retrieveVet:function(username){
-                 $http.post('/api/admin/retrieveVet',username)
-                    .then(function(user){
-                        return user.data.user;
-                    },function(error){
-                        return error.data;
-                    });
+                 $http.post('/api/admin/retrieveVet',username);
             },
             retrieveCompInfo:function(){
                 return $http.post('/api/admin/retrieveComp');

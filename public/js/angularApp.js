@@ -115,7 +115,7 @@
         },
         Companies:function(AdminService){
           AdminService.retrieveCompInfo().then(function(response){
-            adminDash.compInfo = response.data.user.companies;    
+            return response.data.user.companies;    
           },function(error){
               console.log(error);
           });

@@ -2,6 +2,8 @@
     adminDashboardCtrl.$inject = ['AdminService'];
     function adminDashboardCtrl(AdminService){
         var adminDash = this;
+        adminDash.compInfo = {};
+        adminDash.vet = {};
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user;    
         },function(error){

@@ -1,6 +1,6 @@
 (function () {
-    adminLoginCtrl.$inject = ['AdminService', 'User', '$location'];
-    function adminLoginCtrl(AdminService, User, $location) {
+    adminLoginCtrl.$inject = ['AdminService', 'User', 'Authentication', '$location'];
+    function adminLoginCtrl(AdminService, User,Authentication, $location) {
         var adminLogin = this;
         adminLogin.user = {};
 

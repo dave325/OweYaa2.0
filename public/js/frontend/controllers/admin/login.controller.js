@@ -6,6 +6,7 @@
 
         adminLogin.loginUser = function () {
             AdminService.login(adminLogin.user).then(function (response) {
+                console.log(response);
                 if (response.status === 200) {
                     Authentication.setToken(response.data.token).then(function(data){
                         User.getCurrentUser(2).then(function (data) {

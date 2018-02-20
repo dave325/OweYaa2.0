@@ -4,7 +4,6 @@
         var adminDash = this;
         adminDash.internSearch = {};
         adminDash.user = User.getUser();
-        console.log(adminDash.user);
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;
         adminDash.vetInProject = 0;

@@ -244,7 +244,7 @@
       navbarvm.activeNav = navbarvm.regUser;
     } else if (userStatus.type == 1) {
       navbarvm.activeNav = navbarvm.companyUser;
-    } else if(userStatus.type == 1){
+    } else if(userStatus.type == 0){
       navbarvm.activeNav = navbarvm.vetUser;
     } else{
       navbarvm.activeNav = navbarvm.adminUser;

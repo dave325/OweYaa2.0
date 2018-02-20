@@ -1,8 +1,10 @@
 (function(){
-    adminDashboardCtrl.$inject = ['AdminService'];
-    function adminDashboardCtrl(AdminService){
+    adminDashboardCtrl.$inject = ['AdminService','User'];
+    function adminDashboardCtrl(AdminService, User){
         var adminDash = this;
         adminDash.internSearch = {};
+        adminDash.user = User.getUser();
+        console.log(adminDash.user);
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;
         adminDash.vetInProject = 0;

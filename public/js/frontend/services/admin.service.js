@@ -3,7 +3,20 @@
     function adminSer($http){
         const adminService = {
             login:function(user){
-                return $http.post('/api/admin/login',user);
+                return $http.post('/api/admin/login',user).then(
+                    function(data){
+                      if(data.data.token){
+                        $window.sessionStorage.setItem('token', data.data.token);
+                        // Returns the user data object to the login modal
+                        return data;
+                      }else{
+                        return data;
+                      }
+                    },function(data){
+                      // Returns information from error call
+                      return data;
+                    }
+                  )
             },
             updateUser:function(data){
                 return $http.post('/api/admin/updateUser', data);

@@ -52,7 +52,7 @@ class ValidateUser extends Controller
             $user['stripe_key'] = env('publishable_api');
             return response()->json(compact('user'));
         }elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
-            return response()->json(compact('userCheck'));
+            return response()->json(["user" => $userCheck], 200);
         }else{
             return response()->json(['user_not_found2'], 404);
         }

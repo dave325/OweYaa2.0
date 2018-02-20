@@ -7,12 +7,16 @@
         adminLogin.loginUser = function () {
             AdminService.login(adminLogin.user).then(function (response) {
                 if (response.status === 200) {
-                    User.getCurrentUser(response.data.token).then(function (data) {
-                        User.setUser(data.data.user);
-                        $location.path('/admin/dashboard');
-                    }, function (data) {
-                        console.log(data);
-                    });
+                    Authentication.setToken(response.data.token).then(function(data){
+                        User.getCurrentUser(2).then(function (data) {
+                            User.setUser(data.data.user);
+                            $location.path('/admin/dashboard');
+                        }, function (data) {
+                            console.log(data);
+                        });
+                    },function(error){
+                        console.log(error);
+                    })
                 }
             }, function (error) {
                 console.log(error);

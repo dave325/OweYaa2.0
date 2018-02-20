@@ -1,6 +1,6 @@
 (function () {
-    adminSer.$inject = ['$http', '$window'];
-    function adminSer($http, $window) {
+    adminSer.$inject = ['$http', '$window','Authentication'];
+    function adminSer($http, $window,Authentication) {
         const adminService = {
             login: function (user) {
                 return $http.post('/api/admin/login', user).then(

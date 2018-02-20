@@ -26,7 +26,7 @@
                     return $http({
                         url: '/api/check',
                         method: 'POST',
-                        data: { user },
+                        data: { type:user.type,admin:user.admin },
                         headers: {
                             "Authorization": "Bearer " + Authentication.getToken()
                         }

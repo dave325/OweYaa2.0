@@ -10,14 +10,15 @@
         adminDash.vetInProject = 0;
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user.companies;
-            adminDash.compInfo.foreach(function(el){
+            console.log(adminDash.compInfo);
+            for(var comp in adminDash.compInfo){
                 console.log(comp);
                 if(comp.company_project){
                     console.log(comp);
                     adminDash.numProjects += comp.company_project.length;
                     adminDash.vetInProject += comp.company_project.intern.length;
                 }
-            });
+            }
         },function(error){
             console.log(error);
         })

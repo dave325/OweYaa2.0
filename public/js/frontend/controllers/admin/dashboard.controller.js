@@ -10,7 +10,6 @@
         adminDash.vetInProject = 0;
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user.companies;
-            console.log(adminDash.compInfo);
             for(var comp in adminDash.compInfo){
                 if(!adminDash.compInfo.hasOwnProperty(comp)){
                     continue;
@@ -29,7 +28,11 @@
         AdminService.retrieveAllVet().then(function(response){
             adminDash.vet = response.data.users;
             for(let vet in adminDash.vet){
-                if(vet.interview != undefined && vet.interview.length > 0){
+                if(!adminDash.vet.hasOwnProperty(vet)){
+                    continue;
+                }
+                let obj = adminDash.vet[vet];
+                if(obj.interview != undefined && obj.interview.length > 0){
                     adminDash.numInterviewed++;
                 }
             }

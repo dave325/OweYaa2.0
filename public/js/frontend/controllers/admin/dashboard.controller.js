@@ -3,6 +3,7 @@
     function adminDashboardCtrl(AdminService, User){
         var adminDash = this;
         adminDash.internSearch = {};
+        adminDash.formError = "";
         adminDash.user = User.getUser();
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;
@@ -30,11 +31,15 @@
         });
 
         adminDash.retrieveVet = function(){
-            AdminService.retrieveVet(adminDash.internSearch).then(function(response){
-                console.log(response.data.user);
-            },function(error){
-                console.log(error);
-            });
+            if(adminDash.internSearch.username){
+                AdminService.retrieveVet(adminDash.internSearch).then(function(response){
+                    console.log(response.data.user);
+                },function(error){
+                    console.log(error);
+                });
+            }else{
+                adminDash.formError = "Please include a veteran username!";
+            }
         }
     }
     angular.module('oweyaa')

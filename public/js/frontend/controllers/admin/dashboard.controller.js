@@ -16,11 +16,10 @@
                     continue;
                 }
                 let obj = adminDash.compInfo[comp];
-                console.log(obj);
-                if(comp.company_project){
+                if(obj.company_project){
                     console.log(comp);
-                    adminDash.numProjects += comp.company_project.length;
-                    adminDash.vetInProject += comp.company_project.intern.length;
+                    adminDash.numProjects += obj.company_project.length;
+                    adminDash.vetInProject += obj.company_project.intern.length;
                 }
             }
         },function(error){

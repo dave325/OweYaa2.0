@@ -11,7 +11,7 @@
         AdminService.retrieveCompInfo().then(function(response){
             adminDash.compInfo = response.data.user.companies;
             for(let comp in adminDash.compInfo){
-                if(comp.company_project != undefined){
+                if(comp.company_project){
                     console.log(comp);
                     adminDash.numProjects += comp.company_project.length;
                     adminDash.vetInProject += comp.company_project.intern.length;

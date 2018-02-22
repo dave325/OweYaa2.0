@@ -38,7 +38,7 @@ class AdminController extends Controller{
             $user = User::findOrFail($username);
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$username)->first();
         }catch(ModelNotFoundException $me){
-            return response()->json(['error' => "User not found"], 400);
+            return response()->json(['error' => "User not found"], 404);
         }
         return response()->json(['user' => $user], 200);
     }

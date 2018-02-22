@@ -15,11 +15,14 @@
 <div id="adminDashboard">
     <navbar content="navbarvm.activeNav"></navbar>
     <section>
+        <h1>Admin Dashboard</h1>
         <article id="stats" class="col-xs-12 col-md-3 col-md-offset-1">
             <h2>Statistics for OweYaa users</h2>
             <p>Number of companies: {{adminDash.compInfo.length}}</p>
             <p>Number of projects: {{adminDash.numProjects}}</p>
             <p>Number of Veterans: {{adminDash.vet.length}}</p>
+            <p>Number of Veterans in projects: {{adminDash.vetInProject}}</p>
+            <p>Number of Veterans Interviewed: {{adminDash.numInterviewed}}</p>
         </article>
         <form name="internSearch" novalidate id="internSearch" class="col-xs-12 col-md-5 col-md-offset-1">
             <h2>Intern Search</h2>

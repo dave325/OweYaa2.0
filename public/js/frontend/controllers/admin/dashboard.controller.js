@@ -32,7 +32,7 @@
                     continue;
                 }
                 let obj = adminDash.vet[vet];
-                if(obj.interview != undefined && obj.interview.length > 0){
+                if(obj.interviews != undefined && obj.interviews.length > 0){
                     adminDash.numInterviewed++;
                 }
             }

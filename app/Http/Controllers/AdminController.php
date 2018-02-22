@@ -35,6 +35,7 @@ class AdminController extends Controller{
     public function retrieveVet(Request $rq){
         $username = $rq->only('username');
         try{
+            $user = User::findOrFail($username);
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$username)->first();
         }catch(ModelNotFoundException $me){
             return response()->json(['error' => "User not found"], 400);

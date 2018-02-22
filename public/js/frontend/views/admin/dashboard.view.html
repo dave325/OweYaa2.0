@@ -1,30 +1,34 @@
 <style>
-
-    #adminDashboard #stats {
-        background-color:rgb(211,211,211);
-        border:1px solid rgb(247,159,75);
-        margin-top:30px;
+    #adminDashboard section{
+        margin-top: 30px;
     }
-    #adminDashboard #internSearch{
-        background-color:rgb(211,211,211);
-        border:1px solid rgb(247,159,75);
+    #adminDashboard #stats {
+        background-color: rgb(211, 211, 211);
+        border: 1px solid rgb(247, 159, 75);
+    }
+
+    #adminDashboard #internSearch {
+        background-color: rgb(211, 211, 211);
+        border: 1px solid rgb(247, 159, 75);
     }
 </style>
 <div id="adminDashboard">
     <navbar content="navbarvm.activeNav"></navbar>
-    <section id="stats" class="col-xs-12 col-md-3 col-md-offset-1">
-        <h2>Statistics for OweYaa users</h2>
-        <p>Number of companies: {{adminDash.compInfo.length}}</p>
-        <p>Number of projects: {{adminDash.numProjects}}</p>
-        <p>Number of Veterans: {{adminDash.vet.length}}</p>
+    <section>
+        <article id="stats" class="col-xs-12 col-md-3 col-md-offset-1">
+            <h2>Statistics for OweYaa users</h2>
+            <p>Number of companies: {{adminDash.compInfo.length}}</p>
+            <p>Number of projects: {{adminDash.numProjects}}</p>
+            <p>Number of Veterans: {{adminDash.vet.length}}</p>
+        </article>
+        <form name="internSearch" novalidate id="internSearch" class="col-xs-12 col-md-5 col-md-offset-1">
+            <h2>Intern Search</h2>
+            <div class="alert alert-warning" ng-hide="adminDash.formError.length === 0">{{adminDash.formError}}</div>
+            <div class="form-group">
+                <input type="text" name="username" ng-model="adminDash.internSearch.username" class="form-control col-xs-12 col-md-6" />
+                <input type="submit" ng-click="adminDash.retrieveVet()" value="Search" />
+            </div>
+        </form>
     </section>
-    <form name="internSearch" novalidate id="internSearch" class="col-xs-12 col-md-5 col-md-offset-1">
-        <h2>Intern Search</h2>
-        <div class="alert alert-warning" ng-hide="adminDash.formError.length === 0">{{adminDash.formError}}</div>
-        <div class="form-group">
-            <input type="text" name="username" ng-model="adminDash.internSearch.username" class="form-control col-xs-12 col-md-6" />
-            <input type="submit" ng-click="adminDash.retrieveVet()" value="Search" />
-        </div>
-    </form>
     <footer-base></footer-base>
 </div>

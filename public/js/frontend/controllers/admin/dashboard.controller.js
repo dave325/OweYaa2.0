@@ -31,7 +31,7 @@
         });
 
         adminDash.retrieveVet = function(){
-            if(adminDash.internSearch.username){
+            if(adminDash.internSearch.username || adminDash.internSearch.username.length > 0){
                 AdminService.retrieveVet(adminDash.internSearch).then(function(response){
                     console.log(response.data.user);
                 },function(error){

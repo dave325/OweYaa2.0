@@ -12,7 +12,11 @@
             adminDash.compInfo = response.data.user.companies;
             console.log(adminDash.compInfo);
             for(var comp in adminDash.compInfo){
-                console.log(comp);
+                if(!adminDash.compInfo.hasOwnProperty(comp)){
+                    continue;
+                }
+                let obj = adminDash.compInfo[comp];
+                console.log(obj);
                 if(comp.company_project){
                     console.log(comp);
                     adminDash.numProjects += comp.company_project.length;

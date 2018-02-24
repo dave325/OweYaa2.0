@@ -15,6 +15,9 @@ Table of Contents:
   6.1 Company Dashboard
   6.2 Projects Dashboard
   6.3 Favorite Interns
+  6.4 Company Membership
+   6.4.1 Membership Portal
+   6.4.2 Purchase Membership
 7. Footer
   7.1 Footer Overall Style
   7.2 Footer center
@@ -511,9 +514,7 @@ Section 6.2: projects dashboard
 
 ************/
 
-#proj-dash .row.content {
-    height: 550px
-  }
+
 
   #proj-dash .sidenav {
     background-color: #f1f1f1;
@@ -526,24 +527,38 @@ Section 6.2: projects dashboard
     background-color: orange;
     border-bottom: 5px solid;
   }
-
-  #proj-dash .sidenav .projectpane {
-    padding: 5%;
+  #proj-dash .sidenav h2 button {
+	  margin-left: 20px;
+	  color: black;
   }
 
-  #proj-dash .sidenav li {
-    margin: 5px;
-    font-size: 15px;
-
+  #proj-dash #projectPanes{
+	  margin-top: 20px;
   }
 
+  #proj-dash #projectPanes #Milestones h4 button {
+	  margin-left: 20px;
+  }
+
+  #proj-dash #projectPanes #Milestones h4 {
+	margin-left: 20px;
+ }
+
+ #proj-dash #projectDescription button{
+	 margin-left: 20px;
+ }
+
+  #proj-dash #interns {
+	  color: darkorange;
+  }
+  
   #proj-dash .teammember {
     margin: 5px;
     background-color: white;
   }
 
   #proj-dash .task{
-    color: orange;
+    color: darkorange;
     border-bottom: 3px solid;
     display: table; 
     background-color: white;
@@ -551,9 +566,23 @@ Section 6.2: projects dashboard
     border-radius: 2px
   }
 
+  #proj-dash .task .completionText{
+    color: red;
+  }
+
+  #proj-dash .task .completionDate{
+	margin-left: 4px;
+	margin-right: 4px;
+    color: darkslategray;
+  }
+
   #proj-dash .stat {
     margin: 20px;
     padding: 3px;
+  }
+
+  #proj-dashboard-Milestones button{
+	  margin-left: 20px;
   }
 
 /**********
@@ -577,6 +606,146 @@ Section 6.3: favorite-itern
 	display: table;
 }
 
+
+
+
+/**********
+
+Section 6.4: Purchase Membership
+
+************/
+
+.StripeElement {
+	background-color: white;
+	height: 40px;
+	padding: 10px 12px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	box-shadow: 0 1px 3px 0 #e6ebf1;
+	-webkit-transition: box-shadow 150ms ease;
+	transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+	box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+	border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+	background-color: #fefde5 !important;
+}
+
+#purchaseMembership h3 {
+	padding: 20px 0px;
+	border-bottom: 2px solid rgb(247, 159, 75);
+	text-align: center;
+}
+
+#purchaseMembership ul {
+	list-style-type: none;
+	padding: 0px;
+	text-align: center;
+}
+
+#purchaseMembership ul li {
+	margin-bottom: 20px;
+}
+
+#purchaseMembership #discount-notification {
+	margin-top: 20px;
+}
+
+.payOption {
+	padding: 0px;
+}
+
+#purchaseMembership #monthMembership {
+	background-color: rgb(211, 211, 211);
+}
+
+#purchaseMembership #quarterlyMembership {
+	background-color: rgb(247, 159, 75);
+}
+
+#purchaseMembership #quarterlyMembership h3 {
+	border-bottom: 2px solid rgb(211, 211, 211);
+}
+
+#purchaseMembership #annualMembership {
+	background-color: rgb(211, 211, 211);
+}
+
+#purchaseMembership h1 {
+	background-color: rgb(247, 159, 75);
+	border-bottom: 5px solid darkgray;
+	padding: 10px 0px;
+}
+
+#purchaseMembership .paySubmit {
+	color: #FFF;
+	padding: 20px 0px;
+	background-color: #5383d3;
+	transition: 0.5s all;
+}
+
+#purchaseMembership .paySubmit:hover {
+	color: #000;
+}
+
+
+
+/**********
+
+Section 6.4.1: Purchase Membership Portal
+
+************/
+
+.compModal .modal-dialog{
+	width:100%;
+}
+#membershipPaymentModal h2{
+	margin:0px 0px 40px 0px;
+	padding:30px 10px;
+	color:#FFF;
+	background-color:rgb(247,159,75);
+}
+#membershipPaymentModal form{
+	padding:0px;
+}
+.submitBtn{
+	background-color:rgb(211,211,211);
+	padding:30px 0px;
+}
+.payAlert{
+	display:none;
+}
+
+#membershipPaymentModal .glyphicon-remove{
+	color:red;
+	position: absolute;
+	top:5px;
+	right:10px;
+	font-size:1em;
+	z-index:9999999;
+}
+
+
+
+
+/**********
+
+Section 6.4.2: Purchase Membership Discount
+
+************/
+
+#requestDiscount h1 {
+	background-color: rgb(247, 159, 75);
+	border-bottom: 5px solid darkgray;
+	padding: 10px 0px;
+}
 
 /*******************************************************************
 

@@ -1,67 +1,109 @@
 <navbar content="{{navbarvm.activeNav}}">
 </navbar>
 
-  <div class="container-fluid" id="proj-dash">
-    <div class="row content">
-      <div class="col-sm-3 sidenav">
-        <h2>PROJECTS</h2>
-        <ul class="nav nav-pills nav-stacked">
-          <li>
-            <a href="#section2">
-              <strong>Project 1</strong>
-            </a>
-          </li>
-          <li>
-            <a href="#section2">
-              <strong>Project 2</strong>
-            </a>
-          </li>
-          <li>
-            <a href="#section2">
-              <strong>Project 3</strong>
-            </a>
-          </li>
-        </ul>
-        <br>
-      </div>
-      <br>
+<div class="container" id="proj-dash">
 
-      <div class="col-sm-3">
+
+  <div class="row">
+    <div class="col-sm-3 sidenav">
+      <h2> PROJECTS
+        <button class="btn btn-secondary btn-sm" type="button" ng-click="vm.openProjectsList()">Edit</button>
+      </h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li>
+          <a href="#section2">
+            <strong>Project 1</strong>
+          </a>
+        </li>
+        <li>
+          <a href="#section2">
+            <strong>Project 2</strong>
+          </a>
+        </li>
+        <li>
+          <a href="#section2">
+            <strong>Project 3</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+
+    <div class="col-md-9" id="projectPanes">
+
+      <div class="well col-md-12" id="projectDescription">
+        <h4>Project Name
+          <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editDescription()">Edit</button>
+        </h4>
+
+        <h5>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </h5>
+
+      </div>
+
+
+
+      <div class="col-md-6" id="interns">
         <div class="well">
-          <h4>Project Name</h4>
-          <input type="text" style="min-width: 100%" placeholder="Project Name">
+
+          <table style="width:100%">
+            <tr>
+              <th>
+                <u>
+                  <strong>Name</strong>
+                </u>
+              </th>
+              <th>
+                <u>
+                  <strong>Email</strong>
+                </u>
+              </th>
+              <th>
+                <u>
+                  <strong>Hours</strong>
+                </u>
+              </th>
+            </tr>
+
+            <tr ng-repeat="intern in vm.interns">
+              <td>{{intern.name}}</td>
+              <td>{{intern.email}}</td>
+              <td>{{intern.hours}}</td>
+            </tr>
+
+
+
+          </table>
+
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="well">
-          <h4>Project Description</h4>
-          <textarea class="form-control" style="min-width: 100%"></textarea>
+
+      <div class="col-md-6 well" id="Milestones">
+        <h4>MILESTONES
+          <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones()">Edit</button>
+        </h4>
+
+        <div ng-repeat="milestone in vm.milestones">
+          <div class="stat">
+            <p class="task">{{milestone.description}}
+              <span class="completionDate">{{milestone.completionDate}}</span>
+              <span class="completionText">{{milestone.isCompleted}}</span>
+            </p>
+
+          </div>
+
         </div>
+
+       
+
       </div>
 
-      <div class="col-md-3">
-        <div class="well">
-          <h4>Team Members</h4>
-          <div class="teammember">Intern Intern
-            <br> intern@intern.com</div>
-          <div class="teammember">Intern Intern
-            <br> intern@intern.com</div>
-          <div class="teammember">Intern Intern
-            <br> intern@intern.com</div>
-        </div>
-      </div>
 
 
-      <div class="col-md-6">
-
-        <div class="well">
-          <h4>Project Status</h4>
-          <div class="stat"><div class="task">Presentation in Manhattan</div></div>
-          <div class="stat"><div class="task">Submit Patents</div></div>
-          <div class="stat"><div class="task">Create Blueprint Presentation Models</div></div>
-        </div>
-      </div>
 
 
 
@@ -71,4 +113,4 @@
 
 
 
-<footer-base></footer-base>
+  <footer-base></footer-base>

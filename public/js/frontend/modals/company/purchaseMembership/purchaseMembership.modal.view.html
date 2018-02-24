@@ -1,33 +1,4 @@
-<style>
-    .compModal .modal-dialog{
-        width:100%;
-    }
-    #membershipPaymentModal h2{
-        margin:0px 0px 40px 0px;
-        padding:30px 10px;
-        color:#FFF;
-        background-color:rgb(247,159,75);
-    }
-    #membershipPaymentModal form{
-        padding:0px;
-    }
-    .submitBtn{
-        background-color:rgb(211,211,211);
-        padding:30px 0px;
-    }
-    .payAlert{
-        display:none;
-    }
 
-    #membershipPaymentModal .glyphicon-remove{
-        color:red;
-        position: absolute;
-        top:5px;
-        right:10px;
-        font-size:1em;
-        z-index:9999999;
-    }
-</style>
 <div id="membershipPaymentModal">
     <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="purchaseMembershipModalvm.cancel()"></span>
     <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12">

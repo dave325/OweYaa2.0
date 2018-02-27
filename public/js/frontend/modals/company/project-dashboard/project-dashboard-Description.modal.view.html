@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title"> Edit Project Description</h3>
+</div>
+
+<div class="modal-body">
+
+    <form>
+        <div class="form-group">
+            <label for="projectTitle">Project Title</label>
+            <input type="text" class="form-control" id="editTitle" placeholder="{{projectTitle}}">
+        </div>
+        <div class="form-group">
+                <label for="projectDescription">Project Description</label>
+                <textarea class="form-control" id="editDescription" placeholder="{{projectDescription}}"> </textarea>
+        </div>
+    </form>
+
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

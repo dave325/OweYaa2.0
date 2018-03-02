@@ -60,23 +60,44 @@ class ValidateUser extends Controller
         
     }
 
+    private function isValid(){
+        try {
+            if (!$userCheck = app('auth')->guard()->authenticate()) {
+
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+    
+            return response()->json(['token_expired'], $e->getStatusCode());
+    
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+    
+            return response()->json(['token_invalid'], $e->getStatusCode());
+    
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+    
+            return response()->json(['token_absent'], $e->getStatusCode());
+    
+        }
+
+        return true;
+    }
     // look into sotirng files in the cloud
     public function uploadFiles(Request $request){
         $credentials = $request->only('username');
         //$pic = $request->file('file')->storeAs('resources/profile_pics', $credentials['username'] . 'doc');
-        
-        Storage::disk('s3')->putFileAs('/', $request->file('file'), $credentials['username'] . $request->photo->extension());
-        $directories = Storage::disk('s3');
-        return response()->json($directories);
+        if(sValid()){
+            Storage::disk('s3')->putFileAs('/', $request->file('file'), $credentials['username'] . $request->photo->extension());
+            $directories = Storage::disk('s3');
+            return response()->json($directories);
+        }
     }
 
     public function updateContact(Request $request){
-        if(app('auth')->guard()->authenticate()){
+        if(isValid()){
             $credentials = $request->only('contact_info');
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
             return response()->json(true);
-        }else{
-            return response()->json(compact('user'));
         }
     }
     /**
@@ -377,9 +398,9 @@ class ValidateUser extends Controller
                 $contact->save();
                 $social->save();
             }catch(\ModelNotFoundException $me){
-                return response()->json('Not Found!');
+                return response()->json(['error' => 'Not Found!'], 404);
             }
-            return response()->json(true);
+            return response()->json(['success' => true], 200);
         }else{
             return response()->json(compact('user'));
         }

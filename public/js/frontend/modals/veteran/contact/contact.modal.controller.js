@@ -16,9 +16,16 @@
     contactvm.docontact = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
-        contactvm.close(contactvm.user);
+        if(data.status === 200){
+          contactvm.formInfo = "Succesffuly Updated!";
+          User.setUser(contactvm.user);
+        }
       },function(data){
-        console.log(data);
+        if(data.status === 401){
+          contactvm.formError = "Unauthorized, there was an error. Please try again!";
+        }else{
+          contactvm.formError = "There was an error. Please try again!";
+        }
       });
     }
 

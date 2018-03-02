@@ -60,9 +60,14 @@
     educationvm.doEducation = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
-        educationvm.close(educationvm.user);
+        educationvm.formInfo = "Succesffuly Updated!";
+        User.setUser(educationvm.user);
       },function(data){
-        console.log(data);
+        if(data.status === 401){
+          educationvm.formError = "Unauthorized, there was an error. Please try again!";
+        }else{
+          educationvm.formError = "There was an error. Please try again!";
+        }
       });
       
     } 

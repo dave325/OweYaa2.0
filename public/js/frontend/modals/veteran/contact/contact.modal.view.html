@@ -2,6 +2,8 @@
 <div id="contactModal">
     <h2>Contact Information</h2>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
+    <p ng-show="contactvm.formError" class="alert alert-danger" ng-bind-html="contactvm.formError"></p>
+    <p ng-show="contactvm.formInfo" class="alert alert-success" ng-bind-html="contactvm.formInfo"></p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row col-xs-12">
           <div class="form-group">

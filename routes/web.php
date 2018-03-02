@@ -48,7 +48,7 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('login','AdminController@login');
         Route::post('updateUser','AdminController@updateUser');
         Route::post('retrieveVet','AdminController@retrieveVet');
-        Route::get('retrieveAllVet','AdminController@retrieveAllVet');
+        Route::post('retrieveAllVet','AdminController@retrieveAllVet');
         Route::post('retrieveComp','AdminController@retrieveComp');
         // Need to implement
         Route::post('matchComp','AdminController@matchComp');

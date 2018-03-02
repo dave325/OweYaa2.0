@@ -23,6 +23,7 @@ class AdminController extends Controller{
     }
 
     private function isValid(){
+        return response()->json(JWTAuth::parseToken());
         try {
             if (!$userCheck = JWTAuth::parseToken()->authenticate()) {
 

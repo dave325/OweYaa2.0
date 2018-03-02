@@ -44,7 +44,7 @@ private function isValid(){
         return true;
     }
     public function retrieveAllVet(){
-        if(isValid()){
+        if($this->isValid()){
             $vet = User::with('contactInfo')->where("type","=","0")->get();
             $vets = array();
             foreach($vet as $name){

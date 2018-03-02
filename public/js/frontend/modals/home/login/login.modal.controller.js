@@ -38,6 +38,7 @@
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
           },function(data){
+            console.log(data);
             loginvm.cancel(data);
           });
         }else{

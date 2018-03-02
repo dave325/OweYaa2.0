@@ -4,6 +4,7 @@
         const adminService = {
             login: function (user) {
                 return $http({
+                    method:'POST',
                     url:'/api/admin/login', 
                     data: user,
                     headers: {

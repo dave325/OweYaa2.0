@@ -43,7 +43,7 @@
           });
         }else{
           console.log(data);
-          loginvm.formError = "Username or password does not exist. Please try again";
+          loginvm.formError = "Username or password does not exist.<br/> Please try again";
         }
       },function(data){
         console.log(data);

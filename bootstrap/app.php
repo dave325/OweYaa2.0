@@ -63,14 +63,10 @@ $app->singleton(
 */
 
 $app->middleware([
-    'Illuminate\Session\Middleware\StartSession',
-    'Illuminate\View\Middleware\ShareErrorsFromSession',
-    'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
 ]);
 
  $app->routeMiddleware([
-     'auth' => App\Http\Middleware\Authenticate::class,
-     'csrf' => Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class
+     'auth' => App\Http\Middleware\Authenticate::class
 ]);
 
 /*

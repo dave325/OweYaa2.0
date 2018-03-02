@@ -21,7 +21,7 @@ $router->get('/{any:.*}', function ($any) use ($router){
 });
 
 
-Route::group(['prefix' => 'api', 'middleware' => 'csrf'], function (){
+Route::group(['prefix' => 'api'], function (){
     Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "ExampleController@loginTest");
     Route::post('addUser', "ExampleController@addUser");

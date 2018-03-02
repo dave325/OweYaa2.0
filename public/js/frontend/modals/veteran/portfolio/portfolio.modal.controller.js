@@ -31,7 +31,7 @@
               console.log(response.status + ': ' + response.data);
           });
         }
-        portfoliovm.formInfo = "Succesffuly Updated!";
+        portfoliovm.formInfo = "Succesfully Updated!";
         User.setUser(portfoliovm.user);
       },function(data){
         if(data.status === 401){

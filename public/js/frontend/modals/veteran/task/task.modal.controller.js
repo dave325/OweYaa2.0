@@ -16,9 +16,14 @@
         taskvm.dotask = function(modal, data){
             //Update server information
             User.updateUser(modal, data).then(function(data){
-            taskvm.close(taskvm.user);
+                taskvm.formInfo = "Successfully Updated!";
+                User.setUser(taskvm.user);
             },function(data){
-            console.log(data);
+                if(data.status === 401){
+                    taskvm.formError = "Unauthorized, there was an error. Please try again!";
+                  }else{
+                    taskvm.formError = "There was an error. Please try again!";
+                }
             });
         }
     

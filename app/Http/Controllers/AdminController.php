@@ -44,13 +44,15 @@ private function isValid(){
         return true;
     }
     public function retrieveAllVet(){
-        $vet = User::with('contactInfo')->where("type","=","0")->get();
-        $vets = array();
-        foreach($vet as $name){
-            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
-            array_push($vets,$user);
+        if(isValid()){
+            $vet = User::with('contactInfo')->where("type","=","0")->get();
+            $vets = array();
+            foreach($vet as $name){
+                $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
+                array_push($vets,$user);
+            }
+            return response()->json(['users' => $vets],200);
         }
-        return response()->json(['users' => $vets],200);
     }
 
     public function retrieveVet(Request $rq){

@@ -37,7 +37,7 @@
                 return $http.post('/api/admin/updateUser', data);
             },
             retrieveAllVet: function () {
-                return $http.post('/api/admin/retrieveAllVet');
+                return $http.get('/api/admin/retrieveAllVet',{token:Authentication.getToken()});
             },
             retrieveVet: function (username) {
                 return $http.post('/api/admin/retrieveVet', username);

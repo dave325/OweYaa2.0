@@ -66,7 +66,7 @@
           // returns the http call that register the user variable in the database
           return $http({
             url : '/api/check', 
-            method: 'POST',
+            method: 'Get',
             data:{type:user.type},
             headers:{
               "Authorization" : "Bearer " +  Authentication.getToken()

@@ -23,7 +23,7 @@ class AdminController extends Controller{
     }
 private function isValid(){
         try {
-            if (!$userCheck = app('auth')->guard()->authenticate()) {
+            if (!$userCheck = app('auth')->authenticate()) {
 
                 return response()->json(['user_not_found'], 404);
             }

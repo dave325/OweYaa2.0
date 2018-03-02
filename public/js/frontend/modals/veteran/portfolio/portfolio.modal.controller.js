@@ -16,25 +16,28 @@
     portfoliovm.doportfolio = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
-        var uploadPic = Upload.upload({
-          url:"/api/uploadFile",
-          data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}
-        });
-        uploadPic.then(function (response) {
-          $timeout(function () {
-            console.log(response);
+        if(portfoliovm.user.pic){
+          var uploadPic = Upload.upload({
+            url:"/api/uploadFile",
+            data:{file:portfoliovm.user.pic, username:portfoliovm.user.contact_info.username}
           });
-        }, function (response) {
-          console.log(response);
-          if (response.status > 0)
-            console.log(response.status + ': ' + response.data);
-        });
+          uploadPic.then(function (response) {
+            $timeout(function () {
+              console.log(response);
+            });
+          }, function (response) {
+            console.log(response);
+            if (response.status > 0)
+              console.log(response.status + ': ' + response.data);
+          });
+        }
+        portfoliovm.formInfo = "Succesffuly Updated!";
         User.setUser(portfoliovm.user);
       },function(data){
         if(data.status === 401){
-          journalvm.formError = "Unauthorized, there was an error. Please try again!";
+          portfoliovm.formError = "Unauthorized, there was an error. Please try again!";
         }else{
-          journalvm.formError = "There was an error. Please try again!";
+          portfoliovm.formError = "There was an error. Please try again!";
         }
       });
     }

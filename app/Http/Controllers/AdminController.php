@@ -11,7 +11,7 @@ class AdminController extends Controller{
         $credentials = $request->only('username','password');
         try {
             // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (! $token = app('auth')->attempt($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
         } catch (JWTException $e) {
@@ -21,11 +21,9 @@ class AdminController extends Controller{
         // all good so return the token
         return response()->json(['token' => $token],200);
     }
-
-    private function isValid(){
-        return response()->json(JWTAuth::parseToken());
+private function isValid(){
         try {
-            if (!$userCheck = JWTAuth::parseToken()->authenticate()) {
+            if (!$userCheck = app('auth')->guard()->authenticate()) {
 
                 return response()->json(['user_not_found'], 404);
             }
@@ -45,17 +43,14 @@ class AdminController extends Controller{
 
         return true;
     }
-
     public function retrieveAllVet(){
-        if($this->isValid()){
-            $vet = User::with('contactInfo')->where("type","=","0")->get();
-            $vets = array();
-            foreach($vet as $name){
-                $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
-                array_push($vets,$user);
-            }
-            return response()->json(['users' => $vets],200);
+        $vet = User::with('contactInfo')->where("type","=","0")->get();
+        $vets = array();
+        foreach($vet as $name){
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$name['username'])->first();
+            array_push($vets,$user);
         }
+        return response()->json(['users' => $vets],200);
     }
 
     public function retrieveVet(Request $rq){

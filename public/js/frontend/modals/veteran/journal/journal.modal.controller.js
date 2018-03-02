@@ -21,9 +21,14 @@
             journalvm.user.interviews[i].date = new Date($filter('date')(journalvm.user.interviews[i].date,"yyyy-MM-dd"));
           }
         }
-       journalvm.close(journalvm.user); 
-      },function(error){
-        console.log(error);
+       journalvm.formInfo = "Succesffuly Updated!";
+       User.setUser(journalvm.user); 
+      },function(data){
+        if(data.status === 401){
+          journalvm.formError = "Unauthorized, there was an error. Please try again!";
+        }else{
+          journalvm.formError = "There was an error. Please try again!";
+        }
       });
     }
 

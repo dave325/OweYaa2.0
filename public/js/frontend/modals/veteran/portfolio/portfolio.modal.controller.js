@@ -29,9 +29,13 @@
           if (response.status > 0)
             console.log(response.status + ': ' + response.data);
         });
-        portfoliovm.close(portfoliovm.user);
+        User.setUser(portfoliovm.user);
       },function(data){
-        console.log(data);
+        if(data.status === 401){
+          journalvm.formError = "Unauthorized, there was an error. Please try again!";
+        }else{
+          journalvm.formError = "There was an error. Please try again!";
+        }
       });
     }
 

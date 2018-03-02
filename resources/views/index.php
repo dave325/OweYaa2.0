@@ -2,6 +2,7 @@
 <html ng-app="oweyaa">
     <head>
         <base href="/" />
+        <meta name="csrf-token" content="<?php echo csrf_token() ?>">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-mocks.js"></script>

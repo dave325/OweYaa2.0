@@ -3,7 +3,12 @@
     function adminSer($http, $window,Authentication) {
         const adminService = {
             login: function (user) {
-                return $http.post('/api/admin/login', user).then(
+                return $http({
+                    url:'/api/admin/login', 
+                    data: user,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }}).then(
                     function (data) {
                         if (data.data.token) {
                             $window.sessionStorage.setItem('token', data.data.token);

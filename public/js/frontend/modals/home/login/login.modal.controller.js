@@ -33,7 +33,7 @@
         'type' : loginvm.type
       }
       Authentication.setToken(checkUser).then(function(data){
-        if(data){
+        if(data.statusCode == 200){
           User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);
             loginvm.close(data.data.user);

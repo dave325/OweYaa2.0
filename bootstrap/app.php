@@ -62,12 +62,17 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    'Illuminate\Cookie\Middleware\EncryptCookies',
+    'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+    'Illuminate\Session\Middleware\StartSession',
+    'Illuminate\View\Middleware\ShareErrorsFromSession',
+    'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
+]);
 
  $app->routeMiddleware([
-     'auth' => App\Http\Middleware\Authenticate::class
+     'auth' => App\Http\Middleware\Authenticate::class,
+     'csrf' => Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class
 ]);
 
 /*
@@ -102,9 +107,6 @@ $app->router->group([
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
-$app->routeMiddleware([
-    'csrf' => 'Laravel\Lumen\Http\Middleware\VerifyCsrfToken'
-]);
 
 $app->singleton('filesystem', function ($app) {
     return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem');

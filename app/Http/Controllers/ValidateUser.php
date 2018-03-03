@@ -49,7 +49,6 @@ class ValidateUser extends Controller
         }
         elseif($request->has('type') && $request->input('type') == 1){
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
-            $user['stripe_key'] = env('publishable_api');
             return response()->json(['user' => $user], 200);
         }elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
             $user = User::with('info')->first();

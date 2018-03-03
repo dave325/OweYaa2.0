@@ -23,8 +23,9 @@
                 <p><strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
               </div>
             </div><!-- End of Basic Information -->
-          </div> 
+          </div> <!-- End of box --> 
         </div>
+
         <!---------------
           Education Information 
           -------------->
@@ -43,7 +44,7 @@
                     {{career}}
                   </li>
                 </ul>
-              </div>
+              </div><!-- End of ng-if careerfocus -->
               <div ng-if="user.course.length > 0">
                 <h3>Relevent Courses</h3>
                 <ul>

@@ -6,8 +6,8 @@
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="text-center" id="comp-name">{{vm.user.company.username}} Dashboard</h2>
 			<br>
-		</div>
-	</div>
+		</div> <!-- End of class col-md-8 -->
+	</div> <!-- End of class row -->
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
@@ -16,15 +16,15 @@
 				<img src="{{project.img}}" height="121px">
 				<p>{{project.detail}}</p>
 				<p>{{project.amount}}</p>
-			</div>
-		</div>
-	</div>
+			</div> <!-- End of ng-repeat project in vm.projects -->
+		</div> <!-- End of class col-md-10 box gap -->
+	</div> <!-- End of class row -->
 
 
 	<div class="row col-sm-offset-5">
 		<button class="btn btn-primary" data-toggle="modal" ng-click="vm.openModal()">SETTINGS</button>
 		<button class="btn btn-primary">ADD PROJECT</button>
-	</div>
+	</div> <!-- End of class row col-sm-offset-5 -->
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
@@ -32,16 +32,16 @@
 				<h3>{{type.title}}</h3>
 				<div ng-if="type.project.length > 0">
 					<p>Project Manager: {{type.project.projectmanager}}</p>
-				</div>
+				</div> <!-- End of ng-if type.project.length > 0 -->
 				<p ng-if="type.project.length == 0">No projects in {{type.title}}!</p>
-			</div>
-		</div>
-	</div>
+			</div> <!-- End of ng-repeat type in vm.projectTypes -->
+		</div> <!-- End of class col-md-10 box gap -->
+	</div> <!-- End of class row -->
 
 
 
 	<footer-base></footer-base>
-</div>
+</div> <!-- End of id comp-dash -->
 
 
 

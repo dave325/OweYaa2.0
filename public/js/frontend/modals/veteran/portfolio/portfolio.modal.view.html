@@ -9,32 +9,32 @@
           <div class="form-group">
             <label form="portfolio" for="pic">Profile Picture: </label>
             <input ng-model="portfoliovm.user.pic" type="file" ngf-select class="form-control" name="pic"/>
-          </div>
+          </div> <!-- End of div class form-group -->
           <div class="form-group">
                     <label form="portfolio" for="name">Name: </label>
                     <input ng-model="portfoliovm.user.contact_info.name" type="text" class="form-control" name="name"/>
-          </div>
+          </div> <!-- End of class form-group -->
           <div class="form-group">
                     <label form="portfolio" for="location">Location: </label>
                     <input ng-model="portfoliovm.user.contact_info.location" type="text" class="form-control" name="location"/>
-          </div>
+          </div> <!-- End of class form-group -->
           <div class="form-group">
             <label form="portfolio" for="mos">MOS/Rate: </label>
             <input ng-model="portfoliovm.user.contact_info.mos" type="text" class="form-control" name="mos"/>
-          </div>
+          </div> <!-- End of class form-group -->
           <div class="form-group">
             <label form="portfolio" for="branch">Branch of Service: </label>
             <input ng-model="portfoliovm.user.contact_info.branch" type="text" class="form-control" name="branch"/>
-          </div>
-          </div>
-       </div>   
+          </div> <!-- End of class form-group -->
+          </div> <!-- End of class col-md-12 -->
+       </div> <!-- End of class col-md-12 -->
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
             <button ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-success">Close</button>
             <button ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user)' class="btn btn-success">Save</button>
-            </div>
-        </div>
-        </div>       
+            </div> <!-- End of class text-center form-group -->
+        </div> <!-- End of class col-xs-12 -->
+        </div> <!-- End of class row -->
     </form>
-</div>
+</div> <!-- End of id portfolioModal -->

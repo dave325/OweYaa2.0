@@ -1,6 +1,6 @@
 (function(){
-  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http'];
-	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http){
+  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http', '$location'];
+	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http, $location){
     // Instantiate the var to this
 		var loginvm = this;
     // Sets error variables
@@ -17,7 +17,7 @@
     };
     // The function that is call when a user cancels the opening of a modal
 		loginvm.cancel = function(){
-			$uibModalInstance.dismiss('cancel')
+			$uibModalInstance.dismiss('cancel');
 		};
     // The function that is call when the user closes the modal
 		loginvm.close = function(result){
@@ -81,6 +81,10 @@
       }else{
         loginvm.type = 1;
       }
+    }
+
+    loginvm.registerPage = function(){
+      loginvm.close( {page: 'regiser'});
     }
 	}
 

@@ -17,7 +17,7 @@
       //Update server information
       User.updateUser(modal, data).then(function(data){
         console.log(data);
-        if(data.status === 200){
+        if(data.status === 201){
           contactvm.formInfo = "Succesfully Updated!";
           User.setUser(contactvm.user);
         }

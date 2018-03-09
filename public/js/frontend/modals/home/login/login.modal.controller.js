@@ -84,7 +84,7 @@
     }
 
     loginvm.registerPage = function(){
-      loginvm.close( {page: 'register'});
+      loginvm.close( {page: 'regiser'});
     }
 	}
 

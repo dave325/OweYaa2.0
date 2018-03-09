@@ -46,6 +46,9 @@
           navbarvm.showMessage = true;
           $timeout(function () {
             console.log(data);
+            if(data.page){
+              $location.path('/' + data.page);
+            }
             if (data.type == 1) {
               var curUser = data.company.username;
               $location.path('/company/' + curUser + '/dashboard');

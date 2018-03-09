@@ -33,7 +33,7 @@
         'type' : loginvm.type
       }
       Authentication.setToken(checkUser).then(function(data){
-        if(data){
+        if(data.status === 200){
           User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
@@ -42,11 +42,10 @@
             loginvm.cancel(data);
           });
         }else{
-          console.log(data);
-          loginvm.formError = "Username or password does not exist. Please try again";
+          loginvm.formError = "Username or password does not exist.<br/> Please try again.";
         }
-      },function(data){
-        console.log(data);
+      },function(){
+        loginvm.formError = "There was an error logging in. <br /> Please try again.";
       });
     };
     /*

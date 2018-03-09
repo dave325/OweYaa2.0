@@ -57,9 +57,14 @@
     skillvm.doskill = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
-        skillvm.close(skillvm.user);
+        skillvm.formInfo = "Successfully updated!";
+        User.setUser(skillvm.user);
       },function(error){
-        console.log(error);
+        if(data.status === 401){
+          skillvm.formError = "Unauthorized, there was an error. Please try again!";
+        }else{
+          skillvm.formError = "There was an error. Please try again!";
+        }
       })
     }
 

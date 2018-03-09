@@ -2,6 +2,8 @@
   <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="educationvm.cancel()"></span>
   <h2>Education Information</h2>
   <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
+  <p ng-show="educationvm.formError" class="alert alert-danger" ng-bind-html="educationvm.formError"></p>
+  <p ng-show="educationvm.formInfo" class="alert alert-success" ng-bind-html="educationvm.formInfo"></p>
   <form novalidate method="post" name="education" ng-submit="submit()">
     <div class="row">
       <div class="col-xs-12">

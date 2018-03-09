@@ -55,9 +55,10 @@
             careervm.user.prev_career_fields[i].end_date = new Date($filter('date')(careervm.user.prev_career_fields[i].end_date,"yyyy-MM-dd"));
           }
         }
-        careervm.close(careervm.user);
+        careervm.formInfo = "Successfully updated!";
+        User.setUser(availibilityvm.user);
       },function(error){
-        console.log(error);
+        careervm.formError = "There was an error. Please try again!";
       });
     }
 

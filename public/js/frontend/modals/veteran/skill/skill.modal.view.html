@@ -9,6 +9,8 @@
           <div>
             <h3>Programming Skills:</h3>
             <p>Please include up to 10 programming skills. Include the skill and your skill level ranging from 1-5</p>
+            <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
+            <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
             <p ng-show="skillvm.user.skill.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div class="row">

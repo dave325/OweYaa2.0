@@ -1,7 +1,7 @@
 (function(){
  //Injector will protect against minification
- purchaseMembershipModalCtrl.$inject = ['User','$http','PayType','$timeout','$uibModalInstance'];
- function purchaseMembershipModalCtrl(User,$http,PayType,$timeout,$uibModalInstance) {
+ purchaseMembershipModalCtrl.$inject = ['User','$http','PayType','$timeout','$uibModalInstance','STRIPE_PUBLISHABLE_KEY'];
+ function purchaseMembershipModalCtrl(User,$http,PayType,$timeout,$uibModalInstance,STRIPE_PUBLISHABLE_KEY) {
      var purchaseMembershipModalvm = this;
      purchaseMembershipModalvm.user = User.getUser();
      // List of different types of payments 
@@ -38,7 +38,7 @@
      // Dictates the type of payment to charge 
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client
-     const stripe = Stripe(purchaseMembershipModalvm.user.stripe_key);
+     const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
      // Create an instance of Elements
      const elements = stripe.elements();

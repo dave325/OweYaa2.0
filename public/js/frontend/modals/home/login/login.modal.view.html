@@ -9,8 +9,8 @@
     </div> <!-- End of id loginCompany -->
   </div> <!-- End of id loginVeteran -->
   <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12 col-md-8 col-md-offset-2">
-    <p ng-show="loginvm.formError">{{loginvm.formError}}</p>
     <h2 class="text-center">Sign in({{loginvm.displayFormTitle(loginvm.type)}})</h2>
+    <p ng-show="loginvm.formError" class="alert alert-danger" ng-bind-html="loginvm.formError"></p>
     <div class="form-group">
       <label form="username">Username: </label>
       <p ng-show="!loginModal.username.$valid && loginModal.username.$touched" class="alert alert-warning">Username too short</p>

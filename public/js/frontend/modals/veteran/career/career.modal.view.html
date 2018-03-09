@@ -5,6 +5,8 @@
       <div class="col-md-12">
       <!-- Information regarding higher education -->
       <h3>Previous Career</h3>
+      <p ng-show="careervm.formError" class="alert alert-danger" ng-bind-html="careervm.formError"></p>
+      <p ng-show="careervm.formInfo" class="alert alert-success" ng-bind-html="careervm.formInfo"></p>
       <p>Please indicate your past work experiences (Up to 2)!</p>
       <div class="form-group" ng-repeat="career in careervm.user.prev_career_fields track by $index">
         <div>

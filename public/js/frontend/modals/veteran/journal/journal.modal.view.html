@@ -2,6 +2,8 @@
     <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="journalvm.cancel()"></span>
     <h2>Journal Information</h2>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
+    <p ng-show="journalvm.formError" class="alert alert-danger" ng-bind-html="journalvm.formError"></p>
+    <p ng-show="journalvm.formInfo" class="alert alert-success" ng-bind-html="journalvm.formInfo"></p>
     <form novalidate method="post" name="journal" ng-submit="submit()">
       <div class="row">
         <div class="col-md-12">

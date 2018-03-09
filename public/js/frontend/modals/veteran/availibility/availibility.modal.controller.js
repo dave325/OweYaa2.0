@@ -27,9 +27,12 @@
     availibilityvm.doAvailability = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
-        availibilityvm.close(availibilityvm.user);
+        if(data.status == 200 || data.status == 201){
+          availibilityvm.formInfo = "Successfully updated!";
+          User.setUser(availibilityvm.user);
+        }
       },function(error){
-        console.log(data);
+        availibilityvm.formError = "There was an error. Please try again!";
       })
     }
 

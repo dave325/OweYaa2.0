@@ -3,7 +3,7 @@
     function adminSer($http, $window,Authentication) {
         const adminService = {
             login: function (user) {
-                return $http.post('/api/admin/login', user).then(
+                return $http('/api/admin/login', user).then(
                     function (data) {
                         if (data.data.token) {
                             $window.sessionStorage.setItem('token', data.data.token);
@@ -37,7 +37,7 @@
                 return $http.post('/api/admin/updateUser', data);
             },
             retrieveAllVet: function () {
-                return $http.post('/api/admin/retrieveAllVet');
+                return $http.post('/api/admin/retrieveAllVet',{token:Authentication.getToken()});
             },
             retrieveVet: function (username) {
                 return $http.post('/api/admin/retrieveVet', username);

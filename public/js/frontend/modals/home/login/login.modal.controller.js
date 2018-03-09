@@ -84,7 +84,7 @@
     }
 
     loginvm.registerPage = function(){
-      loginvm.close();
+      loginvm.cancel();
       $location.path('/register');
     }
 	}

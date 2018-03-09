@@ -97,6 +97,7 @@ class ValidateUser extends Controller
             return response()->json(['success'=>true],201);
         }
     }
+    
     /**
      * updateEducation
      * @params Request $request

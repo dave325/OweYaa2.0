@@ -1,6 +1,6 @@
 (function () {
-  navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout'];
-  function navbarCtrl($window, User, $uibModal, $location, $timeout, $http) {
+  navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout','$route'];
+  function navbarCtrl($window, User, $uibModal, $location, $timeout, $http,$route) {
     var navbarvm = this;
     // Sets the user name
     if (User.getUser()) {
@@ -71,7 +71,11 @@
         navbarvm.message = "Thank you. Please wait until you are successfully logged out.";
         navbarvm.showMessage = true;
         $timeout(function () {
-          $location.path('/');
+          if($location.url() === "/"){
+            $route.reload();
+          }else{
+            $location.path('/');
+          }
         }, 3000);
       } else {
         console.log('error');

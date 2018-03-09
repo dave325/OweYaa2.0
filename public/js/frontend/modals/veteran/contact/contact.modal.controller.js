@@ -16,8 +16,9 @@
     contactvm.docontact = function(modal, data){
       //Update server information
       User.updateUser(modal, data).then(function(data){
+        console.log(data);
         if(data.status === 200){
-          contactvm.formInfo = "Succesffuly Updated!";
+          contactvm.formInfo = "Succesfully Updated!";
           User.setUser(contactvm.user);
         }
       },function(data){

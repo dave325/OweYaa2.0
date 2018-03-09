@@ -91,7 +91,7 @@ class ValidateUser extends Controller
     }
 
     public function updateContact(Request $request){
-        if(isValid()){
+        if($this->isValid()){
             $credentials = $request->only('contact_info');
             TableModels\ContactInfo::where('username', '=', $credentials['contact_info']['username'])->update($credentials['contact_info']);
             return response()->json(['success'=>true],201);
@@ -110,7 +110,7 @@ class ValidateUser extends Controller
                 $education->fill($credentials['education']);
                 $education->save();
             }catch(ModelNotFoundException $me){
-                respone()->json(['error'=> "Not Found!"],404);
+                return response()->json(['error'=> "Not Found!"],404);
             }
             TableModels\Education::where('username', '=', $credentials['contact_info']['username'])->update($credentials['education']);
             $delete = array();

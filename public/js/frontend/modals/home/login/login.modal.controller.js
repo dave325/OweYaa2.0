@@ -1,6 +1,6 @@
 (function(){
-  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http'];
-	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http){
+  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http', '$location'];
+	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http, $location){
     // Instantiate the var to this
 		var loginvm = this;
     // Sets error variables
@@ -81,6 +81,11 @@
       }else{
         loginvm.type = 1;
       }
+    }
+
+    loginvm.registerPage = function(){
+      loginvm.close();
+      $location.path('/register');
     }
 	}
 

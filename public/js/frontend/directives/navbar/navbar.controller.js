@@ -42,21 +42,22 @@
        */
       modal.result
         .then(function (data) {
-          navbarvm.message = "Thank you. Please wait until you are successfully logged in.";
-          navbarvm.showMessage = true;
-          $timeout(function () {
-            console.log(data);
-            if(data.page){
-              $location.path('/' + data.page);
-            }
-            if (data.type == 1) {
-              var curUser = data.company.username;
-              $location.path('/company/' + curUser + '/dashboard');
-            } else {
-              var curUser = data.contact_info.username;
-              $location.path('/veteran/' + curUser + '/profile');
-            }
-          }, 3000);
+          if(data.page){
+            $location.path('/' + data.page);
+          }else{
+            navbarvm.message = "Thank you. Please wait until you are successfully logged in.";
+            navbarvm.showMessage = true;
+            $timeout(function () {
+              console.log(data);
+              if (data.type == 1) {
+                var curUser = data.company.username;
+                $location.path('/company/' + curUser + '/dashboard');
+              } else {
+                var curUser = data.contact_info.username;
+                $location.path('/veteran/' + curUser + '/profile');
+              }
+            }, 3000);
+          }
         }, function (reason) {
           console.log(reason);
         })

@@ -3,7 +3,7 @@
 <navbar content="navbarvm.activeNav"></navbar>
 <div class="container">
   <div class="space">
-  </div>
+  </div> <!-- End of class space -->
   <div class="row">
     <div class="col-md-2">
       <!-- Tab Items -->
@@ -12,9 +12,9 @@
           <a href="veteran/" + user.name +"/profile" class="list-group-item ">Profile</a>
           <a href="veteran/" + user.name +"/career" class="list-group-item list-group-item-action">Career Plan</a>
           <a href="veteran/" + user.name +"/internship" class="list-group-item list-group-item-action active">Project Internship Tracker</a>
-        </div>
-      </div>
-    </div>
+        </div> <!-- End of class list-group -->
+      </div> <!-- End of id tab -->
+    </div> <!-- End of class col-md-2 -->
     <div class="col-md-10">
       <!-- Project Information -->
       <div class="col-xs-12 text-center box gap">
@@ -24,14 +24,14 @@
           <p>Project Manager: {{vm.internship.manager}} </p>
           <p>Website: {{vm.internship.website}} </p>
           <p>Project Description: {{vm.internship.description}} </p>
-        </div>
+        </div> <!-- End of class col-md-6 col-xs-12 -->
         <div class="col-md-6 col-xs-12">
           <p>Completion Date: {{vm.internship.completionDate}} </p>
           <p>Deliverable Method: {{vm.internship.deliverableMethod}} </p>
           <p>Next Check-in Due: {{vm.internship.nextCheckIn}} </p>
           <p>Resources / Project Docs: {{vm.internship.resourses}} </p>
-        </div>
-      </div>
+        </div> <!-- End of class col-md-6 -->
+      </div> <!-- End of class text-center box gap -->
       <!-- Project Status -->
       <div class=" col-md-10 col-xs-12 col-md-offset-1 text-center box gap">
         <p><strong>Project Status</strong></p>
@@ -42,13 +42,13 @@
           <li>Complete / Submit For Review: Waiting For Step 1 To Be Complete</li>
         </ul>
 
-      </div>
+      </div> <!-- End of text-center box gap -->
       <div class="col-xs-8 col-xs-offset-2 text-center box gap">
         <p><strong>Messaging System Placed Here</strong></p>
-      </div>
-    </div>
-  </div>
-</div>
+      </div> <!-- End of text-center box gap -->
+    </div> <!-- End of class col-md-10 -->
+  </div> <!-- End of class row -->
+</div> <!-- End of class container -->
 <footer-base></footer-base>
 
-</div>
+</div> <!-- End of id vet-int and class vet-dashboard -->

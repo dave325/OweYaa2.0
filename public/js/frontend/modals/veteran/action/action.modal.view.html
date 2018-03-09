@@ -19,17 +19,17 @@
                 <p><button class="btn" type="button" ng-click="actionvm.deleteTask($index)" ng-hide="actionvm.editMode">Delete</button></p>
               </li>
             </ol>
-          </div>
+          </div> <!-- End of div on line 8 -->
           <div class="form-group">
             <!-- Create a new task -->
             <div>
               <p>Add a new Task:</p>
               <input type="text" ng-model="actionvm.newTask">
               <button class="btn" type="button" ng-click="actionvm.addToCurrent()">Add</button>
-            </div>
-          </div>
-        </div>
-      </div>
+            </div> <!-- End of div on line 25 -->
+          </div> <!-- End of class form-group -->
+        </div> <!-- End of class form-group -->
+      </div> <!-- End of class col-md-5 -->
 
       <div class="col-md-5 col-md-offset-2">
         <!-- Showcase only completed tasks -->
@@ -45,9 +45,9 @@
         <div class="col-xs-12">
           <div class="text-center form-group">
             <button class="btn btn-success" ng-click="actionvm.close()" type="submit">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> <!-- End of class text-center form-group -->
+        </div> <!-- End of class col-xs-12 -->
+      </div> <!-- End of class row -->
+    </div> <!-- End of class row --> 
   </form>
-</div>
+</div> <!-- End of id actionModal -->

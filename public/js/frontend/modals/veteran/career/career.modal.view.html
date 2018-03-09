@@ -12,21 +12,21 @@
         <div>
           <label form="career" for="prev{{$index}}">Previous Employer {{$index + 1}}: </label>
           <input ng-model="career.employer" type="text" class="form-control" name="empl{{$index}}" id="prev{{$inde}}empl"/>
-        </div>
+        </div> <!-- End of div on line 10 -->
         <div>
           <label form="career" for="prevContact{{$index}}">Contact: </label>
           <input ng-model="career.contact" type="text" class="form-control" name="contact{{$index}}" id="prevContact{{$index}}"/>
-        </div>
+        </div> <!-- End of div on line 14 -->
         <div>
           <label form="career" form="prevTo{{$index}}">To: </label>
           <input ng-model="career.start_date" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
-        </div>
+        </div> <!-- End of div on line 18 -->
         <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>
           <input ng-model="career.end_date" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
           <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" />
-        </div>
-      </div>
+        </div> <!-- End of div on line 22 -->
+      </div> <!-- End of ng-repeat careervm.user.prev_career_fields -->
       <div class="col-xs-12">
         <!-- Display all interests and hobbies -->
         <div class="form-group">
@@ -39,15 +39,15 @@
               <label>Interests/Hobbies</label>
               <input type="text" ng-model="careervm.newHobby.hobby" class="add-btn" />
               <button ng-class="[{'addEntry': careervm.newHobby.hobby}]" class="btn" ng-disabled="careervm.hobbies.length == 9 || !careervm.newHobby" type="button" ng-click="careervm.addToHobbies()" class="btn btn-primary">Add</button>
-            </div><br />
+            </div><br /> <!-- End of div on line 36 -->
             <ol ng-if="careervm.user.hobbies.length > 0">
               <li ng-repeat="field in careervm.user.hobbies track by $index" class="col-xs-12 col-md-5">
                 <input type="text" ng-model="field.hobby" class="form-control"><span class="glyphicon glyphicon-remove" ng-click="careervm.deleteHobby($index)"></span>
               </li>
             </ol>
-          </div>
-        </div>
-      </div>
+          </div> <!-- End of div on line 31 -->
+        </div> <!-- End of class form-group -->
+      </div> <!-- End of class col-xs-12 -->
 
       <!-- Relocation Information -->
       <div>
@@ -56,15 +56,15 @@
         <input type="radio" name="relocate" ng-model="yes">
         <label form="relocate">No: </label>
         <input type="radio" name="relocate" ng-model="no">
-      </div>
-    </div>
+      </div> <!-- End of div on line 51 -->
+    </div> <!-- End of class col-md-12 -->
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
           <button ng-click="careervm.cancel()" class="btn btn-success" type="submit">Close</button>
           <button ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-success" type="submit">Save</button>          
-        </div>
-      </div>
-    </div>
+        </div> <!-- End of class text-center form-group -->
+      </div> <!-- End of class col-xs-12 -->
+    </div> <!-- End of class row -->
   </form>
-</div>
+</div> <!-- End of id careerModal -->

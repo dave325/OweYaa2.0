@@ -6,8 +6,8 @@
     </div>
     <div id="loginCompany" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerCompCheck()">
       <h3 class="text-center">Login as Company</h3>
-    </div>
-  </div>
+    </div> <!-- End of id loginCompany -->
+  </div> <!-- End of id loginVeteran -->
   <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12 col-md-8 col-md-offset-2">
     <h2 class="text-center">Sign in({{loginvm.displayFormTitle(loginvm.type)}})</h2>
     <p ng-show="loginvm.formError" class="alert alert-danger" ng-bind-html="loginvm.formError"></p>
@@ -15,21 +15,21 @@
       <label form="username">Username: </label>
       <p ng-show="!loginModal.username.$valid && loginModal.username.$touched" class="alert alert-warning">Username too short</p>
       <input ng-model="loginvm.credentials.loginModal.username" type="text" name="username" ng-class="[{error: !loginModal.username.$valid && loginModal.username.$touched}, {success: loginModal.username.$valid}]" ng-minlength="5" ng-required="true" class="form-control"/>
-    </div>
+    </div> <!-- End of class form-group -->
     <div class="form-group">
       <label form="username">Password: </label>
       <p ng-show="!loginModal.password.$valid && loginModal.password.$touched" class="alert alert-warning">Password too short</p>
       <input ng-model="loginvm.credentials.loginModal.password" type="password" name="password" ng-class="[{error: !loginModal.password.$valid && loginModal.password.$touched}, {success: loginModal.password.$valid}]" ng-minlength="8" ng-required="true" class="form-control"/>
-    </div>
+    </div> <!-- End of class form-group -->
     <div class="form-group">
       <input ng-value="loginvm.credentials.loginModal.honeypot" type="hidden" class="form-control" ng-maxlength="0"/>
       <p ng-click="loginvm.loginOppForm()" id="changeLoginForm">Login as {{loginvm.displayFormTitle(!loginvm.type)}}</p>
       <button type="button" ng-disabled="loginModal.$invalid" ng-click="loginvm.doLogin($event, loginvm.credentials.loginModal)" class="btn- btn-primary col-xs-12"> Login </button>
-    </div>
+    </div> <!-- End of class form-group -->
   </form>
   <div class="col-xs-12" id="loginOptions">
     <a href="register" class="col-xs-12">Click here to register </a><br />
     <a href="forgotpassword" class="col-xs-12">Forgot password</a>
-  </div>
+  </div> <!-- End of id loginOptions -->
   <span class="clearfix"></span>
-</div>
+</div> <!-- End of id loginModal -->

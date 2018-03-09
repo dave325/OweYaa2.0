@@ -4,7 +4,7 @@
   <!-- Particular spacing -->
   <section class="col-xs-12 container-fluid">
     <div class="space">
-    </div>
+    </div> <!-- End of class space -->
       <article class="col-xs-12 col-md-8">
         <div class="row">
           <div class="col-xs-12 space box">
@@ -13,7 +13,7 @@
             <div class="col-md-3 col-xs-12 text-center">
               <img src="{{user.contact_info.imgurl}}" height=200 alt="Profile Image"/>
               <p><button class="btn btn-default">Upload Photo</button><p>
-            </div>
+            </div> <!-- End of class col-md-3 -->
             <!-- Basic Information -->
             <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
               <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
@@ -21,11 +21,18 @@
                 <p><strong>Location</strong>: {{user.contact_info.location}} </p>
                 <p><strong>MOS/Rate</strong>: {{user.contact_info.mos}} </p>
                 <p><strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
+<<<<<<< HEAD
+              </div> <!-- End of class col-md-6 -->
+            </div> <!-- End of Basic Information -->
+          </div> <!-- End of class space box -->
+        </div> <!-- End of row -->
+=======
               </div>
             </div><!-- End of Basic Information -->
           </div> <!-- End of box --> 
         </div>
 
+>>>>>>> 0aa3afdc6a948175e2caa966339c2e640bb9556d
         <!---------------
           Education Information 
           -------------->
@@ -44,7 +51,11 @@
                     {{career}}
                   </li>
                 </ul>
+<<<<<<< HEAD
+              </div> <!-- End of user.careerFocus -->
+=======
               </div><!-- End of ng-if careerfocus -->
+>>>>>>> 0aa3afdc6a948175e2caa966339c2e640bb9556d
               <div ng-if="user.course.length > 0">
                 <h3>Relevent Courses</h3>
                 <ul>
@@ -52,7 +63,7 @@
                     {{course.course}}
                   </li>
                 </ul>
-              </div>
+              </div> <!-- End of user.course.length -->
               <div ng-if="user.bootcamp.length > 0">
                 <h3>Bootcamps:</h3>
                 <ul>
@@ -60,7 +71,7 @@
                     {{bootcamp.bootcamp}}
                   </li>
                 </ul>
-              </div>
+              </div> <!-- End of user.bootcamp.length -->
               <div ng-if="user.certifications.length > 0">
                 <h3>Certifications Gained:</h3>
                 <ul>
@@ -68,13 +79,13 @@
                     {{certification}}
                   </li>
                 </ul>
-              </div>
+              </div> <!-- End of user.certifications.length -->
               <h3  ng-if="user.education.course1 || user.education.course2 || user.education.course3">Courses Provided By Us For You:</h3>
               <p ng-if="user.education.course1">{{user.education.course1}}</p>
               <p ng-if="user.education.course2">{{user.education.course2}}</p>
               <p ng-if="user.education.course3">{{user.education.course3}}</p>
-            </div> 
-        </div>
+            </div> <!-- End of class space box -->
+        </div> <!-- End of class row -->
 
         <!---------------
           Career Information 
@@ -91,17 +102,17 @@
                       <p>Employer: {{field.employer}}</p>
                       <p>Contact: {{field.contact}}</p>
                       <p>Duration: {{field.start_date | date:'MM/dd/yyyy'}} - {{field.end_date | date:'MM/dd/yyyy'}}</p>
-                    </div>
-                  </div>
-                </div>
+                    </div> <!-- End of field.employer.length -->
+                  </div> <!-- End of ng-repeat -->
+                </div> <!-- End of user.prev_career_fields.length -->
                 <div ng-if="user.career_goal.goal1.length > 0 || user.career_goal.goal2.length > 0 || user.career_goal.goal3.length > 0">
                   <p>Goals &amp; Objectives:</p>
                   <p ng-if="user.career_goal.goal1.length > 0">Goal 1: {{user.career_goal.goal1}}</p>
                   <p ng-if="user.career_goal.goal2.length > 0">Goal 2: {{user.career_goal.goal2}}</p>
                   <p ng-if="user.career_goal.goal3.length > 0">Goal 3: {{user.career_goal.goal3}}</p>
-                </div>  
-              </div> 
-        </div>
+                </div> <!-- End of user.career_goal.goal1.length --> 
+              </div> <!-- End of class space box -->
+        </div> <!-- End of class row -->
 
          <!---------------
           Skills Information 
@@ -122,7 +133,7 @@
                     <p class="col-md-6">{{field.skill}}</p> <uib-progressbar max="5" value="field.amount"  class="col-md-6"><span>{{field.amount}}</span></uib-progressbar>
                 </li> <br />
               </ol>
-              </div>
+              </div> <!-- End of class col-xs-12 -->
               <div class="col-xs-12">
               <!-- Create for loop for given skills and alllow user to delete and add them -->  
               <ol ng-if="user.wanted_skills.length > 0" class="skillsModal col-md-6">
@@ -131,8 +142,8 @@
                     {{field.skill}}
                   </li> <br />
                 </ol>
-          </div> 
-        </div>
+          </div> <!-- End of class col-xs-12 -->
+        </div> <!-- End of row box space -->
 
          <!---------------
           Journal and Mentor Information 
@@ -153,9 +164,9 @@
                       <p>Date: {{interview.date | date: 'shortDate'}}</p>
                       <p>Contact: {{interview.contact}}</p>
                       <p>Notes: {{interview.notes}}</p>
-                    </div>
-                  </div>
-                </div>
+                    </div> <!-- End of interview.company.length -->
+                  </div> <!-- End of ng-repeat interview in user.interviews -->
+                </div> <!-- End of ng-if users.interviews[0] -->
                 <div ng-if="user.events[0].eventname.length > 0 || user.events[1].eventname.length > 0">
                   <h3 ng-if="user.events.length > 0">Networking Events:</h3>
                   <div ng-repeat="event in user.events track by $index">
@@ -163,9 +174,9 @@
                       <h5>Event #{{$index + 1}}</h5>
                       <p>Event: {{event.eventname}}</p>
                       <!-- Add contacts here -->
-                    </div>
-                  </div>
-                </div>
+                    </div> <!-- End of ng-if event.eventname.length -->
+                  </div> <!-- End of ng-repeat event in user.events -->
+                </div> <!-- End of user.events[0].eventname.length -->
               </div><!-- End of left side journal and mentor box -->
               <div class="col-md-6">
                 <div ng-if="user.mentor.mentorname != null">
@@ -175,16 +186,16 @@
                       <div ng-if="search.length > 0">
                         <h4>{{key}} year goal</h4>
                         <p>{{search}}</p>
-                      </div>
-                  </div>
-                </div>
+                      </div> <!-- End of ng-if search.length -->
+                  </div> <!-- End of ng-repeat (key,search) -->
+                </div> <!-- End of ng-if user.mentor.mentorname -->
                 <div ng-if="user.career_search[0].title.length > 0 || user.career_search[1].title.length > 0"> 
                   <div ng-repeat="search in user.career_search track by $index">
                       <h4>Career Search For: **Fix later from career track</h4>
                       <p>Job Title: {{search.title}}</p>
                       <p>Status: {{search.status}}</p>
-                  </div> 
-                </div>
+                  </div> <!-- End of ng-repeat search in user.career_search -->
+                </div> <!-- End of user.career_search[0].title.length -->
                 <div ng-if="user.mentor.mentorname.length > 0">
                   <h3>Mentor Information</h3>
                     <p>Mentor Name: {{user.mentor.mentorname}}</p>
@@ -206,16 +217,16 @@
                 <div class="col-xs-12" ng-repeat="day in user.availability">
                   <div ng-if="day.start_time != '00:00:00' || day.end_time != '00:00:00'">
                     <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
-                  </div>
-                </div><!-- End of ng-repeat -->
+                  </div> <!-- End of ng-if day.start_time -->
+                </div> <!-- End of ng-repeat -->
               </div> <!-- Rnd of space box div -->
-          </div>
+          </div> <!-- End of class row -->
         <div class="row">
           <div class="col-xs-12 space box">
               <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Resume and Portfolio</h2>
               
-            </div> 
-        </div>
+            </div> <!-- End of class space box -->
+        </div> <!-- End of class row -->
       </article>
     <aside class="col-xs-12 col-md-4">
         <!-- Contact Information -->
@@ -234,14 +245,14 @@
               <p>Current Tasks:</p>
               <div ng-repeat="task in user.action_task track by $index">
                   <p ng-if="task.task.length > 0">{{task.task}}</p>
-              </div>
-          </div>
+              </div> <!-- End of ng-repeat user.action_task -->
+          </div> <!-- End of user.action_task[0].task.length -->
           <div ng-if="!user.action_task || user.action_task[0].task.length == 0 && user.action_task[1].task.length == 0 ">
             <p>No actions tasks at the moment!</p>
-          </div>
+          </div> <!-- End of !user.action_task -->
         </div> <!-- End of Action Tasks -->
       </aside>
   </section>
   <footer-base></footer-base>
 
-</div>
+</div> <!-- End of id vet-pro and class vet-dashboard -->

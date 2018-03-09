@@ -5,13 +5,13 @@
             <label for="username">Username:</label>
             <p ng-show="!adminLoginForm.username.$valid && adminLoginForm.username.$touched" class="alert alert-warning">Username too short</p>
             <input ng-model="adminLogin.user.username" type="text" name="username" ng-class="[{error: !adminLoginForm.username.$valid && adminLoginForm.username.$touched}, {success: adminLoginForm.username.$valid}]" ng-minlength="5" ng-required="true" class="form-control" id="username"/>
-        </div>
+        </div> <!-- End of class form-group -->
         <div class="form-group">
             <label for="password">Password:</label>
             <p ng-show="!adminLoginForm.password.$valid && adminLoginForm.username.$touched" class="alert alert-warning">Password too short</p>
             <input ng-model="adminLogin.user.password" type="text" name="password" ng-class="[{error: !adminLoginForm.password.$valid && adminLoginForm.password.$touched}, {success: adminLoginForm.username.$valid}]" ng-minlength="5" ng-required="true" class="form-control" id="password"/>
-        </div>
+        </div> <!-- End of class form-group -->
         <input type="button" ng-click="adminLogin.loginUser()" value="Submit" class="btn btn-primary pull-right">
     </form>
     <footer-base></footer-base>
-</div>
+</div> <!-- End of id adminLoginForm --> 

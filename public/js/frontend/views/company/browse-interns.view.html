@@ -1,5 +1,67 @@
 <div id="browse-interns">
 	<navbar content="navbarvm.activeNav"></navbar>
+<<<<<<< HEAD
+		<!-- Filter User Input and Output Result -->
+	  <section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<h1 class="text-center">Browse Intern</h1>
+	    <form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	      <!-- Use angular to bind this element to the results and filter them -->
+				<div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
+					<label>Option</label>
+	      	<select name="filterby" class="form-control-lg form-control">
+	        	<option value="date">Date</option>
+	        	<option value="name">Name</option>
+	      	</select>
+				</div> <!-- End of class col-lg-3 form-group -->
+				<div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group" >
+					<label>Skills</label>
+	      	<input type="text" name="skills" class="form-control-lg form-control" ng-model="vm.test.skill.skill">
+				</div> <!-- End of class col-lg-2 form-group -->
+				<div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
+					<label>Design</label>
+	      	<input type="text" name="dskills" class="form-control-lg	form-control">
+				</div> <!-- End of col-lg-3 form-group -->
+			  <span class="clearfix"></span>
+	    </form>
+			<!-- Results that have been filtered out -->
+	    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
+				<h2 class="text-center">Results</h2>
+				<div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in users = (vm.users | filter:vm.test)">
+
+					<div class="col-md-2">
+						<img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
+						 alt="">
+						<h4 class="specialText">INTERN NAME</h4>
+		
+						<button type="button" class="btn btn-success">WANT</button>
+						<button type="button" class="btn btn-success">FAV</button>
+		
+					</div> <!-- End of class col-md-2 -->
+					<div class="col-md-4">
+						<br>
+						<p>LOCATION: </p>
+						<p>BIO:</p>
+						<p>Degree:</p>
+						<p>Previous Employer:</p>
+						<p>Desired Field:</p>
+					</div> <!-- End of class col-md-4 -->
+		
+					<div class="col-md-4" ng-repeat="skill in users.skill">
+						<br>
+						<span>{{skill.skill}}</span>
+						<div class="progress" style="height:20px">
+							<div class="progress-bar" style="width:50%;height:20px"></div>
+						</div> <!-- End of class progress --> 
+		
+					</div> <!-- End of ng-repeat skill in users.skill -->
+				</div> <!-- End of  ng-repeat user in users --> 
+	    </article>
+			<span class="clearfix"></span>
+	  </section>
+
+		<footer-base></footer-base>
+</div> <!-- End of id browse-interns -->
+=======
 	<!-- Filter User Input and Output Result -->
 	<section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<h1 class="text-center">Browse Intern</h1>
@@ -60,3 +122,4 @@
 
 	<footer-base></footer-base>
 </div>
+>>>>>>> 0aa3afdc6a948175e2caa966339c2e640bb9556d

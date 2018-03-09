@@ -3,7 +3,7 @@
   <navbar content="navbarvm.activeNav"></navbar>
   <div class="container">
     <div class="space">
-    </div>
+    </div> <!-- End of class space -->
     <div class="row">
       <div class="col-md-2">
         <div id="tab">
@@ -11,9 +11,9 @@
             <a href="veteran/" + user.name +"/profile" class="list-group-item ">Profile</a>
             <a href="veteran/" + user.name +"/career" class="list-group-item list-group-item-action active">Career Plan</a>
             <a href="veteran/" + user.name +"/internship" class="list-group-item list-group-item-action">Project Internship Tracker</a>
-          </div>
-        </div>
-      </div>
+          </div> <!-- list-group -->
+        </div> <!-- End of id tab -->
+      </div> <!-- End of col-md-2 -->
       <div class="col-md-10 equal">
         <div class="col-md-5 box gap text-center">
           <p><strong>My Action Items</strong></p>
@@ -22,7 +22,7 @@
           <p>{{actions.task2}}</p>
           <hr>
           <button ng-click="actionsModal()" class="btn btn-primary">View All Items</button>
-        </div>
+        </div> <!-- End of class box gap text-center -->
         <div class="col-md-5 col-md-offset-2 box gap text-center">
           <p><strong>Resume & Portfolio</strong></p>
           <p><a>View Your Resume</a></p>
@@ -31,7 +31,7 @@
           <p>Github: {{portfolio.github}}</p>
           <p>LinkedIn: {{portfolio.linkedin}}</p>
           <button ng-click="socialModal()" class="btn btn-primary">View All Items</button>
-        </div>
+        </div> <!-- End of box gap text-center -->
         <div class="col-md-5 box gap text-center">
           <p><strong>Career Information</strong></p>
           <p>Previous Career Fields:</p>
@@ -43,7 +43,7 @@
           <p>Goals & Objectives:</p>
           <p>{{career.goal}}</p>
           <button ng-click="careerModal()" class="btn btn-primary">View All Items</button>
-        </div>
+        </div> <!-- End of box gap text-center -->
         <div class="col-md-5 col-md-offset-2 box gap text-center">
           <p><strong>Education & Coursework</strong></p>
           <p>Higher Education:</p>
@@ -55,23 +55,23 @@
           <p>Courses Provided By Us For You:</p>
           <p>{{education.providedCourse}}</p>
           <button ng-click="educationModal()" class="btn btn-primary">View All Items</button>
-        </div>
+        </div> <!-- End of box gap text-center -->
         <div class="col-md-5 box gap text-center">
           <p><strong>Journal</strong></p>
           <p>Record all your career development efforts here!</p>
           <button class="btn btn-primary">View Your Journal</button>
-        </div>
+        </div> <!-- End of box gap text-center -->
         <div class="col-md-5 col-md-offset-2 box gap text-center">
           <p><strong>Skills</strong></p>
           <p>Highest Rated Skill:</p>
           <p>{{skill.highestSkill}}</p>
           <hr>
           <button ng-click="skillModal()" class="btn btn-primary">View All Items</button>
-        </div>
+        </div> <!-- end of box gap text-center -->
         <span class="clearfix"></span>
-      </div>
-    </div>
-  </div>
+      </div> <!-- End of class col-md-10 equal -->
+    </div> <!-- End of class row -->
+  </div> <!-- End of class container -->
   <footer-base></footer-base>
 
-</div>
+</div> <!-- End of id vet-car and class vet-dashboard -->

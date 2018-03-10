@@ -27,9 +27,11 @@ Table of Contents:
 	8.1 Login Modal
 	8.2 Other modals
 *****/
-
+/* 
+White - 255, 255, 255 
+*/
 body{
-	background-color:#FFF;
+	background-color:rgb(255,255,255);
 	font-family: 'Roboto', sans-serif;
 	font-size: 15.5px;
 }
@@ -85,9 +87,12 @@ END OF SECTION 1
 Section 2: Home Page
 
 **********************************/
+/*
+Black - 0, 0, 0
+*/
 .home-page #company-pictures h3{
-	border-bottom:1px solid #000;
-	border-top:1px solid #000;
+	border-bottom:1px solid rgb(0,0,0);
+	border-top:1px solid rgb(0,0,0);
 	padding:10px 0px;
 }
 .home-page #donate {
@@ -105,24 +110,31 @@ Section 2: Home Page
   padding-left: 20px;
 }
 /*This is the boxes which take up the center of the page: 4 under Veterans and 4 under Companies*/
+/*
+White - 255, 255, 255
+Blue - 70, 134, 172
+*/
 .home-page .box {
   margin-bottom:20px;
 	padding: 0px;
-	background-color: #fff;
-	border: 1px solid #4686AC;
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(70,134,172);
 	border-radius: 10px;
-	box-shadow:  -1px 1px #4686AC,
-         -2px 2px #4686AC,
-         -3px 3px #4686AC,
-         -4px 4px #4686AC,
-         -5px 5px #4686AC;
+	box-shadow:  -1px 1px rgb(70,134,172),
+         -2px 2px rgb(70,134,172),
+         -3px 3px rgb(70,134,172),
+         -4px 4px rgb(70,134,172),
+         -5px 5px rgb(70,134,172);
 }
-
+/*
+White - 255, 255, 255
+Black - 0, 0, 0
+*/
 .home-page .textBox {
 	margin-bottom:20px;
 	padding: 0px;
-	background-color: #fff;
-	border-top: 1px solid #000;
+	background-color: rgb(255,255,255);
+	border-top: 1px solid rgb(0,0,0);
 }
 
 .home-page .vet-container:nth-child(odd), #home-page .com-container:nth-child(even){
@@ -136,29 +148,37 @@ Section 2: Home Page
 	margin: 10px 10px;
 	font-size:1.2em;
 }
-
+/*
+Black - 0, 0, 0
+*/
 .home-page .box .header {
-	color: #000;
+	color: rgb(0,0,0);
 	font-weight: 700;
 }
-
+/*
+White - 255, 255, 255
+*/
 .home-page .match{
 	background-color:rgb(211,211,211);
 	padding-bottom:15px;
 }
-
+/*
+Orange - 247, 159, 75
+*/
 .home-page h2 {
 	color: rgb(247,159,75);
 }
-
+/*
+White - 255, 255, 255
+*/
 .home-page #match {
-	background-color: #FFF;
+	background-color: rgb(255,255,255);
 }
 
 .home-page .container-fluid {
 	display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 
@@ -182,13 +202,15 @@ Section 3.1 Element Styles
 container col-lg-12 col-md-12{
    padding: 25px;
 }
-
+/*
+Blue - 70, 134, 172
+*/
 #comp-page h1, #vet-page h1{
   font-size:55px;
   /********* Changes h1 tags to a different font *********/
   font-family:"Roboto Condensed",sans-serif;
   padding: 100px 0px 20px;
-  color: #4686ac;
+  color: rgb(70,134,172);
 }
 
 /*************** Sets the style for hr line underneath how it works and steps ********/
@@ -201,19 +223,24 @@ container col-lg-12 col-md-12{
     width: 94%;
 }
 
-
+/*
+Blue - 70, 134, 172 
+*/
 #comp-page h2, #vet-page h2{
   font-size:55px;
   font-family:"Roboto Condensed",sans-serif;
   padding: 20px 0px 20px;
-  color: #4686ac;
+  color: rgb(70,134,172);
 }
 
+/*
+Blue - 70, 134, 172
+*/
 #comp-page h4, #vet-page h4{
   font-size:55px;
   font-family:"Roboto Condensed",sans-serif;
   padding:20px 0px 50px;
-  color: #4686ac;
+  color: rgb(70,134,172);
 }
 
 #vet-home-page .match, #comp-page .match{
@@ -224,7 +251,9 @@ container col-lg-12 col-md-12{
 Section 3.2 Classes
 
 *************/
-
+/*
+White - 255, 255, 255
+*/
 #comp-page .caption, #vet-page .caption {
     position:absolute;
     top:0;
@@ -233,7 +262,7 @@ Section 3.2 Classes
     width:100%;
     height:100%;
     display: none;
-    color:#fff !important;
+    color:rgb(255,255,255) !important;
 }
 
 /*********** Matching Company div ***************/
@@ -259,9 +288,12 @@ Section 4.1: Spacing styles
 
 /************************* DO NOT CHANGE PADDING for intern ***********************/
 
+/*
+Black - 0, 0, 0
+*/
 #browse-interns .intern, #fav-intern .intern{
   /****** Change the border color(#000) to the desired color *****/
-	border-bottom:1px solid #000;
+	border-bottom:1px solid rgb(0,0,0);
 
   /***** Adds some space between intern profiles for browse-intern and fav-intern pages *****/
 	padding:30px;
@@ -292,25 +324,28 @@ Section 4.2: Form styles
 
 ************/
 
-/************* Cahnges the input fields to have only a bottom border when users view it ***************/
+/************* Changes the input fields to have only a bottom border when users view it ***************/
+/*
+Black - 0, 0, 0
+*/
 #browse-interns .form-control, #fav-intern .form-control{
   box-shadow: none;
   /****** Take this out if you want the input boxes to have a generic look *******/
   border:none;
-  border-bottom:1px solid #000;
+  border-bottom:1px solid rgb(0,0,0);
   /****** Adds spacing at the bottom of the input fields *******/
   margin:0px 0px 20px 0px;
 }
 
 /************ Adds a border around the box that shows the progression of the form **********/
 #browse-interns #submit-progression, #fav-intern #submit-progression{
-  border:1px solid #000;
+  border:1px solid rgb(0,0,0);
 }
 
 /************** Vertically aligns the text within the submit-progression div ************/
 #browse-interns #submit-progression p, #fav-intern #submit-progression p {
 	display:block;
-  margin:25px 0px;
+    margin:25px 0px;
 }
 /********************* Hides the other pages of the form ******************/
 #browse-interns .step, #fav-intern .step{
@@ -338,6 +373,12 @@ Section 5: Vet Dashboard Styles
 Section 5.1: Veteran Dashboard
 
 ************/
+/*
+White - 211, 211, 211
+*/
+/*
+White - 211, 211, 211
+*/
 .vet-dashboard .container-fluid, .vet-dashboard aside{
 	background-color:rgb(211,211,211);
 }
@@ -369,9 +410,11 @@ Section 5.1: Veteran Dashboard
   padding-right: 20px;
   overflow-wrap: break-word;
 }
-
+/*
+White - 255, 255, 255
+*/
 .vet-dashboard .box, #comp-dash .box {
-	background-color:#FFF;
+	background-color:rgb(255,255,255);
   	padding: 10px;
 }
 
@@ -385,7 +428,9 @@ Section 5.1: Veteran Dashboard
   text-align: center;
   list-style-position:inside;
 }
-
+/*
+Orange - 247, 159, 75
+*/
 .vet-dashboard .bg-primary{
 	background-color:rgb(247,159,75) !important;
 	margin-bottom:15px;
@@ -411,12 +456,17 @@ Section 5.2.1: Modal Input styles
 	margin:5px 10px 5px 0px !important;
 }
 
+/*
+White - 211, 211, 211
+*/
 .form-group input{
 	background-color:rgb(211,211,211);
 	border:1px solid rgb(247,159,75);
 	font-size:1em;
 }
-
+/*
+Orange - 247, 159, 75
+*/
 .form-group input:hover, .form-group input:focus{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
@@ -426,7 +476,10 @@ Section 5.2.1: Modal Input styles
 	height: 30px;
     text-align: center;
 }
-
+/*
+Orange - 247, 159, 75
+White - 211, 211, 211
+*/
 .form-group .addEntry{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
@@ -448,22 +501,30 @@ Section 5.2.1: Modal Input styles
 .glyphicon-pencil:hover{
 	color:blue !important;
 }
-
+/*
+Black - 0, 0, 0
+*/
 .close-btn {
 	background-color: #000;
-    color: #FFF;
+    color: rgb(0,0,0);
     font-size: 1.3em;
 	padding: 3px;
 	transition:.5s all;
 }
-
+/*
+White - 0, 0, 0
+Red- 240, 0, 0
+*/
 .close-btn:hover{
-	background-color: #FFF;
-    color: #F00;
+	background-color: rgb(255,255,255);
+    color: rgb(240,0,0);
 }
-
+/*
+Red - 240, 0, 0
+White - 0, 0, 0
+*/
 .form-group .glyphicon-remove{
-	color:red;
+	color:rgb(240,0,0);
 	position: absolute;
 	top:-5px;
 	right:10px;
@@ -478,7 +539,7 @@ Section 5.2.1: Modal Input styles
 }
 
 .vetModal .modal-content{
-	background-color:#FFF;
+	background-color:rgb(0,0,0);
 	padding:15px;
 }
 
@@ -501,8 +562,11 @@ Section 6.1: company dashboard
 
 ************/
 
+/*
+Orange 247, 159, 75
+*/
 #comp-name{
-	background-color: orange;
+	background-color: rgb(247,159,75);
 	padding-bottom: 15px;
 	padding-top: 15px;
 	border-bottom: 4px solid darkgray;
@@ -515,21 +579,27 @@ Section 6.2: projects dashboard
 ************/
 
 
-
+  /*
+  White - 241, 241, 241
+  */
   #proj-dash .sidenav {
-    background-color: #f1f1f1;
+    background-color: rgb(241,241,241);
     height: 100%;
     margin-top: 20px;
   }
 
+  /*
+  Orange - 247, 159, 75
+  Black - 0, 0, 0
+  */
   #proj-dash .sidenav h2 {
     padding: 5px;
-    background-color: orange;
+    background-color: rgb(247,159,75);
     border-bottom: 5px solid;
   }
   #proj-dash .sidenav h2 button {
 	  margin-left: 20px;
-	  color: black;
+	  color: rgb(0,0,0);
   }
 
   #proj-dash #projectPanes{
@@ -548,32 +618,48 @@ Section 6.2: projects dashboard
 	 margin-left: 20px;
  }
 
+  /*
+  Orange - 247, 159, 75
+  */
   #proj-dash #interns {
-	  color: darkorange;
+	  color: rgb(247,159,75);
   }
   
+  /*
+  White - 255, 255, 255
+  */
   #proj-dash .teammember {
     margin: 5px;
-    background-color: white;
+    background-color: rgb(255,255,255);
   }
 
+  /*
+  Orange - 247, 159, 75 
+  Black - 0, 0, 0
+  */
   #proj-dash .task{
-    color: darkorange;
+    color: rgb(247,159,75);
     border-bottom: 3px solid;
     display: table; 
-    background-color: white;
+    background-color: rgb(0,0,0);
     padding: 5px;
     border-radius: 2px
   }
 
+  /*
+  Red - 240, 0, 0
+  */
   #proj-dash .task .completionText{
-    color: red;
+    color: rgb(240,0,0);
   }
 
+  /*
+  Gray - 47, 79, 79
+  */
   #proj-dash .task .completionDate{
 	margin-left: 4px;
 	margin-right: 4px;
-    color: darkslategray;
+    color: rgb(47,79,79);
   }
 
   #proj-dash .stat {
@@ -590,17 +676,22 @@ Section 6.2: projects dashboard
 Section 6.3: favorite-itern
 
 ************/
-
+/*
+Gray - 179, 179, 179
+*/
 .INTERN {
-	border-top: 2px solid darkgray;
-	border-bottom: 2px solid darkgray;
+	border-top: 2px solid rgb(179,179,179);
+	border-bottom: 2px solid rgb(179,179,179);
 	min-height: 200px;
 	text-align: left;
 
 }
-
+/*
+Gray - 211, 211, 211
+Brown - 140, 72, 0
+*/
 .specialText {
-	background-color: lightgray;
+	background-color: rgb(211,211,211);
 	color: rgb(140, 72, 0);
 	padding: 3px;
 	display: table;
@@ -614,30 +705,43 @@ Section 6.3: favorite-itern
 Section 6.4: Purchase Membership
 
 ************/
-
+/*
+Black - 0, 0, 0
+White - 230, 235, 241
+*/
 .StripeElement {
-	background-color: white;
+	background-color: rgb(0,0,0);
 	height: 40px;
 	padding: 10px 12px;
 	border-radius: 4px;
 	border: 1px solid transparent;
-	box-shadow: 0 1px 3px 0 #e6ebf1;
+	box-shadow: 0 1px 3px 0 rgb(230,235,241);
 	-webkit-transition: box-shadow 150ms ease;
 	transition: box-shadow 150ms ease;
 }
 
+/*
+Blue - 207, 215, 223
+*/
 .StripeElement--focus {
-	box-shadow: 0 1px 3px 0 #cfd7df;
+	box-shadow: 0 1px 3px 0 rgb(207,215,223);
 }
-
+/*
+Orange - 250, 117, 90
+*/
 .StripeElement--invalid {
-	border-color: #fa755a;
+	border-color: rgb(250,117,90);
 }
-
+/*
+White - 254, 253, 229
+*/
 .StripeElement--webkit-autofill {
-	background-color: #fefde5 !important;
+	background-color: rgb(254,253,229) !important;
 }
 
+/*
+Orange - 247, 159, 75
+*/
 #purchaseMembership h3 {
 	padding: 20px 0px;
 	border-bottom: 2px solid rgb(247, 159, 75);
@@ -662,37 +766,60 @@ Section 6.4: Purchase Membership
 	padding: 0px;
 }
 
+/*
+White - 211, 211, 211
+*/
 #purchaseMembership #monthMembership {
 	background-color: rgb(211, 211, 211);
 }
 
+/*
+Orange - 247, 159, 75
+*/
 #purchaseMembership #quarterlyMembership {
 	background-color: rgb(247, 159, 75);
 }
 
+/*
+White - 211, 211, 211
+*/
 #purchaseMembership #quarterlyMembership h3 {
 	border-bottom: 2px solid rgb(211, 211, 211);
 }
 
+/*
+White - 211, 211 ,211
+*/
 #purchaseMembership #annualMembership {
 	background-color: rgb(211, 211, 211);
 }
 
+/*
+Orange - 247, 159, 75
+Gray - 169, 169, 169
+*/
 #purchaseMembership h1 {
 	background-color: rgb(247, 159, 75);
-	border-bottom: 5px solid darkgray;
+	border-bottom: 5px solid rgb(169,169,169);
 	padding: 10px 0px;
 }
 
+/*
+Black - 0, 0, 0
+Blue - 83, 131, 211
+*/
 #purchaseMembership .paySubmit {
-	color: #FFF;
+	color: rgb(0,0,0);
 	padding: 20px 0px;
-	background-color: #5383d3;
+	background-color: rgb(83,131,211);
 	transition: 0.5s all;
 }
 
+/*
+Black - 0, 0, 0
+*/
 #purchaseMembership .paySubmit:hover {
-	color: #000;
+	color: rgb(0,0,0);
 }
 
 
@@ -706,15 +833,22 @@ Section 6.4.1: Purchase Membership Portal
 .compModal .modal-dialog{
 	width:100%;
 }
+/*
+White - 255, 255, 255
+Orange - 247, 159, 75
+*/
 #membershipPaymentModal h2{
 	margin:0px 0px 40px 0px;
 	padding:30px 10px;
-	color:#FFF;
+	color:rgb(255,255,255);
 	background-color:rgb(247,159,75);
 }
 #membershipPaymentModal form{
 	padding:0px;
 }
+/*
+White - 211, 211, 211
+*/
 .submitBtn{
 	background-color:rgb(211,211,211);
 	padding:30px 0px;
@@ -722,7 +856,9 @@ Section 6.4.1: Purchase Membership Portal
 .payAlert{
 	display:none;
 }
-
+/*
+Red - 255, 0, 0
+*/
 #membershipPaymentModal .glyphicon-remove{
 	color:red;
 	position: absolute;
@@ -740,10 +876,13 @@ Section 6.4.1: Purchase Membership Portal
 Section 6.4.2: Purchase Membership Discount
 
 ************/
-
+/*
+Orange - 247, 159, 75
+Gray - 169, 169, 169
+*/
 #requestDiscount h1 {
 	background-color: rgb(247, 159, 75);
-	border-bottom: 5px solid darkgray;
+	border-bottom: 5px solid rgb(169,169,169);
 	padding: 10px 0px;
 }
 
@@ -758,8 +897,11 @@ Section 7: Footer
 Section 7.1: footer overall styles
 
 ************/
+/*
+Black - 41, 44, 47
+*/
 .footer-distributed{
-	background-color: #292c2f;
+	background-color: rgb(41,44,47);
 	font-size:16px;
 	padding: 70px 50px;
 	margin:30px 0px 0px 0px;
@@ -788,14 +930,19 @@ footer .comp-info p{
 
 /* The company logo */
 
+/*
+White - 0, 0, 0
+*/
 .footer-distributed h3{
-	color:  #ffffff;
+	color:  rgb(0,0,0);
 	font: normal 36px 'Cookie', cursive;
 	margin: 0;
 }
-
+/*
+Blue - 83, 131, 211
+*/
 .footer-distributed h3 span{
-	color:  #5383d3;
+	color:  rgb(83,131,211);
 }
 
 /* Footer links */
@@ -805,19 +952,27 @@ footer .comp-info p{
 	padding: 0;
 }
 
+/*
+Gray - 157, 157, 157
+*/
 .footer-distributed .footer-links a{
-	color:#9d9d9d;
+	color:rgb(157,157,157);
 	display:inline-block;
 	line-height: 1.8;
 	text-decoration: none;
 }
 
+/*
+Black  - 0, 0, 0
+*/
 .footer-distributed .footer-links a:hover{
-	color:#FFF;
+	color:rgb(0,0,0);
 }
-
+/*
+Gray - 143, 146, 150 
+*/
 .footer-distributed .footer-company-name{
-	color:  #8f9296;
+	color:  rgb(143,146,150);
 	font-size: 14px;
 	font-weight: normal;
 }
@@ -832,10 +987,13 @@ Section 7.2: Footer Center
 	margin-top:80px;
 	padding-left:50px;
 }
-
+/*
+Black - 51, 56, 59
+White - 255, 255, 255
+*/
 .footer-distributed .footer-center i{
-	background-color:  #33383b;
-	color: #ffffff;
+	background-color:  rgb(51,56,59);
+	color: rgb(255,255,255);
 	font-size: 25px;
 	width: 38px;
 	height: 38px;
@@ -847,10 +1005,12 @@ Section 7.2: Footer Center
 	font-size: 17px;
 	line-height: 38px;
 }
-
+/*
+White - 255, 255, 255
+*/
 .footer-distributed .footer-center p{
 	display: inline-block;
-	color: #ffffff;
+	color: rgb(255,255,255);
 	margin:0;
 }
 
@@ -861,8 +1021,11 @@ Section 7.2: Footer Center
 	line-height:2;
 }
 
+/*
+Blue - 83, 131, 211
+*/
 .footer-distributed .footer-center p a{
-	color:  #5383d3;
+	color:  rgb(83,131,211);
 	text-decoration: none;;
 }
 
@@ -872,17 +1035,21 @@ Section 7.3: Footer Right
 
 ************/
 
-
+/*
+Gray - 146, 153, 159
+*/
 .footer-distributed .footer-company-about{
 	line-height: 20px;
-	color:  #92999f;
+	color:  rgb(146,153,159);
 	font-size: 13px;
 	font-weight: normal;
 }
-
+/*
+White - 255, 255 ,255
+*/
 .footer-distributed .footer-company-about span{
 	display: block;
-	color:  #ffffff;
+	color:  rgb(255, 255,255);
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 20px;
@@ -892,16 +1059,20 @@ Section 7.3: Footer Right
 	margin-top: 25px;
 }
 
+/*
+Black - 51, 56, 59
+White - 255, 255, 255
+*/
 .footer-distributed .footer-icons a{
 	display: inline-block;
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color:  rgb(51,56,59);
 	border-radius: 2px;
 
 	font-size: 20px;
-	color: #ffffff;
+	color: rgb(255,255,255);
 	text-align: center;
 	line-height: 35px;
 
@@ -955,6 +1126,9 @@ Section 8: Modals
 Section 8.1 Login Modal
 *******/
 
+/*
+White - 217, 217, 217
+*/
 .login .modal-content{
 	background-color:rgb(217, 217, 217);
 }
@@ -971,27 +1145,42 @@ Section 8.1 Login Modal
 	width:100%;
 }
 
+/*
+Black - 0, 0, 0
+White - 191, 191, 191
+*/
 #loginVeteran{
 	background-color:rgb(191,191,191);
-	color:#000;
+	color:rgb(0,0,0);
 	position: relative;
 	transition:.5s all;
 }
-
+/*
+Black - 0, 0, 0
+White - 255, 255, 255
+*/
 #loginVeteran:hover{
-	border:2px solid #000;
-	color:#FFF;
+	border:2px solid rgb(0,0,0);
+	color:rgb(255,255,255);
 	font-weight:900;
 }
+
+/*
+Orange - 247, 159, 75
+Black - 0, 0, 0
+*/
 #loginCompany{
 	background-color:rgb(247,159,75);
-	color:#000;
+	color:rgb(0,0,0);
 	transition:.5s all;
 }
-
+/*
+Black - 0, 0, 0
+White - 255, 255, 255
+*/
 #loginCompany:hover{
-	border:2px solid #000;
-	color:#FFF;
+	border:2px solid rgb(0,0,0);
+	color:rgb(255,255,255);
 	font-weight: 900;
 }
 
@@ -1008,17 +1197,27 @@ Section 8.1 Login Modal
 	cursor:pointer;
 }
 
+/*
+Blue - 0, 0, 255
+*/
 #changeLoginForm{
-	color:blue;
+	color:rgb(0,0,255);
 	cursor: pointer;
 }
 
+/*
+White - 211, 211, 211
+Black - 0, 0, 0
+*/
 [name="loginModal"] h2{
 	background-color:rgb(211,211,211);
-	color:#000;
+	color:rgb(0,0,0);
 	padding:10px 0px;
 }
 
+/*
+Orange - 247, 159, 75
+*/
 [name="loginModal"] input {
 	border:2px solid rgb(247,159,75);
 	height:50px;
@@ -1034,32 +1233,45 @@ Section 8.1 Login Modal
 	padding:0px;
 	text-align: center;
 }
-
+/*
+White - 191, 191, 191
+White - 255, 255, 255
+*/
 #loginOptions a:first-child{
 	padding:15px 0px;
 	background-color:rgb(191, 191, 191);
-	color:#FFF;
+	color:rgb(255,255,255);
 	font-size:1.2em;
 	transition:.5s all;
 }
 
+/*
+Orange - 247, 159, 75
+Black - 0, 0, 0
+*/
 #loginOptions a:last-child{
 	padding:15px 0px;
 	background-color:rgb(247,159,75);
-	color:#000;
+	color:rgb(0,0,0);
 	font-size:1.2em;
 	transition:.5s all;
 }
 
+/*
+Blue - 83, 131, 211
+*/
 #loginOptions a:hover{
-	color:#5383d3;
+	color:rgb(83,131,211);
 }
 
 /********
 Section 8.2 Other Modals
 ********/
+/*
+White - 255, 255, 255
+*/
 #actionModal, #careerModal, #educationModal, #journalModal, #skillModal, #socialModal   {
-	background-color:#FFF;
+	background-color:rgb(255,255,255);
 }
 
 /**********************************************************

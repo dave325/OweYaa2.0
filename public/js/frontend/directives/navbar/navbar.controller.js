@@ -254,6 +254,11 @@
         click: ''
       }
     };
+
+    navbarvm.isLogout = function(){
+      return navlink.click != 'logout' && navlink.name != 'Company Dashboard' || navlink.name != 'Veteran Profile';
+    }
+
     /*
     * Return the designated navbar based on user information
     */

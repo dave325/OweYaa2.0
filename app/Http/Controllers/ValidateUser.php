@@ -116,7 +116,7 @@ class ValidateUser extends Controller
             TableModels\Education::where('username', '=', $credentials['contact_info']['username'])->update($credentials['education']);
             $delete = array();
             foreach($credentials['bootcamp'] as $item){
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['bootcampid']);
                 }else{
                     unset($item['delete']);
@@ -137,7 +137,7 @@ class ValidateUser extends Controller
                 $delete = array();
             }
             foreach($credentials['course'] as $item){
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['courseid']);
                 }else{
                     unset($item['delete']);
@@ -159,7 +159,7 @@ class ValidateUser extends Controller
             }
 
             foreach($credentials['certifications'] as $item){
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['certid']);
                 }else{
                     unset($item['delete']);

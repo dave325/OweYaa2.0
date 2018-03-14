@@ -256,6 +256,7 @@
     };
 
     navbarvm.isLogout = function(link){
+      console.log(link);
       return link.click != 'logout' && link.name != 'Company Dashboard' || link.name != 'Veteran Profile';
     }
 

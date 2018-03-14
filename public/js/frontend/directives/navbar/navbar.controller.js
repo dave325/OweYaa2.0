@@ -256,7 +256,7 @@
     };
 
     navbarvm.isLogout = function(){
-      return navlink.click != 'logout' && navlink.name != 'Company Dashboard' || navlink.name != 'Veteran Profile';
+      return this.click != 'logout' && this.name != 'Company Dashboard' || this.name != 'Veteran Profile';
     }
 
     /*

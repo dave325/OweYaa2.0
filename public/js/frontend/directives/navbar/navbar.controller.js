@@ -74,6 +74,7 @@
       if (User.logout()) {
         navbarvm.message = "Thank you. Please wait until you are successfully logged out.";
         navbarvm.showMessage = true;
+        console.log($location.path());
         $timeout(function () {
           if($location.path() === "/"){
             $route.reload();

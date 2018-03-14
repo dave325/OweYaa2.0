@@ -2,40 +2,50 @@
   <div class="col-lg-12 col-md-12">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
 
-        <a href="/"><img alt="OweYaa" src="assets/images/logo.png" height="72" width="72" style="margin-left:25px"></a>
+      <a href="/">
+        <img alt="OweYaa" src="assets/images/logo.png" height="72" width="72" style="margin-left:25px">
+      </a>
 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.activeNav != navbarvm.regUser">
-          <li ng-class="{'dropdown' : navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'}" ng-repeat="navlink in navbarvm.activeNav">
-                  <a href="#" ng-if="navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{navlink.name}} <span class="caret"></span></a>
-                  <ul class="dropdown-menu" ng-if="navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'">
-                    <li  ng-repeat="link in navlink.links"><a href="{{link.link}}">{{link.name}}</a></li>
-                  </ul>
-                  <a ng-if="navbarvm.isLogout(navlink)" href="{{navlink.link}}">{{navlink.name}}</a>
-                  <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
-          </li>
+        <li ng-class="{'dropdown' : navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'}" ng-repeat="navlink in navbarvm.activeNav">
+          <a href="#" ng-if="navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'" class="dropdown-toggle" data-toggle="dropdown"
+            role="button" aria-haspopup="true" aria-expanded="false">{{navlink.name}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" ng-if="navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'">
+            <li ng-repeat="link in navlink.links">
+              <a href="{{link.link}}">{{link.name}}</a>
+            </li>
+          </ul>
+          <a ng-if="navbarvm.isLogout(navlink)" href="{{navlink.link}}">{{navlink.name}}</a>
+          <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
+        </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.activeNav == navbarvm.regUser">
-        <li ng-repeat="navlink in navbarvm.activeNav" >
-            <a ng-if="navlink.click.length === 0" href="{{navlink.link}}">{{navlink.name}}</a>
-            <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
-            <a ng-if="navlink.click.length > 0 && navlink.click != 'logout'" href="{{navlink.link}}" ng-click="navbarvm.click($event, navlink.click)">{{navlink.name}}</a>
-          </li>
+      <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.activeNav === navbarvm.regUser">
+        <li ng-repeat="navlink in navbarvm.activeNav">
+          <a ng-if="navlink.click.length === 0" href="{{navlink.link}}">{{navlink.name}}</a>
+          <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
+          <a ng-if="navlink.click.length > 0 && navlink.click != 'logout'" href="{{navlink.link}}" ng-click="navbarvm.click($event, navlink.click)">{{navlink.name}}</a>
+        </li>
       </ul>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
 </nav>
-<div ng-if="navbarvm.showMessage" class='alert alert-info'  role="alert">
+<div ng-if="navbarvm.showMessage" class='alert alert-info' role="alert">
   <h3 class="text-center">{{navbarvm.message}}</h3>
 </div>

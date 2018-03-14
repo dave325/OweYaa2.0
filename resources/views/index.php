@@ -28,7 +28,7 @@
         <script src="js/frontend/controllers/home/register.controller.js"></script>
 
         <!-- Veteran Controllers -->
-        <script src="js/frontend/controllers/veteran/career.controller.js"></script>
+        <script src="js/frontend/controllers/veteran/currentInternships.controller.js"></script>
         <script src="js/frontend/controllers/veteran/internship.controller.js"></script>
         <script src="js/frontend/controllers/veteran/profile.controller.js"></script>
 

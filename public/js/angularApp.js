@@ -37,18 +37,12 @@
       controllerAs:"vm"
     })
 
-    .when('/veteran/:veteranid/career',{
-      templateUrl:"/js/frontend/views/veteran/career.view.html",
-      controller:"careerCtrl",
-      controllerAs:"vm"
+    .when('/veteran/:veteranid/internships',{
+      templateUrl:"/js/frontend/views/veteran/currentInternships.view.html",
+      controller:"currentInternshipCtrl",
+      controllerAs:"vetIntern"
     })
-
-    .when('/veteran/:veteranid/internship',{
-      templateUrl:"/js/frontend/views/veteran/internship.view.html",
-      controller:"internshipCtrl",
-      controllerAs:"vm"
-    })
-
+    
     .when('/company/:companyid/dashboard',{
       templateUrl:"/js/frontend/views/company/dashboard.view.html",
       controller:"dashboardCtrl",

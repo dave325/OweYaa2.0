@@ -86,6 +86,15 @@
             "Authorization" : "Bearer " +  Authentication.getToken()
           }
         });
+      },
+      getAllProjects: function(){
+        if(Authentication.getToken() == null){
+          return;
+        }
+        return $http({
+          url:"/admin/retrieveComp",
+          method: 'POST'
+        })
       }
     }
     return User;

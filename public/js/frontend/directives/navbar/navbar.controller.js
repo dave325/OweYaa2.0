@@ -1,14 +1,14 @@
 (function () {
-  navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout','$route'];
-  function navbarCtrl($window, User, $uibModal, $location, $timeout,$route) {
+  navbarCtrl.$inject = ['$window', 'User', '$uibModal', '$location', '$timeout', '$route'];
+  function navbarCtrl($window, User, $uibModal, $location, $timeout, $route) {
     var navbarvm = this;
     // Sets the user name
     if (User.getUser()) {
       if (User.getUser().type == 1) {
         navbarvm.user = User.getUser().company.username;
-      } else if(User.getUser().type == 0) {
+      } else if (User.getUser().type == 0) {
         navbarvm.user = User.getUser().contact_info.username;
-      }else{
+      } else {
         navbarvm.user = '';
       }
     } else {
@@ -42,9 +42,9 @@
        */
       modal.result
         .then(function (data) {
-          if(data.page){
+          if (data.page) {
             $location.path('/' + data.page);
-          }else{
+          } else {
             navbarvm.message = "Thank you. Please wait until you are successfully logged in.";
             navbarvm.showMessage = true;
             $timeout(function () {
@@ -75,9 +75,9 @@
         navbarvm.message = "Thank you. Please wait until you are successfully logged out.";
         navbarvm.showMessage = true;
         $timeout(function () {
-          if($location.path() === "/"){
+          if ($location.path() === "/") {
             $route.reload();
-          }else{
+          } else {
             $location.path('/');
           }
         }, 3000);
@@ -170,9 +170,19 @@
         click: ''
       },
       link4: {
-        name: 'Veteran Dashboard',
-        link: 'veteran/' + navbarvm.user + '/profile',
-        click: ''
+        name: 'Veteran Profile',
+        links: {
+          link1: {
+            name: "Veteran Dashboard",
+            link: 'veteran/' + navbarvm.user + '/profile',
+            click: ''
+          },
+          link2: {
+            name: "Available Internships",
+            link: 'veteran/' + navbarvm.user + '/internships',
+            click: ''
+          }
+        }
       },
       link5: {
         name: 'Sign Out',
@@ -252,9 +262,9 @@
       navbarvm.activeNav = navbarvm.regUser;
     } else if (userStatus.type == 1) {
       navbarvm.activeNav = navbarvm.companyUser;
-    } else if(userStatus.type == 0){
+    } else if (userStatus.type == 0) {
       navbarvm.activeNav = navbarvm.vetUser;
-    } else{
+    } else {
       navbarvm.activeNav = navbarvm.adminUser;
     }
   }

@@ -25,7 +25,7 @@
                   <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
           </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.activeNav != navbarvm.companyUser || navbarvm.activeNav != navbarvm.vetUser">
+      <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.activeNav == regUser">
         <li ng-repeat="navlink in navbarvm.activeNav" >
             <a ng-if="navlink.click.length === 0" href="{{navlink.link}}">{{navlink.name}}</a>
             <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>

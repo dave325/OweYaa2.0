@@ -255,8 +255,8 @@
       }
     };
 
-    navbarvm.isLogout = function(){
-      return this.click != 'logout' && this.name != 'Company Dashboard' || this.name != 'Veteran Profile';
+    navbarvm.isLogout = function(link){
+      return link.click != 'logout' && link.name != 'Company Dashboard' || link.name != 'Veteran Profile';
     }
 
     /*

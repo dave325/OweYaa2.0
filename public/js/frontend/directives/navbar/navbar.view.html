@@ -21,7 +21,7 @@
                   <ul class="dropdown-menu" ng-if="navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'">
                     <li  ng-repeat="link in navlink.links"><a href="{{link.link}}">{{link.name}}</a></li>
                   </ul>
-                  <a ng-if="navbarvm.isLogout()" href="{{navlink.link}}">{{navlink.name}}</a>
+                  <a ng-if="navbarvm.isLogout(navlink)" href="{{navlink.link}}">{{navlink.name}}</a>
                   <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
           </li>
       </ul>

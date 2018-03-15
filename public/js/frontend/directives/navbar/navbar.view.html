@@ -36,7 +36,7 @@
       <ul class="nav navbar-nav navbar-right" ng-show="!navbarvm.isUser()">
         <li ng-repeat="navlink in navbarvm.activeNav">
           <a ng-if="navlink.click.length === 0" href="{{navlink.link}}">{{navlink.name}}</a>
-          <a ng-if="navlink.click == 'logout'" ng-click="navbarvm.logout()">{{navlink.name}}</a>
+          <a ng-if="navlink.click == 'logout' && !navbarvm.isDropDown(navlink)" ng-click="navbarvm.logout()">{{navlink.name}}</a>
           <a ng-if="navlink.click.length > 0 && navlink.click != 'logout'" href="{{navlink.link}}" ng-click="navbarvm.click($event, navlink.click)">{{navlink.name}}</a>
         </li>
       </ul>

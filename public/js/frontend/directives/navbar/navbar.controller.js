@@ -279,6 +279,7 @@
     } else {
       navbarvm.activeNav = navbarvm.adminUser;
     }
+    console.log(navbarvm.activeNav);
   }
   angular.module('oweyaa')
     .controller('navbarCtrl', navbarCtrl);

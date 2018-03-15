@@ -24,7 +24,7 @@
             role="button" aria-haspopup="true" aria-expanded="false">{{navlink.name}}
             <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu" ng-if="navbarvm.isDropdDwn(navlink)">
+          <ul class="dropdown-menu" ng-if="navbarvm.isDropdDown(navlink)">
             <li ng-repeat="link in navlink.links">
               <a href="{{link.link}}">{{link.name}}</a>
             </li>

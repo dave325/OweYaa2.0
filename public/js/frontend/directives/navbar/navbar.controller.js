@@ -256,8 +256,11 @@
     };
 
     navbarvm.isLogout = function(link){
-      console.log(link.click != 'logout' && link.name != 'Company Dashboard' || link.name != 'Veteran Profile');
       return link.click != 'logout' && link.name != 'Company Dashboard' || link.name != 'Veteran Profile';
+    }
+
+    navbarvm.isUser = function(link){
+      return link.name == 'Company Dashboard' || link.name == 'Veteran Profile';
     }
 
     /*

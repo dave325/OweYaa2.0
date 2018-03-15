@@ -263,7 +263,7 @@
       return link.name == 'Company Dashboard' || link.name == 'Veteran Profile';
     }
 
-    navbarvm.isUser - function(){
+    navbarvm.isUser = function(){
       return navbarvm.activeNav == navbarvm.companyUser || navbarvm.activeNav == navbarvm.vetUser;
     }
     /*

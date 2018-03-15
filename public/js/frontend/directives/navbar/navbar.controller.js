@@ -259,10 +259,13 @@
       return link.click != 'logout' && link.name != 'Company Dashboard' || link.name != 'Veteran Profile';
     }
 
-    navbarvm.isUser = function(link){
+    navbarvm.isDropDown = function(link){
       return link.name == 'Company Dashboard' || link.name == 'Veteran Profile';
     }
 
+    navbarvm.isUser - function(){
+      return navbarvm.activeNav == navbarvm.companyUser || navbarvm.activeNav == navbarvm.vetUser;
+    }
     /*
     * Return the designated navbar based on user information
     */

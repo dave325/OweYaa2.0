@@ -19,7 +19,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" ng-show="navbarvm.isUser()">
-        <li ng-class="{'dropdown' : navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'}" ng-repeat="navlink in navbarvm.activeNav">
+        <li ng-class="{dropdown : navlink.name == 'Company Dashboard' || navlink.name == 'Veteran Profile'}" ng-repeat="navlink in navbarvm.activeNav">
           <a href="#" ng-if="navbarvm.isDropDown(navlink)" class="dropdown-toggle" data-toggle="dropdown"
             role="button" aria-haspopup="true" aria-expanded="false">{{navlink.name}}
             <span class="caret"></span>

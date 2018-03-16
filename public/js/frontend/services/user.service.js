@@ -92,7 +92,7 @@
           return;
         }
         return $http({
-          url:"/admin/retrieveComp",
+          url:"/api/admin/retrieveComp",
           method: 'POST'
         })
       }

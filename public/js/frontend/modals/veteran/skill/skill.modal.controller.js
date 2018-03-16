@@ -43,7 +43,6 @@
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
       skillvm.user.skill[index].delete = true;
-      skillvm.user.skill.splice(index, 1);
     }
 
     // Delete one of your wanted skills

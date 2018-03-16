@@ -1,107 +1,111 @@
 <div id="browse-interns">
-	<navbar content="navbarvm.activeNav"></navbar>
-	<!-- Filter User Input and Output Result -->
-	<section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h1 class="text-center">Browse Intern</h1>
-		<form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<!-- Use angular to bind this element to the results and filter them -->
-			<div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
-				<label>Option</label>
-				<select name="filterby" class="form-control-lg form-control">
-					<option value="date">Date</option>
-					<option value="name">Company</option>
-				</select>
-			</div>
-			<div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
-				<label>Wanted Skills</label>
-				<input type="text" name="skills" class="form-control-lg form-control" ng-model="vm.test.skill.skill">
-			</div>
-			<span class="clearfix"></span>
-		</form>
-		<!-- Results that have been filtered out -->
-		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
-			<h2 class="text-center">Results</h2>
-			<div class = col-md-2> 
-				<img class ="img-fluid"	width ="150" height="150" src= "https://lh5.ggpht.com/IkVTCbFrsxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-				 alt = "">
-				<h4 class="specialText">INTERN NAME</h4>
+  <navbar content="navbarvm.activeNav"></navbar>
+  <!-- Filter User Input and Output Result -->
+  <section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h1 class="text-center">Browse Intern</h1>
+    <form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <!-- Use angular to bind this element to the results and filter them -->
+      <div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
+        <label>Option</label>
+        <select name="filterby" class="form-control-lg form-control">
+          <option value="date">Date</option>
+          <option value="name">Company</option>
+        </select>
+      </div>
+      <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
+        <label>Wanted Skills</label>
+        <input type="text" name="skills" class="form-control-lg form-control" ng-model="vm.test.skill.skill">
+      </div>
+      <span class="clearfix"></span>
+    </form>
+    <!-- Results that have been filtered out -->
+    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
+      <h2 class="text-center">Results</h2>
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrsxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
+            alt="">
+          <h4 class="specialText">INTERN NAME</h4>
 
-				<button type ="button" class="btn btn-success">WANT</button>
-				<button type ="button" class="btn btn-success">FAV</button>
+          <button type="button" class="btn btn-success">WANT</button>
+          <button type="button" class="btn btn-success">FAV</button>
 
-			</div>
+        </div>
 
-			<div class="col-md-4">
-				<br>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
+        <div class="col-md-4">
+          <br>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
 
-			</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
+            alt="">
+          <h4 class="specialText">INTERN NAME</h4>
 
-			<div class = col-md-2> 
-				<img class ="img-fluid"	width ="150" height="150" src= "https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-				alt = "">
-				<h4 class="specialText">INTERN NAME</h4>
-	
-				<button type ="button" class="btn btn-success">WANT</button>
-				<button type ="button" class="btn btn-success">FAV</button>
-	
-			</div>
-	
-			<div class="col-md-4">
-				<br>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-			</div>
+          <button type="button" class="btn btn-success">WANT</button>
+          <button type="button" class="btn btn-success">FAV</button>
 
-			<div class = col-md-2> 
-				<img class ="img-fluid"	width ="150" height="150" src = "https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-				alt = "">
-				<h4 class="specialText">INTERN NAME</h4>
-		
-				<button type ="button" class="btn btn-success">WANT</button>
-				<button type ="button" class="btn btn-success">FAV</button>
-		
-			</div>
-		
-			<div class="col-md-4">
-				<br>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-			</div>
+        </div>
 
-			<div class = col-md-2>
-				<img class ="img-fluid" width = "150" height = "150" src = "https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-				 alt = "">
-				<h4 class ="specialText">INTERN NAME</h4>
-				
-				<button type ="button" class="btn btn-success">WANT</button>
-				<button type ="button" class="btn btn-success">FAV</button>
+        <div class="col-md-4">
+          <br>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
+            alt="">
+          <h4 class="specialText">INTERN NAME</h4>
 
-			</div>
+          <button type="button" class="btn btn-success">WANT</button>
+          <button type="button" class="btn btn-success">FAV</button>
 
-			<div class="col-md-4">
-				<br>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-				<p> </p>
-			</div>
+        </div>
 
-			</div>
-		</article>
-		<span class="clearfix"></span>
-	</section>
+        <div class="col-md-4">
+          <br>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
+            alt="">
+          <h4 class="specialText">INTERN NAME</h4>
 
-	<footer-base></footer-base>
+          <button type="button" class="btn btn-success">WANT</button>
+          <button type="button" class="btn btn-success">FAV</button>
+
+        </div>
+
+        <div class="col-md-4">
+          <br>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+          <p> </p>
+        </div>
+      </div>
+</div>
+</article>
+<span class="clearfix"></span>
+</section>
+
+<footer-base></footer-base>
 </div>

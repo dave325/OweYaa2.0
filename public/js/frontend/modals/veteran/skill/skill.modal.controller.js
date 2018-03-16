@@ -11,7 +11,6 @@
 
     // Add a new skill
     skillvm.addToSkills = function() {
-      skillvm.newSkill.skillid = skillvm.user.contact_info.username + (skillvm.user.skill.length + 1);
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};
     }
@@ -32,7 +31,7 @@
 
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
-      skillvm.user.skill.splice(index, 1);
+      skillvm.user.skill[index].delete = true;
     }
 
     // Delete one of your wanted skills

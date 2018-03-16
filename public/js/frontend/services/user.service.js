@@ -92,8 +92,11 @@
           return;
         }
         return $http({
-          url:"/admin/retrieveComp",
-          method: 'POST'
+          url:"/api/getProjects",
+          method: 'POST',
+          headers:{
+            "Authorization" : "Bearer " +  Authentication.getToken()
+          }
         })
       }
     }

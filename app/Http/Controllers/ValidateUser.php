@@ -426,7 +426,16 @@ class ValidateUser extends Controller
     public function retrieveProj(Request $request){
         if($this->isValid()){
             $projects = TableModels\CompanyModels\CompanyProject::where('ismatched','!=','true')->get();
-            return response()->json(['projects' => $projects,'success'=>true],200);
+            return response()->json(['projects' => $projects, 'success'=>true],200);
+        }else{
+            return response()->json(['error'=>true],400);
+        }
+    }
+
+    public function retrieveAllProj(){
+        if($this->isValid()){
+            $projects = TableModels\CompanyModels\CompanyProject::all();
+            return response()->json(['projects' => $projects, 'success' => true], 200 );
         }else{
             return response()->json(['error'=>true],400);
         }

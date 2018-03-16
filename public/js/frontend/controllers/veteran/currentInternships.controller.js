@@ -4,7 +4,7 @@
 	function currentInternshipCtrl($scope,$uibModal, User) {
 		let vetIntern = this;
 		User.getAllProjects().then(function(response){
-			console.log(response.data.user.companies);
+			console.log(response.data);
 
 		},function(error){
 			console.log(error);

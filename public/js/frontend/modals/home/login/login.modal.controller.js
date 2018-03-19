@@ -28,7 +28,7 @@
       e.preventDefault();
       // stores the user information in a JSON object
       var checkUser = {
-        'username' : user.username,
+        'username' : user.username.toLowerCase(),
         'password' : user.password,
         'type' : loginvm.type
       }

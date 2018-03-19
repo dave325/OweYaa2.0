@@ -45,7 +45,7 @@
 					<p>Desired Field:</p>
 				</div>
 
-				<div class="col-md-4" ng-repeat="skill in users.skill">
+				<div class="col-md-4" ng-repeat="skill in users.skill | limitTo: 3">
 					<br>
 					<span>{{skill.skill}}</span>
 					<div class="progress" style="height:20px">

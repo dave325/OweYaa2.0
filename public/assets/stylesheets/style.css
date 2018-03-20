@@ -1119,10 +1119,11 @@ Section 8.2 Other Modals
 /**********************************************************
 END OF SECTION 8
 **********************************************************/
-section, .alert{
+section{
 	margin-top:80px !important;
 }
 
 .alert{
 	position:absolute;
+	top:80px;
 }

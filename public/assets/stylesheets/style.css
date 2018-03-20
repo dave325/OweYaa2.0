@@ -68,6 +68,7 @@ Section 1.1 Navbar Styles
 	position:fixed;
     padding-bottom: 10px;
 	padding-top: 10px;
+	margin-bottom:80px;
 }
 
 .navbar-collapse{

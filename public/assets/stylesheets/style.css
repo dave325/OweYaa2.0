@@ -68,7 +68,6 @@ Section 1.1 Navbar Styles
 	position:fixed;
     padding-bottom: 10px;
 	padding-top: 10px;
-	margin-bottom:80px;
 }
 
 .navbar-collapse{
@@ -89,6 +88,9 @@ Section 1.1 Navbar Styles
 .navbar .alert{
 	margin:0px;
 	padding:0px;
+}
+section{
+	margin-top:80px;
 }
 /**********************************************************
 END OF SECTION 1

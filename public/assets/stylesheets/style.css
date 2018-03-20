@@ -1119,6 +1119,6 @@ Section 8.2 Other Modals
 /**********************************************************
 END OF SECTION 8
 **********************************************************/
-section{
+section, .alert{
 	margin-top:80px !important;
 }

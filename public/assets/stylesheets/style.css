@@ -65,8 +65,9 @@ Section 1.1 Navbar Styles
 	cursor:pointer;
 }
 .navbar{
-      padding-bottom: 10px;
-			padding-top: 10px;
+	position:fixed;
+    padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 .navbar-collapse{

@@ -51,10 +51,10 @@
               console.log(data);
               if (data.type == 1) {
                 var curUser = data.company.username;
-                //$location.path('/company/' + curUser + '/dashboard');
+                $location.path('/company/' + curUser + '/dashboard');
               } else {
                 var curUser = data.contact_info.username;
-                //$location.path('/veteran/' + curUser + '/profile');
+                $location.path('/veteran/' + curUser + '/profile');
               }
             }, 3000);
           }

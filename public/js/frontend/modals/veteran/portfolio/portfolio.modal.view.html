@@ -1,6 +1,7 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="portfoliovm.cancel()"></span>
 <div id="portfolioModal">
-    <h2>Portfolio Information</h2>
+    <fieldset>
+    <legend>Portfolio Information</legend>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
     <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
@@ -40,4 +41,5 @@
         </div> <!-- End of class col-xs-12 -->
         </div> <!-- End of class row -->
     </form>
+  </fieldset>
 </div> <!-- End of id portfolioModal -->

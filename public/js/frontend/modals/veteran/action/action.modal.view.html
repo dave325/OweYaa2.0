@@ -6,7 +6,8 @@
         <div class="form-group">
           <!-- List all current tasks -->
           <div>
-            <h3>Current Tasks:</h3>
+            <fieldset>
+            <legend>Current Tasks:</legend>
             <!-- Editing Purposes -->
             <button class="btn" type="button" ng-click="actionvm.triggerEditMode()" ng-hide="actionvm.editMode">Edit</button>
             <button class="btn" type="button" ng-click="actionvm.triggerEditMode()" ng-show="actionvm.editMode">Done</button>
@@ -27,6 +28,7 @@
               <input type="text" ng-model="actionvm.newTask">
               <button class="btn" type="button" ng-click="actionvm.addToCurrent()">Add</button>
             </div> <!-- End of div on line 25 -->
+          </fieldset>
           </div> <!-- End of class form-group -->
         </div> <!-- End of class form-group -->
       </div> <!-- End of class col-md-5 -->

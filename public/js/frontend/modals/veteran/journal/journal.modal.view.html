@@ -1,6 +1,7 @@
 <div id="journalModal">
     <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="journalvm.cancel()"></span>
-    <h2>Journal Information</h2>
+    <fieldset>
+    <legend>Journal Information</legend>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <p ng-show="journalvm.formError" class="alert alert-danger" ng-bind-html="journalvm.formError"></p>
     <p ng-show="journalvm.formInfo" class="alert alert-success" ng-bind-html="journalvm.formInfo"></p>
@@ -8,7 +9,8 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Information regarding higher journal -->
-                <h3>Building Connections</h3>
+                <fieldset>
+                <legend>Building Connections</legend>
                 <div class="form-group" ng-repeat="connect in journalvm.user.interviews track by $index">
                     <h3>Interview {{$index + 1}}</h3>
                     <p>
@@ -33,6 +35,7 @@
                     </p>
                 </div>
                 <!-- End of ng-repeat=connect in journalvm.user.interviews -->
+            </fieldset>
             </div>
             <!-- End of class col-md-12 -->
         </div>
@@ -97,5 +100,6 @@
         </div>
         <!-- End of class row -->
     </form>
+</fieldset>
 </div>
 <!-- End of id journalModal -->

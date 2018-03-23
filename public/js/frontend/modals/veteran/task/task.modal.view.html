@@ -1,6 +1,7 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="taskvm.cancel()"></span>
 <div id="taskModal">
-    <h2>Task Recieved</h2>
+    <fieldset>
+    <legend>Task Recieved</legend>
     <div ng-if="!taskvm.user.action_task || taskvm.user.action_task[0].task.length == 0 && taskvm.user.action_task[1].task.length == 0 ">
         <p>No actions tasks at the moment!</p>
     </div>
@@ -25,3 +26,4 @@
         </div> <!-- End of class row --> 
     </form>
 </div> <!-- End of span class -->
+</fieldset>

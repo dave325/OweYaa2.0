@@ -1,6 +1,7 @@
 <div id="educationModal">
   <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="educationvm.cancel()"></span>
-  <h2>Education Information</h2>
+  <fieldset>
+  <legend>Education Information</legend>
   <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
   <p ng-show="educationvm.formError" class="alert alert-danger" ng-bind-html="educationvm.formError"></p>
   <p ng-show="educationvm.formInfo" class="alert alert-success" ng-bind-html="educationvm.formInfo"></p>
@@ -29,8 +30,8 @@
             </p>
         </div> <!-- End of class form-group -->
       </fieldset>
-
-        <h3>Coursework / Training: </h3>
+        <fieldset>
+        <legend>Coursework / Training: </legend>
 
         <!-- Display list of areas of interest -->
         <div class="col-xs-12">
@@ -44,7 +45,8 @@
             </p>
           </div> <!-- End of clas form-group -->
         </div> <!-- End of class col-xs-12 -->
-
+      </fieldset>
+        
         <!-- Display all bootcamps attended -->
         <div class="col-xs-12">
           <div class="form-group">
@@ -136,4 +138,5 @@
       </div> <!-- End of class col-xs-12 --> 
     </div> <!-- End of class row -->
   </form>
+</fieldset>
 </div> <!-- End of id educationModal -->

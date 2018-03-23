@@ -1,7 +1,8 @@
 <div id="socialModal">
   <form novalidate method="post" name="educationvm.content" ng-submit="submit()">
     <div class="text-center form-group">
-      <h3>Social</h3>
+      <fieldset>
+      <legend>Social</legend>
       <button class="btn" type="button" ng-click="socialvm.triggerEditMode()" ng-hide="socialvm.editMode">Edit</button>
       <button class="btn" type="button" ng-click="socialvm.triggerEditMode()" ng-show="socialvm.editMode">Done</button>
       <p>
@@ -21,7 +22,7 @@
         <input ng-show="socialvm.editMode" ng-model="socialvm.portfolio" type="text" class="form-control"/>
         <span ng-hide="socialvm.editMode">{{socialvm.portfolio}}</span>
       </p>
-
+    </fieldset>
     </div> <!-- End of class text-center form-group -->
     <div class="text-center">
       <button class="btn btn-success" ng-click="socialvm.close()" type="submit">Close</button>

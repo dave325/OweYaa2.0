@@ -4,20 +4,22 @@
     <div class="row">
       <div class="col-md-12">
       <!-- Information regarding higher education -->
-      <h3>Availible worktimes</h3>
+      <fieldset>
+      <legend>Availible worktimes</legend>
       <p ng-show="availibilityvm.formError" class="alert alert-danger" ng-bind-html="availibilityvm.formError"></p>
       <p ng-show="availibilityvm.formInfo" class="alert alert-success" ng-bind-html="availibilityvm.formInfo"></p>
       <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}
           <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time" ng-change="update(time.start_time, $index, 2)"></select>-
           <select required="true" name="closeTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.end_time" ng-change="update(time.end_time, $index, 2)"></select>
-        </div> <!-- End of ng-repeat time.dayofweek -->
+      </div> <!-- End of ng-repeat time.dayofweek -->
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
           <button ng-click="availibilityvm.cancel()" class="btn btn-success" type="submit">Close</button>
           <button ng-click="availibilityvm.onSubmit('availability',availibilityvm.user)" class="btn btn-success" type="submit">Save</button>
         </div> <!-- End of class col-xs-12 -->
-      </div> <!-- End of col-xs-12 -->
+      </fieldset>
+      </div> <!-- End of col-md-12 -->
     </div> <!-- End of class row -->
   </form>
 </div> <!-- End of id availabilityModal -->

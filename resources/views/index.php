@@ -48,6 +48,9 @@
         <script src="js/frontend/services/user.service.js"></script>
         <script src="js/frontend/services/admin.service.js"></script>
 
+        <!-- Filters --> 
+        <script src="js/frontend/filters/sortInterns.filter.js"></script>
+        
         <!-- Veteran Modal Controllers -->
         <script src="js/frontend/modals/home/login/login.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/action/action.modal.controller.js"></script>

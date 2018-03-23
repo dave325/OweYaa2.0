@@ -26,6 +26,8 @@ Table of Contents:
 8. Modals
 	8.1 Login Modal
 	8.2 Other modals
+9. Standardized Colors
+   9.1 Standard Colors
 *****/
 /* 
 White - 255, 255, 255 
@@ -1128,3 +1130,27 @@ section{
 	top:85px;
 	z-index:9999999999;
 }
+
+/*******************************
+
+ Section 9: Standardized Colors
+
+ ******************************/
+
+.std-gray{
+	color: 236,236,236
+}
+
+.std-orange{
+	color: 249,159,75
+}
+
+.std-blue-small{
+	color: 51, 102, 255
+}
+
+.std-blue-large{
+	color: 70, 134, 172
+}
+
+

@@ -1126,7 +1126,7 @@ section{
 }
 
 .alert{
-	position:absolute;
+	position:fixed;
 	top:85px;
 	z-index:9999999999;
 }

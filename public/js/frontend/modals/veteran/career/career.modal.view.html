@@ -4,7 +4,8 @@
     <div class="row">
       <div class="col-md-12">
       <!-- Information regarding higher education -->
-      <h3>Previous Career</h3>
+      <fieldset>
+      <legend>Previous Career</legend>
       <p ng-show="careervm.formError" class="alert alert-danger" ng-bind-html="careervm.formError"></p>
       <p ng-show="careervm.formInfo" class="alert alert-success" ng-bind-html="careervm.formInfo"></p>
       <p>Please indicate your past work experiences (Up to 2)!</p>
@@ -64,7 +65,8 @@
           <button ng-click="careervm.cancel()" class="btn btn-success" type="submit">Close</button>
           <button ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-success" type="submit">Save</button>          
         </div> <!-- End of class text-center form-group -->
-      </div> <!-- End of class col-xs-12 -->
+      </fieldset>
+      </div> <!-- End of class col-md-12 -->
     </div> <!-- End of class row -->
   </form>
 </div> <!-- End of id careerModal -->

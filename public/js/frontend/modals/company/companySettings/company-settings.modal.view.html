@@ -1,6 +1,7 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="compSet.cancel()"></span>
 <div id="contactModal">
-    <h2>Contact Information</h2>
+    <fieldset>
+    <legend>Contact Information</legend>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row col-xs-12">
@@ -17,6 +18,7 @@
                 <input ng-model="compSet.user.social[key]" type="text" class="form-control" name="{{key}}"/>
           </div> <!-- End of ng-repeat compSet.user.social -->
           </div> <!-- End of class row col-xs-12 -->
+    </fieldset>
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">

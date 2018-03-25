@@ -1,6 +1,7 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="contactvm.cancel()"></span>
 <div id="contactModal">
-    <h2>Contact Information</h2>
+    <fieldset>
+    <legend>Contact Information</legend>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
     <p ng-show="contactvm.formError" class="alert alert-danger" ng-bind-html="contactvm.formError"></p>
     <p ng-show="contactvm.formInfo" class="alert alert-success" ng-bind-html="contactvm.formInfo"></p>
@@ -27,5 +28,6 @@
             </div> <!-- End of class text-center form-group -->
         </div> <!-- End of class col-xs-12 -->
         </div> <!-- End of class row -->   
+    </fieldset>
     </form>
 </div> <!-- End of id contactModal -->

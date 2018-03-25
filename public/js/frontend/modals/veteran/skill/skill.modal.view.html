@@ -7,7 +7,8 @@
         <!-- Display all interests and hobbies -->
         <div class="form-group">
           <div>
-            <h3>Programming Skills:</h3>
+            <fieldset>
+            <legend>Programming Skills:</legend>
             <p>Please include up to 10 programming skills. Include the skill and your skill level ranging from 1-5</p>
             <p ng-show="skillvm.formError" class="alert alert-danger" ng-bind-html="skillvm.formError"></p>
             <p ng-show="skillvm.formInfo" class="alert alert-success" ng-bind-html="skillvm.formInfo"></p>
@@ -28,6 +29,7 @@
                     <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteSkill($index)"></span>
                   </li>
             </ol>
+          </fieldset>
           </div>
         </div>
       </div>
@@ -37,7 +39,8 @@
         <!-- Display all interests and hobbies -->
         <div class="form-group">
           <div>
-            <h3>Wanted Skills:</h3>
+            <fieldset>
+            <legend>Wanted Skills:</legend>
             <p ng-show="skillvm.user.wanted_skills.length == 9" class="bg-warning">You may add up to 10 items</p>
             <!-- Add a new area of focus -->
             <div>
@@ -50,6 +53,7 @@
                     <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteWant($index)"></span>
                   </li>
             </ol>
+          </fieldset>
           </div> <!-- End of div on line 37 -->
         </div> <!-- End of class form-group -->
       </div> <!-- End of class col-xs-12 -->

@@ -1,16 +1,37 @@
 <div class="modal-header">
-    <h3 class="modal-title"> Project Settings</h3>
-</div> <!-- End of class modal-header -->
+    <h3 class="modal-title"> Edit Intern Hours</h3>
+</div>
+<!-- End of modal-header -->
 
-<div class="modal-body">
-   
+<div class="modal-body" id="proj-dashboard-Milestones">
+
+    <div ng-repeat="intern in interns">
+
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{intern.name}}</p>
+            </div>
+            <div class="col-md-4">
+                <p>{{intern.hours}}</p>
+            </div>
+
+            <div class="col-md-4">
+                <span class="glyphicon glyphicon-plus" style="padding: 3px; background-color: rgb(236,236,236)" ng-click="increment(intern)"></span>
+                <span class="glyphicon glyphicon-minus" style="padding: 3px; background-color: rgb(236,236,236)" ng-click="decrement(intern)"></span>
+
+            </div>
+        </div>
 
 
+    </div>
 
-    
-</div> <!-- End of class modal-body -->
+</div>
+
 
 <div class="modal-footer">
+
     <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-</div> <!-- End of class modal-footer -->
+
+</div>
+<!-- End of class modal-footer -->

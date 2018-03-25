@@ -63,17 +63,32 @@
 
         const winClass="col-xs-12 col-md-8 col-md-offset-2";
 
-        vm.openProjectsList = function () {
+
+        vm.editInternHours = function (interns) {
             $uibModal.open({
-                templateUrl: getModalPath('project-dashboard-editProjects'),
+                templateUrl: getModalPath('project-dashboard-editHours'),
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
                         $uibModalInstance.close();
                     };
 
+                    $scope.interns = interns;
+
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
+        
                     };
+
+                    $scope.increment = function(intern)
+                    {
+                        intern.hours++;
+                    }
+
+                    $scope.decrement = function(intern)
+                    {
+                        intern.hours--;
+                    }
+
                 },
                 windowClass:winClass
             });

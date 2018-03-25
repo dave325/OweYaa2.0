@@ -555,6 +555,10 @@ margin-top: 20px;
 	margin-top: 20px;
 }
 
+#proj-dash #proj-description-pane button{
+	margin-left: 10px;
+}
+
 #proj-dash #proj-description-pane .title{
 	position: relative;
 	top: -5px;
@@ -564,9 +568,6 @@ margin-top: 20px;
 	padding: 10px;
 }
 
-#proj-dash #proj-description{
-	padding: 10px;
-}
 
 #proj-dash #Milestones button {
 	margin-left: 0px;
@@ -579,7 +580,11 @@ margin-left: 20px;
 
 
 #proj-dash #interns {
-	color: rgb(247,159,75);
+	color: black;
+}
+
+#proj-dash #interns button{
+	margin-top: 10px;
 }
 
 #proj-dash .teammember {
@@ -610,7 +615,6 @@ color: rgb(47,79,79);
 #proj-dashboard-Milestones button{
 	margin-left: 20px;
 }
-
 
 /**********
 

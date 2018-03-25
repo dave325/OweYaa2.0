@@ -525,39 +525,58 @@ Section 6.2: projects dashboard
 
 ************/
 
-
-
-  #proj-dash .sidenav {
-    background-color: rgb(241,241,241);
-    height: 100%;
-    margin-top: 20px;
-  }
-
-#proj-dash .sidenav h2 {
-padding: 5px;
-background-color: rgb(247,159,75);
-border-bottom: 5px solid;
-}
-#proj-dash .sidenav h2 button {
-	margin-left: 20px;
-	color: rgb(0,0,0);
+#proj-dash {
+	background-color:rgb(236,236,236);
 }
 
-#proj-dash #projectPanes{
+#proj-dash .sidenav {
+background-color: white;
+height: 100%;
+margin-top: 20px;
+}
+
+#proj-dash .well {
+	background: white;
+	border-radius: 0px;
+}
+
+#proj-dash button {
+	background:rgb(249,159,75);
+}
+
+#proj-dash .title {
+	background-color: rgb(249,159,75);
+	padding: 5px;
+	color: white;
+	border-bottom: 5px solid lightgray;
+}
+
+#proj-dash #proj-description-pane {
 	margin-top: 20px;
 }
 
-#proj-dash #projectPanes #Milestones h4 button {
-	margin-left: 20px;
+#proj-dash #proj-description-pane .title{
+	position: relative;
+	top: -5px;
 }
 
-#proj-dash #projectPanes #Milestones h4 {
+#proj-dash #proj-description{
+	padding: 10px;
+}
+
+#proj-dash #proj-description{
+	padding: 10px;
+}
+
+#proj-dash #Milestones button {
+	margin-left: 0px;
+	margin-top: 10px;
+}
+
+#proj-dash #Milestones h4 {
 margin-left: 20px;
 }
 
-#proj-dash #projectDescription button{
-	margin-left: 20px;
-}
 
 #proj-dash #interns {
 	color: rgb(247,159,75);
@@ -569,12 +588,9 @@ background-color: rgb(255,255,255);
 }
 
 #proj-dash .task{
-color: rgb(247,159,75);
-border-bottom: 3px solid;
-display: table; 
-background-color: rgb(0,0,0);
+color: black;
+border-bottom: 3px solid rgb(247,159,75);
 padding: 5px;
-border-radius: 2px
 }
 
 #proj-dash .task .completionText{
@@ -588,13 +604,13 @@ color: rgb(47,79,79);
 }
 
 #proj-dash .stat {
-margin: 20px;
-padding: 3px;
+	margin-top: 20px;
 }
 
 #proj-dashboard-Milestones button{
 	margin-left: 20px;
 }
+
 
 /**********
 

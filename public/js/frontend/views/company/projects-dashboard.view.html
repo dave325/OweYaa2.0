@@ -5,8 +5,8 @@
 
 
   <div class="row">
-    <div class="col-sm-3 sidenav">
-      <h2> PROJECTS
+    <div class="col-md-3 sidenav col-md-offset-1 well">
+      <h2 class="title"> Projects </h2>
       </h2>
       <ul class="nav nav-pills nav-stacked">
         <li>
@@ -25,23 +25,37 @@
           </a>
         </li>
       </ul>
+      <h3>Queued</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li>
+          <a href="#section2">
+            <strong>Project 1</strong>
+          </a>
+        </li>
+      </ul>
+
+
     </div>
 
 
 
-    <div class="col-md-9" id="projectPanes">
+    <div class="col-md-7">
 
-      <div class="well col-md-12" id="projectDescription">
-        <h4>Project Name
-          <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editDescription()">Edit</button>
-        </h4>
+      <div class="well col-md-12" id="proj-description-pane">
+        <h3>
+          <span class="title">{{vm.projectTitle}}</span>
+        </h3>
 
-        <h5>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </h5>
 
-      </div> <!-- End of class well col-md-12 -->
+        <h5 id="proj-description">
+          {{vm.projectDescription}}
+        </h5>
+
+
+
+        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
+      </div>
+      <!-- End of class well col-md-12 -->
 
 
 
@@ -72,44 +86,53 @@
               <td>{{intern.email}}</td>
               <td>{{intern.hours}}</td>
             </tr>
-            
+
 
 
           </table>
 
-        </div> <!-- End of class well -->
-      </div> <!-- End of id interns --> 
+        </div>
+        <!-- End of class well -->
+      </div>
+      <!-- End of id interns -->
 
 
       <div class="col-md-6 well" id="Milestones">
-        <h4>MILESTONES
-          <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones()">Edit</button>
-        </h4>
+        <h3>
+          <span class="title">MILESTONES</span>
+        </h3>
 
         <div ng-repeat="milestone in vm.milestones">
           <div class="stat">
             <p class="task">{{milestone.description}}
               <span class="completionDate">{{milestone.completionDate}}</span>
               <span class="completionText">{{milestone.isCompleted}}</span>
+              <input id="checkBox" type="checkbox" checked="true" onclick="return false;">
             </p>
 
-          </div> <!-- End of class stat -->
+          </div>
+          <!-- End of class stat -->
 
-        </div> <!-- End of ng-repeat milestone in vm.milestones -->
+        </div>
+        <!-- End of ng-repeat milestone in vm.milestones -->
 
-       
-
-      </div> <!-- End of id Milestones -->
-
-
+        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
 
 
-
-
-    </div> <!-- End of id projectPanes --> 
-  </section> <!-- End of class row -->
+      </div>
+      <!-- End of id Milestones -->
 
 
 
 
-  <footer-base></footer-base>
+
+
+    </div>
+    <!-- End of id projectPanes -->
+</section>
+<!-- End of class row -->
+
+
+
+
+<footer-base></footer-base>

@@ -4,21 +4,23 @@
 
 <div class="modal-body">
 
-    <form>
-        <div class="form-group">
-            <label for="projectTitle">Project Title</label>
-            <input type="text" class="form-control" ng-model="projectTitle">
-        </div> <!-- End of class form-group --> 
-        <div class="form-group">
-                <label for="projectDescription">Project Description</label>
-                <textarea class="form-control" ng-model="projectDescription"> </textarea>
-        </div> <!-- End of clas form-group -->
-    </form>
+    <div class="form-group">
+        <label for="projectTitle">Project Title</label>
+        <input type="text" class="form-control" ng-model="title">
+    </div>
+    <!-- End of class form-group -->
+    <div class="form-group">
+        <label for="projectDescription">Project Description</label>
+        <textarea class="form-control" ng-model="description"> </textarea>
+    </div>
+    <!-- End of class form-group -->
 
 
-</div> <!-- End of classs modal-body -->
+</div>
+<!-- End of classs modal-body -->
 
 <div class="modal-footer">
     <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-</div> <!-- End of class modal-footer -->
+</div>
+<!-- End of class modal-footer -->

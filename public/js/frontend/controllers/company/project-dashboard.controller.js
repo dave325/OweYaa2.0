@@ -82,11 +82,14 @@
 
         vm.editDescription = function (title,description) {
             $uibModal.open({
-                templateUrl: getModalPath('project-dashboard-Description'),
+                templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
                         $uibModalInstance.close();
                     };
+
+                    $scope.title = title;
+                    $scope.description = description;
 
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');

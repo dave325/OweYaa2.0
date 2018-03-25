@@ -623,9 +623,10 @@ Section 6.3: favorite-itern
 ************/
 
 .INTERN {
-	border-top: 2px solid rgb(179,179,179);
 	border-bottom: 2px solid rgb(179,179,179);
 	min-height: 200px;
+	padding: 10px;
+
 	text-align: left;
 
 }

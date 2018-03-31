@@ -15,7 +15,7 @@
         if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
           continue;
         }else{
-          skillvm.newSkill[i].skillid = skillvm.user.contact_info.username + (i+1);
+          skillvm.newSkill.skillid = skillvm.user.contact_info.username + (i+1);
         }
       }      
       if(!skillvm.newSkill.skillid){

@@ -17,6 +17,7 @@
           continue;
         }else{
           skillvm.newSkill.skillid = skillvm.user.contact_info.username + (i+1);
+          break;
         }
       }      
       if(!skillvm.newSkill.skillid){

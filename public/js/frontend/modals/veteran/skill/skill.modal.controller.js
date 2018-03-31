@@ -9,21 +9,24 @@
     skillvm.newWant = {};
     skillvm.newLanguage = {};
 
-    // Add a new skill
-    skillvm.addToSkills = function() {
+    skillvm.addIndex = function(skill){
       let index;
-      for(let i = 0; i < skillvm.user.skill.length;i++){
-        if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
+      for(let i = 0; i < skillvm.user[skill].length;i++){
+        if(skillvm.user[skill][i].skillid.substr(skillvm.user[skill][i].skillid.length -1) == (i +1)){
           continue;
         }else{
           index = skillvm.user.contact_info.username + (i+1);
         }
-      }      
-      if(!index){
-        skillvm.newSkill.skillid = skillvm.user.contact_info.username+ (skillvm.user.skills.length + 1)
-      }else{
-        skillvm.newSkill.skillid = i;
       }
+      if(!index){
+        return skillvm.user.contact_info.username+ (skillvm.user[skill].length + 1)
+      }else{
+        return index;
+      }   
+    }
+    // Add a new skill
+    skillvm.addToSkills = function() {   
+      skillvm.newSkill.skillid = skillvm.addIndex('skill');
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};
     }
@@ -45,7 +48,6 @@
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
       skillvm.user.skill[index].delete = true;
-      console.log(skillvm.user.skill[index]);
     }
 
     // Delete one of your wanted skills

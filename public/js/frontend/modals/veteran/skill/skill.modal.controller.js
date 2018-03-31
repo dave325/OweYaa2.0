@@ -16,10 +16,10 @@
         if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
           continue;
         }else{
-          i = skillvm.user.contact_info.username + (i+1);
+          index = skillvm.user.contact_info.username + (i+1);
         }
       }      
-      if(!i){
+      if(!index){
         skillvm.newSkill.skillid = skillvm.user.contact_info.username+ (skillvm.user.skills.length + 1)
       }else{
         skillvm.newSkill.skillid = i;

@@ -24,6 +24,7 @@
         return index;
       }   
     }
+
     // Add a new skill
     skillvm.addToSkills = function() {   
       skillvm.newSkill.skillid = skillvm.addIndex('skill');
@@ -33,14 +34,14 @@
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.newWant.skillid = skillvm.user.contact_info.username+ (skillvm.user.wanted_skills.length + 1);
+      skillvm.newWant.skillid = skillvm.addIndex('wanted_skills');
       skillvm.user.wanted_skills.push(skillvm.newWant);
       skillvm.newWant = {};
     }
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.newLanguage.langid = skillvm.user.contact_info.username + (skillvm.user.language.length + 1);
+      skillvm.newLanguage.langid = skillvm.addIndex('language');
       skillvm.user.language.push(skillvm.newLanguage);
       skillvm.newLanguage = {};
     }
@@ -77,6 +78,9 @@
       //Update server information
       User.updateUser(modal,data).then(function(data){
         skillvm.formInfo = "Successfully updated!";
+        skillvm.removeSkill('skill');
+        skillvm.removeSkill('wanted_skills');
+        skillvm.removeSkill('language');
         User.setUser(skillvm.user);
       },function(error){
         if(data.status === 401){

@@ -29,6 +29,7 @@ Table of Contents:
 9. Standardized Colors
    9.1 Standard Colors
 *****/
+
 /* 
 White - 255, 255, 255 
 Grey - 211, 211, 211
@@ -42,6 +43,7 @@ Gray (2nd tier) - 179, 179, 179
 Brown - 140, 72, 0
 Blue - 207, 215, 223
 */
+
 body{
 	background-color:rgb(255,255,255);
 	font-family: 'Roboto', sans-serif;
@@ -1146,7 +1148,7 @@ section{
 	margin-top:87px !important;
 }
 
-.alert{
+.nav-message{
 	position:fixed;
 	top:85px;
 	z-index:9999999999;

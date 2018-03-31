@@ -19,7 +19,7 @@
           i = skillvm.user.contact_info.username + (i+1);
         }
       }      
-      if(!skillvm.newSkill.skillid){
+      if(!i){
         skillvm.newSkill.skillid = skillvm.user.contact_info.username+ (skillvm.user.skills.length + 1)
       }else{
         skillvm.newSkill.skillid = i;

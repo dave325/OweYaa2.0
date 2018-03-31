@@ -32,6 +32,7 @@
     // Delete one of your skills
     skillvm.deleteSkill = function(index) {
       skillvm.user.skill[index].delete = true;
+      console.log(skillvm.user.skill[index]);
     }
 
     // Delete one of your wanted skills

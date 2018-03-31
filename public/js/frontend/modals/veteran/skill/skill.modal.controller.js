@@ -11,17 +11,18 @@
 
     // Add a new skill
     skillvm.addToSkills = function() {
+      let index;
       for(let i = 0; i < skillvm.user.skill.length;i++){
-        console.log(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1));
         if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
           continue;
         }else{
-          skillvm.newSkill.skillid = skillvm.user.contact_info.username + (i+1);
-          break;
+          i = skillvm.user.contact_info.username + (i+1);
         }
       }      
       if(!skillvm.newSkill.skillid){
         skillvm.newSkill.skillid = skillvm.user.contact_info.username+ (skillvm.user.kills.length + 1)
+      }else{
+        skillvm.newSkill.skillid = i;
       }
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};

@@ -70,8 +70,12 @@
 			$uibModalInstance.close(result);
     }
     
-    skillvm.removeSkill = function(skill, index){
-      skillvm.user[skill].splice(index,1);
+    skillvm.removeSkill = function(skill){
+      for(let i = 0; i < skillvm.user[skill].length; i++){
+        if(skillvm.user[skill][i].delete){
+          skillvm.user[skill].splice(i,1);
+        }
+      }
     }
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){

@@ -12,6 +12,7 @@
     // Add a new skill
     skillvm.addToSkills = function() {
       for(let i = 0; i < skillvm.user.skill.length;i++){
+        console.log(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1));
         if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
           continue;
         }else{

@@ -11,6 +11,16 @@
 
     // Add a new skill
     skillvm.addToSkills = function() {
+      for(let i = 0; i < skillvm.user.skill.length;i++){
+        if(skillvm.user.skill[i].skillid.substr(skillvm.user.skill[i].skillid.length -1) == (i +1)){
+          continue;
+        }else{
+          skillvm.newSkill[i].skillid = skillvm.user.contact_info.username + (i+1);
+        }
+      }      
+      if(!skillvm.newSkill.skillid){
+        skillvm.newSkill.skillid = skillvm.user.contact_info.username+ (skillvm.user.kills.length + 1)
+      }
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};
     }
@@ -52,7 +62,11 @@
     // The function that is call when the user closes the modal
 		skillvm.close = function(result){
 			$uibModalInstance.close(result);
-		}
+    }
+    
+    skillvm.removeSkill = function(skill, index){
+      skillvm.user[skill].splice(index,1);
+    }
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){
       //Update server information

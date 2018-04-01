@@ -70,6 +70,7 @@
 			$uibModalInstance.close(result);
     }
     
+    // Remove any skill in the User object 
     skillvm.removeSkill = function(skill){
       for(let i = 0; i < skillvm.user[skill].length; i++){
         if(skillvm.user[skill][i].delete){

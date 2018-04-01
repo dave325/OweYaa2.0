@@ -25,6 +25,9 @@
 										$scope.user.interviews[i].date = new Date($filter('date')($scope.user.interviews[i].date,"yyyy-MM-dd"));
 									}
 								}
+								if($scope.user.education.graddate != null){
+									$scope.user.education.graddate = new Date($filter('date')($scope.user.education.graddate,"yyyy-MM-dd"));
+								  }
 								return $scope.user;
 							}
 					}

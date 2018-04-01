@@ -463,7 +463,6 @@ Section 5.2.1: Modal Input styles
 }
 
 .close-btn {
-	background-color: #000;
     color: rgb(240,0,0);
     font-size: 1.3em;
 	padding: 3px;

@@ -198,7 +198,7 @@ class ValidateUser extends Controller
         if($this->isValid()){
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             try{
-
+                unset($credentials['education']['grad']);
               /* Look for username and find it in the table / database */
                 $education = TableModels\Education::findOrFail($credentials['contact_info']['username']);
 

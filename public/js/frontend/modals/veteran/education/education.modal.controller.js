@@ -3,6 +3,11 @@
   function educationModalCtrl($uibModalInstance, Authentication,CurrUser,User, $filter){
     educationvm = this;
     educationvm.user = CurrUser;
+    if(educationvm.user.education.graddate != null){
+      educationvm.graduated =true;
+    }else{
+      educationvm.graduated = false;
+    }
     // Containers
     educationvm.newPlan = {};
     educationvm.newCertification ={};

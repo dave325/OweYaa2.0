@@ -61,7 +61,7 @@
       //Update server information
       User.updateUser(modal, data).then(function(data){
           if(educationvm.user.education.graddate != null){
-            educationvm.user.education.graddate = new Date($filter('date')(careervm.user.education.graddate,"yyyy-MM-dd"));
+            educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate,"yyyy-MM-dd"));
           }
         educationvm.formInfo = "Succesffuly Updated!";
         User.setUser(educationvm.user);

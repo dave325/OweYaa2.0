@@ -16,17 +16,15 @@
           <p>
               <label form="education" for="school">School: </label>
               <input ng-model="educationvm.user.education.school" type="text" class="form-control" name="school" id="school"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.school}}</span> -->
             </p>
             <p>
               <label form="education" for="degree">Degree: </label>
               <input ng-model="educationvm.user.education.degree" type="text" class="form-control" name="degree" id="degree"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.degree}}</span> -->
             </p>
             <p>
               <label form="education" for="graduation">Graduation Date: </label>
-              <input ng-model="educationvm.user.education.grad" type="text" class="form-control" name="graduation" id="graduation"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.grad}}</span> -->
+              <input ng-model="educationvm.user.education.grad" ng-disabled="educationvm.graduated" type="text" class="form-control" name="graduation" id="graduation"/>
+              <p>Graduated:</p><input type="checkbox" ng-model="educationvm.graduated"/>
             </p>
         </div> <!-- End of class form-group -->
       </fieldset>

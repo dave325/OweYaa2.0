@@ -50,7 +50,7 @@
           <h3 ng-if="user.education.school">Higher Education:</h3>
           <p ng-if="user.education.school">School: {{user.education.school}}</p>
           <p ng-if="user.education.degree">Degree: {{user.education.degree}}</p>
-          <p ng-if="user.education.graddate">Graduation Date: {{user.education.graddate}}</p>
+          <p ng-if="user.education.graddate">Graduation Date: {{user.education.graddate | date:'MM/dd/yyyy'}}</p>
           <div ng-if="user.careerFocus.length > 0">
             <h3>Career Focus:</h3>
             <ul>

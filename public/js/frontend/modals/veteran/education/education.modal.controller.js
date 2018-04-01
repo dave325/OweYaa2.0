@@ -23,14 +23,14 @@
 
     // Add a new course
     educationvm.addToCourses = function () {
-      educationvm.newCourse.certid = educationvm.addIndex('course','courseid');
+      educationvm.newCourse.courseid = educationvm.addIndex('course','courseid');
       educationvm.user.course.push(educationvm.newCourse);
       educationvm.newCourse = {};
     }
 
     // Add a new bootcamp
     educationvm.addToBootcamps = function () {
-      educationvm.newBootcamp.certid = educationvm.addIndex('bootcamp','bootcampid');
+      educationvm.newBootcamp.bootcampid = educationvm.addIndex('bootcamp','bootcampid');
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
       educationvm.newBootcamp = {};
     }

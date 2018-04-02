@@ -122,12 +122,28 @@
 
 
       </div>
-      <!-- End of id Milestones -->
+
+      <div class="col-md-6 well" id="add skills">
+        <h3>
+          <span class="title">SKILLS</span>
+        </h3>
+
+        <div ng-repeat="milestone in vm.milestones">
+          <div class="stat">
+            <p class="task">{{milestone.description}}
+              <span class="completionDate">{{milestone.completionDate}}</span>
+              <span class="completionText">{{milestone.isCompleted}}</span>
+              <input id="checkBox" type="checkbox" checked="true" onclick="return false;">
+            </p>
+
+          </div>
+
+        </div>
+
+        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
 
 
-
-
-
+      </div>
 
     </div>
     <!-- End of id projectPanes -->

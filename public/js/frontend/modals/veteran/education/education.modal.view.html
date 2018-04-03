@@ -27,7 +27,7 @@
               </p>
               <p>
                 <label form="education" for="graduation">Graduation Date: </label>
-                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated educationvm.attendedCollege" type="date" class="form-control"
+                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || educationvm.attendedCollege" type="date" class="form-control"
                   name="graduation" id="graduation" />
               <p>
                 <span>Graduated:</span>

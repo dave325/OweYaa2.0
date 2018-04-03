@@ -89,27 +89,14 @@
       }
     }
     function scrollToTop() {
-      var scrollStep = -window.scrollY / (1000 / 15),
+      var elem = document.getElementById('educationModal');
+      var scrollStep = -elem.scrollY / (1000 / 15),
         scrollInterval = setInterval(function () {
-          if (window.scrollY != 0) {
-            window.scrollBy(0, scrollStep);
+          if (elem.scrollY != 0) {
+            elem.scrollBy(0, scrollStep);
           }
           else clearInterval(scrollInterval);
         }, 15);
-    }
-    function myMove() {
-      var elem = document.getElementsByTagName("body");
-      var pos = document.body.scrollTop;
-      var id = setInterval(frame, 10);
-      function frame() {
-        if (pos == 0) {
-          clearInterval(id);
-        } else {
-          pos--;
-          elem.style.top = pos + 'px';
-          elem.style.left = pos + 'px';
-        }
-      }
     }
 
     // Will make a call to the server and php file

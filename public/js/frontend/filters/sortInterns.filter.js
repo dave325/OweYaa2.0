@@ -52,7 +52,7 @@
         }
 
       }
-
+  
       // Return filtered array.
       return filteredInterns;
 

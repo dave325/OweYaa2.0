@@ -20,7 +20,7 @@
      * @param interns - An array containing all interns, and their information.
     **/
 
-    function sortInterns(input, interns){
+    function sortInterns(interns, input){
 
       // If the input search query is empty, or null...
       if(input == null){

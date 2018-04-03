@@ -97,8 +97,8 @@
           clearInterval(id);
         } else {
           pos--;
-          elem[0].style.top = pos + 'px';
-          elem[0].style.left = pos + 'px';
+          elem.style.top = pos + 'px';
+          elem.style.left = pos + 'px';
         }
       }
     }

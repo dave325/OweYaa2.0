@@ -16,21 +16,21 @@
 
     // Add a new certification
     educationvm.addToCertifications = function () {
-      educationvm.newCertification.certid = educationvm.addIndex('certification','certid');
+      educationvm.newCertification.certid = educationvm.addIndex('certification', 'certid');
       educationvm.user.certifications.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }
 
     // Add a new course
     educationvm.addToCourses = function () {
-      educationvm.newCourse.courseid = educationvm.addIndex('course','courseid');
+      educationvm.newCourse.courseid = educationvm.addIndex('course', 'courseid');
       educationvm.user.course.push(educationvm.newCourse);
       educationvm.newCourse = {};
     }
 
     // Add a new bootcamp
     educationvm.addToBootcamps = function () {
-      educationvm.newBootcamp.bootcampid = educationvm.addIndex('bootcamp','bootcampid');
+      educationvm.newBootcamp.bootcampid = educationvm.addIndex('bootcamp', 'bootcampid');
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
       educationvm.newBootcamp = {};
     }
@@ -85,6 +85,20 @@
       for (let i = 0; i < educationvm.user[skill].length; i++) {
         if (educationvm.user[skill][i].delete) {
           educationvm.user[skill].splice(i, 1);
+        }
+      }
+    }
+    function myMove() {
+      var elem = document.getElementById("educationModal");
+      var pos = document.body.scrollTop;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (pos == 0) {
+          clearInterval(id);
+        } else {
+          pos--;
+          elem.style.top = pos + 'px';
+          elem.style.left = pos + 'px';
         }
       }
     }

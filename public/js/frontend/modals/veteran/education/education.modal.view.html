@@ -19,15 +19,15 @@
               </p>
               <p>
                 <label form="education" for="school">School: </label>
-                <input ng-model="educationvm.user.education.school" ng-disabled="educationvm.attendedCollege" type="text" class="form-control" name="school" id="school" />
+                <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="school" id="school" />
               </p>
               <p>
                 <label form="education" for="degree">Degree: </label>
-                <input ng-model="educationvm.user.education.degree" ng-disabled="educationvm.attendedCollege" type="text" class="form-control" name="degree" id="degree" />
+                <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="degree" id="degree" />
               </p>
               <p>
                 <label form="education" for="graduation">Graduation Date: </label>
-                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || educationvm.attendedCollege" type="date" class="form-control"
+                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.attendedCollege" type="date" class="form-control"
                   name="graduation" id="graduation" />
               <p>
                 <span>Graduated:</span>

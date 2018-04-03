@@ -88,22 +88,11 @@
         }
       }
     }
-    function scrollToTop() {
-      var elem = document.getElementsByClassName('ng-isolate-scope');
-      var scrollStep = -elem.scrollY / (1000 / 15),
-        scrollInterval = setInterval(function () {
-          if (elem.scrollY != 0) {
-            elem.scrollBy(0, scrollStep);
-          }
-          else clearInterval(scrollInterval);
-        }, 15);
-    }
 
     // Will make a call to the server and php file
     educationvm.doEducation = function (modal, data) {
       //Update server information
       User.updateUser(modal, data).then(function (data) {
-        scrollToTop();
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
         }

@@ -3,7 +3,22 @@
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal','$filter'];
 	function profileCtrl($scope, User, $uibModal,$filter) {
 		// Retrieve current user 
-	    $scope.user = User.getUser();
+		$scope.user = User.getUser();
+		$scope.progress = calcProgress();
+		function calcProgress(){
+			let total = 0;
+			if($scope.user.contact_info.name){
+				total++;
+			}
+			if($scope.user.contact_info.location){
+				total++;
+			}
+			if($scope.user.contact_info.branch){
+				total++;
+			}
+			
+			
+		}
 		 console.log($scope.user);
 		 $scope.openModal = function(modal){
 			if(User.getUser()){

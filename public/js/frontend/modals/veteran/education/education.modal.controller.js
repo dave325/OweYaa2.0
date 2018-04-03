@@ -89,7 +89,7 @@
       }
     }
     function scrollToTop() {
-      var elem = document.getElementById('educationModal');
+      var elem = document.getElementsByClassName('ng-isolate-scope');
       var scrollStep = -elem.scrollY / (1000 / 15),
         scrollInterval = setInterval(function () {
           if (elem.scrollY != 0) {

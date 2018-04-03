@@ -20,12 +20,13 @@
      * @param interns - An array containing all interns, and their information.
     **/
 
-    function sortInterns(interns, input){
+    return function sortInterns(interns, input){
       console.log("reached");
       // If the input search query is empty, or null...
       if(input == null){
+
         // Return everybody.
-        return interns;
+        return {interns:interns};
 
       }
 
@@ -52,8 +53,9 @@
 
       }
       console.log("reached3");
+      
       // Return filtered array.
-      return filteredInterns;
+      return {filteredInterns:filteredInterns};
 
     }
     angular.module('oweyaa')

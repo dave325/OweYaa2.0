@@ -88,6 +88,15 @@
         }
       }
     }
+    function scrollToTop() {
+      var scrollStep = -window.scrollY / (1000 / 15),
+        scrollInterval = setInterval(function () {
+          if (window.scrollY != 0) {
+            window.scrollBy(0, scrollStep);
+          }
+          else clearInterval(scrollInterval);
+        }, 15);
+    }
     function myMove() {
       var elem = document.getElementsByTagName("body");
       var pos = document.body.scrollTop;
@@ -107,7 +116,7 @@
     educationvm.doEducation = function (modal, data) {
       //Update server information
       User.updateUser(modal, data).then(function (data) {
-        myMove();
+        scrollToTop();
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
         }

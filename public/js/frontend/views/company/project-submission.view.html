@@ -45,14 +45,25 @@
 					<label for="comp-phone">What is your phone number? </label>
 					<input type="text" name="compPhone" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.phone" required
 					 id="comp-phone" />
-				</div> <!-- End of clas form-group --> 
+				</div> <!-- End of class form-group --> 
 				<div class="form-group">
 					<label for="comp-proj-description">Tell us what project/task you would like a military intern to work on with you?</label>
 					<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectdetails"
 					 required id="comp-proj-description" />
-				</div> <!-- End of classs form-group -->
-				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"
-				/>
+				</div> <!-- End of class form-group -->
+				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"	
+				<div class="form-group">
+					<label for="Education">What's your education level? (Choices are graduate or non-graduate) </label>
+					<input type="checkbox" name="comp-Education" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Education"
+				 	value="1" />
+					<input type="checkbox" name="comp-Education" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Education"
+				 	value="0" /> 
+				</div> <!-- End of class form-group -->
+				<div class="form-group">
+					<label for="Skills">What skils do you have? (Please separate with commas)</label>
+					<input type="text" name="comp-Skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Skills"
+				 	required id="Skills" />
+				</div> <!-- End of class form-group -->
 			</div> <!-- End of step 1 -->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="!vm.steps.page1">
 				<h3 class="text-center">Thank you very much!

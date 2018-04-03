@@ -66,6 +66,17 @@
 					<input type="text" name="comp-Skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Skills"
 				 	required id="Skills" />
 				</div> <!-- End of class form-group -->
+				<div class="form-group">
+					<label for="Position">What position are you looking for?</label>
+					<select type="text" name="comp-Position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Position">
+						<option value="Manager"> Manager </option>
+						<option value="Developer"> Developer </option>
+						<option value="Marketing"> Marketing </option>
+						<option value="Designer"> Designer </option>
+						<option value="Communication"> Communication </option>
+						<option value="CustomerService/HumanResources"> Customer Service/Human Resources </option>
+					</select>
+				</div> <!-- End of class form-group -->
 			</div> <!-- End of step 1 -->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="!vm.steps.page1">
 				<h3 class="text-center">Thank you very much!

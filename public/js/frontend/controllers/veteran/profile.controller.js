@@ -16,7 +16,18 @@
 			if($scope.user.contact_info.branch){
 				total++;
 			}
-			
+			if($scope.user.education.attendedCollege){
+				total++;
+			}
+			if($scope.user.previous_career_field[0]){
+				total++;
+			}
+			if($scope.user.availability.length > 0){
+				total++;
+			}
+			if($scope.user.monthavailability.length > 0){
+				total++;
+			}
 			
 		}
 		 console.log($scope.user);

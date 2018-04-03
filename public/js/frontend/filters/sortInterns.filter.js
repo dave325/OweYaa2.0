@@ -21,7 +21,7 @@
     **/
 
     function sortInterns(interns, input){
-
+      console.log("reached");
       // If the input search query is empty, or null...
       if(input == null){
 
@@ -34,7 +34,7 @@
 
       // Create a new array to store interns that match the input search query.
       var filteredInterns = [];
-
+      console.log("reached2");
       // Iterate through the interns array, searching for interns that match the
       // input search query. Index is the current index number, starting at 0.
       // Interns.length is the total number of interns.

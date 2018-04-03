@@ -21,9 +21,9 @@
     **/
 
     function sortInterns(interns, input){
+      console.log("reached");
       // If the input search query is empty, or null...
       if(input == null){
-
         // Return everybody.
         return interns;
 
@@ -47,7 +47,6 @@
         // skill per intern, for now.
         if(input.trim().toUpperCase() == intern.skill){
           filteredInterns.push(intern);
-          console.log(intern);
         }
 
       }

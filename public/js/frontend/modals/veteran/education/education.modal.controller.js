@@ -89,7 +89,7 @@
       }
     }
     function myMove() {
-      var elem = document.getElementById("educationModal");
+      var elem = document.getElementByTagName("body");
       var pos = document.body.scrollTop;
       var id = setInterval(frame, 10);
       function frame() {

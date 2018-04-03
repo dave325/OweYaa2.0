@@ -8,7 +8,7 @@
     // Ensures that the parameters match specifically for sortInterns.
     // sortInterns is the filter name
     // Injector will protector against minification.
-    sortInterns.$inject = ['input', 'interns'];
+    sortInterns.$inject = [];
 
     /**
      * Function name: sortInterns

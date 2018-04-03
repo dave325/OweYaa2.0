@@ -49,6 +49,7 @@
         // skill per intern, for now.
         if(input.trim().toUpperCase() == intern.skill){
           filteredInterns.push(intern);
+          console.log(intern);
         }
 
       }

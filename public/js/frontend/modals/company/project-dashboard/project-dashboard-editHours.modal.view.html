@@ -11,15 +11,11 @@
             <div class="col-md-4">
                 <p>{{intern.name}}</p>
             </div>
-            <div class="col-md-4">
-                <p>{{intern.hours}}</p>
-            </div>
 
             <div class="col-md-4">
                 <form>
                     Total Hours:
-                    <input type="number">
-                    <input type="submit" value = submit>
+                    <input type="number"min="0" ng-model="intern.hours">
                 </form>
 
             </div>

@@ -89,7 +89,7 @@
       }
     }
     function myMove() {
-      var elem = document.getElementByTagName("body");
+      var elem = document.getElementsByTagName("body");
       var pos = document.body.scrollTop;
       var id = setInterval(frame, 10);
       function frame() {
@@ -97,8 +97,8 @@
           clearInterval(id);
         } else {
           pos--;
-          elem.style.top = pos + 'px';
-          elem.style.left = pos + 'px';
+          elem[0].style.top = pos + 'px';
+          elem[0].style.left = pos + 'px';
         }
       }
     }

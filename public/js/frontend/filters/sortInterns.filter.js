@@ -33,6 +33,7 @@
 
       // Create a new array to store interns that match the input search query.
       var filteredInterns = [];
+      console.log("reached"1);
       // Iterate through the interns array, searching for interns that match the
       // input search query. Index is the current index number, starting at 0.
       // Interns.length is the total number of interns.
@@ -50,7 +51,7 @@
         }
 
       }
-  
+      console.log("reached3");
       // Return filtered array.
       return filteredInterns;
 

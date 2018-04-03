@@ -107,6 +107,7 @@
     educationvm.doEducation = function (modal, data) {
       //Update server information
       User.updateUser(modal, data).then(function (data) {
+        myMove();
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
         }

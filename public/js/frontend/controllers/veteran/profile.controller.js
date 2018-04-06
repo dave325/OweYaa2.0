@@ -129,7 +129,7 @@
 			if(progressbar < 50){
 				type = "danger";
 			}else if(progressbar < 75){
-				type = "info";
+				type = "warning";
 			}else{
 				type = "success"
 			}

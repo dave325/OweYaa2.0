@@ -21,11 +21,7 @@ class Education extends Model{
     *
     * @var array
     */
-<<<<<<< HEAD
-    protected $fillable = ['username', 'school', 'degree','gradDate', 'course1', 'course2', 'course3','attendedcollege'];
-=======
     protected $fillable = ['username', 'school', 'degree','graddate', 'course1', 'course2', 'course3','attendedcollege'];
->>>>>>> 893771774a6311b8168153848237d855547a6d07
 
     /**
      * The attributes excluded from the model's JSON form.

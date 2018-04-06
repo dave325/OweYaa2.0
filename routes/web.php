@@ -20,6 +20,9 @@ $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
 
+Route::get('matching', 'CompanyInternMatch@test');
+
+
 
 Route::group(['prefix' => 'api'], function (){
     Route::post('getFilterUser', "CompanyInternMatch@test");

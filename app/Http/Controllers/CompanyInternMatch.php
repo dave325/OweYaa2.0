@@ -5,46 +5,117 @@ use App\User;
 use App\MilitaryUser;
 use App\CompanyUser;
 use App\TableModels;
-use App\DB;
 use Illuminate\Http\Request;
+use \SplPriorityQueue;
+use App\TableModels\Education;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CompanyInternMatch extends Controller
 {
 
+    private $skillsList;
+    private $wantedSkills;
+    private $pq;
 
-    public function test()
+
+    public function test(Request $request)
     {
-        $skills2 = array('css','javascript,html5,mysql');
-        $wantedSkills = array('linux','c#');
-        $users = $this->filter();
+     
+        $this->pq = new SplPriorityQueue();
+        
+        $this->skillsList = array("php","nodejs","agile");
+        $this->wantedSkills = array('linux','c#');
 
 
-        $interns = array();
-        foreach($users as $user)
-        {
-            $interns[$user->username]= $this->count($skills2,$wantedSkills) ;
-        }
-
-        return $interns; 
-    }
-
-    private function filter()
-    {
-        //make procedural database calls
-        //with laravel's cusom call.
-          return User::with('skill','contactInfo')->get();
+        $filtered= $this->filter(false,50000); 
+        
        
 
-    }
+        for($i = 0; $i < count($filtered);  $i++ )
+        {
 
-    private function count($skills,$wantedskills)
-    {
-       //procedural sequel call 
-       return 10;
+          $this->pq -> insert($filtered[$i]->username,$this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
+
+        }
+
+        var_dump($this->pq);
         
     }
 
+    private function getSkillPoints($internSkills)
+    {
+        $points = 0;
 
+        for($i = 0; $i < count($this->skillsList); $i++)
+        {
+            $hasSkill = array_search($this->skillsList[$i],$internSkills);
+            if($hasSkill !== false)
+            {
+                switch($i)
+                {
+                    case 0: $points+= 4; break;
+                    case 1: $points+= 3; break;
+                    case 2: $points+= 2; break;
+                    default: $points+=1; break;
+                }
+            }
 
+        }
 
-}
+        return $points;
+        
+    }
+       
+    
+
+    private function getDistance($lat,$long,$minDistance)
+    {
+        $companyLocation = array(40,74);
+       
+        return
+        
+        sqrt(pow($lat - $companyLocation[0],2) + pow($long - $companyLocation[1],2)) <= $minDistance;
+        
+    }
+
+    
+    private function filter($attendedCollFlag,$distance)
+    {
+        //job wanted
+        //age
+        //mos branch
+
+     $users=MilitaryUser::with('education','contactinfo','skill')->get();
+     $ret = array();
+
+     for($i = 0; $i < count($users);  $i++ )
+     {
+        $latlong = explode(" ",$users[$i]->contactinfo->location);
+
+         if($attendedCollFlag)
+         {
+            if($users[$i]->education->attendedcollege && $this->getDistance($latlong[0],$latlong[1],$distance))
+            {
+                array_push($ret,$users[$i]);
+            }
+            else
+             continue;
+         }
+
+         if(!$attendedCollFlag)
+         {
+            if($this->getDistance($latlong[0],$latlong[1],$distance))
+            {
+                array_push($ret,$users[$i]);
+            }
+         }
+       
+     }
+
+     return $ret;
+    
+    }
+
+} 

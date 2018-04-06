@@ -4,6 +4,7 @@
 	function profileCtrl($scope, User, $uibModal,$filter) {
 		// Retrieve current user 
 		$scope.user = User.getUser();
+		console.log($scope.user);
 		$scope.progress = calcProgress();
 		function calcProgress(){
 			let total = 0;
@@ -30,7 +31,6 @@
 			}
 			
 		}
-		 console.log($scope.user);
 		 $scope.openModal = function(modal){
 			if(User.getUser()){
 				var m = $uibModal.open({

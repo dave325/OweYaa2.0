@@ -4,6 +4,8 @@
 	function profileCtrl($scope, User, $uibModal,$filter) {
 		// Retrieve current user 
 		$scope.user = User.getUser();
+		$scope.requiredFields = [];
+		$scope.recommendedFields = [];
 		console.log($scope.user);
 		$scope.progress = calcProgress($scope.user);
 		function calcProgress(user){
@@ -12,47 +14,61 @@
 			if(user.contact_info.name != null && user.contact_info.name.length > 0){
 				sum++;
 			}else{
-				$scope.fix = "Name";
+				$scope.requiredFields.push('Name');
+				$scope.fix += "\nName";
 			}
 			if(user.contact_info.imgurl != null && user.contact_info.imgurl.length > 0){
 				sum++;
 			}else{
-				$scope.fix = "Profile Image";
+				$scope.recommendedFields.push("Profile Image");
 			}
 			if(user.contact_info.email != null && user.contact_info.email.length > 0){
 				sum++;
 			}else{
-				$scope.fix = "Email";
+				$scope.requiredFields.push('Email');
 			}
 			if(user.contact_info.phone != null && user.contact_info.phone.length > 0){
 				sum++;
 			}else{
-				$scope.fix = "Phone NUmber";
+				$scope.recommendedFields.push("Phone Number");
 			}
 			if(user.contact_info.location != null && user.contact_info.location.length > 0){
 				sum++;
 			}else{
-				$scope.fix = "Location";
+				$scope.requiredFields.push('Location');
 			}
 			if(user.contact_info.branch != null && user.contact_info.branch.length > 0){
 				sum++;
+			}else{
+				$scope.requiredFields.push('Branch of Military');
 			}
 			if(user.education.attendedCollege){
 				sum++;
+			}else{
+				$scope.requiredFields.push('Did you attend college');
 			}
 			if(user.prev_career_fields.length > 0){
 				sum++;
+			}else{
+				$scope.recommendedFields.push("Previous Career Fields");
 			}
 			if(user.availability.length > 0){
 				sum++;
+			}else{
+				$scope.requiredFields.push('Availability');
 			}
 			if(user.month_availability.length > 0){
 				sum++;
+			}else{
+				$scope.requiredFields.push('Month Availability');
 			}
 			if(user.skill.length > 4){
 				sum++;
+			}else{
+				$scope.requiredFields.push('Add more than 5 skills');
 			}
-			return (sum/total) * 100;
+			
+			return Math.round((sum/total) * 100);
 		}
 		 $scope.openModal = function(modal){
 			if(User.getUser()){

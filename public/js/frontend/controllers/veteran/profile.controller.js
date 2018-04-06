@@ -42,7 +42,7 @@
 			if($scope.user.skill.length > 4){
 				sum++;
 			}
-			return sum/total;
+			return (sum/total) * 100;
 		}
 		 $scope.openModal = function(modal){
 			if(User.getUser()){

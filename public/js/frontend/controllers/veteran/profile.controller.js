@@ -124,7 +124,7 @@
 					$scope.recommendedFields.push('Add more than 5 skills');
 				}
 			}
-			let progress = Math.round((sum / total) * 100);
+			let progressbar = Math.round((sum / total) * 100);
 			let type;
 			if(progress < 50){
 				type = "danger";
@@ -133,11 +133,11 @@
 			}else{
 				type = "success"
 			}
-			let progress = {
-				progress:progress,
+			let info = {
+				progress:progressbar,
 				type:type
 			}
-			return Math.round((sum / total) * 100);
+			return info;
 		}
 		$scope.openModal = function (modal) {
 			if (User.getUser()) {

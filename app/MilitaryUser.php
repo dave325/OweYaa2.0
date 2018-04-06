@@ -168,7 +168,7 @@ class MilitaryUser extends Model implements AuthenticatableContract, Authorizabl
     }
 
     /**
-     * Get the programming skills associated with the user.
+     * Get the specific months associated with the user.
      */
     public function monthAvailability()
     {

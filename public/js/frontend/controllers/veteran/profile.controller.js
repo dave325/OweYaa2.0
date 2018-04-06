@@ -26,7 +26,7 @@
 			if($scope.user.availability.length > 0){
 				total++;
 			}
-			if($scope.user.monthavailability.length > 0){
+			if($scope.user.month_availability.length > 0){
 				total++;
 			}
 			

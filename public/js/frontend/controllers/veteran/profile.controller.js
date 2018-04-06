@@ -16,92 +16,113 @@
 			let total = 11.0;
 			if (user.contact_info.name != null && user.contact_info.name.length > 0) {
 				sum++;
-				if(arrayContains('Name',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Name'),1);
+				if (arrayContains('Name', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Name'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Name');
-				$scope.fix += "\nName";
+				if (!arrayContains('Name', $scope.requiredFields)) {
+					$scope.requiredFields.push('Name');
+				}
 			}
 			if (user.contact_info.imgurl != null && user.contact_info.imgurl.length > 0) {
 				sum++;
-				if(arrayContains('Profile Image',$scope.recommendedFields)){
-					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Profile Image'),1);
+				if (arrayContains('Profile Image', $scope.recommendedFields)) {
+					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Profile Image'), 1);
 				}
 			} else {
-				$scope.recommendedFields.push("Profile Image");
+				if (!arrayContains('Profile Image', $scope.recommendedFields)) {
+					$scope.recommendedFields.push("Profile Image");
+				}
 			}
 			if (user.contact_info.email != null && user.contact_info.email.length > 0) {
 				sum++;
-				if(arrayContains('Email',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Email'),1);
+				if (arrayContains('Email', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Email'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Email');
+				if (!arrayContains('Email', $scope.requiredFields)) {
+					$scope.requiredFields.push('Email');
+				}
 			}
 			if (user.contact_info.phone != null && user.contact_info.phone.length > 0) {
 				sum++;
-				if(arrayContains('Phone Number',$scope.recommendedFields)){
-					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Phone Number'),1);
+				if (arrayContains('Phone Number', $scope.recommendedFields)) {
+					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Phone Number'), 1);
 				}
 			} else {
-				$scope.recommendedFields.push("Phone Number");
+				if (!arrayContains('Phone Number', $scope.recommendedFields)) {
+					$scope.recommendedFields.push("Phone Number");
+				}
 			}
 			if (user.contact_info.location != null && user.contact_info.location.length > 0) {
 				sum++;
-				if(arrayContains('Location',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Location'),1);
+				if (arrayContains('Location', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Location'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Location');
+				if (!arrayContains('Location', $scope.requiredFields)) {
+					$scope.requiredFields.push('Location');
+				}
 			}
 			if (user.contact_info.branch != null && user.contact_info.branch.length > 0) {
 				sum++;
-				if(arrayContains('Branch of Military',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Branch of Military'),1);
+				if (arrayContains('Branch of Military', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Branch of Military'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Branch of Military');
+				if (!arrayContains('Branch of Military', $scope.requiredFields)) {
+					$scope.requiredFields.push('Branch of Military');
+				}
 			}
 			if (user.education.attendedCollege) {
 				sum++;
-				if(arrayContains('Did you attend college?',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Did you attend college?'),1);
+				if (arrayContains('Did you attend college?', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Did you attend college?'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Did you attend college?');
+				if (!arrayContains('Did you attend college?', $scope.requiredFields)) {
+					$scope.requiredFields.push('Did you attend college?');
+				}
 			}
 			if (user.prev_career_fields.length > 0) {
 				sum++;
-				if(arrayContains('Previous Career Fields',$scope.recommendedFields)){
-					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Previous Career Fields'),1);
+				if (arrayContains('Previous Career Fields', $scope.recommendedFields)) {
+					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Previous Career Fields'), 1);
 				}
 			} else {
-				$scope.recommendedFields.push("Previous Career Fields");
+				if (!arrayContains('Previous Career Fields', $scope.recommendedFields)) {
+					$scope.recommendedFields.push("Previous Career Fields");
+				}
 			}
 			if (user.availability.length > 0) {
 				sum++;
-				if(arrayContains('Availability',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Availability'),1);
+				if (arrayContains('Availability', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Availability'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Availability');
+				if (!arrayContains('Availability', $scope.requiredFields)) {
+					$scope.requiredFields.push('Availability');
+				}
 			}
 			if (user.month_availability.length > 0) {
 				sum++;
-				if(arrayContains('Month Availability',$scope.requiredFields)){
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Month Availability'),1);
+				if (arrayContains('Month Availability', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Month Availability'), 1);
 				}
 			} else {
-				$scope.requiredFields.push('Month Availability');
+				if (!arrayContains('Month Availability', $scope.requiredFields)) {
+					$scope.requiredFields.push('Month Availability');
+				}
 			}
 			if (user.skill.length > 4) {
 				sum++;
-				if(arrayContains('Add more than 5 skills',$scope.recommendedFields)){
-					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Add more than 5 skills'),1);
+				if (arrayContains('Add more than 5 skills', $scope.recommendedFields)) {
+					$scope.recommendedFields.splice($scope.recommendedFields.indexOf('Add more than 5 skills'), 1);
 				}
 			} else {
-				$scope.recommendedFields.push('Add more than 5 skills');
+				if (!arrayContains('Add more than 5 skills', $scope.recommendedFields)) {
+					$scope.recommendedFields.push('Add more than 5 skills');
+				}
 			}
 			return Math.round((sum / total) * 100);
 		}

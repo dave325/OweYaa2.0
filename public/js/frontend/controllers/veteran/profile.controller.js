@@ -7,29 +7,42 @@
 		console.log($scope.user);
 		$scope.progress = calcProgress();
 		function calcProgress(){
-			let total = 0;
+			let sum = 0;
+			let total = 11.0;
 			if($scope.user.contact_info.name){
-				total++;
+				sum++;
+			}
+			if($scope.user.contact_info.imgurl){
+				sum++;
+			}
+			if($scope.user.contact_info.email){
+				sum++;
+			}
+			if($scope.user.contact_info.phone){
+				sum++;
 			}
 			if($scope.user.contact_info.location){
-				total++;
+				sum++;
 			}
 			if($scope.user.contact_info.branch){
-				total++;
+				sum++;
 			}
 			if($scope.user.education.attendedCollege){
-				total++;
+				sum++;
 			}
 			if($scope.user.prev_career_fields.length > 0){
-				total++;
+				sum++;
 			}
 			if($scope.user.availability.length > 0){
-				total++;
+				sum++;
 			}
 			if($scope.user.month_availability.length > 0){
-				total++;
+				sum++;
 			}
-			
+			if($scope.user.skill.length > 4){
+				sum++;
+			}
+			return sum/total;
 		}
 		 $scope.openModal = function(modal){
 			if(User.getUser()){

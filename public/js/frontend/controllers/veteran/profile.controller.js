@@ -11,18 +11,28 @@
 			let total = 11.0;
 			if($scope.user.contact_info.name){
 				sum++;
+			}else{
+				$scope.fix = "Name";
 			}
 			if($scope.user.contact_info.imgurl){
 				sum++;
+			}else{
+				$scope.fix = "Profile Image";
 			}
 			if($scope.user.contact_info.email){
 				sum++;
+			}else{
+				$scope.fix = "Email";
 			}
 			if($scope.user.contact_info.phone){
 				sum++;
+			}else{
+				$scope.fix = "Phone NUmber";
 			}
 			if($scope.user.contact_info.location){
 				sum++;
+			}else{
+				$scope.fix = "Location";
 			}
 			if($scope.user.contact_info.branch){
 				sum++;
@@ -76,6 +86,7 @@
 					.then(function (data) {
 						console.log(data);
 						$scope.user = data;
+						$scope.progress = calcProgress();
 					},function (reason) {
 						console.log(reason);
 					});

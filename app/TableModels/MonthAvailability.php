@@ -2,7 +2,7 @@
 namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Availability extends Model{
+class MonthAvailability extends Model{
     /**
      * The table associated with the model.
      *

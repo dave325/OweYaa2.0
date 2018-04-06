@@ -5,7 +5,7 @@
 		// Retrieve current user 
 		$scope.user = User.getUser();
 		console.log($scope.user);
-		$scope.progress = calcProgress();
+		$scope.progress = calcProgress($scope.user);
 		function calcProgress(user){
 			let sum = 0;
 			let total = 11.0;

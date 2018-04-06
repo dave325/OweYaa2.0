@@ -6,50 +6,50 @@
 		$scope.user = User.getUser();
 		console.log($scope.user);
 		$scope.progress = calcProgress();
-		function calcProgress(){
+		function calcProgress(user){
 			let sum = 0;
 			let total = 11.0;
-			if($scope.user.contact_info.name != null && $scope.user.contact_info.name.length > 0){
+			if(user.contact_info.name != null && user.contact_info.name.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Name";
 			}
-			if($scope.user.contact_info.imgurl != null && $scope.user.contact_info.imgurl.length > 0){
+			if(user.contact_info.imgurl != null && user.contact_info.imgurl.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Profile Image";
 			}
-			if($scope.user.contact_info.email != null && $scope.user.contact_info.email.length > 0){
+			if(user.contact_info.email != null && user.contact_info.email.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Email";
 			}
-			if($scope.user.contact_info.phone != null && $scope.user.contact_info.phone.length > 0){
+			if(user.contact_info.phone != null && user.contact_info.phone.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Phone NUmber";
 			}
-			if($scope.user.contact_info.location != null && $scope.user.contact_info.location.length > 0){
+			if(user.contact_info.location != null && user.contact_info.location.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Location";
 			}
-			if($scope.user.contact_info.branch != null && $scope.user.contact_info.branch.length > 0){
+			if(user.contact_info.branch != null && user.contact_info.branch.length > 0){
 				sum++;
 			}
-			if($scope.user.education.attendedCollege){
+			if(user.education.attendedCollege){
 				sum++;
 			}
-			if($scope.user.prev_career_fields.length > 0){
+			if(user.prev_career_fields.length > 0){
 				sum++;
 			}
-			if($scope.user.availability.length > 0){
+			if(user.availability.length > 0){
 				sum++;
 			}
-			if($scope.user.month_availability.length > 0){
+			if(user.month_availability.length > 0){
 				sum++;
 			}
-			if($scope.user.skill.length > 4){
+			if(user.skill.length > 4){
 				sum++;
 			}
 			return (sum/total) * 100;
@@ -86,7 +86,7 @@
 					.then(function (data) {
 						console.log(data);
 						$scope.user = User.getUser();
-						$scope.progress = calcProgress();
+						$scope.progress = calcProgress(User.getUser());
 					},function (reason) {
 						console.log(reason);
 					});

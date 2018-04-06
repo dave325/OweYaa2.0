@@ -124,6 +124,19 @@
 					$scope.recommendedFields.push('Add more than 5 skills');
 				}
 			}
+			let progress = Math.round((sum / total) * 100);
+			let type;
+			if(progress < 50){
+				type = "danger";
+			}else if(progress < 75){
+				type = "info";
+			}else{
+				type = "success"
+			}
+			let progress = {
+				progress:progress,
+				type:type
+			}
 			return Math.round((sum / total) * 100);
 		}
 		$scope.openModal = function (modal) {

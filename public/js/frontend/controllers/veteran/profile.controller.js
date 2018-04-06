@@ -126,9 +126,9 @@
 			}
 			let progressbar = Math.round((sum / total) * 100);
 			let type;
-			if(progress < 50){
+			if(progressbar < 50){
 				type = "danger";
-			}else if(progress < 75){
+			}else if(progressbar < 75){
 				type = "info";
 			}else{
 				type = "success"

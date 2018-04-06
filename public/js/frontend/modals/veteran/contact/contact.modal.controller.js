@@ -20,7 +20,6 @@
         if(data.status === 201){
           contactvm.formInfo = "Succesfully Updated!";
           User.setUser(contactvm.user);
-          $timeout(function(){},1000);
         }
       },function(data){
         if(data.status === 401){

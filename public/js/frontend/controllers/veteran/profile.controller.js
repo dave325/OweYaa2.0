@@ -85,7 +85,7 @@
 				m.result
 					.then(function (data) {
 						console.log(data);
-						$scope.user = data;
+						$scope.user = User.getUser();
 						$scope.progress = calcProgress();
 					},function (reason) {
 						console.log(reason);

@@ -22,12 +22,8 @@
                     </ul>
                     <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('month')">Choose Monthly
                         <br /> Membership</button>
-<<<<<<< HEAD
-                </div> <!-- End of monthly membership -->
-=======
                 </div>
                 <!-- End of monthly membership -->
->>>>>>> 0aa3afdc6a948175e2caa966339c2e640bb9556d
                 <div id="quarterlyMembership" class="col-md-4 payOption">
                     <h3>Quarterly Membership</h3>
                     <ul>
@@ -61,7 +57,7 @@
                 <p>We believe in workplace inclusion and availability for all. If you are a company with under $5 Million in
                     revenue apply for our "Building Best Inclusive Workplaces Scholarship" to receive a discount on membership.
                     Discount rates are calculated by company size.</p>
-                <a class="btn" href="company/:companyid/requestdiscount">
+                <a class="btn" href="company/{{vm.user.company.username}}/request-discount">
                     Apply Here
                 </a>
             </div>

@@ -1,142 +1,179 @@
 <div id="educationModal">
   <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="educationvm.cancel()"></span>
   <fieldset>
-  <legend>Education Information</legend>
-  <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
-  <p ng-show="educationvm.formError" class="alert alert-danger" ng-bind-html="educationvm.formError"></p>
-  <p ng-show="educationvm.formInfo" class="alert alert-success" ng-bind-html="educationvm.formInfo"></p>
-  <form novalidate method="post" name="education" ng-submit="submit()">
-    <div class="row">
-      <div class="col-xs-12">
-        <!-- Information regarding higher education -->
-        <fieldset>
-        <legend>Higher Education</legend>
-        <p>Enter any information you have regarding your education!</p>
-        <div class="form-group">
-          <p>
-              <label form="education" for="school">School: </label>
-              <input ng-model="educationvm.user.education.school" type="text" class="form-control" name="school" id="school"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.school}}</span> -->
-            </p>
-            <p>
-              <label form="education" for="degree">Degree: </label>
-              <input ng-model="educationvm.user.education.degree" type="text" class="form-control" name="degree" id="degree"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.degree}}</span> -->
-            </p>
-            <p>
-              <label form="education" for="graduation">Graduation Date: </label>
-              <input ng-model="educationvm.user.education.grad" type="text" class="form-control" name="graduation" id="graduation"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.grad}}</span> -->
-            </p>
-        </div> <!-- End of class form-group -->
-      </fieldset>
-        <fieldset>
-        <legend>Coursework / Training: </legend>
+    <legend>Education Information</legend>
+    <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
+    <p ng-show="educationvm.formError" class="alert alert-danger" ng-bind-html="educationvm.formError"></p>
+    <p ng-show="educationvm.formInfo" class="alert alert-success" ng-bind-html="educationvm.formInfo"></p>
+    <form novalidate method="post" name="education" ng-submit="submit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- Information regarding higher education -->
+          <fieldset>
+            <legend>Higher Education</legend>
+            <p>Enter any information you have regarding your education!</p>
+            <div class="form-group">
+              <p>
+                <span>Attended College:</span>
+                <input type="checkbox" ng-model="educationvm.user.education.attendedCollege" />
+              </p>
+              <p>
+                <label form="education" for="school">School: </label>
+                <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="school" id="school" />
+              </p>
+              <p>
+                <label form="education" for="degree">Degree: </label>
+                <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="degree" id="degree" />
+              </p>
+              <p>
+                <label form="education" for="graduation">Graduation Date: </label>
+                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.attendedCollege" type="date" class="form-control"
+                  name="graduation" id="graduation" />
+              <p>
+                <span>Graduated:</span>
+                <input type="checkbox" ng-model="educationvm.graduated" />
+              </p>
+            </div>
+            <!-- End of class form-group -->
+          </fieldset>
+          <fieldset>
+            <legend>Coursework / Training: </legend>
 
-        <!-- Display list of areas of interest -->
+            <!-- Display list of areas of interest -->
+            <div class="col-xs-12">
+              <div class="form-group">
+                <h4>Career Focus Area:</h4>
+                <p>Describe your specific career focus!</p>
+                <p>
+                  <label form="education" for="focusArea">Focus Area: </label>
+                  <input ng-model="educationvm.user.educaiton.focusArea" type="text" class="form-control" name="focusArea" id="graduation"
+                  />
+                </p>
+              </div>
+              <!-- End of clas form-group -->
+            </div>
+            <!-- End of class col-xs-12 -->
+          </fieldset>
+
+          <!-- Display all bootcamps attended -->
+          <div class="col-xs-12">
+            <div class="form-group">
+              <h4>Bootcamps:</h4>
+              <p>Please indicate any bootcamps you have attended in the past! You can click on the red X marks next to each
+                section to remove them!</p>
+              <p ng-show="educationvm.user.bootcamp.length == 9" class="bg-warning">You may add up to 10 items</p>
+              <!-- Add a new area of focus -->
+              <div>
+                <p>New Bootcamps:</p>
+                <input type="text" ng-model="educationvm.newBootcamp.bootcamp" class="add-btn" />
+                <button ng-class="[{'addEntry':educationvm.newBootcamp.bootcamp}]" class="btn" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp.bootcamp"
+                  type="button" ng-click="educationvm.addToBootcamps()">Add</button>
+              </div>
+              <br />
+              <!-- End of div on line 52 -->
+              <ol ng-if="educationvm.user.bootcamp.length > 0">
+                <li ng-repeat="field in educationvm.user.bootcamp track by $index" class="col-md-5">
+                  <input type="text" ng-model="field.bootcamp" class="form-control">
+                  <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
+                </li>
+              </ol>
+            </div>
+            <!-- End of class form-group -->
+          </div>
+          <!-- End of class col-xs-12 -->
+
+          <!-- Display all courses taken -->
+          <div class="col-xs-12">
+            <div class="form-group">
+              <h4>Courses:</h4>
+              <p>Please indicate any courses you have taken in the past! You can click on the red X marks next to each section
+                to remove them!</p>
+              <p ng-show="educationvm.user.course.length == 9" class="bg-warning">You may add up to 10 items</p>
+              <!-- Add a new area of focus -->
+              <div>
+                <p>New Courses:</p>
+                <input type="text" ng-model="educationvm.newCourse.course" class="add-btn" />
+                <button ng-class="[{'addEntry':educationvm.newCourse.course}]" class="btn" ng-disabled="educationvm.user.course.length == 9 || !educationvm.newCourse.course"
+                  type="button" ng-click="educationvm.addToCourses()">Add</button>
+              </div>
+              <br />
+              <!-- End of div on line 73 -->
+              <ol ng-if="educationvm.user.course.length > 0">
+                <li ng-repeat="field in educationvm.user.course track by $index" class="col-md-5">
+                  <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
+                  <input type="text" ng-model="field.course" class="form-control">
+                  <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
+                </li>
+              </ol>
+            </div>
+            <!-- End of class form-group -->
+          </div>
+          <!-- End of class col-xs-12 -->
+
+          <!-- Display all certifications -->
+          <div class="col-xs-12">
+            <div class="form-group">
+              <h4>Certifications:</h4>
+              <p>Please indicate any certifications you currently have! You can click on the red X marks next to each section
+                to remove them!</p>
+              <p ng-show="educationvm.user.certifications.length == 9" class="bg-warning">You may add up to 10 items</p>
+              <!-- Add a new area of focus -->
+              <div>
+                <p>New Certifications:</p>
+                <input type="text" ng-model="educationvm.newCertification.certification" class="add-btn" />
+                <button ng-class="[{'addEntry':educationvm.newCertification.certification}]" class="btn" ng-disabled="educationvm.user.certifications.length == 9 || !educationvm.newCertification.certification"
+                  type="button" ng-click="educationvm.addToCertifications()">Add</button>
+              </div>
+              <br />
+              <!-- End of div on line 94 -->
+              <ol ng-if="educationvm.user.certifications.length > 0">
+                <li ng-repeat="field in educationvm.user.certifications track by $index" class="col-md-5">
+                  <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
+                  <input type="text" ng-model="field.certification" class="form-control">
+                  <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>
+                </li>
+              </ol>
+            </div>
+            <!-- End of class form-group -->
+          </div>
+          <!-- End of class col-xs-12 -->
+        </div>
+        <!-- End of class col-xs-12 -->
+
+        <!-- Display the education plan provided -->
         <div class="col-xs-12">
           <div class="form-group">
-            <h4>Career Focus Area:</h4>
-            <p>Describe your specific career focus!</p>
-            <p>
-              <label form="education" for="focusArea">Focus Area: </label>
-              <input ng-model="educationvm.user.educaiton.focusArea" type="text" class="form-control" name="focusArea" id="graduation"/>
-              <!-- <span ng-hide="educationvm.user.editMode">{{educationvm.user.grad}}</span> -->
-            </p>
-          </div> <!-- End of clas form-group -->
-        </div> <!-- End of class col-xs-12 -->
-      </fieldset>
-        
-        <!-- Display all bootcamps attended -->
-        <div class="col-xs-12">
-          <div class="form-group">
-            <h4>Bootcamps:</h4>
-            <p>Please indicate any bootcamps you have attended in the past! You can click on the red X marks next to each section to remove them!</p>
-            <p ng-show="educationvm.user.bootcamp.length == 9" class="bg-warning">You may add up to 10 items</p>
-            <!-- Add a new area of focus -->
-            <div>
-              <p>New Bootcamps:</p>
-              <input type="text" ng-model="educationvm.newBootcamp.bootcamp" class="add-btn" />
-              <button ng-class="[{'addEntry':educationvm.newBootcamp.bootcamp}]" class="btn" ng-disabled="educationvm.user.bootcamp.length == 9 || !educationvm.newBootcamp.bootcamp" type="button" ng-click="educationvm.addToBootcamps()">Add</button>
-            </div><br /> <!-- End of div on line 52 -->
-            <ol ng-if="educationvm.user.bootcamp.length > 0">
-              <li ng-repeat="field in educationvm.user.bootcamp track by $index" class="col-md-5">
-                <input type="text" ng-model="field.bootcamp" class="form-control">
-                <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
+            <h3>Education Plan: </h3>
+            <ul ng-repeat="education in educationvm.user.plan track by $index">
+              <li>
+                <input type="text" ng-model="educationvm.user.content.plan.$index" value="education.value">
               </li>
-            </ol>
-          </div> <!-- End of class form-group -->
-        </div> <!-- End of class col-xs-12 -->
+            </ul>
+            <h4>We will provide more courses to you at a later date</h4>
 
-        <!-- Display all courses taken -->
-        <div class="col-xs-12">
-          <div class="form-group">
-            <h4>Courses:</h4>
-            <p>Please indicate any courses you have taken in the past! You can click on the red X marks next to each section to remove them!</p>
-            <p ng-show="educationvm.user.course.length == 9" class="bg-warning">You may add up to 10 items</p>
-            <!-- Add a new area of focus -->
             <div>
-              <p>New Courses:</p>
-              <input type="text" ng-model="educationvm.newCourse.course" class="add-btn" />
-              <button ng-class="[{'addEntry':educationvm.newCourse.course}]" class="btn" ng-disabled="educationvm.user.course.length == 9 || !educationvm.newCourse.course" type="button" ng-click="educationvm.addToCourses()">Add</button>
-            </div><br /> <!-- End of div on line 73 -->
-            <ol ng-if="educationvm.user.course.length > 0">
-              <li ng-repeat="field in educationvm.user.course track by $index" class="col-md-5">
-                <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.course" class="form-control"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
-              </li>
-            </ol>
-          </div> <!-- End of class form-group -->
-        </div> <!-- End of class col-xs-12 -->
-
-        <!-- Display all certifications -->
-        <div class="col-xs-12">
-          <div class="form-group">
-            <h4>Certifications:</h4>
-            <p>Please indicate any certifications you currently have! You can click on the red X marks next to each section to remove them!</p>
-            <p ng-show="educationvm.user.certifications.length == 9" class="bg-warning">You may add up to 10 items</p>
-            <!-- Add a new area of focus -->
-            <div>
-              <p>New Certifications:</p>
-              <input type="text" ng-model="educationvm.newCertification.certification" class="add-btn" />
-              <button ng-class="[{'addEntry':educationvm.newCertification.certification}]" class="btn" ng-disabled="educationvm.user.certifications.length == 9 || !educationvm.newCertification.certification" type="button" ng-click="educationvm.addToCertifications()">Add</button>
-            </div><br /> <!-- End of div on line 94 -->
-            <ol ng-if="educationvm.user.certifications.length > 0">
-              <li ng-repeat="field in educationvm.user.certifications track by $index"  class="col-md-5">
-                <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
-                <input type="text" ng-model="field.certification" class="form-control"><span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>
-              </li>
-            </ol>
-          </div> <!-- End of class form-group -->
-        </div> <!-- End of class col-xs-12 -->
-      </div> <!-- End of class col-xs-12 -->
-
-      <!-- Display the education plan provided -->
-      <div class="col-xs-12">
-        <div class="form-group">
-        <h3>Education Plan: </h3>
-        <ul ng-repeat="education in educationvm.user.plan track by $index">
-          <li><input type="text" ng-model="educationvm.user.content.plan.$index" value="education.value"></li>
-        </ul>
-        <h4>We will provide more courses to you at a later date</h4>
-
-        <div>
-          <p>Education Plan:</p>
-          <ol>
-            <li ng-repeat="field in educationvm.user.plans">
-              {{field}}
-            </li>
-          </ol>
-        </div> <!-- End of div on line 118 -->
-    </div> <!-- End of class form-group -->
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="text-center form-group">
-          <button ng-click="educationvm.cancel()" class="btn btn-success">Close</button>
-          <button ng-click="educationvm.onSubmit('education', educationvm.user)" class="btn btn-success">Save</button>
-        </div> <!-- End of class text-center form-group -->
-      </div> <!-- End of class col-xs-12 --> 
-    </div> <!-- End of class row -->
-  </form>
-</fieldset>
-</div> <!-- End of id educationModal -->
+              <p>Education Plan:</p>
+              <ol>
+                <li ng-repeat="field in educationvm.user.plans">
+                  {{field}}
+                </li>
+              </ol>
+            </div>
+            <!-- End of div on line 118 -->
+          </div>
+          <!-- End of class form-group -->
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="text-center form-group">
+                <button ng-click="educationvm.cancel()" class="btn btn-warning">Close</button>
+                <button ng-click="educationvm.onSubmit('education', educationvm.user)" class="btn btn-info">Save</button>
+              </div>
+              <!-- End of class text-center form-group -->
+            </div>
+            <!-- End of class col-xs-12 -->
+          </div>
+          <!-- End of class row -->
+    </form>
+  </fieldset>
+  </div>
+  <!-- End of id educationModal -->

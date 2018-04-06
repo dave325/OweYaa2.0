@@ -2,7 +2,7 @@
 <div id="membershipPaymentModal">
     <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="purchaseMembershipModalvm.cancel()"></span>
     <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12">
-        <h2 class="text-center">Payment Method for {{purchaseMembershipModalvm.type.total.label}}</h2>
+        <h2 class="text-center comp-name">Payment Method for {{purchaseMembershipModalvm.type.total.label}}</h2>
         <div id="card-errors" class="alert alert-warning payAlert" role="alert"></div>
         <div class="form-group col-xs-12">
             <!-- Used to display Element errors -->

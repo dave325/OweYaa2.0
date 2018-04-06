@@ -1,6 +1,6 @@
 (function(){
-  contactModalCtrl.$inject = ['$uibModalInstance', 'CurrUser', 'User'];
-  function contactModalCtrl($uibModalInstance, CurrUser, User){
+  contactModalCtrl.$inject = ['$uibModalInstance', 'CurrUser', 'User','$timeout'];
+  function contactModalCtrl($uibModalInstance, CurrUser, User,$timeout){
     contactvm = this;
     contactvm.user = CurrUser;
     // The function that is call when a user cancels the opening of a modal
@@ -20,6 +20,7 @@
         if(data.status === 201){
           contactvm.formInfo = "Succesfully Updated!";
           User.setUser(contactvm.user);
+          contactvm.close();
         }
       },function(data){
         if(data.status === 401){

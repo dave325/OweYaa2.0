@@ -113,6 +113,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
     /**
+     * Get the specific months associated with the user.
+     */
+    public function monthAvailability()
+    {
+        return $this->hasMany('App\TableModels\MonthAvailability', 'username');
+    }
+    /**
      * Get the wanted skills associated with the user.
      */
     public function wantedSkills()

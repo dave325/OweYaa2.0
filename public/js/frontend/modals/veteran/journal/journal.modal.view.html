@@ -16,22 +16,18 @@
                     <p>
                         <label form="journal" for="company{{$index}}">Company: </label>
                         <input ng-model="connect.company" type="text" class="form-control" name="copmany{{$index}}" />
-                        <!-- <span ng-hide="journalvm.editMode">{{journalvm.school}}</span> -->
                     </p>
                     <p>
                         <label form="journal" for="date{{$index}}">Date: </label>
                         <input ng-model="connect.date" type="date" class="form-control" name="date{{$index}}" />
-                        <!-- <span ng-hide="journalvm.editMode">{{journalvm.degree}}</span> -->
                     </p>
                     <p>
                         <label form="journal" form="contact{{$index}}">Contact: </label>
                         <input ng-model="connect.contact" type="text" class="form-control" name="contact{{$index}}" />
-                        <!-- <span ng-hide="journalvm.editMode">{{journalvm.grad}}</span> -->
                     </p>
                     <p>
                         <label form="journal" form="notes{{$index}}">Notes: </label>
                         <input ng-model="connect.notes" type="text" class="form-control" name="notes{{$index}}" />
-                        <!-- <span ng-hide="journalvm.editMode">{{journalvm.grad}}</span> -->
                     </p>
                 </div>
                 <!-- End of ng-repeat=connect in journalvm.user.interviews -->
@@ -91,8 +87,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="text-center form-group">
-                    <button ng-click="journalvm.close(journalvm.user)" class="btn btn-success">Close</button>
-                    <button ng-click="journalvm.onSubmit('journal',journalvm.user)" class="btn btn-primary">Save</button>
+                    <button ng-click="journalvm.close(journalvm.user)" class="btn btn-warning">Close</button>
+                    <button ng-click="journalvm.onSubmit('journal',journalvm.user)" class="btn btn-info">Save</button>
                 </div>
                 <!-- End of text-center form-group -->
             </div>

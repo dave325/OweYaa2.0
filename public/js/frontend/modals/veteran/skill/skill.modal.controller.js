@@ -9,22 +9,39 @@
     skillvm.newWant = {};
     skillvm.newLanguage = {};
 
+    skillvm.addIndex = function(skill){
+      let index;
+      for(let i = 0; i < skillvm.user[skill].length;i++){
+        if(skillvm.user[skill][i].skillid.substr(skillvm.user[skill][i].skillid.length -1) == (i +1)){
+          continue;
+        }else{
+          index = skillvm.user.contact_info.username + (i+1);
+        }
+      }
+      if(!index){
+        return skillvm.user.contact_info.username+ (skillvm.user[skill].length + 1)
+      }else{
+        return index;
+      }   
+    }
+
     // Add a new skill
-    skillvm.addToSkills = function() {
+    skillvm.addToSkills = function() {   
+      skillvm.newSkill.skillid = skillvm.addIndex('skill');
       skillvm.user.skill.push(skillvm.newSkill);
       skillvm.newSkill = {};
     }
 
     // Add a new skill that you want
     skillvm.addToWants = function() {
-      skillvm.newWant.skillid = skillvm.user.contact_info.username+ (skillvm.user.wanted_skills.length + 1);
+      skillvm.newWant.skillid = skillvm.addIndex('wanted_skills');
       skillvm.user.wanted_skills.push(skillvm.newWant);
       skillvm.newWant = {};
     }
 
     // Add a new language that you know
     skillvm.addToLanguages = function() {
-      skillvm.newLanguage.langid = skillvm.user.contact_info.username + (skillvm.user.language.length + 1);
+      skillvm.newLanguage.langid = skillvm.addIndex('language');
       skillvm.user.language.push(skillvm.newLanguage);
       skillvm.newLanguage = {};
     }
@@ -51,13 +68,26 @@
     // The function that is call when the user closes the modal
 		skillvm.close = function(result){
 			$uibModalInstance.close(result);
-		}
+    }
+    
+    // Remove any skill in the User object 
+    skillvm.removeSkill = function(skill){
+      for(let i = 0; i < skillvm.user[skill].length; i++){
+        if(skillvm.user[skill][i].delete){
+          skillvm.user[skill].splice(i,1);
+        }
+      }
+    }
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
         skillvm.formInfo = "Successfully updated!";
+        skillvm.removeSkill('skill');
+        skillvm.removeSkill('wanted_skills');
+        skillvm.removeSkill('language');
         User.setUser(skillvm.user);
+        skillvm.close();
       },function(error){
         if(data.status === 401){
           skillvm.formError = "Unauthorized, there was an error. Please try again!";

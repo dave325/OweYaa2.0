@@ -75,7 +75,7 @@ class ValidateUser extends Controller
         // a Veteran user, and the attributes are filled in for this Veteran user.
         elseif($request->has('type') && $request->input('type') == 0){
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
-            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
+            $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'monthAvailability','certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
             return response()->json(['user' => $user], 200);
         }
 
@@ -198,7 +198,7 @@ class ValidateUser extends Controller
         if($this->isValid()){
             $credentials = $request->only('contact_info', 'education', 'bootcamp', 'course','certifications', 'focusArea');
             try{
-
+                unset($credentials['education']['grad']);
               /* Look for username and find it in the table / database */
                 $education = TableModels\Education::findOrFail($credentials['contact_info']['username']);
 
@@ -226,7 +226,7 @@ class ValidateUser extends Controller
             // will be pushed onto the "delete" stack. Each "item" is referenced
             // by it's "bootcampid", a primary key.
             foreach($credentials['bootcamp'] as $item){
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
                     array_push($delete,$item['bootcampid']);
                 }else{
 
@@ -280,7 +280,7 @@ class ValidateUser extends Controller
             foreach($credentials['course'] as $item){
 
                 // If the "course" credentials need to be deleted...
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
 
                     // Push the course to the delete stack. Courses are referenced
                     // by a "courseid", the primary key for courses.
@@ -318,7 +318,7 @@ class ValidateUser extends Controller
             }
 
             // If there are items that need to be deleted...
-            if(isset($delete)){
+            if(isset($item['delete']) && $item['delete']){
 
                 // Delete all of the items in the "delete" stack, search and
                 // delete them from the database.
@@ -338,7 +338,7 @@ class ValidateUser extends Controller
             foreach($credentials['certifications'] as $item){
 
                 // If the "certifications" credentials need to be deleted...
-                if($item['delete']){
+                if(isset($item['delete']) && $item['delete']){
 
                     // Place an id reference for that "item" into the delete stack.
                     // This way, the program will know to delete this "item" from
@@ -380,7 +380,7 @@ class ValidateUser extends Controller
             }
 
             // If there are items that need to be deleted from the database...
-            if(isset($delete)){
+            if(isset($item['delete']) && $item['delete']){
 
                 // Search for them by their reference to certid and delete them
                 // from the database.

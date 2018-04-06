@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h3 class="modal-title"> Edit Milestones</h3>
+</div> <!-- End of modal-header -->
+
+<div class="modal-body" id="proj-dashboard-Milestones">
+    <div ng-repeat="milestone in milestones">
+
+        <br>
+        <div class="form-group">
+            <label for="usr">{{milestone.description}}</label>
+            <input type="text" class="form-control" id="usr">
+        </div> <!-- End of class form-group -->
+        <input type="checkbox" name="checkCompleted"> Completed
+
+        <button class="btn btn-warning btn-sm">Delete</button>
+
+
+
+
+    </div> <!-- End of ng-repeat milestone in milestone -->
+</div> <!-- End of id proj-dashboard-Milestones -->
+
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div> <!-- End of class modal-footer -->

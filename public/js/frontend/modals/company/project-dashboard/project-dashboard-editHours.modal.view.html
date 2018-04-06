@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title"> Edit Intern Hours</h3>
+    <h3 class="modal-title comp-name text-center"> Edit Intern Hours</h3>
 </div>
 <!-- End of modal-header -->
 
@@ -11,13 +11,12 @@
             <div class="col-md-4">
                 <p>{{intern.name}}</p>
             </div>
-            <div class="col-md-4">
-                <p>{{intern.hours}}</p>
-            </div>
 
             <div class="col-md-4">
-                <span class="glyphicon glyphicon-plus" style="padding: 3px; background-color: rgb(236,236,236)" ng-click="increment(intern)"></span>
-                <span class="glyphicon glyphicon-minus" style="padding: 3px; background-color: rgb(236,236,236)" ng-click="decrement(intern)"></span>
+                <form>
+                    Total Hours:
+                    <input type="number"min="0" ng-model="intern.hours">
+                </form>
 
             </div>
         </div>
@@ -30,8 +29,8 @@
 
 <div class="modal-footer">
 
-    <button class="btn btn-warning" type="button" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-warning" type="button" ng-click="ok()">Cancel</button>
+    <button class="btn btn-info" type="button" ng-click="cancel()">Save</button>
 
 </div>
 <!-- End of class modal-footer -->

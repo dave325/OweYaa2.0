@@ -2,15 +2,15 @@
 namespace App\TableModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Education extends Model{
+class MonthAvailability extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'education';
+    protected $table = 'availability';
     // Set primary key
-    protected $primaryKey = 'username';
+    protected $primaryKey = "monthid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,11 +21,7 @@ class Education extends Model{
     *
     * @var array
     */
-<<<<<<< HEAD
-    protected $fillable = ['username', 'school', 'degree','gradDate', 'course1', 'course2', 'course3','attendedcollege'];
-=======
-    protected $fillable = ['username', 'school', 'degree','graddate', 'course1', 'course2', 'course3','attendedcollege'];
->>>>>>> 893771774a6311b8168153848237d855547a6d07
+    protected $fillable = ['username','month','monthid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -33,7 +29,7 @@ class Education extends Model{
      * @var array
      */
     protected $hidden = [
-        'username',
+        'username'
     ];
 
     /**
@@ -41,6 +37,6 @@ class Education extends Model{
      */
     public function militaryUser()
     {
-        return $this->belongsTo('App\User', 'username');
+        return $this->belongsTo('App\User','username');
     }
 }

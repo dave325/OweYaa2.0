@@ -20,7 +20,7 @@
 			if($scope.user.education.attendedCollege){
 				total++;
 			}
-			if($scope.user.previous_career_field.length > 0){
+			if($scope.user.previous_career_fields.length > 0){
 				total++;
 			}
 			if($scope.user.availability.length > 0){

@@ -9,32 +9,32 @@
 		function calcProgress(){
 			let sum = 0;
 			let total = 11.0;
-			if($scope.user.contact_info.name){
+			if($scope.user.contact_info.name.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Name";
 			}
-			if($scope.user.contact_info.imgurl){
+			if($scope.user.contact_info.imgurl.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Profile Image";
 			}
-			if($scope.user.contact_info.email){
+			if($scope.user.contact_info.email.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Email";
 			}
-			if($scope.user.contact_info.phone){
+			if($scope.user.contact_info.phone.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Phone NUmber";
 			}
-			if($scope.user.contact_info.location){
+			if($scope.user.contact_info.location.length > 0){
 				sum++;
 			}else{
 				$scope.fix = "Location";
 			}
-			if($scope.user.contact_info.branch){
+			if($scope.user.contact_info.branch.length > 0){
 				sum++;
 			}
 			if($scope.user.education.attendedCollege){

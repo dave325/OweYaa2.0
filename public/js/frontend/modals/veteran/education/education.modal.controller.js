@@ -101,6 +101,7 @@
         educationvm.removeSkill('course');
         educationvm.formInfo = "Successfuly Updated!";
         User.setUser(educationvm.user);
+        educationvm.close();
       }, function (data) {
         if (data.status === 401) {
           educationvm.formError = "Unauthorized, there was an error. Please try again!";

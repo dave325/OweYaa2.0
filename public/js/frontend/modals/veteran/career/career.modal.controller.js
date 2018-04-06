@@ -57,6 +57,7 @@
         }
         careervm.formInfo = "Successfully updated!";
         User.setUser(careervm.user);
+        careervm.close();
       },function(error){
         careervm.formError = "There was an error. Please try again!";
       });

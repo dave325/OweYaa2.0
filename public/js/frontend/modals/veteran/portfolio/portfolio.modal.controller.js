@@ -33,6 +33,7 @@
         }
         portfoliovm.formInfo = "Succesfully Updated!";
         User.setUser(portfoliovm.user);
+        portfoliovm.close();
       },function(data){
         if(data.status === 401){
           portfoliovm.formError = "Unauthorized, there was an error. Please try again!";

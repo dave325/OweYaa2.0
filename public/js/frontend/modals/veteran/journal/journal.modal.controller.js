@@ -23,6 +23,7 @@
         }
        journalvm.formInfo = "Succesffuly Updated!";
        User.setUser(journalvm.user); 
+       journalvm.close();
       },function(data){
         if(data.status === 401){
           journalvm.formError = "Unauthorized, there was an error. Please try again!";

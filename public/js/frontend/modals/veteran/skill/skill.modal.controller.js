@@ -87,6 +87,7 @@
         skillvm.removeSkill('wanted_skills');
         skillvm.removeSkill('language');
         User.setUser(skillvm.user);
+        skillvm.close();
       },function(error){
         if(data.status === 401){
           skillvm.formError = "Unauthorized, there was an error. Please try again!";

@@ -31,6 +31,7 @@
           availibilityvm.formInfo = "Successfully updated!";
           User.setUser(availibilityvm.user);
         }
+        availibilityvm.close();
       },function(error){
         availibilityvm.formError = "There was an error. Please try again!";
       })

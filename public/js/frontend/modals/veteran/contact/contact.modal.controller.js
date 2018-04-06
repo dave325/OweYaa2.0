@@ -20,7 +20,7 @@
         if(data.status === 201){
           contactvm.formInfo = "Succesfully Updated!";
           User.setUser(contactvm.user);
-          constactvm.close();
+          contactvm.close();
         }
       },function(data){
         if(data.status === 401){

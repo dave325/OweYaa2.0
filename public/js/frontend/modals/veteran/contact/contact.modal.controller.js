@@ -33,7 +33,11 @@
 
     // Will Submit the form depending if everything is filled out
 		contactvm.onSubmit = function(modal, data){
-			contactvm.docontact(modal, data);
+      if(contactvm.email.length < 1){
+        contactvm.formError = "You must submit an email to save the information";
+      }else{
+        contactvm.docontact(modal, data);
+      }
     }
   }
   angular.module('oweyaa')

@@ -21,7 +21,7 @@ class CompanyProject extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','projectdetails','projectrecieve','projectmanager','initiated', 'projid', 'ismatched','datesubmitted','resources','companyrfi','deliverymethod','completiondate','checkin','companywebsite','sentmessage','messagedate','purchasehours', 'phone','email','location','industry'];
+    protected $fillable = ['username','projectdetails','projectrecieve','projectmanager','initiated', 'projid', 'ismatched','datesubmitted','resources','companyrfi','deliverymethod','completiondate','checkin','companywebsite','sentmessage','messagedate','purchasehours', 'phone','email','location','industry','internid'];
 
     /**
      * The attributes excluded from the model's JSON form.

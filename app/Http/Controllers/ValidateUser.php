@@ -76,12 +76,14 @@ class ValidateUser extends Controller
         elseif($request->has('type') && $request->input('type') == 0){
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'monthAvailability','certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
+            $user['project'] = User::with('companyProject')->where('internid', '=',$usreCheck->username)->first();
             return response()->json(['user' => $user], 200);
         }
 
         // If the type of user specified exists and is equal to 1, the user is
         // a company, and the attributes are filled in for this company user.
-        elseif($request->has('type') && $request->input('type') == 1){
+        elseif($request->has('type') && $request->input('t
+        public function user()ype') == 1){
             $user = User::with('company','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
             return response()->json(['user' => $user], 200);
         }

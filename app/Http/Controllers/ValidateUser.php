@@ -76,7 +76,7 @@ class ValidateUser extends Controller
         elseif($request->has('type') && $request->input('type') == 0){
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
             $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'monthAvailability','certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username','=',$userCheck->username)->first();
-            $user['project'] = User::with('companyProject')->where('internid', '=',$usreCheck->username)->first();
+            $user['project'] = User::with('companyProject')->where('internid', '=',$userCheck->username)->first();
             return response()->json(['user' => $user], 200);
         }
 

@@ -2,9 +2,7 @@
 <div id="contactModal">
     <fieldset>
     <legend>Contact Information</legend>
-    <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
-    <p ng-show="contactvm.formError" class="alert alert-danger" ng-bind-html="contactvm.formError"></p>
-    <p ng-show="contactvm.formInfo" class="alert alert-success" ng-bind-html="contactvm.formInfo"></p>
+    <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row col-xs-12">
           <div class="form-group">
@@ -23,6 +21,9 @@
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
+                    <p ng-show="contactvm.formError" class="alert alert-danger" ng-bind-html="contactvm.formError"></p>
+                    <p ng-show="contactvm.formInfo" class="alert alert-success" ng-bind-html="contactvm.formInfo"></p>
+                
                 <button ng-click="contactvm.cancel()" class="btn btn-warning">Close</button>
                 <button ng-click="contactvm.onSubmit('social',contactvm.user)" class="btn btn-info">Save</button>
             </div> <!-- End of class text-center form-group -->

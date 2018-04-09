@@ -29,7 +29,7 @@ class CompanyInternMatch extends Controller
         $this->wantedSkills = array('linux','c#');
 
 
-        $filtered= $this->filter(false,50000); 
+        $filtered= $this->filter(false,5000); 
         
        
 

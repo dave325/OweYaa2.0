@@ -33,7 +33,7 @@
 
     // Will Submit the form depending if everything is filled out
 		contactvm.onSubmit = function(modal, data){
-      if(contactvm.email === undefined){
+      if(contactvm.user.contact_info.email === undefined){
         contactvm.formError = "You must submit an email to save the information";
       }else{
         contactvm.docontact(modal, data);

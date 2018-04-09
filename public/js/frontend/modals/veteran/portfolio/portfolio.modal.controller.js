@@ -45,7 +45,11 @@
 
     // Will Submit the form depending if everything is filled out
 		portfoliovm.onSubmit = function(modal,data){
-			portfoliovm.doportfolio(modal,data);
+      if(portfoliovm.user.contact_info.name.length < 1){
+        portfoliovm.formError = "You must submit a name to save the information";
+      }else{
+        portfoliovm.doportfolio(modal,data);
+      }
     }
 
   }

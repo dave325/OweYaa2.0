@@ -3,9 +3,6 @@
     <fieldset>
     <legend>Portfolio Information</legend>
     <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
-    <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
-    <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
-  
     <form novalidate method="post" name="portfolio" ng-submit="submit()" >
       <div class="row">
         <div class="col-md-12">
@@ -35,6 +32,8 @@
        <div class="row">
         <div class="col-xs-12">
             <div class="text-center form-group">
+            <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
+            <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>            
             <button ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-warning">Close</button>
             <button ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user)' class="btn btn-info">Save</button>
             </div> <!-- End of class text-center form-group -->

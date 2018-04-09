@@ -6,8 +6,6 @@
       <!-- Information regarding higher education -->
       <fieldset>
       <legend>Previous Career</legend>
-      <p ng-show="careervm.formError" class="alert alert-danger" ng-bind-html="careervm.formError"></p>
-      <p ng-show="careervm.formInfo" class="alert alert-success" ng-bind-html="careervm.formInfo"></p>
       <p>Please indicate your past work experiences (Up to 2)!</p>
       <div class="form-group" ng-repeat="career in careervm.user.prev_career_fields track by $index">
         <div>
@@ -62,6 +60,8 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="text-center form-group">
+          <p ng-show="careervm.formError" class="alert alert-danger" ng-bind-html="careervm.formError"></p>
+          <p ng-show="careervm.formInfo" class="alert alert-success" ng-bind-html="careervm.formInfo"></p>
           <button ng-click="careervm.cancel()" class="btn btn-warning" type="submit">Close</button>
           <button ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-info" type="submit">Save</button>          
         </div> <!-- End of class text-center form-group -->

@@ -13,6 +13,7 @@ function projectSubmissionCtrl(User) {
     vm.steps = {
       page1:true,
       page2:false,
+      page3:false
     }
 
     // Returns current step based on what user selected 
@@ -28,16 +29,27 @@ function projectSubmissionCtrl(User) {
       return curStep;
     }
 
+    vm.nextPage = function(){
+      vm.steps.page1 = false;
+      vm.steps.page2 = true;
+    }
+
+    vm.prevPage = function(){
+      vm.steps.page1 = true;
+      vm.steps.page2 = false;
+    }
     // Submits project and sends data to server 
     vm.submitProjForm = function(modal,data){
       vm.steps.page1 = false;
       vm.steps.page2 = true;
+      /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);
       },function(error){
         console.log(error);
       });
     }
+    */
   }
    angular.module('oweyaa')
 	.controller('projectSubmissionCtrl', projectSubmissionCtrl);

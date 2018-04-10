@@ -45,7 +45,7 @@ function projectSubmissionCtrl(User) {
       vm.steps.page1 = false;
       vm.steps.page2 = false;
       vm.steps.page3 = true;
-      console.log(vm.submi)
+      console.log(vm.submissionForm);
       /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);

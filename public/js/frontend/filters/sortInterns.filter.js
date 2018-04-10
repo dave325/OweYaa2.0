@@ -19,13 +19,13 @@
      * @param interns - An array containing all interns, and their information.
     **/
 
-    function sortInterns(interns, input){
+    function sortInterns(input, interns){
       console.log("reached");
       // If the input search query is empty, or null...
-      if(input == null){
+      if(interns == null){
 
         // Return everybody.
-        return {interns:interns};
+        return {interns:input};
 
       }
 
@@ -37,17 +37,17 @@
       // Iterate through the interns array, searching for interns that match the
       // input search query. Index is the current index number, starting at 0.
       // Interns.length is the total number of interns.
-      for(var index = 0; index < interns.length; index++){
+      for(var index = 0; index < input.length; index++){
 
         // The current intern index in the array.
-        var intern = interns[index];
+        var intern = input[index];
 
         // If the value of the input search query matches that of the intern's
         // skill, add the intern to the filteredInterns array.
         // intern.skill is the intern's skill. This method checks only for one
         // skill per intern, for now.
-        if(input.trim().toUpperCase() == intern.skill){
-          filteredInterns.push(intern);
+        if(input.trim().toUpperCase() == input.skill){
+          filteredInterns.push(input);
         }
 
       }

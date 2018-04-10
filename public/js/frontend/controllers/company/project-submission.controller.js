@@ -48,8 +48,9 @@ function projectSubmissionCtrl(User) {
       },function(error){
         console.log(error);
       });
+      */
     }
-    */
+  
   }
    angular.module('oweyaa')
 	.controller('projectSubmissionCtrl', projectSubmissionCtrl);

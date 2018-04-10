@@ -7,7 +7,7 @@ function projectSubmissionCtrl(User) {
     // Stores information from form fields 
     vm.submissionForm = {};
 
-    vm.submissionForm.projid = vm.user.company_project.length;
+    vm.submissionForm.projid = vm.user.company.username + vm.user.company_project.length;
     vm.submissionForm.username = vm.user.company.username;
     // Stores steps needed to submit project 
     vm.steps = {
@@ -45,6 +45,7 @@ function projectSubmissionCtrl(User) {
       vm.steps.page1 = false;
       vm.steps.page2 = false;
       vm.steps.page3 = true;
+      console.log(vm.submi)
       /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);

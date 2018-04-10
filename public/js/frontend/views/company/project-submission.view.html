@@ -67,23 +67,21 @@
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
 				<div class="form-group">
 					<label for="Education">What's your education level? (Choices are graduate or non-graduate) </label>
-					<p> graduate </P>
-					<input type="checkbox" name="comp-Education" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Education"
-					 value="1" />
-					<p> non-graduate </p>
-					<input type="checkbox" name="comp-Education" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Education"
-					 value="0" />
+					<select ng-model="vm.submissionForm.education" name="education">
+						<option value="1">Graduated</option>
+						<option value="0">Did not graduate</option>
+					</select>
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
-					<label for="Skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
-					<input type="text" name="comp-Skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Skills" required
-					 id="Skills" />
+					<label for="skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
+					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
+					 id="skills" />
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
-					<label for="Position">What position are you looking for?</label>
-					<select type="text" name="comp-Position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.Position">
+					<label for="position">What position are you looking for?</label>
+					<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
 						<option value="Manager"> Manager </option>
 						<option value="Developer"> Developer </option>
 						<option value="Marketing"> Marketing </option>

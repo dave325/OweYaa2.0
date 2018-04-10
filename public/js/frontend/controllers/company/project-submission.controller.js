@@ -32,17 +32,19 @@ function projectSubmissionCtrl(User) {
     vm.nextPage = function(){
       vm.steps.page1 = false;
       vm.steps.page2 = true;
+      console.log(vm.steps);
     }
 
     vm.prevPage = function(){
       vm.steps.page1 = true;
       vm.steps.page2 = false;
+      console.log(vm.steps);
     }
     // Submits project and sends data to server 
     vm.submitProjForm = function(modal,data){
       vm.steps.page1 = false;
       vm.steps.page2 = false;
-      vm.steps.page3
+      vm.steps.page3 = true;
       /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);

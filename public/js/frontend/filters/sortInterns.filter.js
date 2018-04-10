@@ -8,7 +8,6 @@
     // Ensures that the parameters match specifically for sortInterns.
     // sortInterns is the filter name
     // Injector will protector against minification.
-    sortInterns.$inject = ['input','interns'];
     /**
      * Function name: sortInterns
      * Description: Sorts interns based on skills. Checks if the input (search
@@ -57,6 +56,5 @@
       return {filteredInterns:filteredInterns};
 
     }
-    angular.module('oweyaa')
-        .filter('sortInterns', sortInterns);
+    angular.module('oweyaa').filter('sortInterns', sortInterns);
 })();

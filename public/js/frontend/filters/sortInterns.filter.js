@@ -8,7 +8,6 @@
     // Ensures that the parameters match specifically for sortInterns.
     // sortInterns is the filter name
     // Injector will protector against minification.
-    sortInterns.$inject = [];
 
     /**
      * Function name: sortInterns
@@ -20,7 +19,7 @@
      * @param interns - An array containing all interns, and their information.
     **/
 
-    return function sortInterns(interns, input){
+    function sortInterns(interns, input){
       console.log("reached");
       // If the input search query is empty, or null...
       if(input == null){

@@ -60,7 +60,7 @@
 				<!-- End of class form-group -->
 				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()">
 			</div> <!-- End of Step 1-->
-			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="!vm.steps.page2"></div>
+			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2"></div>
 			<div class="form-group">
 				<label for="Education">What's your education level? (Choices are graduate or non-graduate) </label>
 				<p> graduate </P>
@@ -89,7 +89,7 @@
 				</select>
 			</div>
 			<!-- End of class form-group -->
-			<input type="submit" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Submit" ng-click="vm.prevPage()">
+			<input type="submit" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()">
 			<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)">
 	</div>
 	<!-- End of step 2 -->

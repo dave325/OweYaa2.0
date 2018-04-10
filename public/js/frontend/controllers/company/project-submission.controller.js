@@ -41,7 +41,8 @@ function projectSubmissionCtrl(User) {
     // Submits project and sends data to server 
     vm.submitProjForm = function(modal,data){
       vm.steps.page1 = false;
-      vm.steps.page2 = true;
+      vm.steps.page2 = false;
+      vm.steps.page3
       /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);

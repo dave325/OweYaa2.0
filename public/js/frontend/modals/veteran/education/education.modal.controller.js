@@ -92,14 +92,14 @@
     // Will make a call to the server and php file
     educationvm.doEducation = function (modal, data) {
       //Update server information
+      if(educationvm.user.education.attendedcollege === 0){
+        educationvm.user.education.graddate = 0;
+        educationvm.user.education.school = null;
+        educationvm.user.education.degree = null;
+      }
       User.updateUser(modal, data).then(function (data) {
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
-        }
-        if(educationvm.user.education.attendedcollege === 0){
-          educationvm.user.education.graddate = 0;
-          educationvm.user.education.school = null;
-          educationvm.user.education.degree = null;
         }
         educationvm.removeSkill('certifications');
         educationvm.removeSkill('bootcamp');

@@ -96,6 +96,11 @@
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
         }
+        if(educationvm.user.education.attendedcollege === 0){
+          educationvm.user.education.graddate = 0;
+          educationvm.user.education.school = null;
+          educationvm.user.education.degree = null;
+        }
         educationvm.removeSkill('certifications');
         educationvm.removeSkill('bootcamp');
         educationvm.removeSkill('course');

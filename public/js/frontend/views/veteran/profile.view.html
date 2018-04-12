@@ -50,6 +50,9 @@
                 <strong>MOS/Rate</strong>: {{user.contact_info.mos}} </p>
               <p>
                 <strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
+                <p>
+                  <strong>Bio</strong>: {{user.contact_info.bio}}</p>
+                </p>
             </div>
           </div>
           <!-- End of Basic Information -->
@@ -66,7 +69,7 @@
           <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('education')"></span>
           </h2>
-          <h3 ng-if="user.education.school">Higher Education:</h3>
+          <h3 ng-if="user.education.school">Education:</h3>
           <p ng-if="user.education.school">School: {{user.education.school}}</p>
           <p ng-if="user.education.degree">Degree: {{user.education.degree}}</p>
           <p ng-if="user.education.graddate">Graduation Date: {{user.education.graddate | date:'MM/dd/yyyy'}}</p>

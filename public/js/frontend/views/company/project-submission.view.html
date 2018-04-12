@@ -66,11 +66,15 @@
 			<!-- End of Step 1-->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
 				<div class="form-group">
-					<label for="Education">What's your education level? (Choices are graduate or non-graduate) </label>
+					<label for="education">What's your education level? (Choices are graduate or non-graduate) </label>
 					<select ng-model="vm.submissionForm.education" name="education">
 						<option value="1">Graduated</option>
 						<option value="0">Did not graduate</option>
 					</select>
+				</div>
+				<div class="form-group">
+					<label for="internHours">How many hours will the intern be working in total?</label>
+					<input type="number" ng-model="vm.submissionForm.internhours" name="internHours" id="internHours">
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
@@ -82,7 +86,6 @@
 				<div class="form-group">
 					<label for="position">What position are you looking for?</label>
 					<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
-						<option value="Manager"> Manager </option>
 						<option value="Developer"> Developer </option>
 						<option value="Marketing"> Marketing </option>
 						<option value="Designer"> Designer </option>

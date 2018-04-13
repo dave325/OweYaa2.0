@@ -7,8 +7,8 @@ function projectSubmissionCtrl(User) {
     // Stores information from form fields 
     vm.submissionForm = {};
 
-    vm.submissionForm.projid = vm.user.company.username + vm.user.company_project.length;
-    vm.submissionForm.username = vm.user.company.username;
+    vm.submissionForm.projid = vm.user.company_info.username + vm.user.company_project.length;
+    vm.submissionForm.username = vm.user.company_info.username;
     // Stores steps needed to submit project 
     vm.steps = {
       page1:true,

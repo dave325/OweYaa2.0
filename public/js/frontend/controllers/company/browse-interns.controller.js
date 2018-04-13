@@ -49,8 +49,7 @@
                     }
                 }
             }
-            console.log(vm.user);
-            console.log(vm.users);
+            console.log(user);
         }
     }
     angular.module('oweyaa')

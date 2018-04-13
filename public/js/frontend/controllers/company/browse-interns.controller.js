@@ -40,17 +40,21 @@
         }, function (data) {
             console.log(data);
         });
+        vm.copyUsers = vm.users;
         vm.filterUsers = function () {
             let user = [];
-            console.log(vm.users);
-            for (let i = 0; i < vm.users.length; i++) {
-                for (let j = 0; j < vm.users[i].skill.length; j++) {
-                    if (vm.users[i].skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
-                        user.push(vm.users[i]);
+            if (vm.test === null) {
+                vm.users = vm.copyUsers;
+            } else {
+                for (let i = 0; i < vm.users.length; i++) {
+                    for (let j = 0; j < vm.users[i].skill.length; j++) {
+                        if (vm.users[i].skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
+                            user.push(vm.users[i]);
+                        }
                     }
                 }
+                vm.users = user;
             }
-            vm.users = user;
         }
     }
     angular.module('oweyaa')

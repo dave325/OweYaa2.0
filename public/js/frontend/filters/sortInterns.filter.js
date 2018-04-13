@@ -20,6 +20,7 @@
 
   function sortInterns() {
     return function works(interns, input) {
+      console.log(interns);
       // Create a new array to store interns that match the input search query.
       let output = [];
       // If the input search query is empty, or null...
@@ -46,6 +47,7 @@
           output.push(intern);
         }
       }
+      console.log(output);
       // Return filtered array.
       return output;
     }

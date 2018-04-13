@@ -44,6 +44,7 @@
             let user = [];
             for (let i = 0; i < vm.users; i++) {
                 for (let j = 0; j < vm.users; j++) {
+                    console.log(vm.users.skill[j]);
                     if (vm.users.skill[j].indexOf(vm.test) > -1) {
                         user.push(vm.users[i]);
                     }

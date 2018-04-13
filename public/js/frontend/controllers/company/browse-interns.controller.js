@@ -43,8 +43,8 @@
         vm.filterUsers = function () {
             let user = [];
             console.log(vm.test);
-            for (let i = 0; i < vm.users; i++) {
-                for (let j = 0; j < vm.users[i].skill; j++) {
+            for (let i = 0; i < vm.users.length; i++) {
+                for (let j = 0; j < vm.users[i].skill.length; j++) {
                     console.log(vm.user[i].skill[j].skill);
                     if (vm.user[i].skill[j].skill === vm.test) {
                         user.push(vm.user[i]);

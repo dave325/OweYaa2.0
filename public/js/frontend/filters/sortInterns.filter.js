@@ -37,16 +37,14 @@
       // input search query. Index is the current index number, starting at 0.
       // Interns.length is the total number of interns.
       for (var index = 0; index < interns.length; index++) {
-        for (let i = 0; i < interns[index].skill.length; i++) {
-          // The current intern index in the array.
-          var intern = interns[index];
+        // The current intern index in the array.
+        var intern = interns[index];
+        if (intern.skill.indexOf(input) > -1) {
           // If the value of the input search query matches that of the intern's
           // skill, add the intern to the filteredInterns array.
           // intern.skill is the intern's skill. This method checks only for one
           // skill per intern, for now.
-          if (input.trim().toUpperCase() == intern.skill[i]) {
-            filteredInterns.push(input);
-          }
+          filteredInterns.push(intern);
         }
       }
       console.log("reached3");

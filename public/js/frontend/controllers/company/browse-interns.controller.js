@@ -45,12 +45,12 @@
             console.log(vm.users);
             for (let i = 0; i < vm.users.length; i++) {
                 for (let j = 0; j < vm.users[i].skill.length; j++) {
-                    if (vm.users[i].skill[j].skill === vm.test) {
+                    if (vm.users[i].skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
                         user.push(vm.users[i]);
                     }
                 }
             }
-            console.log(user);
+            vm.users = user;
         }
     }
     angular.module('oweyaa')

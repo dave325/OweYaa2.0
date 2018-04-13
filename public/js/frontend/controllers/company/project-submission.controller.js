@@ -4,7 +4,6 @@ projectSubmissionCtrl.$inject = ['User'];
 function projectSubmissionCtrl(User) {
     var vm = this;
     vm.user = User.getUser();
-    console.lo
     // Stores information from form fields 
     vm.submissionForm = {};
 

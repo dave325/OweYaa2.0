@@ -40,7 +40,14 @@ class CompanyInternMatch extends Controller
 
         }
 
-        var_dump($this->pq);
+
+        $ret = array();
+        while(!$this->pq->isEmpty()){ 
+            array_push($ret,$this->pq->extract());
+        } 
+
+
+        return json_encode($ret);
         
     }
 

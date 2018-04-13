@@ -20,7 +20,6 @@
 
   function sortInterns() {
     return function works(input, interns) {
-      console.log("reached");
       // If the input search query is empty, or null...
       if (interns == null) {
 

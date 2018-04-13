@@ -231,6 +231,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany('App\TableModels\CompanyModels\CompanySearch', 'username');
     }
 
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function companyInfo()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\CompanyInfo', 'username');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

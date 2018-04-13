@@ -1,43 +1,43 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="compSet.cancel()"></span>
 <div id="contactModal">
     <fieldset>
-    <legend>Contact Information</legend>
+    <legend>Update Information</legend>
     <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="contact" ng-submit="submit()">
       <div class="row col-xs-12">
 
           <div class="form-group">
                     <label form="contact" for="email">Email: </label>
-                    <input ng-model="compSet.user.contact_info.email" type="text" class="form-control" name="email"/>
+                    <input ng-model="compSet.user.company_info.email" type="text" class="form-control" name="email"/>
           </div> <!-- End of class form-group -->
 
           <div class="form-group">
                     <label form="contact" for="phone">Phone Number: </label>
-                    <input ng-model="compSet.user.contact_info.phone" type="text" class="form-control" name="phone"/>
+                    <input ng-model="compSet.user.company_info.phone" type="text" class="form-control" name="phone"/>
           </div> <!-- End of class form-group -->
 
           <!-- Ask company to describe to describe themself -->
           <div class="form-group">
                     <label form="contact" for="description">Describe yourself: </label>
-                    <input ng-model="compSet.user.contact_info.description" type="text" class="form-control" name="description"/>
+                    <input ng-model="compSet.user.company.description" type="text" class="form-control" name="description"/>
           </div> <!-- End of class form-group -->
 
           <!-- Ask company to input annual revenue -->
           <div class="form-group">
                     <label form="contact" for="revenue">Annual Revenue: </label>
-                    <input ng-model="compSet.user.contact_info.revenue" type="text" class="form-control" name="revenue"/>
+                    <input ng-model="compSet.user.company_info.revenue" type="text" class="form-control" name="revenue"/>
           </div> <!-- End of class form-group -->
 
           <!-- Ask company to input number of employees -->
           <div class="form-group">
                     <label form="contact" for="employees">Number of employees: </label>
-                    <input ng-model="compSet.user.contact_info.employees" type="text" class="form-control" name="employees"/>
+                    <input ng-model="compSet.user.company_info.employees" type="text" class="form-control" name="employees"/>
           </div> <!-- End of class form-group -->
 
           <!-- Ask company to input value for diversity -->
           <div class="form-group">
                     <label form="contact" for="diversity">Diversity: </label>
-                    <input ng-model="compSet.user.contact_info.diversity" type="text" class="form-control" name="diversity"/>
+                    <input ng-model="compSet.user.company_info.diversity" type="text" class="form-control" name="diversity"/>
           </div> <!-- End of class form-group -->
 
           <div class="form-group" ng-repeat="(key,connect) in compSet.user.social track by $index">

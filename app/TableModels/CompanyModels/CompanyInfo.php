@@ -2,13 +2,13 @@
 namespace App\TableModels\CompanyModels;
 
 use Illuminate\Database\Eloquent\Model;
-class Company extends Model{
+class CompanyInfo extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'companies';
+    protected $table = 'companyinfo';
     // Set primary key
     protected $primaryKey = "username";
     // Remove default increment from eloquent
@@ -21,7 +21,15 @@ class Company extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','matchNum','stripeToken'];
+    protected $fillable = ['username','name','email','phone','description','numofemployees','diversity','revenue'];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'username'
+    ];
 
     /**
      * Get the post that owns the comment.

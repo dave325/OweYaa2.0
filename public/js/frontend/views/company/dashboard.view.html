@@ -4,7 +4,7 @@
 	<!-- Content -->
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h2 class="text-center" id="comp-name">{{vm.user.company.username}} Dashboard</h2>
+			<h2 class="text-center" id="comp-name">{{vm.user.company_info.username}} Dashboard</h2>
 			<br>
 		</div>
 		<!-- End of class col-md-8 -->
@@ -31,19 +31,19 @@
 		</h2>
 		<div ng-if="vm.user.company.bio">
 			<h2>About you:</h2>
-			<p>{{vm.user.company.bio}}</p>
+			<p>{{vm.user.company_info.bio}}</p>
 		</div>
 		<div ng-if="vm.user.company.annualrevenue">
 			<h2>Annual Revenue:</h2>
-			<p>{{vm.user.company.annualrevenue}}</p>
+			<p>{{vm.user.company_info.annualrevenue}}</p>
 		</div>
 		<div ng-if="vm.user.company.numofemployees">
 			<h2>Number of Emplyees:</h2>
-			<p>{{vm.user.company.numofemployees}}</p>
+			<p>{{vm.user.company_info.numofemployees}}</p>
 		</div>
 		<div ng-if="vm.user.company.diversity">
 			<h2>Diversity:</h2>
-			<p>vm.user.company.diversity}}</p>
+			<p>vm.user.company_info.diversity}}</p>
 		</div>
 		<a href="/company/{{vm.user.company.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>

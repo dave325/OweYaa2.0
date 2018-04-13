@@ -39,7 +39,7 @@
       for (var index = 0; index < interns.length; index++) {
         // The current intern index in the array.
         var intern = interns[index];
-        if (intern.skill.indexOf(input) > -1) {
+        if (intern.skill.find(input) > -1) {
           // If the value of the input search query matches that of the intern's
           // skill, add the intern to the filteredInterns array.
           // intern.skill is the intern's skill. This method checks only for one

@@ -2,7 +2,7 @@
 namespace App\TableModels\CompanyModels;
 
 use Illuminate\Database\Eloquent\Model;
-class MemberToken extends Model{
+class MembershipToken extends Model{
     /**
      * The table associated with the model.
      *

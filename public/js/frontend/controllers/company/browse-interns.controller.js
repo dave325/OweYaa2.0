@@ -42,9 +42,10 @@
         });
         vm.filterUsers = function () {
             let user = [];
+            console.log(vm.test);
             for (let i = 0; i < vm.users; i++) {
                 for (let j = 0; j < vm.users.skill; j++) {
-                    if (vm.user.skill[j].indexOf(vm.test) > -1) {
+                    if (vm.user.skill[j].skill === vm.test) {
                         user.push(vm.user[i]);
                     }
                 }

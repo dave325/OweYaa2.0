@@ -43,7 +43,8 @@
         vm.copyUsers = vm.users;
         vm.filterUsers = function () {
             let user = [];
-            if (vm.test === null) {
+
+            if (vm.test.length === 0) {
                 vm.users = vm.copyUsers;
             } else {
                 for (let i = 0; i < vm.users.length; i++) {

@@ -3,7 +3,7 @@
     browseInternsCtrl.$inject = ['$scope', "User", "$http"];
     function browseInternsCtrl($scope, User, $http) {
         var vm = this;
-        vm.test = {};
+        vm.test = '';
         vm.retrieveInterns = function (graduated, skills) {
             var req = {
                 method: 'POST',

@@ -519,14 +519,9 @@ Section 6.1: company dashboard
 	padding-top: 15px;
 	border-bottom: 4px solid darkgray;
 }
-
-.comp-name{
-	background-color: rgb(247,159,75);
-	padding-bottom: 15px;
-	padding-top: 15px;
-	border-bottom: 4px solid darkgray;
+#comp-dash{
+	background-color:rgb(211, 211, 211);
 }
-
 
 /**********
 

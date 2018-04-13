@@ -83,7 +83,7 @@ class ValidateUser extends Controller
         // If the type of user specified exists and is equal to 1, the user is
         // a company, and the attributes are filled in for this company user.
         elseif($request->has('type') && $request->input('type') == 1){
-            $user = User::with('company','company_info','companyFavorite','companyProject','CompanySearch')->where('username','=',$userCheck->username)->first();
+            $user = User::with('companyInfo','companyFavorite','companyProject','CompanySearch','membershipToken')->where('username','=',$userCheck->username)->first();
             return response()->json(['user' => $user], 200);
         }
 

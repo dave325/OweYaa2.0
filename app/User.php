@@ -202,9 +202,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     /**
      * Get the interviews associated with the user.
      */
-    public function company()
+    public function membershipToken()
     {
-        return $this->hasOne('App\TableModels\CompanyModels\Company', 'username');
+        return $this->hasOne('App\TableModels\CompanyModels\membershipToken', 'username');
     }
 
     /**

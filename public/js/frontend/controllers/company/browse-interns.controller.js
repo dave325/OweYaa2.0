@@ -37,10 +37,10 @@
         }).then(function (response) {
             //         console.log(response);
             vm.users = response.data.user;
+            vm.copyUsers = vm.users.slice();
         }, function (data) {
             console.log(data);
         });
-        vm.copyUsers = vm.users.slice();
         vm.filterUsers = function () {
             let user = [];
             console.log(vm.test.length)

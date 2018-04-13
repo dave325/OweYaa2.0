@@ -236,7 +236,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function companyInfo()
     {
-        return $this->hasMany('App\TableModels\CompanyModels\CompanyInfo', 'username');
+        return $this->hasOne('App\TableModels\CompanyModels\CompanyInfo', 'username');
     }
 
     public function getJWTIdentifier()

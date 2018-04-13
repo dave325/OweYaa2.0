@@ -20,19 +20,18 @@
 
   function sortInterns() {
     return function works(interns, input) {
-      console.log("reached");
+      // Create a new array to store interns that match the input search query.
+      let output = [];
       // If the input search query is empty, or null...
       if (input == null) {
 
         // Return everybody.
-        return { interns: interns };
+        return interns;
 
       }
 
       // Otherwise, the input search query is not empty.
 
-      // Create a new array to store interns that match the input search query.
-      var filteredInterns = [];
       // Iterate through the interns array, searching for interns that match the
       // input search query. Index is the current index number, starting at 0.
       // Interns.length is the total number of interns.
@@ -44,13 +43,11 @@
           // skill, add the intern to the filteredInterns array.
           // intern.skill is the intern's skill. This method checks only for one
           // skill per intern, for now.
-          filteredInterns.push(intern);
+          output.push(intern);
         }
       }
-      console.log("reached3");
-
       // Return filtered array.
-      return { filteredInterns: filteredInterns };
+      return output;
     }
   }
   angular.module('oweyaa')

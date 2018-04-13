@@ -42,7 +42,7 @@
         });
         vm.filterUsers = function () {
             let user = [];
-            console.log(vm.test);
+            console.log(vm.users);
             for (let i = 0; i < vm.users.length; i++) {
                 for (let j = 0; j < vm.users[i].skill.length; j++) {
                     console.log(vm.user[i].skill[j].skill);

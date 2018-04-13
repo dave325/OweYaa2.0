@@ -25,7 +25,26 @@
 	</div>
 	<!-- End of class row -->
 
-
+	<div id="describeYourself" class="box">
+		<h1>About yourself</h1>
+		<div ng-if="vm.user.company.bio">
+			<h2>About you:</h2>
+			<p>{{vm.user.company.bio}}</p>
+		</div>
+		<div ng-if="vm.user.company.annualrevenue">
+			<h2>Annual Revenue:</h2>
+			<p>{{vm.user.company.annualrevenue}}</p>
+		</div>
+		<div ng-if="vm.user.company.numofemployees">
+			<h2>Number of Emplyees:</h2>
+			<p>{{vm.user.company.numofemployees}}</p>
+		</div>
+		<div ng-if="vm.user.company.diversity">
+			<h2>Diversity:</h2>
+			<p>vm.user.company.diversity}}</p>
+		</div>
+	</div>
+	<!-- End of describYourself div-->
 	<div class="row col-sm-offset-5">
 		<button class="btn btn-info" data-toggle="modal" ng-click="vm.openModal()">SETTINGS</button>
 		<a href="/company/{{vm.user.company.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
@@ -47,26 +66,6 @@
 		<!-- End of class col-md-10 box gap -->
 	</div>
 	<!-- End of class row -->
-
-	<div id="describeYourself">
-		<h1>About yourself</h1>
-		<div ng-if="vm.user.company.bio">
-			<h2>About you:</h2>
-			<p>{{vm.user.company.bio}}</p>
-		</div>
-		<div ng-if="vm.user.company.annualrevenue">
-			<h2>Annual Revenue:</h2>
-			<p>{{vm.user.company.annualrevenue}}</p>
-		</div>
-		<div ng-if="vm.user.company.numofemployees">
-			<h2>Number of Emplyees:</h2>
-			<p>{{vm.user.company.numofemployees}}</p>
-		</div>
-		<div ng-if="vm.user.company.diversity">
-			<h2>Diversity:</h2>
-			<p>vm.user.company.diversity}}</p>
-		</div>
-	</div>
 	<footer-base></footer-base>
 </section>
 <!-- End of id comp-dash -->

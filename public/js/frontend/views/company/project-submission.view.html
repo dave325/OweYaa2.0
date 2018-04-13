@@ -33,7 +33,7 @@
 			<div class="step" id="step1" ng-class="{'active': vm.steps.page1}" ng-if="vm.steps.page1 && !vm.steps.page2">
 				<div class="form-group">
 					<label for="jobtype">Please select the type of post (job, internship, or project) </label>
-					<select ng-model="vm.submissionForm.jobtype" name="education">
+					<select ng-model="vm.submissionForm.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
 						<option value="job">Job</option>
 						<option value="internship">Internship</option>
 						<option value="project">project</option>

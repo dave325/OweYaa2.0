@@ -3,9 +3,7 @@
     browseInternsCtrl.$inject = ['$scope', "User", "$http"];
     function browseInternsCtrl($scope, User, $http) {
         var vm = this;
-
-
-        
+        vm.test = {};
         vm.retrieveInterns = function (graduated, skills) {
             var req = {
                 method: 'POST',
@@ -37,11 +35,22 @@
             url: '/api/getUsers',
             method: 'POST'
         }).then(function (response) {
-   //         console.log(response);
+            //         console.log(response);
             vm.users = response.data.user;
         }, function (data) {
             console.log(data);
         });
+        vm.filterUsers = function () {
+            let user = [];
+            for (let i = 0; i < vm.users; i++) {
+                for (let j = 0; j < vm.users; j++) {
+                    if (vm.users.skill[j].indexOf(vm.test) > -1) {
+                        user.push(vm.users[i]);
+                    }
+                }
+            }
+            console.log(user);
+        }
     }
     angular.module('oweyaa')
         .controller('browseInternsCtrl', browseInternsCtrl);

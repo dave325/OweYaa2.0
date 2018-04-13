@@ -40,10 +40,10 @@
         }, function (data) {
             console.log(data);
         });
-        vm.copyUsers = vm.users;
+        vm.copyUsers = vm.users.slice();
         vm.filterUsers = function () {
             let user = [];
-
+            console.log(vm.test.length)
             if (vm.test.length === 0) {
                 vm.users = vm.copyUsers;
             } else {

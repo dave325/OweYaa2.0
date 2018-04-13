@@ -6,8 +6,10 @@
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="text-center" id="comp-name">{{vm.user.company.username}} Dashboard</h2>
 			<br>
-		</div> <!-- End of class col-md-8 -->
-	</div> <!-- End of class row -->
+		</div>
+		<!-- End of class col-md-8 -->
+	</div>
+	<!-- End of class row -->
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
@@ -16,15 +18,19 @@
 				<img src="{{project.img}}" height="121px">
 				<p>{{project.detail}}</p>
 				<p>{{project.amount}}</p>
-			</div> <!-- End of ng-repeat project in vm.projects -->
-		</div> <!-- End of class col-md-10 box gap -->
-	</div> <!-- End of class row -->
+			</div>
+			<!-- End of ng-repeat project in vm.projects -->
+		</div>
+		<!-- End of class col-md-10 box gap -->
+	</div>
+	<!-- End of class row -->
 
 
 	<div class="row col-sm-offset-5">
 		<button class="btn btn-info" data-toggle="modal" ng-click="vm.openModal()">SETTINGS</button>
 		<a href="/company/{{vm.user.company.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
-	</div> <!-- End of class row col-sm-offset-5 -->
+	</div>
+	<!-- End of class row col-sm-offset-5 -->
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
@@ -32,59 +38,27 @@
 				<h3>{{type.title}}</h3>
 				<div ng-if="type.project.length > 0">
 					<p>Project Manager: {{type.project.projectmanager}}</p>
-				</div> <!-- End of ng-if type.project.length > 0 -->
+				</div>
+				<!-- End of ng-if type.project.length > 0 -->
 				<p ng-if="type.project.length == 0">No projects in {{type.title}}!</p>
-			</div> <!-- End of ng-repeat type in vm.projectTypes -->
-		</div> <!-- End of class col-md-10 box gap -->
-	</div> <!-- End of class row -->
+			</div>
+			<!-- End of ng-repeat type in vm.projectTypes -->
+		</div>
+		<!-- End of class col-md-10 box gap -->
+	</div>
+	<!-- End of class row -->
 
 	<div id="describeYourself">
-	    <fieldset>
-	    <legend>About yourself</legend>
-	    <p>Please fill out the following fields with information about yourself. If you are unsure about any of the following, you may leave it blank.</p>
-	    <form novalidate method="post" name="contact" ng-submit="submit()">
-	      <div class="row col-xs-12">
-
-	          <!-- Ask company to describe to describe themself -->
-	          <div class="form-group">
-	                    <label form="contact" for="description">Describe yourself: </label>
-	                    <input ng-model="compSet.user.contact_info.description" type="text" class="form-control" name="description"/>
-	          </div> <!-- End of class form-group -->
-
-	          <!-- Ask company to input annual revenue -->
-	          <div class="form-group">
-	                    <label form="contact" for="revenue">Annual Revenue: </label>
-	                    <input ng-model="compSet.user.contact_info.revenue" type="text" class="form-control" name="revenue"/>
-	          </div> <!-- End of class form-group -->
-
-	          <!-- Ask company to input number of employees -->
-	          <div class="form-group">
-	                    <label form="contact" for="employees">Number of employees: </label>
-	                    <input ng-model="compSet.user.contact_info.employees" type="text" class="form-control" name="employees"/>
-	          </div> <!-- End of class form-group -->
-
-	          <!-- Ask company to input value for diversity -->
-	          <div class="form-group">
-	                    <label form="contact" for="diversity">Diversity: </label>
-	                    <input ng-model="compSet.user.contact_info.diversity" type="text" class="form-control" name="diversity"/>
-	          </div> <!-- End of class form-group -->
-
-	          <div class="form-group" ng-repeat="(key,connect) in compSet.user.social track by $index">
-	                <label form="contact" for="key">{{key}}: </label>
-	                <input ng-model="compSet.user.social[key]" type="text" class="form-control" name="{{key}}"/>
-	          </div> <!-- End of ng-repeat compSet.user.social -->
-	          </div> <!-- End of class row col-xs-12 -->
-	    </fieldset>
-	       <div class="row">
-	        <div class="col-xs-12">
-	            <div class="text-center form-group">
-	                <button ng-click="compSet.cancel()" class="btn btn-warning">Close</button>
-	                <button ng-click="compSet.onSubmit('social',compSet.user)" class="btn btn-info">Save</button>
-	            </div> <!-- End of class text-center form-group -->
-	        </div> <!-- End of class col-xs-12 -->
-	        </div> <!-- End of class row -->
-	    </form>
-	</div> <!-- End of id contactModal -->
-
+		<h1>About yourself</h1>
+		<h2>About you:</h2>
+		<p>{{vm.user.company.bio}}</p>
+		<h2>Annual Revenue:</h2>
+		<p>{{vm.user.company.annualrevenue}}</p>
+		<h2>Number of Emplyees:</h2>
+		<p>{{vm.user.company.numofemployees</p>
+		<h2>Diversity:</h2>
+		<p>vm.user.company.diversity</p>
+		</div>
 	<footer-base></footer-base>
-</section> <!-- End of id comp-dash -->
+</section>
+<!-- End of id comp-dash -->

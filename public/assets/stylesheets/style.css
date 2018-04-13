@@ -360,7 +360,7 @@ Section 5.1: Veteran Dashboard
 	position:fixed;
 	right:0px;
 }
-.vet-dashboard .space {
+.vet-dashboard .space, #describeYourself {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
@@ -383,7 +383,7 @@ Section 5.1: Veteran Dashboard
   overflow-wrap: break-word;
 }
 
-.vet-dashboard .box, #comp-dash .box {
+.vet-dashboard .box, #comp-dash .box, #describeYourself {
 	background-color:rgb(255,255,255);
   	padding: 10px;
 }
@@ -399,7 +399,7 @@ Section 5.1: Veteran Dashboard
   list-style-position:inside;
 }
 
-.vet-dashboard .bg-primary{
+.vet-dashboard .bg-primary, #describeYourself h2{
 	background-color:rgb(247,159,75) !important;
 	margin-bottom:15px;
 	text-transform:capitalize;
@@ -519,14 +519,9 @@ Section 6.1: company dashboard
 	padding-top: 15px;
 	border-bottom: 4px solid darkgray;
 }
-
-.comp-name{
-	background-color: rgb(247,159,75);
-	padding-bottom: 15px;
-	padding-top: 15px;
-	border-bottom: 4px solid darkgray;
+#describeYourself{
+	background-color:rgb(211, 211, 211);
 }
-
 
 /**********
 

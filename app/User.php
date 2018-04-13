@@ -202,9 +202,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     /**
      * Get the interviews associated with the user.
      */
-    public function company()
+    public function membershipToken()
     {
-        return $this->hasOne('App\TableModels\CompanyModels\Company', 'username');
+        return $this->hasOne('App\TableModels\CompanyModels\MembershipToken', 'username');
     }
 
     /**
@@ -229,6 +229,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function companySearch()
     {
         return $this->hasMany('App\TableModels\CompanyModels\CompanySearch', 'username');
+    }
+
+    /**
+     * Get the interviews associated with the user.
+     */
+    public function companyInfo()
+    {
+        return $this->hasOne('App\TableModels\CompanyModels\CompanyInfo', 'username');
     }
 
     public function getJWTIdentifier()

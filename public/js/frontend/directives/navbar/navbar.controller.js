@@ -5,7 +5,7 @@
     // Sets the user name
     if (User.getUser()) {
       if (User.getUser().type == 1) {
-        navbarvm.user = User.getUser().company.username;
+        navbarvm.user = User.getUser().company_info.username;
       } else if (User.getUser().type == 0) {
         navbarvm.user = User.getUser().contact_info.username;
       } else {
@@ -50,7 +50,7 @@
             $timeout(function () {
               console.log(data);
               if (data.type == 1) {
-                var curUser = data.company.username;
+                var curUser = data.company_info.username;
                 $location.path('/company/' + curUser + '/dashboard');
               } else {
                 var curUser = data.contact_info.username;

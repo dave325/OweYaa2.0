@@ -8,24 +8,24 @@
         <div class="col-xs-12">
           <!-- Information regarding higher education -->
           <fieldset>
-            <legend>Higher Education</legend>
+            <legend>Education</legend>
             <p>Enter any information you have regarding your education!</p>
             <div class="form-group">
               <p>
                 <span>Attended College:</span>
-                <input type="checkbox" ng-model="educationvm.user.education.attendedCollege" />
+                <input type="checkbox" name="attendedcollege" ng-model="educationvm.user.education.attendedcollege" ng-checked="educationvm.user.education.attendedcollege === 1" ng-true-value="1" ng-false-value="0"/>
               </p>
               <p>
                 <label form="education" for="school">School: </label>
-                <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="school" id="school" />
+                <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.user.education.attendedcollege" type="text" class="form-control" name="school" id="school" />
               </p>
               <p>
                 <label form="education" for="degree">Degree: </label>
-                <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.attendedCollege" type="text" class="form-control" name="degree" id="degree" />
+                <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.user.education.attendedcollege" type="text" class="form-control" name="degree" id="degree" />
               </p>
               <p>
                 <label form="education" for="graduation">Graduation Date: </label>
-                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.attendedCollege" type="date" class="form-control"
+                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.user.education.attendedcollege" type="date" class="form-control"
                   name="graduation" id="graduation" />
               <p>
                 <span>Graduated:</span>

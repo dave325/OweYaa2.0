@@ -26,7 +26,9 @@
 	<!-- End of class row -->
 
 	<div id="describeYourself" class="col-xs-12 col-md-8 col-md-offset-2">
-		<h2>About yourself</h2>
+		<h2 class="col-xs-12 bg-primary">About yourself
+			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
+		</h2>
 		<div ng-if="vm.user.company.bio">
 			<h2>About you:</h2>
 			<p>{{vm.user.company.bio}}</p>
@@ -43,14 +45,9 @@
 			<h2>Diversity:</h2>
 			<p>vm.user.company.diversity}}</p>
 		</div>
-	</div>
-	<!-- End of describYourself div-->
-	<div class="row col-sm-offset-5">
-		<button class="btn btn-info" data-toggle="modal" ng-click="vm.openModal()">SETTINGS</button>
 		<a href="/company/{{vm.user.company.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>
-	<!-- End of class row col-sm-offset-5 -->
-
+	<!-- End of describYourself div-->
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
 			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">

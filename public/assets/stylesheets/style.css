@@ -399,7 +399,7 @@ Section 5.1: Veteran Dashboard
   list-style-position:inside;
 }
 
-.vet-dashboard .bg-primary, #describeYourself .h2{
+.vet-dashboard .bg-primary, #describeYourself h2{
 	background-color:rgb(247,159,75) !important;
 	margin-bottom:15px;
 	text-transform:capitalize;

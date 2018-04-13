@@ -10,7 +10,8 @@
                 <fieldset>
                 <legend>Building Connections</legend>
                 <div class="form-group" ng-repeat="connect in journalvm.user.interviews track by $index">
-                    <h3>Interview {{$index + 1}}</h3>
+                    <h3>Interview {{$index + 1}}</h3> 
+                        <input type="checkbox" name="Did you follow up?"> Follow
                     <p>
                         <label form="journal" for="company{{$index}}">Company: </label>
                         <input ng-model="connect.company" type="text" class="form-control" name="copmany{{$index}}" />
@@ -37,6 +38,7 @@
         <div class="row col-md-12">
             <!-- Information regarding higher journal -->
             <h3>Events</h3>
+                <input type="checkbox" name="Did you follow up?"> Follow
             <div class="form-group" ng-repeat="connect in journalvm.user.events track by $index">
                 <h3>Event {{$index + 1}}</h3>
                 <p>

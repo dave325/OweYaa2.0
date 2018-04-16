@@ -9,7 +9,8 @@
       <h2>Progress of your profile</h2>
       <uib-progressbar max="100" value="progress.progress" type="{{progress.type}}" class="col-md-6">
         <span>{{progress.progress}}%</span>
-      </uib-progressbar><br />
+      </uib-progressbar>
+      <br />
       <h3>The higher the percentage, the better chance you will be shown.</h3>
       <p>If you do not fill out the required fields, then your profile will not be shown to companies.</p>
       <div class="col-xs-12 col-md-6">
@@ -46,13 +47,15 @@
                 <strong>Name</strong>: {{user.contact_info.name}} </p>
               <p>
                 <strong>Location</strong>: {{user.contact_info.location}} </p>
-              <p>
-                <strong>MOS/Rate</strong>: {{user.contact_info.mos}} </p>
-              <p>
-                <strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
+              <div ng-if="user.contact_info.isVet === 1">
                 <p>
-                  <strong>Bio</strong>: {{user.contact_info.bio}}</p>
-                </p>
+                  <strong>MOS/Rate</strong>: {{user.contact_info.mos}} </p>
+                <p>
+                  <strong>Branch of Service</strong>: {{user.contact_info.branch}} </p>
+              </div>
+              <p>
+                <strong>Bio</strong>: {{user.contact_info.bio}}</p>
+              </p>
             </div>
           </div>
           <!-- End of Basic Information -->
@@ -277,7 +280,7 @@
         <!-- End of space box class div -->
       </div>
       <!-- End of journal and mentor box -->
-      
+
       <!---------------
           Availability Information 
           -------------->

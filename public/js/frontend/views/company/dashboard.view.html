@@ -38,16 +38,17 @@
 			<p>{{vm.user.company_info.annualrevenue}}</p>
 		</div>
 		<div ng-if="vm.user.company.numofemployees">
-			<h2>Number of Emplyees:</h2>
+			<h2>Number of Employees:</h2>
 			<p>{{vm.user.company_info.numofemployees}}</p>
 		</div>
 		<div ng-if="vm.user.company.diversity">
 			<h2>Diversity:</h2>
-			<p>vm.user.company_info.diversity}}</p>
+			<p>{{vm.user.company_info.diversity}}</p>
 		</div>
 		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>
 	<!-- End of describYourself div-->
+
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
 			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
@@ -63,6 +64,10 @@
 		<!-- End of class col-md-10 box gap -->
 	</div>
 	<!-- End of class row -->
+
+	<p>What type of culture do you believe your company is?</p>
+	<textarea placeholder="Enter the type of culture that you believe your company is."></textarea>
+
 	<footer-base></footer-base>
 </section>
 <!-- End of id comp-dash -->

@@ -45,37 +45,37 @@
               <div class="form-group">
                 <h4>Career Focus Area:</h4>
                 <p>Describe your specific career focus!</p>
-                <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
+                <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
+                  <option value="developer"> Developer </option>
+                  <option value="marketing"> Marketing </option>
+                  <option value="designer"> Designer </option>
+                  <option value="human resource"> Customer Service/Human Resources </option>
+                </select>
+                <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="vm.submissionForm.position === 'designer'">
                   <option value="Graphic Designer"> Graphic Designer </option>
                   <option value="UX Designer"> UX Designer </option>
                   <option value="Interior Designer"> Interior Designer </option>
                   <option value="Fashion Designer"> Fashion Designer </option>
                 </select>
-                <select type="text" name="Marketing" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
-                  <option value="Public Relations Manager"> Public Relations Manager </option>
-                  <option value="Brand Manager"> Brand Manager </option>
-                  <option value="Promotions Manager"> Promotions Manager </option>
-                  <option value="Advertising Manager"> Advertising Manager </option>
-                </select>
-                <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
-                  <option value="Frontend"> Frontend </option>
+                <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="vm.submissionForm.position === 'developer'">
+                  <option value="Frontend"> Frontend Developer</option>
                   <option value="Backend"> Developer </option>
-                  <option value="Full stack"> Full stack </option>
-                  <option value="App developer"> App developer </option>
+                  <option value="Full stack"> Full stack Developer</option>
+                  <option value="App developer"> App developer Developer</option>
                 </select>
-                <select type="text" name="Communication" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
+                <select type="text" name="Communication" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="vm.submissionForm.position === 'marketing'">
                   <option value="Technical Writing"> Technical Writing </option>
                   <option value="Advertising"> Advertising </option>
                   <option value="Foreign Relations"> Foreign Relations </option>
                   <option value="Journalism"> Journalism </option>
                 </select>
-                <select type="text" name="Sales" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
+                <select type="text" name="Sales" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="vm.submissionForm.position === 'sales'">
                   <option value="Sales Representative"> Sales Representative </option>
                   <option value="Store Manager"> Store Manager </option>
                   <option value="Retail Sales Consultant"> Retail Sales Consultant </option>
                   <option value="Account Executive"> Account Executive </option>
                 </select>
-                <select type="text" name="HR" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea">
+                <select type="text" name="HR" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="vm.submissionForm.position === 'human resource'">
                   <option value="Chief Happiness Officer"> Chief Happiness Officer </option>
                   <option value="Contract Recruiter"> Contract Recruiter </option>
                   <option value="Compensation Analyst"> Compensation Analyst </option>

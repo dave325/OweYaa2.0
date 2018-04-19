@@ -74,7 +74,7 @@
 					$scope.requiredFields.push('Branch of Military');
 				}
 			}
-			if (user.education.attendedCollege) {
+			if (user.education.attendedcollege) {
 				sum++;
 				if (arrayContains('Did you attend college?', $scope.requiredFields)) {
 					$scope.requiredFields.splice($scope.requiredFields.indexOf('Did you attend college?'), 1);

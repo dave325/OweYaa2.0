@@ -7,18 +7,18 @@
       <div class="row col-xs-12">
 
           <div class="form-group">
-                    <label form="contact" for="email">Name: </label>
-                    <input ng-model="compSet.user.company_info.name" type="text" class="form-control" name="email"/>
+                    <label form="contact" for="name">Name: </label>
+                    <input ng-model="compSet.user.company_info.name" type="text" class="form-control" name="name"/>
           </div> <!-- End of class form-group -->
           
           <div class="form-group">
-                    <label form="contact" for="email">Industry: </label>
-                    <input ng-model="compSet.user.company_info.industry" type="text" class="form-control" name="email"/>
+                    <label form="contact" for="industry">Industry: </label>
+                    <input ng-model="compSet.user.company_info.industry" type="text" class="form-control" name="industry"/>
           </div> <!-- End of class form-group -->
           
           <div class="form-group">
-                    <label form="contact" for="email">Location: </label>
-                    <input ng-model="compSet.user.company_info.location" type="text" class="form-control" name="email"/>
+                    <label form="contact" for="location">Location: </label>
+                    <input ng-model="compSet.user.company_info.location" type="text" class="form-control" name="location"/>
           </div> <!-- End of class form-group -->
 
           <div class="form-group">
@@ -32,13 +32,13 @@
           </div> <!-- End of class form-group -->
           
           <div class="form-group">
-                    <label form="contact" for="email">Point of Contact: </label>
-                    <input ng-model="compSet.user.company_info.pointofcontact" type="text" class="form-control" name="email"/>
+                    <label form="contact" for="pointofcontact">Point of Contact: </label>
+                    <input ng-model="compSet.user.company_info.pointofcontact" type="text" class="form-control" name="contact"/>
           </div> <!-- End of class form-group -->
           
           <div class="form-group">
-                    <label form="contact" for="email"> Employee: </label>
-                    <input ng-model="compSet.user.company_info.employee" type="text" class="form-control" name="email"/>
+                    <label form="contact" for="employee"> Employee: </label>
+                    <input ng-model="compSet.user.company_info.employee" type="text" class="form-control" name="employee"/>
           </div> <!-- End of class form-group -->
 
           <!-- Ask company to input annual revenue -->
@@ -49,8 +49,8 @@
 
           <!-- Ask company to input number of employees -->
           <div class="form-group">
-                    <label form="contact" for="employees">Number of Companies: </label>
-                    <input ng-model="compSet.user.company_info.employees" type="text" class="form-control" name="employees"/>
+                    <label form="contact" for="numofcompanies">Number of Companies: </label>
+                    <input ng-model="compSet.user.company_info.numofcompanies" type="text" class="form-control" name="numofcompanies"/>
           </div> <!-- End of class form-group -->
 
           <div class="form-group" ng-repeat="(key,connect) in compSet.user.social track by $index">

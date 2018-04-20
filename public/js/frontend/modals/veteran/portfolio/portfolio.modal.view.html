@@ -24,7 +24,7 @@
             <!-- End of class form-group -->
             <div>
               <label>Are you an army veteran or a spouse?</label>
-              <select ng-model="portfoliovm.user.contact_info.isVet" ng-options="portfoliovm.options.name in portfoliovm.options">
+              <select ng-model="portfoliovm.user.contact_info.isVet" ng-options="option.name for option in portfoliovm.options">
                 <option value="0">Spouse</option>
                 <option value="1">Veteran</option>
               </select>

@@ -40,6 +40,14 @@
 					</select>
 				</div>
 				<div class="form-group">
+					<label for="istemp">Is this job temporary or permanent?</label>
+					<select type="text" name="comp-istemp" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.istemp" ng-if="vm.submissionForm.jobtype === "Job">
+						<option value="1"> Temporary </option>
+						<option value="0"> Permanent </option>
+					</select>
+				</div>
+				<!-- End of class form-group -->
+				<div class="form-group">
 					<label for="position">What position are you looking for?</label>
 					<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
 						<option value="Developer"> Developer </option>
@@ -101,14 +109,6 @@
 					<label for="skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
 					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
 					 id="skills" />
-				</div>
-				<!-- End of class form-group -->
-				<div class="form-group">
-					<label for="temp-perm">Is this job temporary or permanent?</label>
-					<select type="text" name="comp-temp-perm" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.term-perm">
-						<option value="emporary"> Temporary </option>
-						<option value="permanent"> Permanent </option>
-					</select>
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">

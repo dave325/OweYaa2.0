@@ -2,7 +2,7 @@
     <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="journalvm.cancel()"></span>
     <fieldset>
     <legend>Journal Information</legend>
-    <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
+    <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
     <form novalidate method="post" name="journal" ng-submit="submit()">
         <div class="row">
             <div class="col-md-12">
@@ -28,6 +28,7 @@
                         <label form="journal" form="notes{{$index}}">Notes: </label>
                         <input ng-model="connect.notes" type="text" class="form-control" name="notes{{$index}}" />
                     </p>
+                    <input type="checkbox" name="Did you follow up?" ng-model="connect.didfollowup" type="text" class="form-control" name="didfollowup{{$index}}" /> Follow up
                 </div>
                 <!-- End of ng-repeat=connect in journalvm.user.interviews -->
             </fieldset>
@@ -44,6 +45,22 @@
                 <p>
                     <label form="journal" for="title{{$index}}">Company: </label>
                     <input ng-model="connect.eventname" type="text" class="form-control" name="company{{$index}}" />
+                </p>
+                <p>
+                    <label form="contact-name" for="title{{$index}}">Company: </label>
+                    <input ng-model="connect.contact-name" type="text" class="form-control" name="company{{$index}}" />
+                </p>
+                <p>
+                    <label form="contact-info" for="title{{$index}}">Company: </label>
+                    <input ng-model="connect.contact-info" type="text" class="form-control" name="company{{$index}}" />
+                </p>
+                <p>
+                    <label form="contact-company" for="title{{$index}}">Company: </label>
+                    <input ng-model="connect.eventname" type="text" class="form-control" name="company{{$index}}" />
+                </p>
+                <p>
+                    <label form="contact-department" for="title{{$index}}">Company: </label>
+                    <input ng-model="connect.contact-department" type="text" class="form-control" name="company{{$index}}" />
                 </p>
                 <!-- Add add to items list like skills
                 <p>

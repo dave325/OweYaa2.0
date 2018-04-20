@@ -4,6 +4,16 @@
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     console.log(portfoliovm.user);
+    portfoliovm.options = [
+      {
+        name:"Spouse",
+        value=0
+      },
+      {
+        name:"Veteran",
+        value=1
+      }
+    ]
     // The function that is call when a user cancels the opening of a modal
 	  portfoliovm.cancel = function(){
 	   $uibModalInstance.dismiss('cancel')

@@ -64,7 +64,7 @@
 					$scope.requiredFields.push('Location');
 				}
 			}
-			if (user.contact_info.isVet) {
+			if (user.contact_info.isVet === 1) {
 				if (user.contact_info.branch != null && user.contact_info.branch.length > 0) {
 					sum++;
 					if (arrayContains('Branch of Military', $scope.requiredFields)) {

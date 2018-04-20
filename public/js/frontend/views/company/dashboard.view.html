@@ -27,15 +27,16 @@
 
 	<div id="company" class="col-xs-12 col-md-6">
 		<h2 class="col-xs-12 bg-primary">
-			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()">Company Info</span>
+			Company Info
+			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
 		</h2>
 		<div ng-if="vm.user.company.name">
 			<h2>Name:</h2>
 			<p>{{vm.user.company_info.name}}</p>
 		</div>
-		<div ng-if="vm.user.company.point&context">
+		<div ng-if="vm.user.company.pointofcontact">
 			<h2>Point of Context:</h2>
-			<p>{{vm.user.company_info.pointofcontext}}</p>
+			<p>{{vm.user.company_info.pointofcontact}}</p>
 		</div>
 		<div ng-if="vm.user.company.industry">
 			<h2>Industry:</h2>
@@ -56,10 +57,11 @@
 		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>
 	<!-- End of describe Yourself div-->
-	
+
 	<div id="stats" class="col-xs-12 col-md-6">
 		<h2 class="col-xs-12 bg-primary">
-			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()">Stats</span>
+			Stats
+			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
 		</h2>
 		<div ng-if="vm.user.company.employees">
 			<h2>Employees:</h2>

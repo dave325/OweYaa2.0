@@ -74,6 +74,21 @@
 					 required id="comp-proj-description" />
 				</div>
 				<!-- End of class form-group -->
+				
+				<div class="form-group">
+					<label for="comp-proj-deadline">What's the project deadline/project end date?</label>
+					<input type="text" name="compdeadline" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.deadline"
+					 required id="comp-proj-deadline"/>
+				</div>
+				<!-- End of class form-group -->
+				
+				<div class="form-group">
+					<label for="componsite">on site?</label>
+					<input type="text" name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.onsite"
+					 required id="componsite" />
+				</div>
+				<!-- End of class form-group -->
+				
 				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()">
 			</div>
 			<!-- End of Step 1-->
@@ -86,6 +101,14 @@
 					<label for="skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
 					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
 					 id="skills" />
+				</div>
+				<!-- End of class form-group -->
+				<div class="form-group">
+					<label for="temp-perm">Is this job temporary or permanent?</label>
+					<select type="text" name="comp-temp-perm" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.term-perm">
+						<option value="emporary"> Temporary </option>
+						<option value="permanent"> Permanent </option>
+					</select>
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">

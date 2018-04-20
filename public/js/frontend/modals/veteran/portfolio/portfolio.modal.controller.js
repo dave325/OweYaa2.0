@@ -7,11 +7,11 @@
     portfoliovm.options = [
       {
         name:"Spouse",
-        value=0
+        value:0
       },
       {
         name:"Veteran",
-        value=1
+        value:1
       }
     ]
     // The function that is call when a user cancels the opening of a modal

@@ -25,29 +25,57 @@
 	</div>
 	<!-- End of class row -->
 
-	<div id="describeYourself" class="col-xs-12 col-md-8 col-md-offset-2">
-		<h2 class="col-xs-12 bg-primary">About yourself
+	<div id="Company" class="col-xs-12 col-md-6 col-md-offset-2">
+		<h2 class="col-xs-12 bg-primary">
 			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
 		</h2>
-		<div ng-if="vm.user.company.bio">
-			<h2>About you:</h2>
-			<p>{{vm.user.company_info.bio}}</p>
+		<div ng-if="vm.user.company.name">
+			<h2>Name:</h2>
+			<p>{{vm.user.company_info.name}}</p>
+		</div>
+		<div ng-if="vm.user.company.point&context">
+			<h2>Point of Context:</h2>
+			<p>{{vm.user.company_info.pointofcontext}}</p>
+		</div>
+		<div ng-if="vm.user.company.industry">
+			<h2>Industry:</h2>
+			<p>{{vm.user.company_info.industry}}</p>
+		</div>
+		<div ng-if="vm.user.company.location">
+			<h2>Location:</h2>
+			<p>{{vm.user.company_info.location}}</p>
+		</div>
+		<div ng-if="vm.user.company.phonenumber">
+			<h2>Phone Number:</h2>
+			<p>{{vm.user.company_info.phonenumber}}</p>
+		</div>
+		<div ng-if="vm.user.company.email">
+			<h2>Email:</h2>
+			<p>{{vm.user.company_info.email}}</p>
+		</div>
+		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
+	</div>
+	<!-- End of describe Yourself div-->
+	
+	<div id="Stats" class="col-xs-12 col-md-8 col-md-offset-2">
+		<h2 class="col-xs-12 bg-primary">
+			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
+		</h2>
+		<div ng-if="vm.user.company.employees">
+			<h2>Employees:</h2>
+			<p>{{vm.user.company_info.employees}}</p>
 		</div>
 		<div ng-if="vm.user.company.annualrevenue">
 			<h2>Annual Revenue:</h2>
 			<p>{{vm.user.company_info.annualrevenue}}</p>
 		</div>
-		<div ng-if="vm.user.company.numofemployees">
-			<h2>Number of Employees:</h2>
-			<p>{{vm.user.company_info.numofemployees}}</p>
-		</div>
-		<div ng-if="vm.user.company.diversity">
-			<h2>Diversity:</h2>
-			<p>{{vm.user.company_info.diversity}}</p>
+		<div ng-if="vm.user.company.numofcompanies">
+			<h2>Number of Companies:</h2>
+			<p>{{vm.user.company_info.numofcompanies}}</p>
 		</div>
 		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>
-	<!-- End of describYourself div-->
+	<!-- End of describe Yourself div-->
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">

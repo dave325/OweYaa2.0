@@ -45,12 +45,13 @@
               <div class="form-group">
                 <h4>Career Focus Area:</h4>
                 <p>Describe your specific career focus!</p>
-                <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
+                <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.position">
                   <option value="developer"> Developer </option>
                   <option value="marketing"> Marketing </option>
                   <option value="designer"> Designer </option>
                   <option value="human resource"> Customer Service/Human Resources </option>
                 </select>
+                <p>Please select a specific area.</p><br />
                 <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="vm.submissionForm.position === 'designer'">
                   <option value="Graphic Designer"> Graphic Designer </option>
                   <option value="UX Designer"> UX Designer </option>
@@ -59,7 +60,7 @@
                 </select>
                 <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="vm.submissionForm.position === 'developer'">
                   <option value="Frontend"> Frontend Developer</option>
-                  <option value="Backend"> Developer </option>
+                  <option value="Backend"> Software Developer </option>
                   <option value="Full stack"> Full stack Developer</option>
                   <option value="App developer"> App developer Developer</option>
                 </select>
@@ -81,11 +82,6 @@
                   <option value="Compensation Analyst"> Compensation Analyst </option>
                   <option value="Client Facing Human Resources Specialist"> Client Facing Human Resources Specialist </option>
                 </select>
-                <p>
-                  <label form="education" for="focusArea">Focus Area: </label>
-                  <input ng-model="educationvm.user.educaiton.focusArea" type="text" class="form-control" name="focusArea" id="graduation"
-                  />
-                </p>
               </div>
               <!-- End of clas form-group -->
             </div>

@@ -64,14 +64,16 @@
 					$scope.requiredFields.push('Location');
 				}
 			}
-			if (user.contact_info.branch != null && user.contact_info.branch.length > 0) {
-				sum++;
-				if (arrayContains('Branch of Military', $scope.requiredFields)) {
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Branch of Military'), 1);
-				}
-			} else {
-				if (!arrayContains('Branch of Military', $scope.requiredFields)) {
-					$scope.requiredFields.push('Branch of Military');
+			if (user.contact_info.isVet) {
+				if (user.contact_info.branch != null && user.contact_info.branch.length > 0) {
+					sum++;
+					if (arrayContains('Branch of Military', $scope.requiredFields)) {
+						$scope.requiredFields.splice($scope.requiredFields.indexOf('Branch of Military'), 1);
+					}
+				} else {
+					if (!arrayContains('Branch of Military', $scope.requiredFields)) {
+						$scope.requiredFields.push('Branch of Military');
+					}
 				}
 			}
 			if (user.education.attendedcollege) {
@@ -126,16 +128,16 @@
 			}
 			let progressbar = Math.round((sum / total) * 100);
 			let type;
-			if(progressbar < 50){
+			if (progressbar < 50) {
 				type = "danger";
-			}else if(progressbar < 75){
+			} else if (progressbar < 75) {
 				type = "warning";
-			}else{
+			} else {
 				type = "success"
 			}
 			let info = {
-				progress:progressbar,
-				type:type
+				progress: progressbar,
+				type: type
 			}
 			return info;
 		}

@@ -5,7 +5,6 @@
     availibilityvm.user = CurrUser;
     // Containers
     availibilityvm.hours = [];
-
     for (var i = 0; i < 24; i++) {
         // push interval of times at every half hour
         var temp_date = i + ":" + "00:00";

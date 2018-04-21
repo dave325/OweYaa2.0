@@ -17,7 +17,7 @@
     }
 
 
-    User.getFavUsers().then(function (response) {
+    User.getFavUsers(vm.user).then(function (response) {
       console.log(response);
       vm.users = response.data.user;
     }, function (data) {

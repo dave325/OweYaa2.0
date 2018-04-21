@@ -99,13 +99,14 @@
           }
         })
       },
-      getFavUsers: function () {
+      getFavUsers: function (user) {
         if (Authentication.getToken() == null) {
           return;
         }
         return $http({
           url: "/api/getFavUsers",
           method: 'POST',
+          data: user,
           headers: {
             "Authorization": "Bearer " + Authentication.getToken()
           }

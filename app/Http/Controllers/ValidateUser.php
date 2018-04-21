@@ -1000,7 +1000,7 @@ class ValidateUser extends Controller
         if($this->isValid()){
 
             // Retrieve Company projects where ismatched != true.
-            $projects = TableModels\CompanyModels\CompanyFav::where('username','=',$userInfo['company_info']['info'])->get();
+            $projects = TableModels\CompanyModels\CompanyFavorite::where('username','=',$userInfo['company_info']['info'])->get();
 
             // If successful, return a success response.
             return response()->json(['projects' => $projects,'success'=>true],200);

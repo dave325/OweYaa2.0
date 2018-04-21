@@ -17,10 +17,7 @@
     }
 
 
-    $http({
-      url: '/api/getAllProjects',
-      method: 'POST'
-    }).then(function (response) {
+    User.getFavUsers().then(function (response) {
       console.log(response);
       vm.users = response.data.user;
     }, function (data) {

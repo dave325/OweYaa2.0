@@ -17,7 +17,7 @@
                     console.log(response);
                 },
                 function (response) {
-                    console.log("ERROR: Retrieving DB interns" + response);
+                    console.log("ERROR: Retrieving DB candidates" + response);
                 }
 
             );
@@ -48,17 +48,17 @@
             } else {
                 // Loop through every user in database
                 for (let i = 0; i < vm.users.length; i++) {
-                    // Loop through individual skills 
+                    // Loop through individual skills
                     for (let j = 0; j < vm.users[i].skill.length; j++) {
                         // Check if the skill exists in current user
                         if (vm.users[i].skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
-                            // Add user to temp array 
+                            // Add user to temp array
                             user.push(vm.users[i]);
                             break;
                         }
                     }
                 }
-                // Set vm.users to temp array and only show results 
+                // Set vm.users to temp array and only show results
                 vm.users = user;
             }
         }

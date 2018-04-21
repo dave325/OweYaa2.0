@@ -66,7 +66,7 @@
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
-					<label for="comp-proj-description">Tell us what project/task you would like a military intern to work on with you?</label>
+					<label for="comp-proj-description">Tell us what project/task you would like a candidate to work on with you?</label>
 					<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectdetails"
 					 required id="comp-proj-description" />
 				</div>
@@ -91,12 +91,12 @@
 			<!-- End of Step 1-->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
 				<div class="form-group">
-					<label for="internHours">How many hours will the intern be working in total?</label>
+					<label for="internHours">How many hours will the candidate be working in total?</label>
 					<input type="number" ng-model="vm.submissionForm.internhours" name="internHours" id="internHours" min="0">
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
-					<label for="skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
+					<label for="skills">What skills do you have? (Please separate with commas: The first, second, and third have the highest priority)</label>
 					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
 					 id="skills" />
 				</div>

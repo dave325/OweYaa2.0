@@ -18,7 +18,7 @@
 
 
     $http({
-      url: '/api/getProjects',
+      url: '/api/getAllProjects',
       method: 'POST'
     }).then(function (response) {
       console.log(response);

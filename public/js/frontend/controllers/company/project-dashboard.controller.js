@@ -10,7 +10,7 @@
         vm.projects = User.getUser().company_project;
         //ng-repeat on projects.
 
-        
+
 
         function intern(name,email,hours)
         {
@@ -41,11 +41,11 @@
         vm.projectTitle="Project Title";
 
         vm.interns = [
-            new intern("Intern One","intern@gmail.com",24),
-            new intern("Intern One","intern@gmail.com",24),
-            new intern("Intern One","intern@gmail.com",24),
-            new intern("Intern Three","intern@gmail.com",24),
-            new intern("Intern One","intern@gmail.com",24)
+            new intern("Candidate One","candidate@gmail.com",24),
+            new intern("Candidate One","candidate@gmail.com",24),
+            new intern("Candidate One","candidate@gmail.com",24),
+            new intern("Candidate Three","candidate@gmail.com",24),
+            new intern("Candidate One","candidate@gmail.com",24)
         ];
 
 
@@ -76,7 +76,7 @@
 
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
-        
+
                     };
 
                     $scope.increment = function(intern)
@@ -141,7 +141,7 @@
 
                     $scope.onAdd = function(milestoneDescription,date,status)
                     {
-                        
+
                         vm.milestones.push(new milestone(milestoneDescription,date,status));
                     }
                 },
@@ -150,7 +150,7 @@
 
         }
 
-      
+
     }
     angular.module('oweyaa')
         .controller('projectDashboardCtrl', projectDashboardCtrl);

@@ -49,13 +49,13 @@
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="manager-name">What the Project Manager's Name? </label>
-					<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanager"
+					<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanagername"
 					 required id="manager-name" />
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="manager-contact">What the Project Manager's contact? </label>
-					<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanager"
+					<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanagercontact"
 					 required id="manager-contact" />
 				</div>
 				<!-- End of class form-group -->
@@ -86,7 +86,7 @@
 				</div>
 				<!-- End of class form-group -->
 
-				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()">
+				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()" ng-disabled="&vm.submissionForm.jobtype &vm.submissionForm.position $vm.submissionForm.projectmanager &vm.submissionForm.projectmanagername &vm.submissionForm.projectmanagercontact &vm.submissionForm.projectdetails &vm.submissionForm.deadline &vm.submissionForm.onsite">
 			</div>
 			<!-- End of Step 1-->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
@@ -102,7 +102,7 @@
 				</div>
 				<!-- End of class form-group -->
 				<input type="button" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()">
-				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)">
+				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)" ng-disabled="&vm.submissionForm.internhours &vm.submissionForm.skills">
 			</div>
 			<!-- End of step 2 -->
 			<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page1 && !vm.steps.page2">

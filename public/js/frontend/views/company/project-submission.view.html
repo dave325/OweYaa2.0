@@ -100,6 +100,7 @@
 				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()">
 			</div>
 			<!-- End of Step 1-->
+			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
 				<div class="form-group">
 					<label for="internHours">How many hours will the intern be working in total?</label>
 					<input type="number" ng-model="vm.submissionForm.internhours" name="internHours" id="internHours" min="0">
@@ -109,12 +110,6 @@
 					<label for="skills">What skils do you have? (Please separate with commas, the first second and third have the highest priority)</label>
 					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
 					 id="skills" />
-				</div>
-				<!-- End of class form-group -->
-				<div class="form-group">
-					<label for="skillsNeeded">What skils do you need? (Please separate with commas, the first second and third have the highest priority)</label>
-					<input type="text" name="comp-skills" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.skills" required
-					 id="skillsNeeded" />
 				</div>
 				<!-- End of class form-group -->
 				<input type="button" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()">

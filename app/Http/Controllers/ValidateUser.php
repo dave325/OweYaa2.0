@@ -988,4 +988,28 @@ class ValidateUser extends Controller
 
         }
     }
+    /**
+     * retrieveProj
+     * @params Request $request
+     * retrieves all the projects from the database that are not matched
+     */
+    public function retrieveFavUsers(Request $request){
+        $userInfo = $request->all();
+        // In order to retrieve project info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if($this->isValid()){
+
+            // Retrieve Company projects where ismatched != true.
+            $projects = TableModels\CompanyModels\CompanyFav::where('username','=',$userInfo['company_info']['info'])->get();
+
+            // If successful, return a success response.
+            return response()->json(['projects' => $projects,'success'=>true],200);
+
+        }else{
+
+            // If not, return an error response.
+            return response()->json(['error'=>true],400);
+
+        }
+    }
 }

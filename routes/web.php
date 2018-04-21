@@ -33,6 +33,7 @@ Route::group(['prefix' => 'api'], function (){
     Route::post('uploadFile','ValidateUser@uploadFiles');
     Route::post('getUsers', 'ExampleController@returnAllUsers');
     Route::post('getProjects', 'ValidateUser@retrieveAllProj');
+    Route::post('getFavUsers', 'ValidateUser@retrieveFavUser');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');

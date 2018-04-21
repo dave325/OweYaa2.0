@@ -18,7 +18,7 @@
 
 
     $http({
-      url: '/api/getUsers',
+      url: '/api/getFavUsers',
       method: 'POST'
     }).then(function (response) {
       console.log(response);

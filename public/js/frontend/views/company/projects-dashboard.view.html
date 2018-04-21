@@ -40,7 +40,7 @@
 
 
     <div class="col-md-7">
-
+      <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
       <div class="well col-md-12" id="proj-description-pane">
         <h3>
           <span class="title">{{vm.projectTitle}}</span>
@@ -64,13 +64,13 @@
           </ol>
           <p> Educated {{vm.isEducated}} </p>
 
-        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
       </div>
       <!-- End of class well col-md-12 -->
 
 
 
       <div class="col-md-6" id="interns">
+        <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editInternHours(vm.interns)">Edit</button>
         <div class="well">
 
           <table style="width:100%">
@@ -101,8 +101,6 @@
 
 
           </table>
-
-          <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editInternHours(vm.interns)">Edit</button>
           
         </div>
         <!-- End of class well -->
@@ -111,6 +109,7 @@
 
 
       <div class="col-md-6 well" id="Milestones">
+        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
         <h3>
           <span class="title">MILESTONES</span>
         </h3>
@@ -129,39 +128,12 @@
         </div>
         <!-- End of ng-repeat milestone in vm.milestones -->
 
-        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
-
-
-      </div>
-
-      <div class="col-md-6 well" id="add skills">
-        <h3>
-          <span class="title">SKILLS</span>
-        </h3>
-
-        <div ng-repeat="milestone in vm.milestones">
-          <div class="stat">
-            <p class="task">{{milestone.description}}
-              <span class="completionDate">{{milestone.completionDate}}</span>
-              <span class="completionText">{{milestone.isCompleted}}</span>
-              <input id="checkBox" type="checkbox" checked="true" onclick="return false;">
-            </p>
-
-          </div>
-
-        </div>
-
-        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
-
-
       </div>
 
     </div>
     <!-- End of id projectPanes -->
 </section>
 <!-- End of class row -->
-
-
 
 
 <footer-base></footer-base>

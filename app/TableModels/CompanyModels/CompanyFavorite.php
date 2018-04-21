@@ -21,7 +21,7 @@ class CompanyFavorite extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','internid','favid'];
+    protected $fillable = ['username', 'internid', 'favid'];
 
     /**
      * The attributes excluded from the model's JSON form.

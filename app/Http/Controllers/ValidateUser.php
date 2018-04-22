@@ -998,15 +998,13 @@ class ValidateUser extends Controller
         // In order to retrieve project info for the user, make sure that the user
         // is a valid user. If the user is a valid user...
         if($this->isValid()){
-            $internInfo = array();
+            $internInfo = collect();
             // Retrieve Company projects where ismatched != true.
             $projects = TableModels\CompanyModels\CompanyFavorite::where('username','=',$userInfo['company_info']['username'])->get();
             foreach($projects as $proj){
                 $temp = User::with('contactInfo','skill','education','availability','monthAvailability')->where('username', '=', $proj['internid'])->first();
-                $temp1 = collect([
-                    ['user'=> $temp,'favid'=>$proj['favid']],
-                ]);
-                array_push($internInfo,$temp1);
+                $temp->put('favid',$proj['favid']);
+                $internInfo->push($temp);
             }
             // If successful, return a success response.
             return response()->json(['projects' => $internInfo, 'success'=>true],200);

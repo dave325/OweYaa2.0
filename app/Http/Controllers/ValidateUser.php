@@ -1006,7 +1006,7 @@ class ValidateUser extends Controller
                 array_push($internInfo,$temp);
             }
             // If successful, return a success response.
-            return response()->json(['projects' => $projects,'internList' =>$internInfo, 'success'=>true],200);
+            return response()->json(['projects' => $internInfo, 'success'=>true],200);
 
         }else{
 

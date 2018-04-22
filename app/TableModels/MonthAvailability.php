@@ -8,7 +8,7 @@ class MonthAvailability extends Model{
      *
      * @var string
      */
-    protected $table = 'availability';
+    protected $table = 'monthavailability';
     // Set primary key
     protected $primaryKey = "monthid";
     // Remove default increment from eloquent

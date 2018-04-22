@@ -4,6 +4,7 @@
   function favoriteInternsCtrl($http, User) {
     var vm = this;
     vm.user = User.getUser();
+    vm.users = getUser();
     // Information will be retrieved from database
     vm.contents = {
       content1: {
@@ -16,19 +17,22 @@
       }
     }
 
+    function getUser() {
+      User.getFavUsers(vm.user).then(function (response) {
+        console.log(response);
+        return response.data.projects[0];
+      }, function (data) {
+        console.log(data);
+      });
+    }
 
-    User.getFavUsers(vm.user).then(function (response) {
-      console.log(response);
-      vm.users = response.data.projects[0];
-    }, function (data) {
-      console.log(data);
-    });
     vm.removeFavUser = function (user) {
       id = {
         favid: user.favid
       }
       User.removeFavUser(id).then(function (response) {
         console.log(response);
+        vm.users = getUser();
       }, function (error) {
         console.log(error);
       });

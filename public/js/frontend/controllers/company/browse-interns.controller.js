@@ -63,7 +63,7 @@
                 internid: vm.users[user].contact_info.username,
                 favid:vm.user.company_info.username + 1
             }
-            User.addFavUser(vm.users[user]).then(function(response){
+            User.addFavUser(favIntern).then(function(response){
                 console.log(response);
             },function(error){
                 console.log(error);

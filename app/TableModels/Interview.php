@@ -20,7 +20,7 @@ class Interview extends Model{
     *
     * @var array
     */
-    protected $fillable = ['interviewid','username','company', 'date','contact', 'notes'];
+    protected $fillable = ['interviewid','username','company', 'date', 'notes','didfollowup','contactdept','contactinfo'];
 
     /**
      * The attributes excluded from the model's JSON form.

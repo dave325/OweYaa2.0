@@ -24,7 +24,7 @@ class Event extends Model{
     *
     * @var array
     */
-    protected $fillable = ['eventid','username','eventname','contactid'];
+    protected $fillable = ['eventid','username','eventname','contactname','contactinfo','contactcompany','contactdepartment'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -1005,7 +1005,7 @@ class ValidateUser extends Controller
                 $temp = User::with('contactInfo','skill','education','availability','monthAvailability')->where('username', '=', $proj['internid'])->first();
                 $temp1 = collect([
                     ['user'=> $temp,'favid'=>$proj['favid']],
-                ])->toArray();
+                ]);
                 array_push($internInfo,$temp1);
             }
             // If successful, return a success response.

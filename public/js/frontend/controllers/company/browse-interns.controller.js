@@ -23,19 +23,13 @@
             );
 
         }
-
-
         vm.retrieveInterns();
-
-
-
         vm.results = 'result';
         vm.user = User.getUser();
         $http({
             url: '/api/getUsers',
             method: 'POST'
         }).then(function (response) {
-            //         console.log(response);
             vm.users = response.data.user;
             vm.copyUsers = vm.users.slice();
         }, function (data) {
@@ -61,6 +55,14 @@
                 // Set vm.users to temp array and only show results
                 vm.users = user;
             }
+        }
+
+        vm.addFavUser = function(user){
+            User.addFavUser(user).then(function(response){
+                console.log(response);
+            },function(error){
+                console.log(error);
+            });
         }
     }
     angular.module('oweyaa')

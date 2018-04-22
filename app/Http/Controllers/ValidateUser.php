@@ -1012,4 +1012,25 @@ class ValidateUser extends Controller
 
         }
     }
+    /**
+     * retrieveProj
+     * @params Request $request
+     * retrieves all the projects from the database that are not matched
+     */
+    public function addFavUser(Request $request){
+        $userInfo = $request->all();
+        // In order to retrieve project info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if($this->isValid()){
+            TableModels\CompanyFavorite::create($userInfo);
+            // If successful, return a success response.
+            return response()->json(['success'=>true],200);
+
+        }else{
+
+            // If not, return an error response.
+            return response()->json(['error'=>true],400);
+
+        }
+    }
 }

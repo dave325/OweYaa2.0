@@ -25,12 +25,12 @@
     });
     vm.removeFavUser = function (user) {
       id = {
-        favid: user.favid
+        favid: user.company_favorite.favid
       }
       User.removeFavUser(id).then(function (response) {
         console.log(response);
       }, function (error) {
-        console.log(response);
+        console.log(error);
       });
     }
   }

@@ -31,6 +31,7 @@ Route::group(['prefix' => 'api'], function (){
     Route::post('getProjects', 'ValidateUser@retrieveProj');
     Route::post('getFavUsers', 'ValidateUser@retrieveFavUsers');
     Route::post('addFavUsers', 'ValidateUser@addFavUser');
+    Route::post('removeFavUser', 'ValidateUser@removeFavUser');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');

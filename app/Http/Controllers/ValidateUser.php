@@ -1002,7 +1002,8 @@ class ValidateUser extends Controller
             // Retrieve Company projects where ismatched != true.
             $projects = TableModels\CompanyModels\CompanyFavorite::where('username','=',$userInfo['company_info']['username'])->get();
             foreach($projects as $proj){
-                $temp = User::with('contactInfo','skill','education','availability','monthAvailability','companyFavorite')->where('username', '=', $proj['internid'])->get();
+                $temp = User::with('contactInfo','skill','education','availability','monthAvailability')->where('username', '=', $proj['internid'])->get()->toArray();
+                $temp['favid'] = $proj['favid'];
                 array_push($internInfo,$temp);
             }
             // If successful, return a success response.

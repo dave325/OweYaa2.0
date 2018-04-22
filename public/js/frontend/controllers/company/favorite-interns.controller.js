@@ -19,7 +19,7 @@
 
     User.getFavUsers(vm.user).then(function (response) {
       console.log(response);
-      vm.users = response.data.internList;
+      vm.users = response.data.projects;
     }, function (data) {
       console.log(data);
     });

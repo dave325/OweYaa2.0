@@ -4,6 +4,7 @@
   function favoriteInternsCtrl($http, User, $timeout) {
     var vm = this;
     vm.user = User.getUser();
+    vm.resultInfo = '';
     getUser();
     // Information will be retrieved from database
     vm.contents = {
@@ -32,7 +33,11 @@
       }
       User.removeFavUser(id).then(function (response) {
         console.log(response);
-        getUser();
+        vm.resultInfo = "Successfully deleted user!";
+        $timeout(function(){
+          vm.resultInfo = '';
+          getUser();
+        },500);
       }, function (error) {
         console.log(error);
       });

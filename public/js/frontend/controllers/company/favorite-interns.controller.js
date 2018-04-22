@@ -1,7 +1,7 @@
 (function () {
   //Injector will protect against minification
-  favoriteInternsCtrl.$inject = ['$http', 'User','$timeout'];
-  function favoriteInternsCtrl($http, User,$timeout) {
+  favoriteInternsCtrl.$inject = ['$http', 'User', '$timeout'];
+  function favoriteInternsCtrl($http, User, $timeout) {
     var vm = this;
     vm.user = User.getUser();
     getUser();
@@ -32,9 +32,7 @@
       }
       User.removeFavUser(id).then(function (response) {
         console.log(response);
-        $timeout(function(){
-          getUser();
-        },1000);
+        getUser();
       }, function (error) {
         console.log(error);
       });

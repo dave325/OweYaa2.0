@@ -35,21 +35,21 @@
 				<div class="col-md-2">
 					<img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
 					 alt="">
-					<h4 class="specialText">{{user.contact_info.name}}</h4>
+					<h4 class="specialText">{{user.user.contact_info.name}}</h4>
 
 					<button type="button" class="btn btn-success">Want for project</button>
-					<button type="button" class="btn btn-success" ng-click="vm.removeFavUser(user)">Remove</button>
+					<button type="button" class="btn btn-success" ng-click="vm.removeFavUser(user.user)">Remove</button>
 
 				</div>
 				<!-- End of class col-md-2 -->
 				<div class="col-md-4">
 					<br>
-					<p>LOCATION: {{user.contact_info.location}}</p>
-					<p>BIO: {{user.contact_info.bio}}</p>
-					<p>Degree: {{user.education.degree}}</p>
-					<p>Desired Field: {{user.education.focusarea}}</p>
+					<p>LOCATION: {{user.user.contact_info.location}}</p>
+					<p>BIO: {{user.user.contact_info.bio}}</p>
+					<p>Degree: {{user.user.education.degree}}</p>
+					<p>Desired Field: {{user.user.education.focusarea}}</p>
 				</div>
-				<div class="col-md-4" ng-repeat="skill in user.skill | limitTo: 3">
+				<div class="col-md-4" ng-repeat="skill in user.user.skill | limitTo: 3">
 					<br>
 					<span>{{skill.skill}}</span>
 					<div class="progress" style="height:20px">

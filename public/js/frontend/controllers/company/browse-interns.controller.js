@@ -60,7 +60,7 @@
         vm.addFavUser = function(user){
             favIntern = {
                 username: vm.user.company_info.username,
-                internid: vm.users[$index].contact_info.username,
+                internid: vm.users[user].contact_info.username,
                 favid:vm.user.company_info.username + 1
             }
             User.addFavUser(vm.users[user]).then(function(response){

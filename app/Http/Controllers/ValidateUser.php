@@ -1003,8 +1003,10 @@ class ValidateUser extends Controller
             $projects = TableModels\CompanyModels\CompanyFavorite::where('username','=',$userInfo['company_info']['username'])->get();
             foreach($projects as $proj){
                 $temp = User::with('contactInfo','skill','education','availability','monthAvailability')->where('username', '=', $proj['internid'])->first();
-                $temp->put('favid',$proj['favid']);
-                $internInfo->push($temp);
+                $temp1 = collect([
+                    ['user'=> $temp,'favid'=>$proj['favid']],
+                ]);
+                $internInfo->push($temp1);
             }
             // If successful, return a success response.
             return response()->json(['projects' => $internInfo, 'success'=>true],200);

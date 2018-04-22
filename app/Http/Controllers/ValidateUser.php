@@ -1022,7 +1022,7 @@ class ValidateUser extends Controller
         // In order to retrieve project info for the user, make sure that the user
         // is a valid user. If the user is a valid user...
         if($this->isValid()){
-            TableModels\CompanyFavorite::create($userInfo);
+            TableModels\Company\CompanyFavorite::create($userInfo);
             // If successful, return a success response.
             return response()->json(['success'=>true],200);
 

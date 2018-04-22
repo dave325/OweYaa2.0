@@ -124,6 +124,19 @@
             "Authorization": "Bearer " + Authentication.getToken()
           }
         })
+      },
+      removeFavUser: function (user) {
+        if (Authentication.getToken() == null) {
+          return;
+        }
+        return $http({
+          url: "/api/removeFavUser",
+          method: 'POST',
+          data: user,
+          headers: {
+            "Authorization": "Bearer " + Authentication.getToken()
+          }
+        })
       }
     }
     return User;

@@ -1003,6 +1003,7 @@ class ValidateUser extends Controller
             $projects = TableModels\CompanyModels\CompanyFavorite::where('username','=',$userInfo['company_info']['username'])->get();
             foreach($projects as $proj){
                 $temp = User::with('contactInfo','skill','education','availability','monthAvailability')->where('username', '=', $proj['internid'])->get();
+                $temp['favid'] = $proj['favid'];
                 array_push($internInfo,$temp);
             }
             // If successful, return a success response.
@@ -1026,6 +1027,28 @@ class ValidateUser extends Controller
         // is a valid user. If the user is a valid user...
         if($this->isValid()){
             TableModels\CompanyModels\CompanyFavorite::create($userInfo);
+            // If successful, return a success response.
+            return response()->json(['success'=>true],200);
+
+        }else{
+
+            // If not, return an error response.
+            return response()->json(['error'=>true],400);
+
+        }
+    }
+
+    /**
+     * retrieveProj
+     * @params Request $request
+     * retrieves all the projects from the database that are not matched
+     */
+    public function removeFavUser(Request $request){
+        $userInfo = $request->all();
+        // In order to retrieve project info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if($this->isValid()){
+            TableModels\CompanyModels\CompanyFavorite::destroy($userInfo['favid']);
             // If successful, return a success response.
             return response()->json(['success'=>true],200);
 

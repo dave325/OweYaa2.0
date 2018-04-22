@@ -1,7 +1,7 @@
 (function () {
   //Injector will protect against minification
   favoriteInternsCtrl.$inject = ['$http', 'User'];
-  function favoriteInternsCtrl($http,User) {
+  function favoriteInternsCtrl($http, User) {
     var vm = this;
     vm.user = User.getUser();
     // Information will be retrieved from database
@@ -23,6 +23,16 @@
     }, function (data) {
       console.log(data);
     });
+    vm.removeFavUser = function (user) {
+      id = {
+        favid: user.favid
+      }
+      User.removeFavUser(id).then(function (response) {
+        console.log(response);
+      }, function (error) {
+        console.log(response);
+      });
+    }
   }
 
 

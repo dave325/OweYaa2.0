@@ -25,7 +25,7 @@
     });
     vm.removeFavUser = function (user) {
       id = {
-        favid: user.company_favorite.favid
+        favid: user.favid
       }
       User.removeFavUser(id).then(function (response) {
         console.log(response);

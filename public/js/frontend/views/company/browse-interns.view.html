@@ -24,7 +24,7 @@
 		<!-- Results that have been filtered out -->
 		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
 			<h2 class="text-center">Results</h2>
-			<div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vm.users">
+			<div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vm.users track by $index">
 
 				<div class="col-md-2">
 					<img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
@@ -32,7 +32,7 @@
 					<h4 class="specialText">CANDIDATE NAME</h4>
 
 					<button type="button" class="btn btn-info">WANT</button>
-					<button type="button" class="btn btn-info" ng-click="vm.addFavUser(user)">FAV</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)">FAV</button>
 
 				</div>
 				<div class="col-md-4">

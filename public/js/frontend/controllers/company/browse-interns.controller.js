@@ -58,7 +58,7 @@
         }
 
         vm.addFavUser = function(user){
-            User.addFavUser(user).then(function(response){
+            User.addFavUser(vm.users[user]).then(function(response){
                 console.log(response);
             },function(error){
                 console.log(error);

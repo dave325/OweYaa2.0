@@ -18,20 +18,19 @@ class CompanyInternMatch extends Controller
     private $skillsList;
     private $wantedSkills;
     private $pq;
+    private $companyLocation = array(40,74);
 
 
     public function test(Request $request)
     {
      
         $this->pq = new SplPriorityQueue();
-        
         $this->skillsList = array("php","nodejs","agile");
         $this->wantedSkills = array('linux','c#');
-
-
-        $filtered= $this->filter(false,5000); 
+        $filtered= $this->filter(true,5); 
         
-       
+        
+        
 
         for($i = 0; $i < count($filtered);  $i++ )
         {
@@ -78,51 +77,72 @@ class CompanyInternMatch extends Controller
     
 
     private function getDistance($lat,$long,$minDistance)
-    {
-        $companyLocation = array(40,74);
+    {       
        
         return
         
-        sqrt(pow($lat - $companyLocation[0],2) + pow($long - $companyLocation[1],2)) <= $minDistance;
+        sqrt(pow($lat - $this->companyLocation[0],2) + pow($long - $this->companyLocation[1],2)) <= $minDistance;
         
     }
 
     
     private function filter($attendedCollFlag,$distance)
     {
-        //job wanted
-        //age
-        //mos branch
 
-     $users=MilitaryUser::with('education','contactinfo','skill')->get();
      $ret = array();
 
-     for($i = 0; $i < count($users);  $i++ )
+
+     $circle_radius = 3959;
+     $max_distance = $distance;
+     $lat = $this->companyLocation[0];
+     $lon = $this->companyLocation[1];
+
+     $users=MilitaryUser::with('education','contactinfo','skill')->
+     whereHas('education', function($query) use ($attendedCollFlag)
      {
-        $latlong = explode(" ",$users[$i]->contactinfo->location);
-
-         if($attendedCollFlag)
-         {
-            if($users[$i]->education->attendedcollege && $this->getDistance($latlong[0],$latlong[1],$distance))
-            {
-                array_push($ret,$users[$i]);
-            }
-            else
-             continue;
-         }
-
          if(!$attendedCollFlag)
          {
+             return;
+         }
+        $query->where('attendedcollege','=','$attendedCollFlag');
+     })-> select(
+        'SELECT * FROM
+             (SELECT id, name, address, phone, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *
+             cos(radians(longitude) - radians(' . $lng . ')) +
+             sin(radians(' . $lat . ')) * sin(radians(latitude))))
+             AS distance
+             FROM candidates) AS distances
+         WHERE distance < ' . $max_distance . '
+         ORDER BY distance
+         OFFSET 0
+         LIMIT 20;
+     ')->get();
+
+
+
+
+
+    
+     
+     
+     /*chunk(100,
+     function ($milUsers) use (&$ret,$distance) 
+     {
+        foreach ($milUsers as $u) {
+            $latlong = explode(" ",$u->contactinfo->location);
+        
             if($this->getDistance($latlong[0],$latlong[1],$distance))
             {
-                array_push($ret,$users[$i]);
-            }
-         }
-       
-     }
+                array_push($ret,$u);
 
+            }  
+        }
+        
+     });
+     */
+     
      return $ret;
-    
+        
     }
 
 } 

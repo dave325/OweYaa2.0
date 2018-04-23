@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['User', '$uibModal'];
-    function projectDashboardCtrl(User, $uibModal) {
+    projectDashboardCtrl.$inject = ['User', '$uibModal','$http'];
+    function projectDashboardCtrl(User, $uibModal,$http) {
         var vm = this;
         vm.user = User.getUser();
 
@@ -103,7 +103,7 @@
                         var req = {
                             method: 'POST',
                             url: '/api/projDash/editDescription',
-                            data: { description }
+                            data: {description}
                         }
 
 
@@ -112,10 +112,10 @@
                                 console.log(response);
                             },
                             function (response) {
-                                console.log("ERROR");
+                                console.log(response);
                             }
 
-                            );
+                    );
 
                     }
 

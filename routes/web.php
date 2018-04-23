@@ -46,7 +46,7 @@ Route::group(['prefix' => 'api'], function (){
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');
     });
-     Route::group(['prefix' => 'projdash'], function (){
+     Route::group(['prefix' => 'projDash'], function (){
         Route::post('editDescription', 'ProjectDashboardController@editProjectDescription');
     });
     Route::group(['prefix'=>'admin'],function(){

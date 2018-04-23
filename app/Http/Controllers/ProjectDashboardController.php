@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectDashboardController extends Controller
 {
-	function editProjectDescription($request) {
-		var_dump($request);
+	function editProjectDescription(Request $request) {
+		return "aosdhaiusdhaIYSDghaiuydh";
 	}
 	
 }

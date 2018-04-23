@@ -2,15 +2,15 @@
 namespace App\TableModels\CompanyModels;
 
 use Illuminate\Database\Eloquent\Model;
-class CompanyProject extends Model{
+class CompanyProjectSkill extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'companyprojects';
+    protected $table = 'companyprojskills';
     // Set primary key
-    protected $primaryKey = "projid";
+    protected $primaryKey = "skillid";
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class CompanyProject extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','projectdetails','projectrecieve','projectmanager','initiated', 'projid', 'ismatched','datesubmitted','resources','companyrfi','deliverymethod','completiondate','checkin','companywebsite','sentmessage','messagedate','purchasehours', 'phone','email','internid', 'internhours'];
+    protected $fillable = ['skillid','skill','projid'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class CompanyProject extends Model{
      * @var array
      */
     protected $hidden = [
-        'username'
+        'projid'
     ];
 
     /**

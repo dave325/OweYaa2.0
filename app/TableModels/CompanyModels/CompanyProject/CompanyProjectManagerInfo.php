@@ -2,13 +2,13 @@
 namespace App\TableModels\CompanyModels;
 
 use Illuminate\Database\Eloquent\Model;
-class CompanyProject extends Model{
+class CompanyProjectManagerInfo extends Model{
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'companyprojects';
+    protected $table = 'companyprojmanagerinfo';
     // Set primary key
     protected $primaryKey = "projid";
     // Remove default increment from eloquent
@@ -21,7 +21,7 @@ class CompanyProject extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','projectdetails','projectrecieve','projectmanager','initiated', 'projid', 'ismatched','datesubmitted','resources','companyrfi','deliverymethod','completiondate','checkin','companywebsite','sentmessage','messagedate','purchasehours', 'phone','email','internid', 'internhours'];
+    protected $fillable = ['projid','managername','managerdept','managercontact','ismanager'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,7 +29,7 @@ class CompanyProject extends Model{
      * @var array
      */
     protected $hidden = [
-        'username'
+        'projid'
     ];
 
     /**

@@ -22,15 +22,15 @@
 			<div class="step" id="step1" ng-class="{'active': vm.steps.page1}" ng-if="vm.steps.page1 && !vm.steps.page2">
 				<div class="form-group">
 					<label for="jobtype">Please select the type of post (job, internship, or project) </label>
-					<select ng-model="vm.submissionForm.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
+					<select ng-model="vm.submissionForm.company_proj_job_info.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
 						<option value="job">Job</option>
 						<option value="internship">Internship</option>
 						<option value="project">project</option>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="form-group" ng-if="vm.submissionForm.company_proj_job_info.jobtype === 'job'">
 					<label for="istemp">Is this job temporary or permanent?</label>
-					<select type="text" name="comp-istemp" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.istemp" ng-if="vm.submissionForm.jobtype === 'Job'">
+					<select type="text" name="comp-istemp" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.istemp" ng-init="vm.submissionForm.company_proj_job_info.istemp">
 						<option value="1"> Temporary </option>
 						<option value="0"> Permanent </option>
 					</select>
@@ -38,55 +38,99 @@
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="position">What position are you looking for?</label>
-					<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.position">
+					<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.position" ng-init="vm.submissionForm.company_proj_job_info.position">
 						<option value="Developer"> Developer </option>
 						<option value="Marketing"> Marketing </option>
 						<option value="Designer"> Designer </option>
 						<option value="Communication"> Communication </option>
 						<option value="CustomerService/HumanResources"> Customer Service/Human Resources </option>
 					</select>
+					<p>Please select a specific area.</p>
+					<br />
+					<select type="text" name="designer" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.focusarea"
+					 ng-if="vm.submissionForm.position === 'designer'" ng-init="vm.submissionForm.company_proj_job_info.position">
+						<option value="Graphic Designer"> Graphic Designer </option>
+						<option value="UX Designer"> UX Designer </option>
+						<option value="Interior Designer"> Interior Designer </option>
+						<option value="Fashion Designer"> Fashion Designer </option>
+					</select>
+					<select type="text" name="developer" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.focusarea"
+					 ng-if="vm.submissionForm.position === 'developer'">
+						<option value="Frontend"> Frontend Developer</option>
+						<option value="Backend"> Software Developer </option>
+						<option value="Full stack"> Full stack Developer</option>
+						<option value="App developer"> App developer Developer</option>
+					</select>
+					<select type="text" name="communication" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.focusarea"
+					 ng-if="vm.submissionForm.position === 'marketing'" ng-init="vm.submissionForm.company_proj_job_info.position">
+						<option value="Technical Writing"> Technical Writing </option>
+						<option value="Advertising"> Advertising </option>
+						<option value="Foreign Relations"> Foreign Relations </option>
+						<option value="Journalism"> Journalism </option>
+					</select>
+					<select type="text" name="sales" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.focusarea"
+					 ng-if="vm.submissionForm.position === 'sales'" ng0init="vm.submissionForm.company_proj_job_info.position">
+						<option value="Sales Representative"> Sales Representative </option>
+						<option value="Store Manager"> Store Manager </option>
+						<option value="Retail Sales Consultant"> Retail Sales Consultant </option>
+						<option value="Account Executive"> Account Executive </option>
+					</select>
+					<select type="text" name="humanresource" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.focusarea"
+					 ng-if="vm.submissionForm.position === 'human resource'" ng-init="vm.submissionForm.company_proj_job_info.position">
+						<option value="Chief Happiness Officer"> Chief Happiness Officer </option>
+						<option value="Contract Recruiter"> Contract Recruiter </option>
+						<option value="Compensation Analyst"> Compensation Analyst </option>
+						<option value="Client Facing Human Resources Specialist"> Client Facing Human Resources Specialist </option>
+					</select>
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="manager-name">What the Project Manager's Name? </label>
-					<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanagername"
+					<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managername"
 					 required id="manager-name" />
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="manager-contact">What the Project Manager's contact? </label>
-					<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanagercontact"
+					<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managercontact"
 					 required id="manager-contact" />
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="manager">Are you the project manager? </label>
-					<input type="text" name="compManager" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectmanager"
-					 required id="manager" />
+					<select name="compManager" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.ismanager"
+					 required id="manager" ng-init="vm.submissionForm.company_proj_manager_info.ismanager">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+					</select>
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">
 					<label for="comp-proj-description">Tell us what project/task you would like a candidate to work on with you?</label>
-					<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.projectdetails"
+					<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.projectdetails"
 					 required id="comp-proj-description" />
 				</div>
 				<!-- End of class form-group -->
 
 				<div class="form-group">
 					<label for="comp-proj-deadline">What's the project deadline/project end date?</label>
-					<input type="text" name="compdeadline" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.deadline" required
+					<input type="text" name="compdeadline" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.projdeadline" required
 					 id="comp-proj-deadline" />
 				</div>
 				<!-- End of class form-group -->
 
 				<div class="form-group">
-					<label for="componsite">on site?</label>
-					<input type="text" name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.onsite" required
-					 id="componsite" />
+					<label for="componsite">Is the project remote?</label>
+					<select name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.isremote" required
+					 id="componsite" ng-init="vm.submissionForm.company_proj_job_info.isremote">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+					</select>
 				</div>
 				<!-- End of class form-group -->
 
-				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()" ng-disabled="&vm.submissionForm.jobtype &vm.submissionForm.position $vm.submissionForm.projectmanager &vm.submissionForm.projectmanagername &vm.submissionForm.projectmanagercontact &vm.submissionForm.projectdetails &vm.submissionForm.deadline &vm.submissionForm.onsite">
+				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()"
+				 ng-disabled="vm.submissionForm.company_proj_job_info.jobtype && vm.submissionForm.company_proj_job_info.position && vm.submissionForm.company_proj_manager_info.projectmanager && vm.submissionForm.company_proj_manager_info.managername && vm.submissionForm.company_proj_manager_info.managercontact && vm.submissionForm.company_proj_job_info.projdescription && vm.submissionForm.company_proj_job_info.pojdeadline &vm.submissionForm.company_proj_job_info.isremote">
 			</div>
 			<!-- End of Step 1-->
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
@@ -102,7 +146,8 @@
 				</div>
 				<!-- End of class form-group -->
 				<input type="button" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()">
-				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)" ng-disabled="&vm.submissionForm.internhours &vm.submissionForm.skills">
+				<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"
+				 ng-disabled="&vm.submissionForm.internhours &vm.submissionForm.skills">
 			</div>
 			<!-- End of step 2 -->
 			<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page1 && !vm.steps.page2">

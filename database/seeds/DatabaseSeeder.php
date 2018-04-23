@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\MilitaryUser;
+use App\ContectInfo;
 use App\TableModels\Skill;
 use App\TableModels\ContactInfo;
 
@@ -17,6 +18,18 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
     
+        $contacts = ContactInfo::all();
+
+        foreach($contacts as $contact)
+        {
+            $contact->longitude = $faker-> latitude(25,50);
+            $contact->latitude = $faker-> longitude(120,70);
+            $contact->save();
+        }
+
+
+
+        /*
         for($i = 0; $i < 300; $i++)
         {
             $intern = MilitaryUser::create(array(
@@ -47,6 +60,7 @@ class DatabaseSeeder extends Seeder
             ));
            
         }
+        */
     
     }
 }

@@ -4,14 +4,15 @@
     function browseInternsCtrl($scope, User, $http) {
         var vm = this;
         vm.test = '';
+        skills = ['css','c++','javascript'];
+        graduated = false;
+
         vm.retrieveInterns = function (graduated, skills) {
             var req = {
                 method: 'POST',
                 url: '/api/matching',
                 data: { graduated, skills }
             }
-
-
             $http(req).then(
                 function (response) {
                     console.log(response);
@@ -21,7 +22,6 @@
                 }
 
             );
-
         }
         vm.retrieveInterns();
         vm.results = 'result';

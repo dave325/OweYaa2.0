@@ -26,6 +26,7 @@
     availibilityvm.doAvailability = function(modal,data){
       //Update server information
       User.updateUser(modal,data).then(function(data){
+        console.log(availibilityvm.user);
         if(data.status == 200 || data.status == 201){
           availibilityvm.formInfo = "Successfully updated!";
           User.setUser(availibilityvm.user);

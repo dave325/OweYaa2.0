@@ -1184,7 +1184,7 @@ section{
 
  ******************************/
 
-@media(max-width:768px){
+@media screen and (max-width:768px){
 	.vet-dashboard aside{
 		position:relative !important;
 	}

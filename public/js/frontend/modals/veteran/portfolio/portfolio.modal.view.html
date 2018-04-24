@@ -29,7 +29,7 @@
             <!-- End of class form-group -->
             <div>
               <label>Are you an army veteran or a spouse?</label>
-              <select ng-model="portfoliovm.user.contact_info.isVet" ng-options="obj.name for obj in portfoliovm.options track by obj.value">
+              <select ng-model="portfoliovm.user.contact_info.isVet" ng-options="obj.name for obj in portfoliovm.options track by obj.value" ng-init="portfoliovm.user.contact_info.isVet">
                 <!--<option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value == portfoliovm.user.contact_info.isVet">{{obj.name}}</option>-->
               </select>
             </div>

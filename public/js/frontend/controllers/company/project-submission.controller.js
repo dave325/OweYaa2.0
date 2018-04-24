@@ -47,6 +47,14 @@ function projectSubmissionCtrl(User) {
       vm.steps.page3 = true;
       console.log('Exloded string');
       console.log(vm.submissionForm.skills.split(','));
+      for(let i = 0;i < vm.submissionForm.skills.length;i++){
+        let temp = vm.submissionForm.skills[i];
+        vm.submissionForm.skills[i] = {
+          skillid: vm.submissionForm.username + i,
+          projid: vm.submissionForm.projid,
+          skill:temp
+        }
+      }
       console.log(vm.submissionForm);
       /*
       User.updateUser(modal,data).then(function(response){

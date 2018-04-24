@@ -46,7 +46,7 @@
                 <h4>Career Focus Area:</h4>
                 <p>Describe your specific career focus!</p>
                 <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.position">
-                  <option ng-repeat="obj in portfoliovm.branchOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == educationvm.user.education.position">{{obj}}</option>
+                  <option ng-repeat="obj in educationvm.careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == educationvm.user.education.position">{{obj}}</option>
                 </select>
                 <p ng-if="educationvm.user.education.position">Please select a specific area in {{educationvm.user.education.position}}.</p><br />
                 <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="educationvm.user.education.position === 'designer'">

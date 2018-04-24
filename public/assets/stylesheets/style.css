@@ -1178,4 +1178,14 @@ section{
 	color: 70, 134, 172
 }
 
+/*******************************
 
+ Section 10: Mobile UI Fixes
+
+ ******************************/
+
+@media(max-width:768px){
+	.vet-dashboard aside{
+		position:relative;
+	}
+}

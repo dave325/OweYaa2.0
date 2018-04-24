@@ -1187,8 +1187,10 @@ section{
 @media screen and (max-width:768px){
 	.vet-dashboard aside{
 		position:relative !important;
+		padding:0px;
 	}
 	.vet-dashboard aside div{
 		width:100%;
+		margin:0px;
 	}
 }

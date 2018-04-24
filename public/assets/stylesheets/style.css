@@ -1188,4 +1188,7 @@ section{
 	.vet-dashboard aside{
 		position:relative !important;
 	}
+	.vet-dashboard aside div{
+		width:100%;
+	}
 }

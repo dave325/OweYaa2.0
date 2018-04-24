@@ -14,14 +14,24 @@
 		function calcProgress(user) {
 			let sum = 0;
 			let total = 11.0;
-			if (user.contact_info.name != null && user.contact_info.name.length > 0) {
+			if (user.contact_info.firstname != null && user.contact_info.firstname.length > 0) {
 				sum++;
-				if (arrayContains('Name', $scope.requiredFields)) {
-					$scope.requiredFields.splice($scope.requiredFields.indexOf('Name'), 1);
+				if (arrayContains('First Name', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('First Name'), 1);
 				}
 			} else {
-				if (!arrayContains('Name', $scope.requiredFields)) {
-					$scope.requiredFields.push('Name');
+				if (!arrayContains('First Name', $scope.requiredFields)) {
+					$scope.requiredFields.push('First Name');
+				}
+			}
+			if (user.contact_info.lasstname != null && user.contact_info.lastname.length > 0) {
+				sum++;
+				if (arrayContains('last Name', $scope.requiredFields)) {
+					$scope.requiredFields.splice($scope.requiredFields.indexOf('Last Name'), 1);
+				}
+			} else {
+				if (!arrayContains('Last Name', $scope.requiredFields)) {
+					$scope.requiredFields.push('Last Name');
 				}
 			}
 			if (user.contact_info.imgurl != null && user.contact_info.imgurl.length > 0) {

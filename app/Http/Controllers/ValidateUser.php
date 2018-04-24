@@ -881,7 +881,7 @@ class ValidateUser extends Controller
                 try{
 
                     // Check for Availability credentials from timeid, primary key.
-                    $availability = TableModels\Availability::findOrFail($item['timeid']);
+                    $availability = TableModels\Availability::findOrFail($item['monthid']);
 
                     // Fill in the information for availability.
                     $availability->fill($item);

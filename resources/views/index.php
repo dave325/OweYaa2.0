@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="oweyaa">
     <head>
+        <meta name="viewport" content="width=device-width" />
         <base href="/" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>

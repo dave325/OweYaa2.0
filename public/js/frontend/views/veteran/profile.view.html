@@ -17,7 +17,7 @@
         <h4>Required</h4>
         <p ng-repeat="field in requiredFields">{{field}}</p>
       </div>
-      <div class="col-xs-12 col-md-6"  ng-if="recommendedFields.length > 0">
+      <div class="col-xs-12 col-md-6" ng-if="recommendedFields.length > 0">
         <h4>Recommended</h4>
         <p ng-repeat="field in recommendedFields">{{field}}</p>
       </div>
@@ -324,7 +324,7 @@
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('culture')"></span>
           </h2>
           <div class="col-xs-12">
-	          <textarea placeholder="Enter the kind of culture that you want."></textarea>
+            <textarea placeholder="Enter the kind of culture that you want."></textarea>
           </div>
         </div>
         <!-- End of space box div -->
@@ -369,39 +369,41 @@
       <!-- End of row div -->
     </article>
     <aside class="col-xs-12 col-md-4">
-      <!-- Contact Information -->
-      <div class="col-md-offset-1 col-xs-12 box space contact-info">
-        <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Contact Information
-          <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('contact')"></span>
-        </h2>
-        <p>
-          <strong>Email</strong>: {{user.contact_info.email}} </p>
-        <p>
-          <strong>Phone Number</strong>: {{user.contact_info.phone}} </p>
-        <p ng-repeat="(key,contact) in user.social" ng-if="contact.length > 0">
-          <b>{{key}}: </b> {{contact}}
-        </p>
-      </div>
-      <!-- End of Contact Information -->
-      <!-- Action Tasks-->
-      <div class="col-md-offset-1 col-xs-12 box space contact-info">
-        <h2 class="col-xs-12 bg-primary">Action Tasks
-          <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('task')"></span>
-        </h2>
-        <div ng-if="user.action_task[0].task.length > 0 || user.action_task[1].task.length > 0">
-          <p>Current Tasks:</p>
-          <div ng-repeat="task in user.action_task track by $index">
-            <p ng-if="task.task.length > 0">{{task.task}}</p>
+      <div class="row">
+        <!-- Contact Information -->
+        <div class="col-md-offset-1 col-xs-12 box space contact-info">
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Contact Information
+            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('contact')"></span>
+          </h2>
+          <p>
+            <strong>Email</strong>: {{user.contact_info.email}} </p>
+          <p>
+            <strong>Phone Number</strong>: {{user.contact_info.phone}} </p>
+          <p ng-repeat="(key,contact) in user.social" ng-if="contact.length > 0">
+            <b>{{key}}: </b> {{contact}}
+          </p>
+        </div>
+        <!-- End of Contact Information -->
+        <!-- Action Tasks-->
+        <div class="col-md-offset-1 col-xs-12 box space contact-info">
+          <h2 class="col-xs-12 bg-primary">Action Tasks
+            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('task')"></span>
+          </h2>
+          <div ng-if="user.action_task[0].task.length > 0 || user.action_task[1].task.length > 0">
+            <p>Current Tasks:</p>
+            <div ng-repeat="task in user.action_task track by $index">
+              <p ng-if="task.task.length > 0">{{task.task}}</p>
+            </div>
+            <!-- End of ng-repeat user.action_task -->
           </div>
-          <!-- End of ng-repeat user.action_task -->
+          <!-- End of user.action_task[0].task.length -->
+          <div ng-if="!user.action_task || user.action_task[0].task.length == 0 && user.action_task[1].task.length == 0 ">
+            <p>No actions tasks at the moment!</p>
+          </div>
+          <!-- End of !user.action_task -->
         </div>
-        <!-- End of user.action_task[0].task.length -->
-        <div ng-if="!user.action_task || user.action_task[0].task.length == 0 && user.action_task[1].task.length == 0 ">
-          <p>No actions tasks at the moment!</p>
-        </div>
-        <!-- End of !user.action_task -->
+        <!-- End of Action Tasks -->
       </div>
-      <!-- End of Action Tasks -->
     </aside>
   </section>
   <footer-base></footer-base>

@@ -44,7 +44,7 @@
                 <label form="portfolio" for="branch">Branch: </label>
                 <p>Please tell us what brnach of the military you are/were in:</p>
                 <select ng-model="portfoliovm.user.contact_info.branch">
-                    <option ng-repeat="obj in portfoliovm.branchOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj === potfoliovm.user.contact_info.branch">{{obj}}</option>
+                    <option ng-repeat="obj in portfoliovm.branchOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == potfoliovm.user.contact_info.branch">{{obj}}</option>
                   </select>
               </div>
               <!-- End of class form-group -->

@@ -1186,6 +1186,6 @@ section{
 
 @media(max-width:768px){
 	.vet-dashboard aside{
-		position:relative;
+		position:relative !important;
 	}
 }

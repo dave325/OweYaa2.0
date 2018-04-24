@@ -33,7 +33,7 @@
                 <!--<option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value == portfoliovm.user.contact_info.isVet">{{obj.name}}</option>-->
               </select>
             </div>
-            <div ng-if="portfoliovm.user.contact_info.isVet === '1'">
+            <div ng-if="portfoliovm.user.contact_info.isVet === 1">
               <div class="form-group">
                 <label form="portfolio" for="mos">MOS/Rate: </label>
                 <p>Please spell out your MOS</p>

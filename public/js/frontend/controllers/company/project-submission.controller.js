@@ -56,6 +56,8 @@ function projectSubmissionCtrl(User) {
       });
       */
     }
+    vm.careerOptions = ['developer','designer','marketing','sales','customer service'];
+
   
   }
    angular.module('oweyaa')

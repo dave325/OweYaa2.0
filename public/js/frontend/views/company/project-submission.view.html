@@ -45,7 +45,7 @@
 							<h4>Career Focus Area:</h4>
 							<p>Describe your specific career focus!</p>
 							<select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.position">
-								<option ng-repeat="obj in educationvm.careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == vm.submissionForm.company_proj_job_info.position">{{obj}}</option>
+								<option ng-repeat="obj in vm.careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == vm.submissionForm.company_proj_job_info.position">{{obj}}</option>
 							</select>
 							<p ng-if="vm.submissionForm.company_proj_job_info.position">Please select a specific area in {{vm.submissionForm.company_proj_job_info.position}}.</p>
 							<br />
@@ -156,7 +156,7 @@
 					<!-- End of class form-group -->
 					<input type="button" class="btn btn-info btn-primary pull-left col-md-4 col-xs-12" value="Previous Page" ng-click="vm.prevPage()">
 					<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Submit" ng-click="vm.submitProjForm('project',vm.submissionForm)"
-					 ng-disabled="vm.submissionForm.internhours && vm.submissionForm.skills">
+					 ng-disabled="vm.submissionForm.totalinternhours && vm.submissionForm.skills">
 				</div>
 				<!-- End of step 2 -->
 				<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page1 && !vm.steps.page2">

@@ -840,13 +840,13 @@ class ValidateUser extends Controller
         if($this->isValid()){
 
             // The only credentials needed are contact info, and availability.
-            $credentials = $request->only('contact_info','availability');
+            $credentials = $request->only('contact_info','availability','month_availability');
 
             // For each of the Availability credentials...
             foreach($credentials['availability'] as $item){
 
                 // Add or modify contact info and name.
-                $item['name'] = $credentials['contact_info']['name'];
+                $item['username'] = $credentials['contact_info']['username'];
 
                 try{
 
@@ -872,6 +872,35 @@ class ValidateUser extends Controller
                 }
             }
 
+            // For each of the Availability credentials...
+            foreach($credentials['month_availability'] as $item){
+
+                // Add or modify contact info and name.
+                $item['username'] = $credentials['contact_info']['username'];
+
+                try{
+
+                    // Check for Availability credentials from timeid, primary key.
+                    $availability = TableModels\Availability::findOrFail($item['timeid']);
+
+                    // Fill in the information for availability.
+                    $availability->fill($item);
+
+                    // Save and commit all changes to the availability variable.
+                    $availability->save();
+
+                    // If the timeid, primary key, is not found...
+                }catch(\ModelNotFoundException $me){
+
+                    // Create a new TableModels object for the Availability
+                    // credentials.
+                    $availability = new TableModels\Availability($item);
+
+                    // Save and commit all changes to the availability variable.
+                    $availability->save();
+            
+                }
+            }
             // If everything was successful, return a 'success' response.
             return response()->json(['success'=>true],201);
 

@@ -8,6 +8,8 @@
     } else {
       educationvm.graduated = false;
     }
+
+    educationvm.careerOptions = ['developer','designer','marketing','sales','customer service'];
     // Containers
     educationvm.newPlan = {};
     educationvm.newCertification = {};

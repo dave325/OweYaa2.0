@@ -372,9 +372,9 @@
       <div class="row">
         <!-- Contact Information -->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
-          <h2 class="col-xs-12 bg-primary">Contact Information
+          <h3 class="col-xs-12 bg-primary">Contact Information
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('contact')"></span>
-          </h2>
+          </h3>
           <p>
             <strong>Email</strong>: {{user.contact_info.email}} </p>
           <p>
@@ -386,9 +386,9 @@
         <!-- End of Contact Information -->
         <!-- Action Tasks-->
         <div class="col-md-offset-1 col-xs-12 box space contact-info">
-          <h2 class="col-xs-12 bg-primary">Action Tasks
+          <h3 class="col-xs-12 bg-primary">Action Tasks
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('task')"></span>
-          </h2>
+          </h3>
           <div ng-if="user.action_task[0].task.length > 0 || user.action_task[1].task.length > 0">
             <p>Current Tasks:</p>
             <div ng-repeat="task in user.action_task track by $index">

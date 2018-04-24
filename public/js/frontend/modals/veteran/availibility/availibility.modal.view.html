@@ -7,7 +7,7 @@
         <fieldset>
           <legend>Available worktimes</legend>
           <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}
-            <span class="clearfix hidden-md hidden-lg" ></span>
+            <span class="clearfix hidden-md hidden-lg"></span>
             <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time" ng-change="update(time.start_time, $index, 2)"></select>-
             <select required="true" name="closeTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.end_time" ng-change="update(time.end_time, $index, 2)"></select>
           </div>
@@ -36,6 +36,8 @@
           <!-- End of col-md-12 -->
         </div>
         <!-- End of class row -->
+      </div>
+    </div>
   </form>
-  </div>
-  <!-- End of id availabilityModal -->
+</div>
+<!-- End of id availabilityModal -->

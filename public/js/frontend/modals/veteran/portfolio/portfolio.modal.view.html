@@ -30,7 +30,7 @@
             <div>
               <label>Are you an army veteran or a spouse?</label>
               <select ng-model="portfoliovm.user.contact_info.isVet">
-                <option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value === portfoliovm.user.contact_info.isVet">{{obj.name}}</option>
+                <option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value == portfoliovm.user.contact_info.isVet">{{obj.name}}</option>
               </select>
             </div>
             <div ng-if="portfoliovm.user.contact_info.isVet === '1'">

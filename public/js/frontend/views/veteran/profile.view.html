@@ -29,7 +29,7 @@
     <article class="col-xs-12 col-md-8">
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}}
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}}
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('portfolio')"></span>
           </h2>
           <!-- Profile Picture -->
@@ -44,7 +44,7 @@
           <div class="col-md-8 col-xs-12 top col-md-offset-1 ">
             <div class="col-md-6 col-sm-5 col-xs-12 col-md-offset-0 col-sm-offset-1">
               <p>
-                <strong>Name</strong>: {{user.contact_info.name}} </p>
+                <strong>Name</strong>: {{user.contact_info.firstname}} {{user.contact_info.lastname}} </p>
               <p>
                 <strong>Location</strong>: {{user.contact_info.location}} </p>
               <div ng-if="user.contact_info.isVet === '1'">
@@ -69,7 +69,7 @@
 
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Education and Coursework
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Education and Coursework
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('education')"></span>
           </h2>
           <h3 ng-if="user.education.school">Education:</h3>
@@ -127,7 +127,7 @@
 
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Career Information
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Career Information
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('career')"></span>
           </h2>
           <div ng-if="user.prev_career_fields.length > 0 && user.prev_career_fields[0].employer.length > 0 || user.prev_career_fields[1].employer.length > 0">
@@ -162,7 +162,7 @@
 
       <div class="row box space">
         <div class="col-xs-12">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Skills
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Skills
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('skill')"></span>
           </h2>
           <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
@@ -207,7 +207,7 @@
 
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Journal and Mentor
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Journal and Mentor
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('journal')"></span>
           </h2>
           <p>Record all your career development efforts here!</p>
@@ -291,7 +291,7 @@
 
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Availability
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Availability
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('availibility')"></span>
           </h2>
           <div class="col-xs-12" ng-repeat="day in user.availability">
@@ -307,7 +307,7 @@
       <!-- End of class row -->
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Resume and Portfolio</h2>
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Resume and Portfolio</h2>
 
         </div>
         <!-- End of class space box -->
@@ -320,7 +320,7 @@
 
       <div class="row">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - What kind of culture do you want?
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - What kind of culture do you want?
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('culture')"></span>
           </h2>
           <div class="col-xs-12">
@@ -337,7 +337,7 @@
 
       <div class="row" ng-if="user.project">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Current Internship </h2>
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Current Internship </h2>
           <div class="col-xs-12">
             <p>Project Manager: Name of person</p>
             <p>Project Company: Name of company </p>
@@ -356,7 +356,7 @@
 
       <div class="row" ng-if="user.favorite_project">
         <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.name}} - Favorite Projects </h2>
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}}- Favorite Projects </h2>
           <div class="col-xs-12">
             <p>Project Manager: Name of person</p>
             <p>Project Company: Name of company </p>
@@ -371,7 +371,7 @@
     <aside class="col-xs-12 col-md-4">
       <!-- Contact Information -->
       <div class="col-md-offset-1 col-xs-12 box space contact-info">
-        <h2 class="col-xs-12 bg-primary">Contact Information
+        <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Contact Information
           <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('contact')"></span>
         </h2>
         <p>

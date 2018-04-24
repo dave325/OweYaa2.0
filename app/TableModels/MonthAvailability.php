@@ -21,7 +21,7 @@ class MonthAvailability extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','month','monthid'];
+    protected $fillable = ['username','month','monthid','isavailible'];
 
     /**
      * The attributes excluded from the model's JSON form.

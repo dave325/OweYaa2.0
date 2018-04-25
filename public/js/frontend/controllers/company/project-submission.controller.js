@@ -47,8 +47,9 @@ function projectSubmissionCtrl(User) {
       vm.steps.page3 = true;
       console.log('Exloded string');
       vm.submissionForm.company_skillls = [];
-      console.log(vm.submissionForm.skills.split(','));
-      for(let i = 0;i < vm.submissionForm.skills.length;i++){
+      let skillarr = vm.submissionForm.skills.split(',');
+      console.log(skillarr.length);
+      for(let i = 0;i < skillarr.length;i++){
         let temp = vm.submissionForm.skills[i];
         vm.submissionForm.company_skillls.push({
           skillid: vm.submissionForm.username + i,

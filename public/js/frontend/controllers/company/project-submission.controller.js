@@ -50,7 +50,7 @@ function projectSubmissionCtrl(User) {
       let skillarr = vm.submissionForm.skills.split(',');
       console.log(skillarr.length);
       for(let i = 0;i < skillarr.length;i++){
-        let temp = vm.submissionForm.skills[i];
+        let temp = skillarr[i];
         vm.submissionForm.company_skillls.push({
           skillid: vm.submissionForm.username + i,
           projid: vm.submissionForm.projid,

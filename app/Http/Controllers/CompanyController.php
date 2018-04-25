@@ -33,7 +33,7 @@ class CompanyController extends Controller{
             $delete = array();
 
             // For each of the 'skill' credentials...
-            foreach($credentials['skills'] as $item){
+            foreach($credentials['company_skills'] as $item){
 
                 // If the 'skill' needs to be deleted...
                 if(isset($item['delete']) && $item['delete']){

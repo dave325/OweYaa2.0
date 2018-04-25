@@ -49,11 +49,11 @@ function projectSubmissionCtrl(User) {
       console.log(vm.submissionForm.skills.split(','));
       for(let i = 0;i < vm.submissionForm.skills.length;i++){
         let temp = vm.submissionForm.skills[i];
-        vm.submissionForm.company_skillls[i] = {
+        vm.submissionForm.company_skillls[i].push({
           skillid: vm.submissionForm.username + i,
           projid: vm.submissionForm.projid,
           skill:temp
-        }
+        });
       }
       console.log(vm.submissionForm);
       /*

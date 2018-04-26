@@ -13,13 +13,13 @@ class StripeController extends Controller{
     public function test(Request $request){
         $info = $request->all();
         $user = array();
-        Stripe\Stripe::setApiKey(env('stripe_api'));
+        \Stripe\Stripe::setApiKey(env('stripe_api'));
         try {
             // Use Stripe's library to make requests...
-            if(isset($info['user']['membership_token']['stripetoken']) && Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken'])){
-                $user["customer"] = Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken']);
+            if(isset($info['user']['membership_token']['stripetoken']) && \Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken'])){
+                $user["customer"] = \Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken']);
                 $user["customer"]->sources->create(array("source" => $info['tempToken']));
-                $user["charge"] = Stripe\Charge::create(array(
+                $user["charge"] = \Stripe\Charge::create(array(
                     "amount" => $info['type']['total']['amount'],
                     "currency" => $info['type']['currency'],
                     "description" => "Example charge",
@@ -29,18 +29,18 @@ class StripeController extends Controller{
                 ));
                 return response()->json(compact('user'));
             }else{
-                $user["customer"] = Stripe\Customer::create(array(
-                    "email" =>$info['user']['company_info']['email'],
+                $user["customer"] = \Stripe\Customer::create([
+                    "email" => $info['user']['company_info']['email'],
                     "source" => 'tok_visa'
-                ));
-                $user["charge"] = Stripe\Charge::create(array(
+                ]);
+                $user["charge"] = \Stripe\Charge::create([
                     "amount" => $info['type']['total']['amount'],
                     "currency" => $info['type']['currency'],
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
                     "source" => 'tok_visa',
                     "customer" => $user['customer']->id
-                ));
+                ]);
                 $user['type'] = 'test';
                 return response()->json(compact('user'));
             }
@@ -60,7 +60,6 @@ class StripeController extends Controller{
             // Invalid parameters were supplied to Stripe's API
             $body = $e->getJsonBody();
             $err  = $body['error'];
-          
             return response()->json($err);
           } catch (\Stripe\Error\Authentication $e) {
             // Authentication with Stripe's API failed

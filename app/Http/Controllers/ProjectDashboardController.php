@@ -30,7 +30,7 @@ class ProjectDashboardController extends Controller
             'internHours' => $candidatehours,
             'internInfo' => $candidatesUser
             ]
-        );
+        )->toArray();
         //return response()->json($candidates);
         $candidatesInfo = collect();
         for ($i = 0;$i< count($candidates) - 1;$i++)

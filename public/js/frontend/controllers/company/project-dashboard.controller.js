@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['User', '$uibModal','$http'];
-    function projectDashboardCtrl(User, $uibModal,$http) {
+    projectDashboardCtrl.$inject = ['User', '$uibModal', '$http'];
+    function projectDashboardCtrl(User, $uibModal, $http) {
         var vm = this;
         vm.user = User.getUser();
 
@@ -9,6 +9,9 @@
         //Retrieve project information
         vm.projects = User.getUser().company_project;
         //ng-repeat on projects.
+        vm.activeProject = vm.projects[0];
+
+        var id = vm.activeProject.projid;
 
 
 
@@ -90,37 +93,36 @@
 
         }
 
+        vm.postNewDescription = function (description) {
+            var req = {
+                method: 'POST',
+                url: '/api/projDash/editDescription',
+                data: { description, id }
+            }
+
+
+            $http(req).then(
+                function (response) {
+                    console.log(response);
+                },
+                function (response) {
+                    console.log(response);
+                }
+
+            );
+
+        }
+
         vm.editDescription = function (title, description) {
             $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
-                  
+
                         $uibModalInstance.close();
                     };
 
-                    $scope.postNewDesciption = function (description) {
-                        var req = {
-                            method: 'POST',
-                            url: '/api/projDash/editDescription',
-                            data: {description}
-                        }
-
-
-                        $http(req).then(
-                            function (response) {
-                                console.log(response);
-                            },
-                            function (response) {
-                                console.log(response);
-                            }
-
-                    );
-
-                    }
-
                     $scope.title = title;
-                    $scope.description = description;
 
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');

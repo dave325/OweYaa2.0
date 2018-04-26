@@ -112,6 +112,8 @@ class ValidateUser extends Controller
 
             // If the user cannot be authenticated, then the user doesn't
             // exist. The response states that the user is not found.
+
+            //app auth uses the header security token.
             if (!$userCheck = app('auth')->authenticate()) {
 
                 return response()->json(['user_not_found'], 404);

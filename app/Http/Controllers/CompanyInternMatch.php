@@ -29,14 +29,10 @@ class CompanyInternMatch extends Controller
         $this->wantedSkills = array('linux','c#');
         $filtered= $this->filter(true,5); 
         
-        
-        
 
         for($i = 0; $i < count($filtered);  $i++ )
         {
-
           $this->pq -> insert($filtered[$i]->username,$this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
-
         }
 
 

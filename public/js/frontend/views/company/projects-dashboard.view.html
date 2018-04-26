@@ -48,7 +48,7 @@
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">
             <h4>Skills I have:</h4>
-            <li ng-repeat="field in vm.projects.skill | limitTo: 8">
+            <li ng-repeat="field in vm.projects.skills | limitTo: 8">
               <p class="col-md-6">{{field.skill}}</p>
             </li>
             <br />

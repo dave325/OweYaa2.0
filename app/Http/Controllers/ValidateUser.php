@@ -90,7 +90,7 @@ class ValidateUser extends Controller
         // If the type of user specified exists, is equal to 2, and the user has
         // administrator access, the user is an administrator.
         elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
-            $user = User::with('info')->first();
+            $user = User::with('contactInfo')->first();
             return response()->json(['user' => $user], 200);
         }
 
@@ -883,7 +883,7 @@ class ValidateUser extends Controller
                 try{
 
                     // Check for Availability credentials from timeid, primary key.
-                    $availability = TableModels\Availability::findOrFail($item['monthid']);
+                    $availability = TableModels\MonthAvailability::findOrFail($item['monthid']);
 
                     // Fill in the information for availability.
                     $availability->fill($item);
@@ -896,7 +896,7 @@ class ValidateUser extends Controller
 
                     // Create a new TableModels object for the Availability
                     // credentials.
-                    $availability = new TableModels\Availability($item);
+                    $availability = new TableModels\MonthAvailability($item);
 
                     // Save and commit all changes to the availability variable.
                     $availability->save();

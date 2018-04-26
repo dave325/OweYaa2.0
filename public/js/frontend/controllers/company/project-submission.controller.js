@@ -45,15 +45,39 @@ function projectSubmissionCtrl(User) {
       vm.steps.page1 = false;
       vm.steps.page2 = false;
       vm.steps.page3 = true;
+      console.log('Exloded string');
+      vm.submissionForm.company_skills = [];
+      let skillarr = vm.submissionForm.skills.split(',');
+      console.log(skillarr.length);
+      for(let i = 0;i < skillarr.length;i++){
+        let temp = skillarr[i];
+        vm.submissionForm.company_skills.push({
+          skillid: vm.submissionForm.username + i,
+          projid: vm.submissionForm.projid,
+          skill:temp
+        });
+      }
       console.log(vm.submissionForm);
-      /*
       User.updateUser(modal,data).then(function(response){
         console.log(response);
       },function(error){
         console.log(error);
       });
-      */
+
     }
+    vm.careerOptions = ['developer','designer','marketing','sales','customer service'];
+    vm.jobtype = ['job','internship','project'];
+    vm.istemp = [
+      {
+        name: 'Temporary',
+        value:0
+      },
+      {
+        name:'Permanent',
+        value:0
+      }
+    ];
+    vm.position.designerOptions = ['Graphi Designer','UX Designer'];
   
   }
    angular.module('oweyaa')

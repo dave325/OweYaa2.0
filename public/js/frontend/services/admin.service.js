@@ -3,7 +3,7 @@
     function adminSer($http, $window,Authentication) {
         const adminService = {
             login: function (user) {
-                return $http('/api/admin/login', user).then(
+                return $http.post('/api/admin/login', user).then(
                     function (data) {
                         if (data.data.token) {
                             $window.sessionStorage.setItem('token', data.data.token);

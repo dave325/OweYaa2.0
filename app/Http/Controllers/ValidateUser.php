@@ -90,7 +90,7 @@ class ValidateUser extends Controller
         // If the type of user specified exists, is equal to 2, and the user has
         // administrator access, the user is an administrator.
         elseif($request->has('type') && $request->input('type') == 2 && $request->has('admin')){
-            $user = User::with('info')->first();
+            $user = User::with('contactInfo')->first();
             return response()->json(['user' => $user], 200);
         }
 

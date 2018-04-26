@@ -50,6 +50,8 @@ Route::group(['prefix' => 'api'], function (){
     });
      Route::group(['prefix' => 'projDash'], function (){
         Route::post('editDescription', 'ProjectDashboardController@editProjectDescription');
+        Route::post('getProjects', 'ProjectDashboardController@getProjects');
+
     });
     Route::group(['prefix'=>'admin'],function(){
         Route::post('login','AdminController@login');

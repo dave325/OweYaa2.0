@@ -6,12 +6,12 @@
 
     <div class="form-group">
         <label for="projectTitle">Project Title</label>
-        <input type="text" class="form-control" ng-model="title">
+        <input type="text" class="form-control" ng-model="projectTitle">
     </div>
     <!-- End of class form-group -->
     <div class="form-group">
         <label for="projectDescription">Project Description</label>
-        <textarea class="form-control" ng-model="description"> </textarea>
+        <textarea class="form-control" ng-model="projectDescription"> </textarea>
     </div>
     
     <!-- End of class form-group -->
@@ -36,7 +36,7 @@
 <!-- End of classs modal-body -->
 
 <div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="vm.postNewDesciption(description)">Cancel</button>
-    <button class="btn btn-info" type="button" ng-click="cancel()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-info" type="button" ng-click="ok()">Save</button>
 </div>
 <!-- End of class modal-footer -->

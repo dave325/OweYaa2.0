@@ -995,11 +995,7 @@ class ValidateUser extends Controller
         }
     }
 
-    /**
-     * retrieveProj
-     * @params Request $request
-     * retrieves all the projects from the database that are not matched
-     */
+  
     public function retrieveProj(Request $request){
 
         // In order to retrieve project info for the user, make sure that the user

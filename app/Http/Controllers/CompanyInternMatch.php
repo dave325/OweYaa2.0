@@ -104,7 +104,7 @@ class CompanyInternMatch extends Controller
      })-> select(
         'SELECT * FROM
              (SELECT id, name, address, phone, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *
-             cos(radians(longitude) - radians(' . $lng . ')) +
+             cos(radians(longitude) - radians(' . $lon . ')) +
              sin(radians(' . $lat . ')) * sin(radians(latitude))))
              AS distance
              FROM candidates) AS distances

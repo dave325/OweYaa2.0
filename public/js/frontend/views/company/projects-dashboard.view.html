@@ -11,7 +11,7 @@
       <ul ng-repeat="project in vm.projects" class="nav nav-pills nav-stacked">
         <li>
           <a href="#section2">
-            <strong>{{projects.title}}</strong>
+            <strong>{vm.{projects.title}}</strong>
           </a>
         </li>
       </ul>
@@ -37,13 +37,13 @@
       <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
       <div class="well col-md-12" id="proj-description-pane">
         <h3>
-          <span class="title">{{vm.projectS.info.title}}</span>
+          <span class="title">{{vm.projects.info.title}}</span>
         </h3>
-        <p> Manager {{vm.project.managerInfo.managername}} </p>
-        <p> Location {{vm.projectS.info.location}} </p>
+        <p> Manager {{vm.projects.managerInfo.managername}} </p>
+        <p> Location {{vm.projects.info.location}} </p>
 
         <h5 id="proj-description">
-          {{vm.projectS.projdescription}}
+          {{vm.projects.projdescription}}
         </h5>
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">

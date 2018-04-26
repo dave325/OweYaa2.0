@@ -65,6 +65,7 @@ function projectSubmissionCtrl(User) {
       });
 
     }
+    vm.position = {};
     vm.careerOptions = ['developer','designer','marketing','sales','customer service'];
     vm.jobtype = ['job','internship','project'];
     vm.istemp = [

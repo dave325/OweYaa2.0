@@ -31,9 +31,6 @@
 
         }
       
-
-
-
         var projects;
         
         $http({
@@ -43,7 +40,7 @@
         })
         .then(
         function success(response) {
-    
+            /*
            projects = response.data;
            vm.projects = projects.info;
            vm.projectDescription = projects.info[0].projdescription
@@ -53,7 +50,9 @@
            vm.location = projects.managerInfo[0].managername;
 
            vm.interns = projects.candidates;
-           console.log(projects.candidates[0]);
+           */
+           vm.projects = response.data;
+           console.log(response.data);
 
 
            vm.milestones = [

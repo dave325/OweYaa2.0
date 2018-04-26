@@ -45,15 +45,6 @@ class ProjectDashboardController extends Controller
             );
             $candidatesInfo->push($tempCollection);
         }
-        $user = User::with('contactInfo')->where('username','=','davetest')->first();
-        $tempCollection = collect(
-            [
-            'user' => $user,
-            'hours' => 100,
-            'projid' => 'dave111',
-            ]
-        );
-        $candidatesInfo->push($tempCollection);
         $project->push(
             [
             "info"=>$info, 

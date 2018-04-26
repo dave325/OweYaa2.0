@@ -16,11 +16,10 @@ class CompanyController extends Controller{
         if($user = app('auth')->guard()->authenticate()){
             try{
                 $projectInfo = CModel\CompanyProjectJobInfo::findOrFail($credentials['projid']);
-                $projectSkill = CModel\CompanyProjectSkill::findOrFail($credentials['projid']);
                 $projectInfo->fill($credentials['company_proj_job_info']);
                 $projectInfo->save();
             }catch(ModelNotFoundException $me){
-                CModel\CompanyProject::create($credentials);
+                CModel\CompanyProjectJobInfo::create($credentials);
             }
             try{
                 $projectSkill = CModel\CompanyProjectManagerInfo::findOrFail($credentials['projid']);

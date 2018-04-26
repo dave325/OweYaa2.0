@@ -11,23 +11,40 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Hash;
 class CompanyController extends Controller{
 
+    /********
+     * updateProject 
+     * Used when submitting a project or updating a project
+     */
     public function updateProject(Request $request){
+        // Create an array of all user information from form
         $credentials = $request->all();
+        // Authenticate the user
         if($user = app('auth')->guard()->authenticate()){
+            // Store the project id in both job info and project manager array
             $credentials['company_proj_manager_info']['projid'] = $credentials['projid'];
             $credentials['company_proj_job_info']['projid'] = $credentials['projid'];
             try{
+                // Search for the job info in database
+                // If not found then throw ModelNotFoundException
                 $projectInfo = CModel\CompanyProject\CompanyProjectJobInfo::findOrFail($credentials['projid']);
+                // If found store all values of job_info into database
                 $projectInfo->fill($credentials['company_proj_job_info']);
+                // Update the database
                 $projectInfo->save();
             }catch(ModelNotFoundException $me){
+                // If model not found in database, then create one 
                 CModel\CompanyProject\CompanyProjectJobInfo::create($credentials['company_proj_job_info']);
             }
             try{
+                // Search for the manager info in database
+                // If not found then throw ModelNotFoundException
                 $projectManager = CModel\CompanyProject\CompanyProjectManagerInfo::findOrFail($credentials['projid']);
+                // If found store all values of manager_info into database
                 $projectManager->fill($credentials['company_proj_manager_info']);
+                // Update the database
                 $projectManager->save();
             }catch(ModelNotFoundException $me){
+                // If model not found in database, then create one 
                 CModel\CompanyProject\CompanyProjectManagerInfo::create($credentials['company_proj_manager_info']);
             }
             // Prepare to push items onto the delete stack.
@@ -48,7 +65,7 @@ class CompanyController extends Controller{
                     // Otherwise, nothing will be deleted.
                     unset($item['delete']);
 
-                    // Add or modify contact info and username for the item.
+                    // Add the project id
                     $item['projid'] = $credentials['projid'];
 
                     try{
@@ -56,7 +73,7 @@ class CompanyController extends Controller{
                         // Nothing is deleted. Unset the item from deletion.
                         unset($item['delete']);
 
-                        // Add or modify contact info and username for the item.
+                        // Add the project id
                         $item['projid'] = $credentials['projid'];
 
                         // Search for the 'skill' credentials by skillid, primary key.

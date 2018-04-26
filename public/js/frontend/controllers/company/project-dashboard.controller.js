@@ -44,8 +44,12 @@
         function success(response) {
     
            projects = response.data;
+           vm.projects = projects.info;
            vm.projectDescription = projects.info[0].projdescription
            vm.projectTitle = projects.info[0].title;
+
+           vm.projectManager = projects.managerInfo[0].managername;
+           vm.location = projects.managerInfo[0].managername;
 
            vm.milestones = [
             new milestone("Presentation in Manhattan", "10/22/2018", "critical"),
@@ -63,7 +67,7 @@
 
         },
         function fail(data) {
-           return "ERROR on project retrieves";
+           return "ERROR on project retrieve";
         });
         
        
@@ -86,7 +90,8 @@
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     
-                    
+                    $scope.projectTitle = vm.projectTitle;
+                    $scope.projectDescription=vm.projectDescription;
                     $scope.ok = function () {
 
                          vm.projectTitle = $scope.projectTitle;

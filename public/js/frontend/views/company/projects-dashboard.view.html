@@ -8,23 +8,15 @@
     <div class="col-md-3 sidenav col-md-offset-1 well">
       <h2 class="title"> Projects </h2>
       </h2>
-      <ul class="nav nav-pills nav-stacked">
+      <ul ng-repeat="project in vm.projects" class="nav nav-pills nav-stacked">
         <li>
           <a href="#section2">
-            <strong>Project 1</strong>
-          </a>
-        </li>
-        <li>
-          <a href="#section2">
-            <strong>Project 2</strong>
-          </a>
-        </li>
-        <li>
-          <a href="#section2">
-            <strong>Project 3</strong>
+            <strong>{{project.title}}</strong>
           </a>
         </li>
       </ul>
+
+      <!--
       <h3>Queued</h3>
       <ul class="nav nav-pills nav-stacked">
         <li>
@@ -33,6 +25,7 @@
           </a>
         </li>
       </ul>
+    -->
 
 
     </div>
@@ -45,8 +38,8 @@
         <h3>
           <span class="title">{{vm.projectTitle}}</span>
         </h3>
-        <p> Manager {{vm.project-Manager}} </p>
-        <p> Location {{vm.Location}} </p>
+        <p> Manager {{vm.projectManager}} </p>
+        <p> Location {{vm.location}} </p>
 
         <h5 id="proj-description">
           {{vm.projectDescription}}

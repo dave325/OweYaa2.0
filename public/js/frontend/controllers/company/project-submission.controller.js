@@ -66,7 +66,18 @@ function projectSubmissionCtrl(User) {
 
     }
     vm.careerOptions = ['developer','designer','marketing','sales','customer service'];
-
+    vm.jobtype = ['job','internship','project'];
+    vm.istemp = [
+      {
+        name: 'Temporary',
+        value:0
+      },
+      {
+        name:'Permanent',
+        value:0
+      }
+    ];
+    vm.position.designerOptions = ['Graphi Designer','UX Designer'];
   
   }
    angular.module('oweyaa')

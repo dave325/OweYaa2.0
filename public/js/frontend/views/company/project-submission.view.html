@@ -132,14 +132,14 @@
 						<label for="componsite">Is the project remote?</label>
 						<select name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.isremote"
 						 required id="componsite" ng-init="vm.submissionForm.company_proj_job_info.isremote">
-							<option value="0">No</option>
-							<option value="1">Yes</option>
+							<option value="true">No</option>
+							<option value="false">Yes</option>
 						</select>
 					</div>
 					<!-- End of class form-group -->
 
 					<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()"
-					 ng-disabled="vm.submissionForm.company_proj_job_info.jobtype && vm.submissionForm.company_proj_job_info.position && vm.submissionForm.company_proj_manager_info.projectmanager && vm.submissionForm.company_proj_manager_info.managername && vm.submissionForm.company_proj_manager_info.managercontact && vm.submissionForm.company_proj_job_info.projdescription && vm.submissionForm.company_proj_job_info.pojdeadline && vm.submissionForm.company_proj_job_info.isremote">
+					 ng-disabled="!vm.submissionForm.company_proj_job_info.jobtype && !vm.submissionForm.company_proj_job_info.position && !vm.submissionForm.company_proj_manager_info.projectmanager && !vm.submissionForm.company_proj_manager_info.managername && !vm.submissionForm.company_proj_manager_info.managercontact && !vm.submissionForm.company_proj_job_info.projdescription && !vm.submissionForm.company_proj_job_info.pojdeadline && !vm.submissionForm.company_proj_job_info.isremote">
 				</div>
 			</div>
 			<!-- End of Step 1-->

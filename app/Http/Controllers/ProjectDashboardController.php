@@ -32,9 +32,9 @@ class ProjectDashboardController extends Controller
             ]
         )->toArray();
         $candidatesInfo = collect();
+        $project = collect();
         for ($i = 0;$i< count($candidates) - 1;$i++)
         {
-            $tempCollection = collect();
             $user = User::with('contactInfo')->where('username','=',$candidates['internInfo'][$i]['contact_info']['username'])->first();
             $tempCollection = collect(
                 [
@@ -43,15 +43,16 @@ class ProjectDashboardController extends Controller
                 'projid' => $candidates['internHours'][$i]['projid'],
                 ]
             );
-            $candidatesInfo->push(
-                [
-                "info"=>$info, 
-                "managerInfo"=>$managerInfo, 
-                "skills"=>$skills,
-                "candidates"=>$tempCollection
-                ]
-            );
+            $candidatesInfo->push($tempCollection);
         }
+        $project->push(
+            [
+            "info"=>$info, 
+            "managerInfo"=>$managerInfo, 
+            "skills"=>$skills,
+            "candidates"=>$candidatesInfo
+            ]
+        );
         return response()->json($candidatesInfo);		
     }
  

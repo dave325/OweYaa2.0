@@ -49,8 +49,8 @@ class ProjectDashboardController extends Controller
         $tempCollection = collect(
             [
             'user' => $user,
-            'hours' => $candidates['internHours'][$i]['hours'],
-            'projid' => $candidates['internHours'][$i]['projid'],
+            'hours' => 100,
+            'projid' => 'dave111',
             ]
         );
         $candidatesInfo->push($tempCollection);

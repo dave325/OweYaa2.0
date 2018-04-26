@@ -32,8 +32,8 @@ class ProjectDashboardController extends Controller
             ]
         )->toArray();
         $candidatesInfo = array();
-        $i;
-        for ($i = 0;i< count($candidates);$i++)
+        $i = 0;
+        for ($i;i< count($candidates);$i++)
         {
             //var_dump($candidate['internInfo']['username']);
             $user = User::with('contactInfo')->where('username','=',$candidates[$i]['contact_info']['username'])->first();

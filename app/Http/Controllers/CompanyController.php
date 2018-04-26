@@ -17,18 +17,18 @@ class CompanyController extends Controller{
             $credentials['company_proj_manager_info']['projid'] = $credentials['projid'];
             $credentials['company_proj_job_info']['projid'] = $credentials['projid'];
             try{
-                $projectInfo = CModel\CompanyProjectJobInfo::findOrFail($credentials['projid']);
+                $projectInfo = CModel\CompanyProject\CompanyProjectJobInfo::findOrFail($credentials['projid']);
                 $projectInfo->fill($credentials['company_proj_job_info']);
                 $projectInfo->save();
             }catch(ModelNotFoundException $me){
-                CModel\CompanyProjectJobInfo::create($credentials);
+                CModel\CompanyProject\CompanyProjectJobInfo::create($credentials);
             }
             try{
-                $projectSkill = CModel\CompanyProjectManagerInfo::findOrFail($credentials['projid']);
+                $projectSkill = CModel\CompanyProject\CompanyProjectManagerInfo::findOrFail($credentials['projid']);
                 $projectManager->fill(fill($credentials['company_proj_manager_info']));
                 $projectManager->save();
             }catch(ModelNotFoundException $me){
-                CModel\CompanyProjectManagerInfo::create($credentials['company_proj_manager_info']);
+                CModel\CompanyProject\CompanyProjectManagerInfo::create($credentials['company_proj_manager_info']);
             }
             // Prepare to push items onto the delete stack.
             $delete = array();
@@ -60,7 +60,7 @@ class CompanyController extends Controller{
                         $item['projid'] = $credentials['projid'];
 
                         // Search for the 'skill' credentials by skillid, primary key.
-                        $skill = TableModels\CompanyProjectSkill::findOrFail($item['skillid']);
+                        $skill = CModel\CompanyProject\CompanyProjectSkill::findOrFail($item['skillid']);
 
                         // Fill in the information.
                         $skill->fill($item);
@@ -72,7 +72,7 @@ class CompanyController extends Controller{
                     }catch(ModelNotFoundException $me){
 
                         // Create a new TableModels object for the skill info.
-                        $skill = new TableModels\CompanyProjectSkill($item);
+                        $skill = new CModel\CompanyProject\CompanyProjectSkill($item);
 
                         // Save and commit all changes to the skill variable.
                         $skill->save();

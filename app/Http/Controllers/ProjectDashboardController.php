@@ -25,22 +25,16 @@ class ProjectDashboardController extends Controller
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
         $candidatesInfo = User::with('contactInfo')->whereIn('username',$username)->get();
-        $candidates = collect(
-            [
-                'internHours' => $candidatehours,
-                'internInfo' =>$candidatesInfo
-            ]
-        )->toArray();
+        $candidates = collect();
+        $candidates = $candidatehours->merge($candidatesInfo)->toArray();
         $candidatesInfo = array();
-
         return response()->json($candidates);
         foreach($candidates as $candidate)
         {
             //var_dump($candidate['internInfo']['username']);
-            $user = MilitaryUser::where('username','=',$candidate['internInfo']['username'])->first();
-            
+            $user = User::with('contactInfo')->where('username','=',$cadidate['contact_info']['username'])->first();
             array_push($candidatesInfo,  
-              [$user['internInfo']['firstname'] + $user['internInfo']['lastname'] ,$user['internInfo']['email'] ,$candidate['internHours']['hours']]
+              [$user['contact_info']['firstname'] + $user['contact_info']['lastname'] ,$user['contact_info']['email'] ,$candidate['internHours']['hours']]
             );
 
         }

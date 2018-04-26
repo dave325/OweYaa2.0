@@ -33,7 +33,7 @@ class ProjectDashboardController extends Controller
         );
         //return response()->json($candidates);
         $candidatesInfo = collect();
-        for ($i = 0;$i< count($candidates);$i++)
+        for ($i = 0;$i< count($candidates) - 1;$i++)
         {
             $tempCollection = collect();
             //var_dump($candidate['internInfo']['username']);

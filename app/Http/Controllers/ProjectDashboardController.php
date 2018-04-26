@@ -36,9 +36,9 @@ class ProjectDashboardController extends Controller
         for ($i = 0;$i< count($candidates);$i++)
         {
             //var_dump($candidate['internInfo']['username']);
-            $user = User::with('contactInfo')->where('username','=',$candidates['contact_info'][$i]['username'])->first();
+            $user = User::with('contactInfo')->where('username','=',$candidates['internInfo'][$i]['contact_info']['username'])->first();
             array_push($candidatesInfo,  
-              [$user['contact_info'][$i]['firstname'] + $user['contact_info'][$i]['lastname'] ,$user['contact_info'][$i]['email'] ,$candidates['internHours'][$i]['hours']]
+              [$user['internInfo'][$i]['contact_info']['firstname'] + $user['internInfo'][$i]['contact_info']['lastname'] ,$user['internInfo'][$i]['contact_info']['email'] ,$candidates['internHours'][$i]['hours']]
             );
 
         }

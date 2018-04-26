@@ -1,5 +1,5 @@
 <?php
-namespace App\TableModels;
+namespace App\TableModels\CompanyModels\CompanyProject;
 
 use Illuminate\Database\Eloquent\Model;
 class InternHours extends Model{
@@ -8,9 +8,9 @@ class InternHours extends Model{
      *
      * @var string
      */
-    protected $table = 'inernhours';
+    protected $table = 'internhours';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'username';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class InternHours extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','hours', 'projectid'];
+    protected $fillable = ['username','hours', 'projid'];
 
     /**
      * The attributes excluded from the model's JSON form.

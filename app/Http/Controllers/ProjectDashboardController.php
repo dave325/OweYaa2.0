@@ -20,8 +20,23 @@ class ProjectDashboardController extends Controller
         $info = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::all()->toArray();
         $managerInfo = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->get()->toArray();
         $skills = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
-       
-        $ret = array("info"=>$info, "managerInfo"=>$managerInfo, "skills"=>$skills);
+        
+        $candidates = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get();
+        $candidatesInfo = array();
+
+        foreach($candidates as $candidate)
+        {
+            var_dump($candidate->username());
+            $user = MilitaryUser::where('username','=',$candidate->username)->first();
+            
+            array_push($candidatesInfo,  
+              [$user->name,$user->email,$candidate->hours]
+            );
+
+        }
+        
+
+        $ret = array("info"=>$info, "managerInfo"=>$managerInfo, "skills"=>$skills,"candidates"=>$candidates);
         return json_encode($ret);
 		
     }

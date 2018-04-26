@@ -33,6 +33,7 @@
       
 
 
+
         var projects;
         
         $http({
@@ -51,19 +52,15 @@
            vm.projectManager = projects.managerInfo[0].managername;
            vm.location = projects.managerInfo[0].managername;
 
+           vm.interns = projects.candidates;
+           console.log(projects.candidates[0]);
+
+
            vm.milestones = [
             new milestone("Presentation in Manhattan", "10/22/2018", "critical"),
             new milestone("Submit Patents", "11/17/2018", "todo"),
             new milestone("Create Presentation Models", "09/16/2018", "todo"),
         ];
-        vm.interns = [
-            new intern("Candidate One", "candidate@gmail.com", 24),
-            new intern("Candidate One", "candidate@gmail.com", 24),
-            new intern("Candidate One", "candidate@gmail.com", 24),
-            new intern("Candidate Three", "candidate@gmail.com", 24),
-            new intern("Candidate One", "candidate@gmail.com", 24)
-        ];
-
 
         },
         function fail(data) {

@@ -25,21 +25,24 @@ class ProjectDashboardController extends Controller
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
         $candidatesInfo = User::with('contactInfo')->whereIn('username',$username)->get();
-        $candidates = collect();
-        $candidates = $candidatehours->merge($candidatesInfo)->toArray();
+        $candidates = collect(
+            [
+                'internHours' => $candidatehours,
+                'internInfo' =>$candidatesInfo
+            ]
+        )->toArray();
         $candidatesInfo = array();
-        return response()->json($candidates);
-        foreach($candidates as $candidate)
+
+        for ($i = 0;i< count($candidates);$i++)
         {
             //var_dump($candidate['internInfo']['username']);
-            $user = User::with('contactInfo')->where('username','=',$cadidate['contact_info']['username'])->first();
+            $user = User::with('contactInfo')->where('username','=',$candidates[$i]['contact_info']['username'])->first();
             array_push($candidatesInfo,  
-              [$user['contact_info']['firstname'] + $user['contact_info']['lastname'] ,$user['contact_info']['email'] ,$candidate['internHours']['hours']]
+              [$user['contact_info']['firstname'] + $user['contact_info']['lastname'] ,$user['contact_info']['email'] ,$candidates[$i]['internHours']['hours']]
             );
 
         }
-        
-
+        return response()->json($candidatesInfo);
         $ret = array("info"=>$info, "managerInfo"=>$managerInfo, "skills"=>$skills,"candidates"=>$candidates);
         return json_encode($ret);
 		

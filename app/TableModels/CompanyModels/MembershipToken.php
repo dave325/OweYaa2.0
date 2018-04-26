@@ -8,7 +8,7 @@ class MembershipToken extends Model{
      *
      * @var string
      */
-    protected $table = 'membertokens';
+    protected $table = 'membershiptoken';
     // Set primary key
     protected $primaryKey = "username";
     // Remove default increment from eloquent

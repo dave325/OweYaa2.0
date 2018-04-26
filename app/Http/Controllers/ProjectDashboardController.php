@@ -31,7 +31,7 @@ class ProjectDashboardController extends Controller
             'internInfo' => $candidatesUser
             ]
         );
-        return response()->json($candidates);
+        //return response()->json($candidates);
         $candidatesInfo = collect();
         for ($i = 0;$i< count($candidates);$i++)
         {

@@ -36,15 +36,19 @@ class ProjectDashboardController extends Controller
         {
             $tempCollection = collect();
             $user = User::with('contactInfo')->where('username','=',$candidates['internInfo'][$i]['contact_info']['username'])->first();
-            $candidatesInfo->push(
+            $tempCollection = collect(
                 [
                 'user' => $user,
                 'hours' => $candidates['internHours'][$i]['hours'],
                 'projid' => $candidates['internHours'][$i]['projid'],
+                ]
+            );
+            $candidatesInfo->push(
+                [
                 "info"=>$info, 
                 "managerInfo"=>$managerInfo, 
                 "skills"=>$skills,
-                "candidates"=>$candidates
+                "candidates"=>$tempCollection
                 ]
             );
         }

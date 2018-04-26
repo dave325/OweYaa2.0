@@ -37,22 +37,19 @@
       <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
       <div class="well col-md-12" id="proj-description-pane">
         <h3>
-          <span class="title">{{vm.projectTitle}}</span>
+          <span class="title">{{vm.project.info.title}}</span>
         </h3>
-        <p> Manager {{vm.projectManager}} </p>
-        <p> Location {{vm.location}} </p>
+        <p> Manager {{vm.project.managerInfo.managername}} </p>
+        <p> Location {{vm.project.info.location}} </p>
 
         <h5 id="proj-description">
-          {{vm.projectDescription}}
+          {{vm.project.projdescription}}
         </h5>
 
-         <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
+         <ol ng-if="vm.project.skills.length > 0" class="skillsModal col-md-6">
             <h4>Skills I have:</h4>
             <li ng-repeat="field in user.skill | limitTo: 8">
               <p class="col-md-6">{{field.skill}}</p>
-              <uib-progressbar max="5" value="field.amount" class="col-md-6">
-                <span>{{field.amount}}</span>
-              </uib-progressbar>
             </li>
             <br />
           </ol>
@@ -71,7 +68,7 @@
             <tr>
               <th>
                 <u>
-                  <strong>Name</strong>
+                  <strong>name</strong>
                 </u>
               </th>
               <th>

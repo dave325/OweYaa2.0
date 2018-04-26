@@ -32,7 +32,7 @@ class ProjectDashboardController extends Controller
             ]
         )->toArray();
         $candidatesInfo = array();
-
+        $i;
         for ($i = 0;i< count($candidates);$i++)
         {
             //var_dump($candidate['internInfo']['username']);

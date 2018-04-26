@@ -17,8 +17,8 @@ class ProjectDashboardController extends Controller
     function getProjects(Request $request) {
        
         $id = $request->input('id');
-        $info = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::all()->toArray();
-        $managerInfo = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->get()->toArray();
+        $info = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $managerInfo = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
         $skills = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
         
         $candidatehours = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('username','=','davetest')->get();

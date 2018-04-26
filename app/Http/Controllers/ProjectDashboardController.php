@@ -33,11 +33,11 @@ class ProjectDashboardController extends Controller
 
         foreach($candidates as $candidate)
         {
-            var_dump($candidate->username());
-            $user = MilitaryUser::where('username','=',$candidate->username)->first();
+            var_dump($candidate['internInfo']['username']);
+            $user = MilitaryUser::where('username','=',$candidate['internInfo']['username'])->first();
             
             array_push($candidatesInfo,  
-              [$user->name,$user->email,$candidate->hours]
+              [$user['internInfo']['firstname'] + $user['internInfo']['lastname'] ,$user['internInfo']['email'] ,$candidate['internHours']['hours']]
             );
 
         }

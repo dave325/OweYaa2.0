@@ -15,8 +15,8 @@ class StripeController extends Controller{
         $user = array();
         try {
             // Use Stripe's library to make requests...
-            if(Stripe\Customer::retrieve($info['user']['company']['stripetoken'])){
-                $user["customer"] = Stripe\Customer::retrieve($info['user']['company']['stripetoken']);
+            if(isset($info['user']['membership_token']['stripetoken']) && Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken'])){
+                $user["customer"] = Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken']);
                 $user["customer"]->sources->create(array("source" => $info['tempToken']));
                 $user["charge"] = Stripe\Charge::create(array(
                     "amount" => $info['type']['total']['amount'],
@@ -29,7 +29,7 @@ class StripeController extends Controller{
                 return response()->json(compact('user'));
             }else{
                 $user["customer"] = Stripe\Customer::create(array(
-                    "email" =>$info['user']['company']['email'],
+                    "email" =>$info['user']['company_info']['email'],
                     "source" => $info['tempToken']
                 ));
                 $user["charge"] = Stripe\Charge::create(array(

@@ -119,7 +119,7 @@
     $locationProvider.html5Mode(true);
   }
   angular.module('oweyaa')
-    .constant("STRIPE_PUBLISHABLE_KEY", "pk_test_6pRNASCoBOKtIshFeQd4XMUh")
+    .constant("STRIPE_PUBLISHABLE_KEY", "pk_test_bAOVRHXtmFofvJCyDlWoonrE")
     .config(['$routeProvider', routeConfig])
     .config(['$locationProvider', locationConfig]);
     

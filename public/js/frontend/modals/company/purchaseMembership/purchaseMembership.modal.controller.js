@@ -34,7 +34,6 @@
      // List to store payment information in form and to send to server 
      purchaseMembershipModalvm.payment = {};
      purchaseMembershipModalvm.pay = {};
-     purchaseMembershipModalvm.user.company.stripetoken = "cus_CAwlJkhI8PjHMj";
      // Dictates the type of payment to charge 
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client

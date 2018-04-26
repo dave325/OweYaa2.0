@@ -26,7 +26,6 @@ class ProjectDashboardController extends Controller
         $username = explode(', ',$usernames);
         $candidatesInfo = User::with('contactInfo')->whereIn('username',$username)->get();
         $candidatesInfo = collect();
-        return response()->json($candidates);
         for ($i = 0;$i< count($candidates);$i++)
         {
             $tempCollection = collect();

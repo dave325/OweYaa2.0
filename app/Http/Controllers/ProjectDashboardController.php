@@ -25,7 +25,7 @@ class ProjectDashboardController extends Controller
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
         $candidatesInfo = User::with('contactInfo')->whereIn('username',$username)->get();
-        $candidatesInfo = collection();
+        $candidatesInfo = collect();
         return response()->json($candidates);
         for ($i = 0;$i< count($candidates);$i++)
         {

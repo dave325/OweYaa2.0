@@ -24,7 +24,7 @@ class ProjectDashboardController extends Controller
         $candidatehours = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get();
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
-        $candidatesInfo = User::with('contact_info')->whereIn('username',$username);
+        $candidatesInfo = User::with('contactInfo')->whereIn('username',$username);
         $candidates = collect(
             [
                 'internHours' => $candidatehours,

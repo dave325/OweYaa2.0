@@ -21,7 +21,14 @@ class ProjectDashboardController extends Controller
         $managerInfo = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->get()->toArray();
         $skills = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
         
-        $candidates = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get();
+        $candidatehours = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get();
+        $candidatesInfo = User::with('contact_info')->where('username','=',$id);
+        $candidates = collect(
+            [
+                'internHours' => $candidatehours,
+                'internInfo' =>$candidatesInfo
+            ]
+        );
         $candidatesInfo = array();
 
         foreach($candidates as $candidate)

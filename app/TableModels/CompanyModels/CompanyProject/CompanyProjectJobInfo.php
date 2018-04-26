@@ -1,5 +1,5 @@
 <?php
-namespace App\TableModels\CompanyModels;
+namespace App\TableModels\CompanyModel\CompanyProject;
 
 use Illuminate\Database\Eloquent\Model;
 class CompanyProjectJobInfo extends Model{

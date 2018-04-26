@@ -13,6 +13,7 @@ class StripeController extends Controller{
     public function test(Request $request){
         $info = $request->all();
         $user = array();
+        Stripe\Stripe::setApiKey(env('stripe_api'));
         try {
             // Use Stripe's library to make requests...
             if(isset($info['user']['membership_token']['stripetoken']) && Stripe\Customer::retrieve($info['user']['membership_token']['stripetoken'])){

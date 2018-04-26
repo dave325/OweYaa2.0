@@ -11,7 +11,7 @@
       <ul ng-repeat="project in vm.projects" class="nav nav-pills nav-stacked">
         <li>
           <a href="#section2">
-            <strong>{vm.{projects.title}}</strong>
+            <strong>{{vm.projects.title}}</strong>
           </a>
         </li>
       </ul>
@@ -39,11 +39,11 @@
         <h3>
           <span class="title">{{vm.projects.info.title}}</span>
         </h3>
-        <p> Manager {{vm.projects.managerInfo.managername}} </p>
+        <p> Manager: {{vm.projects.managerInfo.managername}} </p>
         <p> Location {{vm.projects.info.location}} </p>
 
         <h5 id="proj-description">
-          {{vm.projects.projdescription}}
+          Description: {{vm.projects.projdescription}}
         </h5>
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">

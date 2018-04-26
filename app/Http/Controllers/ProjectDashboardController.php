@@ -31,6 +31,7 @@ class ProjectDashboardController extends Controller
         )->toArray();
         $candidatesInfo = array();
 
+        return response()->json($candidates);
         foreach($candidates as $candidate)
         {
             var_dump($candidate['internInfo']['username']);

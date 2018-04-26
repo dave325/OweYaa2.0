@@ -34,7 +34,7 @@ class ProjectDashboardController extends Controller
         return response()->json($candidates);
         foreach($candidates as $candidate)
         {
-            var_dump($candidate['internInfo']['username']);
+            //var_dump($candidate['internInfo']['username']);
             $user = MilitaryUser::where('username','=',$candidate['internInfo']['username'])->first();
             
             array_push($candidatesInfo,  

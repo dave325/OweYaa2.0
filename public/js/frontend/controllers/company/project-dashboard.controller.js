@@ -51,8 +51,8 @@
 
            vm.interns = projects.candidates;
            */
-           vm.projects = response.data;
-           console.log(response.data);
+           vm.projects = response.data[0];
+           console.log(response.data[0]);
 
 
            vm.milestones = [

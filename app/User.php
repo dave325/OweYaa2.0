@@ -204,7 +204,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function membershipToken()
     {
-        return $this->hasOne('App\TableModels\CompanyModels\MembershipToken', 'username');
+        return $this->hasOne('App\TableModels\CompanyModels\CompanyProject\MembershipToken', 'username');
     }
 
     /**

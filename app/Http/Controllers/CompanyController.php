@@ -60,7 +60,7 @@ class CompanyController extends Controller{
                         $item['projid'] = $credentials['projid'];
 
                         // Search for the 'skill' credentials by skillid, primary key.
-                        $skill = TableModels\CopmanyProjectSkill::findOrFail($item['skillid']);
+                        $skill = TableModels\CompanyProjectSkill::findOrFail($item['skillid']);
 
                         // Fill in the information.
                         $skill->fill($item);

@@ -31,12 +31,13 @@ class ProjectDashboardController extends Controller
             'internInfo' => $candidatesUser
             ]
         );
+        return response()->json($candidates);
         $candidatesInfo = collect();
         for ($i = 0;$i< count($candidates);$i++)
         {
             $tempCollection = collect();
             //var_dump($candidate['internInfo']['username']);
-            $user = User::with('contactInfo')->where('username','=',$candidates['internInfo'][$i]['contact_info']['username'])->first()->toArray();
+            $user = User::with('contactInfo')->where('username','=',$candidates['internInfo'][$i]['contact_info']['username'])->first() ;
             $candidatesInfo->push(
                 [
                 'user' => $user,

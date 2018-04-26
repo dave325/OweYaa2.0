@@ -24,7 +24,7 @@ class CompanyController extends Controller{
                 CModel\CompanyProject\CompanyProjectJobInfo::create($credentials);
             }
             try{
-                $projectSkill = CModel\CompanyProject\CompanyProjectManagerInfo::findOrFail($credentials['projid']);
+                $projectManager = CModel\CompanyProject\CompanyProjectManagerInfo::findOrFail($credentials['projid']);
                 $projectManager->fill(fill($credentials['company_proj_manager_info']));
                 $projectManager->save();
             }catch(ModelNotFoundException $me){

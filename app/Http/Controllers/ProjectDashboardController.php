@@ -62,7 +62,7 @@ class ProjectDashboardController extends Controller
             "candidates"=>$candidatesInfo->toArray()
             ]
         );
-        return response()->json($candidatesInfo);		
+        return response()->json($project);		
     }
  
 

@@ -41,6 +41,7 @@ class StripeController extends Controller{
                     "source" => 'tok_visa',
                     "customer" => $user['customer']->id
                 ));
+                $user['type'] = 'test';
                 return response()->json(compact('user'));
             }
           } catch(\Stripe\Error\Card $e) {

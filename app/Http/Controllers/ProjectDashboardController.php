@@ -28,7 +28,7 @@ class ProjectDashboardController extends Controller
                 'internHours' => $candidatehours,
                 'internInfo' =>$candidatesInfo
             ]
-        );
+        )->toArray();
         $candidatesInfo = array();
 
         foreach($candidates as $candidate)

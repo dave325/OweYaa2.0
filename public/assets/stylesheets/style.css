@@ -652,7 +652,6 @@ Section 6.4: Purchase Membership
 ************/
 
 .StripeElement {
-	background-color: rgb(0,0,0);
 	height: 40px;
 	padding: 10px 12px;
 	border-radius: 4px;

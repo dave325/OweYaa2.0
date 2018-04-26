@@ -39,7 +39,7 @@ class StripeController extends Controller{
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
                     "source" => 'tok_visa',
-                    "customer" => $user['customer']['id']
+                    "customer" => $user['customer']->id
                 ));
                 return response()->json(compact('user'));
             }

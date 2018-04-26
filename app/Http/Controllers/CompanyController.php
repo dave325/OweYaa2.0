@@ -14,6 +14,8 @@ class CompanyController extends Controller{
     public function updateProject(Request $request){
         $credentials = $request->all();
         if($user = app('auth')->guard()->authenticate()){
+            $credentials['company_proj_manager_info']['projid'] = $credentials['projid'];
+            $credentials['company_proj_job_info']['projid'] = $credentials['projid'];
             try{
                 $projectInfo = CModel\CompanyProjectJobInfo::findOrFail($credentials['projid']);
                 $projectInfo->fill($credentials['company_proj_job_info']);
@@ -47,7 +49,7 @@ class CompanyController extends Controller{
                     unset($item['delete']);
 
                     // Add or modify contact info and username for the item.
-                    $item['username'] = $credentials['username'];
+                    $item['projid'] = $credentials['projid'];
 
                     try{
 
@@ -55,7 +57,7 @@ class CompanyController extends Controller{
                         unset($item['delete']);
 
                         // Add or modify contact info and username for the item.
-                        $item['username'] = $credentials['username'];
+                        $item['projid'] = $credentials['projid'];
 
                         // Search for the 'skill' credentials by skillid, primary key.
                         $skill = TableModels\CopmanyProjectSkill::findOrFail($item['skillid']);

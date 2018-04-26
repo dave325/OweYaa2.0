@@ -1,5 +1,5 @@
 <?php
-namespace App\TableModels\CompanyModels;
+namespace App\TableModels\CompanyModels\CompanyProject;
 
 use Illuminate\Database\Eloquent\Model;
 class MembershipToken extends Model{

@@ -38,7 +38,6 @@ class StripeController extends Controller{
                     "currency" => $info['type']['currency'],
                     "description" => "Example charge",
                     "statement_descriptor" => "Custom descriptor",
-                    "source" => 'tok_visa',
                     "customer" => $user['customer']->id
                 ]);
                 $user['type'] = 'test';

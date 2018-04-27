@@ -50,7 +50,7 @@ class ExampleController extends Controller
         if($user->save()){
             if($user->type == 0){
                 MilitaryUser::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
-                TableModels\ContactInfo::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
+                TableModels\ContactInfo::create(["firstname"=> $credentials['firstname'],"lastname"=> $credentials['lastname'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
                 for($i = 0; $i < 2; $i++){
                     TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i,'username' => $credentials['username']]);
                     TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);

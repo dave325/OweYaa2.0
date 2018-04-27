@@ -25,7 +25,7 @@ class StripeController extends Controller{
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id
                 ));
-                return response()->json(compact('user'));
+                return response()->json(['user'=>$user,'success'=>true]);
             }else{
                 $user["customer"] = \Stripe\Customer::create([
                     "email" => $info['user']['company_info']['email'],

@@ -34,10 +34,10 @@
 
 
     <div class="col-md-7">
-      <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</button>
       <div class="well col-md-12" id="proj-description-pane">
         <h3>
           <span class="title">{{vm.projects.info.title}}</span>
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)">Edit</span>
         </h3>
         <p> Manager: {{vm.projects.managerInfo.managername}} </p>
         <p> Location {{vm.projects.info.location}} </p>
@@ -62,9 +62,8 @@
 
 
       <div class="col-md-6" id="interns">
-        <button class="btn btn-warning btn-sm" class="pull-right" type="button" ng-click="vm.editInternHours(vm.interns)">Edit</button>
         <div class="well">
-
+            <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
           <table style="width:100%">
             <tr>
               <th>
@@ -101,9 +100,9 @@
 
 
       <div class="col-md-6 well" id="Milestones">
-        <button class="btn btn-warning btn-sm" type="button" ng-click="vm.editMilestones(vm.milestones)">Edit</button>
         <h3>
-          <span class="title">MILESTONES</span>
+          <span class="title">Milestones</span>
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
         </h3>
 
         <div ng-repeat="milestone in vm.milestones">

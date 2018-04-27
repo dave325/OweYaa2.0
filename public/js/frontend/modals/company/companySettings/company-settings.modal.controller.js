@@ -18,7 +18,7 @@
             $uibModalInstance.close(result);
         }
 
-        compSet.onSubmit = function(model, data){
+        compSet.onSubmit = function(modal, data){
             User.updateUser(modal, data).then(function(response){
                 console.log(response);
             },function(error){

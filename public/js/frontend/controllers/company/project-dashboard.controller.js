@@ -40,21 +40,8 @@
         })
         .then(
         function success(response) {
-            /*
-           projects = response.data;
-           vm.projects = projects.info;
-           vm.projectDescription = projects.info[0].projdescription
-           vm.projectTitle = projects.info[0].title;
-
-           vm.projectManager = projects.managerInfo[0].managername;
-           vm.location = projects.managerInfo[0].managername;
-
-           vm.interns = projects.candidates;
-           */
            vm.projects = response.data[0];
            console.log(response.data[0]);
-
-
            vm.milestones = [
             new milestone("Presentation in Manhattan", "10/22/2018", "critical"),
             new milestone("Submit Patents", "11/17/2018", "todo"),

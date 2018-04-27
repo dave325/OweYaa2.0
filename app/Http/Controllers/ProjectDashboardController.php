@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\MilitaryUser;
 use App\CompanyUser;
-use App\TableModels;
+use App\TableModels\CompanyModels\CompanyProject as Project;
 use Illuminate\Http\Request;
 use \SplPriorityQueue;
 use App\TableModels\Education;
@@ -17,11 +17,11 @@ class ProjectDashboardController extends Controller
     function getProjects(Request $request) {
        
         $id = $request->input('id');
-        $info = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
-        $managerInfo = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
-        $skills = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
-        
-        $candidatehours = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('username','=','davetest')->get();
+        $info = Project\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $managerInfo = Project\CompanyProjectManagerInfo::where('projid','=',$id)->first();
+        $skills = Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
+        $milestones = Project\Milestone::where('projid','=',$id)->get()->toArray();
+        $candidatehours = Project\InternHours::where('username','=','davetest')->get();
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
         $candidatesUser = User::with('contactInfo')->whereIn('username',$username)->get();
@@ -50,6 +50,7 @@ class ProjectDashboardController extends Controller
             "info"=>$info, 
             "managerInfo"=>$managerInfo, 
             "skills"=>$skills,
+            "milestones" =>$milestones,
             "candidates"=>$candidatesInfo->toArray()
             ]
         )->toJson();

@@ -21,7 +21,7 @@ class Milestone extends Model{
     *
     * @var array
     */
-    protected $fillable = ['milestoneid','username','milestone','completed'];
+    protected $fillable = ['milestoneid','projid','milestone','completed'];
 
     /**
      * The attributes excluded from the model's JSON form.

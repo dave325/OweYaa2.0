@@ -98,7 +98,7 @@
 						</select>
 					</div>
 					<!-- End of class form-group -->
-					<div>
+					<div ng-if="!vm.submissionForm.company_proj_manager_info.ismanager">
 						<div class="form-group">
 							<label for="manager-name">What the Project Manager's Name? </label>
 							<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managername"

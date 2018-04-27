@@ -57,6 +57,11 @@ function projectSubmissionCtrl(User) {
       }
       console.log(vm.submissionForm);
       vm.submissionForm.skills = null;
+      if(vm.submissionForm.company_proj_manager_info.ismanager){
+        vm.submissionForm.company_proj_manager_info.managername = vm.user.company_info.name;
+        vm.submissionForm.company_proj_manager_info.managercontact = vm.user.company_info.email;
+        vm.submissionForm.company_proj_manager_info.managerdept = vm.user.company_info.department;
+      }
       User.updateUser(modal,data).then(function(response){
         console.log(response);
       },function(error){

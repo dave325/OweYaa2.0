@@ -6,19 +6,23 @@
         </a>
         <div ng-if="vm.user.company_project.length > 0" class="col-xs-12">
             <h2 class="text-center">Select your Membership to Initiate the Matching Process</h2>
-            <p class="col-md-8 col-md-offset-2 text-center">We make internships easy. Select your flexible membership package and everything is covered. We will tailor match
-                you a candidate, grant you the desired working hours per pay period, take care of the candidate stipend, we will
-                donate 10% to an education fund to help veterans and military spouses complete more great training. Purchase
-                your package today and we will begin the process of matching your submitted project to a candidate!</p>
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <p>We make internships easy. Select your flexible membership package and everything is covered. Each package
+                    contains the following:</p>
+                <ul>
+                    <li> EACH PROJECT RECEIVES PERSONALIZED TAILOR-MATCHED</li>
+                    <li> DEDICATED OWEYAA TEAM CAPTAIN</li>
+                    <li> STIPEND FOR INTERN INCLUDED</li>
+                    <li> ☆ YOUR MEMBERSHIP GOES TOWARDS FREE VET EDUCATION</li>
+                </ul>
+            </div>
             <div class="col-md-8 col-md-offset-2 row">
                 <div id="monthMembership" class="col-md-4 payOption">
                     <h3>Monthly Membership</h3>
                     <ul>
-                        <li>$1,600 Per Month</li>
-                        <li>30 Project Hours Per Month</li>
-                        <li>Tailored Candidate Match per Project</li>
-                        <li>Candidate Stipend Included</li>
-                        <li>% of Membership goes towards Free Vet Education</li>
+                        <li>$1,200 Per Month</li>
+                        <li>GREAT FOR SMALL PROJECTS & ONGOING SUPPORT NEEDS</li>
+                        <li>INCLUDES 30 HOURS PROJECT PER MONTH</li>
                     </ul>
                     <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('month')">Choose Monthly
                         <br /> Membership</button>

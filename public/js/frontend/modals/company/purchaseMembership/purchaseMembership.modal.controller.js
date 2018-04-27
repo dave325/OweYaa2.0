@@ -11,7 +11,7 @@
             currency: 'usd',
             total: {
                 label: 'Monthly Membership',
-                amount: 160000,
+                amount: 120000,
             },
         },
         "quarter":{
@@ -60,7 +60,7 @@
          iconColor: '#fa755a'
          }
      };
-     $timeout(function(){
+     window.onload = function(){
         // Create an instance of the card Element
         purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
         purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');
@@ -103,7 +103,7 @@
                 displayError.style.display = "none";
             }
         });
-    },1000);
+    };
     // Handle submition process 
      purchaseMembershipModalvm.charge = function charge() {
          // Create token from card information

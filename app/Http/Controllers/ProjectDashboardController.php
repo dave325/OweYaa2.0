@@ -21,7 +21,7 @@ class ProjectDashboardController extends Controller
         $managerInfo = Project\CompanyProjectManagerInfo::where('projid','=',$id)->first();
         $skills = Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
         $milestones = Project\Milestone::where('projid','=',$id)->get()->toArray();
-        $candidatehours = Project\InternHours::where('username','=','davetest')->get();
+        $candidatehours = Project\InternHours::where('username','=',$id)->get();
         $usernames = $candidatehours->implode('username',', ');
         $username = explode(', ',$usernames);
         $candidatesUser = User::with('contactInfo')->whereIn('username',$username)->get();

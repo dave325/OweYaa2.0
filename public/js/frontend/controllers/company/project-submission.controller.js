@@ -45,10 +45,8 @@ function projectSubmissionCtrl(User) {
       vm.steps.page1 = false;
       vm.steps.page2 = false;
       vm.steps.page3 = true;
-      console.log('Exloded string');
       vm.submissionForm.company_skills = [];
       let skillarr = vm.submissionForm.skills.split(',');
-      console.log(skillarr.length);
       for(let i = 0;i < skillarr.length;i++){
         let temp = skillarr[i];
         vm.submissionForm.company_skills.push({
@@ -58,6 +56,7 @@ function projectSubmissionCtrl(User) {
         });
       }
       console.log(vm.submissionForm);
+      vm.submissionForm.skills = null;
       User.updateUser(modal,data).then(function(response){
         console.log(response);
       },function(error){

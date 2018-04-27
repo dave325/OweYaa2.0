@@ -35,8 +35,8 @@
 
     <div class="col-md-7">
       <div class="well col-md-12" id="proj-description-pane">
-        <h3>
-          <span class="title">{{vm.projects.info.title}}</span>
+        <h3 class="title">
+          {{vm.projects.info.title}}
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
         <p> Manager: {{vm.projects.managerInfo.managername}} </p>
@@ -63,8 +63,8 @@
 
       <div class="col-md-6" id="interns">
         <div class="well">
-          <h3>
-              <span class="title">Intern hours</span>
+          <h3 class="title">
+            Intern hours
               <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
           </h3>
           <table style="width:100%">
@@ -103,8 +103,8 @@
 
 
       <div class="col-md-6 well" id="Milestones">
-        <h3>
-          <span class="title">Milestones</span>
+        <h3 class="title">
+          Milestones
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
         </h3>
 

@@ -158,6 +158,7 @@
 					controller: modal + 'ModalCtrl',
 					controllerAs: modal + 'vm',
 					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+					backdrop:false,
 					resolve: {
 						CurrUser: function () {
 							for (var i = 0; i < 2; i++) {

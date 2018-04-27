@@ -42,12 +42,6 @@
         function success(response) {
            vm.projects = response.data[0];
            console.log(response.data[0]);
-           vm.milestones = [
-            new milestone("Presentation in Manhattan", "10/22/2018", "critical"),
-            new milestone("Submit Patents", "11/17/2018", "todo"),
-            new milestone("Create Presentation Models", "09/16/2018", "todo"),
-        ];
-
         },
         function fail(data) {
            return "ERROR on project retrieve";

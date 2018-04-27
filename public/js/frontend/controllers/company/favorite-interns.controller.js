@@ -21,7 +21,7 @@
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         console.log(response);
-        vm.users = response.data.projects[0];
+        vm.users = response.data.projects;
       }, function (data) {
         console.log(data);
       });

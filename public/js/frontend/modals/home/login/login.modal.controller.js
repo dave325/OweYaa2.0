@@ -33,7 +33,6 @@
         'type' : loginvm.type
       }
       Authentication.setToken(checkUser).then(function(data){
-        console.log(checkUser);
         if(data.status === 200){
           User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);

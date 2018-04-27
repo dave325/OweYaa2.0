@@ -56,11 +56,9 @@ class ExampleController extends Controller
                     TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
                     TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
                     TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
-                    TableModels\ActionTask::create(['taskid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
                 }
                 TableModels\Social::create(['username'=> $credentials['username']]);
                 TableModels\Goal::create(['username'=> $credentials['username']]);
-                TableModels\ActionTask::create(['username'=> $credentials['username']]);
                 TableModels\Education::create(['username'=> $credentials['username']]);
                 $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
                 for($i = 0; $i < 7; $i++){
@@ -68,7 +66,7 @@ class ExampleController extends Controller
                 }
                 TableModels\Mentor::create(['username'=> $credentials['username']]);
             }else{
-                TableModels\CompanyModels\MembershipToken::create(['username' => $credentials['name']]);
+                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
                 TableModels\CompanyModels\CompanyInfo::create(["name"=> $credentials['name'], 'username' => $credentials['username'],'email'=>$credentials['email']]);
             }
             return response()->json(true);

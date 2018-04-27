@@ -56,11 +56,9 @@ class ExampleController extends Controller
                     TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
                     TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
                     TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
-                    TableModels\ActionTask::create(['taskid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
                 }
                 TableModels\Social::create(['username'=> $credentials['username']]);
                 TableModels\Goal::create(['username'=> $credentials['username']]);
-                TableModels\ActionTask::create(['username'=> $credentials['username']]);
                 TableModels\Education::create(['username'=> $credentials['username']]);
                 $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
                 for($i = 0; $i < 7; $i++){

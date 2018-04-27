@@ -1017,7 +1017,7 @@ class ValidateUser extends Controller
             $companyInfo->save();
 
             // If able to update task, return a success response.
-            return response()->json(['success'=>true],201);
+            return response()->json(['user' => $companyInfo, 'success'=>true],200);
 
         }else{
 

@@ -17,14 +17,14 @@
           <input ng-model="career.contact" type="text" class="form-control" name="contact{{$index}}" id="prevContact{{$index}}"/>
         </div> <!-- End of div on line 14 -->
         <div>
-          <label form="career" form="prevTo{{$index}}">To: </label>
-          <input ng-model="career.start_date" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
-        </div> <!-- End of div on line 18 -->
-        <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>
           <input ng-model="career.end_date" ng-disabled="career.present" type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
           <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" />
-        </div> <!-- End of div on line 22 -->
+        </div>
+        <div>
+          <label form="career" form="prevTo{{$index}}">To: </label>
+          <input ng-model="career.start_date" type="date" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>
+        </div> <!-- End of div on line 18 -->
       </div> <!-- End of ng-repeat careervm.user.prev_career_fields -->
       <div class="col-xs-12">
         <!-- Display all interests and hobbies -->

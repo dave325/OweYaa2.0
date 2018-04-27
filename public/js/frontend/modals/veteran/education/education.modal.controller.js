@@ -18,7 +18,7 @@
 
     // Add a new certification
     educationvm.addToCertifications = function () {
-      educationvm.newCertification.certid = educationvm.addIndex('certification', 'certid');
+      educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');
       educationvm.user.certifications.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }

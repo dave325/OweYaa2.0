@@ -1,9 +1,9 @@
 (function () {
 
 
-    companySettingsModalCtrl.$inject = ['CurrUser', '$uibModalInstance'];
+    companySettingsModalCtrl.$inject = ['CurrUser', '$uibModalInstance','User'];
 
-    function companySettingsModalCtrl(CurrUser, $uibModalInstance) {
+    function companySettingsModalCtrl(CurrUser, $uibModalInstance,User) {
 
         var compSet = this;
 
@@ -18,6 +18,13 @@
             $uibModalInstance.close(result);
         }
 
+        compSet.onSubmit = function(model, data){
+            User.updateUser(modal, data).then(function(response){
+                console.log(response);
+            },function(error){
+                console.log(error);
+            });
+        }
 
     }
 

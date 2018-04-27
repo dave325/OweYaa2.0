@@ -86,7 +86,7 @@
 					}
 				}
 			}
-			if (user.education.attendedcollege) {
+			if (user.education.attendedcollege != null) {
 				sum++;
 				if (arrayContains('Did you attend college?', $scope.requiredFields)) {
 					$scope.requiredFields.splice($scope.requiredFields.indexOf('Did you attend college?'), 1);

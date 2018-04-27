@@ -27,6 +27,7 @@
 					},2000);
 				}
 			},function(data){
+				console.log(data);
 				vm.formError = "There was an error, please try again";
 			});
 		}

@@ -680,13 +680,13 @@ Section 6.4: Purchase Membership
 	text-align: center;
 }
 
-#purchaseMembership ul {
+.payOption ul {
 	list-style-type: none;
 	padding: 0px;
 	text-align: center;
 }
 
-#purchaseMembership ul li {
+.payOption ul li {
 	margin-bottom: 20px;
 }
 

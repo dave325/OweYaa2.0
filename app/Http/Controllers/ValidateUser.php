@@ -672,8 +672,6 @@ class ValidateUser extends Controller
                         // Nothing is deleted. Unset the item from deletion.
                         unset($item['delete']);
 
-                        // Add or modify contact info and name for the item.
-                        $item['name'] = $credentials['contact_info']['name'];
 
                         // Search for the 'skill' credentials by skillid, primary key.
                         $skill = TableModels\Skill::findOrFail($item['skillid']);

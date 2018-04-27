@@ -89,21 +89,6 @@
 					</div>
 					<!-- End of class col-xs-12 -->
 
-
-					<div class="form-group">
-						<label for="manager-name">What the Project Manager's Name? </label>
-						<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managername"
-						 required id="manager-name" />
-					</div>
-					<!-- End of class form-group -->
-
-					<div class="form-group">
-						<label for="manager-contact">What the Project Manager's contact? </label>
-						<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managercontact"
-						 required id="manager-contact" />
-					</div>
-					<!-- End of class form-group -->
-
 					<div class="form-group">
 						<label for="manager">Are you the project manager? </label>
 						<select name="compManager" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.ismanager"
@@ -113,7 +98,28 @@
 						</select>
 					</div>
 					<!-- End of class form-group -->
+					<div>
+						<div class="form-group">
+							<label for="manager-name">What the Project Manager's Name? </label>
+							<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managername"
+							 required id="manager-name" />
+						</div>
+						<!-- End of class form-group -->
 
+						<div class="form-group">
+							<label for="manager-contact">What the Project Manager's contact? </label>
+							<input type="text" name="compManagerContact" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managercontact"
+							 required id="manager-contact" />
+						</div>
+						<!-- End of class form-group -->
+
+						<div class="form-group">
+							<label for="manager-contact">What the Project Manager's department? </label>
+							<input type="text" name="compManagerDepartment" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managerdept"
+							 required id="manager-contact" />
+						</div>
+						<!-- End of class form-group -->
+					</div>
 					<div class="form-group">
 						<label for="comp-proj-description">Tell us what project/task you would like a candidate to work on with you?</label>
 						<input type="text" name="compProjDescription" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.projectdetails"
@@ -146,7 +152,8 @@
 			<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
 				<div class="form-group">
 					<label for="totalinternHours">How many hours will the candidate be working in total?</label>
-					<input type="number" ng-model="vm.submissionForm.company_proj_job_info.totalinternhours" name="totalinternHours" id="totalinternHours" min="0">
+					<input type="number" ng-model="vm.submissionForm.company_proj_job_info.totalinternhours" name="totalinternHours" id="totalinternHours"
+					 min="0">
 				</div>
 				<!-- End of class form-group -->
 				<div class="form-group">

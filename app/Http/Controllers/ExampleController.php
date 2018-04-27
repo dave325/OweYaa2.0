@@ -66,7 +66,7 @@ class ExampleController extends Controller
                 }
                 TableModels\Mentor::create(['username'=> $credentials['username']]);
             }else{
-                TableModels\CompanyModels\MembershipToken::create(['username' => $credentials['name']]);
+                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
                 TableModels\CompanyModels\CompanyInfo::create(["name"=> $credentials['name'], 'username' => $credentials['username'],'email'=>$credentials['email']]);
             }
             return response()->json(true);

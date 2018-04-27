@@ -21,8 +21,8 @@
         compSet.onSubmit = function(modal, data){
             User.updateUser(modal, data).then(function(response){
                 console.log(response);
-                User.setUser(response.data.user);
-                compSet.close(response.data.user);
+                User.setUser(compSet.user);
+                compSet.close(compSet.user);
             },function(error){
                 console.log(error);
             });

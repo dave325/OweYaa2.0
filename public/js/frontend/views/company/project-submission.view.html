@@ -170,8 +170,8 @@
 			<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page1 && !vm.steps.page2">
 				<h3 class="text-center">Thank you very much!</h3>
 				<br />Project Submitted! Click
-				<a href="company/{{vm.user.company_info}}/purchase-membership.php">Here</a> To Purchase your Membership and begin the Matching Process. </br> Or Go to your
-				<a href="company/{{vm.user.company_info}}/dashboard.php">Dashboard </a>if Already Purchased.</h3>
+				<a href="company/{{vm.user.company_info.username}}/purchase-membership.php">Here</a> To Purchase your Membership and begin the Matching Process. </br> Or Go to your
+				<a href="company/{{vm.user.company_info.username}}/dashboard.php">Dashboard </a>if Already Purchased.</h3>
 			</div>
 			<!-- End of step 3 -->
 		</form>

@@ -61,7 +61,7 @@
             }
           }
         }
-        if(vm.users.length == 0 || vm.test.length > 0){
+        if(vm.users.length === 0 || vm.test.length === 0){
           vm.users = vm.copyUsers;
         }else{
         // Set vm.users to temp array and only show results

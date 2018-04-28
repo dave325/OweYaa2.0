@@ -12,12 +12,73 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectDashboardController extends Controller
 {
-    //TODO IMMEDIATELY, UNAUTHENTICATED
+    //Mass update function, every modal calls this.
+    function updateAll(Request $request) {
+        $id = $request->input('id');
+        $description = $request->input('description');
+        $title = $request->input('title');
+      
+    
+        $proj = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $proj->projdescription=$description;
+        $proj->title=$title;
+        $proj->save();
+        return response()->json(['success'=>true],201);
+		
+    }
 
     function getProjects(Request $request) {
        
-        $id = $request->input('id');
-        $info = Project\CompanyProjectJobInfo::where('projid','=',$id)->first();
+
+        if($this->isValid())
+        {
+
+
+          //first get all the projects associated with the user
+          $name = $request->input('username');
+          $projectIDs = Project::where('username','=',$name)->pluck('projid')->toArray();
+          
+          $allProjectInfo = array();
+          foreach($projectIDs as $id)
+          {
+
+            $candidates = Project\InternHours::where('projid','=',$id)->get()->toArray();
+            
+            foreach($candidates as &$candidate)
+            {
+                $candidateUName = $candidate['username'];
+                $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
+                $firstName = $contactInfo->firstname;
+                $lastName = $contactInfo->lastname;
+                $email = $contactInfo->email;
+                $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
+                $candidate = array_merge($candidate,$contactAddenium);   
+            }
+
+            array_push($allProjectInfo,
+
+             array(
+              'id' => $id,
+              'info' => Project\CompanyProjectJobInfo::where('projid','=',$id)->first()->toArray(),
+              'managerInfo'=>Project\CompanyProjectManagerInfo::where('projid','=',$id)->first()->toArray(),
+              'skills'=>Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray(),
+              'milestones'=>Project\Milestone::where('projid','=',$id)->get()->toArray(),
+              'candidates'=>$candidates
+             
+             )
+                
+          );
+            
+        
+          }
+          
+          return json_encode($allProjectInfo);
+
+        }
+    
+    
+    
+    /*    $info = Project\CompanyProjectJobInfo::where('projid','=',$id)->first();
         $managerInfo = Project\CompanyProjectManagerInfo::where('projid','=',$id)->first();
         $skills = Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
         $milestones = Project\Milestone::where('projid','=',$id)->get()->toArray();
@@ -54,22 +115,45 @@ class ProjectDashboardController extends Controller
             "candidates"=>$candidatesInfo->toArray()
             ]
         )->toJson();
-        return response()->json($project);		
+        return response()->json($project);	
+        */	
     }
  
 
-	function editProjectDescription(Request $request) {
-        $description = $request->input('description');
-        $id = $request->input('id');
-        $title = $request->input('title');
+	
+    private function isValid(){
+        try {
 
-        $proj = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
-        $proj->projdescription=$description;
-        $proj->title=$title;
-        $proj->save();
-        return response()->json(['success'=>true],201);
-		
-	}
+            // If the user cannot be authenticated, then the user doesn't
+            // exist. The response states that the user is not found.
+
+            //app auth uses the header security token.
+            if (!$userCheck = app('auth')->authenticate()) {
+
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+
+            // If the Token expired, the response states that the token has
+            // expired, and the exception status code is also returned.
+            return response()->json(['token_expired'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+
+            // If the Token is invalid, the response states that the token is
+            // invalid, and the exception status code is also returned.
+            return response()->json(['token_invalid'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+
+            // If the Token is absent, the response states that the token is
+            // absent, and the exception status code is also returned.
+            return response()->json(['token_absent'], $e->getStatusCode());
+
+        }
+
+        return true;
+    }
 
 	
 }

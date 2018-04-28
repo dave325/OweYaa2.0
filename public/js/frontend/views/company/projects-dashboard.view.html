@@ -36,14 +36,14 @@
     <div class="col-md-7">
       <div class="well col-md-12" id="proj-description-pane">
         <h3 class="title">
-          {{vm.projects.info.title}}
+          {{vm.projectTitle}}
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
-        <p> Manager: {{vm.projects.managerInfo.managername}} </p>
-        <p> Location {{vm.projects.info.location}} </p>
+        <p> Manager: {{vm.managerName}} </p>
+        <p> Location {{}} </p>
 
         <h5 id="proj-description">
-          Description: {{vm.projects.projdescription}}
+          Description: {{vm.projectDescription}}
         </h5>
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">
@@ -86,10 +86,10 @@
               </th>
             </tr>
 
-            <tr ng-repeat="intern in vm.interns">
-              <td>{{intern.username}}</td>
-              <td>{{intern.username}}</td>
-              <td>{{intern.username}}</td>
+            <tr ng-repeat="candidate in vm.candidates">
+              <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
+              <td>{{candidate.email}}</td>
+              <td>{{candidate.hours}}</td>
             </tr>
 
 
@@ -112,7 +112,7 @@
           <div class="stat">
             <p class="task">{{milestone.description}}
               <span class="completionDate">{{milestone.completionDate}}</span>
-              <span class="completionText">{{milestone.isCompleted}}</span>
+              <span class="completionText">{{milestone.completed}}</span>
               <input id="checkBox" type="checkbox" checked="true" onclick="return false;">
             </p>
 

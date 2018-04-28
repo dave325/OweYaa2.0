@@ -61,8 +61,12 @@
             }
           }
         }
+        if(vm.users.length == 0){
+          vm.users = vm.copyUsers;
+        }else{
         // Set vm.users to temp array and only show results
         vm.users = user;
+        }
       }
     }
   }

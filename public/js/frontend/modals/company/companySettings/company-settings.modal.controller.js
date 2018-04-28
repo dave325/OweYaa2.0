@@ -7,7 +7,7 @@
 
         var compSet = this;
 
-        compSet.user = CurrUser;
+        compSet.user = User.getUser();
 
         // The function that is call when a user cancels the opening of a modal
         compSet.cancel = function () {
@@ -21,10 +21,10 @@
         compSet.onSubmit = function(modal, data){
             User.updateUser(modal, data).then(function(response){
                 console.log(response);
-                User.setUser(compSet.user);
                 compSet.close(compSet.user);
             },function(error){
-                console.log(error);
+                console.error(error);
+                compSet.cancel();
             });
         }
 

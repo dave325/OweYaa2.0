@@ -98,7 +98,7 @@
 						</select>
 					</div>
 					<!-- End of class form-group -->
-					<div>
+					<div ng-if="vm.submissionForm.company_proj_manager_info.ismanager=='0'">
 						<div class="form-group">
 							<label for="manager-name">What the Project Manager's Name? </label>
 							<input type="text" name="compManagerName" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_manager_info.managername"
@@ -170,8 +170,8 @@
 			<div class="step" id="step3" ng-class="{'active': vm.steps.page3}" ng-if="!vm.steps.page1 && !vm.steps.page2">
 				<h3 class="text-center">Thank you very much!</h3>
 				<br />Project Submitted! Click
-				<a href="company/{{vm.user.company.username}}/purchase-membership.php">Here</a> To Purchase your Membership and begin the Matching Process. </br> Or Go to your
-				<a href="company/{{vm.user.company.username}}/dashboard.php">Dashboard </a>if Already Purchased.</h3>
+				<a href="company/{{vm.user.company_info.username}}/purchase-membership">Here</a> To Purchase your Membership and begin the Matching Process. </br> Or Go to your
+				<a href="company/{{vm.user.company_info.username}}/dashboard">Dashboard </a>if Already Purchased.</h3>
 			</div>
 			<!-- End of step 3 -->
 		</form>

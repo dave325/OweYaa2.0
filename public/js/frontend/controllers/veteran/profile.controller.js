@@ -86,7 +86,7 @@
 					}
 				}
 			}
-			if (user.education.attendedcollege) {
+			if (user.education.attendedcollege && user.education.attendedcollege != null) {
 				sum++;
 				if (arrayContains('Did you attend college?', $scope.requiredFields)) {
 					$scope.requiredFields.splice($scope.requiredFields.indexOf('Did you attend college?'), 1);
@@ -158,6 +158,8 @@
 					controller: modal + 'ModalCtrl',
 					controllerAs: modal + 'vm',
 					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+					backdrop:false,
+					keyboard:false,
 					resolve: {
 						CurrUser: function () {
 							for (var i = 0; i < 2; i++) {

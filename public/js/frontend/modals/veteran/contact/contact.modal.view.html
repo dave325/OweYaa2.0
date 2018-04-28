@@ -28,8 +28,8 @@
                         <p ng-show="contactvm.formError" class="alert alert-danger" ng-bind-html="contactvm.formError"></p>
                         <p ng-show="contactvm.formInfo" class="alert alert-success" ng-bind-html="contactvm.formInfo"></p>
 
-                        <button ng-click="contactvm.cancel()" class="btn btn-warning">Close</button>
-                        <button ng-click="contactvm.onSubmit('social',contactvm.user)" class="btn btn-info">Save</button>
+                        <input ng-click="contactvm.cancel()" class="btn btn-warning" type="button" value="Close"/>
+                        <input ng-click="contactvm.onSubmit('social',contactvm.user)" class="btn btn-info" type="button" value="Save"/>
                     </div>
                     <!-- End of class text-center form-group -->
                 </div>

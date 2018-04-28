@@ -63,7 +63,6 @@ class ValidateUser extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
 
         }
-
         // If the type of user specified doesn't exist, or if the user's type
         // doesn't match the type that the database listed for this user,
         // the response states that the user is not found. This is a 404 error.
@@ -993,6 +992,40 @@ class ValidateUser extends Controller
         }
     }
 
+    /**
+     * updateCompanySettings
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
+    public function updateCompanySettings(Request $request){
+
+        // In order to update task info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if($this->isValid()){
+
+            // The only credentials necessary are contact info, and action task.
+            $credentials = $request->only('company_info');
+
+            // Search for contact info, and username that corresponds to the
+            // Social TableModel.
+            $companyInfo = TableModels\CompanyModels\CompanyInfo::findOrFail($credentials['company_info']['username']);
+
+            // Fill in contact info.
+            $companyInfo->fill($credentials['company_info']);
+
+            // Save and commit changes to the contact variable.
+            $companyInfo->save();
+
+            // If able to update task, return a success response.
+            return response()->json(['user' => $companyInfo, 'success'=>true],200);
+
+        }else{
+
+            // If not, return an 'error' response.
+            return response()->json(['error'=>true],201);
+
+        }
+    }
   
     public function retrieveProj(Request $request){
 

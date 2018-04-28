@@ -44,6 +44,7 @@ Route::group(['prefix' => 'api'], function (){
         Route::post('retrieveProject','ValidateUser@retrieveProj');
         Route::post('project', 'CompanyController@updateProject');
         Route::post('milestone','CompanyController@updateMilestone');
+        Route::post('compSet', 'ValidateUser@updateCompanySettings');
     });
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');

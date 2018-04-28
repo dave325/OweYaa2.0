@@ -80,14 +80,14 @@
 	<!-- End of describe Yourself div-->
 
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
+		<div class="col-xs-12 box gap">
 			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
-				<h3>{{type.title}}</h3>
-				<div ng-if="type.project.length > 0">
+				<h3 class="text-center">{{type.title}}</h3>
+				<div ng-if="type.project.length > 0" class="text-center">
 					<p>Project Manager: {{type.project.projectmanager}}</p>
 				</div>
 				<!-- End of ng-if type.project.length > 0 -->
-				<p ng-if="type.project.length == 0">No projects in {{type.title}}!</p>
+				<p ng-if="type.project.length == 0" class="text-center">No projects in {{type.title}}!</p>
 			</div>
 			<!-- End of ng-repeat type in vm.projectTypes -->
 		</div>

@@ -33,8 +33,8 @@
       city: '',
       state: ''
     };
-    footervm.phone = '';
-    footervm.about = '';
+    footervm.phone = 'jakdhga';
+    footervm.about = 'salaslh';
     footervm.email = 'support@company.com';
   }
   angular.module('oweyaa')

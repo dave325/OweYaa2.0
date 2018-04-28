@@ -4,7 +4,9 @@
     function projectDashboardCtrl(User, $uibModal, $http) {
 
         var vm = this;
-        //vm.user = User.getUser();
+
+        //get user details
+        vm.user = User.getUser();
 
         vm.currentProjID = "dave111";
 
@@ -12,9 +14,35 @@
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
 
-        const winClass = "col-xs-12 col-md-8 col-md-offset-2";
+        const winClass = "col-xs-12 col-md-8 col-md-offset-2";   
+        var projects = (User.getProjectDashboardProjects({username:vm.user.company_info.username})).then(
+            function success(response)
+            {
+                console.log("PROJECTS" + response.data );
+            },
+            function fail(){
+                console.log("failed");
+            }
+        );
 
-        function intern(name, email, hours) {
+       
+        
+        /*
+        $http({
+            method: 'POST',
+            url: '/api/projDash/getProjects',
+            data: {id:vm.currentProjID}
+        })
+        .then(
+        function success(response) {
+           vm.projects = response.data[0];
+           console.log(response.data[0]);
+        },
+        function fail(data) {
+           return "ERROR on project retrieve";
+        });
+        
+             function intern(name, email, hours) {
             return {
                 name: name,
                 email: email,
@@ -30,22 +58,10 @@
             }
 
         }
-      
-        var projects;
         
-        $http({
-            method: 'POST',
-            url: '/api/projDash/getProjects',
-            data: {id:vm.currentProjID}
-        })
-        .then(
-        function success(response) {
-           vm.projects = response.data[0];
-           console.log(response.data[0]);
-        },
-        function fail(data) {
-           return "ERROR on project retrieve";
-        });
+        */
+
+
         
        
         vm.postNewDescription = function (title,description) {

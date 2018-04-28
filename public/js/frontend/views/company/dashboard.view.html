@@ -31,28 +31,22 @@
 			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
 		</h2>
 		<div ng-if="vm.user.company_info.name">
-			<h2>Name:</h2>
-			<p>{{vm.user.company_info.name}}</p>
+			<p>Name: {{vm.user.company_info.name}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.pointofcontact">
-			<h2>Point of Context:</h2>
-			<p>{{vm.user.company_info.pointofcontact}}</p>
+			<p>Point of Context: {{vm.user.company_info.pointofcontact}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.industry">
-			<h2>Industry:</h2>
-			<p>{{vm.user.company_info.industry}}</p>
+			<p>Industry: {{vm.user.company_info.industry}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.location">
-			<h2>Location:</h2>
-			<p>{{vm.user.company_info.location}}</p>
+			<p>Location: {{vm.user.company_info.location}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.phonenumber">
-			<h2>Phone Number:</h2>
-			<p>{{vm.user.company_info.phonenumber}}</p>
+			<p>Phone Number: {{vm.user.company_info.phonenumber}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.email">
-			<h2>Email:</h2>
-			<p>{{vm.user.company_info.email}}</p>
+			<p>Email: {{vm.user.company_info.email}}</p>
 		</div>
 		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>
@@ -64,16 +58,13 @@
 			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
 		</h2>
 		<div ng-if="vm.user.company_info.employees">
-			<h2>Employees:</h2>
-			<p>{{vm.user.company_info.employees}}</p>
+			<p>Employees: {{vm.user.company_info.employees}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.annualrevenue">
-			<h2>Annual Revenue:</h2>
-			<p>{{vm.user.company_info.annualrevenue}}</p>
+			<p>Annual Revenue: {{vm.user.company_info.annualrevenue}}</p>
 		</div>
 		<div ng-if="vm.user.company_info.numofcompanies">
-			<h2>Number of Companies:</h2>
-			<p>{{vm.user.company_info.numofcompanies}}</p>
+			<p>Number of Companies: {{vm.user.company_info.numofcompanies}}</p>
 		</div>
 		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 	</div>

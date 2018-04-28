@@ -21,7 +21,7 @@ class CompanyInfo extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','name','email','phone','description','numofemployees','diversity','revenue'];
+    protected $fillable = ['username','name','email','phone','description','numofemployees','diversity','revenue','pointofcontact'];
 
     /**
      * Get the post that owns the comment.

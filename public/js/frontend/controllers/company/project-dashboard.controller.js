@@ -23,7 +23,7 @@
                 allProjects = response.data; 
                 vm.projectDescription = allProjects[0].info.projdescription;
                 vm.projectTitle = allProjects[0].info.title;
-                vm.projectManager = allProjects[0].managerInfo.managerName;
+                vm.projectManager = allProjects[0].managerInfo.managername;
 
                 console.log(allProjects);
 

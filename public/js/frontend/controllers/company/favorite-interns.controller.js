@@ -54,7 +54,7 @@
           // Loop through individual skills
           for (let j = 0; j < vm.users[i].user.skill.length; j++) {
             // Check if the skill exists in current user
-            if (vm.users[i].user.skill[j].skill.toLowerCase().includes(vm.test.toLowerCase())) {
+            if (vm.users[i].user.skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase() > -1)) {
               // Add user to temp array
               user.push(vm.users[i]);
               break;

@@ -21,7 +21,10 @@
         compSet.onSubmit = function(modal, data){
             User.updateUser(modal, data).then(function(response){
                 console.log(response);
-                User.setUser(compSet.user);
+                if(response.status == 200 || response.status == 201){
+                    //availibilityvm.formInfo = "Successfully updated!";
+                    User.setUser(compSet.user);
+                  }
                 compSet.close(compSet.user);
             },function(error){
                 console.log(error);

@@ -1,5 +1,6 @@
 <section id="fav-interns">
 	<navbar content="navbarvm.activeNav"></navbar>
+	<p ng-bind-html="vm.resultInfo" ng-if="vm.resultInfo"></p>
 	<!-- Filter User Input and Output Result -->
 	<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<h1 class="text-center">Favorite Candidate</h1>
@@ -30,7 +31,6 @@
 		<!-- Results that have been filtered out -->
 		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
 			<h2 class="text-center">Results</h2>
-			<p ng-bind-html="vm.resultInfo" ng-if="vm.resultInfo"></p>
 			<div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vm.users">
 
 				<div class="col-md-2">

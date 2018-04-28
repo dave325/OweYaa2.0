@@ -69,6 +69,7 @@
                 m.result.then(
                 function(data){
                     User.setUser(data);
+                    vm.user = data;
                     console.log(data);
                 },
                 function(data){

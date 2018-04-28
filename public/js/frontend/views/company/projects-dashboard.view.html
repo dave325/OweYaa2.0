@@ -39,7 +39,7 @@
           {{vm.projectTitle}}
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
-        <p> Manager: {{}} </p>
+        <p> Manager: {{vm.managerName}} </p>
         <p> Location {{}} </p>
 
         <h5 id="proj-description">
@@ -72,12 +72,12 @@
               <th>
                 <u>
                   <strong>name</strong>
-                </u>
+                </u>ca
               </th>
               <th>
                 <u>
                   <strong>Email</strong>
-                </u>
+                </u>nd
               </th>
               <th>
                 <u>
@@ -86,10 +86,10 @@
               </th>
             </tr>
 
-            <tr ng-repeat="intern in vm.interns">
-              <td>{{intern.username}}</td>
-              <td>{{intern.username}}</td>
-              <td>{{intern.username}}</td>
+            <tr ng-repeat="candidate in vm.candidates">
+              <td>{{candidate.firstName}} + " " + {{candidate.lastName}}</td>
+              <td>{{candidate.hours}}</td>
+              <td>{{candidate.email}}</td>
             </tr>
 
 

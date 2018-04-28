@@ -46,7 +46,7 @@
 
     vm.filterUsers = function () {
       let user = [];
-      if (vm.test.length === 0) {
+      if (vm.test == undefined || vm.test.length === 0) {
         vm.users = vm.copyUsers;
       } else {
         // Loop through every user in database

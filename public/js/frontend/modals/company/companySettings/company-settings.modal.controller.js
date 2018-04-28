@@ -23,7 +23,8 @@
                 console.log(response);
                 compSet.close(compSet.user);
             },function(error){
-                console.log(error);
+                console.error(error);
+                compSet.dismiss();
             });
         }
 

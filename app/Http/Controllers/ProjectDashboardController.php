@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ProjectDashboardController extends Controller
 {
     //Mass update function, every modal calls this.
-    function editProjectDescription(Request $request) {
+    function updateAll(Request $request) {
         $id = $request->input('id');
         $description = $request->input('description');
         $title = $request->input('title');
@@ -29,6 +29,7 @@ class ProjectDashboardController extends Controller
 
     function getProjects(Request $request) {
        
+
         if($this->isValid())
         {
 

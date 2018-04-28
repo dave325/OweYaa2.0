@@ -36,14 +36,14 @@
     <div class="col-md-7">
       <div class="well col-md-12" id="proj-description-pane">
         <h3 class="title">
-          {{vm.projects.info.title}}
+          {{vm.projectTitle}}
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
-        <p> Manager: {{vm.projects.managerInfo.managername}} </p>
-        <p> Location {{vm.projects.info.location}} </p>
+        <p> Manager: {{}} </p>
+        <p> Location {{}} </p>
 
         <h5 id="proj-description">
-          Description: {{vm.projects.projdescription}}
+          Description: {{vm.projectDescription}}
         </h5>
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">

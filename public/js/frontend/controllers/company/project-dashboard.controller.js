@@ -10,6 +10,8 @@
 
         vm.currentProjID = "dave111";
 
+        var allProjects;
+
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
@@ -18,64 +20,27 @@
         var projects = (User.getProjectDashboardProjects({username:vm.user.company_info.username})).then(
             function success(response)
             {
-                console.log("PROJECTS" + response.data );
+                allProjects = response.data; 
+                vm.projectDescription = allProjects[0].info.projdescription;
+                vm.projectTitle = allProjects[0].info.title;
+                vm.projectManager = allProjects[0].managerInfo.managerName;
+
+                console.log(allProjects);
+
             },
             function fail(){
-                console.log("failed");
+                console.log("Failed on retrieve projects");
             }
         );
-
-       
-        
-        /*
-        $http({
-            method: 'POST',
-            url: '/api/projDash/getProjects',
-            data: {id:vm.currentProjID}
-        })
-        .then(
-        function success(response) {
-           vm.projects = response.data[0];
-           console.log(response.data[0]);
-        },
-        function fail(data) {
-           return "ERROR on project retrieve";
-        });
-        
-             function intern(name, email, hours) {
-            return {
-                name: name,
-                email: email,
-                hours: hours,
-            }
-        }
-
-        function milestone(description, completiondate, isCompleted) {
-            return {
-                description: description,
-                completionDate: completiondate,
-                isCompleted: isCompleted
-            }
-
-        }
-        
-        */
-
-
-        
-       
+  
         vm.postNewDescription = function (title,description) {
-         
             var req = {
                 method: 'POST',
                 url: '/api/projDash/editDescription',
                 data: {description:description, id:vm.currentProjID,title:title}
             }
-
             $http(req).then(function(){console.log()},
             function(){});
-            
-
         }
 
         vm.editDescription = function () {
@@ -83,26 +48,19 @@
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     
-                    $scope.projectTitle = vm.projectTitle;
-                    $scope.projectDescription=vm.projectDescription;
+                    $scope.projectTitle = "parojpaerija";
+                    $scope.projectDescription="taosduhasoudhaisudhasiuh";
+
                     $scope.ok = function () {
-
-                         vm.projectTitle = $scope.projectTitle;
-                         vm.projectDescription = $scope.projectDescription;
-                         vm.postNewDescription(vm.projectTitle,vm.projectDescription);
-
+                        vm.postNewDescription(vm.projectTitle,vm.projectDescription);
                         $uibModalInstance.close();
                     };
-
-                   
-
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
                     };
                 },
                 windowClass: winClass
             });
-
         }
   
 
@@ -177,3 +135,5 @@
     angular.module('oweyaa')
         .controller('projectDashboardCtrl', projectDashboardCtrl);
 })();
+
+

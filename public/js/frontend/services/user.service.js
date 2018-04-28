@@ -113,8 +113,20 @@
           }
         })
       },
-
-
+      updateAllProjectDash: function (data) {
+        if (Authentication.getToken() == null) {
+          return;
+        }
+        return $http({
+          url: "/api/projDash/updateAll",
+          method: 'POST',
+          data: data,
+          headers: {
+            "Authorization": "Bearer " + Authentication.getToken()
+          }
+        })
+      },
+      
       getFavUsers: function (user) {
         if (Authentication.getToken() == null) {
           return;

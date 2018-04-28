@@ -7,7 +7,7 @@
 
         var compSet = this;
 
-        compSet.user = CurrUser;
+        compSet.user = User.getUser();
 
         // The function that is call when a user cancels the opening of a modal
         compSet.cancel = function () {

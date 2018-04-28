@@ -72,12 +72,12 @@
               <th>
                 <u>
                   <strong>name</strong>
-                </u>ca
+                </u>
               </th>
               <th>
                 <u>
                   <strong>Email</strong>
-                </u>nd
+                </u>
               </th>
               <th>
                 <u>
@@ -87,7 +87,7 @@
             </tr>
 
             <tr ng-repeat="candidate in vm.candidates">
-              <td>{{candidate.firstName}} + " " + {{candidate.lastName}}</td>
+              <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
               <td>{{candidate.hours}}</td>
               <td>{{candidate.email}}</td>
             </tr>

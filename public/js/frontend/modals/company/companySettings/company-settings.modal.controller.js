@@ -24,7 +24,7 @@
                 compSet.close(compSet.user);
             },function(error){
                 console.error(error);
-                compSet.dismiss();
+                compSet.cancel();
             });
         }
 

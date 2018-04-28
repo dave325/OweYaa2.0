@@ -68,6 +68,7 @@
     
                 m.result.then(
                 function(data){
+                    User.setUser(data);
                     console.log(data);
                 },
                 function(data){

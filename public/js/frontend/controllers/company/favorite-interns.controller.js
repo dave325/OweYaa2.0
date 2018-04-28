@@ -21,7 +21,7 @@
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         console.log(response);
-        vm.users = response.data.projects;
+        vm.users = response.data.projects[0];
         vm.copyUsers = vm.users.slice();
       }, function (data) {
         console.log(data);
@@ -52,9 +52,9 @@
         // Loop through every user in database
         for (let i = 0; i < vm.users.length; i++) {
           // Loop through individual skills
-          for (let j = 0; j < vm.users[i].skill.length; j++) {
+          for (let j = 0; j < vm.users[i].user.skill.length; j++) {
             // Check if the skill exists in current user
-            if (vm.users[i].skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
+            if (vm.users[i].user.skill[j].skill.toLowerCase() === vm.test.toLowerCase()) {
               // Add user to temp array
               user.push(vm.users[i]);
               break;

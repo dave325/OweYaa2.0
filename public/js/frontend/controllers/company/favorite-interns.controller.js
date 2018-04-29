@@ -33,16 +33,16 @@
         favid: user.favid
       }
       User.removeFavUser(id).then(function (response) {
-        console.log(response);
         vm.resultInfo = "Successfully deleted user!";
         $timeout(function () {
-          vm.resultInfo = '';
+          vm.resultInfo = null;
           getUser();
-        }, 500);
+        }, 1000);
       }, function (error) {
         console.log(error);
       });
     }
+
     // Filter user function
     vm.filterUsers = function () {
       let user = [];
@@ -61,11 +61,13 @@
             }
           }
         }
+        // If user with skill is not found, then return nothing.  
         if(user.length === 0){
           vm.users = [];
           vm.resultInfo = "No interns match that criteria";
         }
-        else if(vm.users.length === 0 || vm.test.length === 0){
+        // If the length of currenct array is empty and the input field is empty return every user
+        else if(vm.test.length === 0){
           vm.users = vm.copyUsers;
           vm.resultInfo = null;
         }else{

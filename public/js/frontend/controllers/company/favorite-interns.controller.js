@@ -17,7 +17,7 @@
         img: "assets/images/test.jpeg"
       }
     }
-
+    // Retrieve current user
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         console.log(response);

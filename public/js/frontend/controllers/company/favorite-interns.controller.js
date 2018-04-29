@@ -56,7 +56,7 @@
             // Check if the skill exists in current user
             if (vm.users[i].copyUsers.skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase()) > -1) {
               // Add user to temp array
-              user.push(vm.users[i]);
+              user.push(vm.copyUsers[i]);
               break;
             }
           }

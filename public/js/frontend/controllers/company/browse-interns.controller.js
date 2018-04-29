@@ -35,7 +35,7 @@
                 console.log(response.data.projects);
                 for (let j = 0; j < vm.users.length - 1; j++) {
                     for (let i = 0; i < response.data.projects.length -1; i++) {
-                        if(vm.users[j].contact_info.username != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){
+                        if(vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){
                             console.log(true);
                             vm.users[j].isFav = true;
                         }

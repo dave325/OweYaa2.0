@@ -43,7 +43,7 @@
         console.log(error);
       });
     }
-
+    // Filter user function
     vm.filterUsers = function () {
       let user = [];
       if (vm.test == undefined || vm.test.length === 0) {

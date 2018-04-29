@@ -31,8 +31,8 @@
             method: 'POST'
         }).then(function (response) {
             vm.users = response.data.user;
-            console.log(vm.users);
             User.getFavUsers(vm.user).then(function (response) {
+                console.log(response.data.projects);
                 for (let j = 0; j < vm.users.length; j++) {
                     for (let i = 0; i < response.data.projects.length; i++) {
                         if(vm.users[i].contact_info.username === response.data.projects[i].user.contact_info.username){

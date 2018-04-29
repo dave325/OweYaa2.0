@@ -32,7 +32,7 @@
         }).then(function (response) {
             vm.users = response.data.user;
             User.getFavUsers(vm.user).then(function (response) {
-                console.log(removeEventListener.users);
+                console.log(vm.users);
                 for (let j = 0; j < vm.users.length - 1; j++) {
                     for (let i = 0; i < response.data.projects.length -1; i++) {
                         if(vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){

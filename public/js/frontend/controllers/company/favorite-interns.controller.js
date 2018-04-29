@@ -62,6 +62,7 @@
           }
         }
         if(user.length === 0){
+          vm.users = null;
           vm.resultInfo = "No interns match that criteria";
         }
         else if(vm.users.length === 0 || vm.test.length === 0){

@@ -16,6 +16,26 @@
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
 
+        function reloadPageNewID(id)
+        {
+            allProjects.forEach(function f(ele)
+            {
+               if(ele.id == id)
+               {
+                   indexOf = array.indexOf(ele);
+                   
+                   vm.projectDescription = allProjects[indexOf].info.projdescription;
+                   vm.projectTitle = allProjects[indexOf].info.title;
+                   vm.projectManager = allProjects[indexOf].managerInfo.managername;
+                   vm.candidates = allProjects[indexOf].candidates;
+                   vm.milestones = allProjects[indexOf].milestones;
+
+                   return;
+               } 
+            });
+
+        }
+
         const winClass = "col-xs-12 col-md-8 col-md-offset-2";   
         var projects = (User.getProjectDashboardProjects({username:vm.user.company_info.username})).then(
             function success(response)
@@ -25,9 +45,16 @@
                 vm.projectTitle = allProjects[0].info.title;
                 vm.projectManager = allProjects[0].managerInfo.managername;
                 vm.candidates = allProjects[0].candidates;
+                vm.milestones = allProjects[0].milestones;
+
+
+                vm.titles = [];
+                allProjects.forEach(function f(ele)
+                {
+                    vm.titles.push({title:ele.info.title,id:ele.id});
+                });
                 
-                console.log(vm.candidates);
-                console.log(allProjects);
+                console.log(vm.titles);
 
             },
             function fail(){

@@ -46,6 +46,10 @@
     // Filter user function
     vm.filterUsers = function () {
       let user = [];
+      if(vm.copyUsers.length === null){
+        vm.resultInfo = "No interns are currectly selected";
+        return;
+      }
       if (vm.test == undefined || vm.test.length === 0) {
         vm.users = vm.copyUsers;
       } else {

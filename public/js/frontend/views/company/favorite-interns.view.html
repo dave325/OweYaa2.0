@@ -1,6 +1,8 @@
 <section id="fav-interns">
 	<navbar content="navbarvm.activeNav"></navbar>
-	<p ng-bind-html="vm.resultInfo" ng-if="vm.resultInfo.length == 0" class="nav-message"></p>
+	<div ng-if="vm.resultInfo" class='alert alert-info col-xs-12 nav-message' role="alert">
+		<h3 class="text-center">{{vm.resultInfo}}</h3>
+	</div>
 	<!-- Filter User Input and Output Result -->
 	<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<h1 class="text-center">Favorite Candidate</h1>

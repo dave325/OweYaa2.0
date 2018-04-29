@@ -8,10 +8,10 @@
     <div class="col-md-3 sidenav col-md-offset-1 well">
       <h2 class="title"> Projects </h2>
       </h2>
-      <ul ng-repeat="project in vm.projects" class="nav nav-pills nav-stacked">
-        <li>
+      <ul ng-repeat="title in vm.titles" class="nav nav-pills nav-stacked">
+        <li ng-click="vm.reloadPageNewID(title.id)">
           <a href="#section2">
-            <strong>{{project.title}}</strong>
+            <strong>{{title.title}}</strong>
           </a>
         </li>
       </ul>
@@ -41,10 +41,8 @@
         </h3>
         <p> Manager: {{vm.managerName}} </p>
         <p> Location {{}} </p>
-
         <h5 id="proj-description">
           Description: {{vm.projectDescription}}
-          HEROKUUU
         </h5>
 
          <ol ng-if="vm.projects.skills.length > 0" class="skillsModal col-md-6">

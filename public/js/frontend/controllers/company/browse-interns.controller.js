@@ -38,6 +38,8 @@
                         if(vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){
                             console.log(true);
                             vm.users[j].isFav = true;
+                        }else{
+                            vm.users[j].isFav = false;
                         }
                     }
                 }
@@ -98,6 +100,9 @@
             }, function (error) {
                 console.log(error);
             });
+        }
+        vm.isFav = function(user){
+            return !user.isFav;
         }
     }
     angular.module('oweyaa')

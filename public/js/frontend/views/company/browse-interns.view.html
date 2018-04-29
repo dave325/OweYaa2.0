@@ -35,7 +35,7 @@
 					<h4 class="specialText">CANDIDATE NAME</h4>
 
 					<button type="button" class="btn btn-info">WANT</button>
-					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="!user.isFav">FAV</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="vm.isFav(user)">FAV</button>
 
 				</div>
 				<div class="col-md-4">

@@ -816,7 +816,7 @@ Black - 41, 44, 47
 */
 .footer-distributed{
 	background-color: rgb(236,236,236);
-	border-top:1px solid #000;
+	border-top:2px solid #000;
 	font-size:16px;
 	padding: 70px 50px;
 	margin:30px 0px 0px 0px;

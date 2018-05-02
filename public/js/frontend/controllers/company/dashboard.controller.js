@@ -57,7 +57,7 @@
         vm.openModal = function (modal) {
             if (User.getUser()) {
                 let url, ctrl;
-                if(modal == 'stats'){
+                if(modal === 'stats'){
                     let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
                     let ctrl = 'companySettingsStatsModalCtrl';
                 }else{

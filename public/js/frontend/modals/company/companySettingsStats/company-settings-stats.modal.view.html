@@ -1,0 +1,45 @@
+<span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="compSet.cancel()"></span>
+<div id="contactModal">
+    <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
+    <form novalidate method="post" name="contact" ng-submit="submit()">
+        <fieldset>
+            <legend>Update Information</legend>
+            <div class="row col-xs-12">
+
+                <div class="form-group">
+                    <label form="contact" for="employee"> Employee: </label>
+                    <input ng-model="compSet.user.company_info.employee" type="text" class="form-control" name="employee" />
+                </div>
+                <!-- End of class form-group -->
+
+                <!-- Ask company to input annual revenue -->
+                <div class="form-group">
+                    <label form="contact" for="revenue">Annual Revenue: </label>
+                    <input ng-model="compSet.user.company_info.revenue" type="text" class="form-control" name="revenue" />
+                </div>
+                <!-- End of class form-group -->
+
+                <!-- Ask company to input number of employees -->
+                <div class="form-group">
+                    <label form="contact" for="numofcompanies">Number of Companies: </label>
+                    <input ng-model="compSet.user.company_info.numofcompanies" type="text" class="form-control" name="numofcompanies" />
+                </div>
+                <!-- End of class form-group -->
+
+            </div>
+            <!-- End of class row col-xs-12 -->
+        </fieldset>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center form-group">
+                    <input ng-click="compSet.cancel()" class="btn btn-warning" type="button" value="Cancel" />
+                    <input ng-click="compSet.onSubmit('compSet',compSet.user)" class="btn btn-info" type="button" value="Save" />
+                </div>
+                <!-- End of class text-center form-group -->
+            </div>
+            <!-- End of class col-xs-12 -->
+        </div>
+        <!-- End of class row -->
+    </form>
+</div>
+<!-- End of id contactModal -->

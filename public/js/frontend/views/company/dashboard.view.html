@@ -1,90 +1,87 @@
 <section id="comp-dash">
 
 	<navbar content="{{navbarvm.activeNav}}"></navbar>
-	<!-- Content -->
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<h2 class="text-center" id="comp-name">{{vm.user.company_info.username}} Dashboard</h2>
-			<br>
-		</div>
-		<!-- End of class col-md-8 -->
-	</div>
-	<!-- End of class row -->
+	<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<!-- Content -->
+		<h2 class="text-center" id="comp-name">{{vm.user.company_info.username}} Dashboard</h2>
 
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
-			<div ng-repeat="project in vm.projects" class="col-md-3 col-sm-6 col-xs-12 text-center">
-				<p>{{project.text}}</p>
-				<img src="{{project.img}}" height="121px">
-				<p>{{project.detail}}</p>
-				<p>{{project.amount}}</p>
-			</div>
-			<!-- End of ng-repeat project in vm.projects -->
-		</div>
-		<!-- End of class col-md-10 box gap -->
-	</div>
-	<!-- End of class row -->
+		<!-- End of class row -->
 
-	<div id="company" class="col-xs-12 col-md-6">
-		<h2 class="col-xs-12 bg-primary">
-			Company Info
-			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
-		</h2>
-		<div ng-if="vm.user.company_info.name">
-			<p>Name: {{vm.user.company_info.name}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.pointofcontact">
-			<p>Point of Context: {{vm.user.company_info.pointofcontact}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.industry">
-			<p>Industry: {{vm.user.company_info.industry}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.location">
-			<p>Location: {{vm.user.company_info.location}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.phonenumber">
-			<p>Phone Number: {{vm.user.company_info.phonenumber}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.email">
-			<p>Email: {{vm.user.company_info.email}}</p>
-		</div>
-		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
-	</div>
-	<!-- End of describe Yourself div-->
-
-	<div id="stats" class="col-xs-12 col-md-6">
-		<h2 class="col-xs-12 bg-primary">
-			Stats
-			<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
-		</h2>
-		<div ng-if="vm.user.company_info.employees">
-			<p>Employees: {{vm.user.company_info.employees}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.annualrevenue">
-			<p>Annual Revenue: {{vm.user.company_info.annualrevenue}}</p>
-		</div>
-		<div ng-if="vm.user.company_info.numofcompanies">
-			<p>Number of Companies: {{vm.user.company_info.numofcompanies}}</p>
-		</div>
-		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
-	</div>
-	<!-- End of describe Yourself div-->
-
-	<div class="row">
-		<div class="col-xs-12 box gap">
-			<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
-				<h3 class="text-center">{{type.title}}</h3>
-				<div ng-if="type.project.length > 0" class="text-center">
-					<p>Project Manager: {{type.project.projectmanager}}</p>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
+				<div ng-repeat="project in vm.projects" class="col-md-3 col-sm-6 col-xs-12 text-center">
+					<p>{{project.text}}</p>
+					<img src="{{project.img}}" height="121px">
+					<p>{{project.detail}}</p>
+					<p>{{project.amount}}</p>
 				</div>
-				<!-- End of ng-if type.project.length > 0 -->
-				<p ng-if="type.project.length == 0" class="text-center">No projects in {{type.title}}!</p>
+				<!-- End of ng-repeat project in vm.projects -->
 			</div>
-			<!-- End of ng-repeat type in vm.projectTypes -->
+			<!-- End of class col-md-10 box gap -->
 		</div>
-		<!-- End of class col-md-10 box gap -->
+		<!-- End of class row -->
+
+		<div id="company" class="col-xs-12 col-md-6">
+			<h2 class="col-xs-12 bg-primary">
+				Company Info
+				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
+			</h2>
+			<div ng-if="vm.user.company_info.name">
+				<p>Name: {{vm.user.company_info.name}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.pointofcontact">
+				<p>Point of Context: {{vm.user.company_info.pointofcontact}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.industry">
+				<p>Industry: {{vm.user.company_info.industry}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.location">
+				<p>Location: {{vm.user.company_info.location}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.phonenumber">
+				<p>Phone Number: {{vm.user.company_info.phonenumber}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.email">
+				<p>Email: {{vm.user.company_info.email}}</p>
+			</div>
+			<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
+		</div>
+		<!-- End of describe Yourself div-->
+
+		<div id="stats" class="col-xs-12 col-md-6">
+			<h2 class="col-xs-12 bg-primary">
+				Stats
+				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal()"></span>
+			</h2>
+			<div ng-if="vm.user.company_info.employees">
+				<p>Employees: {{vm.user.company_info.employees}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.annualrevenue">
+				<p>Annual Revenue: {{vm.user.company_info.annualrevenue}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.numofcompanies">
+				<p>Number of Companies: {{vm.user.company_info.numofcompanies}}</p>
+			</div>
+			<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
+		</div>
+		<!-- End of describe Yourself div-->
+
+		<div class="row">
+			<div class="col-xs-12 box gap">
+				<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
+					<h3 class="text-center">{{type.title}}</h3>
+					<div ng-if="type.project.length > 0" class="text-center">
+						<p>Project Manager: {{type.project.projectmanager}}</p>
+					</div>
+					<!-- End of ng-if type.project.length > 0 -->
+					<p ng-if="type.project.length == 0" class="text-center">No projects in {{type.title}}!</p>
+				</div>
+				<!-- End of ng-repeat type in vm.projectTypes -->
+			</div>
+			<!-- End of class col-md-10 box gap -->
+		</div>
+		<!-- End of class row -->
 	</div>
-	<!-- End of class row -->
 	<footer-base></footer-base>
 </section>
 <!-- End of id comp-dash -->

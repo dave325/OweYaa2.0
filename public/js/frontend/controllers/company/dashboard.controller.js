@@ -54,11 +54,19 @@
             }
         }
 
-        vm.openModal = function () {
+        vm.openModal = function (modal) {
             if (User.getUser()) {
+                let url, ctrl;
+                if(modal == 'stats'){
+                    let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
+                    let ctrl = 'companySettingsStatsModalCtrl';
+                }else{
+                    let url ='/js/frontend/modals/company/companySettingsInfo/company-settings.modal.view.html'
+                    let ctrl = 'companySettingsModalCtrl'
+                }
                 var m = $uibModal.open({                       
-                    templateUrl: '/js/frontend/modals/company/companySettings/company-settings.modal.view.html',
-                    controller: 'companySettingsModalCtrl',
+                    templateUrl: url,
+                    controller: ctrl,
                     controllerAs: 'compSet',
                     windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
                     resolve: {

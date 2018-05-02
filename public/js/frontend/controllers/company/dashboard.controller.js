@@ -57,22 +57,32 @@
         vm.openModal = function (modal) {
             if (User.getUser()) {
                 let url, ctrl;
+                console.log(modal);
                 if(modal === 'stats'){
                     let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
                     let ctrl = 'companySettingsStatsModalCtrl';
+                    var m = $uibModal.open({                       
+                        templateUrl: url,
+                        controller: ctrl,
+                        controllerAs: 'compSet',
+                        windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+                        resolve: {
+                            CurrUser: vm.user
+                        }
+                    });
                 }else{
                     let url ='/js/frontend/modals/company/companySettingsInfo/company-settings.modal.view.html'
                     let ctrl = 'companySettingsModalCtrl'
+                    var m = $uibModal.open({                       
+                        templateUrl: url,
+                        controller: ctrl,
+                        controllerAs: 'compSet',
+                        windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+                        resolve: {
+                            CurrUser: vm.user
+                        }
+                    });
                 }
-                var m = $uibModal.open({                       
-                    templateUrl: url,
-                    controller: ctrl,
-                    controllerAs: 'compSet',
-                    windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
-                    resolve: {
-                        CurrUser: vm.user
-                    }
-                });
     
                 m.result.then(
                 function(data){

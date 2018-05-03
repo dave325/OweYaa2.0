@@ -536,6 +536,11 @@ Section 6.1: company dashboard
 #compDashProjInfo{
 	margin-top:20px;
 }
+
+#addProjBtn{
+	margin-bottom:10px;
+}
+
 #describeYourself{
 	background-color:rgb(211, 211, 211);
 }

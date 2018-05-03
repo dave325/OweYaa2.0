@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3 class="modal-title comp-name text-center"> Edit Candidate Hours</h3>
+</div>
+<!-- End of modal-header -->
+
+<div class="modal-body" id="proj-dashboard-Milestones">
+
+    <div ng-repeat="intern in interns">
+
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{intern.name}}</p>
+            </div>
+
+            <div class="col-md-4">
+                <form>
+                    Total Hours:
+                    <input type="number"min="0" ng-model="intern.hours">
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="modal-footer">
+
+    <input class="btn btn-warning" type="button" ng-click="ok()" value="Cancel"/>
+    <input class="btn btn-info" type="button" ng-click="cancel()" value="Save"/>
+
+</div>
+<!-- End of class modal-footer -->

@@ -1,0 +1,121 @@
+<div class="modal-header">
+        <h3 class="modal-title comp-name text-center"> Edit Project Description</h3>
+    </div>
+    
+    <div class="modal-body">
+    
+        <div class="form-group">
+            <label for="projectTitle">Project Title</label>
+            <input type="text" class="form-control" ng-model="curProj.projectTitle">
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group">
+            <label for="projectDescription">Project Description</label>
+            <textarea class="form-control" ng-model="curProj.projectDescription"> </textarea>
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group">
+            <!-- Tie in using the controller -->
+            <label for="jobtype">Job type</label>
+            <select ng-model="curProj.info.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
+                <option value="job">Job</option>
+                <option value="internship">Internship</option>
+                <option value="project">project</option>
+            </select>
+        </div>
+        <!-- End of job type div -->
+        <div class="form-group" ng-if="curProj.jobtype === 'job'">
+            <!-- Tie in using the controller -->
+            <label for="istemp">Is this job temporary or permanent?</label>
+            <select type="text" name="comp-istemp" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.istemp" ng-init="curProj.info.istemp">
+                <option value="1"> Temporary </option>
+                <option value="0"> Permanent </option>
+            </select>
+        </div>
+        <!-- End of job permanent question -->
+        <!-- Display list of areas of interest -->
+        <div class="form-group">
+            <!-- Tie into controller fully -->
+            <h4>Career Focus Area:</h4>
+            <label for="position">What position are you hiring for?</label>
+            <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.position">
+                <option ng-repeat="obj in careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == curProj.info.position">{{obj}}</option>
+            </select>
+            <p ng-if="curProj.info.position">Please select a specific area in {{curProj.info.position}}.</p>
+            <br />
+            <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'designer'">
+                <option value="Graphic Designer"> Graphic Designer </option>
+                <option value="UX Designer"> UX Designer </option>
+                <option value="Interior Designer"> Interior Designer </option>
+                <option value="Fashion Designer"> Fashion Designer </option>
+            </select>
+            <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'developer'">
+                <option value="Frontend"> Frontend Developer</option>
+                <option value="Backend"> Software Developer </option>
+                <option value="Full stack"> Full stack Developer</option>
+                <option value="App developer"> App developer Developer</option>
+            </select>
+            <select type="text" name="Communication" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'marketing'">
+                <option value="Technical Writing"> Technical Writing </option>
+                <option value="Advertising"> Advertising </option>
+                <option value="Foreign Relations"> Foreign Relations </option>
+                <option value="Journalism"> Journalism </option>
+            </select>
+            <select type="text" name="Sales" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'sales'">
+                <option value="Sales Representative"> Sales Representative </option>
+                <option value="Store Manager"> Store Manager </option>
+                <option value="Retail Sales Consultant"> Retail Sales Consultant </option>
+                <option value="Account Executive"> Account Executive </option>
+            </select>
+            <select type="text" name="HR" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'human resource'">
+                <option value="Chief Happiness Officer"> Chief Happiness Officer </option>
+                <option value="Contract Recruiter"> Contract Recruiter </option>
+                <option value="Compensation Analyst"> Compensation Analyst </option>
+                <option value="Client Facing Human Resources Specialist"> Client Facing Human Resources Specialist </option>
+            </select>
+        </div>
+        <!-- End of clas form-group -->
+        <div class="form-group">
+            <!-- Tie into controller -->
+            <label for="componsite">Is the project remote?</label>
+            <select name="componsite" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.isremote" required id="componsite"
+                ng-init="curProj.info.isremote">
+                <option value="true">No</option>
+                <option value="false">Yes</option>
+            </select>
+        </div>
+        <!-- End of isremote question -->
+        <div class="form-group">
+            <label for="totalinternHours">How many hours will the candidate be working in total?</label>
+            <input type="number" ng-model="curProj.info.totalinternhours" name="totalinternHours" id="totalinternHours" min="0">
+        </div>
+        <!-- End of total intern hours-->
+        <div class="row">
+            <label class="col-md-1">Skill:</label>
+            <input type="text" ng-model="curProj.newSkill.skill" class="col-md-3" minlength="1" required="required" name="newSkillSkill"
+            />
+            <label class="col-md-2">Rating(1-5): </label>
+            <input type="number" max="5" min="1" required="required" ng-model="curProj.newSkill.amount" name="newSkillAmount" class="col-md-2"
+            />
+            <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid"
+                type="button" ng-click="skillvm.addToSkills()" class="btn col-md-1 col-md-offset-1">Add</button>
+        </div>
+        <br />
+        <!-- End of class row -->
+        <ol ng-if="curProj..skills.length > 0">
+            <li ng-repeat="field in curProj.skills track by $index" class="col-xs-12 col-md-5" ng-if="!field.delete">
+                <input type="text" ng-model="field.skill" class="col-xs-12 col-md-7">
+                <input type="number" ng-model="field.amount" class="col-xs-12 col-md-4 col-md-offset-1" max="5" min="1">
+                <p ng-model="field.skillsid"></p>
+                <span class="glyphicon glyphicon-remove" ng-click="skillvm.deleteSkill($index)"></span>
+            </li>
+        </ol>
+    
+    </div>
+    <!-- End of classs modal-body -->
+    
+    <div class="modal-footer">
+        <input class="btn btn-warning" type="button" ng-click="cancel()" value="Close" />
+        <input class="btn btn-info" type="button" ng-click="ok()" value="Save" />
+    </div>
+    <!-- End of class modal-footer -->

@@ -96,7 +96,6 @@
                 },
                 windowClass: winClass
             });
-            modal.result()
         }
 
         vm.editManagerInfo = function () {
@@ -115,7 +114,6 @@
                 },
                 windowClass: winClass
             });
-            modal.result()
         }
 
         vm.editInternHours = function (interns) {

@@ -20,8 +20,8 @@
 			<!-- End of class col-md-10 box gap -->
 		</div>
 		<!-- End of class row -->
-		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info text-center"> Add Project</a>
-		<div id="company" class="col-xs-12 col-md-6">
+		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info col-xs-12 col-md-8 col-md-offset-2"> Add Project</a>
+		<div id="company" class="col-xs-12 col-md-6 compDashPanel">
 			<h2 class="col-xs-12 bg-primary">
 				Company Info
 				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal('info')"></span>
@@ -47,7 +47,7 @@
 		</div>
 		<!-- End of describe Yourself div-->
 
-		<div id="stats" class="col-xs-12 col-md-6">
+		<div id="stats" class="col-xs-12 col-md-6 compDashPanel">
 			<h2 class="col-xs-12 bg-primary">
 				Stats
 				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal('stats')"></span>

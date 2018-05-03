@@ -41,6 +41,8 @@
         <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.position">
             <option ng-repeat="obj in careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == curProj.info.position">{{obj}}</option>
         </select>
+    </div>
+    <div class="form-group">
         <p ng-if="curProj.info.position">Please select a specific area in {{curProj.info.position}}.</p>
         <br />
         <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'designer'">

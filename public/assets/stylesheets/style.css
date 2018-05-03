@@ -543,7 +543,7 @@ Section 6.1: company dashboard
 .compDashPanel{
 	background-color:rgb(255, 255, 255);
 }
-compDashPanel:first-child{
+compDashPanel:first-of-type{
 	border-right:1px solid rgb(0,0,0);
 
 }

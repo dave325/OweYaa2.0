@@ -433,13 +433,13 @@ Section 5.2.1: Modal Input styles
 	margin:5px 10px 5px 0px !important;
 }
 
-.form-group input{
+.form-group .form-control{
 	background-color:rgb(211,211,211);
 	border:1px solid rgb(247,159,75);
 	font-size:1em;
 }
 
-.form-group input:hover, .form-group input:focus{
+.form-group .form-control:hover, .form-group .form-control:focus{
 	background-color:rgb(247,159,75);
 	border:1px solid rgb(211,211,211);
 }

@@ -32,7 +32,6 @@
         }).then(function (response) {
             vm.users = response.data.user;
             User.getFavUsers(vm.user).then(function (response) {
-                console.log(vm.users);
                 for (let j = 0; j < vm.users.length - 1; j++) {
                     for (let i = 0; i < response.data.projects.length -1; i++) {
                         if(vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){
@@ -59,7 +58,6 @@
           vm.resultInfo = "No interns are currectly selected";
           return;
         }
-        console.log(vm.copyUsers);
         if (vm.test == undefined || vm.test.length === 0) {
           vm.users = vm.copyUsers;
         } else {

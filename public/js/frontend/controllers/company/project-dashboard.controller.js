@@ -76,7 +76,7 @@
                 controller: function ($scope, $uibModalInstance) {
 
                     $scope.proj = vm.curProj;
-                    console.log($scop3.proj);
+                    console.log($scope.proj);
                     $scope.ok = function () {
                         vm.postNewDescription(vm.projectTitle, vm.projectDescription);
                         $uibModalInstance.close();

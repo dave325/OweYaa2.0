@@ -52,14 +52,11 @@
 				Stats
 				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal('stats')"></span>
 			</h2>
-			<div ng-if="vm.user.company_info.employees">
-				<p>Employees: {{vm.user.company_info.employees}}</p>
+			<div ng-if="vm.user.company_info.numofemployees">
+				<p>Employees: {{vm.user.company_info.numofemployees}}</p>
 			</div>
-			<div ng-if="vm.user.company_info.annualrevenue">
-				<p>Annual Revenue: {{vm.user.company_info.annualrevenue}}</p>
-			</div>
-			<div ng-if="vm.user.company_info.numofcompanies">
-				<p>Number of Companies: {{vm.user.company_info.numofcompanies}}</p>
+			<div ng-if="vm.user.company_info.revenue">
+				<p>Annual Revenue: {{vm.user.company_info.revenue}}</p>
 			</div>
 		</div>
 		<!-- End of describe Yourself div-->

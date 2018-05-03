@@ -80,19 +80,13 @@
             <thead>
               <tr>
                 <th>
-                  <td>
-                    <strong>name</strong>
-                  </td>
+                  <strong>name</strong>
                 </th>
                 <th>
-                  <td>
-                    <strong>Email</strong>
-                  </td>
+                  <strong>Email</strong>
                 </th>
                 <th>
-                  <td>
-                    <strong>Hours</strong>
-                    </ud>
+                  <strong>Hours</strong>
                 </th>
               </tr>
             </thead>
@@ -122,7 +116,7 @@
         <div ng-repeat="milestone in vm.curProj.milestones">
           <div class="stat">
             <p class="task">{{milestone.milestone}}
-              <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
+              <span class="completionDate">Completion Date{{milestone.completionDate}}</span><br />
               Is Completed?
               <span class="completionText" ng-if="milestone.completed === 0">No</span>
               <span class="completionText" ng-if="milestone.completed === 1">Yes</span>

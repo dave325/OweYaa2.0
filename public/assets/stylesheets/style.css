@@ -306,6 +306,9 @@ Section 4.1: Spacing styles
   margin-top:20px;
 }
 
+#browse-interns .container{
+	min-height:400px;
+}
 /**********
 
 Section 4.2: Form styles

@@ -86,6 +86,18 @@
                 controller: function ($scope, $uibModalInstance) {
 
                     $scope.curProj = vm.curProj;
+                    vm.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
+                    vm.jobtype = ['job', 'internship', 'project'];
+                    vm.istemp = [
+                        {
+                            name: 'Temporary',
+                            value: 0
+                        },
+                        {
+                            name: 'Permanent',
+                            value: 0
+                        }
+                    ];
                     $scope.ok = function () {
                         vm.postNewDescription(vm.projectTitle, vm.projectDescription);
                         $uibModalInstance.close();

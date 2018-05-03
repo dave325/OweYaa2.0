@@ -77,30 +77,32 @@
             <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
           </h3>
           <table style="width:100%">
-            <tr>
-              <th>
-                <u>
-                  <strong>name</strong>
-                </u>
-              </th>
-              <th>
-                <u>
-                  <strong>Email</strong>
-                </u>
-              </th>
-              <th>
-                <u>
-                  <strong>Hours</strong>
-                </u>
-              </th>
-            </tr>
-
-            <tr ng-repeat="candidate in vm.candidates">
-              <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
-              <td>{{candidate.email}}</td>
-              <td>{{candidate.hours}}</td>
-            </tr>
-
+            <thead>
+              <tr>
+                <th>
+                  <td>
+                    <strong>name</strong>
+                  </td>
+                </th>
+                <th>
+                  <td>
+                    <strong>Email</strong>
+                  </td>
+                </th>
+                <th>
+                  <td>
+                    <strong>Hours</strong>
+                    </ud>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="candidate in curProj.candidates">
+                <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
+                <td>{{candidate.email}}</td>
+                <td>{{candidate.hours}}</td>
+              </tr>
+            </tbody>
 
 
           </table>

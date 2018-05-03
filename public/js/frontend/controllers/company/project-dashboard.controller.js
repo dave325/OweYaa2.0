@@ -85,7 +85,7 @@
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
 
-                    $scope.proj = vm.curProj;
+                    $scope.curProj = vm.curProj;
                     $scope.ok = function () {
                         vm.postNewDescription(vm.projectTitle, vm.projectDescription);
                         $uibModalInstance.close();
@@ -103,7 +103,7 @@
                 templateUrl: getModalPath('project-dashboard-manager'),
                 controller: function ($scope, $uibModalInstance) {
 
-                    $scope.proj = vm.curProj;
+                    $scope.curProj = vm.curProj;
                     $scope.ok = function () {
                         httpCall('manager', $scope.proj);
                         $uibModalInstance.close();

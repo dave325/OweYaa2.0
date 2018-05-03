@@ -9,7 +9,7 @@
         vm.user = User.getUser();
 
         vm.currentProjID = "dave111";
-
+        vm.curProj = {};
         var allProjects;
 
         function getModalPath(modalName) {
@@ -23,13 +23,14 @@
                if(ele.id == id)
                {
                    indexOf = array.indexOf(ele);
-                   
+                   /*
                    vm.projectDescription = allProjects[indexOf].info.projdescription;
                    vm.projectTitle = allProjects[indexOf].info.title;
                    vm.projectManager = allProjects[indexOf].managerInfo.managername;
                    vm.candidates = allProjects[indexOf].candidates;
                    vm.milestones = allProjects[indexOf].milestones;
-
+                    */
+                   vm.curProj = allProjects[indexOf];
                    return;
                } 
             });
@@ -41,12 +42,14 @@
             function success(response)
             {
                 allProjects = response.data; 
+                /*
                 vm.projectDescription = allProjects[0].info.projdescription;
                 vm.projectTitle = allProjects[0].info.title;
                 vm.projectManager = allProjects[0].managerInfo.managername;
                 vm.candidates = allProjects[0].candidates;
                 vm.milestones = allProjects[0].milestones;
-
+                */
+               vm.curProj = allProjects[0];
 
                 vm.titles = [];
                 allProjects.forEach(function f(ele)
@@ -77,9 +80,8 @@
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     
-                    $scope.projectTitle = "parojpaerija";
-                    $scope.projectDescription="taosduhasoudhaisudhasiuh";
-
+                    $scope.proj = vm.curProj;
+                    console.log($scop3.proj);
                     $scope.ok = function () {
                         vm.postNewDescription(vm.projectTitle,vm.projectDescription);
                         $uibModalInstance.close();

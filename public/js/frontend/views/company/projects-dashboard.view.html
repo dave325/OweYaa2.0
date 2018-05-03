@@ -97,7 +97,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="candidate in curProj.candidates">
+              <tr ng-repeat="candidate in vm.curProj.candidates">
                 <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
                 <td>{{candidate.email}}</td>
                 <td>{{candidate.hours}}</td>
@@ -119,7 +119,7 @@
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
         </h3>
 
-        <div ng-repeat="milestone in curProj.milestones">
+        <div ng-repeat="milestone in vm.curProj.milestones">
           <div class="stat">
             <p class="task">{{milestone.milestone}}
               <span class="completionDate">Completion Date{{milestone.completionDate}}</span>

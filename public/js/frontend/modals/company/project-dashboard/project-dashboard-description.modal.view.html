@@ -6,12 +6,12 @@
 
     <div class="form-group">
         <label for="projectTitle">Project Title</label>
-        <input type="text" class="form-control" ng-model="curProj.info.projectTitle">
+        <input type="text" class="form-control" ng-model="curProj.info.title">
     </div>
     <!-- End of class form-group -->
     <div class="form-group">
         <label for="projectDescription">Project Description</label>
-        <textarea class="form-control" ng-model="curProj.info.projectDescription"> </textarea>
+        <textarea class="form-control" ng-model="curProj.info.projdescription"> </textarea>
     </div>
     <!-- End of class form-group -->
     <div class="form-group">
@@ -39,7 +39,7 @@
         <h4>Career Focus Area:</h4>
         <label for="position">What position are you hiring for?</label>
         <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.position">
-            <option ng-repeat="obj in vm.careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == curProj.info.position">{{obj}}</option>
+            <option ng-repeat="obj in careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == curProj.info.position">{{obj}}</option>
         </select>
         <p ng-if="curProj.info.position">Please select a specific area in {{curProj.info.position}}.</p>
         <br />

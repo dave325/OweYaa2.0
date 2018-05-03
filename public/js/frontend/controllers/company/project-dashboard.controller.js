@@ -86,7 +86,7 @@
                 controller: function ($scope, $uibModalInstance) {
 
                     $scope.curProj = vm.curProj;
-                    vm.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
+                    $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     vm.jobtype = ['job', 'internship', 'project'];
                     vm.istemp = [
                         {

@@ -20,7 +20,7 @@
 			<!-- End of class col-md-10 box gap -->
 		</div>
 		<!-- End of class row -->
-
+		<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info text-center"> Add Project</a>
 		<div id="company" class="col-xs-12 col-md-6">
 			<h2 class="col-xs-12 bg-primary">
 				Company Info
@@ -44,7 +44,6 @@
 			<div ng-if="vm.user.company_info.email">
 				<p>Email: {{vm.user.company_info.email}}</p>
 			</div>
-			<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 		</div>
 		<!-- End of describe Yourself div-->
 
@@ -62,7 +61,6 @@
 			<div ng-if="vm.user.company_info.numofcompanies">
 				<p>Number of Companies: {{vm.user.company_info.numofcompanies}}</p>
 			</div>
-			<a href="/company/{{vm.user.company_info.username}}/project-submission" class="btn btn-info"> ADD PROJECT </a>
 		</div>
 		<!-- End of describe Yourself div-->
 

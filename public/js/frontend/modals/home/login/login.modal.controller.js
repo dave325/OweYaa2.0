@@ -38,7 +38,7 @@
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
           },function(data){
-            console.log(data);
+            loginvm.formError = "Username or password does not exist.<br/> Please try again.";
             loginvm.cancel(data);
           });
         }else{

@@ -70,8 +70,18 @@
                 function () { });
         }
 
+        function httpCall(modal, data) {
+            var req = {
+                method: 'POST',
+                url: '/api/projDash/' + modal,
+                data: { data }
+            }
+            $http(req).then(function () { console.log() },
+                function () { });
+        }
+
         vm.editDescription = function () {
-            $uibModal.open({
+            var modal = $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
 
@@ -86,9 +96,27 @@
                 },
                 windowClass: winClass
             });
+            modal.result()
         }
 
+        vm.editManagerInfo = function () {
+            var modal = $uibModal.open({
+                templateUrl: getModalPath('project-dashboard-manager'),
+                controller: function ($scope, $uibModalInstance) {
 
+                    $scope.proj = vm.curProj;
+                    $scope.ok = function () {
+                        httpCall('manager', $scope.proj);
+                        $uibModalInstance.close();
+                    };
+                    $scope.cancel = function () {
+                        $uibModalInstance.dismiss('cancel');
+                    };
+                },
+                windowClass: winClass
+            });
+            modal.result()
+        }
 
         vm.editInternHours = function (interns) {
             $uibModal.open({

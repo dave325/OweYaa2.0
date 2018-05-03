@@ -6,18 +6,18 @@
 
     <div class="form-group">
         <label for="projectTitle">Project Title</label>
-        <input type="text" class="form-control" ng-model="curProj.projectTitle">
+        <input type="text" class="form-control" ng-model="curProj.info.projectTitle">
     </div>
     <!-- End of class form-group -->
     <div class="form-group">
         <label for="projectDescription">Project Description</label>
-        <textarea class="form-control" ng-model="curProj.projectDescription"> </textarea>
+        <textarea class="form-control" ng-model="curProj.info.projectDescription"> </textarea>
     </div>
     <!-- End of class form-group -->
     <div class="form-group">
         <!-- Tie in using the controller -->
         <label for="jobtype">Job type</label>
-        <select ng-model="curProj.info.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
+        <select ng-model="curProj.info.jobtype" name="jobtype" ng-init="curProj.info.jobtype">
             <option value="job">Job</option>
             <option value="internship">Internship</option>
             <option value="project">project</option>

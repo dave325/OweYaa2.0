@@ -40,18 +40,17 @@
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
 
-        <p> Manager: {{vm.managerName}} </p>
         <!-- Need location -->
         <p> Location {{}} </p>
         <p id="proj-description">
-          Description: {{vm.curProj.projDescription}}
+          Description: {{vm.curProj.info.projDescription}}
         </p>
-        <p>Focus Area: {{vm.curProj.focusarea}}</p>
-        <p>Position: {{vm.curProj.position}}</p>
-        <p>Is remote? {{vm.curProj.isremote}}</p>
-        <p>Job Type: {{vm.curProj.jobtype}}</p>
-        <p>Project Deadline: {{vm.curProj.projdeadline}}</p>
-        <p>Total Intern Hours: {{vm.curProj.totalinternhours}}</p>
+        <p>Focus Area: {{vm.curProj.info.focusarea}}</p>
+        <p>Position: {{vm.curProj.info.position}}</p>
+        <p>Is remote? {{vm.curProj.info.isremote}}</p>
+        <p>Job Type: {{vm.curProj.info.jobtype}}</p>
+        <p>Project Deadline: {{vm.curProj.info.projdeadline}}</p>
+        <p>Total Intern Hours: {{vm.curProj.info.totalinternhours}}</p>
         <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-6">
           <h4>Skills I have:</h4>
           <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
@@ -64,9 +63,9 @@
           Manager Information for porject
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
         </h3>
-        <p>Manager Name: {{vm.curProj.mangerInfo.managername}}</p>
-        <p>Manager Contact: {{vm.curProj.mangerInfo.managercontact}}</p>
-        <p>Manager Department: {{vm.curProj.mangerInfo.managerdept}}</p>
+        <p>Manager Name: {{vm.curProj.managerInfo.managername}}</p>
+        <p>Manager Contact: {{vm.curProj.managerInfo.managercontact}}</p>
+        <p>Manager Department: {{vm.curProj.managerInfo.managerdept}}</p>
       </div>
       <!-- End of class well col-md-12 -->
 

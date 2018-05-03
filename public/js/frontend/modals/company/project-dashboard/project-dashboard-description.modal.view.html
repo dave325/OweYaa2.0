@@ -43,7 +43,7 @@
         </select>
     </div>
     <div class="form-group">
-        <p ng-if="curProj.info.position">Please select a specific area in {{curProj.info.position}}.</p>
+        <label ng-if="curProj.info.position">Please select a specific area in {{curProj.info.position}}.</label>
         <br />
         <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="curProj.info.focusarea" ng-if="curProj.info.position === 'designer'">
             <option value="Graphic Designer"> Graphic Designer </option>

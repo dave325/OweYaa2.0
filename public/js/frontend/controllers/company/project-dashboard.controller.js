@@ -50,7 +50,7 @@
                 vm.milestones = allProjects[0].milestones;
                 */
                vm.curProj = allProjects[0];
-
+                console.log(vm.curProj);
                 vm.titles = [];
                 allProjects.forEach(function f(ele)
                 {

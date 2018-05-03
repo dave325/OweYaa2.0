@@ -119,12 +119,13 @@
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
         </h3>
 
-        <div ng-repeat="milestone in vm.milestones">
+        <div ng-repeat="milestone in curProj.milestones">
           <div class="stat">
-            <p class="task">{{milestone.description}}
-              <span class="completionDate">{{milestone.completionDate}}</span>
-              <span class="completionText">{{milestone.completed}}</span>
-              <input id="checkBox" type="checkbox" checked="true" onclick="return false;">
+            <p class="task">{{milestone.milestone}}
+              <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
+              Is Completed?
+              <span class="completionText" ng-if="milestone.completed === 0">No</span>
+              <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
             </p>
 
           </div>

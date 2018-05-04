@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         $tokenInfo = AuthController::respondWithToken($token)->getData(true);
         $user = array(
-            "user" => AuthController::currUser()->getData(true),
+            "user" => AuthController::currUser(),
             "token" => $tokenInfo
         );
         return $user;

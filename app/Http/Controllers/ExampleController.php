@@ -7,6 +7,7 @@ use App\TableModels;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ExampleController extends Controller
 {

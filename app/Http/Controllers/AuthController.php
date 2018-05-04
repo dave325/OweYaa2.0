@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Tymon\JWTAuth\Exceptions\JWTException;
 class AuthController extends Controller
 {
     /**
@@ -27,8 +27,10 @@ class AuthController extends Controller
     {
         $credentials = $request(['username', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        try (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
+        }catch (JWTException $e) {
+            return response()->json(['error' => $e], 500); // something went wrong whilst attempting to encode the token
         }
 
         return $this->respondWithToken($token);

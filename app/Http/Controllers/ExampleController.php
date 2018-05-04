@@ -72,6 +72,7 @@ class ExampleController extends Controller
         $user = new User();
         try {
             $currUser = AuthController::me();
+            return response()->json($request);
             // If the type of user specified doesn't exist, or if the user's type
             // doesn't match the type that the database listed for this user,
             // the response states that the user is not found. This is a 404 error.

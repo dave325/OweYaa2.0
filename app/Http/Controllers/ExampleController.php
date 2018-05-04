@@ -65,7 +65,7 @@ class ExampleController extends Controller
      * Checks what type of user the user is
      */
 
-    public static function checks(Request $request)
+    public static function checks($request)
     {
 
         // Create a variable to store data about the current user.

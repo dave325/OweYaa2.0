@@ -6,7 +6,8 @@
                 return $http.post('/api/admin/login', user).then(
                     function (data) {
                         if (data.data.token) {
-                            $window.sessionStorage.setItem('token', data.data.token);
+                            $window.sessionStorage.setItem('token', data.data.token.access_token);
+                            User.setUser(data.data.user)
                             // Returns the user data object to the login modal
                             return data;
                         } else {

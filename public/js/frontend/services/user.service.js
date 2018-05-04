@@ -74,6 +74,7 @@
           });
         }
       }, // End of getCurrentuser
+      
       updateUser: function (modal, data) {
         if (Authentication.getToken() == null) {
           return;
@@ -87,6 +88,7 @@
           }
         });
       },
+
       getAllProjects: function () {
         if (Authentication.getToken() == null) {
           return;
@@ -113,6 +115,7 @@
           }
         })
       },
+      
       updateAllProjectDash: function (data) {
         if (Authentication.getToken() == null) {
           return;
@@ -140,6 +143,7 @@
           }
         })
       },
+
       addFavUser: function (user) {
         if (Authentication.getToken() == null) {
           return;
@@ -153,6 +157,7 @@
           }
         })
       },
+
       removeFavUser: function (user) {
         if (Authentication.getToken() == null) {
           return;

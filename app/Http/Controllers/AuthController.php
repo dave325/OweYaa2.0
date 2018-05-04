@@ -25,7 +25,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public static function login(mixed $credentials)
+    public static function login($credentials)
     {
         try {
             if (!$token = JWTAUTH::attempt($credentials)) {

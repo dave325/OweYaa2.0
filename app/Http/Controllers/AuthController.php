@@ -28,8 +28,8 @@ class AuthController extends Controller
         $credentials = $request(['username', 'password']);
 
         try {
-            if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            if (!$token = auth()->attempt($credentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
             }
         }catch (JWTException $e) {
             return response()->json(['error' => $e], 500); // something went wrong whilst attempting to encode the token

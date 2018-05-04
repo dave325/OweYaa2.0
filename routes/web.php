@@ -22,7 +22,8 @@ $router->get('/{any:.*}', function ($any) use ($router){
 
 Route::group(['middleware'=> 'auth','prefix' => 'api'], function ($router){
     Route::post('getFilterUser', "CompanyInternMatch@test");
-    Route::post('login', "AuthController@login");
+    Route::post('login', "ExampleController@loginTest");
+    Route::post('loginTest', "AuthController@login");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('matching', 'CompanyInternMatch@test');
     Route::post('check','ValidateUser@checks');

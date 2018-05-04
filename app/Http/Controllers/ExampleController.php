@@ -91,7 +91,7 @@ class ExampleController extends Controller
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
                 $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=', $currUser['user']['username'])->first();
                 $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['user']['username'])->first();
-                return response()->json($user);
+                return response()->json(["token" => $currUser['token'], 'user' => $user], 200);
             }
 
             // If the type of user specified exists and is equal to 1, the user is

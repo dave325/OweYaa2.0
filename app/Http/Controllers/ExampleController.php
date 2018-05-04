@@ -65,17 +65,23 @@ class ExampleController extends Controller
      * Checks what type of user the user is
      */
 
-    public static function checks($request)
+    public static function loginUser(Request $req)
     {
 
         // Create a variable to store data about the current user.
         $user = new User();
+
+        $request = $req->all();
+        $loginInfo = array(
+            "username" => $request['username'],
+            "password" => $request['password']
+        );
         try {
-            $currUser = AuthController::me()->getData(true);
+            $currUser = AuthController::login($loginInfo);
             // If the type of user specified doesn't exist, or if the user's type
             // doesn't match the type that the database listed for this user,
             // the response states that the user is not found. This is a 404 error.
-            if (!array_key_exists('type', $request) || intval($request['type']) != $currUser['type']) {
+            if (!array_key_exists('type', $request) || intval($request['type']) != $currUser['user']['type']) {
                 return response()->json(['user_not_found']);
             }
 
@@ -83,15 +89,15 @@ class ExampleController extends Controller
             // a Veteran user, and the attributes are filled in for this Veteran user.
             elseif (array_key_exists('type', $request)  && $request['type'] == 0) {
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
-                $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=',$currUser['username'])->first();
-                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['username'])->first();
+                $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=',$currUser['user']['username'])->first();
+                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['user']['username'])->first();
                 return response()->json($user);
             }
 
             // If the type of user specified exists and is equal to 1, the user is
             // a company, and the attributes are filled in for this company user.
             elseif (array_key_exists('type', $request) && intval($request['type']) == 1) {
-                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['username'])->first();
+                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['user']['username'])->first();
                 return response()->json($user);
             }
 

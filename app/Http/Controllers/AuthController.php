@@ -25,9 +25,8 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(Request $request)
+    public static function login($credentials)
     {
-        $credentials = $request->only('username', 'password');
         try {
             if (!$token = JWTAUTH::attempt($credentials)) {
                 return response()->json(['error' => 'Unauthorized'], 401);
@@ -45,9 +44,12 @@ class AuthController extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
         }
 
-        $info = $this->respondWithToken($token)->getData(true);
-        $info1= $request->all();
-        return response()->json(['token' => $info, 'user' => ExampleController::checks($info1)->getData(true)], 400);
+        $tokenInfo = AuthController::respondWithToken($token)->getData(true);
+        $user = array(
+            "user" =>AuthController::me(),
+            "token" => $tokenInfo
+        );
+        return $user;
     }
 
     /**
@@ -89,7 +91,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function respondWithToken($token)
+    protected static function respondWithToken($token)
     {
         return response()->json([
             'access_token' => $token,

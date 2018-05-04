@@ -14,11 +14,11 @@
         * Saves the user session
         * @params user - the user informtaion that will be set in sessionStorage
         */
-        setToken: function(user) {
+        login: function(user) {
           return $http.post('/api/login', user).then(
             function(data){
               if(data.data.token){
-                $window.sessionStorage.setItem('token', data.data.token);
+                $window.sessionStorage.setItem('token', data.data.token.access_token);
                 // Returns the user data object to the login modal
                 return data;
               }else{

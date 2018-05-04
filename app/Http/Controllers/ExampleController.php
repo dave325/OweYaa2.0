@@ -81,7 +81,7 @@ class ExampleController extends Controller
 
             // If the type of user specified exists and is equal to 0, the user is
             // a Veteran user, and the attributes are filled in for this Veteran user.
-            elseif (!array_key_exists('type', $request)  && $request['type'] === 0) {
+            elseif (array_key_exists('type', $request)  && $request['type'] === 0) {
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
                 $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=',$currUser['username'])->first();
                 $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['username'])->first();
@@ -90,14 +90,14 @@ class ExampleController extends Controller
 
             // If the type of user specified exists and is equal to 1, the user is
             // a company, and the attributes are filled in for this company user.
-            elseif (!array_key_exists('type', $request) && intval($request['type']) == 1) {
+            elseif (array_key_exists('type', $request) && intval($request['type']) == 1) {
                 $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['username'])->first();
                 return response()->json(['user' => $user]);
             }
 
             // If the type of user specified exists, is equal to 2, and the user has
             // administrator access, the user is an administrator.
-            elseif (!array_key_exists('type', $request) && intval($request['type']) == 2) {
+            elseif (array_key_exists('type', $request) && intval($request['type']) == 2) {
                 $user = User::with('contactInfo')->first();
                 return response()->json(['user' => $user]);
             }

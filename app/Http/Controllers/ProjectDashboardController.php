@@ -14,10 +14,16 @@ class ProjectDashboardController extends Controller
 {
     //Mass update function, every modal calls this.
     function updateAll(Request $request) {
-        $id = $request->input('id');
-        $description = $request->input('description');
-        $title = $request->input('title');
-      
+        $userInfo = $request->all();
+        try{
+            $info = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+            $manager = TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
+        }catch(ModelNotFoundException $me){
+
+        }
+        
+        $skills = TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
+
     
         $proj = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
         $proj->projdescription=$description;
@@ -59,8 +65,8 @@ class ProjectDashboardController extends Controller
 
              array(
               'id' => $id,
-              'info' => Project\CompanyProjectJobInfo::where('projid','=',$id)->first()->toArray(),
-              'managerInfo'=>Project\CompanyProjectManagerInfo::where('projid','=',$id)->first()->toArray(),
+              'info' => Project\CompanyProjectJobInfo::where('projid','=',$id)->first(),
+              'managerInfo'=>Project\CompanyProjectManagerInfo::where('projid','=',$id)->first(),
               'skills'=>Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray(),
               'milestones'=>Project\Milestone::where('projid','=',$id)->get()->toArray(),
               'candidates'=>$candidates

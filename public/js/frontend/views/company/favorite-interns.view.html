@@ -1,9 +1,8 @@
 <section id="fav-interns">
 	<navbar content="navbarvm.activeNav"></navbar>
-	<p ng-bind-html="vm.resultInfo" ng-if="vm.resultInfo.length == 0" class="nav-message"></p>
 	<!-- Filter User Input and Output Result -->
 	<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h1 class="text-center">Favorite Candidate</h1>
+		<h1 class="text-center" id="comp-name">Favorite Candidate</h1>
 		<form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<!-- Use angular to bind this element to the results and filter them -->
 			<div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
@@ -27,6 +26,9 @@
 		</form>
 
 		<span class="clearfix"></span>
+		<div ng-if="vm.resultInfo" class='alert alert-info col-xs-12' role="alert">
+			<h3 class="text-center">{{vm.resultInfo}}</h3>
+		</div> <!-- End of resultInfo div -->
 		<!-- Results that have been filtered out -->
 		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
 			<h2 class="text-center">Results</h2>

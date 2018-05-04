@@ -106,8 +106,8 @@
           <div ng-if="user.certifications.length > 0">
             <h3>Certifications Gained:</h3>
             <ul>
-              <li ng-repeat="certification in user.certification">
-                {{certification}}
+              <li ng-repeat="certification in user.certifications">
+                {{certification.certification}}
               </li>
             </ul>
           </div>
@@ -294,13 +294,28 @@
           <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Availability
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('availibility')"></span>
           </h2>
-          <div class="col-xs-12" ng-repeat="day in user.availability">
-            <div ng-if="day.start_time != '00:00:00' || day.end_time != '00:00:00'">
-              <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
+          <div class="col-xs-12 col-md-6">
+            <h3>Available Days and Times</h3>
+            <div class="col-xs-12" ng-repeat="day in user.availability">
+              <div ng-if="day.start_time != '00:00:00' || day.end_time != '00:00:00'">
+                <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
+              </div>
+              <!-- End of ng-if day.start_time -->
             </div>
-            <!-- End of ng-if day.start_time -->
+            <!-- End of ng-repeat -->
           </div>
-          <!-- End of ng-repeat -->
+          <!-- End of container for ng-repeat -->
+          <div class="col-xs-12 col-md-6">
+            <h3>Available Months</h3>
+            <div class="col-xs-12" ng-repeat="month in user.month_availability">
+              <div ng-if="month.isavailable === true">
+                <p>{{month.month}}</p>
+              </div>
+              <!-- End of ng-if day.start_time -->
+            </div>
+            <!-- End of ng-repeat -->
+          </div>
+          <!-- End of container for ng-repeat -->
         </div>
         <!-- Rnd of space box div -->
       </div>

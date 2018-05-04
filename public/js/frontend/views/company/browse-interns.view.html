@@ -2,7 +2,7 @@
 	<navbar content="navbarvm.activeNav"></navbar>
 	<!-- Filter User Input and Output Result -->
 	<div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h1 class="text-center">Browse Candidate</h1>
+		<h1 class="text-center" id="comp-name">Browse Candidate</h1>
 		<form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<!-- Use angular to bind this element to the results and filter them -->
 			<div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
@@ -21,6 +21,9 @@
 			</div>
 			<span class="clearfix"></span>
 		</form>
+		<div ng-if="vm.resultInfo" class='alert alert-info col-xs-12' role="alert">
+			<h3 class="text-center">{{vm.resultInfo}}</h3>
+		</div>
 		<!-- Results that have been filtered out -->
 		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
 			<h2 class="text-center">Results</h2>
@@ -32,7 +35,7 @@
 					<h4 class="specialText">CANDIDATE NAME</h4>
 
 					<button type="button" class="btn btn-info">WANT</button>
-					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)">FAV</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="vm.isFav(user)">FAV</button>
 
 				</div>
 				<div class="col-md-4">

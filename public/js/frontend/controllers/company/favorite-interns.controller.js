@@ -33,39 +33,47 @@
         favid: user.favid
       }
       User.removeFavUser(id).then(function (response) {
-        console.log(response);
         vm.resultInfo = "Successfully deleted user!";
         $timeout(function () {
-          vm.resultInfo = '';
+          vm.resultInfo = null;
           getUser();
-        }, 500);
+        }, 1000);
       }, function (error) {
         console.log(error);
       });
     }
+
     // Filter user function
     vm.filterUsers = function () {
       let user = [];
+      if(vm.copyUsers.length === null){
+        vm.resultInfo = "No interns are currectly selected";
+        return;
+      }
       if (vm.test == undefined || vm.test.length === 0) {
         vm.users = vm.copyUsers;
       } else {
         // Loop through every user in database
-        for (let i = 0; i < vm.users.length; i++) {
+        for (let i = 0; i < vm.copyUsers.length; i++) {
           // Loop through individual skills
-          for (let j = 0; j < vm.users[i].user.skill.length; j++) {
+          for (let j = 0; j < vm.copyUsers[i].user.skill.length; j++) {
             // Check if the skill exists in current user
-            if (vm.users[i].user.skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase()) > -1) {
+            if (vm.copyUsers[i].user.skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase()) > -1) {
               // Add user to temp array
-              user.push(vm.users[i]);
+              user.push(vm.copyUsers[i]);
               break;
             }
           }
         }
+        // If user with skill is not found, then return nothing.  
         if(user.length === 0){
+          vm.users = [];
           vm.resultInfo = "No interns match that criteria";
         }
-        if(vm.users.length === 0 || vm.test.length === 0){
+        // If the length of currenct array is empty and the input field is empty return every user
+        else if(vm.test.length === 0){
           vm.users = vm.copyUsers;
+          vm.resultInfo = null;
         }else{
         // Set vm.users to temp array and only show results
         vm.users = user;

@@ -45,7 +45,8 @@ class AuthController extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
         }
 
-        return $this->respondWithToken($token);
+        $info = $this->respondWithToken($token);
+        return response()->json(['token' => $info, 'user' => Controller\ExampleController::checks()], 400);
     }
 
     /**

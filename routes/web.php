@@ -24,6 +24,7 @@ Route::group(['prefix' => 'api'], function ($router){
     Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "ExampleController@loginTest");
     Route::post('loginTest', "ExampleController@loginUser");
+    Route::post('getUser', "ExampleController@getUser");
     Route::post('getTest', "ExampleController@checks");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('matching', 'CompanyInternMatch@test');

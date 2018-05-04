@@ -57,9 +57,9 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public static function me()
+    public static function user()
     {
-        return response()->json(JWTAuth::user());
+        return response()->json(JWTAuth::user())->getData(true);
     }
 
     /**

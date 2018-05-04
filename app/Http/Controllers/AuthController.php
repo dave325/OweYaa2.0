@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -32,8 +32,17 @@ class AuthController extends Controller
             if (!$token = JWTAUTH::attempt($credentials)) {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
-        } catch (JWTException $e) {
-            return response()->json(['error' => "Something went wrong, please try again"], 500); // something went wrong whilst attempting to encode the token
+        } catch (JWTException\TokenInvalidException $e) {
+
+            // If the Token is invalid, the response states that the token is
+            // invalid, and the exception status code is also returned.
+            return response()->json(['token_invalid'], $e->getStatusCode());
+
+        } catch (JWTException\JWTException $e) {
+
+            // If the Token is absent, the response states that the token is
+            // absent, and the exception status code is also returned.
+            return response()->json(['token_absent'], $e->getStatusCode());
         }
 
         return $this->respondWithToken($token);
@@ -84,7 +93,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => JWTAUTH::factory()->getTTL() * 60,
-            'user' => $this->me()
+            'user' => $this->me(),
         ]);
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+
 use App\MilitaryUser;
-use App\CompanyUser;
 use App\TableModels;
+use App\User;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
+
 class ExampleController extends Controller
 {
     private $apiCall;
@@ -19,26 +19,9 @@ class ExampleController extends Controller
     public function __construct(Request $request)
     {
     }
-
-
-
-    public function loginTest(Request $request){
-         // grab credentials from the request
-         $credentials = $request->only('username', 'password');
-        try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = app('auth')->attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
-            }
-        } catch (JWTException $e) {
-            // something went wrong =whilst attempting to encode the token
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
-        // all good so return the token
-        return response()->json(["token"=>$token],200);
-    }
     // Adds User
-    public function addUser(Request $request){
+    public function addUser(Request $request)
+    {
         // grab credentials from the request
         $credentials = $request->only('name', 'email', 'password', 'type', 'username');
         $user = new User();
@@ -47,35 +30,86 @@ class ExampleController extends Controller
         $user->password = Hash::make($credentials['password']);
         $user->type = $credentials['type'];
         $user->admin = false;
-        if($user->save()){
-            if($user->type == 0){
-                MilitaryUser::create(["name"=> $credentials['name'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
-                TableModels\ContactInfo::create(["firstname"=> $credentials['firstname'],"lastname"=> $credentials['lastname'], 'username' =>$credentials['username'],'email'=>$credentials['email']]);
-                for($i = 0; $i < 2; $i++){
-                    TableModels\Interview::create(['interviewid'=> $credentials['username'] . $i,'username' => $credentials['username']]);
-                    TableModels\Event::create(['eventid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
-                    TableModels\PreviousCareerField::create(['careerid'=> $credentials['username'] . $i,'username' =>$credentials['username']]);
-                    TableModels\CareerSearch::create(['careerid'=> $credentials['username'] . $i,'username'=> $credentials['username']]);
+        if ($user->save()) {
+            if ($user->type == 0) {
+                MilitaryUser::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
+                TableModels\ContactInfo::create(["firstname" => $credentials['firstname'], "lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
+                for ($i = 0; $i < 2; $i++) {
+                    TableModels\Interview::create(['interviewid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
+                    TableModels\Event::create(['eventid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
+                    TableModels\PreviousCareerField::create(['careerid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
+                    TableModels\CareerSearch::create(['careerid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
                 }
-                TableModels\Social::create(['username'=> $credentials['username']]);
-                TableModels\Goal::create(['username'=> $credentials['username']]);
-                TableModels\Education::create(['username'=> $credentials['username']]);
-                $daysOfWeek = array("Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-                for($i = 0; $i < 7; $i++){
-                    TableModels\Availability::create(['timeid'=> $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00",'username' =>$credentials['username'], "dayofweek" => $daysOfWeek[$i]]);
+                TableModels\Social::create(['username' => $credentials['username']]);
+                TableModels\Goal::create(['username' => $credentials['username']]);
+                TableModels\Education::create(['username' => $credentials['username']]);
+                $daysOfWeek = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+                for ($i = 0; $i < 7; $i++) {
+                    TableModels\Availability::create(['timeid' => $credentials['username'] . $i, 'start_time' => "00:00:00", 'end_time' => "00:00:00", 'username' => $credentials['username'], "dayofweek" => $daysOfWeek[$i]]);
                 }
-                TableModels\Mentor::create(['username'=> $credentials['username']]);
-            }else{
+                TableModels\Mentor::create(['username' => $credentials['username']]);
+            } else {
                 TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
-                TableModels\CompanyModels\CompanyInfo::create(["name"=> $credentials['name'], 'username' => $credentials['username'],'email'=>$credentials['email']]);
+                TableModels\CompanyModels\CompanyInfo::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
             }
             return response()->json(true);
-        }else{
+        } else {
             return response()->json(['error' => 'User not Created'], 500);
         }
     }
-    public function returnAllUsers(){
-        $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type','=', 0)->get();
-        return response()->json(compact('user'));
+
+    /**
+     * checks
+     * @params Request $request
+     * Checks what type of user the user is
+     */
+
+    public static function checks(Request $request)
+    {
+
+        // Create a variable to store data about the current user.
+        $user = new User();
+        try {
+            $currUser = JWTAuth::userOrFail();
+
+        // If the type of user specified doesn't exist, or if the user's type
+        // doesn't match the type that the database listed for this user,
+        // the response states that the user is not found. This is a 404 error.
+        if (!$request->has('type') || $request->input('type') != $currUser->type) {
+            return response()->json(['user_not_found'], 404);
+        }
+
+        // If the type of user specified exists and is equal to 0, the user is
+        // a Veteran user, and the attributes are filled in for this Veteran user.
+        elseif ($request->has('type') && $request->input('type') == 0) {
+            //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
+            $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=', $userCheck->username)->first();
+            $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser->username)->first();
+            return response()->json(['user' => $user], 200);
+        }
+
+        // If the type of user specified exists and is equal to 1, the user is
+        // a company, and the attributes are filled in for this company user.
+        elseif ($request->has('type') && $request->input('type') == 1) {
+            $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser->username)->first();
+            return response()->json(['user' => $user], 200);
+        }
+
+        // If the type of user specified exists, is equal to 2, and the user has
+        // administrator access, the user is an administrator.
+        elseif ($request->has('type') && $request->input('type') == 2 && $request->has('admin')) {
+            $user = User::with('contactInfo')->first();
+            return response()->json(['user' => $user], 200);
+        }
+
+        // Otherwise, the user doesn't exist. A user not found response will be
+        // sent.
+        else {
+            return response()->json(['user_not_found'], 404);
+        }
+        } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            // do something
+        }
     }
+
 }

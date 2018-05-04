@@ -97,7 +97,7 @@ class ExampleController extends Controller
 
             // If the type of user specified exists, is equal to 2, and the user has
             // administrator access, the user is an administrator.
-            elseif (!array_key_exists('type') && intval($request['type']) == 2) {
+            elseif (!array_key_exists('type', $request) && intval($request['type']) == 2) {
                 $user = User::with('contactInfo')->first();
                 return response()->json(['user' => $user], 200);
             }

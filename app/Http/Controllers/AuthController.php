@@ -46,7 +46,7 @@ class AuthController extends Controller
         }
 
         $info = $this->respondWithToken($token);
-        return response()->json(['token' => $info, 'user' => ExampleController::checks()], 400);
+        return response()->json(['token' => $info, 'user' => ExampleController::checks($request)], 400);
     }
 
     /**
@@ -93,8 +93,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => JWTAUTH::factory()->getTTL() * 60,
-            'user' => ExampleController::checks(),
+            'expires_in' => JWTAUTH::factory()->getTTL() * 60
         ]);
     }
 }

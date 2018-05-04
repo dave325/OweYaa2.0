@@ -11,6 +11,7 @@
         vm.currentProjID = "dave111";
         vm.curProj = {};
         var allProjects;
+        var indexOfCurrentProject = 0;
 
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';

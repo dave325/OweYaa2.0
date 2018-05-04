@@ -25,7 +25,7 @@ class ProjectDashboardController extends Controller
         $skills = TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
 
     
-        $proj = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $proj = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
         $proj->projdescription=$description;
         $proj->title=$title;
         $proj->save();

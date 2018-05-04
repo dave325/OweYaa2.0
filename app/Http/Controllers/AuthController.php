@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         $tokenInfo = AuthController::respondWithToken($token)->getData(true);
         $user = array(
-            "user" => AuthController::me()->getData(true),
+            "user" => AuthController::currUser()->getData(true),
             "token" => $tokenInfo
         );
         return $user;
@@ -57,7 +57,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public static function user()
+    public static function currUser()
     {
         return response()->json(JWTAuth::user())->getData(true);
     }

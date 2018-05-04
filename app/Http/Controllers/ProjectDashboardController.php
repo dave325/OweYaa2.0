@@ -19,7 +19,7 @@ class ProjectDashboardController extends Controller
         $title = $request->input('title');
       
     
-        $proj = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $proj = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
         $proj->projdescription=$description;
         $proj->title=$title;
         $proj->save();

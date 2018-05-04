@@ -8,9 +8,9 @@
         //get user details
         vm.user = User.getUser();
 
-        vm.currentProjID = "dave111";
 
         var allProjects;
+        var indexOfCurrentProject = 0;
 
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
@@ -22,13 +22,13 @@
             {
                if(ele.id == id)
                {
-                   indexOf = array.indexOf(ele);
+                   indexOfCurrentProject = array.indexOf(ele);
                    
-                   vm.projectDescription = allProjects[indexOf].info.projdescription;
-                   vm.projectTitle = allProjects[indexOf].info.title;
-                   vm.projectManager = allProjects[indexOf].managerInfo.managername;
-                   vm.candidates = allProjects[indexOf].candidates;
-                   vm.milestones = allProjects[indexOf].milestones;
+                   vm.projectDescription = allProjects[indexOfCurrentProject].info.projdescription;
+                   vm.projectTitle = allProjects[indexOfCurrentProject].info.title;
+                   vm.projectManager = allProjects[indexOfCurrentProject].managerInfo.managername;
+                   vm.candidates = allProjects[indexOfCurrentProject].candidates;
+                   vm.milestones = allProjects[indexOfCurrentProject].milestones;
 
                    return;
                } 
@@ -36,16 +36,17 @@
 
         }
 
+        //
         const winClass = "col-xs-12 col-md-8 col-md-offset-2";   
         var projects = (User.getProjectDashboardProjects({username:vm.user.company_info.username})).then(
             function success(response)
             {
                 allProjects = response.data; 
-                vm.projectDescription = allProjects[0].info.projdescription;
-                vm.projectTitle = allProjects[0].info.title;
-                vm.projectManager = allProjects[0].managerInfo.managername;
-                vm.candidates = allProjects[0].candidates;
-                vm.milestones = allProjects[0].milestones;
+                vm.projectDescription = allProjects[indexOfCurrentProject].info.projdescription;
+                vm.projectTitle = allProjects[indexOfCurrentProject].info.title;
+                vm.projectManager = allProjects[indexOfCurrentProject].managerInfo.managername;
+                vm.candidates = allProjects[indexOfCurrentProject].candidates;
+                vm.milestones = allProjects[indexOfCurrentProject].milestones;
 
 
                 vm.titles = [];
@@ -61,28 +62,21 @@
                 console.log("Failed on retrieve projects");
             }
         );
-  
-        vm.postNewDescription = function (title,description) {
-            var req = {
-                method: 'POST',
-                url: '/api/projDash/editDescription',
-                data: {description:description, id:vm.currentProjID,title:title}
-            }
-            $http(req).then(function(){console.log()},
-            function(){});
-        }
+
 
         vm.editDescription = function () {
             $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
                     
-                    $scope.projectTitle = "parojpaerija";
-                    $scope.projectDescription="taosduhasoudhaisudhasiuh";
+                    $scope.projectTitle = vm.projectTitle;
+                    $scope.projectDescription=vm.projectDescription;
 
                     $scope.ok = function () {
-                        vm.postNewDescription(vm.projectTitle,vm.projectDescription);
-                        $uibModalInstance.close();
+                        vm.projectTitle = $scope.projectTitle;
+                        vm.projectDescription=$scope.projectDescription;
+                        User.updateAllProjectDash({title:vm.projectTitle,description:vm.projectDescription,id:"dave111"});
+                        $uibModalInstance.close('save');
                     };
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');

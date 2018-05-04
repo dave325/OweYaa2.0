@@ -25,7 +25,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(Request $request)
+    public static function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
         try {
@@ -53,7 +53,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me()
+    public static function me()
     {
         return response()->json(JWTAuth::user());
     }
@@ -93,7 +93,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => JWTAUTH::factory()->getTTL() * 60,
-            'user' => $this->me(),
+            'user' => Controller\ExampleController::checks(),
         ]);
     }
 }

@@ -71,7 +71,7 @@ class ExampleController extends Controller
         // Create a variable to store data about the current user.
         $user = new User();
         try {
-            $currUser = AuthController::me()->getData(true);
+            $currUser = json_decode(AuthController::me()->content());
             return response()->json(intval($request['type']) != $currUser['original']['type']);
             // If the type of user specified doesn't exist, or if the user's type
             // doesn't match the type that the database listed for this user,

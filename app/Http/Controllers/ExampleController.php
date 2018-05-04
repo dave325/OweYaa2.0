@@ -71,36 +71,33 @@ class ExampleController extends Controller
         // Create a variable to store data about the current user.
         $user = new User();
         try {
-            $currUser = AuthController::me()->getData(true, 5);
-            var_dump($currUser);
-            return;
-            return response()->json($currUser['original']);
+            $currUser = AuthController::me()->getData(true);
             // If the type of user specified doesn't exist, or if the user's type
             // doesn't match the type that the database listed for this user,
             // the response states that the user is not found. This is a 404 error.
-            if (!in_array('type', $request) || intval($request['type']) != $currUser['original']['type']) {
+            if (!in_array('type', $request) || intval($request['type']) != $currUser['type']) {
                 return response()->json(['user_not_found2'], 404);
             }
 
             // If the type of user specified exists and is equal to 0, the user is
             // a Veteran user, and the attributes are filled in for this Veteran user.
-            elseif (!in_array('type')  && intval($request->type) == 0) {
+            elseif (!in_array('type')  && intval($request['type']) == 0) {
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
-                $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=', $userCheck->username)->first();
-                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser->original->username)->first();
+                $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=',$currUser['username'])->first();
+                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser-['username'])->first();
                 return response()->json(['user' => $user], 200);
             }
 
             // If the type of user specified exists and is equal to 1, the user is
             // a company, and the attributes are filled in for this company user.
-            elseif (!in_array('type') && intval($request->type) == 1) {
-                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser->original->username)->first();
+            elseif (!in_array('type') && intval($request['type']) == 1) {
+                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['username'])->first();
                 return response()->json(['user' => $user], 200);
             }
 
             // If the type of user specified exists, is equal to 2, and the user has
             // administrator access, the user is an administrator.
-            elseif (!in_array('type') && intval($request->type) == 2) {
+            elseif (!in_array('type') && intval($request['type']) == 2) {
                 $user = User::with('contactInfo')->first();
                 return response()->json(['user' => $user], 200);
             }

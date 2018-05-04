@@ -20,7 +20,7 @@ $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
 
-Route::group(['prefix' => 'api','middleware' =>'api'], function (){
+Route::group(['middleware'=> 'auth','prefix' => 'api'], function ($router){
     Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "AuthController@login");
     Route::post('addUser', "ExampleController@addUser");

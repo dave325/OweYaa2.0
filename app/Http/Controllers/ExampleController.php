@@ -71,6 +71,7 @@ class ExampleController extends Controller
         // Create a variable to store data about the current user.
         $user = new User();
         try {
+            JWTAuth::login();
             $currUser = JWTAuth::user();
             return response()->json($currUser);
             // If the type of user specified doesn't exist, or if the user's type

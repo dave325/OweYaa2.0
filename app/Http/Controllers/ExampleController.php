@@ -81,7 +81,7 @@ class ExampleController extends Controller
 
             // If the type of user specified exists and is equal to 0, the user is
             // a Veteran user, and the attributes are filled in for this Veteran user.
-            elseif (!array_key_exists('type', $request)  && intval($request['type']) === 0) {
+            elseif (!array_key_exists('type', $request)  && $request['type'] === 0) {
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
                 $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=',$currUser['username'])->first();
                 $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['username'])->first();

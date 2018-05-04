@@ -57,7 +57,7 @@ class AuthController extends Controller
      */
     public static function me()
     {
-        return JWTAuth::user();
+        return response()->json(JWTAuth::user());
     }
 
     /**

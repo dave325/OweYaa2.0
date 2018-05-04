@@ -76,7 +76,7 @@ class ExampleController extends Controller
             // If the type of user specified doesn't exist, or if the user's type
             // doesn't match the type that the database listed for this user,
             // the response states that the user is not found. This is a 404 error.
-            if (!isset($request['type']) || isset($request['type']) != $currUser->type) {
+            if (!isset($request['type']) || isset($request['type']) != $currUser->original->type) {
                 return response()->json(['user_not_found'], 404);
             }
 
@@ -85,20 +85,20 @@ class ExampleController extends Controller
             elseif (isset($request['type']) && isset($request['type']) == 0) {
                 //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
                 $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=', $userCheck->username)->first();
-                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser->username)->first();
+                $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser->original->username)->first();
                 return response()->json(['user' => $user], 200);
             }
 
             // If the type of user specified exists and is equal to 1, the user is
             // a company, and the attributes are filled in for this company user.
-            elseif ($request->has('type') && $request->input('type') == 1) {
-                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser->username)->first();
+            elseif (isset($request['type']) && isset($request['type']) == 1) {
+                $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser->original->username)->first();
                 return response()->json(['user' => $user], 200);
             }
 
             // If the type of user specified exists, is equal to 2, and the user has
             // administrator access, the user is an administrator.
-            elseif ($request->has('type') && $request->input('type') == 2 && $request->has('admin')) {
+            elseif (isset($request['type']) && isset($request['type']) == 2) {
                 $user = User::with('contactInfo')->first();
                 return response()->json(['user' => $user], 200);
             }

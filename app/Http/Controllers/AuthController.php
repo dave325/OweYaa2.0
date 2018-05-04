@@ -33,7 +33,7 @@ class AuthController extends Controller
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
         } catch (JWTException $e) {
-            return response()->json(['error' => $e], 500); // something went wrong whilst attempting to encode the token
+            return response()->json(['error' => "Something went wrong, please try again"], 500); // something went wrong whilst attempting to encode the token
         }
 
         return $this->respondWithToken($token);
@@ -84,6 +84,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => JWTAUTH::factory()->getTTL() * 60,
+            'user' => me()
         ]);
     }
 }

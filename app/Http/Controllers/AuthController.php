@@ -47,6 +47,7 @@ class AuthController extends Controller
 
         $info = $this->respondWithToken($token);
         $credentials['type'] = $request->only('type');
+        return response()->json($this->me()->original);
         return response()->json(['token' => $info, 'user' => ExampleController::checks($credentials)], 400);
     }
 

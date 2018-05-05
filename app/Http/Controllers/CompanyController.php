@@ -229,7 +229,7 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             $internInfo = collect();
             // Retrieve Company projects where ismatched != true.
-            $projects = \CModel\CompanyFavorite::where('username', '=', $userInfo['company_info']['username'])->get();
+            $projects = \App\TableModels\CompanyModels\CompanyFavorite::where('username', '=', $userInfo['company_info']['username'])->get();
             foreach ($projects as $proj) {
                 $temp = User::with('contactInfo', 'skill', 'education', 'availability', 'monthAvailability')->where('username', '=', $proj['internid'])->first();
                 $temp1 = collect(

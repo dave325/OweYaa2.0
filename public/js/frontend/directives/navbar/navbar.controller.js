@@ -42,7 +42,6 @@
        */
       modal.result
         .then(function (data) {
-          console.log(data);
           if (data.page) {
             $location.path('/' + data.page);
           } else {

@@ -33,6 +33,9 @@
 			});
 		}
 		vm.formTitle = function(){
+			if(vm.credentials.registerModal.type === undefined){
+				return "Veteran";
+			}
 			if(vm.credentials.registerModal.type === 1){
 				return "Company";
 			}else{

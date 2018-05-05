@@ -292,4 +292,9 @@ class CompanyController extends Controller
 
         }
     }
+
+    public function returnAllUsers(){
+        $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type','=', 0)->get();
+        return response()->json(compact('user'));
+    }
 }

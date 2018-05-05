@@ -58,7 +58,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * checks
+     * Logs user into site and provides a token for them to access
      * @params Request $request
      * Checks what type of user the user is
      */

@@ -183,7 +183,7 @@ Section 2: Home Page
     flex-wrap: wrap;
 }
 
-#registerModal section{
+#registerModal section, #proj-sub section{
 	padding-bottom:15px;
 }
 

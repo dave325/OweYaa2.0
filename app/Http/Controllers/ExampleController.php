@@ -32,7 +32,6 @@ class ExampleController extends Controller
         $user->admin = false;
         if ($user->save()) {
             if ($user->type == 0) {
-                MilitaryUser::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
                 TableModels\ContactInfo::create(["firstname" => $credentials['firstname'], "lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
                 for ($i = 0; $i < 2; $i++) {
                     TableModels\Interview::create(['interviewid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
@@ -49,7 +48,7 @@ class ExampleController extends Controller
                 }
                 TableModels\Mentor::create(['username' => $credentials['username']]);
             } else {
-                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
+                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['username']]);
                 TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
             }
             return response()->json(true);

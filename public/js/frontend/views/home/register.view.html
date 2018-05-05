@@ -16,7 +16,7 @@
       <div class="form-group">
         <label form="name">First Name: </label>
         <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.firstname" type="text" id="name" ng-minlength="5" ng-required="true" name="firstname"
+        <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="5" ng-required="true" name="firstname"
           class="form-control" ng-class="[{error: !registerModal.firstname.$valid && registerModal.firstname.$touched}, {success: registerModal.firstname.$valid}]"
         />
       </div>
@@ -24,7 +24,7 @@
       <div class="form-group">
         <label form="name">Last Name: </label>
         <p ng-show="!registerModal.lastname.$valid && registerModal.lastname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.lastname" type="text" id="name" ng-minlength="5" ng-required="true" name="lastname"
+        <input ng-model="vm.credentials.registerModal.lastname" type="text" id="lastname" ng-minlength="5" ng-required="true" name="lastname"
           class="form-control" ng-class="[{error: !registerModal.lastname.$valid && registerModal.lastname.$touched}, {success: registerModal.lastname.$valid}]"
         />
       </div>

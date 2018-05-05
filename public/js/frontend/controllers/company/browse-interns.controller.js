@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http"];
-    function browseInternsCtrl($scope, User, $http) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http","Authentication"];
+    function browseInternsCtrl($scope, User, $http,Authentication) {
         var vm = this;
         vm.test = '';
         skills = ['css', 'c++', 'javascript'];

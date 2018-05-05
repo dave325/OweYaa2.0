@@ -23,7 +23,7 @@ class ExampleController extends Controller
     public function addUser(Request $request)
     {
         // grab credentials from the request
-        $credentials = $request->only('name', 'email', 'password', 'type', 'username');
+        $credentials = $request->only('firstname', 'lastname', 'email', 'password', 'type', 'username');
         $user = new User();
         $user->username = $credentials['username'];
         $user->email = $credentials['email'];
@@ -32,7 +32,6 @@ class ExampleController extends Controller
         $user->admin = false;
         if ($user->save()) {
             if ($user->type == 0) {
-                MilitaryUser::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
                 TableModels\ContactInfo::create(["firstname" => $credentials['firstname'], "lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
                 for ($i = 0; $i < 2; $i++) {
                     TableModels\Interview::create(['interviewid' => $credentials['username'] . $i, 'username' => $credentials['username']]);
@@ -49,8 +48,8 @@ class ExampleController extends Controller
                 }
                 TableModels\Mentor::create(['username' => $credentials['username']]);
             } else {
-                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
-                TableModels\CompanyModels\CompanyInfo::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
+                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['username']]);
+                TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
             }
             return response()->json(true);
         } else {
@@ -59,7 +58,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * checks
+     * Logs user into site and provides a token for them to access
      * @params Request $request
      * Checks what type of user the user is
      */
@@ -72,6 +71,7 @@ class ExampleController extends Controller
             "password" => $request['password'],
         );
         $currUser = AuthController::login($loginInfo);
+        return response()->json($currUser);
         return response()->json(["token" => $currUser['token']], 200);
     }
 

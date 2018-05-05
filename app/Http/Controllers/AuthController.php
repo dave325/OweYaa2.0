@@ -43,8 +43,10 @@ class AuthController extends Controller
             // absent, and the exception status code is also returned.
             return response()->json(['token_absent'], $e->getStatusCode());
         }
-
-        $tokenInfo = AuthController::respondWithToken($token)->getData(true);
+        if($token === null){
+            return response()->json(['success' => false], 404);
+        }
+        $tokenInfo = AuthController::respondWithToken($token);
         $user = array(
             "user" => AuthController::currUser(),
             "token" => $tokenInfo
@@ -59,7 +61,7 @@ class AuthController extends Controller
      */
     public static function currUser()
     {
-        return response()->json(JWTAuth::user())->getData(true);
+        return JWTAuth::user();
     }
 
     /**
@@ -93,10 +95,10 @@ class AuthController extends Controller
      */
     protected static function respondWithToken($token)
     {
-        return response()->json([
+        return array(
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => JWTAUTH::factory()->getTTL() * 60
-        ]);
+        );
     }
 }

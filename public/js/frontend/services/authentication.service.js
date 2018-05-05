@@ -15,7 +15,7 @@
         * @params user - the user informtaion that will be set in sessionStorage
         */
         login: function(user) {
-          return $http.post('/api/loginTest', user).then(
+          return $http.post('/api/login', user).then(
             function(data){
               if(data.data.token){
                 $window.sessionStorage.setItem('token', data.data.token.access_token);

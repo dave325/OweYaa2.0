@@ -24,7 +24,7 @@
 					$scope.requiredFields.push('First Name');
 				}
 			}
-			if (user.contact_info.lasstname != null && user.contact_info.lastname.length > 0) {
+			if (user.contact_info.lastname != null && user.contact_info.lastname.length > 0) {
 				sum++;
 				if (arrayContains('last Name', $scope.requiredFields)) {
 					$scope.requiredFields.splice($scope.requiredFields.indexOf('Last Name'), 1);

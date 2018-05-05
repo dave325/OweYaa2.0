@@ -22,19 +22,16 @@ $router->get('/{any:.*}', function ($any) use ($router){
 
 Route::group(['prefix' => 'api'], function ($router){
     Route::post('getFilterUser', "CompanyInternMatch@test");
-    Route::post('login', "ExampleController@loginTest");
-    Route::post('loginTest', "ExampleController@loginUser");
+    Route::post('login', "ExampleController@loginUser");
     Route::post('getUser', "ExampleController@getUser");
-    Route::post('getTest', "ExampleController@checks");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('matching', 'CompanyInternMatch@test');
-    Route::post('check','ValidateUser@checks');
     Route::post('uploadFile','ValidateUser@uploadFiles');
-    Route::post('getUsers', 'ExampleController@returnAllUsers');
-    Route::post('getProjects', 'ValidateUser@retrieveProj');
-    Route::post('getFavUsers', 'ValidateUser@retrieveFavUsers');
-    Route::post('addFavUsers', 'ValidateUser@addFavUser');
-    Route::post('removeFavUser', 'ValidateUser@removeFavUser');
+    Route::post('getUsers', 'CompanyController@returnAllUsers');
+    Route::post('getProjects', 'CompanyController@retrieveProj');
+    Route::post('getFavUsers', 'CompanyController@retrieveFavUsers');
+    Route::post('addFavUsers', 'CompanyController@addFavUser');
+    Route::post('removeFavUser', 'CompanyController@removeFavUser');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');
@@ -47,7 +44,7 @@ Route::group(['prefix' => 'api'], function ($router){
         Route::post('retrieveProject','ValidateUser@retrieveProj');
         Route::post('project', 'CompanyController@updateProject');
         Route::post('milestone','CompanyController@updateMilestone');
-        Route::post('compSet', 'ValidateUser@updateCompanySettings');
+        Route::post('compSet', 'CompanyController@updateCompanySettings');
     });
     Route::group(['prefix'=>'payment'],function(){
         Route::post('test','StripeController@test');

@@ -36,6 +36,7 @@
         if(data.status === 200){
           User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);
+            console.log(data);
             loginvm.close(data.data.user);
           },function(data){
             loginvm.formError = "Username or password does not exist.<br/> Please try again.";

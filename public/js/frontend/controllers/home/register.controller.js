@@ -13,7 +13,8 @@
 		// Will make a call to the server and php file
 		vm.doRegister = function(credentials){
 			var user = {
-				name : credentials.name,
+				firstname : credentials.firstname,
+				lastname : credentials.lastname,
 				password : credentials.password,
 				email : credentials.email,
 				type : credentials.type,

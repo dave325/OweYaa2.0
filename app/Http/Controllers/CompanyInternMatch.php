@@ -62,6 +62,7 @@ class CompanyInternMatch extends Controller
     {
         if ($isValid = $this->isValid()) {
             $temp = AuthController::currUser();
+            return response()->json($temp);
             $user = User::with('membershiptoken')->where("username", "=",$temp['username'])->get();
             if($user['membershiptoken']['stripetoke'] === null){
                 return response()->json(['success' => false]);

@@ -11,10 +11,14 @@
             const info = {
                 skills: skills
             }
+            console.log(Authentication.getToken());
             var req = {
                 method: 'POST',
                 url: '/api/matching',
-                data: { info}
+                data: { info },
+                headers: {
+                    "Authorization": "Bearer " + Authentication.getToken()
+                }
             }
             $http(req).then(
                 function (response) {
@@ -36,11 +40,11 @@
             vm.users = response.data.user;
             User.getFavUsers(vm.user).then(function (response) {
                 for (let j = 0; j < vm.users.length - 1; j++) {
-                    for (let i = 0; i < response.data.projects.length -1; i++) {
-                        if(vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username){
+                    for (let i = 0; i < response.data.projects.length - 1; i++) {
+                        if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
                             console.log(true);
                             vm.users[j].isFav = true;
-                        }else{
+                        } else {
                             vm.users[j].isFav = false;
                         }
                     }
@@ -53,44 +57,44 @@
             console.log(data);
         });
 
-        
-    // Filter user function
-    vm.filterUsers = function () {
-        let user = [];
-        if(vm.copyUsers.length === null){
-          vm.resultInfo = "No interns are currectly selected";
-          return;
-        }
-        if (vm.test == undefined || vm.test.length === 0) {
-          vm.users = vm.copyUsers;
-        } else {
-          // Loop through every user in database
-          for (let i = 0; i < vm.copyUsers.length; i++) {
-            // Loop through individual skills
-            for (let j = 0; j < vm.copyUsers[i].skill.length; j++) {
-              // Check if the skill exists in current user
-              if (vm.copyUsers[i].skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase()) > -1) {
-                // Add user to temp array
-                user.push(vm.copyUsers[i]);
-                break;
-              }
+
+        // Filter user function
+        vm.filterUsers = function () {
+            let user = [];
+            if (vm.copyUsers.length === null) {
+                vm.resultInfo = "No interns are currectly selected";
+                return;
             }
-          }
-          // If user with skill is not found, then return nothing.  
-          if(user.length === 0){
-            vm.users = [];
-            vm.resultInfo = "No interns match that criteria";
-          }
-          // If the length of currenct array is empty and the input field is empty return every user
-          else if(vm.test.length === 0){
-            vm.users = vm.copyUsers;
-            vm.resultInfo = null;
-          }else{
-          // Set vm.users to temp array and only show results
-          vm.users = user;
-          }
+            if (vm.test == undefined || vm.test.length === 0) {
+                vm.users = vm.copyUsers;
+            } else {
+                // Loop through every user in database
+                for (let i = 0; i < vm.copyUsers.length; i++) {
+                    // Loop through individual skills
+                    for (let j = 0; j < vm.copyUsers[i].skill.length; j++) {
+                        // Check if the skill exists in current user
+                        if (vm.copyUsers[i].skill[j].skill.toLowerCase().indexOf(vm.test.toLowerCase()) > -1) {
+                            // Add user to temp array
+                            user.push(vm.copyUsers[i]);
+                            break;
+                        }
+                    }
+                }
+                // If user with skill is not found, then return nothing.  
+                if (user.length === 0) {
+                    vm.users = [];
+                    vm.resultInfo = "No interns match that criteria";
+                }
+                // If the length of currenct array is empty and the input field is empty return every user
+                else if (vm.test.length === 0) {
+                    vm.users = vm.copyUsers;
+                    vm.resultInfo = null;
+                } else {
+                    // Set vm.users to temp array and only show results
+                    vm.users = user;
+                }
+            }
         }
-      }
 
         vm.addFavUser = function (user) {
             favIntern = {
@@ -104,7 +108,7 @@
                 console.log(error);
             });
         }
-        vm.isFav = function(user){
+        vm.isFav = function (user) {
             return !user.isFav;
         }
     }

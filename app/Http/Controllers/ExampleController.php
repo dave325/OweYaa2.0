@@ -101,14 +101,14 @@ class ExampleController extends Controller
         // a company, and the attributes are filled in for this company user.
         elseif (array_key_exists('type', $request) && intval($request['type']) == 1) {
             $user = User::with('companyInfo', 'companyFavorite', 'companyProject', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['username'])->first();
-            return response()->json($user);
+            return response()->json(['user' => $user], 200);
         }
 
         // If the type of user specified exists, is equal to 2, and the user has
         // administrator access, the user is an administrator.
         elseif (array_key_exists('type', $request) && intval($request['type']) == 2) {
             $user = User::with('contactInfo')->first();
-            return response()->json($user);
+            return response()->json(['user' => $user], 200);
         }
         // Otherwise, the user doesn't exist. A user not found response will be
         // sent.

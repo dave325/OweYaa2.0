@@ -50,7 +50,7 @@ class ExampleController extends Controller
                 TableModels\Mentor::create(['username' => $credentials['username']]);
             } else {
                 TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['name']]);
-                TableModels\CompanyModels\CompanyInfo::create(["name" => $credentials['name'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
+                TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email']]);
             }
             return response()->json(true);
         } else {

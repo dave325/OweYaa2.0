@@ -177,7 +177,7 @@ class CompanyController extends Controller
 
             // Search for contact info, and username that corresponds to the
             // Social TableModel.
-            $companyInfo = TableModels\CompanyModels\CompanyInfo::findOrFail($credentials['company_info']['username']);
+            $companyInfo = CModel\CompanyInfo::findOrFail($credentials['company_info']['username']);
 
             // Fill in contact info.
             $companyInfo->fill($credentials['company_info']);
@@ -229,7 +229,7 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             $internInfo = collect();
             // Retrieve Company projects where ismatched != true.
-            $projects = TableModels\CompanyModels\CompanyFavorite::where('username', '=', $userInfo['company_info']['username'])->get();
+            $projects = \CModel\CompanyFavorite::where('username', '=', $userInfo['company_info']['username'])->get();
             foreach ($projects as $proj) {
                 $temp = User::with('contactInfo', 'skill', 'education', 'availability', 'monthAvailability')->where('username', '=', $proj['internid'])->first();
                 $temp1 = collect(

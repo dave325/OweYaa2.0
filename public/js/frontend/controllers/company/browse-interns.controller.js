@@ -6,12 +6,15 @@
         vm.test = '';
         skills = ['css', 'c++', 'javascript'];
         graduated = false;
-
+        vm.user = User.getUser();
         vm.retrieveInterns = function (graduated, skills) {
+            const info = {
+                skills: skills
+            }
             var req = {
                 method: 'POST',
                 url: '/api/matching',
-                data: { graduated, skills }
+                data: { info}
             }
             $http(req).then(
                 function (response) {

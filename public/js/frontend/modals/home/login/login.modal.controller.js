@@ -35,8 +35,9 @@
       Authentication.login(checkUser).then(function(data){
         if(data.status === 200){
           User.getCurrentUser(checkUser).then(function(data){
-            User.setUser(data.data.user);
-            loginvm.close(data.data.user);
+            console.log(data);
+            User.setUser(data);
+            loginvm.close(data);
           },function(data){
             loginvm.formError = "Username or password does not exist.<br/> Please try again.";
           });

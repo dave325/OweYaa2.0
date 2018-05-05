@@ -44,12 +44,12 @@
       </div>
       <!-- End of class form-group -->
       <div class="form-group">
-        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true" ng-selected>Veteran
+        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true">Veteran
         <br />
         <input type="radio" ng-model="vm.credentials.registerModal.type" value="1" ng-required="true">Company
         <br />
         <button type="button" ng-disabled="registerModal.$invalid" ng-click="vm.doRegister(vm.credentials.registerModal)" class="btn btn-primary col-md-4 col-xs-12 pull-right"
-        />Register as {{vm.credentials.registerModal.type}} </button>
+        />Register as {{vm.formTitle()}} </button>
       </div>
       <!-- End of class form-group -->
     </form>

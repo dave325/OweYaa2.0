@@ -38,42 +38,43 @@ class ProjectDashboardController extends Controller
 
         if($this->isValid())
         {
-
-
+            
           //first get all the projects associated with the user
           $name = $request->input('username');
           $projectIDs = Project::where('username','=',$name)->pluck('projid')->toArray();
           
+
           $allProjectInfo = array();
           foreach($projectIDs as $id)
           {
 
             $candidates = Project\InternHours::where('projid','=',$id)->get()->toArray();
-            
-            foreach($candidates as &$candidate)
+            //could be that there are no interns yet
+            if(isset ($candidates))
             {
-                $candidateUName = $candidate['username'];
-                $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
-                $firstName = $contactInfo->firstname;
-                $lastName = $contactInfo->lastname;
-                $email = $contactInfo->email;
-                $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
-                $candidate = array_merge($candidate,$contactAddenium);   
+                foreach($candidates as &$candidate)
+                {
+                    $candidateUName = $candidate['username'];
+                    $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
+                    $firstName = $contactInfo->firstname;
+                    $lastName = $contactInfo->lastname;
+                    $email = $contactInfo->email;
+                    $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
+                    $candidate = array_merge($candidate,$contactAddenium);   
+                }
             }
+            
 
             array_push($allProjectInfo,
-
-             array(
-              'id' => $id,
-              'info' => Project\CompanyProjectJobInfo::where('projid','=',$id)->first(),
-              'managerInfo'=>Project\CompanyProjectManagerInfo::where('projid','=',$id)->first(),
-              'skills'=>Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray(),
-              'milestones'=>Project\Milestone::where('projid','=',$id)->get()->toArray(),
-              'candidates'=>$candidates
-             
-             )
-                
-          );
+                array(
+                'id' => $id,
+                'info' => Project\CompanyProjectJobInfo::where('projid','=',$id)->first(),
+                'managerInfo'=>Project\CompanyProjectManagerInfo::where('projid','=',$id)->first(),
+                'skills'=>Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray(),
+                'milestones'=>Project\Milestone::where('projid','=',$id)->get()->toArray(),
+                'candidates'=>$candidates    
+                )      
+            );
             
         
           }

@@ -5,28 +5,30 @@
 
 
   <div class="row">
+
+
     <div class="col-md-3 sidenav col-md-offset-1 well">
+
       <h2 class="title"> Projects </h2>
       </h2>
-      <ul ng-repeat="title in vm.titles" class="nav nav-pills nav-stacked">
-        <li ng-click="vm.reloadPageNewID(title.id)">
-          <a href="#section2">
-            <strong>{{title.title}}</strong>
-          </a>
-        </li>
-      </ul>
+      <div ng-repeat="project in vm.allProjects">
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.info.initiated">
+            <a href="#section2">
+              <strong ng-bind="project.info.title"></strong>
+            </a>
+          </li>
+        </ul>
 
-
-      <h3>Queued</h3>
-      <!---
-      <ul class="nav nav-pills nav-stacked">
-        <li>
-          <a href="#section2">
-            <strong>Project 1</strong>
-          </a>
-        </li>
-      </ul>
-    -->
+        <h3>Queued</h3>
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-if="!project.info.initiated" ng-click="vm.reloadPageNewID(project.id)">
+            <a href="#section2">
+              <strong ng-bind="project.info.title"></strong>
+            </a>
+          </li>
+        </ul>
+      </div>
 
 
     </div>
@@ -116,12 +118,12 @@
         <div ng-repeat="milestone in vm.curProj.milestones">
           <div class="stat">
             <h4 class="task">{{milestone.milestone}}</h4>
-              <p>
-                <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
-                <br /> Is Completed?
-                <span class="completionText" ng-if="milestone.completed === 0">No</span>
-                <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
-              </p>
+            <p>
+              <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
+              <br /> Is Completed?
+              <span class="completionText" ng-if="milestone.completed === 0">No</span>
+              <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
+            </p>
 
           </div>
           <!-- End of class stat -->

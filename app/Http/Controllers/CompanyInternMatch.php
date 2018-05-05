@@ -10,6 +10,9 @@ use \SplPriorityQueue;
 use App\TableModels\Education;
 use Illuminate\Support\Facades\DB;
 
+/*
+    TODO authenticate 
+*/
 
 
 class CompanyInternMatch extends Controller
@@ -18,7 +21,7 @@ class CompanyInternMatch extends Controller
     private $skillsList;
     private $wantedSkills;
     private $pq;
-    private $companyLocation = array(40,74);
+    private $companyLocation = array(40,-74);
 
 
     public function test(Request $request)
@@ -27,7 +30,7 @@ class CompanyInternMatch extends Controller
         $this->pq = new SplPriorityQueue();
         $this->skillsList = array("php","nodejs","agile");
         $this->wantedSkills = array('linux','c#');
-        $filtered= $this->filter(true,5000); 
+        $filtered= $this->filter(true,500); 
         
 
         for($i = 0; $i < count($filtered);  $i++ )
@@ -73,10 +76,13 @@ class CompanyInternMatch extends Controller
     private function filter($attendedCollFlag,$maxDistance)
     {
 
-     $compLatitude = $this->companyLocation[0];
-     $compLongitude = $this->companyLocation[1];
+        
+        $compLatitude = $this->companyLocation[0];
+        $compLongitude = $this->companyLocation[1];
 
-     $users=MilitaryUser::with('education','contactinfo','skill')
+     
+       $users=User::with('education','contactinfo','skill')
+       
        ->whereHas('contactinfo',
        function($query) use ($compLatitude,$compLongitude,$maxDistance)
        {
@@ -88,7 +94,9 @@ class CompanyInternMatch extends Controller
             pi()/180 / 2), 2) )) < $maxDistance * 1.60934
             ");
        })
-       ->whereHas('education', function($query) use ($attendedCollFlag)
+    
+       ->whereHas('education', 
+       function($query) use ($attendedCollFlag)
        {
          if(!$attendedCollFlag)
          {
@@ -97,17 +105,19 @@ class CompanyInternMatch extends Controller
         $query->where('attendedcollege','=','$attendedCollFlag');
         
        })->get();
+       
 
-
-            /*
-            var_dump(DB::select(DB::raw("
-                SELECT d AS  6371 * 2 * ASIN(SQRT(
-                    POWER(SIN(($compLatitude - abs(latitude)) * pi()/180 / 2),
-                    2) + COS($compLatitude * pi()/180 ) * COS(abs(latitude) *
-                    pi()/180) * POWER(SIN(($compLongitude - longitude) *
-                    pi()/180 / 2), 2) )) FROM contactinfo 
-            ")));
-            */
+        
+       /*
+        var_dump(DB::select(DB::raw("
+            SELECT d AS  6371 * 2 * ASIN(SQRT(
+                POWER(SIN(($compLatitude - abs(latitude)) * pi()/180 / 2),
+                2) + COS($compLatitude * pi()/180 ) * COS(abs(latitude) *
+                pi()/180) * POWER(SIN(($compLongitude - longitude) *
+                pi()/180 / 2), 2) )) FROM contactinfo 
+        ")));
+        */
+            
         return $users;
     }
 } 

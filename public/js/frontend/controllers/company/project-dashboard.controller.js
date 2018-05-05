@@ -4,14 +4,14 @@
     function projectDashboardCtrl(User, $uibModal, $http) {
 
         var vm = this;
+        
 
         //get user details
         vm.user = User.getUser();
-
-        vm.currentProjID = "dave111";
         vm.curProj = {};
-        var allProjects;
         var indexOfCurrentProject = 0;
+
+        vm.username = vm.user.company_info.username;
 
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
@@ -20,15 +20,10 @@
         function reloadPageNewID(id) {
             allProjects.forEach(function f(ele) {
                 if (ele.id == id) {
-                    indexOf = array.indexOf(ele);
-                    /*
-                    vm.projectDescription = allProjects[indexOf].info.projdescription;
-                    vm.projectTitle = allProjects[indexOf].info.title;
-                    vm.projectManager = allProjects[indexOf].managerInfo.managername;
-                    vm.candidates = allProjects[indexOf].candidates;
-                    vm.milestones = allProjects[indexOf].milestones;
-                     */
-                    vm.curProj = allProjects[indexOf];
+                    indexOfCurrentProject = array.indexOf(ele);
+             
+                    vm.curProj = vm.allProjects[indexOfCurrentProject];
+    
                     return;
                 }
             });
@@ -36,24 +31,10 @@
         }
 
         const winClass = "col-xs-12 col-md-8 col-md-offset-2";
-        var projects = (User.getProjectDashboardProjects({ username: vm.user.company_info.username })).then(
+        User.getProjectDashboardProjects({ username: vm.username}).then(
             function success(response) {
-                allProjects = response.data;
-                /*
-                vm.projectDescription = allProjects[0].info.projdescription;
-                vm.projectTitle = allProjects[0].info.title;
-                vm.projectManager = allProjects[0].managerInfo.managername;
-                vm.candidates = allProjects[0].candidates;
-                vm.milestones = allProjects[0].milestones;
-                */
-                vm.curProj = allProjects[0];
-                console.log(vm.curProj);
-                vm.titles = [];
-                allProjects.forEach(function f(ele) {
-                    vm.titles.push({ title: ele.info.title, id: ele.id });
-                });
-
-                console.log(vm.titles);
+                vm.allProjects = response.data;
+                vm.curProj = vm.allProjects[indexOfCurrentProject];
 
             },
             function fail() {
@@ -61,39 +42,43 @@
             }
         );
 
-        vm.postNewDescription = function (title, description) {
+        function updateAll(data) {
             var req = {
                 method: 'POST',
-                url: '/api/projDash/editDescription',
-                data: { description: description, id: vm.currentProjID, title: title }
+                url: '/api/projDash/updateAll',
+                data:data 
             }
-            $http(req).then(function () { console.log() },
-                function () { });
+            $http(req).then(function () { console.log("Updated Info") },
+                function () { "Update Failed"});
         }
 
-        function httpCall(modal, data) {
-            var req = {
-                method: 'POST',
-                url: '/api/projDash/' + modal,
-                data: { data }
-            }
-            $http(req).then(function () { console.log() },
-                function () { });
-        }
 
         vm.editDescription = function () {
             var modal = $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
 
+                
+
                     $scope.curProj = vm.curProj;
+
+                    //a hack to keep an unmodified version of the project if the user presses cancel.
+                    var unmodified = JSON.parse(JSON.stringify(vm.curProj));
+
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     $scope.ok = function () {
-                        vm.postNewDescription(vm.projectTitle, vm.projectDescription);
+                        updateAll(vm.curProj);
+                        //vm.applyRefresh();
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
+              
+                        console.log(unmodified);
+                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+                        //console.log(vm.allProjects);
+                        //vm.applyRefresh();
+                        $uibModalInstance.close();
                     };
                 },
                 windowClass: winClass
@@ -107,7 +92,7 @@
 
                     $scope.curProj = vm.curProj;
                     $scope.ok = function () {
-                        httpCall('manager', $scope.proj);
+                        //httpCall('manager', $scope.proj);
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {

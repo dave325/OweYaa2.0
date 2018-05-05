@@ -3,6 +3,9 @@
 use Illuminate\Database\Seeder;
 use App\MilitaryUser;
 use App\ContectInfo;
+use App\TableModels\Education;
+use App\User;
+
 use App\TableModels\Skill;
 use App\TableModels\ContactInfo;
 
@@ -17,50 +20,72 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-    
-        $contacts = ContactInfo::all();
 
-        foreach($contacts as $contact)
+        $users = User::all();
+        foreach($users as $user)
         {
-            $contact->longitude = $faker-> latitude(25,50);
-            $contact->latitude = $faker-> longitude(120,70);
-            $contact->save();
-        }
+            if($user->username==='davetest')
+            {
+                continue;
+            }
 
-
-
-        /*
-        for($i = 0; $i < 300; $i++)
-        {
-            $intern = MilitaryUser::create(array(
-                'name'         => $faker->username,
-                'email'         => $faker->email,
-                'username' => $faker->username,
-                'password'         => "password",
+            $user->education = Education::create(array(
+                'username' =>$user->username,
+                'degree'=>"Psychology",
+                'attendedcollege'=>rand(0,1)
             ));
 
-            $skills = ["css","javascript","php","c++","html","nodejs","react","angular","agile"];
-            
+           
+
+        }
+    
+
+        /*
+        $skills = ["css","javascript","php","c++","html","nodejs","react","angular","agile","graphic design","communications"];
+        $indices = range(0, count($skills) - 1);
+        
+        for($i = 0; $i < 50; $i++)
+        {
+            $intern = User::create(array(
+                'email'         => $faker->email,
+                'username'       =>$faker->username,
+                'password'        => "password",
+                'admin'        => 0,
+            ));
+
+            shuffle($indices);
+
             for($j = 0; $j < 3; $j++)
             {
+                
+
                 $skill = Skill::create(array(
-                    'username'         => $intern->username,
-                    'skillid'           => $intern->username.$j,
-                    'skill' => $skills[array_rand($skills,1)],
+                    'username'=> $intern->username,
+                    'skillid'=> $intern->username.$j,
+                    'skill' => $skills[$indices[$j]],
                     'amount' => rand ( 1 , 5 )
                 ));
 
-               
 
             }
-           
+        
             $contactInfo = ContactInfo::create(array(
-                'username' => $intern->username,
-                'location' => $faker-> latitude(25,50) ." ".$faker->longitude(120,70)
+                'username' =>$intern->username,
+                'firstname'=>$faker->firstName(),
+                'lastname'=>$faker->lastName(),
+                'latitude' =>$faker-> latitude(25,45),
+                'longitude' =>$faker->longitude(-125,-70)
+            ));
+
+            $education = Education::create(array(
+                'username' =>$intern->username,
+                'degree'=>"Psychology",
+                'attendedcollege'=>rand(0,1)
             ));
            
         }
         */
+
     
     }
 }

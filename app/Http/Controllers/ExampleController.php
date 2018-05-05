@@ -75,6 +75,10 @@ class ExampleController extends Controller
         return response()->json(["token" => $currUser['token']], 200);
     }
 
+    public function logoutUser(){
+        return AuthController::logout();
+    }
+
     public function getUser(Request $req)
     {
         // Create a variable to store data about the current user.

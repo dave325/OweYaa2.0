@@ -35,7 +35,7 @@
             function success(response) {
                 vm.allProjects = response.data;
                 vm.curProj = vm.allProjects[indexOfCurrentProject];
-
+                console.log(vm.curProj);
             },
             function fail() {
                 console.log("Failed on retrieve projects");
@@ -69,7 +69,7 @@
                     $scope.ok = function () {
                         updateAll(vm.curProj);
                         //vm.applyRefresh();
-                        $uibModalInstance.close();
+                       // $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
               

@@ -3,10 +3,13 @@
     browseInternsCtrl.$inject = ['$scope', "User", "$http"];
     function browseInternsCtrl($scope, User, $http) {
         var vm = this;
-        vm.test = '';
-        skills = ['css', 'c++', 'javascript'];
-        graduated = false;
+        //vm.test = '';
+        //skills = ['css', 'c++', 'javascript'];
+        //graduated = false;
 
+
+
+        
         vm.retrieveInterns = function (graduated, skills) {
             var req = {
                 method: 'POST',
@@ -23,8 +26,10 @@
 
             );
         }
+
+
         vm.retrieveInterns();
-        vm.results = 'result';
+        //vm.results = 'result';
         vm.user = User.getUser();
         $http({
             url: '/api/getUsers',

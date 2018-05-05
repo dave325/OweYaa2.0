@@ -15,12 +15,16 @@ class ProjectDashboardController extends Controller
     //Mass update function, every modal calls this.
     function updateAll(Request $request) {
         $userInfo = $request->all();
-        try{
-            $info = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
-            $manager = TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
-        }catch(ModelNotFoundException $me){
+    
+        $name = $userInfo['id'];
+       // $id= $request->input('id')
+       var_dump ($name);
 
-        }
+
+        /*
+        $info = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
+        $manager = TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
+    
         
         $skills = TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
 
@@ -30,6 +34,7 @@ class ProjectDashboardController extends Controller
         $proj->title=$title;
         $proj->save();
         return response()->json(['success'=>true],201);
+        */
 		
     }
 

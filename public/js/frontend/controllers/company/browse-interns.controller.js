@@ -11,7 +11,6 @@
             const info = {
                 skills: skills
             }
-            console.log(Authentication.getToken());
             var req = {
                 method: 'POST',
                 url: '/api/matching',

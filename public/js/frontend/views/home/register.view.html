@@ -16,7 +16,7 @@
       <div class="form-group">
         <label form="name">First Name: </label>
         <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.firstname" type="text" id="name" ng-minlength="5" ng-required="true" name="firstname"
+        <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="5" ng-required="true" name="firstname"
           class="form-control" ng-class="[{error: !registerModal.firstname.$valid && registerModal.firstname.$touched}, {success: registerModal.firstname.$valid}]"
         />
       </div>
@@ -24,7 +24,7 @@
       <div class="form-group">
         <label form="name">Last Name: </label>
         <p ng-show="!registerModal.lastname.$valid && registerModal.lastname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.lastname" type="text" id="name" ng-minlength="5" ng-required="true" name="lastname"
+        <input ng-model="vm.credentials.registerModal.lastname" type="text" id="lastname" ng-minlength="5" ng-required="true" name="lastname"
           class="form-control" ng-class="[{error: !registerModal.lastname.$valid && registerModal.lastname.$touched}, {success: registerModal.lastname.$valid}]"
         />
       </div>
@@ -44,12 +44,12 @@
       </div>
       <!-- End of class form-group -->
       <div class="form-group">
-        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true">Veteran
+        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true" ng-selected>Veteran
         <br />
         <input type="radio" ng-model="vm.credentials.registerModal.type" value="1" ng-required="true">Company
         <br />
         <button type="button" ng-disabled="registerModal.$invalid" ng-click="vm.doRegister(vm.credentials.registerModal)" class="btn btn-primary col-md-4 col-xs-12 pull-right"
-        />Register as {{vm.formTitle()}} </button>
+        />Register as {{vm.credentials.registerModal.type}} </button>
       </div>
       <!-- End of class form-group -->
     </form>

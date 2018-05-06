@@ -72,7 +72,8 @@ class CompanyInternMatch extends Controller
             $this->pq = new SplPriorityQueue();
             $this->skillsList = array("php", "nodejs", "agile");
 
-            
+            // Use this to get project ids 
+            // Then create another variable to look for project skills based on ids
             $u = User::with('companyProjectSkills')->where('username','=',$request['username'])->first();
             $compProjects = $u->companyProjectSkills();
             //$su = User::with('companypr')

@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\MilitaryUser;
-use App\CompanyUser;
-use App\TableModels\CompanyModels as CModel;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Stripe;
@@ -38,7 +34,10 @@ class StripeController extends Controller{
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id
                 ]);
-                $user['type'] = 'test';
+                $membershipToken = \App\TableModels\CompanyModels\CompanyProject\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
+                $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;
+                $membershipToken->fill($info['user']['membershiptoken']);
+                $membershipToken->save();
                 return response()->json(compact('user'));
             }
           } catch(\Stripe\Error\Card $e) {

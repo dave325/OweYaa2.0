@@ -3,6 +3,7 @@
   function contactModalCtrl($uibModalInstance, CurrUser, User,$timeout){
     contactvm = this;
     contactvm.user = CurrUser;
+    contactvm.isDisabled = false;
     // The function that is call when a user cancels the opening of a modal
 	  contactvm.cancel = function(){
 	   $uibModalInstance.dismiss('cancel')
@@ -14,6 +15,7 @@
     
     // Will make a call to the server and php file
     contactvm.docontact = function(modal, data){
+      contactvm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function(data){
         console.log(data);
@@ -23,6 +25,7 @@
           contactvm.close();
         }
       },function(data){
+        contactvm.isDisabled = false;
         if(data.status === 401){
           contactvm.formError = "Unauthorized, there was an error. Please try again!";
         }else{

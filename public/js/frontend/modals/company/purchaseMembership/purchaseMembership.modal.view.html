@@ -20,7 +20,7 @@
             <label for="card-expiry">Card Expiration Date</label>
             <div id="card-expiry" class="col-xs-12"></div>
         </div><!-- Card expiry -->
-        <button ng-click="purchaseMembershipModalvm.charge()" class="btn submitBtn col-xs-12">Submit Payment</button>
+        <button ng-click="purchaseMembershipModalvm.charge()" ng-disabled="purchaseMembershipModalvm.isDisabled"class="btn submitBtn col-xs-12">Submit Payment</button>
     </form>
     <span class="clearfix"></span>
 </div><!-- End of purchase modal -->

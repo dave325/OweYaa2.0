@@ -3,7 +3,7 @@
   function skillModalCtrl($uibModalInstance, Authentication,CurrUser,User){
     skillvm = this;
     skillvm.user = CurrUser;
-
+    skillvm.isDisabled = false;
     // add programming skills
     skillvm.newSkill = {};
     skillvm.newWant = {};
@@ -80,6 +80,7 @@
     }
     // Will make a call to the server and php file
     skillvm.doskill = function(modal,data){
+      skillvm.isDisabled = true;
       //Update server information
       User.updateUser(modal,data).then(function(data){
         skillvm.formInfo = "Successfully updated!";
@@ -89,6 +90,7 @@
         User.setUser(skillvm.user);
         skillvm.close();
       },function(error){
+        skillvm.isDisabled = false;
         if(data.status === 401){
           skillvm.formError = "Unauthorized, there was an error. Please try again!";
         }else{

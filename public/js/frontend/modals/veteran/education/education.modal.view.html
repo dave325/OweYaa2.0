@@ -28,12 +28,13 @@
                     class="form-control" name="degree" id="degree" />
                 </p>
                 <p>
+                  <span>Graduated:</span>
+                  <input type="checkbox" ng-model="educationvm.graduated" />
+                </p>
+                <p ng-if="educationvm.graduated">
                   <label form="education" for="graduation">Graduation Date: </label>
                   <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.user.education.attendedcollege"
                     type="date" class="form-control" name="graduation" id="graduation" />
-                  <p>
-                    <span>Graduated:</span>
-                    <input type="checkbox" ng-model="educationvm.graduated" />
                   </p>
               </div>
             </div>

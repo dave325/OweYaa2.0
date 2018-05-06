@@ -90,7 +90,7 @@
             console.log(vm.users[user]);
             favIntern = {
                 username: vm.user.company_info.username,
-                internid: vm.users[user].contact_info.username,
+                internid: vm.users[user].contactinfo.username,
                 favid: vm.user.company_info.username + 1
             }
             User.addFavUser(favIntern).then(function (response) {

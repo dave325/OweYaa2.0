@@ -73,7 +73,7 @@ class CompanyInternMatch extends Controller
             $this->skillsList = array("php", "nodejs", "agile");
 
             
-            $u = User::with('companyProjectSkills')->where('username','=',$temp['username'])->first();
+            $u = User::with('companyProjectSkills')->where('username','=',$request['username'])->first();
             $compProjects = $u->companyProjectSkills();
             //$su = User::with('companypr')
             return response()->json($compProjects);

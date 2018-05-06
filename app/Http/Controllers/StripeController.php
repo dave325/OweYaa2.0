@@ -41,7 +41,7 @@ class StripeController extends Controller{
                 $user['type'] = 'test';
                 //return response()->json(compact('user'));
             }
-            $membershipToken = CModel\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
+            $membershipToken = CModel\CompanyProject\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
             $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;
             $membershipToken->fill($info['user']['membershiptoken']);
             $membershipToken->save();

@@ -56,10 +56,10 @@
         };
         window.onload = function () {
             // Create a Stripe client
-            const stripe = Stripe("pk_test_bAOVRHXtmFofvJCyDlWoonrE");
+            let stripe = Stripe("pk_test_bAOVRHXtmFofvJCyDlWoonrE");
 
             // Create an instance of Elements
-            const elements = stripe.elements();
+            let elements = stripe.elements();
             // Create an instance of the card Element
             purchaseMembershipModalvm.payment.card = elements.create('cardNumber');
             purchaseMembershipModalvm.payment.cardCvc = elements.create('cardCvc');

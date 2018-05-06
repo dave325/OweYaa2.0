@@ -25,7 +25,7 @@ class StripeController extends Controller{
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id
                 ));
-                return response()->json(['user'=>$user,'success'=>true]);
+                //return response()->json(['user'=>$user,'success'=>true]);
             }else{
                 $user["customer"] = \Stripe\Customer::create([
                     "email" => $info['user']['company_info']['email'],
@@ -39,7 +39,7 @@ class StripeController extends Controller{
                     "customer" => $user['customer']->id
                 ]);
                 $user['type'] = 'test';
-                return response()->json(compact('user'));
+                //return response()->json(compact('user'));
             }
             $membershipToken = CModel\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
             $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;

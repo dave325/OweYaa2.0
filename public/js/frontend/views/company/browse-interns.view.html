@@ -37,7 +37,9 @@
 				<div class="col-md-2">
 					<img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
 					 alt="">
-					<h4 class="specialText">CANDIDATE NAME</h4>
+					<h4 class="specialText">
+						{{user.contactinfo.firstname+" "+user.contactinfo.lastname}}
+					</h4>
 
 					<button type="button" class="btn btn-info">WANT</button>
 					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="vm.isFav(user)">FAV</button>
@@ -45,9 +47,9 @@
 				</div>
 				<div class="col-md-4">
 					<br>
-					<p>LOCATION: </p>
-					<p>BIO:</p>
-					<p>Degree:</p>
+					<p>LOCATION: {{user.contactinfo.location}} </p>
+					<p>BIO: {{user.contactinfo.bio}}</p>
+					<p>Degree: {{user.education.degree}}</p>
 					<p>Previous Employer:</p>
 					<p>Desired Field:</p>
 				</div>

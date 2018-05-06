@@ -21,20 +21,14 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $users = User::all();
-        foreach($users as $user)
+        $contacts = ContactInfo::all();
+        foreach($contacts as $contact)
         {
-            if($user->username==='davetest')
-            {
-                continue;
-            }
-
-            $user->education = Education::create(array(
-                'username' =>$user->username,
-                'degree'=>"Psychology",
-                'attendedcollege'=>rand(0,1)
-            ));
-
+           
+            $contact->location = $faker->address;
+              
+          
+            $contact->save();
            
 
         }

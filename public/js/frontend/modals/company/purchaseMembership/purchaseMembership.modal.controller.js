@@ -37,7 +37,7 @@
      // Dictates the type of payment to charge 
      purchaseMembershipModalvm.type = purchaseMembershipModalvm.paymentType[PayType.type];
      // Create a Stripe client
-     const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+     const stripe = Stripe("pk_test_bAOVRHXtmFofvJCyDlWoonrE");
 
      // Create an instance of Elements
      const elements = stripe.elements();

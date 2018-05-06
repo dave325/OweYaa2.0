@@ -3,6 +3,7 @@
   function educationModalCtrl($uibModalInstance, Authentication, CurrUser, User, $filter) {
     educationvm = this;
     educationvm.user = CurrUser;
+    educationvm.isDisabled = false;
     if (educationvm.user.education.graddate != null) {
       educationvm.graduated = true;
     } else {
@@ -93,6 +94,7 @@
 
     // Will make a call to the server and php file
     educationvm.doEducation = function (modal, data) {
+      educationvm.isDisabled = true;
       //Update server information
       if(!educationvm.user.education.attendedcollege){
         educationvm.user.education.graddate = 0;
@@ -101,6 +103,7 @@
       }
       console.log(educationvm.user.education);
       User.updateUser(modal, data).then(function (data) {
+        
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
         }

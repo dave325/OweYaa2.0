@@ -24,7 +24,7 @@
     <div class="form-group">
       <input ng-value="loginvm.credentials.loginModal.honeypot" type="hidden" class="form-control" ng-maxlength="0"/>
       <p ng-click="loginvm.loginOppForm()" id="changeLoginForm">Login as {{loginvm.displayFormTitle(!loginvm.type)}}</p>
-      <button type="button" ng-disabled="loginModal.$invalid" ng-click="loginvm.doLogin($event, loginvm.credentials.loginModal)" class="btn- btn-primary col-xs-12"> Login </button>
+      <button type="button" ng-disabled="loginModal.$invalid || loginvm.isDisabled" ng-click="loginvm.doLogin($event, loginvm.credentials.loginModal)" class="btn- btn-primary col-xs-12"> Login </button>
     </div> <!-- End of class form-group -->
   </form>
   <div class="col-xs-12" id="loginOptions">

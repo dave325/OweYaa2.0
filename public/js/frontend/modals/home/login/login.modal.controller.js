@@ -2,7 +2,8 @@
   loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http', '$location'];
 	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http, $location){
     // Instantiate the var to this
-		var loginvm = this;
+    var loginvm = this;
+    loginvm.isDisabled = false;
     // Sets error variables
     // States the error message
     loginvm.formError = "";
@@ -33,17 +34,21 @@
         'type' : loginvm.type
       }
       Authentication.login(checkUser).then(function(data){
+        loginvm.isDisabled = true;
         if(data.status === 200){
           User.getCurrentUser(checkUser).then(function(data){
             User.setUser(data.data.user);
             loginvm.close(data.data.user);
           },function(data){
+            loginvm.isDisabled = false;
             loginvm.formError = "Username or password does not exist.<br/> Please try again.";
           });
         }else{
+          loginvm.isDisabled = false;
           loginvm.formError = "Username or password does not exist.<br/> Please try again.";
         }
       },function(){
+        loginvm.isDisabled = false;
         loginvm.formError = "There was an error logging in. <br /> Please try again.";
       });
     };

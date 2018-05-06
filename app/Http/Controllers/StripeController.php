@@ -21,7 +21,7 @@ class StripeController extends Controller{
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id
                 ));
-                //return response()->json(['user'=>$user,'success'=>true]);
+                return response()->json(['user'=>$user,'success'=>true]);
             }else{
                 $user["customer"] = \Stripe\Customer::create([
                     "email" => $info['user']['company_info']['email'],
@@ -34,13 +34,12 @@ class StripeController extends Controller{
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id
                 ]);
-                $user['type'] = 'test';
-                //return response()->json(compact('user'));
+                $membershipToken = \App\TableModels\CompanyModels\CompanyProject\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
+                $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;
+                $membershipToken->fill($info['user']['membershiptoken']);
+                $membershipToken->save();
+                return response()->json(compact('user'));
             }
-            $membershipToken = \App\TableModels\CompanyModels\CompanyProject\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
-            $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;
-            $membershipToken->fill($info['user']['membershiptoken']);
-            $membershipToken->save();
           } catch(\Stripe\Error\Card $e) {
             // Since it's a decline, \Stripe\Error\Card will be caught
             $body = $e->getJsonBody();

@@ -29,7 +29,7 @@
                 </p>
                 <p>
                   <span>Graduated:</span>
-                  <input type="checkbox" ng-model="educationvm.graduated" />
+                  <input type="checkbox" ng-model="educationvm.graduated" ng-checked="educationvm.user.education.graddate.length > 0" />
                 </p>
                 <p ng-if="educationvm.graduated">
                   <label form="education" for="graduation">Graduation Date: </label>

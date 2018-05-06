@@ -102,28 +102,29 @@
                     displayError.style.display = "none";
                 }
             });
-        };
-        // Handle submition process 
-        purchaseMembershipModalvm.charge = function charge() {
-            // Create token from card information
-            stripe.createToken(purchaseMembershipModalvm.payment.card).then(function (result) {
-                if (result.error) {
-                    // Inform the customer that there was an error
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    // Creates an object containing information server needs to process payment
-                    purchaseMembershipModalvm.pay.tempToken = result.token.id;
-                    purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
-                    purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
-                    // Sends request to server
-                    $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
-                        console.log(payment);
-                    }, function (data) {
-                        console.log(data);
-                    });
-                }
-            });
+
+            // Handle submition process 
+            purchaseMembershipModalvm.charge = function charge() {
+                // Create token from card information
+                stripe.createToken(purchaseMembershipModalvm.payment.card).then(function (result) {
+                    if (result.error) {
+                        // Inform the customer that there was an error
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        // Creates an object containing information server needs to process payment
+                        purchaseMembershipModalvm.pay.tempToken = result.token.id;
+                        purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
+                        purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
+                        // Sends request to server
+                        $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
+                            console.log(payment);
+                        }, function (data) {
+                            console.log(data);
+                        });
+                    }
+                });
+            }
         }
         // The function that is call when a user cancels the opening of a modal
         purchaseMembershipModalvm.cancel = function () {

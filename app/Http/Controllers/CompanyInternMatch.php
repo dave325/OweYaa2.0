@@ -76,13 +76,15 @@ class CompanyInternMatch extends Controller
             
      
             
+            /*
             $usr = User::where('username','=',$temp['username'])->get();
-            $skills = $usr->companyProjectSkills();
+            $skills = $usr->companyProjectSkills;
             foreach($skills as $sk)
             {
                
                 print($sk->skill);
             }
+            */
             
         
            
@@ -95,11 +97,17 @@ class CompanyInternMatch extends Controller
             $ret = array();
             while (!$this->pq->isEmpty()) {
                 $user =$this->pq->extract();
+                
                 $school=$user->education;
+                
                 $degree=$user->education->degree;
+                
                 $school="Queens College";
+                
                 $name=$user->contactinfo->firstname.' '.$user->contactinfo->lastname;
-                $skills=$user->skills;
+                
+                $skills=$user->skill;
+               
                 array_push( $ret, ['school'=>'Queens College','name'=>$name,'degree'=>$degree,'skills'=>$skills] );
             }
 

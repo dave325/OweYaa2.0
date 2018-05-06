@@ -1,124 +1,124 @@
 <div id="purchaseMembership">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
-    <h1 class="text-center col-md-8 col-md-offset-2">Purchase Your Internship Membership</h5>
-        <a href="company/{{vm.user.company.username}}/project-submission">
-            <h2 ng-if="vm.user.company_project.length == 0" class="text-center">Submit a project first! Click here to be redirected.</h2>
-        </a>
-        <div ng-if="vm.user.company_project.length > 0" class="col-xs-12">
-            <h2 class="text-center">Select your Membership to Initiate the Matching Process</h2>
-            <div class="col-md-8 col-md-offset-2 text-center">
-                <p>We make internships easy. Select your flexible membership package and everything is covered. Each package
-                    contains the following:</p>
+    <h1 class="text-center col-md-8 col-md-offset-2">Purchase Your Internship Membership</h1>
+    <a href="company/{{vm.user.company.username}}/project-submission">
+        <h2 ng-if="vm.user.company_project.length == 0" class="text-center">Submit a project first! Click here to be redirected.</h2>
+    </a>
+    <div ng-if="vm.user.company_project.length > 0" class="row col-xs-12">
+        <h2 class="text-center">Select your Membership to Initiate the Matching Process</h2>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <p>We make internships easy. Select your flexible membership package and everything is covered. Each package contains
+                the following:</p>
+            <ul>
+                <li> EACH PROJECT RECEIVES PERSONALIZED TAILOR-MATCHED</li>
+                <li> DEDICATED OWEYAA TEAM CAPTAIN</li>
+                <li> STIPEND FOR Candidate INCLUDED</li>
+                <li> ☆ YOUR MEMBERSHIP GOES TOWARDS FREE VET EDUCATION</li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-md-offset-2 row">
+            <div id="monthMembership" class="col-md-4 payOption">
+                <h3>Monthly Membership</h3>
                 <ul>
-                    <li> EACH PROJECT RECEIVES PERSONALIZED TAILOR-MATCHED</li>
-                    <li> DEDICATED OWEYAA TEAM CAPTAIN</li>
-                    <li> STIPEND FOR Candidate INCLUDED</li>
-                    <li> ☆ YOUR MEMBERSHIP GOES TOWARDS FREE VET EDUCATION</li>
+                    <li>$1,200 Per Month</li>
+                    <li>GREAT FOR SMALL PROJECTS & ONGOING SUPPORT NEEDS</li>
+                    <li>INCLUDES 30 HOURS PROJECT PER MONTH</li>
                 </ul>
+                <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('month')">Choose Monthly
+                    <br /> Membership</button>
             </div>
-            <div class="col-md-8 col-md-offset-2 row">
-                <div id="monthMembership" class="col-md-4 payOption">
-                    <h3>Monthly Membership</h3>
-                    <ul>
-                        <li>$1,200 Per Month</li>
-                        <li>GREAT FOR SMALL PROJECTS & ONGOING SUPPORT NEEDS</li>
-                        <li>INCLUDES 30 HOURS PROJECT PER MONTH</li>
-                    </ul>
-                    <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('month')">Choose Monthly
-                        <br /> Membership</button>
-                </div>
-                <!-- End of monthly membership -->
-                <div id="quarterlyMembership" class="col-md-4 payOption">
-                    <h3>Quarterly Membership</h3>
-                    <ul>
-                        <li>$5,000 Per Quarter</li>
-                        <li>40 Project Hours Per Month</li>
+            <!-- End of monthly membership -->
+            <div id="quarterlyMembership" class="col-md-4 payOption">
+                <h3>Quarterly Membership</h3>
+                <ul>
+                    <li>$5,000 Per Quarter</li>
+                    <li>40 Project Hours Per Month</li>
                     <li>INCLUDES 40 HOURS PROJECT PER MONTH</li>
                     <li>NEED MORE HOURS? NO PROBLEM*</li>
-                    </ul>
-                    <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('quarter')">Choose Quarterly
-                        <br /> Membership</button>
-                </div>
-                <!-- End of quarterly membership -->
-                <div id="annualMembership" class="col-md-4 payOption">
-                    <h3>Annual Membership</h3>
-                    <ul>
-                        <li>$16,000 Annually</li>
-                        <li>45 Project Hours Per Month</li>
-                    </ul>
-                    <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('annual')">Choose Annual
-                        <br /> Membership</button>
-                </div>
-                <!-- End of annual membership -->
-                <div id="hourBundles" class="col-md-4">
-                    <h3>HOUR BUNDLES</h3>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>10 HOURS - EQUIVALENT OF 1.5 WORK DAYS PER WEEK FOR ONE MONTH.</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$230
-                        </div>
+                </ul>
+                <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('quarter')">Choose Quarterly
+                    <br /> Membership</button>
+            </div>
+            <!-- End of quarterly membership -->
+            <div id="annualMembership" class="col-md-4 payOption">
+                <h3>Annual Membership</h3>
+                <ul>
+                    <li>$16,000 Annually</li>
+                    <li>45 Project Hours Per Month</li>
+                </ul>
+                <button class="btn paySubmit col-xs-12 col-md-8 col-md-offset-2" ng-click="vm.openPayment('annual')">Choose Annual
+                    <br /> Membership</button>
+            </div>
+            <!-- End of annual membership -->
+            <div id="hourBundles" class="col-md-4">
+                <h3>HOUR BUNDLES</h3>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>10 HOURS - EQUIVALENT OF 1.5 WORK DAYS PER WEEK FOR ONE MONTH.</p>
                     </div>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>40 HOURS - EQUIVALENT OF 20 HOURS PER WEEK FOR ONE MONTH.</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$920</p>
-                        </div>
-                    </div>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>140 HOURS - EQUIVALENT of 35 HOURS PER WEEK FOR ONE MONTH.</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$2400</P>
-                        </div>
+                    <div class="col-md-2">
+                        <p>$230
                     </div>
                 </div>
-                <div id="addOns" class="col-md-4">
-                    <h3>ADD ONS & ADDITIONAL SERVICES</h3>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>EXECUTIVE MATCH AND SPECIALIZED ROLES: FOR EXAMPLE: C-SUITE, LAWYER, MECHANICAL ENGINEER, ETC.</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$500</p>
-                        </div>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>40 HOURS - EQUIVALENT OF 20 HOURS PER WEEK FOR ONE MONTH.</p>
                     </div>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>INTERVIEW MATCHED INTERN</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$50</p>
-                        </div>
-                    </div>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>ON-SITE</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>$1500</P>
-                        </div>
-                    </div>
-                    <div class="row"> 
-                        <span class="col-md-2"></span>
-                        <div class="col-md-8">
-                            <p>GOVERNMENT CONTRACT ASSISTANCE & HIRING</p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>CALL US</P>
-                        </div>
+                    <div class="col-md-2">
+                        <p>$920</p>
                     </div>
                 </div>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>140 HOURS - EQUIVALENT of 35 HOURS PER WEEK FOR ONE MONTH.</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>$2400</P>
+                    </div>
+                </div>
+            </div>
+            <div id="addOns" class="col-md-4">
+                <h3>ADD ONS & ADDITIONAL SERVICES</h3>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>EXECUTIVE MATCH AND SPECIALIZED ROLES: FOR EXAMPLE: C-SUITE, LAWYER, MECHANICAL ENGINEER, ETC.</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>$500</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>INTERVIEW MATCHED INTERN</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>$50</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>ON-SITE</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>$1500</P>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-md-2"></span>
+                    <div class="col-md-8">
+                        <p>GOVERNMENT CONTRACT ASSISTANCE & HIRING</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>CALL US</P>
+                    </div>
+                </div>
+            </div>
             <!-- End of payOptions container -->
             <span class="clearfix"></span>
             <div id="discount-notification" class="col-md-8 col-md-offset-2">
@@ -132,7 +132,8 @@
             <!-- End of request Discount -->
         </div>
         <!-- End of purchase membership options -->
-</div>
-<!-- End of purchase membership -->
+    </div>
+    <!-- End of purchase membership -->
 
-<footer-base></footer-base>
+    <footer-base></footer-base>
+</div>

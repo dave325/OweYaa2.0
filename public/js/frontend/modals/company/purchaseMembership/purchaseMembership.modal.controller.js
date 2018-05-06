@@ -118,6 +118,7 @@
                         purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
                         // Sends request to server
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
+                            purchaseMembershipModalvm.user.membership_token.stripetoken = payment.data.user.customer.id;
                             console.log(payment);
                         }, function (data) {
                             console.log(data);

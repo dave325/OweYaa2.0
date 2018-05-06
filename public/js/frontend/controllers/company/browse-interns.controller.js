@@ -1,52 +1,50 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http","Authentication"];
-    function browseInternsCtrl($scope, User, $http,Authentication) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication"];
+    function browseInternsCtrl($scope, User, $http, Authentication) {
         var vm = this;
         vm.test = '';
-       
-       
-        vm.user = User.getUser();
-        vm.internsList=
-        vm.retrieveInterns = function () {
-            var req = {
-                method: 'POST',
-                url: '/api/matching',
-                headers: {
-                    "Authorization": "Bearer " + Authentication.getToken()
-                }
-            }
-            $http(req).then(
-                function (response) {
-                     
-                     vm.users = response.data;
-                     console.log(vm.users);
-                     User.getFavUsers(vm.user).then(function (response) {
-                         for (let j = 0; j < vm.users.length - 1; j++) {
-                             for (let i = 0; i < response.data.projects.length - 1; i++) {
-                                 if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
-                                     console.log(true);
-                                     vm.users[j].isFav = true;
-                                 } else {
-                                     vm.users[j].isFav = false;
-                                 }
-                             }
-                         }
-                     }, function (data) {
-                         console.log(data);
-                     });
-                     vm.copyUsers = vm.users.slice();
-                },
-                function (response) {
-                    console.log("ERROR: Retrieving DB candidates" + response);
-                }
 
-            );
-        }
+
+        vm.user = User.getUser();
+        vm.internsList =
+            vm.retrieveInterns = function () {
+                var req = {
+                    method: 'POST',
+                    url: '/api/matching',
+                    headers: {
+                        "Authorization": "Bearer " + Authentication.getToken()
+                    }
+                }
+                $http(req).then(
+                    function (response) {
+
+                        vm.users = response.data;
+                        User.getFavUsers(vm.user).then(function (response) {
+                            for (let j = 0; j < vm.users.length - 1; j++) {
+                                for (let i = 0; i < response.data.projects.length - 1; i++) {
+                                    if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
+                                        vm.users[j].isFav = true;
+                                    } else {
+                                        vm.users[j].isFav = false;
+                                    }
+                                }
+                            }
+                        }, function (data) {
+                            console.log(data);
+                        });
+                        vm.copyUsers = vm.users.slice();
+                    },
+                    function (response) {
+                        console.log("ERROR: Retrieving DB candidates" + response);
+                    }
+
+                );
+            }
 
 
         vm.retrieveInterns();
-        
+
 
 
 
@@ -89,6 +87,7 @@
         }
 
         vm.addFavUser = function (user) {
+            console.log(vm.users[user]);
             favIntern = {
                 username: vm.user.company_info.username,
                 internid: vm.users[user].contact_info.username,

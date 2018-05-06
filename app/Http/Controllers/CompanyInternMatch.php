@@ -60,12 +60,12 @@ class CompanyInternMatch extends Controller
     }
     public function match(Request $request)
     {
-        if ($isValid = $this->isValid()) {
-            $temp = AuthController::currUser();
-            $user = User::with('membershipToken')->where("username", "=",$temp['username'])->first();
-            if($user['membership_token']['stripetoken'] === null){
+       // if ($isValid = $this->isValid()) {
+           // $temp = AuthController::currUser();
+            //$user = User::with('membershipToken')->where("username", "=",$temp['username'])->first();
+            //if($user['membership_token']['stripetoken'] === null){
                 //return response()->json(['success' => false]);
-            }
+            //}
 
 
             
@@ -76,6 +76,7 @@ class CompanyInternMatch extends Controller
             $u = User::where('username','=',$temp['username'])->first();
             $compProjects = $u->companyProjectSkills();
             //$su = User::with('companypr')
+            return response()->json($compProjects);
             foreach($compProjects as $compProj)
             {
                 print($compProj->id);
@@ -96,9 +97,9 @@ class CompanyInternMatch extends Controller
             }
 
             return json_encode($ret);
-        }else{
-            return response()->json(compact($ret));
-        }
+       // }else{
+         //   return response()->json(compact($ret));
+        //}
     }
 
     private function getSkillPoints($internSkills)

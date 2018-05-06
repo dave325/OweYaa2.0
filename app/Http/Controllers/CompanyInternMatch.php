@@ -81,8 +81,7 @@ class CompanyInternMatch extends Controller
             //return response()->json($compProjects);
             //foreach($compProjects as $compProj){}
             $u = Project\CompanyProjectJobInfo::where('username','=','dave1')->first();
-            return response()->json($u);
-            foreach($compProjects as $compProj){}
+            foreach($u as $compProj){}
             
      
             

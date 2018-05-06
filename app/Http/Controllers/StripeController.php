@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\MilitaryUser;
-use App\CompanyUser;
-use App\TableModels\CompanyModels as CModel;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Stripe;

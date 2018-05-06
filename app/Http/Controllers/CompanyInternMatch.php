@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\TableModels\CompanyModels\CompanyProject as Project;
+use \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill as Skill;
 use \SplPriorityQueue;
 
 /*
@@ -72,6 +73,7 @@ class CompanyInternMatch extends Controller
             $this->pq = new SplPriorityQueue();
             $this->skillsList = array("php", "nodejs", "agile");
 
+<<<<<<< HEAD
             // Use this to get project ids 
             // Then create another variable to look for project skills based on ids
             $u = User::with('companyProjectSkills')->where('username','=',$request['username'])->first();
@@ -79,22 +81,36 @@ class CompanyInternMatch extends Controller
             //$su = User::with('companypr')
             return response()->json($compProjects);
             foreach($compProjects as $compProj)
+=======
+            
+     
+            
+            $usr = User::where('username','=',$temp['username'])->get();
+            $skills = $usr->companyProjectSkills();
+            foreach($skills as $sk)
+>>>>>>> dfee9e28d77cff960d15de266392006c799ba09b
             {
-                print($compProj->id);
+               
+                print($sk->skill);
             }
             
-            
-            return;
+        
            
             $filtered = $this->filter(true, 500);
 
             for ($i = 0; $i < count($filtered); $i++) {
-                $this->pq->insert($filtered[$i]->username, $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
+                $this->pq->insert($filtered[$i], $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
             }
 
             $ret = array();
             while (!$this->pq->isEmpty()) {
-                array_push($ret, $this->pq->extract());
+                $user =$this->pq->extract();
+                $school=$user->education;
+                $degree=$user->education->degree;
+                $school="Queens College";
+                $name=$user->contactinfo->firstname.' '.$user->contactinfo->lastname;
+                $skills=$user->skills;
+                array_push( $ret, ['school'=>'Queens College','name'=>$name,'degree'=>$degree,'skills'=>$skills] );
             }
 
             return json_encode($ret);

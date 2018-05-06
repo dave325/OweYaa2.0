@@ -4,24 +4,38 @@
     function browseInternsCtrl($scope, User, $http,Authentication) {
         var vm = this;
         vm.test = '';
-        skills = ['css', 'c++', 'javascript'];
-        graduated = false;
+       
+       
         vm.user = User.getUser();
-        vm.retrieveInterns = function (graduated, skills) {
-            const info = {
-                skills: skills
-            }
+        vm.internsList=
+        vm.retrieveInterns = function () {
             var req = {
                 method: 'POST',
                 url: '/api/matching',
-                data: { info },
                 headers: {
                     "Authorization": "Bearer " + Authentication.getToken()
                 }
             }
             $http(req).then(
                 function (response) {
-                    console.log(response);
+                     
+                     vm.users = response.data;
+                     console.log(vm.users);
+                     User.getFavUsers(vm.user).then(function (response) {
+                         for (let j = 0; j < vm.users.length - 1; j++) {
+                             for (let i = 0; i < response.data.projects.length - 1; i++) {
+                                 if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
+                                     console.log(true);
+                                     vm.users[j].isFav = true;
+                                 } else {
+                                     vm.users[j].isFav = false;
+                                 }
+                             }
+                         }
+                     }, function (data) {
+                         console.log(data);
+                     });
+                     vm.copyUsers = vm.users.slice();
                 },
                 function (response) {
                     console.log("ERROR: Retrieving DB candidates" + response);
@@ -32,31 +46,8 @@
 
 
         vm.retrieveInterns();
-        //vm.results = 'result';
-        vm.user = User.getUser();
-        $http({
-            url: '/api/getUsers',
-            method: 'POST'
-        }).then(function (response) {
-            vm.users = response.data.user;
-            User.getFavUsers(vm.user).then(function (response) {
-                for (let j = 0; j < vm.users.length - 1; j++) {
-                    for (let i = 0; i < response.data.projects.length - 1; i++) {
-                        if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
-                            console.log(true);
-                            vm.users[j].isFav = true;
-                        } else {
-                            vm.users[j].isFav = false;
-                        }
-                    }
-                }
-            }, function (data) {
-                console.log(data);
-            });
-            vm.copyUsers = vm.users.slice();
-        }, function (data) {
-            console.log(data);
-        });
+        
+
 
 
         // Filter user function

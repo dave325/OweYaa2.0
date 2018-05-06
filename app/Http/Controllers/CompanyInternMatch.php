@@ -75,6 +75,11 @@ class CompanyInternMatch extends Controller
 
             // Use this to get project ids 
             // Then create another variable to look for project skills based on ids
+            //$u = User::where('username','=','dave1')->first();
+            //$compProjects = $u->companyProjectJobInfo;// $u->companyProjectJobInfo;
+            //$su = User::with('companypr')
+            //return response()->json($compProjects);
+            //foreach($compProjects as $compProj){}
             $u = Project\CompanyProjectJobInfo::where('username','=','dave1')->first();
             return response()->json($u);
             foreach($compProjects as $compProj){}
@@ -101,19 +106,8 @@ class CompanyInternMatch extends Controller
 
             $ret = array();
             while (!$this->pq->isEmpty()) {
-                $user =$this->pq->extract();
-                
-                $school=$user->education;
-                
-                $degree=$user->education->degree;
-                
-                $school="Queens College";
-                
-                $name=$user->contactinfo->firstname.' '.$user->contactinfo->lastname;
-                
-                $skills=$user->skill;
-               
-                array_push( $ret, ['school'=>'Queens College','name'=>$name,'degree'=>$degree,'skills'=>$skills] );
+                $user =$this->pq->extract();               
+                array_push( $ret, $user );
             }
 
             return json_encode($ret);

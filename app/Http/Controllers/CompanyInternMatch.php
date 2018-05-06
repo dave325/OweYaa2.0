@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\TableModels\CompanyModels\CompanyProject as Project;
+use \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill as Skill;
 use \SplPriorityQueue;
 
 /*
@@ -73,26 +74,33 @@ class CompanyInternMatch extends Controller
             $this->skillsList = array("php", "nodejs", "agile");
 
             
-            $u = User::where('username','=',$temp['username'])->first();
-            $compProjects = $u->companyProjectSkills();
-            //$su = User::with('companypr')
-            foreach($compProjects as $compProj)
+     
+            
+            $usr = User::where('username','=',$temp['username'])->get();
+            $skills = $usr->companyProjectSkills();
+            foreach($skills as $sk)
             {
-                print($compProj->id);
+               
+                print($sk->skill);
             }
             
-            
-            return;
+        
            
             $filtered = $this->filter(true, 500);
 
             for ($i = 0; $i < count($filtered); $i++) {
-                $this->pq->insert($filtered[$i]->username, $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
+                $this->pq->insert($filtered[$i], $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
             }
 
             $ret = array();
             while (!$this->pq->isEmpty()) {
-                array_push($ret, $this->pq->extract());
+                $user =$this->pq->extract();
+                $school=$user->education;
+                $degree=$user->education->degree;
+                $school="Queens College";
+                $name=$user->contactinfo->firstname.' '.$user->contactinfo->lastname;
+                $skills=$user->skills;
+                array_push( $ret, ['school'=>'Queens College','name'=>$name,'degree'=>$degree,'skills'=>$skills] );
             }
 
             return json_encode($ret);

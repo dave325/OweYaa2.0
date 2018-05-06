@@ -61,7 +61,7 @@ class CompanyInternMatch extends Controller
     public function match(Request $request)
     {
        // if ($isValid = $this->isValid()) {
-           // $temp = AuthController::currUser();
+           $temp = AuthController::currUser();
             //$user = User::with('membershipToken')->where("username", "=",$temp['username'])->first();
             //if($user['membership_token']['stripetoken'] === null){
                 //return response()->json(['success' => false]);
@@ -73,7 +73,7 @@ class CompanyInternMatch extends Controller
             $this->skillsList = array("php", "nodejs", "agile");
 
             
-            $u = User::where('username','=',$temp['username'])->first();
+            $u = User::with('companyProjectSkills')->where('username','=',$temp['username'])->first();
             $compProjects = $u->companyProjectSkills();
             //$su = User::with('companypr')
             return response()->json($compProjects);

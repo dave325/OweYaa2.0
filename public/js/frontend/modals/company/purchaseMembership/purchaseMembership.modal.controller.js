@@ -104,6 +104,7 @@
             }
         });
     };
+    console.log("reached");
     // Handle submition process 
      purchaseMembershipModalvm.charge = function charge() {
          // Create token from card information

@@ -41,7 +41,7 @@
 
      // Create an instance of Elements
      const elements = stripe.elements();
-
+     console.log(stripe);
      // Custom styling can be passed to options when creating an Element.
      // (Note that this demo uses a wider set of styles than the guide below.)
      var style = {
@@ -104,7 +104,6 @@
             }
         });
     };
-    console.log("reached");
     // Handle submition process 
      purchaseMembershipModalvm.charge = function charge() {
          // Create token from card information

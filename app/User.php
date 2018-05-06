@@ -227,6 +227,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany('App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill', 'username');
     }
+    public function companyProjectJobInfo()
+    {
+        return $this->hasOne('App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo', 'username');
+    }
     
     
     /**
@@ -244,6 +248,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasOne('App\TableModels\CompanyModels\CompanyInfo', 'username');
     }
+    
 
     public function getJWTIdentifier()
     {

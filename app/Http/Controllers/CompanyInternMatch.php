@@ -73,15 +73,13 @@ class CompanyInternMatch extends Controller
             $this->pq = new SplPriorityQueue();
             $this->skillsList = array("php", "nodejs", "agile");
 
-<<<<<<< HEAD
             // Use this to get project ids 
             // Then create another variable to look for project skills based on ids
-            $u = User::with('companyProjectSkills')->where('username','=',$request['username'])->first();
-            $compProjects = $u->companyProjectSkills();
+            $u = User::where('username','=','dave1')->first();
+            $compProjects ="";// $u->companyProjectJobInfo;
             //$su = User::with('companypr')
             return response()->json($compProjects);
-            foreach($compProjects as $compProj)
-=======
+            foreach($compProjects as $compProj){}
             
      
             
@@ -89,7 +87,6 @@ class CompanyInternMatch extends Controller
             $usr = User::where('username','=',$temp['username'])->get();
             $skills = $usr->companyProjectSkills;
             foreach($skills as $sk)
->>>>>>> dfee9e28d77cff960d15de266392006c799ba09b
             {
                
                 print($sk->skill);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\TableModels\CompanyModels\CompanyProject as Project;
 use \SplPriorityQueue;
 
 /*
@@ -14,7 +15,6 @@ class CompanyInternMatch extends Controller
 {
 
     private $skillsList;
-    private $wantedSkills;
     private $pq;
     private $companyLocation = array(40, -74);
 
@@ -58,17 +58,32 @@ class CompanyInternMatch extends Controller
 
         return true;
     }
-    public function test(Request $request)
+    public function match(Request $request)
     {
         if ($isValid = $this->isValid()) {
             $temp = AuthController::currUser();
             $user = User::with('membershipToken')->where("username", "=",$temp['username'])->first();
             if($user['membership_token']['stripetoken'] === null){
-                return response()->json(['success' => false]);
+                //return response()->json(['success' => false]);
             }
+
+
+            
             $this->pq = new SplPriorityQueue();
             $this->skillsList = array("php", "nodejs", "agile");
-            $this->wantedSkills = array('linux', 'c#');
+
+            
+            $u = User::where('username','=',$temp['username'])->first();
+            $compProjects = $u->companyProjectSkills();
+            //$su = User::with('companypr')
+            foreach($compProjects as $compProj)
+            {
+                print($compProj->id);
+            }
+            
+            
+            return;
+           
             $filtered = $this->filter(true, 500);
 
             for ($i = 0; $i < count($filtered); $i++) {

@@ -222,6 +222,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $this->hasMany('App\TableModels\CompanyModels\CompanyProject', 'username');
     }
 
+    /*
+    public function companyProjectSkills()
+    {
+        return $this->hasMany('App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill', 'username');
+    }
+    */
+    
     /**
      * Get the interviews associated with the user.
      */

@@ -9,7 +9,6 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $router->get('/', function (){
     return view('index');
 });
@@ -19,13 +18,12 @@ $router->get('{all}', function (){
 $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
-
 Route::group(['prefix' => 'api'], function ($router){
     Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "ExampleController@loginUser");
     Route::post('getUser', "ExampleController@getUser");
     Route::post('addUser', "ExampleController@addUser");
-    Route::post('matching', 'CompanyInternMatch@test');
+    Route::post('matching', 'CompanyInternMatch@match');
     Route::post('uploadFile','ValidateUser@uploadFiles');
     Route::post('getUsers', 'CompanyController@returnAllUsers');
     Route::post('getProjects', 'CompanyController@retrieveProj');
@@ -52,7 +50,6 @@ Route::group(['prefix' => 'api'], function ($router){
      Route::group(['prefix' => 'projDash'], function (){
         Route::post('updateAll', 'ProjectDashboardController@updateAll');
         Route::post('getProjects', 'ProjectDashboardController@getProjects');
-
     });
     Route::group(['prefix'=>'admin'],function(){
         Route::post('login','AdminController@login');

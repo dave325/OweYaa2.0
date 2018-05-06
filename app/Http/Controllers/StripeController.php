@@ -42,7 +42,7 @@ class StripeController extends Controller{
                 return response()->json(compact('user'));
             }
             $membershipToken = CModel\MembershipToken::where('username','=',$info['user']['company_info']['username'])->first();
-            $info['user']['membershiptoken'] = $user['customer']->id;
+            $info['user']['membershiptoken']['stripetoken'] = $user['customer']->id;
             $membershipToken->fill($info['user']['membershiptoken']);
             $membershipToken->save();
           } catch(\Stripe\Error\Card $e) {

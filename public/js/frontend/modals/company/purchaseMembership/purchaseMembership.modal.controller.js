@@ -54,7 +54,7 @@
                 iconColor: '#fa755a'
             }
         };
-        window.onload = function () {
+       $timeout(function(){
             // Create a Stripe client
             let stripe = Stripe("pk_test_bAOVRHXtmFofvJCyDlWoonrE");
 
@@ -125,7 +125,7 @@
                     }
                 });
             }
-        }
+        },1000);
         // The function that is call when a user cancels the opening of a modal
         purchaseMembershipModalvm.cancel = function () {
             $uibModalInstance.dismiss('cancel')

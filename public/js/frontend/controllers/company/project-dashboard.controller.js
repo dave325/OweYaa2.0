@@ -67,17 +67,18 @@
 
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     $scope.ok = function () {
+                        
+                        console.log(vm.curProj);
                         updateAll(vm.curProj);
-                        //vm.applyRefresh();
-                       // $uibModalInstance.close();
+                        
+                        //$uibModalInstance.close();
                     };
                     $scope.cancel = function () {
               
                         console.log(unmodified);
                         vm.allProjects[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.allProjects[indexOfCurrentProject];
-                        //console.log(vm.allProjects);
-                        //vm.applyRefresh();
+      
                         $uibModalInstance.close();
                     };
                 },

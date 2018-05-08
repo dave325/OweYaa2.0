@@ -4,6 +4,7 @@
     function purchaseMembershipModalCtrl(User, $http, PayType, $timeout, $uibModalInstance, STRIPE_PUBLISHABLE_KEY) {
         var purchaseMembershipModalvm = this;
         purchaseMembershipModalvm.user = User.getUser();
+        purchaseMembershipModalvm.isDisabled = false;
         // List of different types of payments 
         purchaseMembershipModalvm.paymentType = {
             "month": {
@@ -105,9 +106,11 @@
 
             // Handle submition process 
             purchaseMembershipModalvm.charge = function charge() {
+                purchaseMembershipModalvm.isDisabled = true;
                 // Create token from card information
                 stripe.createToken(purchaseMembershipModalvm.payment.card).then(function (result) {
                     if (result.error) {
+                        purchaseMembershipModalvm.isDisabled = false;
                         // Inform the customer that there was an error
                         var errorElement = document.getElementById('card-errors');
                         errorElement.textContent = result.error.message;
@@ -122,6 +125,7 @@
                             User.setUser(purchaseMembershipModalvm.user);
                             console.log(payment);
                         }, function (data) {
+                            purchaseMembershipModalvm.isDisabled = false;
                             console.log(data);
                         });
                     }

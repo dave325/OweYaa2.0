@@ -63,7 +63,7 @@
           <p ng-show="careervm.formError" class="alert alert-danger" ng-bind-html="careervm.formError"></p>
           <p ng-show="careervm.formInfo" class="alert alert-success" ng-bind-html="careervm.formInfo"></p>
           <input ng-click="careervm.cancel()" class="btn btn-warning" type="button" value="Cancel"/>
-          <input ng-click="careervm.onSubmit('career',careervm.user)" class="btn btn-info" type="button" value="Save"/>          
+          <input ng-click="careervm.onSubmit('career',careervm.user)" ng-disabled="careervm.isDisabled" class="btn btn-info" type="button" value="Save"/>          
         </div> <!-- End of class text-center form-group -->
       </fieldset>
       </div> <!-- End of class col-md-12 -->

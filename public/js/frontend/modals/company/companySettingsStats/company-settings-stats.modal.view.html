@@ -26,7 +26,7 @@
             <div class="col-xs-12">
                 <div class="text-center form-group">
                     <input ng-click="compSet.cancel()" class="btn btn-warning" type="button" value="Cancel" />
-                    <input ng-click="compSet.onSubmit('compSet',compSet.user)" class="btn btn-info" type="button" value="Save" />
+                    <input ng-click="compSet.onSubmit('compSet',compSet.user)" ng-disabled="compSet.isDisabled" class="btn btn-info" type="button" value="Save" />
                 </div>
                 <!-- End of class text-center form-group -->
             </div>

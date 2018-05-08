@@ -8,6 +8,7 @@
         var compSet = this;
 
         compSet.user = User.getUser();
+        compSet.isDisabled = false;
 
         // The function that is call when a user cancels the opening of a modal
         compSet.cancel = function () {
@@ -19,10 +20,12 @@
         }
 
         compSet.onSubmit = function(modal, data){
+            compSet.isDisabled = true;
             User.updateUser(modal, data).then(function(response){
                 console.log(response);
                 compSet.close(compSet.user);
             },function(error){
+                compSet.isDisabled = false;
                 console.error(error);
                 compSet.cancel();
             });

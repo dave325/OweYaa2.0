@@ -2,7 +2,7 @@
   actionModalCtrl.$inject = ['$uibModalInstance', 'Authentication'];
   function actionModalCtrl($uibModalInstance, Authentication){
     var actionvm = this;
-
+    actionvm.isDisabled = false;
     //Containers
     actionvm.current = [];
     actionvm.completed = [];
@@ -48,6 +48,7 @@
 		}
     // Will make a call to the server and php file
     actionvm.doAction = function(){
+      actionvm.isDisabled = true;
       //Update server information
     }
 

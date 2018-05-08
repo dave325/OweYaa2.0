@@ -86,7 +86,7 @@
           <p ng-show="skillvm.formError" class="alert alert-danger" ng-bind-html="skillvm.formError"></p>
           <p ng-show="skillvm.formInfo" class="alert alert-success" ng-bind-html="skillvm.formInfo"></p>
           <input class="btn btn-warning" ng-click="skillvm.cancel()" type="button" value="Cancel"/>
-          <input class="btn btn-info" ng-click="skillvm.onSubmit('skill',skillvm.user)" type="button" value="Save"/>
+          <input class="btn btn-info" ng-click="skillvm.onSubmit('skill',skillvm.user)" ng-disabled="skillvm.isDisabled" type="button" value="Save"/>
         </div> <!-- End of class text-center form-group -->
       </div> <!-- End of class col-xs-12 -->
     </div> <!-- End of class row -->

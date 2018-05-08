@@ -4,6 +4,7 @@
     careervm = this;
     // Containers
     careervm.user = CurrUser;
+    careervm.isDisabled = false;
     careervm.newPrevCareer = {};
     careervm.newHobby = {};
     careervm.relocate = {};
@@ -45,6 +46,7 @@
 		}
     // Will make a call to the server and php file
     careervm.docareer = function(modal,data){
+      careervm.isDisabled = true;
       //Update server information
       User.updateUser(modal,data).then(function(data){
         for(var i = 0; i < 2; i++){
@@ -59,6 +61,7 @@
         User.setUser(careervm.user);
         careervm.close();
       },function(error){
+        careervm.isDisabled = false;
         careervm.formError = "There was an error. Please try again!";
       });
     }

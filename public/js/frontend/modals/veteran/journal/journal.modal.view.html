@@ -112,7 +112,7 @@
                         <p ng-show="journalvm.formError" class="alert alert-danger" ng-bind-html="journalvm.formError"></p>
                         <p ng-show="journalvm.formInfo" class="alert alert-success" ng-bind-html="journalvm.formInfo"></p>
                         <input type="button" ng-click="journalvm.close(journalvm.user)" class="btn btn-warning" value="Close">
-                        <input type="button"ng-click="journalvm.onSubmit('journal',journalvm.user)" class="btn btn-info" value="Save">
+                        <input type="button"ng-click="journalvm.onSubmit('journal',journalvm.user)" ng-disabled="journalvm.isDisabled"class="btn btn-info" value="Save">
                     </div>
                     <!-- End of text-center form-group -->
                 </div>

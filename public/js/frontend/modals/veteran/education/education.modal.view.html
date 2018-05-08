@@ -16,24 +16,27 @@
                 <input type="checkbox" name="attendedcollege" ng-model="educationvm.user.education.attendedcollege" ng-checked="educationvm.user.education.attendedcollege === 1"
                   ng-true-value="1" ng-false-value="0" />
               </p>
-              <p>
-                <label form="education" for="school">School: </label>
-                <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
-                  class="form-control" name="school" id="school" />
-              </p>
-              <p>
-                <label form="education" for="degree">Degree: </label>
-                <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
-                  class="form-control" name="degree" id="degree" />
-              </p>
-              <p>
-                <label form="education" for="graduation">Graduation Date: </label>
-                <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.user.education.attendedcollege"
-                  type="date" class="form-control" name="graduation" id="graduation" />
+              <div ng-if="educationvm.user.education.attendedcollege == 1">
+                <p>
+                  <label form="education" for="school">School: </label>
+                  <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+                    class="form-control" name="school" id="school" />
+                </p>
+                <p>
+                  <label form="education" for="degree">Degree: </label>
+                  <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+                    class="form-control" name="degree" id="degree" />
+                </p>
                 <p>
                   <span>Graduated:</span>
-                  <input type="checkbox" ng-model="educationvm.graduated" />
+                  <input type="checkbox" ng-model="educationvm.graduated" ng-checked="educationvm.user.education.graddate.length > 0" />
                 </p>
+                <p ng-if="educationvm.graduated">
+                  <label form="education" for="graduation">Graduation Date: </label>
+                  <input ng-model="educationvm.user.education.graddate" ng-disabled="!educationvm.graduated || !educationvm.user.education.attendedcollege"
+                    type="date" class="form-control" name="graduation" id="graduation" />
+                  </p>
+              </div>
             </div>
             <!-- End of class form-group -->
           </fieldset>
@@ -48,32 +51,37 @@
                 <select type="text" name="comp-position" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.position">
                   <option ng-repeat="obj in educationvm.careerOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == educationvm.user.education.position">{{obj}}</option>
                 </select>
-                <p ng-if="educationvm.user.education.position">Please select a specific area in {{educationvm.user.education.position}}.</p><br />
-                <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="educationvm.user.education.position === 'designer'">
+                <p ng-if="educationvm.user.education.position">Please select a specific area in {{educationvm.user.education.position}}.</p>
+                <br />
+                <select type="text" name="Designer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"
+                  ng-if="educationvm.user.education.position === 'designer'">
                   <option value="Graphic Designer"> Graphic Designer </option>
                   <option value="UX Designer"> UX Designer </option>
                   <option value="Interior Designer"> Interior Designer </option>
                   <option value="Fashion Designer"> Fashion Designer </option>
                 </select>
-                <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="educationvm.user.education.position === 'developer'">
+                <select type="text" name="Developer" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"
+                  ng-if="educationvm.user.education.position === 'developer'">
                   <option value="Frontend"> Frontend Developer</option>
                   <option value="Backend"> Software Developer </option>
                   <option value="Full stack"> Full stack Developer</option>
                   <option value="App developer"> App developer Developer</option>
                 </select>
-                <select type="text" name="Communication" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="educationvm.user.education.position === 'marketing'">
+                <select type="text" name="Communication" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"
+                  ng-if="educationvm.user.education.position === 'marketing'">
                   <option value="Technical Writing"> Technical Writing </option>
                   <option value="Advertising"> Advertising </option>
                   <option value="Foreign Relations"> Foreign Relations </option>
                   <option value="Journalism"> Journalism </option>
                 </select>
-                <select type="text" name="Sales" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="educationvm.user.education.position === 'sales'">
+                <select type="text" name="Sales" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"
+                  ng-if="educationvm.user.education.position === 'sales'">
                   <option value="Sales Representative"> Sales Representative </option>
                   <option value="Store Manager"> Store Manager </option>
                   <option value="Retail Sales Consultant"> Retail Sales Consultant </option>
                   <option value="Account Executive"> Account Executive </option>
                 </select>
-                <select type="text" name="HR" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea"  ng-if="educationvm.user.education.position === 'human resource'">
+                <select type="text" name="HR" class="form-control col-lg-12 col-md-12" ng-model="educationvm.user.education.focusarea" ng-if="educationvm.user.education.position === 'human resource'">
                   <option value="Chief Happiness Officer"> Chief Happiness Officer </option>
                   <option value="Contract Recruiter"> Contract Recruiter </option>
                   <option value="Compensation Analyst"> Compensation Analyst </option>
@@ -197,8 +205,8 @@
               <div class="text-center form-group">
                 <p ng-show="educationvm.formError" class="alert alert-danger" ng-bind-html="educationvm.formError"></p>
                 <p ng-show="educationvm.formInfo" class="alert alert-success" ng-bind-html="educationvm.formInfo"></p>
-                <input ng-click="educationvm.cancel()" class="btn btn-warning" type="button" value="Cancel"/>
-                <input ng-click="educationvm.onSubmit('education', educationvm.user)" class="btn btn-info" type="button" value="Save"/>
+                <input ng-click="educationvm.cancel()" class="btn btn-warning" type="button" value="Cancel" />
+                <input ng-click="educationvm.onSubmit('education', educationvm.user)" ng-disabled="educationvm.isDisabled" class="btn btn-info" type="button" value="Save" />
               </div>
               <!-- End of class text-center form-group -->
             </div>

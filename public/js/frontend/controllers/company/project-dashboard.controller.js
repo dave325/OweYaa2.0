@@ -61,7 +61,7 @@
                 
 
                     $scope.curProj = vm.curProj;
-
+                    
                     //a hack to keep an unmodified version of the project if the user presses cancel.
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 

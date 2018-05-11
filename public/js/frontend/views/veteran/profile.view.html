@@ -63,6 +63,137 @@
         <!-- End of box -->
       </div>
 
+
+      <!---------------
+          Availability Information
+          -------------->
+
+      <div class="row">
+        <div class="col-xs-12 space box">
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Availability
+            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('availibility')"></span>
+          </h2>
+          <!--
+                <div class="col-xs-12 col-md-6">
+                  <h3>Available Days and Times</h3>
+                  <div class="col-xs-12" ng-repeat="day in user.availability">
+                    <div ng-if="day.start_time != '00:00:00' || day.end_time != '00:00:00'">
+                      <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
+                    </div>
+                    <!-- End of ng-if day.start_time 
+                  </div>
+                  <!-- End of ng-repeat 
+                </div>
+                <!-- End of container for ng-repeat -->
+          <div class="col-xs-12 col-md-6">
+            <h3>Available Months</h3>
+            <div class="col-xs-12" ng-repeat="month in user.month_availability">
+              <div ng-if="month.isavailable === true">
+                <p>{{month.month}}</p>
+              </div>
+              <!-- End of ng-if day.start_time -->
+            </div>
+            <!-- End of ng-repeat -->
+          </div>
+          <!-- End of container for ng-repeat -->
+        </div>
+        <!-- Rnd of space box div -->
+      </div>
+      <!-- End of class row -->
+      <div class="row">
+        <div class="col-xs-12 space box">
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Resume and Portfolio</h2>
+
+        </div>
+        <!-- End of class space box -->
+      </div>
+      <!-- End of class row -->
+
+
+      <!---------------
+          Journal and Mentor Information
+          -------------->
+
+      <div class="row">
+        <div class="col-xs-12 space box">
+          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Journal and Mentor
+            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('journal')"></span>
+          </h2>
+          <p>Record all your career development efforts here!</p>
+          <div class="col-md-6">
+            <div ng-if="user.interviews[0].company.length > 0 || user.interviews[1].company.length > 0">
+              <h3>Building Connections:</h3>
+              <p>Informational Interviews</p>
+              <div ng-repeat="interview in user.interviews track by $index">
+                <div ng-if="interview.company.length > 0">
+                  <h5>Interview #{{$index + 1}}</h5>
+                  <p>Company: {{interview.company}}</p>
+                  <p>Date: {{interview.date | date: 'shortDate'}}</p>
+                  <p>Contact: {{interview.contact}}</p>
+                  <p>Notes: {{interview.notes}}</p>
+                </div>
+                <!-- End of interview.company.length -->
+              </div>
+              <!-- End of ng-repeat interview in user.interviews -->
+            </div>
+            <!-- End of ng-if users.interviews[0] -->
+            <div ng-if="user.events[0].eventname.length > 0 || user.events[1].eventname.length > 0">
+              <h3 ng-if="user.events.length > 0">Networking Events:</h3>
+              <div ng-repeat="event in user.events track by $index">
+                <div ng-if="event.eventname.length > 0">
+                  <h5>Event #{{$index + 1}}</h5>
+                  <p>Event: {{event.eventname}}</p>
+                  <p>Event: {{event.contactname}}</p>
+                  <p>Event: {{event.contactinfo}}</p>
+                  <p>Event: {{event.contactcompany}}</p>
+                  <p>Event: {{event.contactdepartment}}</p>
+                  <!-- Add contacts here -->
+                </div>
+                <!-- End of ng-if event.eventname.length -->
+              </div>
+              <!-- End of ng-repeat event in user.events -->
+            </div>
+            <!-- End of user.events[0].eventname.length -->
+          </div>
+          <!-- End of left side journal and mentor box -->
+          <div class="col-md-6">
+            <div ng-if="user.mentor.mentorname != null">
+              <h3>Job Search</h3>
+              <p>My professional goals</p>
+              <div ng-repeat="(key,search) in user.goals track by $index">
+                <div ng-if="search.length > 0">
+                  <h4>{{key}} year goal</h4>
+                  <p>{{search}}</p>
+                </div>
+                <!-- End of ng-if search.length -->
+              </div>
+              <!-- End of ng-repeat (key,search) -->
+            </div>
+            <!-- End of ng-if user.mentor.mentorname -->
+            <div ng-if="user.career_search[0].title.length > 0 || user.career_search[1].title.length > 0">
+              <div ng-repeat="search in user.career_search track by $index">
+                <h4>Career Search For: **Fix later from career track</h4>
+                <p>Job Title: {{search.title}}</p>
+                <p>Status: {{search.status}}</p>
+              </div>
+              <!-- End of ng-repeat search in user.career_search -->
+            </div>
+            <!-- End of user.career_search[0].title.length -->
+            <div ng-if="user.mentor.mentorname.length > 0">
+              <h3>Mentor Information</h3>
+              <p>Mentor Name: {{user.mentor.mentorname}}</p>
+              <p>Mentor Location: {{user.mentor.location}}</p>
+              <p>Mentor Email: {{user.mentor.email}}</p>
+              <p ng-if="user.mentor.discussion.length > 0">Mentor Discussion: {{user.mentor.discussion}}</p>
+            </div>
+            <!-- End of Mentor div -->
+          </div>
+          <!-- End of right side container -->
+        </div>
+        <!-- End of space box class div -->
+      </div>
+      <!-- End of journal and mentor box -->
+
       <!---------------
           Education Information
           -------------->
@@ -75,7 +206,7 @@
           <h3 ng-if="user.education.school">Education:</h3>
           <p ng-if="user.education.school">School: {{user.education.school}}</p>
           <p ng-if="user.education.degree">Degree: {{user.education.degree}}</p>
-          <p ng-if="user.education.graddate">Graduation Date: {{user.education.graddate | date:'MM/dd/yyyy'}}</p>
+          <p ng-if="user.education.graddate">Currently Attending: {{user.education.attendedcollege}}</p>
           <div ng-if="user.careerFocus.length > 0">
             <h3>Career Focus:</h3>
             <ul>
@@ -166,7 +297,7 @@
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('skill')"></span>
           </h2>
           <ol ng-if="user.skill.length > 0" class="skillsModal col-md-6">
-            <h4>Skills I have:</h4>
+            <h4>Skills I have ((1 (No knowledge) - 5 (Expert)):</h4>
             <li ng-repeat="field in user.skill | limitTo: 8">
               <p class="col-md-6">{{field.skill}}</p>
               <uib-progressbar max="5" value="field.amount" class="col-md-6">
@@ -176,7 +307,7 @@
             <br />
           </ol>
           <ol ng-if="user.language.length > 0" class="skillsModal col-md-6">
-            <h4>Languages I know:</h4>
+            <h4>Languages I know ((1 (No knowledge) - 5 (Expert)):</h4>
             <li ng-repeat="field in user.language | limitTo: 8">
               <p class="col-md-6">{{field.language}}</p>
               <uib-progressbar max="5" value="field.rating" class="col-md-6">
@@ -200,134 +331,6 @@
         <!-- End of class col-xs-12 -->
       </div>
       <!-- End of row box space -->
-
-      <!---------------
-          Journal and Mentor Information
-          -------------->
-
-      <div class="row">
-        <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Journal and Mentor
-            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('journal')"></span>
-          </h2>
-          <p>Record all your career development efforts here!</p>
-          <div class="col-md-6">
-            <div ng-if="user.interviews[0].company.length > 0 || user.interviews[1].company.length > 0">
-              <h3>Building Connections:</h3>
-              <p>Informational Interviews</p>
-              <div ng-repeat="interview in user.interviews track by $index">
-                <div ng-if="interview.company.length > 0">
-                  <h5>Interview #{{$index + 1}}</h5>
-                  <p>Company: {{interview.company}}</p>
-                  <p>Date: {{interview.date | date: 'shortDate'}}</p>
-                  <p>Contact: {{interview.contact}}</p>
-                  <p>Notes: {{interview.notes}}</p>
-                </div>
-                <!-- End of interview.company.length -->
-              </div>
-              <!-- End of ng-repeat interview in user.interviews -->
-            </div>
-            <!-- End of ng-if users.interviews[0] -->
-            <div ng-if="user.events[0].eventname.length > 0 || user.events[1].eventname.length > 0">
-              <h3 ng-if="user.events.length > 0">Networking Events:</h3>
-              <div ng-repeat="event in user.events track by $index">
-                <div ng-if="event.eventname.length > 0">
-                  <h5>Event #{{$index + 1}}</h5>
-                  <p>Event: {{event.eventname}}</p>
-                  <p>Event: {{event.contactname}}</p>
-                  <p>Event: {{event.contactinfo}}</p>
-                  <p>Event: {{event.contactcompany}}</p>
-                  <p>Event: {{event.contactdepartment}}</p>
-                  <!-- Add contacts here -->
-                </div>
-                <!-- End of ng-if event.eventname.length -->
-              </div>
-              <!-- End of ng-repeat event in user.events -->
-            </div>
-            <!-- End of user.events[0].eventname.length -->
-          </div>
-          <!-- End of left side journal and mentor box -->
-          <div class="col-md-6">
-            <div ng-if="user.mentor.mentorname != null">
-              <h3>Job Search</h3>
-              <p>My professional goals</p>
-              <div ng-repeat="(key,search) in user.goals track by $index">
-                <div ng-if="search.length > 0">
-                  <h4>{{key}} year goal</h4>
-                  <p>{{search}}</p>
-                </div>
-                <!-- End of ng-if search.length -->
-              </div>
-              <!-- End of ng-repeat (key,search) -->
-            </div>
-            <!-- End of ng-if user.mentor.mentorname -->
-            <div ng-if="user.career_search[0].title.length > 0 || user.career_search[1].title.length > 0">
-              <div ng-repeat="search in user.career_search track by $index">
-                <h4>Career Search For: **Fix later from career track</h4>
-                <p>Job Title: {{search.title}}</p>
-                <p>Status: {{search.status}}</p>
-              </div>
-              <!-- End of ng-repeat search in user.career_search -->
-            </div>
-            <!-- End of user.career_search[0].title.length -->
-            <div ng-if="user.mentor.mentorname.length > 0">
-              <h3>Mentor Information</h3>
-              <p>Mentor Name: {{user.mentor.mentorname}}</p>
-              <p>Mentor Location: {{user.mentor.location}}</p>
-              <p>Mentor Email: {{user.mentor.email}}</p>
-              <p ng-if="user.mentor.discussion.length > 0">Mentor Discussion: {{user.mentor.discussion}}</p>
-            </div>
-            <!-- End of Mentor div -->
-          </div>
-          <!-- End of right side container -->
-        </div>
-        <!-- End of space box class div -->
-      </div>
-      <!-- End of journal and mentor box -->
-
-      <!---------------
-          Availability Information
-          -------------->
-
-      <div class="row">
-        <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Availability
-            <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('availibility')"></span>
-          </h2>
-          <div class="col-xs-12 col-md-6">
-            <h3>Available Days and Times</h3>
-            <div class="col-xs-12" ng-repeat="day in user.availability">
-              <div ng-if="day.start_time != '00:00:00' || day.end_time != '00:00:00'">
-                <p>{{day.dayofweek}} : {{day.start_time}} - {{day.end_time}}</p>
-              </div>
-              <!-- End of ng-if day.start_time -->
-            </div>
-            <!-- End of ng-repeat -->
-          </div>
-          <!-- End of container for ng-repeat -->
-          <div class="col-xs-12 col-md-6">
-            <h3>Available Months</h3>
-            <div class="col-xs-12" ng-repeat="month in user.month_availability">
-              <div ng-if="month.isavailable === true">
-                <p>{{month.month}}</p>
-              </div>
-              <!-- End of ng-if day.start_time -->
-            </div>
-            <!-- End of ng-repeat -->
-          </div>
-          <!-- End of container for ng-repeat -->
-        </div>
-        <!-- Rnd of space box div -->
-      </div>
-      <!-- End of class row -->
-      <div class="row">
-        <div class="col-xs-12 space box">
-          <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Resume and Portfolio</h2>
-
-        </div>
-        <!-- End of class space box -->
-      </div>
-      <!-- End of class row -->
 
       <!---------------
           Current Internship Information

@@ -15,7 +15,7 @@
             <div class="row">
               <label class="col-md-1">Skill:</label>
               <input type="text" ng-model="skillvm.newSkill.skill" class="col-md-3" minlength="1" required="required" name="newSkillSkill"  />
-              <label class="col-md-2">Rating(1-5): </label>
+              <label class="col-md-2">Rating ((1 (No knowledge) - 5 (Expert)): </label>
               <input type="number" max="5" min="1" required="required" ng-model="skillvm.newSkill.amount" name="newSkillAmount" class="col-md-2" />
               <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid" type="button" ng-click="skillvm.addToSkills()" class="btn col-md-1 col-md-offset-1">Add</button>
             </div><br /> <!-- End of class row -->
@@ -66,7 +66,7 @@
           <div class="row"> 
             <label class="col-md-2">Language: </label>              
             <input type="text" ng-model="skillvm.newLanguage.language" minlength="1" required="required" name="newLangSkill" class="col-md-3" />
-            <label class="col-md-2">Rating (1-5): </label>            
+            <label class="col-md-2">Rating ((1 (No knowledge) - 5 (Expert)): </label>            
             <input type="number" max="5" min="1" required="required" name="newLangAmount" ng-model="skillvm.newLanguage.rating" class="col-md-2" />
             <button ng-class="[{'addEntry':skillvm.newLanguage.language && skillvm.newLanguage.rating}]" class="btn col-md-1 col-md-offset-1" ng-disabled="skillvm.language.length == 9 || !skillvm.newLanguage.language || !skillvm.newLanguage.rating" type="button" ng-click="skillvm.addToLanguages()">Add</button>
           </div><br /> <!-- End of class row -->

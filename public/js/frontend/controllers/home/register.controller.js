@@ -34,12 +34,12 @@
 		}
 		vm.formTitle = function(){
 			if(vm.credentials.registerModal.type == undefined){
-				return "Veteran";
+				return "VeteranVeteran/Military Spouse";
 			}
 			else if(vm.credentials.registerModal.type == 1){
 				return "Company";
 			}else{
-				return "Veteran";
+				return "Veteran/Military Spouse";
 			}
 		}
 	}

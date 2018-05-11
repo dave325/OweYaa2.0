@@ -105,7 +105,7 @@
 				if (!arrayContains('Previous Career Fields', $scope.recommendedFields)) {
 					$scope.recommendedFields.push("Previous Career Fields");
 				}
-			}
+			}/*
 			if (user.availability.length > 0) {
 				sum++;
 				if (arrayContains('Availability', $scope.requiredFields)) {
@@ -116,6 +116,7 @@
 					$scope.requiredFields.push('Availability');
 				}
 			}
+			*/
 			if (user.month_availability.length > 0) {
 				sum++;
 				if (arrayContains('Month Availability', $scope.requiredFields)) {

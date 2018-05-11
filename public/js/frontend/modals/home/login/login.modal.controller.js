@@ -73,7 +73,7 @@
       if(type == 1){
         return "Company";
       }else{
-        return "Veteran";
+        return "Veteran/Military Spouse";
       }
     };
     /*

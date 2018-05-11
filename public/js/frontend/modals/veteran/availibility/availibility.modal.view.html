@@ -3,7 +3,7 @@
   <form novalidate method="post" name="availability" ng-submit="submit()">
     <div class="row">
       <div class="col-md-12">
-        <!-- Information regarding higher education -->
+        <!-- Information regarding higher education 
         <fieldset>
           <legend>Available worktimes</legend>
           <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}
@@ -11,8 +11,8 @@
             <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time" ng-change="update(time.start_time, $index, 2)"></select>-
             <select required="true" name="closeTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.end_time" ng-change="update(time.end_time, $index, 2)"></select>
           </div>
-          <!-- End of ng-repeat time.dayofweek -->
-        </fieldset>
+          <!-- End of ng-repeat time.dayofweek 
+        </fieldset> -->
         <fieldset>
           <legend>Available months</legend>
           <div class="form-group" ng-repeat="time in availibilityvm.user.month_availability">

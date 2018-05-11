@@ -2,7 +2,7 @@
   <navbar content="{{navbarvm.activeNav}}"></navbar>
   <section class="container col-xs-12">
     <form novalidate method="post" name="registerModal" class="col-md-8 col-xs-12 col-md-offset-2">
-      <h2 class="text-center"> Register as a Company or Veteran </h2>
+      <h2 class="text-center"> Register as a Company or Veteran/Military Spouse </h2>
       <p>Please fill in all fields and select either veteran or company to submit the form.</p>
       <h3 class="bg-info" ng-show="vm.formError">{{vm.formError}}</h3>
       <div class="form-group">
@@ -44,7 +44,7 @@
       </div>
       <!-- End of class form-group -->
       <div class="form-group">
-        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true">Veteran
+        <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true">Veteran?Military Spouse
         <br />
         <input type="radio" ng-model="vm.credentials.registerModal.type" value="1" ng-required="true">Company
         <br />

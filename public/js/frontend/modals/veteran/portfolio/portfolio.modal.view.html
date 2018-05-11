@@ -1,9 +1,9 @@
 <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="portfoliovm.cancel()"></span>
 <div id="portfolioModal">
-  <fieldset>
-    <legend>Portfolio Information</legend>
-    <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
-    <form novalidate method="post" name="portfolio" ng-submit="submit()">
+  <form novalidate method="post" name="portfolio" ng-submit="submit()">
+    <fieldset>
+      <h2>Portfolio Information</h2>
+      <p>Please fill out the following fields. If you do noto have one of the following, you may leave it blank.</p>
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-12">
@@ -18,10 +18,10 @@
             </div>
             <!-- End of class form-group -->
             <div class="form-group">
-                <label form="portfolio" for="lastname">Last Name: </label>
-                <input ng-model="portfoliovm.user.contact_info.lastname" type="text" class="form-control" name="lastname" />
-              </div>
-              <!-- End of class form-group -->
+              <label form="portfolio" for="lastname">Last Name: </label>
+              <input ng-model="portfoliovm.user.contact_info.lastname" type="text" class="form-control" name="lastname" />
+            </div>
+            <!-- End of class form-group -->
             <div class="form-group">
               <label form="portfolio" for="location">Location: </label>
               <input ng-model="portfoliovm.user.contact_info.location" type="text" class="form-control" name="location" />
@@ -44,8 +44,9 @@
                 <label form="portfolio" for="branch">Branch: </label>
                 <p>Please tell us what brnach of the military you are/were in:</p>
                 <select ng-model="portfoliovm.user.contact_info.branch">
-                    <option ng-repeat="obj in portfoliovm.branchOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == portfoliovm.user.contact_info.branch">{{obj}}</option>
-                  </select>
+                  <option value="">Select one of the following</option>
+                  <option ng-repeat="obj in portfoliovm.branchOptions" id="{{obj}}" value="{{obj}}" ng-selected="obj == portfoliovm.user.contact_info.branch">{{obj}}</option>
+                </select>
               </div>
               <!-- End of class form-group -->
             </div>
@@ -64,15 +65,16 @@
             <div class="text-center form-group">
               <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
               <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
-              <input ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-warning" type="button" value="Cancel"/>
-              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user)' ng-disabled="portfoliovm.isDisabled"class="btn btn-info" type="button" value="Save"/>
+              <input ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-warning" type="button" value="Cancel" />
+              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user)' ng-disabled="portfoliovm.isDisabled" class="btn btn-info"
+                type="button" value="Save" />
             </div>
             <!-- End of class text-center form-group -->
           </div>
           <!-- End of class col-xs-12 -->
         </div>
         <!-- End of class row -->
-    </form>
-  </fieldset>
+    </fieldset>
+  </form>
   </div>
   <!-- End of id portfolioModal -->

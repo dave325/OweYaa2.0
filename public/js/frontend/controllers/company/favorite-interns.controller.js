@@ -28,7 +28,7 @@
       });
     }
 
-    if (vm.copyUsers.length === 0 || vm.copyUsers === undefined) {
+    if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
       vm.resultInfo = "No favorite intern!";
     }
 

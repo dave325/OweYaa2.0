@@ -1062,39 +1062,23 @@ White - 217, 217, 217
 
 #loginModal .login-image{
 	height:200px;
+	background-color: #FFF;
+	border: 2px solid rgb(51, 102, 255);;
+	color:rgb(0,0,0);
+	transition:.5s all;
 }
 
 .login .modal-dialog{
 	width:100%;
 }
 
-/*
-White - 191, 191, 191
-*/
-#loginVeteran{
-	background-color:rgb(191,191,191);
-	color:rgb(0,0,0);
-	position: relative;
-	transition:.5s all;
-}
-
-#loginVeteran:hover{
-	border:2px solid rgb(0,0,0);
-	color:rgb(255,255,255);
-	font-weight:900;
-}
-
-#loginCompany{
+#loginModal .login-image:hover{
 	background-color:rgb(247,159,75);
 	color:rgb(0,0,0);
-	transition:.5s all;
-}
-
-#loginCompany:hover{
-	border:2px solid rgb(0,0,0);
 	color:rgb(255,255,255);
 	font-weight: 900;
 }
+
 
 .login-image h3{
 	position: absolute;

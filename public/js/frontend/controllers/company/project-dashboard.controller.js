@@ -58,8 +58,6 @@
                 templateUrl: getModalPath('project-dashboard-description'),
                 controller: function ($scope, $uibModalInstance) {
 
-                
-
                     $scope.curProj = vm.curProj;
                     
                     //a hack to keep an unmodified version of the project if the user presses cancel.
@@ -68,10 +66,10 @@
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     $scope.ok = function () {
                         
-                        console.log(vm.curProj);
+                       
                         updateAll(vm.curProj);
                         
-                        //$uibModalInstance.close();
+                        $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
               
@@ -91,13 +89,21 @@
                 templateUrl: getModalPath('project-dashboard-manager'),
                 controller: function ($scope, $uibModalInstance) {
 
+                    
                     $scope.curProj = vm.curProj;
+                    
+                    //a hack to keep an unmodified version of the project if the user presses cancel.
+                    var unmodified = JSON.parse(JSON.stringify(vm.curProj));
+
                     $scope.ok = function () {
-                        //httpCall('manager', $scope.proj);
+                        updateAll(vm.curProj);
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
+                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+      
+                        $uibModalInstance.close();
                     };
                 },
                 windowClass: winClass
@@ -108,15 +114,25 @@
             $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-editHours'),
                 controller: function ($scope, $uibModalInstance) {
+
+                    //a hack to keep an unmodified version of the project if the user presses cancel.
+                    var unmodified = JSON.parse(JSON.stringify(vm.curProj));
+
+                    
+                    $scope.interns = vm.curProj.candidates;
+
                     $scope.ok = function () {
+                        updateAll(vm.curProj);
                         $uibModalInstance.close();
                     };
 
-                    $scope.interns = interns;
+                   
 
                     $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
-
+                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+      
+                        $uibModalInstance.close();
                     };
 
                     $scope.increment = function (intern) {
@@ -142,14 +158,22 @@
 
                 controller: function ($scope, $uibModalInstance) {
 
-                    $scope.milestones = vm.milestones;
+                    $scope.milestones = vm.curProj.milestones;
+
+                    var unmodified = JSON.parse(JSON.stringify(vm.curProj));
+
 
                     $scope.ok = function () {
+                        updateAll(vm.curProj);
                         $uibModalInstance.close();
                     };
 
+                
                     $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
+                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+      
+                        $uibModalInstance.close();
                     };
 
                     $scope.onDelete = function (milestone) {

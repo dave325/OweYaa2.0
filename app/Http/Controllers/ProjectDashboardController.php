@@ -19,7 +19,7 @@ class ProjectDashboardController extends Controller
     //Mass update function, every modal calls this with standardized object to update.
     function updateAll(Request $request) {
         $projectInfo = $request->all();
-        //var_dump ($projectInfo);
+        var_dump ($projectInfo);
 
 
         //save project info

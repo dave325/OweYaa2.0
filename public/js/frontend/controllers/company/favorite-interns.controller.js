@@ -28,6 +28,10 @@
       });
     }
 
+    if (vm.copyUsers.length === 0) {
+      vm.resultInfo = "No favorite intern!";
+    }
+    
     vm.removeFavUser = function (user) {
       id = {
         favid: user.favid
@@ -46,7 +50,7 @@
     // Filter user function
     vm.filterUsers = function () {
       let user = [];
-      if(vm.copyUsers.length === null){
+      if (vm.copyUsers.length === null) {
         vm.resultInfo = "No interns are currectly selected";
         return;
       }
@@ -66,17 +70,17 @@
           }
         }
         // If user with skill is not found, then return nothing.  
-        if(user.length === 0){
+        if (user.length === 0) {
           vm.users = [];
           vm.resultInfo = "No interns match that criteria";
         }
         // If the length of currenct array is empty and the input field is empty return every user
-        else if(vm.test.length === 0){
+        else if (vm.test.length === 0) {
           vm.users = vm.copyUsers;
           vm.resultInfo = null;
-        }else{
-        // Set vm.users to temp array and only show results
-        vm.users = user;
+        } else {
+          // Set vm.users to temp array and only show results
+          vm.users = user;
         }
       }
     }

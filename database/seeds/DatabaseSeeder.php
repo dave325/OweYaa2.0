@@ -24,15 +24,14 @@ class DatabaseSeeder extends Seeder
         $contacts = ContactInfo::all();
         foreach($contacts as $contact)
         {
-           
             $contact->location = $faker->address;
-              
-          
             $contact->save();
-           
-
+            $contact->email = $faker->email;
         }
-    
+        
+
+
+       
 
         /*
         $skills = ["css","javascript","php","c++","html","nodejs","react","angular","agile","graphic design","communications"];

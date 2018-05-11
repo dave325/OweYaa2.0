@@ -10,31 +10,60 @@ use \SplPriorityQueue;
 use App\TableModels\Education;
 use Illuminate\Support\Facades\DB;
 
+/*
+TODO authenticate user into the project dashboard contoller
+*/
+
 class ProjectDashboardController extends Controller
 {
-    //Mass update function, every modal calls this.
+    //Mass update function, every modal calls this with standardized object to update.
     function updateAll(Request $request) {
-        $userInfo = $request->all();
-    
-        $name = $userInfo['id'];
-       // $id= $request->input('id')
-       var_dump ($name);
+        $projectInfo = $request->all();
+        //var_dump ($projectInfo);
 
 
-        /*
-        $info = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
-        $manager = TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid','=',$id)->first();
-    
+        //save project info
+        $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['id'])->first();
+        $projInfo->fill($projectInfo['info']);
+        $projInfo->save();
+
+
+
+        //Save hours
+        $candidateHours = Project\InternHours::where('projid','=',$projectInfo['id'])->get();  
+        foreach($candidateHours as $candidate)
+        {
+            $uname = $candidate->username;
+            foreach($projectInfo['candidates'] as $incomingCandidate)
+            {
+                
+                if($incomingCandidate['username'] === $uname)
+                {
+                    $candidate->fill($incomingCandidate);
+                    $candidate->save();
+                }
+                
+            }
+        }
         
-        $skills = TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
+        $milestones=Project\Milestone::where('projid','=',$projectInfo['id'])->get();  
+        foreach($milestones as $milestone)
+        {
+            $mId = $milestone->milestoneid;
+            foreach($projectInfo['milestones'] as $incomingMilestone)
+            {
+                
+                if($incomingMilestone['milestoneid'] === $mId)
+                {
+                    $milestone->fill($incomingMilestone);
+                    $milestone->save();
+                }
+                
+            }            
 
-    
-        $proj = \App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('projid','=',$id)->first();
-        $proj->projdescription=$description;
-        $proj->title=$title;
-        $proj->save();
-        return response()->json(['success'=>true],201);
-        */
+        }
+
+
 		
     }
 

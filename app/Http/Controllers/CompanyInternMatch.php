@@ -71,7 +71,6 @@ class CompanyInternMatch extends Controller
 
             
             $this->pq = new SplPriorityQueue();
-            $this->skillsList = array("php", "nodejs", "agile");
 
             // Use this to get project ids 
             // Then create another variable to look for project skills based on ids
@@ -93,7 +92,23 @@ class CompanyInternMatch extends Controller
                
                 print($sk->skill);
             }
+
+
+
             */
+
+            $this->skillsList = array("php", "nodejs", "agile");
+
+            
+            $this->skillsList = array();
+            $infos = Project\CompanyProjectJobInfo::where('username','=','dave1')->get();
+            foreach($infos as $info)
+            {
+                $id = $info->projid;
+                $skills = Project\CompanyProjectSkill::where('projid','=',$id)->get()->toArray();
+                $this->skillsList = array_merge($this->skillsList,$skills);
+            }     
+            
             
         
            

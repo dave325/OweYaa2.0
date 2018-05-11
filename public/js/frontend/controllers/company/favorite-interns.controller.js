@@ -28,10 +28,10 @@
       });
     }
 
-    if (vm.copyUsers.length === 0) {
+    if (vm.copyUsers.length === 0 || vm.copyUsers === undefined) {
       vm.resultInfo = "No favorite intern!";
     }
-    
+
     vm.removeFavUser = function (user) {
       id = {
         favid: user.favid

@@ -9,6 +9,7 @@ angular.module('oweyaa').directive('googleplace', [ function () {
                 }
                 };
             scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+            console.log(scope.gPlace);
             google.maps.event.addListener(scope.gPlace, 'place_changed', function (e) {
                 scope.$apply(function () {
                     model.$setViewValue(element.val());

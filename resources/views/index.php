@@ -10,6 +10,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+        <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
         <script src="js/angularApp.js"></script>
 
         <!-- Company Controllers -->
@@ -87,8 +89,6 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
-        <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-        <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
         <script src="assets/scripts/script.js"></script>
 		 <!--Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

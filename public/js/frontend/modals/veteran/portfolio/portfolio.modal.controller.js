@@ -14,29 +14,36 @@
         value: 1
       }
     ];
-    $scope.gPlace;
-    //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
-    $timeout(function () {
-      $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
-      google.maps.event.addListener($scope.gPlace, 'place_changed', function () {
-        var result = $scope.gPlace.getPlace();
-        console.log(result);
-        if (result !== undefined) {
-          if (result.address_components !== undefined) {
+    //Auto Complete Stuffs
+    $scope.form = {
+      type: 'geocode',
+      bounds: { SWLat: 49, SWLng: -97, NELat: 50, NELng: -96 },
+      country: 'ca',
+      typesEnabled: false,
+      boundsEnabled: false,
+      componentEnabled: true,
+      watchEnter: false
+    }
 
-            $scope.$apply(function () {
+    $scope.options = {};
 
-              $scope.details = result;
+    $scope.options.watchEnter = $scope.form.watchEnter
 
-              controller.$setViewValue(element.val());
-            });
-          }
-          else {
-              //getPlace(result)
-          }
-        }
-      })
-    }, 500);
+    if ($scope.form.typesEnabled) {
+      $scope.options.types = $scope.form.type
+    }
+    if ($scope.form.boundsEnabled) {
+
+      var SW = new google.maps.LatLng($scope.form.bounds.SWLat, $scope.form.bounds.SWLng)
+      var NE = new google.maps.LatLng($scope.form.bounds.NELat, $scope.form.bounds.NELng)
+      var bounds = new google.maps.LatLngBounds(SW, NE);
+      $scope.options.bounds = bounds
+
+    }
+    if ($scope.form.componentEnabled) {
+      $scope.options.country = $scope.form.country
+    }
+
     portfoliovm.options = {
       country: 'us'
     };

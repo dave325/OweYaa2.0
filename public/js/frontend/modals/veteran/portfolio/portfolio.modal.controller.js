@@ -17,10 +17,8 @@
     $scope.gPlace;
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
     $timeout(function () {
-      if ($scope.gPlace == undefined) {
-        $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
-      }
-      google.maps.event.addListener($scope.gPlace, 'place_changed', function () {
+      portfoliovm.user.contact_info.location = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
+      google.maps.event.addListener(portfoliovm.user.contact_info.location, 'place_changed', function () {
         var result = $scope.gPlace.getPlace();
         console.log(result);
         if (result !== undefined) {
@@ -34,9 +32,7 @@
             });
           }
           else {
-            if (watchEnter) {
               getPlace(result)
-            }
           }
         }
       })

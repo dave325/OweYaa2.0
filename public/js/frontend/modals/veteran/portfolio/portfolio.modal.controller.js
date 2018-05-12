@@ -58,8 +58,9 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
-      console.log($scope.autoCompleteDetails);
-      return;
+      portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
+      portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng(); 
+      console.log( portfoliovm.user.contact_info);
       portfoliovm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function (data) {

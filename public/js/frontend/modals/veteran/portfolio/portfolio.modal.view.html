@@ -22,16 +22,15 @@
               <input ng-model="portfoliovm.user.contact_info.lastname" type="text" class="form-control" name="lastname" />
             </div>
             <!-- End of class form-group -->
-            <div class="form-group">
+            <div class="form-group"> 
               <label form="portfolio" for="location">Location: </label>
-              <input ng-model="portfoliovm.user.contact_info.location" ng-autocomplete id="location" type="text" class="form-control" name="location"
-                options="autoCompleteOptions" details="autoCompleteDetails" />
+              <input ng-model="portfoliovm.user.contact_info.location" ng-autocomplete id="location" type="text" class="form-control" name="location" options="autoCompleteOptions" details="autoCompleteDetails" />
             </div>
             <!-- End of class form-group -->
             <div>
               <label>Are you an army veteran or a spouse?</label>
-              <select ng-model="portfoliovm.user.contact_info.isVet">
-                <option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value == portfoliovm.user.contact_info.isVet">{{obj.name}}</option>
+              <select ng-model="portfoliovm.user.contact_info.isVet" ng-options="obj.value as obj.name for obj in portfoliovm.options track by obj.value">
+                <!--<option ng-repeat="obj in portfoliovm.options" id="{{obj.name}}" value="{{obj.value}}" ng-selected="obj.value == portfoliovm.user.contact_info.isVet">{{obj.name}}</option>-->
               </select>
             </div>
             <div ng-if="portfoliovm.user.contact_info.isVet === 1">

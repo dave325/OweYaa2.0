@@ -40,9 +40,6 @@
     portfoliovm.options = {
       country: 'us'
     };
-    portfoliovm.getPlace = function(){
-      portfoliovm.user.contact_info.location = $scope.gPlace;
-    }
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {

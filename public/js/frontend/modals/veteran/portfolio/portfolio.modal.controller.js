@@ -43,10 +43,9 @@
     if ($scope.form.componentEnabled) {
       $scope.options.country = $scope.form.country
     }
-
-    portfoliovm.options = {
-      country: 'us'
-    };
+    
+    // Autocomplete Ends
+    // List for army 
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {

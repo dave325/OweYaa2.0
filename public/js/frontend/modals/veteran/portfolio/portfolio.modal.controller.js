@@ -1,6 +1,6 @@
 (function () {
-  portfolioModalCtrl.$inject = ['$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Upload', 'User'];
-  function portfolioModalCtrl($uibModalInstance, CurrUser, $http, $timeout, Upload, User) {
+  portfolioModalCtrl.$inject = ['$scope','$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Upload', 'User'];
+  function portfolioModalCtrl($scope,$uibModalInstance, CurrUser, $http, $timeout, Upload, User) {
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     portfoliovm.isDisabled = false;
@@ -17,12 +17,14 @@
     $timeout(function () {
       console.log(document.getElementById('location'));
       let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
-      portfoliovm.getLocation = function () {
-        console.log(autocomplete.getPlace());
-      }
-    },1000);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        $scope.$apply(function () {
+          console.log(element.val());
+          model.$setViewValue(element.val());
+        });
+      });
+    }, 1000);
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
-    console.log(portfoliovm.user.contact_info.location);
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {
       $uibModalInstance.dismiss('cancel')

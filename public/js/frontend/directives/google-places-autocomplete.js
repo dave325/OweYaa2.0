@@ -3,8 +3,7 @@ angular.module('oweyaa').directive('googleplace', function() {
         require: 'ngModel',
         link: function(scope, element, attrs, model) {
             var options = {
-                types: [],
-                componentRestrictions: {}
+                types: []
             };
             scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
 

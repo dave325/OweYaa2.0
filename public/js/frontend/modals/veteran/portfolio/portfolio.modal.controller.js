@@ -14,13 +14,13 @@
         value: 1
       }
     ];
-    window.onload = function () {
+    $timeout(function () {
       console.log(document.getElementById('location'));
       let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
       portfoliovm.getLocation = function () {
         console.log(autocomplete.getPlace());
       }
-    }
+    },1000);
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     console.log(portfoliovm.user.contact_info.location);
     // The function that is call when a user cancels the opening of a modal

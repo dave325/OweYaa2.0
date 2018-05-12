@@ -18,7 +18,7 @@
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
     $timeout(function () {
       if ($scope.gPlace == undefined) {
-        $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), {});
+        $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
       }
       google.maps.event.addListener($scope.gPlace, 'place_changed', function () {
         var result = $scope.gPlace.getPlace();

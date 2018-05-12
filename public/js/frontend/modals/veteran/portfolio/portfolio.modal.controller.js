@@ -32,7 +32,7 @@
             });
           }
           else {
-              getPlace(result)
+              //getPlace(result)
           }
         }
       })

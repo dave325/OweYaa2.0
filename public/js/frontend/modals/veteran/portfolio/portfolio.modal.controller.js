@@ -14,10 +14,12 @@
         value: 1
       }
     ];
-    console.log(angular.element(document.getElementById('location')));
-    let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
-    portfoliovm.getLocation = function(){
-      console.log(autocomplete.getPlace());
+    window.onload = function () {
+      console.log(document.getElementById('location'));
+      let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
+      portfoliovm.getLocation = function () {
+        console.log(autocomplete.getPlace());
+      }
     }
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     console.log(portfoliovm.user.contact_info.location);

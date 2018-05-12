@@ -58,7 +58,7 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
-      console.log(angular.element(document.getElementById('location')[0]));
+      console.log(angular.element(document.getElementById('location'))[0]);
       return;
       portfoliovm.isDisabled = true;
       //Update server information

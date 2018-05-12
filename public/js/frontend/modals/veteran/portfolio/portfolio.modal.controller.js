@@ -16,7 +16,7 @@
     ];
     let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
     vm.getLocation = function(){
-      console.log(autocomplete);
+      console.log(autocomplete.getPlace());
     }
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     console.log(portfoliovm.user.contact_info.location);

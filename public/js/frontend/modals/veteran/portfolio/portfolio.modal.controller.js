@@ -1,6 +1,6 @@
 (function () {
-  portfolioModalCtrl.$inject = ['$scope','$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Upload', 'User'];
-  function portfolioModalCtrl($scope,$uibModalInstance, CurrUser, $http, $timeout, Upload, User) {
+  portfolioModalCtrl.$inject = ['$scope', '$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Upload', 'User'];
+  function portfolioModalCtrl($scope, $uibModalInstance, CurrUser, $http, $timeout, Upload, User) {
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     portfoliovm.isDisabled = false;
@@ -16,11 +16,31 @@
     ];
     $scope.gPlace;
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
+    $timeout(function () {
+      if (scope.gPlace == undefined) {
+        scope.gPlace = new google.maps.places.Autocomplete(element[0], {});
+      }
+      google.maps.event.addListener(scope.gPlace, 'place_changed', function () {
+        var result = scope.gPlace.getPlace();
+        console.log(result);
+        if (result !== undefined) {
+          if (result.address_components !== undefined) {
 
-    portfoliovm.getLocation = function(){
-      console.log(portfoliovm.user.contact_info.location);
-    }
+            scope.$apply(function () {
 
+              scope.details = result;
+
+              controller.$setViewValue(element.val());
+            });
+          }
+          else {
+            if (watchEnter) {
+              getPlace(result)
+            }
+          }
+        }
+      })
+    }, 500);
     portfoliovm.options = {
       country: 'us'
     };

@@ -117,6 +117,7 @@ angular.module("ngAutocomplete", [])
 
                                     scope.$apply(function () {
                                         scope.details = null;
+                                        console.log(result);
                                     });
 
                                 } else {

@@ -17,8 +17,8 @@
     $scope.gPlace;
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
     $timeout(function () {
-      portfoliovm.user.contact_info.location = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
-      google.maps.event.addListener(portfoliovm.user.contact_info.location, 'place_changed', function () {
+      $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location'))[0], {});
+      google.maps.event.addListener($scope.gPlace, 'place_changed', function () {
         var result = $scope.gPlace.getPlace();
         console.log(result);
         if (result !== undefined) {
@@ -40,6 +40,9 @@
     portfoliovm.options = {
       country: 'us'
     };
+    portfoliovm.getPlace = function(){
+      portfoliovm.user.contact_info.location = $scope.gPlace;
+    }
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {

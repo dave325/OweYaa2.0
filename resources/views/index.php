@@ -49,9 +49,9 @@
         <script src="js/frontend/services/user.service.js"></script>
         <script src="js/frontend/services/admin.service.js"></script>
 
-        <!-- Filters --> 
+        <!-- Filters -->
         <script src="js/frontend/filters/sortInterns.filter.js"></script>
-        
+
         <!-- Veteran Modal Controllers -->
         <script src="js/frontend/modals/home/login/login.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/action/action.modal.controller.js"></script>
@@ -86,10 +86,14 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+        <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
         <script src="assets/scripts/script.js"></script>
 		 <!--Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	    <link href="assets/stylesheets/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/bower_components/angular-google-places-autocomplete/src/autocomplete.css">
 
     </head>
     <body>

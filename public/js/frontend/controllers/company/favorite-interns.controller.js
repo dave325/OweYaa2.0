@@ -23,14 +23,14 @@
         console.log(response);
         vm.users = response.data.projects;
         vm.copyUsers = vm.users.slice();
+        if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
+          vm.resultInfo = "No favorite interns selected!";
+        }
       }, function (data) {
         console.log(data);
       });
     }
 
-    if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
-      vm.resultInfo = "No favorite intern!";
-    }
 
     vm.removeFavUser = function (user) {
       id = {

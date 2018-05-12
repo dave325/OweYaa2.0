@@ -15,6 +15,7 @@
       }
     ];
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
+    console.log(portfoliovm.user.contact_info.location);
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {
       $uibModalInstance.dismiss('cancel')

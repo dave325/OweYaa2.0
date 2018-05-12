@@ -18,7 +18,7 @@
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
 
     portfoliovm.getLocation = function(){
-      console.log( $scope.gPlace);
+      console.log(portfoliovm.user.contact_info.location);
     }
 
     portfoliovm.options = {

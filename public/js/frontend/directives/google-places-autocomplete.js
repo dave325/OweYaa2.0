@@ -1,4 +1,4 @@
-angular.module('oweyaa').directive('googleplace', [, function () {
+angular.module('oweyaa').directive('googleplace', [ function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, model) {

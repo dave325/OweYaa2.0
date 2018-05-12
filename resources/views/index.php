@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?libraries=places?key=255c599ba8778d3a775f7d95d6f7acd2bf8b1894"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places?key=AIzaSyDIZ0z53CvLJ5szQiBvtOx2y4fyqghSAR8"></script>
         <script src="js/frontend/directives/google-places-autocomplete.js"></script>
         <script src="js/angularApp.js"></script>
 

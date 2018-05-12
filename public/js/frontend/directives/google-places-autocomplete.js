@@ -21,7 +21,7 @@ angular.module('oweyaa').directive('googleplace', [, function () {
                     }
                     latitude = scope.gPlace.getPlace().geometry.location.lat().toFixed(6);
                     longitude = scope.gPlace.getPlace().geometry.location.lng().toFixed(6);
-                    console.log($scope.gPlace);
+                    console.log(scope.gPlace);
                 });
             });
         }

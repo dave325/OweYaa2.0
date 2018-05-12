@@ -10,8 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload-shim.min.js"></script>
         <script src="assets/angularjs/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIZ0z53CvLJ5szQiBvtOx2y4fyqghSAR8"></script>
-        <script src="js/frontend/directives/google-places-autocomplete.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?location=places&key=AIzaSyDIZ0z53CvLJ5szQiBvtOx2y4fyqghSAR8"></script>
         <script src="js/angularApp.js"></script>
 
         <!-- Company Controllers -->
@@ -45,6 +44,7 @@
         <script src="js/frontend/directives/navbar/navbar.directive.js"></script>
         <script src="js/frontend/directives/footer/footer.controller.js"></script>
         <script src="js/frontend/directives/navbar/navbar.controller.js"></script>
+        <script src="js/frontend/directives/google-places-autocomplete.js"></script>
 
         <!-- Services/Factories -->
         <script src="js/frontend/services/authentication.service.js"></script>

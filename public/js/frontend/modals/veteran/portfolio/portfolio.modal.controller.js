@@ -14,16 +14,6 @@
         value: 1
       }
     ];
-    $timeout(function () {
-      console.log(document.getElementById('location'));
-      let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
-      google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        $scope.$apply(function () {
-          console.log(element.val());
-          model.$setViewValue(element.val());
-        });
-      });
-    }, 1000);
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {

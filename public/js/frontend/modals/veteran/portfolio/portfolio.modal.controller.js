@@ -14,6 +14,12 @@
         value: 1
       }
     ];
+    $scope.gPlace;
+    //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
+
+    portfoliovm.getLocation = function(){
+      console.log( $scope.gPlace);
+    }
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
     // The function that is call when a user cancels the opening of a modal
     portfoliovm.cancel = function () {

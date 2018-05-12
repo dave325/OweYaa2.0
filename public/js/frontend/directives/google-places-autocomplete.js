@@ -1,4 +1,4 @@
-angular.module('oweyaa').directive('googleplace', ['$state', function ($state) {
+angular.module('oweyaa').directive('googleplace', [, function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, model) {
@@ -21,9 +21,7 @@ angular.module('oweyaa').directive('googleplace', ['$state', function ($state) {
                     }
                     latitude = scope.gPlace.getPlace().geometry.location.lat().toFixed(6);
                     longitude = scope.gPlace.getPlace().geometry.location.lng().toFixed(6);
-                    //$state.go('home');
-                    scope.Fn_setCookieData(latitude, longitude, countrycode);
-
+                    console.log($scope.gPlace);
                 });
             });
         }

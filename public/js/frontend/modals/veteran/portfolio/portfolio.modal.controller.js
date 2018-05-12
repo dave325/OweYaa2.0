@@ -43,7 +43,7 @@
     if ($scope.form.componentEnabled) {
       $scope.options.country = $scope.form.country
     }
-    
+
     // Autocomplete Ends
     // List for army 
     portfoliovm.branchOptions = ['Coast Guard', 'Army', 'Navy', 'Marines', 'Air force'];
@@ -57,9 +57,11 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
-      portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
-      portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng(); 
-      console.log( portfoliovm.user.contact_info);
+      if ($scope.autoCompleteDetails == undefined) {
+        portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
+        portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
+      }
+      console.log(portfoliovm.user.contact_info);
       portfoliovm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function (data) {

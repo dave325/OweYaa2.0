@@ -17,18 +17,18 @@
     $scope.gPlace;
     //portfoliovm.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), options);
     $timeout(function () {
-      if (scope.gPlace == undefined) {
-        scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), {});
+      if ($scope.gPlace == undefined) {
+        $scope.gPlace = new google.maps.places.Autocomplete(angular.element(document.getElementById('location')), {});
       }
-      google.maps.event.addListener(scope.gPlace, 'place_changed', function () {
-        var result = scope.gPlace.getPlace();
+      google.maps.event.addListener($scope.gPlace, 'place_changed', function () {
+        var result = $scope.gPlace.getPlace();
         console.log(result);
         if (result !== undefined) {
           if (result.address_components !== undefined) {
 
-            scope.$apply(function () {
+            $scope.$apply(function () {
 
-              scope.details = result;
+              $scope.details = result;
 
               controller.$setViewValue(element.val());
             });

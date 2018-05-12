@@ -85,7 +85,7 @@ angular.module("ngAutocomplete", [])
                 }
                 google.maps.event.addListener(scope.gPlace, 'place_changed', function () {
                     var result = scope.gPlace.getPlace();
-                    console.log(result);
+                    console.log(result.geometry.location.lat);
                     if (result !== undefined) {
                         if (result.address_components !== undefined) {
 

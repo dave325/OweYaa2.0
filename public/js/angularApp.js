@@ -1,5 +1,5 @@
 (function(){
-  angular.module('oweyaa',['ngRoute', 'ui.bootstrap', 'ngSanitize','ngFileUpload','ngPlacesAutocomplete']);
+  angular.module('oweyaa',['ngRoute', 'ui.bootstrap', 'ngSanitize','ngFileUpload']);
   function routeConfig($routeProvider){
     $routeProvider.when('/', {
       templateUrl:"/js/frontend/views/home/home.view.html",

@@ -14,6 +14,7 @@
         value: 1
       }
     ];
+    console.log(document.getElementById('location'));
     let autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'));
     portfoliovm.getLocation = function(){
       console.log(autocomplete.getPlace());

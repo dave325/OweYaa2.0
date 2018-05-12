@@ -58,6 +58,8 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
+      console.log($scope.details);
+      return;
       portfoliovm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function (data) {

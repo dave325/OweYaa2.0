@@ -59,7 +59,7 @@ class CompanyController extends Controller
         // Create an array of all user information from form
         $credentials = $request->all();
         // Authenticate the user
-        if ($user = app('auth')->guard()->authenticate()) {
+        if ($user = $this->isValid()) {
             // Store the project id in both job info and project manager array
             $credentials['company_proj_manager_info']['projid'] = $credentials['projid'];
             $credentials['company_proj_job_info']['projid'] = $credentials['projid'];

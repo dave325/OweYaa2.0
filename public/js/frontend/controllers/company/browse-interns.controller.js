@@ -34,6 +34,7 @@
                                     }
                                 }
                             }
+                            console.log(vm.users);
                         }, function (data) {
                             console.log(data);
                         });
@@ -108,7 +109,6 @@
             return !user.isFav;
         }
     }
-    console.log(vm.users);
     }
     angular.module('oweyaa')
         .controller('browseInternsCtrl', browseInternsCtrl);

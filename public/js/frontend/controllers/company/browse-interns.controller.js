@@ -27,7 +27,7 @@
                         User.getFavUsers(vm.user).then(function (response) {
                             for (let j = 0; j < vm.users.length - 1; j++) {
                                 for (let i = 0; i < response.data.projects.length; i++) {
-                                    if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
+                                    if (vm.users[j].contactinfo != null && vm.users[j].contactinfo.username === response.data.projects[i].user.contact_info.username) {
                                         vm.users[j].isFav = true;
                                     } else {
                                         vm.users[j].isFav = false;

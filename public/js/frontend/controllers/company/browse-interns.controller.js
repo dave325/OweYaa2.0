@@ -108,7 +108,7 @@
             return !user.isFav;
         }
     }
-    console,log(vm.users);
+    console.log(vm.users);
     }
     angular.module('oweyaa')
         .controller('browseInternsCtrl', browseInternsCtrl);

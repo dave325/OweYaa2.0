@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
 
-    /**
+   /**
      * isValid
      *
      * Check if the user is a valid user

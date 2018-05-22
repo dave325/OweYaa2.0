@@ -111,7 +111,7 @@ class ProjectDashboardController extends Controller
     function getProjects(Request $request) {
        
 
-        if($this->isValid())
+        if($info = $this->isValid())
         {
             
           //first get all the projects associated with the user
@@ -154,8 +154,10 @@ class ProjectDashboardController extends Controller
         
           }
           
-          return json_encode($allProjectInfo);
+          return response()->json($allProjectInfo);
 
+        }else{
+            return response()->json($info);
         }
     
     

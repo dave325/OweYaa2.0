@@ -26,7 +26,7 @@
                         vm.users = response.data;
                         User.getFavUsers(vm.user).then(function (response) {
                             for (let j = 0; j < vm.users.length - 1; j++) {
-                                for (let i = 0; i < response.data.projects.length - 1; i++) {
+                                for (let i = 0; i < response.data.projects.length; i++) {
                                     if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
                                         vm.users[j].isFav = true;
                                     } else {
@@ -35,6 +35,7 @@
                                 }
                             }
                             console.log(vm.users);
+                            console.log(response);
                         }, function (data) {
                             console.log(data);
                         });

@@ -6,7 +6,7 @@
         vm.test = '';
         vm.resultInfo = "";
         vm.internsList = [];
-        vm.user = User.getUser();vm.user.membership_token.stripetoken = null;
+        vm.user = User.getUser();
         if(vm.user.membership_token.stripetoken == null){
             vm.resultInfo = "Please purchase a membership to view available candidates!";
             vm.noToken = true;

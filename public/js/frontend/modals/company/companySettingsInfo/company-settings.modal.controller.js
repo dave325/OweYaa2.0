@@ -1,9 +1,9 @@
 (function () {
 
 
-    companySettingsModalCtrl.$inject = ['CurrUser', '$uibModalInstance', 'User'];
+    companySettingsModalCtrl.$inject = ['$scope','CurrUser', '$uibModalInstance', 'User'];
 
-    function companySettingsModalCtrl(CurrUser, $uibModalInstance, User) {
+    function companySettingsModalCtrl($scope,CurrUser, $uibModalInstance, User) {
 
         var compSet = this;
 

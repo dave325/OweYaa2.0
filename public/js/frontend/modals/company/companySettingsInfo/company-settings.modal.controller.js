@@ -50,6 +50,10 @@
 
         // Autocomplete Ends
         compSet.onSubmit = function (modal, data) {
+            if ($scope.autoCompleteDetails == undefined) {
+                compSet.user.company_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
+                compSet.user.company_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
+              }
             compSet.isDisabled = true;
             User.updateUser(modal, data).then(function (response) {
                 console.log(response);

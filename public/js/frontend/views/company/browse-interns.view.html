@@ -30,7 +30,7 @@
 			<h3 class="text-center">{{vm.resultInfo}}</h3>
 		</div>
 		<!-- Results that have been filtered out -->
-		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
+		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" ng-if="!vm.noToken">
 			<h2 class="text-center">Results</h2>
 			<div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vm.users track by $index">
 

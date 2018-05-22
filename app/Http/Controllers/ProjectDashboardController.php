@@ -16,6 +16,47 @@ TODO authenticate user into the project dashboard contoller
 
 class ProjectDashboardController extends Controller
 {
+
+    /**
+     * isValid
+     *
+     * Check if the user is a valid user
+     */
+
+    private function isValid()
+    {
+        try {
+
+            // If the user cannot be authenticated, then the user doesn't
+            // exist. The response states that the user is not found.
+
+            //app auth uses the header security token.
+            if (AuthController::currUser() == null) {
+
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+
+            // If the Token expired, the response states that the token has
+            // expired, and the exception status code is also returned.
+            return response()->json(['token_expired'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+
+            // If the Token is invalid, the response states that the token is
+            // invalid, and the exception status code is also returned.
+            return response()->json(['token_invalid'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+
+            // If the Token is absent, the response states that the token is
+            // absent, and the exception status code is also returned.
+            return response()->json(['token_absent'], $e->getStatusCode());
+
+        }
+
+        return true;
+    }
     //Mass update function, every modal calls this with standardized object to update.
     function updateAll(Request $request) {
         $projectInfo = $request->all();
@@ -159,42 +200,7 @@ class ProjectDashboardController extends Controller
         return response()->json($project);	
         */	
     }
- 
 
-	
-    private function isValid(){
-        try {
-
-            // If the user cannot be authenticated, then the user doesn't
-            // exist. The response states that the user is not found.
-
-            //app auth uses the header security token.
-            if (!$userCheck = app('auth')->authenticate()) {
-
-                return response()->json(['user_not_found'], 404);
-            }
-        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-
-            // If the Token expired, the response states that the token has
-            // expired, and the exception status code is also returned.
-            return response()->json(['token_expired'], $e->getStatusCode());
-
-        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-
-            // If the Token is invalid, the response states that the token is
-            // invalid, and the exception status code is also returned.
-            return response()->json(['token_invalid'], $e->getStatusCode());
-
-        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
-
-            // If the Token is absent, the response states that the token is
-            // absent, and the exception status code is also returned.
-            return response()->json(['token_absent'], $e->getStatusCode());
-
-        }
-
-        return true;
-    }
 
 	
 }

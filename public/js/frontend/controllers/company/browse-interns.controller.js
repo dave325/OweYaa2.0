@@ -45,7 +45,7 @@
 
                 );
             }
-        }
+        
 
 
         vm.retrieveInterns();
@@ -107,6 +107,7 @@
         vm.isFav = function (user) {
             return !user.isFav;
         }
+    }
     }
     angular.module('oweyaa')
         .controller('browseInternsCtrl', browseInternsCtrl);

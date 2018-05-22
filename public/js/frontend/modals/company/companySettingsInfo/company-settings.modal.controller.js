@@ -1,9 +1,9 @@
 (function () {
 
 
-    companySettingsModalCtrl.$inject = ['CurrUser', '$uibModalInstance','User'];
+    companySettingsModalCtrl.$inject = ['CurrUser', '$uibModalInstance', 'User'];
 
-    function companySettingsModalCtrl(CurrUser, $uibModalInstance,User) {
+    function companySettingsModalCtrl(CurrUser, $uibModalInstance, User) {
 
         var compSet = this;
 
@@ -18,13 +18,43 @@
         compSet.close = function (result) {
             $uibModalInstance.close(result);
         }
+        //Auto Complete Stuffs
+        $scope.form = {
+            type: 'geocode',
+            bounds: { SWLat: 49, SWLng: -97, NELat: 50, NELng: -96 },
+            country: 'ca',
+            typesEnabled: false,
+            boundsEnabled: false,
+            componentEnabled: true,
+            watchEnter: false
+        }
 
-        compSet.onSubmit = function(modal, data){
+        $scope.options = {};
+
+        $scope.options.watchEnter = $scope.form.watchEnter
+
+        if ($scope.form.typesEnabled) {
+            $scope.options.types = $scope.form.type
+        }
+        if ($scope.form.boundsEnabled) {
+
+            var SW = new google.maps.LatLng($scope.form.bounds.SWLat, $scope.form.bounds.SWLng)
+            var NE = new google.maps.LatLng($scope.form.bounds.NELat, $scope.form.bounds.NELng)
+            var bounds = new google.maps.LatLngBounds(SW, NE);
+            $scope.options.bounds = bounds
+
+        }
+        if ($scope.form.componentEnabled) {
+            $scope.options.country = $scope.form.country
+        }
+
+        // Autocomplete Ends
+        compSet.onSubmit = function (modal, data) {
             compSet.isDisabled = true;
-            User.updateUser(modal, data).then(function(response){
+            User.updateUser(modal, data).then(function (response) {
                 console.log(response);
                 compSet.close(compSet.user);
-            },function(error){
+            }, function (error) {
                 compSet.isDisabled = false;
                 console.error(error);
                 compSet.cancel();

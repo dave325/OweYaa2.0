@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <label form="contact" for="location">Location: </label>
-                    <input ng-model="compSet.user.company_info.location" type="text" class="form-control" name="location" />
+                    <input ng-model="compSet.user.company_info.location" ng-autocomplete type="text" class="form-control" name="location" options="autoCompleteOptions" details="autoCompleteDetails"/>
                 </div>
                 <!-- End of class form-group -->
 

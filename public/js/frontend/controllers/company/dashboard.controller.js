@@ -15,6 +15,7 @@
                 vm.user.unmatched_projects.push(vm.company.user.company_project[i]);
             }
         }
+
         // Fake information. Once testing has progressed far enough we will add the info from the database
         vm.projects = {
             projectCard1: {

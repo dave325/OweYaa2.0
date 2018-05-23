@@ -12,9 +12,9 @@
       <div >
           <h2 class="title"> Projects </h2>
         <ul class="nav nav-pills nav-stacked">
-          <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.company_info.jobinfo.initiated" ng-repeat="project in vm.user.company_project">
+          <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.company_info.jobInfo.initiated" ng-repeat="project in vm.user.company_project">
             <a href="#section2">
-              <strong ng-bind="project.jobinfo.title"></strong>
+              <strong>{{project.jobInfo.title}}</strong>
             </a>
           </li>
         </ul>
@@ -24,7 +24,7 @@
       <ul class="nav nav-pills nav-stacked">
         <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)" ng-repeat="project in vm.user.company_project">
           <a href="#section2">
-            <strong ng-bind="project.jobinfo.title"></strong>
+            <strong>{{project.jobInfo.title}}</strong>
           </a>
         </li>
       </ul>
@@ -38,21 +38,21 @@
   <div class="col-md-7">
     <div class="well col-md-12" id="proj-description-pane">
       <h3 class="title">
-        {{vm.curProj.jobinfo.title}}
+        {{vm.curProj.jobInfo.title}}
         <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
       </h3>
 
       <!-- Need location -->
       <p> Location {{}} </p>
       <p>
-        Description: {{vm.curProj.jobinfo.projdescription}}
+        Description: {{vm.curProj.jobInfo.projdescription}}
       </p>
-      <p>Focus Area: {{vm.curProj.jobinfo.focusarea}}</p>
-      <p>Position: {{vm.curProj.jobinfo.position}}</p>
+      <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
+      <p>Position: {{vm.curProj.jobInfo.position}}</p>
       <p>Is remote? {{vm.curProj.info.isremote}}</p>
-      <p>Job Type: {{vm.curProj.jobinfo.jobtype}}</p>
-      <p>Project Deadline: {{vm.curProj.jobinfo.projdeadline}}</p>
-      <p>Total Intern Hours: {{vm.curProj.jobinfo.totalinternhours}}</p>
+      <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
+      <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
+      <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
       <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-6">
         <h4>Skills I have:</h4>
         <li ng-repeat="field in vm.curProj.skills | limitTo: 8">

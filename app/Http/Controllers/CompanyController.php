@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
 
-   /**
+    /**
      * isValid
      *
      * Check if the user is a valid user
@@ -165,6 +165,43 @@ class CompanyController extends Controller
      * @params Request $request
      * update/delete/add information into database based on user input
      */
+    public function addProj(Request $request)
+    {
+        // Create an array of all user information from form
+        $credentials = $request->all();
+        // Authenticate the user
+        if ($user = $this->isValid()) {
+            // Store the project id in both job info and project manager array
+            $credentials['company_proj_manager_info']['projid'] = $credentials['projid'];
+            $credentials['company_proj_job_info']['projid'] = $credentials['projid'];
+            CModel\CompanyProject\CompanyProjectJobInfo::create($credentials['company_proj_job_info']);
+
+            // If model not found in database, then create one
+            CModel\CompanyProject\CompanyProjectManagerInfo::create($credentials['company_proj_manager_info']);
+
+            // Prepare to push items onto the delete stack.
+            $delete = array();
+
+            // For each of the 'skill' credentials...
+            foreach ($credentials['company_skills'] as $item) {
+
+                // Add the project id
+                $item['projid'] = $credentials['projid'];
+
+                // Create a new TableModels object for the skill info.
+                $skill = CModel\CompanyProject\CompanyProjectSkill::create($item);
+
+            }
+            return response()->json(true);
+        } else {
+            return response()->json(compact('user'));
+        }
+    }
+    /**
+     * updateCompanySettings
+     * @params Request $request
+     * update/delete/add information into database based on user input
+     */
     public function updateCompanySettings(Request $request)
     {
 
@@ -293,8 +330,9 @@ class CompanyController extends Controller
         }
     }
 
-    public function returnAllUsers(){
-        $user = User::with('contactInfo','skill' , 'language', 'wantedSkills', 'availability', 'certifications','mentor', 'course', 'social', 'education', 'careerSearch', 'goals','events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type','=', 0)->get();
+    public function returnAllUsers()
+    {
+        $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type', '=', 0)->get();
         return response()->json(compact('user'));
     }
 }

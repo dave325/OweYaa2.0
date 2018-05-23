@@ -88,6 +88,18 @@
           }
         });
       },
+      addProjects: function () {
+        if (Authentication.getToken() == null) {
+          return;
+        }
+        return $http({
+          url: "/api/addrojects",
+          method: 'POST',
+          headers: {
+            "Authorization": "Bearer " + Authentication.getToken()
+          }
+        })
+      },
 
       getAllProjects: function () {
         if (Authentication.getToken() == null) {

@@ -224,14 +224,30 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $projects = array();
         $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $username)->get();
         foreach ($projId as $id) {
-            $candidates = collect(
+            $candidates = Project\InternHours::where('projid','=',$id)->get()->toArray();
+            //could be that there are no interns yet
+            if(isset ($candidates))
+            {
+                foreach($candidates as &$candidate)
+                {
+                    $candidateUName = $candidate['username'];
+                    $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
+                    $firstName = $contactInfo->firstname;
+                    $lastName = $contactInfo->lastname;
+                    $email = $contactInfo->email;
+                    $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
+                    $candidate = array_merge($candidate,$contactAddenium);   
+                }
+            }
+            $project = collect(
                 [
                     'jobInfo' => $id,
                     'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
                     'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                    'candidate' => $candidate
                 ]
             )->toArray();
-            array_push($projects, $candidates);
+            array_push($projects, $project);
         }
 
         // If successful, return a success response.

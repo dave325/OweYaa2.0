@@ -232,6 +232,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             {
                 foreach($cList as $candidate)
                 {
+                    return response()->json($candidate);
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
                     $firstName = $contactInfo->firstname;

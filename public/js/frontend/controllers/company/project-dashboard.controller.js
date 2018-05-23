@@ -10,7 +10,7 @@
         vm.user = User.getUser();
         vm.curProj = {};
         var indexOfCurrentProject = 0;
-
+        console.log(vm.user);
         vm.username = vm.user.company_info.username;
 
         function getModalPath(modalName) {

@@ -8,7 +8,7 @@
         vm.user.matched_projects = [];
         vm.user.unmatched_projects = [];
         vm.user.total_interns = 0;
-        for (let i = 0; i < vm.user.company_project; i++) {
+        for (let i = 0; i < vm.user.company_project.length; i++) {
             if (vm.company.user.company_project[i].initiated == 1) {
                 vm.user.matched_projects.push(vm.company.user.company_project[i]);
             } else {

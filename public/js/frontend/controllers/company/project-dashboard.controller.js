@@ -12,7 +12,7 @@
         var indexOfCurrentProject = 0;
         console.log(vm.user);
         vm.username = vm.user.company_info.username;
-        vm.curProj = vm.allProjects[indexOfCurrentProject];
+        vm.curProj = vm.user.company_project[indexOfCurrentProject];
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }

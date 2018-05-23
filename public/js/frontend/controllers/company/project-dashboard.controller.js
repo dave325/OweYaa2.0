@@ -19,6 +19,8 @@
 
         function reloadPageNewID(id) {
             vm.user.company_project.forEach(function f(ele) {
+                console.log(ele);
+                console.log(array.indexOf(ele));
                 if (ele.jobInfo.projid == id) {
                     indexOfCurrentProject = array.indexOf(ele);
              

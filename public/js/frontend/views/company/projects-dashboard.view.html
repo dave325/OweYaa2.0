@@ -11,9 +11,9 @@
 
       <h2 class="title"> Projects </h2>
       </h2>
-      <div ng-repeat="project in vm.allProjects">
+      <div ng-repeat="project in vm.user.company_projects">
         <ul class="nav nav-pills nav-stacked">
-          <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.info.initiated">
+          <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.company_info.jobinfo.initiated">
             <a href="#section2">
               <strong ng-bind="project.info.title"></strong>
             </a>
@@ -22,9 +22,9 @@
 
         <h3>Queued</h3>
         <ul class="nav nav-pills nav-stacked">
-          <li ng-if="!project.info.initiated" ng-click="vm.reloadPageNewID(project.id)">
+          <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)">
             <a href="#section2">
-              <strong ng-bind="project.info.title"></strong>
+              <strong ng-bind="project.jobinfo.title"></strong>
             </a>
           </li>
         </ul>

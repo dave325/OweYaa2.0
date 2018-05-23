@@ -246,8 +246,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     'jobInfo' => $id,
                     'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
                     'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
-                    'milestone' => TableModels\CompanyModels\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
-                    'candidate' => $candidates
+                    'milestones' => TableModels\CompanyModels\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
+                    'candidates' => $candidates
                 ]
             )->toArray();
             array_push($projects, $project);

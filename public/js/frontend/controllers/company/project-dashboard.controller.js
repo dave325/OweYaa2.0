@@ -17,7 +17,8 @@
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
 
-        vm.reloadPageNewID = function(id) {
+        vm.reloadPageNewID = function($e, id) {
+            
             vm.user.company_project.forEach(function f(ele) {
                 if (ele.jobInfo.projid == id) {
                     indexOfCurrentProject =  vm.user.company_project.indexOf(ele);

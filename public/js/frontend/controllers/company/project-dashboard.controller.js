@@ -49,8 +49,8 @@
                 url: '/api/projDash/updateAll',
                 data:data 
             }
-            $http(req).then(function () { console.log("Updated Info") },
-                function () { "Update Failed"});
+            $http(req).then(function (response) { console.log(response) },
+                function (error) {error});
         }
 
 

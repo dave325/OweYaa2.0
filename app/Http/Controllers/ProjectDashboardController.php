@@ -64,14 +64,14 @@ class ProjectDashboardController extends Controller
 
 
         //save project info
-        $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['id'])->first();
+        $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['jobInfo']['projId'])->first();
         $projInfo->fill($projectInfo['info']);
         $projInfo->save();
 
 
 
         //Save hours
-        $candidateHours = Project\InternHours::where('projid','=',$projectInfo['id'])->get();  
+        $candidateHours = Project\InternHours::where('projid','=',$projectInfo['jobInfo']['projId'])->get();  
         foreach($candidateHours as $candidate)
         {
             $uname = $candidate->username;
@@ -87,7 +87,7 @@ class ProjectDashboardController extends Controller
             }
         }
         
-        $milestones=Project\Milestone::where('projid','=',$projectInfo['id'])->get();  
+        $milestones=Project\Milestone::where('projid','=',$projectInfo['jobInfo']['projId'])->get();  
         foreach($milestones as $milestone)
         {
             $mId = $milestone->milestoneid;

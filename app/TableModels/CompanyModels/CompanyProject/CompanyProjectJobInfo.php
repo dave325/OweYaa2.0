@@ -23,14 +23,6 @@ class CompanyProjectJobInfo extends Model{
     */
     protected $fillable = ['projid','title','jobtype','position','focusarea','istemp','projdescription','projdeadline','isremote','totalinternhours','ismatched','initiated','datesubmitted','completed'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'projid'
-    ];
 
     /**
      * Get the post that owns the comment.

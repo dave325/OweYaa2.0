@@ -62,7 +62,7 @@ function projectSubmissionCtrl(User) {
         vm.submissionForm.company_proj_manager_info.managercontact = vm.user.company_info.email;
         vm.submissionForm.company_proj_manager_info.managerdept = vm.user.company_info.department;
       }
-      User.updateUser(modal,data).then(function(response){
+      User.addProjects(vm.submissionForm).then(function(response){
         console.log(response);
       },function(error){
         console.log(error);

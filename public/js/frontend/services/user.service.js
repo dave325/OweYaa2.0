@@ -88,13 +88,14 @@
           }
         });
       },
-      addProjects: function () {
+      addProjects: function (data) {
         if (Authentication.getToken() == null) {
           return;
         }
         return $http({
           url: "/api/addrojects",
           method: 'POST',
+          data: data,
           headers: {
             "Authorization": "Bearer " + Authentication.getToken()
           }

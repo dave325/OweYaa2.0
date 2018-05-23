@@ -93,7 +93,7 @@
           return;
         }
         return $http({
-          url: "/api/addrojects",
+          url: "/api/addProjects",
           method: 'POST',
           data: data,
           headers: {

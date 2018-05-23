@@ -24,7 +24,7 @@
       <ul class="nav nav-pills nav-stacked">
         <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)" ng-repeat="project in vm.user.company_project">
           <a href="#section2">
-            <strong ng-bind="project.jobjobinfo.title"></strong>
+            <strong ng-bind="project.jobinfo.title"></strong>
           </a>
         </li>
       </ul>

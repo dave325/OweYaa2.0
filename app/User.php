@@ -222,13 +222,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         // Retrieve Company projects where ismatched != true.
         $projects = array();
+        $candidates = array();
         $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $username)->get();
         foreach ($projId as $id) {
-            $candidates = TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray();
+            $cList= TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray();
             //could be that there are no interns yet
-            if(isset ($candidates))
+            if(isset($cList))
             {
-                foreach($candidates as &$candidate)
+                foreach($cList as &$candidate)
                 {
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
@@ -236,7 +237,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
                     $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
-                    $candidate = array_merge($candidate,$contactAddenium);   
+                    $candidate = array_merge($candidates,$contactAddenium);   
                 }
             }
             $project = collect(
@@ -244,6 +245,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     'jobInfo' => $id,
                     'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
                     'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                    'milestone' => TableModels\CompanyModels\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
                     'candidate' => $candidates
                 ]
             )->toArray();

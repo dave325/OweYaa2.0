@@ -229,7 +229,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             //could be that there are no interns yet
             if(isset($cList))
             {
-                foreach($cList as &$candidate)
+                foreach($cList as $candidate)
                 {
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
@@ -237,7 +237,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
                     $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
-                    $candidate = array_merge($candidates,$contactAddenium);   
+                    array_merge($candidates,$contactAddenium);   
                 }
             }
             $project = collect(

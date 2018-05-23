@@ -62,7 +62,7 @@ class ProjectDashboardController extends Controller
         $projectInfo = $request->all();
         //save project info
         $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['jobInfo']['projid'])->first();
-        $projInfo->fill($projectInfo['info']);
+        $projInfo->fill($projectInfo['jobInfo']);
         $projInfo->save();
 
 

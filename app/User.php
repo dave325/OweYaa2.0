@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Lumen\Auth\Authorizable;
 use Tymon\JWTAuth\Contracts\JWTSubject as JWTSubject;
+
 class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
     use Authenticatable, Authorizable;
@@ -16,16 +17,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var string
      */
-     protected $table = 'user';
-     protected $primaryKey = "username";
-     public $incrementing = false;
-     public $timestamps = false;
-      /**
+    protected $table = 'user';
+    protected $primaryKey = "username";
+    public $incrementing = false;
+    public $timestamps = false;
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-     protected $fillable = ['username','password', 'email','type','admin'];
+    protected $fillable = ['username', 'password', 'email', 'type', 'admin'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -35,7 +36,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
         'email',
-        'admin'
+        'admin',
     ];
 
     public function skill()
@@ -46,7 +47,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function milUser()
     {
         return $this->hasOne('App\MilitaryUser', 'username');
-    } 
+    }
     /**
      * Get the skills associated with the user.
      */
@@ -176,12 +177,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     /**
      * Get the programming skills associated with the user.
-    */
+     */
     public function certifications()
     {
         return $this->hasMany('App\TableModels\Certification', 'username');
     }
-    
+
     /**
      * Get the interviews associated with the user.
      */
@@ -219,10 +220,29 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function companyProject()
     {
-        return $this->hasMany('App\TableModels\CompanyModels\CompanyProject', 'username');
+        // In order to retrieve project info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if ($isValid = $this->isValid()) {
+            $name = $request->only('company_info');
+            // Retrieve Company projects where ismatched != true.
+            $projects = array();
+            $projId = TableModels\CompanyModels\CompanyProjectJobInfo::where('username', '=', $name['company_info']['username'])->get();
+            foreach ($projId as $id) {
+                $candidates = collect(
+                    [
+                        'jobInfo' => $id,
+                        'managerInfo' => TableModels\CompanyModels\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->get(),
+                        'skills' => TableModels\CompanyModels\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                    ]
+                )->toArray();
+                array_push($projects, $candidates);
+            }
+
+            // If successful, return a success response.
+            return $projects;
+        }
     }
 
-    
     public function companyProjectSkills()
     {
         return $this->hasMany('App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill', 'username');
@@ -231,8 +251,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasOne('App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo', 'username');
     }
-    
-    
+
     /**
      * Get the interviews associated with the user.
      */
@@ -248,13 +267,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasOne('App\TableModels\CompanyModels\CompanyInfo', 'username');
     }
-    
 
     public function getJWTIdentifier()
     {
         return $this->getKey();
     }
-    
+
     public function getJWTCustomClaims()
     {
         return [];

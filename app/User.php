@@ -227,6 +227,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         foreach ($projId as $id) {
             $cList= TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray();
             //could be that there are no interns yet
+
             if(isset($cList))
             {
                 foreach($cList as $candidate)
@@ -237,7 +238,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
                     $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName);
-                    array_merge($candidates,$contactAddenium);   
+                    array_push($candidates,$contactAddenium);   
                 }
             }
             $project = collect(

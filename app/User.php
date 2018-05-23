@@ -222,13 +222,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         // Retrieve Company projects where ismatched != true.
         $projects = array();
-        $projId = App\TableModels\CompanyModels\CompanyProjectJobInfo::where('username', '=', $username)->get();
+        $projId = App\TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $username)->get();
         foreach ($projId as $id) {
             $candidates = collect(
                 [
                     'jobInfo' => $id,
-                    'managerInfo' => App\TableModels\CompanyModels\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->get(),
-                    'skills' => App\TableModels\CompanyModels\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                    'managerInfo' => App\TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->get(),
+                    'skills' => App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
                 ]
             )->toArray();
             array_push($projects, $candidates);

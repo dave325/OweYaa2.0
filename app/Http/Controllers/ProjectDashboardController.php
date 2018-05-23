@@ -60,9 +60,7 @@ class ProjectDashboardController extends Controller
     //Mass update function, every modal calls this with standardized object to update.
     function updateAll(Request $request) {
         $projectInfo = $request->all();
-        var_dump ($projectInfo);
-
-
+        return response()->json($projectInfo);
         //save project info
         $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['jobInfo']['projId'])->first();
         $projInfo->fill($projectInfo['info']);

@@ -105,7 +105,6 @@ class ExampleController extends Controller
         // a company, and the attributes are filled in for this company user.
         elseif (array_key_exists('type', $request) && intval($request['type']) == 1) {
             $user = User::with('companyInfo', 'companyFavorite', 'CompanySearch', 'membershipToken')->where('username', '=', $currUser['username'])->first();
-            $user['projects'] = CompanyController::retrieveProj();
             return response()->json(['user' => $user], 200);
         }
 

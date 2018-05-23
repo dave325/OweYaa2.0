@@ -60,16 +60,15 @@ class ProjectDashboardController extends Controller
     //Mass update function, every modal calls this with standardized object to update.
     function updateAll(Request $request) {
         $projectInfo = $request->all();
-        return response()->json($projectInfo);
         //save project info
-        $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['jobInfo']['projId'])->first();
+        $projInfo = Project\CompanyProjectJobInfo::where('projid','=',$projectInfo['jobInfo']['projid'])->first();
         $projInfo->fill($projectInfo['info']);
         $projInfo->save();
 
 
 
         //Save hours
-        $candidateHours = Project\InternHours::where('projid','=',$projectInfo['jobInfo']['projId'])->get();  
+        $candidateHours = Project\InternHours::where('projid','=',$projectInfo['jobInfo']['projid'])->get();  
         foreach($candidateHours as $candidate)
         {
             $uname = $candidate->username;
@@ -85,7 +84,7 @@ class ProjectDashboardController extends Controller
             }
         }
         
-        $milestones=Project\Milestone::where('projid','=',$projectInfo['jobInfo']['projId'])->get();  
+        $milestones=Project\Milestone::where('projid','=',$projectInfo['jobInfo']['projid'])->get();  
         foreach($milestones as $milestone)
         {
             $mId = $milestone->milestoneid;

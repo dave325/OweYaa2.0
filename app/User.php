@@ -224,6 +224,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $projects = array();
         $candidates = array();
         $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $username)->get();
+        return response()->json(TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray());
         foreach ($projId as $id) {
             $cList= TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray();
             //could be that there are no interns yet
@@ -232,7 +233,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             {
                 foreach($cList as $candidate)
                 {
-                    return response()->json($candidate);
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
                     $firstName = $contactInfo->firstname;

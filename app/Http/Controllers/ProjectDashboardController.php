@@ -100,9 +100,7 @@ class ProjectDashboardController extends Controller
             }            
 
         }
-
-
-		
+		return response()->json(['success' => true], 200);
     }
 
     function getProjects(Request $request) {

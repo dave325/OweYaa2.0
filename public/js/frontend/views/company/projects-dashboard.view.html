@@ -22,7 +22,7 @@
       <div>
         <h3>Queued</h3>
         <ul class="nav nav-pills nav-stacked">
-          <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)" ng-repeat="project in vm.user.company_project">
+          <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.jobInfo.id)" ng-repeat="project in vm.user.company_project">
             <a href="#section2">
               <strong>{{project.jobInfo.title}}</strong>
             </a>

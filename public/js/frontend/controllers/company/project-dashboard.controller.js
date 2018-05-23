@@ -19,10 +19,10 @@
 
         function reloadPageNewID(id) {
             vm.user.company_project.forEach(function f(ele) {
-                if (ele.id == id) {
+                if (ele.jobInfo.projid == id) {
                     indexOfCurrentProject = array.indexOf(ele);
              
-                    vm.curProj = vm.allProjects[indexOfCurrentProject];
+                    vm.curProj = vm.user.company_project[indexOfCurrentProject];
     
                     return;
                 }

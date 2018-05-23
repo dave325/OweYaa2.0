@@ -43,7 +43,6 @@
       </h3>
 
       <!-- Need location -->
-      <p> Location {{}} </p>
       <p>
         Description: {{vm.curProj.jobInfo.projdescription}}
       </p>
@@ -53,7 +52,7 @@
       <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
       <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
       <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
-      <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-6">
+      <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
         <h4>Skills I have:</h4>
         <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
           <p class="col-md-6">{{field.skill}}</p>

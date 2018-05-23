@@ -9,8 +9,8 @@
 
     <div class="col-md-3 sidenav col-md-offset-1 well">
 
-      <div >
-          <h2 class="title"> Projects </h2>
+      <div>
+        <h2 class="title"> Projects </h2>
         <ul class="nav nav-pills nav-stacked">
           <li ng-click="vm.reloadPageNewID(project.id)" ng-if="project.company_info.jobInfo.initiated" ng-repeat="project in vm.user.company_project">
             <a href="#section2">
@@ -20,120 +20,122 @@
         </ul>
       </div>
       <div>
-      <h3>Queued</h3>
-      <ul class="nav nav-pills nav-stacked">
-        <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)" ng-repeat="project in vm.user.company_project">
-          <a href="#section2">
-            <strong>{{project.jobInfo.title}}</strong>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-
-  </div>
-
-
-
-  <div class="col-md-7">
-    <div class="well col-md-12" id="proj-description-pane">
-      <h3 class="title">
-        {{vm.curProj.jobInfo.title}}
-        <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
-      </h3>
-
-      <!-- Need location -->
-      <p>
-        Description: {{vm.curProj.jobInfo.projdescription}}
-      </p>
-      <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
-      <p>Position: {{vm.curProj.jobInfo.position}}</p>
-      <p>Is remote? {{vm.curProj.info.isremote}}</p>
-      <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
-      <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
-      <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
-      <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
-        <h4>Skills I have:</h4>
-        <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
-          <p class="col-md-6">{{field.skill}}</p>
-        </li>
-        <br />
-      </ol>
-      <br />
-      <h3 class="title">
-        Manager Information for Project
-        <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editManagerInfo()"></span>
-      </h3>
-      <p>Manager Name: {{vm.curProj.managerInfo.managername}}</p>
-      <p>Manager Contact: {{vm.curProj.managerInfo.managercontact}}</p>
-      <p>Manager Department: {{vm.curProj.managerInfo.managerdept}}</p>
-    </div>
-    <!-- End of class well col-md-12 -->
-
-
-    <div class="col-xs-12" id="interns">
-      <div class="well row">
-        <h3 class="title">
-          Intern hours
-          <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
-        </h3>
-        <table class="col-xs-12 table table-bordered">
-          <thead>
-            <tr>
-              <th>
-                <strong>name</strong>
-              </th>
-              <th>
-                <strong>Email</strong>
-              </th>
-              <th>
-                <strong>Hours</strong>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="candidate in vm.curProj.candidates">
-              <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
-              <td>{{candidate.email}}</td>
-              <td>{{candidate.hours}}</td>
-            </tr>
-          </tbody>
-
-
-        </table>
-
+        <h3>Queued</h3>
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-if="!project.company_info.initiated" ng-click="vm.reloadPageNewID(project.id)" ng-repeat="project in vm.user.company_project">
+            <a href="#section2">
+              <strong>{{project.jobInfo.title}}</strong>
+            </a>
+          </li>
+        </ul>
       </div>
-      <!-- End of class well -->
+
+
     </div>
-    <!-- End of id interns -->
 
 
-    <div class="col-xs-12 well" id="Milestones">
-      <h3 class="title">
-        Milestones
-        <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
-      </h3>
 
-      <div ng-repeat="milestone in vm.curProj.milestones">
-        <div class="stat">
-          <h4 class="task">{{milestone.milestone}}</h4>
-          <p>
-            <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
-            <br /> Is Completed?
-            <span class="completionText" ng-if="milestone.completed === 0">No</span>
-            <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
-          </p>
+    <div class="col-md-7">
+      <div class="well col-md-12" id="proj-description-pane">
+        <h3 class="title">
+          {{vm.curProj.jobInfo.title}}
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.projectTitle,vm.projectDescription)"></span>
+        </h3>
+
+        <!-- Need location -->
+        <p>
+          Description: {{vm.curProj.jobInfo.projdescription}}
+        </p>
+        <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
+        <p>Position: {{vm.curProj.jobInfo.position}}</p>
+        <p>Is remote? {{vm.curProj.info.isremote}}</p>
+        <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
+        <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
+        <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
+        <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
+          <h4>Skills I have:</h4>
+          <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
+            <p class="col-md-6">{{field.skill}}</p>
+          </li>
+          <br />
+        </ol>
+        <br />
+        <div class="col-xs-12">
+          <h3 class="title">
+            Manager Information for Project
+            <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editManagerInfo()"></span>
+          </h3>
+          <p>Manager Name: {{vm.curProj.managerInfo.managername}}</p>
+          <p>Manager Contact: {{vm.curProj.managerInfo.managercontact}}</p>
+          <p>Manager Department: {{vm.curProj.managerInfo.managerdept}}</p>
+        </div>
+      </div>
+      <!-- End of class well col-md-12 -->
+
+
+      <div class="col-xs-12" id="interns">
+        <div class="well row">
+          <h3 class="title">
+            Intern hours
+            <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
+          </h3>
+          <table class="col-xs-12 table table-bordered">
+            <thead>
+              <tr>
+                <th>
+                  <strong>name</strong>
+                </th>
+                <th>
+                  <strong>Email</strong>
+                </th>
+                <th>
+                  <strong>Hours</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="candidate in vm.curProj.candidates">
+                <td>{{candidate.firstName.concat(" " + candidate.lastName)}}</td>
+                <td>{{candidate.email}}</td>
+                <td>{{candidate.hours}}</td>
+              </tr>
+            </tbody>
+
+
+          </table>
 
         </div>
-        <!-- End of class stat -->
+        <!-- End of class well -->
+      </div>
+      <!-- End of id interns -->
+
+
+      <div class="col-xs-12 well" id="Milestones">
+        <h3 class="title">
+          Milestones
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.milestones)"></span>
+        </h3>
+
+        <div ng-repeat="milestone in vm.curProj.milestones">
+          <div class="stat">
+            <h4 class="task">{{milestone.milestone}}</h4>
+            <p>
+              <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
+              <br /> Is Completed?
+              <span class="completionText" ng-if="milestone.completed === 0">No</span>
+              <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
+            </p>
+
+          </div>
+          <!-- End of class stat -->
+
+        </div>
+        <!-- End of ng-repeat milestone in vm.milestones -->
 
       </div>
-      <!-- End of ng-repeat milestone in vm.milestones -->
 
     </div>
-
-  </div>
-  <!-- End of id projectPanes -->
+    <!-- End of id projectPanes -->
 </section>
 <!-- End of class row -->
 

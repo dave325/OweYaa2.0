@@ -50,7 +50,7 @@ function projectSubmissionCtrl(User) {
       for(let i = 0;i < skillarr.length;i++){
         let temp = skillarr[i];
         vm.submissionForm.company_skills.push({
-          skillid: vm.submissionForm.username + i,
+          skillid: vm.submissionForm.projid  + i,
           projid: vm.submissionForm.projid,
           skill:temp
         });

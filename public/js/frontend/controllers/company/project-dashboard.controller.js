@@ -12,7 +12,7 @@
         var indexOfCurrentProject = 0;
         console.log(vm.user);
         vm.username = vm.user.company_info.username;
-
+        vm.curProj = vm.allProjects[indexOfCurrentProject];
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
@@ -31,6 +31,7 @@
         }
 
         const winClass = "col-xs-12 col-md-8 col-md-offset-2";
+        /*
         User.getProjectDashboardProjects({ username: vm.username}).then(
             function success(response) {
                 vm.allProjects = response.data;
@@ -40,7 +41,7 @@
             function fail() {
                 console.log("Failed on retrieve projects");
             }
-        );
+        );*/
 
         function updateAll(data) {
             var req = {

@@ -227,7 +227,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             $candidates = collect(
                 [
                     'jobInfo' => $id,
-                    'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->get(),
+                    'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
                     'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
                 ]
             )->toArray();

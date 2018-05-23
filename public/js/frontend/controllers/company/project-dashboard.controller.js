@@ -74,9 +74,7 @@
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
-              
-                        console.log(unmodified);
-                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.allProjects[indexOfCurrentProject];
       
                         $uibModalInstance.close();
@@ -102,7 +100,7 @@
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
-                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.allProjects[indexOfCurrentProject];
       
                         $uibModalInstance.close();
@@ -131,7 +129,7 @@
                    
 
                     $scope.cancel = function () {
-                        vm.allProjects[indexOfCurrentProject] = unmodified;
+                        vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.allProjects[indexOfCurrentProject];
       
                         $uibModalInstance.close();

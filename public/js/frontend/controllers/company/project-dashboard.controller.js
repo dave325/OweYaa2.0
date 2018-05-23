@@ -130,7 +130,7 @@
 
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
-                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+                        vm.curProj = vm.user.company_project[indexOfCurrentProject];
       
                         $uibModalInstance.close();
                     };
@@ -170,8 +170,8 @@
 
                 
                     $scope.cancel = function () {
-                        vm.allProjects[indexOfCurrentProject] = unmodified;
-                        vm.curProj = vm.allProjects[indexOfCurrentProject];
+                        vm.user.company_project[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.user.company_project[indexOfCurrentProject];
       
                         $uibModalInstance.close();
                     };

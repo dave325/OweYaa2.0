@@ -220,12 +220,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public static function companyProject($username)
     {
-        // In order to retrieve project info for the user, make sure that the user
-        // is a valid user. If the user is a valid user...
-        $name = $request->only('company_info');
         // Retrieve Company projects where ismatched != true.
         $projects = array();
-        $projId = TableModels\CompanyModels\CompanyProjectJobInfo::where('username', '=', $name['company_info']['username'])->get();
+        $projId = TableModels\CompanyModels\CompanyProjectJobInfo::where('username', '=', $username)->get();
         foreach ($projId as $id) {
             $candidates = collect(
                 [

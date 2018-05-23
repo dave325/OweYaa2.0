@@ -224,7 +224,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $projects = array();
         $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $username)->get();
         foreach ($projId as $id) {
-            $candidates = Project\InternHours::where('projid','=',$id)->get()->toArray();
+            $candidates = TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$id)->get()->toArray();
             //could be that there are no interns yet
             if(isset ($candidates))
             {

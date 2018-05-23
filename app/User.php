@@ -239,8 +239,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                     $firstName = $contactInfo->firstname;
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
+                    $username = $contactInfo->username;
                     $hours = $candidate['hours'];
-                    $contactAddenium = array('email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
+                    $contactAddenium = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
                     array_push($candidates,$contactAddenium);   
                 }
             }

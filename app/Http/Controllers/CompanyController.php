@@ -239,9 +239,20 @@ class CompanyController extends Controller
         // In order to retrieve project info for the user, make sure that the user
         // is a valid user. If the user is a valid user...
         if ($isValid = $this->isValid()) {
-
+            $name = $request->only('company_info');
             // Retrieve Company projects where ismatched != true.
-            $projects = TableModels\CompanyModels\CompanyProject::where('ismatched', '!=', 'true')->get();
+            $projects = array();
+            $projId = TableModels\CompanyModels\CompanyProjectJobInfo::where('username', '=', $name['company_info']['username'])->get();
+            foreach ($projId as $id) {
+                $candidates = collect(
+                    [
+                        'jobInfo' => $id,
+                        'managerInfo' => TableModels\CompanyModels\CompanyProjectManagerInfo::where('projid','=',$id['projid'])->get(),
+                        'skills'=> TableModels\CompanyModels\CompanyProjectSkill::where('projid','=',$id['projid'])->get()
+                    ]
+                )->toArray();
+                array_push($projects, $candidates);
+            }
 
             // If successful, return a success response.
             return response()->json(['projects' => $projects, 'success' => true], 200);

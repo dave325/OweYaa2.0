@@ -18,7 +18,7 @@
         }
 
         vm.reloadPageNewID = function($e, id) {
-            $event.preventDefault();
+            $e.preventDefault();
             vm.user.company_project.forEach(function f(ele) {
                 if (ele.jobInfo.projid == id) {
                     indexOfCurrentProject =  vm.user.company_project.indexOf(ele);

@@ -652,6 +652,10 @@ color: rgb(47,79,79);
 	margin-left: 20px;
 }
 
+#proj-dash aside{
+	position:fixed;
+	left:30px;
+}
 /**********
 
 Section 6.3: favorite-itern

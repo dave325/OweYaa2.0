@@ -5,18 +5,18 @@
         var vm = this;
         vm.user = User.getUser();
         console.log(vm.user);
-        vm.user.matched_projects = {};
-        vm.user.unmatched_projects = [];
+        vm.matched_projects = {};
+        vm.unmatched_projects = [];
         vm.user.total_interns = 0;
         for (let i = 0; i < vm.user.company_project.length; i++) {
-            if (vm.user.company_project[i].jobInfo.initiated == 1) {
-                vm.user.matched_projects = vm.user.company_project[i];
+            if (vm.company_project[i].jobInfo.initiated == 1) {
+                vm.matched_projects = vm.user.company_project[i];
             } else {
-                vm.user.unmatched_projects.push(vm.user.company_project[i]);
+                vm.unmatched_projects.push(vm.user.company_project[i]);
             }
         }
-        console.log( vm.user.unmatched_projects);
-        console.log(vm.user.matched_projects);
+        console.log(vm.unmatched_projects);
+        console.log(vm.matched_projects);
 
         // Fake information. Once testing has progressed far enough we will add the info from the database
         vm.projects = {
@@ -35,7 +35,7 @@
             projectCard3: {
                 text: "Projects With Unmatched",
                 detail: "Count",
-                amount: vm.user.unmatched_projects.length,
+                amount: vm.unmatched_projects.length,
                 img: "assets/images/Computer.PNG"
             },
             projectCard4: {

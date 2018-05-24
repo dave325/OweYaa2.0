@@ -653,6 +653,7 @@ color: rgb(47,79,79);
 }
 
 #proj-dash aside{
+	height:auto;
 	position:fixed;
 }
 /**********

@@ -14,9 +14,9 @@
         for(let i = 0; i < vm.user.company_project.length; i++){
             if(vm.user.company_project[i].jobInfo.initiated == 1){
                 vm.matchedProj = vm.user.company_project[i];
+                indexOfCurrentProject = i;
             }
         }
-        console.log(vm.matchedProj);
         vm.username = vm.user.company_info.username;
         vm.curProj = vm.user.company_project[indexOfCurrentProject];
         function getModalPath(modalName) {

@@ -5,18 +5,18 @@
         var vm = this;
         vm.user = User.getUser();
         console.log(vm.user);
-        vm.matched_projects = {};
+        vm.matched_project = {};
         vm.unmatched_projects = [];
         vm.user.total_interns = 0;
         for (let i = 0; i < vm.user.company_project.length; i++) {
             if (vm.user.company_project[i].jobInfo.initiated == 1) {
-                vm.matched_projects = vm.user.company_project[i];
+                vm.matched_project = vm.user.company_project[i];
             } else {
                 vm.unmatched_projects.push(vm.user.company_project[i]);
             }
         }
         console.log(vm.unmatched_projects);
-        console.log(vm.matched_projects);
+        console.log(vm.matched_project);
 
         // Fake information. Once testing has progressed far enough we will add the info from the database
         vm.projects = {

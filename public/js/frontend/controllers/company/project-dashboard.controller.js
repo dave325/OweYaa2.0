@@ -16,6 +16,7 @@
                 vm.matchedProj = vm.user.company_project[i];
             }
         }
+        consle.log(vm.matchedProj);
         vm.username = vm.user.company_info.username;
         vm.curProj = vm.user.company_project[indexOfCurrentProject];
         function getModalPath(modalName) {

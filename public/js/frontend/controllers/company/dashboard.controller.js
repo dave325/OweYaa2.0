@@ -29,7 +29,7 @@
             projectCard2: {
                 text: "Total Projects With Matched",
                 detail: "Count",
-                amount: vm.user.matched_projects.length,
+                amount: 1,
                 img: "assets/images/hands.PNG"
             },
             projectCard3: {

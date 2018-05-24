@@ -75,8 +75,8 @@
 				<!-- End of matched project -->
 				<div class="col-md-6 col-xs-12 text-center">
 					<h3 class="text-center">Queued Project</h3>
-					<div  ng-if="vm.user.unmatched_projects.length > 0" class="text-center">
-						<p>Project Manager: {{vm.user.unmatched_projects.managerInfo.managername}}</p>
+					<div  ng-if="vm.user.unmatched_projects.length > 0" class="text-center" ng-repeat="project as vm.user.unmatched_projects">
+						<p>Project: {{project.managerInfo.managername}}</p>
 					</div>
 					<!-- End of ng-if type.project.length > 0 -->
 					<p ng-if="vm.user.unmatched_projects.length == 0" class="text-center">No projects in {{type.project.jobInfo.title}}!</p>

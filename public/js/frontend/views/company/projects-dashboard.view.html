@@ -12,9 +12,9 @@
       <div>
         <h2 class="title"> Projects </h2>
         <ul class="nav nav-pills nav-stacked">
-          <li ng-click="vm.reloadPageNewID($event,project.id)" ng-if="project.company_info.jobInfo.initiated" ng-repeat="project in vm.user.company_project">
+          <li ng-click="vm.reloadPageNewID($event,project.id)" ng-if="vm.matchedProj">
             <a>
-              <strong>{{project.jobInfo.title}}</strong>
+              <strong>{{vm.matchedProj.jobInfo.title}</strong>
             </a>
           </li>
         </ul>

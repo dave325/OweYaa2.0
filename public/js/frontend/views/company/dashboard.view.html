@@ -67,8 +67,8 @@
 				<div class="col-md-6 col-xs-12 text-center">
 					<h3 class="text-center">Matched Project</h3>
 					<div ng-if="vm.matched_project" class="text-center">
-						<p>Project Title: {{vm.user.matched_project.jobInfo.title}}</p>
-						<p>Project Manager: {{vm.user.matched_project.managerInfo.managername}}</p>
+						<p>Project Title: {{vm.matched_project.jobInfo.title}}</p>
+						<p>Project Manager: {{vm.matched_project.managerInfo.managername}}</p>
 					</div>
 					<!-- End of ng-if type.project.length > 0 -->
 					<p ng-if="!vm.matched_project" class="text-center">No projects in {{type.project.jobInfo.title}}matched projects!</p>

@@ -46,17 +46,6 @@
             }
         }
 
-        vm.projectTypes = {
-            projectMatched: {
-                title: "Matched Project",
-                project: vm.user.matched_projects
-            },
-            projectQueued: {
-                title: "Queued Project",
-                project: vm.user.unmatched_projects
-            }
-        }
-
         vm.openModal = function (modal) {
             if (User.getUser()) {
                 let url, ctrl;

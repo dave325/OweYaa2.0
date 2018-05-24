@@ -12,7 +12,7 @@
         var indexOfCurrentProject = 0;
         vm.matchedProj = {};
         for(let i = 0; i < vm.user.company_project.length; i++){
-            if(vm.user.company_project[i].jobInfo == 1){
+            if(vm.user.company_project[i].jobInfo.initiated == 1){
                 vm.matchedProj = vm.user.company_project[i];
             }
         }

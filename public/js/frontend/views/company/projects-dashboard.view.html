@@ -12,10 +12,14 @@
       <div>
         <h2 class="title"> Projects </h2>
         <div class="nav nav-pills nav-stacked" ng-if="vm.matchedProj">
-            <h3>Matched</h3>
-            <a ng-click="vm.reloadPageNewID($event,vm.matchedProj.jobInfo.projid)">
-              <strong>{{vm.matchedProj.jobInfo.title}}</strong>
-            </a>
+          <h3>Matched</h3>
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <a ng-click="vm.reloadPageNewID($event,vm.matchedProj.jobInfo.projid)">
+                <strong>{{vm.matchedProj.jobInfo.title}}</strong>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div>

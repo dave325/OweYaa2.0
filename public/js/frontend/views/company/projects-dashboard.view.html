@@ -13,7 +13,7 @@
         <h2 class="title"> Projects </h2>
         <div class="nav nav-pills nav-stacked" ng-if="vm.matchedProj">
             <h3>Matched</h3>
-            <a ng-click="vm.reloadPageNewID($event,project.id)">
+            <a ng-click="vm.reloadPageNewID($event,vm.matchProj.jobInfo.projid)">
               <strong>{{vm.matchedProj.jobInfo.title}}</strong>
             </a>
         </div>

@@ -82,7 +82,7 @@
             Intern hours
             <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)"></span>
           </h3>
-          <div ng-if="vm.curProj.candidates.length > 0">
+          <div ng-if="vm.curProj.candidates.length == 0">
             <p class="alert alert-info">
               No interns selected!
             </p>

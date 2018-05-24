@@ -9,7 +9,7 @@
         vm.user.unmatched_projects = [];
         vm.user.total_interns = 0;
         for (let i = 0; i < vm.user.company_project.length; i++) {
-            if (vm.user.company_project[i].jobIfo.initiated == 1) {
+            if (vm.user.company_project[i].jobInfo.initiated == 1) {
                 vm.user.matched_projects.push(vm.user.company_project[i]);
             } else {
                 vm.user.unmatched_projects.push(vm.user.company_project[i]);

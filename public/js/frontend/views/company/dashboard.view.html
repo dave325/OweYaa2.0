@@ -66,10 +66,10 @@
 				<div ng-repeat="type in vm.projectTypes" class="col-md-6 col-xs-12 text-center">
 					<h3 class="text-center">{{type.title}}</h3>
 					<div ng-if="type.project.length > 0" class="text-center">
-						<p>Project Manager: {{type.managerInfo.projectmanager}}</p>
+						<p>Project Manager: {{type.project.managerInfo.projectmanager}}</p>
 					</div>
 					<!-- End of ng-if type.project.length > 0 -->
-					<p ng-if="type.project.length == 0" class="text-center">No projects in {{type.jobInfo.title}}!</p>
+					<p ng-if="type.project.length == 0" class="text-center">No projects in {{type.project.jobInfo.title}}!</p>
 				</div>
 				<!-- End of ng-repeat type in vm.projectTypes -->
 			</div>

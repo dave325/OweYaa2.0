@@ -74,16 +74,16 @@
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     // Remove any skill in the User object 
                     $scope.removeSkill = function (skill) {
-                        for (let i = 0; i < $scope.user[skill].length; i++) {
-                            if ($scope.user[skill][i].delete) {
-                                $scope.user[skill].splice(i, 1);
+                        for (let i = 0; i < vm.curProj.skills[skill].length; i++) {
+                            if (vm.curProj[skill][i].delete) {
+                                vm.curProj[skill].splice(i, 1);
                             }
                         }
                     }
 
                     // Delete one of your skills
                     $scope.deleteSkill = function (index) {
-                        $scope.user.skill[index].delete = true;
+                        vm.curProj.skills[index].delete = true;
                     }
 
                     $scope.newSkill = {};
@@ -96,14 +96,14 @@
                     $scope.addIndex = function (skill) {
                         let index;
                         for (let i = 0; i < $scope.user[skill].length; i++) {
-                            if ($scope.user[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
+                            if (vm.curProj[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
-                                index = $scope.user.contact_info.username + (i + 1);
+                                index = vm.user.company_info.username + (i + 1);
                             }
                         }
                         if (!index) {
-                            return $scope.user.contact_info.username + ($scope.user[skill].length + 1)
+                            return $scope.user.company_info.username + ($scope.user[skill].length + 1)
                         } else {
                             return index;
                         }

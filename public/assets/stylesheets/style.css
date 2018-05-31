@@ -1211,6 +1211,8 @@ section{
 		width:100%;
 		margin:0px;
 	}
+}
+@media (min-width:768px){
 	.modal-dialog {
 		width: 100% !important;
 		margin: auto !important;

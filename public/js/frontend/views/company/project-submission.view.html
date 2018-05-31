@@ -4,8 +4,9 @@
 		<span class="clearfix"></span>
 		<h1 class="text-center" id="comp-name">Project Submission form </h1>
 		<!-- End of class col-lg-6 -->
+		<h2 class="alert alert-warning">You have met the maximum criteria for posting!</h2>
 		<!-- Status Bar  -->
-		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression">
+		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression" ng-if="vm.canSubmit">
 			<p class="col-md-4 text-center col-sm-12 col-xs-12" ng-if="vm.steps.page1"> Step 1:Fill in project details </p>
 			<p class="col-md-4 col-md-offset-4 text-center col-sm-12 col-xs-12" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2">
 				Step 2:Submit Project </p>
@@ -15,7 +16,6 @@
 			<uib-progressbar max="3" value="vm.currentStep()" class="col-xs-12 progress-striped"></uib-progressbar>
 		</div>
 		<!-- End of status bar div -->
-		<h2 class="alert alert-warning">You have met the maximum criteria for posting!</h2>
 		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" ng-if="vm.canSubmit">
 			<form class="form" name="submissionForm">
 				<div class="step" id="step1" ng-class="{'active': vm.steps.page1}" ng-if="vm.steps.page1 && !vm.steps.page2">

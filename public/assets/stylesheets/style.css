@@ -1215,7 +1215,7 @@ section{
 @media (min-width:768px){
 	.modal-dialog {
 		width: 100% !important;
-		margin: auto !important;
+		margin: 30px auto !important;
 	}
 }
 .pac-container { z-index: 100000; }

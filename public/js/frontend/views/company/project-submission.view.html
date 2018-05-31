@@ -15,9 +15,15 @@
 			<uib-progressbar max="3" value="vm.currentStep()" class="col-xs-12 progress-striped"></uib-progressbar>
 		</div>
 		<!-- End of status bar div -->
-		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+		<h2 class="alert alert-warning">You have met the maximum criteria for posting!</h2>
+		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" ng-if="vm.canSubmit">
 			<form class="form" name="submissionForm">
 				<div class="step" id="step1" ng-class="{'active': vm.steps.page1}" ng-if="vm.steps.page1 && !vm.steps.page2">
+					<div class="form-group" ng-if="vm.submissionForm.company_proj_job_info.jobtype === 'job'">
+						<label for="title">What is the name of your project?</label>
+						<input type="text" name="comp-title" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.title">
+					</div>
+					<!-- End of class form-group -->
 					<div class="form-group">
 						<label for="jobtype">Please select the type of post (job, internship, or project) </label>
 						<select ng-model="vm.submissionForm.company_proj_job_info.jobtype" name="jobtype" ng-init="vm.submissionForm.jobtype">
@@ -125,29 +131,29 @@
 						</div>
 						<!-- End of class form-group -->
 
-						<div class="form-group">
-							<label for="comp-proj-deadline">What's the project deadline/project end date?</label>
-							<input type="date" name="compdeadline" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.projdeadline"
-							 required id="comp-proj-deadline" />
-						</div>
-						<!-- End of class form-group -->
-
-						<div class="form-group">
-							<label for="componsite">Is the project remote?</label>
-							<select name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.isremote"
-							 required id="componsite" ng-init="vm.submissionForm.company_proj_job_info.isremote">
-								<option value="true">No</option>
-								<option value="false">Yes</option>
-							</select>
-						</div>
-						<!-- End of class form-group -->
-
 						<input type="submit" class="btn btn-info btn-primary pull-right col-md-4 col-xs-12" value="Next Page" ng-click="vm.nextPage()"
 						 ng-disabled="!vm.submissionForm.company_proj_job_info.jobtype && !vm.submissionForm.company_proj_job_info.position && !vm.submissionForm.company_proj_manager_info.projectmanager && !vm.submissionForm.company_proj_manager_info.managername && !vm.submissionForm.company_proj_manager_info.managercontact && !vm.submissionForm.company_proj_job_info.projdescription && !vm.submissionForm.company_proj_job_info.pojdeadline && !vm.submissionForm.company_proj_job_info.isremote">
 					</div>
 				</div>
 				<!-- End of Step 1-->
 				<div class="step" id="step2" ng-class="{'active': vm.steps.page2}" ng-if="vm.steps.page2 && !vm.steps.page1">
+
+					<div class="form-group">
+						<label for="comp-proj-deadline">What's the project deadline/project end date?</label>
+						<input type="date" name="compdeadline" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.projdeadline"
+						 required id="comp-proj-deadline" />
+					</div>
+					<!-- End of class form-group -->
+
+					<div class="form-group">
+						<label for="componsite">Is the project remote?</label>
+						<select name="componsite" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.isremote"
+						 required id="componsite" ng-init="vm.submissionForm.company_proj_job_info.isremote">
+							<option value="true">No</option>
+							<option value="false">Yes</option>
+						</select>
+					</div>
+					<!-- End of class form-group -->
 					<div class="form-group">
 						<label for="totalinternHours">How many hours will the candidate be working in total?</label>
 						<input type="number" ng-model="vm.submissionForm.company_proj_job_info.totalinternhours" name="totalinternHours" id="totalinternHours"

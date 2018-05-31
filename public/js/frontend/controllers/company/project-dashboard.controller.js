@@ -74,7 +74,7 @@
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
                     // Remove any skill in the User object 
                     $scope.removeSkill = function (skill) {
-                        for (let i = 0; i < vm.curProj.skills[skill].length; i++) {
+                        for (let i = 0; i < vm.curProj.skills.length; i++) {
                             if (vm.curProj[skill][i].delete) {
                                 vm.curProj[skill].splice(i, 1);
                             }
@@ -89,13 +89,13 @@
                     $scope.newSkill = {};
                     // Add a new skill
                     $scope.addToSkills = function () {
-                        $scope.newSkill.skillid = $scope.addIndex('skill');
+                        $scope.newSkill.skillid = $scope.addIndex('skills');
                         $scope.user.skill.push($scope.newSkill);
                         $scope.newSkill = {};
                     }
                     $scope.addIndex = function (skill) {
                         let index;
-                        for (let i = 0; i < $scope.user[skill].length; i++) {
+                        for (let i = 0; i < curProj[skill].length; i++) {
                             if (vm.curProj[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
@@ -103,18 +103,17 @@
                             }
                         }
                         if (!index) {
-                            return $scope.user.company_info.username + ($scope.user[skill].length + 1)
+                            return vm.user.company_info.username + (vm.curProj[skill].length + 1)
                         } else {
                             return index;
                         }
                     }
 
-                    $scope.removeSkill('skill');
-
                     $scope.ok = function () {
 
 
                         updateAll(vm.curProj);
+                        $scope.removeSkill('skills');
 
                         $uibModalInstance.close();
                     };

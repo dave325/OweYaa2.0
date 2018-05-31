@@ -96,7 +96,7 @@
                     $scope.addIndex = function (skill) {
                         let index;
                         for (let i = 0; i < vm.curProj[skill].length; i++) {
-                            if (vm.curProj[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
+                            if (vm.curProj[skill][i].skillid.substr(vm.curProj[skill][i].skillid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
                                 index = vm.user.company_info.username + (i + 1);

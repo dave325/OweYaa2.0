@@ -95,13 +95,13 @@
     <!-- End of total intern hours-->
     <div class="row">
         <label class="col-md-1">Skill:</label>
-        <input type="text" ng-model="curProj.newSkill.skill" class="col-md-3" minlength="1" required="required" name="newSkillSkill"
+        <input type="text" ng-model="newSkill.skill" class="col-md-3" minlength="1" required="required" name="newSkillSkill"
         />
         <label class="col-md-2">Rating(1-5): </label>
-        <input type="number" max="5" min="1" required="required" ng-model="curProj.newSkill.amount" name="newSkillAmount" class="col-md-2"
+        <input type="number" max="5" min="1" required="required" ng-model="newSkill.amount" name="newSkillAmount" class="col-md-2"
         />
-        <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="skillvm.user.skill.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid"
-            type="button" ng-click="skillvm.addToSkills()" class="btn col-md-1 col-md-offset-1">Add</button>
+        <button ng-class="[{'addEntry':skills.newSkillAmount.$valid && skills.newSkillSkill.$valid}]" ng-disabled="curProj.skills.length == 9 || !skills.newSkillAmount.$valid || !skills.newSkillSkill.$valid"
+            type="button" ng-click="addToSkills()" class="btn col-md-1 col-md-offset-1">Add</button>
     </div>
     <br />
     <!-- End of class row -->

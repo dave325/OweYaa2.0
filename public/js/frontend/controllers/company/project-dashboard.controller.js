@@ -4,15 +4,15 @@
     function projectDashboardCtrl(User, $uibModal, $http) {
 
         var vm = this;
-        
+
 
         //get user details
         vm.user = User.getUser();
         vm.curProj = {};
         var indexOfCurrentProject = 0;
         vm.matchedProj = {};
-        for(let i = 0; i < vm.user.company_project.length; i++){
-            if(vm.user.company_project[i].jobInfo.initiated == 1){
+        for (let i = 0; i < vm.user.company_project.length; i++) {
+            if (vm.user.company_project[i].jobInfo.initiated == 1) {
                 vm.matchedProj = vm.user.company_project[i];
                 indexOfCurrentProject = i;
             }
@@ -23,14 +23,14 @@
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }
 
-        vm.reloadPageNewID = function($e, id) {
+        vm.reloadPageNewID = function ($e, id) {
             $e.preventDefault();
             vm.user.company_project.forEach(function f(ele) {
                 if (ele.jobInfo.projid == id) {
-                    indexOfCurrentProject =  vm.user.company_project.indexOf(ele);
-             
+                    indexOfCurrentProject = vm.user.company_project.indexOf(ele);
+
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
-    
+
                     return;
                 }
             });
@@ -54,10 +54,10 @@
             var req = {
                 method: 'POST',
                 url: '/api/projDash/updateAll',
-                data:data 
+                data: data
             }
             $http(req).then(function (response) { console.log(response) },
-                function (error) {error});
+                function (error) { error });
         }
 
 
@@ -67,22 +67,61 @@
                 controller: function ($scope, $uibModalInstance) {
 
                     $scope.curProj = vm.curProj;
-                    
+
                     //a hack to keep an unmodified version of the project if the user presses cancel.
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
                     $scope.careerOptions = ['developer', 'designer', 'marketing', 'sales', 'customer service'];
+                    // Remove any skill in the User object 
+                    $scope.removeSkill = function (skill) {
+                        for (let i = 0; i < $scope.user[skill].length; i++) {
+                            if ($scope.user[skill][i].delete) {
+                                $scope.user[skill].splice(i, 1);
+                            }
+                        }
+                    }
+
+                    // Delete one of your skills
+                    $scope.deleteSkill = function (index) {
+                        $scope.user.skill[index].delete = true;
+                    }
+
+                    $scope.newSkill = {};
+                    // Add a new skill
+                    $scope.addToSkills = function () {
+                        $scope.newSkill.skillid = $scope.addIndex('skill');
+                        $scope.user.skill.push($scope.newSkill);
+                        $scope.newSkill = {};
+                    }
+                    $scope.addIndex = function (skill) {
+                        let index;
+                        for (let i = 0; i < $scope.user[skill].length; i++) {
+                            if ($scope.user[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
+                                continue;
+                            } else {
+                                index = $scope.user.contact_info.username + (i + 1);
+                            }
+                        }
+                        if (!index) {
+                            return $scope.user.contact_info.username + ($scope.user[skill].length + 1)
+                        } else {
+                            return index;
+                        }
+                    }
+
+                    $scope.removeSkill('skill');
+
                     $scope.ok = function () {
-                        
-                       
+
+
                         updateAll(vm.curProj);
-                        
+
                         $uibModalInstance.close();
                     };
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-      
+
                         $uibModalInstance.close();
                     };
                 },
@@ -95,9 +134,9 @@
                 templateUrl: getModalPath('project-dashboard-manager'),
                 controller: function ($scope, $uibModalInstance) {
 
-                    
+
                     $scope.curProj = vm.curProj;
-                    
+
                     //a hack to keep an unmodified version of the project if the user presses cancel.
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
@@ -108,7 +147,7 @@
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-      
+
                         $uibModalInstance.close();
                     };
                 },
@@ -124,7 +163,7 @@
                     //a hack to keep an unmodified version of the project if the user presses cancel.
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
-                    
+
                     $scope.interns = vm.curProj.candidates;
 
                     $scope.ok = function () {
@@ -132,12 +171,12 @@
                         $uibModalInstance.close();
                     };
 
-                   
+
 
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-      
+
                         $uibModalInstance.close();
                     };
 
@@ -174,11 +213,11 @@
                         $uibModalInstance.close();
                     };
 
-                
+
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-      
+
                         $uibModalInstance.close();
                     };
 

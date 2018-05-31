@@ -95,7 +95,7 @@
                     }
                     $scope.addIndex = function (skill) {
                         let index;
-                        for (let i = 0; i < curProj[skill].length; i++) {
+                        for (let i = 0; i < vm.curProj[skill].length; i++) {
                             if (vm.curProj[skill][i].skillid.substr($scope.user[skill][i].skillid.length - 1) == (i + 1)) {
                                 continue;
                             } else {

@@ -340,6 +340,7 @@ class CompanyController extends Controller
         $info = $req->all();
         // In order to retrieve project info for the user, make sure that the user
         // is a valid user. If the user is a valid user...
+        return response()->json(['error' => $info], 200);
         if ($isValid = $this->isValid()) {
             try {
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);

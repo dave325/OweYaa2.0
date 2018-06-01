@@ -28,7 +28,7 @@
             let userInfo = {
                 username: selectInternvm.user.company_info.username,
                 hours: 0,
-                projid: selectInternvm.projectId
+                projid: selectInternvm.projectId,
               }
               console.log(userInfo);
               User.addIntern(userInfo).then(function(response){

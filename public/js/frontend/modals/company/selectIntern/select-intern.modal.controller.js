@@ -25,8 +25,9 @@
         };
 
         selectInternvm.onSubmit = function(){
+            console.log(CurrUser);
             let userInfo = {
-                username: CurrUser.username,
+                username: CurrUser.user.username,
                 hours: 0,
                 projid: selectInternvm.projectId,
               }

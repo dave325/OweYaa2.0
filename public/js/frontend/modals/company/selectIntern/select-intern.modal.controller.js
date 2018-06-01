@@ -26,7 +26,7 @@
 
         selectInternvm.onSubmit = function(){
             let userInfo = {
-                username: CurrUser.contact_info.username,
+                username: CurrUser.username,
                 hours: 0,
                 projid: selectInternvm.projectId,
               }

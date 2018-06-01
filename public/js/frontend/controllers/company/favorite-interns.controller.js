@@ -86,15 +86,6 @@
       }
     }
 
-    // Remove any skill in the User object 
-    vm.removeFavUser = function (id) {
-      for (let i = 0; i < vm.users.length; i++) {
-        if (vm.users[i].favid == id.favid) {
-          vm.users.splice(i, 1);
-          vm.copyUsers = vm.users;
-        }
-      }
-    }
 
     vm.addIntern = function (internid) {
       if (User.getUser()) {

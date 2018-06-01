@@ -33,7 +33,7 @@
               console.log(userInfo);
               User.addIntern(userInfo).then(function(response){
                 console.log(response);
-                selectInternvm.close();
+                selectInternvm.close(response);
               }, function(error){
                   console.log(error);
               });

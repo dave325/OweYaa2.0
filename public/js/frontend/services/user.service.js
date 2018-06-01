@@ -193,7 +193,7 @@
         return $http({
           url:"/api/addInternToProject",
           method:'POST',
-          data:{info},
+          data:info,
           headers: {
             "Authorization": "Bearer " + Authentication.getToken()
           }

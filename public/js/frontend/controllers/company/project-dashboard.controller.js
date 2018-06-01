@@ -111,7 +111,7 @@
 
                     $scope.ok = function () {
 
-
+                        vm.curProj.username = vm.user.company_info.username;
                         updateAll(vm.curProj);
                         $scope.removeSkill('skills');
 

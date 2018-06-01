@@ -102,7 +102,7 @@
         var m = $uibModal.open({
           templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
           controller: 'selectInternModalCtrl',
-          controllerAs: 'selectIntern',
+          controllerAs: 'selectInternvm',
           windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
           backdrop: false,
           keyboard: false,

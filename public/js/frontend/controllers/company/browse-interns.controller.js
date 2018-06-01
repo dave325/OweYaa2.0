@@ -113,23 +113,22 @@
         }
 
         vm.getFavId = function () {
-            vm.addIndex = function (skill) {
-                let index;
+            let index;
 
-                for (let i = 0; i < vm.users.length; i++) {
-                    // Check if the last number in the favid matches to the corresponding number formatting
-                    if (vm.users[i].favid.substr(vm.users[i].favid.length - 1) == (i + 1)) {
-                        continue;
-                    } else {
-                        index = vm.user.company_info.username + (i + 1);
-                    }
-                }
-                if (!index) {
-                    return vm.user.company_info.username + (vm.users.length + 1)
+            for (let i = 0; i < vm.users.length; i++) {
+                // Check if the last number in the favid matches to the corresponding number formatting
+                if (vm.users[i].favid.substr(vm.users[i].favid.length - 1) == (i + 1)) {
+                    continue;
                 } else {
-                    return index;
+                    index = vm.user.company_info.username + (i + 1);
                 }
             }
+            if (!index) {
+                return vm.user.company_info.username + (vm.users.length + 1)
+            } else {
+                return index;
+            }
+
         }
     }
     angular.module('oweyaa')

@@ -27,7 +27,11 @@
                 hours: 0,
                 projid: selectInternvm.projectId
               }
-              console.log(userInfo);
+              User.addInfo(userInfo).then(function(response){
+                console.log(response);
+              }, function(error){
+                  console.log(error);
+              });
         }
     }
 

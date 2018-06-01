@@ -329,10 +329,27 @@ class CompanyController extends Controller
         }
     }
 
-
     public function returnAllUsers()
     {
         $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type', '=', 0)->get();
         return response()->json(compact('user'));
+    }
+
+    public function addInternToProject(Request $req)
+    {
+        $info = $req->all();
+        // In order to retrieve project info for the user, make sure that the user
+        // is a valid user. If the user is a valid user...
+        if ($isValid = $this->isValid()) {
+            \App\TableModels\CompanyModels\CompanyProject::create($info);
+            // If successful, return a success response.
+            return response()->json(['success' => true], 200);
+
+        } else {
+
+            // Otherwise, if there was an error, return an 'error' message.
+            return $isValid;
+
+        }
     }
 }

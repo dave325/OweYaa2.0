@@ -116,7 +116,7 @@ class ProjectDashboardController extends Controller
                     unset($item['delete']);
 
                     // Search for the 'skill' credentials by skillid, primary key.
-                    $skill = TableModels\Skill::findOrFail($item['skillid']);
+                    $skill = Project\CompanyProjectSkill::findOrFail($item['skillid']);
 
                     // Fill in the information.
                     $skill->fill($item);
@@ -128,7 +128,7 @@ class ProjectDashboardController extends Controller
                 } catch (ModelNotFoundException $me) {
 
                     // Create a new TableModels object for the skill info.
-                    $skill = new TableModels\Skill($item);
+                    $skill = new Project\CompanyProjectSkill($item);
 
                     // Save and commit all changes to the skill variable.
                     $skill->save();

@@ -236,8 +236,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                 {
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
-                    $firstName = $contactInfo->firstname;
-                    $lastName = $contactInfo->lastname;
+                    $firstName = $contactInfo->firstName;
+                    $lastName = $contactInfo->lastName;
                     $email = $contactInfo->email;
                     $username = $contactInfo->username;
                     $hours = $candidate['hours'];

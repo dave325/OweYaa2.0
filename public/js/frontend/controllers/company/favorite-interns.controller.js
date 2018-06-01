@@ -1,6 +1,6 @@
 (function () {
   //Injector will protect against minification
-  favoriteInternsCtrl.$inject = ['$http', 'User', '$timeout'];
+  favoriteInternsCtrl.$inject = ['$http', 'User', '$timeout', '$uibModal'];
   function favoriteInternsCtrl($http, User, $timeout) {
     var vm = this;
     vm.user = User.getUser();
@@ -98,12 +98,26 @@
     }
 
     vm.addIntern = function (internid) {
-      let userInfo = {
-        username: vm.user.company_info.username,
-        internid: internid,
-        favid: vm.projectid.length + 1
+      if (User.getUser()) {
+        var m = $uibModal.open({
+          templateUrl: '/js/frontend/modals/company/selectIntern/selectIntern.modal.view.html',
+          controller: 'selectInternModalCtrl',
+          controllerAs: 'selectIntern',
+          windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+          backdrop: false,
+          keyboard: false,
+          resolve: {
+            CurrUser: function () {
+              return internid;
+            }
+          }
+        });
+        m.result.then(function (response) {
+          console.log(response);
+        }, function (error) {
+          console.log(error);
+        });
       }
-      console.log(userInfo);
       //User.addIntern(userInfo).then();
     }
   }

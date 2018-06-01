@@ -92,23 +92,23 @@
                     }
                 }
             }
+        }
 
-            vm.addFavUser = function (user) {
-                console.log(vm.users[user]);
-                favIntern = {
-                    username: vm.user.company_info.username,
-                    internid: vm.users[user].contactinfo.username,
-                    favid: vm.getFavId()
-                }
-                User.addFavUser(favIntern).then(function (response) {
-                    console.log(response);
-                }, function (error) {
-                    console.log(error);
-                });
+        vm.addFavUser = function (user) {
+            console.log(vm.users[user]);
+            favIntern = {
+                username: vm.user.company_info.username,
+                internid: vm.users[user].contactinfo.username,
+                favid: vm.getFavId()
             }
-            vm.isFav = function (user) {
-                return !user.isFav;
-            }
+            User.addFavUser(favIntern).then(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log(error);
+            });
+        }
+        vm.isFav = function (user) {
+            return !user.isFav;
         }
 
         vm.getFavId = function () {

@@ -71,10 +71,11 @@
         <script src="js/frontend/modals/veteran/portfolio/portfolio.modal.controller.js"></script>
         <script src="js/frontend/modals/veteran/task/task.modal.controller.js"></script>
 
-         <!-- Copmany Modal Controllers -->
+         <!-- Company Modal Controllers -->
         <script src="js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.controller.js"></script>
         <script src="js/frontend/modals/company/companySettingsInfo/company-settings.modal.controller.js"></script>
         <script src="js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.controller.js"></script>
+        <script src="js/frontend/modals/company/selectIntern/select-intern.modal.controller.js"></script>
 
         <!-- Typography -->
         <!-- Roboto -->

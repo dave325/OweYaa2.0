@@ -100,7 +100,7 @@
     vm.addIntern = function (internid) {
       if (User.getUser()) {
         var m = $uibModal.open({
-          templateUrl: '/js/frontend/modals/company/selectIntern/selectIntern.modal.view.html',
+          templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
           controller: 'selectInternModalCtrl',
           controllerAs: 'selectIntern',
           windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",

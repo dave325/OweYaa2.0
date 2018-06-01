@@ -90,6 +90,7 @@
                     // Add a new skill
                     $scope.addToSkills = function () {
                         $scope.newSkill.skillid = $scope.addIndex('skills').replace(/\s/g,'');
+                        $scope.newSkill.projid = vm.curProj.jobInfo.projid;
                         vm.curProj.skills.push($scope.newSkill);
                         $scope.newSkill = {};
                     }
@@ -112,8 +113,7 @@
                     $scope.ok = function () {
 
                         vm.curProj.username = vm.user.company_info.username;
-                        console.log(vm.curProj);
-                        updateAll(vm.curProj);
+                        
                         $scope.removeSkill('skills');
 
                         $uibModalInstance.close();

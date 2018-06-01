@@ -236,10 +236,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
                 {
                     $candidateUName = $candidate['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first()->toArray();
-                    $firstName = $contactInfo['firstName'];
-                    $lastName = $contactInfo['lastName'];
-                    $email = $contactInfo['email'];
-                    $username = $contactInfo['username'];
+                    $firstName = $contactInfo->firstName;
+                    $lastName = $contactInfo->lastName;
+                    $email = $contactInfo->email;
+                    $username = $contactInfo->username;
                     $hours = $candidate['hours'];
                     $contactAddenium = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
                     array_push($candidates,$contactAddenium);   

@@ -113,7 +113,7 @@
                     $scope.ok = function () {
 
                         vm.curProj.username = vm.user.company_info.username;
-                        
+                        console.log(vm.curProj);
                         $scope.removeSkill('skills');
 
                         $uibModalInstance.close();

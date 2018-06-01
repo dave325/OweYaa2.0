@@ -1,7 +1,7 @@
 (function () {
   //Injector will protect against minification
   favoriteInternsCtrl.$inject = ['$http', 'User', '$timeout', '$uibModal'];
-  function favoriteInternsCtrl($http, User, $timeout) {
+  function favoriteInternsCtrl($http, User, $timeout, $uibModal) {
     var vm = this;
     vm.user = User.getUser();
     vm.resultInfo = '';

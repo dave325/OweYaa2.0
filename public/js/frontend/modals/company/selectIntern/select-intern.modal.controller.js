@@ -10,7 +10,7 @@
         for(let i = 0; i < selectInternvm.projects.length;i++){
             selectInternvm.projIds.push({title: selectInternvm.projects[i].jobInfo.title});
         }
-        
+
         // The function that is call when a user cancels the opening of a modal
         selectInternvm.cancel = function () {
             $uibModalInstance.dismiss('cancel')
@@ -23,7 +23,7 @@
 
         selectInternvm.onSubmit = function(){
             let userInfo = {
-                username: vm.user.company_info.username,
+                username: selectInternvm.user.company_info.username,
                 hours: 0,
                 projid: selectInternvm.projectId
               }

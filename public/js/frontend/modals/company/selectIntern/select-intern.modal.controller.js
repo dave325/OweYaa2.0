@@ -34,7 +34,12 @@
               console.log(userInfo);
               User.addIntern(userInfo).then(function(response){
                 console.log(response);
-                selectInternvm.user.company_project.push(userInfo);
+                for(let i = 0; i < selectInternvm.user.company_project.length; i++){
+                    if(selectInternvm.user.company_project[i].jobInfo.projid == selectInternvm.projectId){
+                        selectInternvm.user.company_project[i].candidates.push(response.data.user);
+                        break;
+                    }
+                }
                 User.setUser(selectInternvm.user);
                 selectInternvm.close(response);
               }, function(error){

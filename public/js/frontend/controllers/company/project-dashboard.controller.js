@@ -117,6 +117,7 @@
                         $scope.removeSkill('skills');
                         console.log(vm.curProj);
                         updateAll(vm.curProj);
+                        vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         $uibModalInstance.close(vm.curProj);
                     };
                     $scope.cancel = function () {

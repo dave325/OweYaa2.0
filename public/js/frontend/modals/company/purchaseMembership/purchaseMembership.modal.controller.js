@@ -140,14 +140,6 @@
         purchaseMembershipModalvm.close = function (result) {
             $uibModalInstance.close(result);
         };
-        // The function that is call when a user cancels the opening of a modal
-        purchaseMembershipModalvm.cancel = function () {
-            $uibModalInstance.dismiss('cancel')
-        };
-        // The function that is call when the user closes the modal
-        purchaseMembershipModalvm.close = function (result) {
-            $uibModalInstance.close(result);
-        };
 
     }
     angular.module('oweyaa')

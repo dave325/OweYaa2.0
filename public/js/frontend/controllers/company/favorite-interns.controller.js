@@ -5,6 +5,7 @@
     var vm = this;
     vm.user = User.getUser();
     vm.resultInfo = '';
+    vm.projid = '';
     getUser();
     // Information will be retrieved from database
     vm.contents = {
@@ -38,6 +39,7 @@
       }
       User.removeFavUser(id).then(function (response) {
         vm.resultInfo = "Successfully deleted user!";
+        vm.removeFavUser(user.favid);
         $timeout(function () {
           vm.resultInfo = null;
           getUser();
@@ -83,6 +85,26 @@
           vm.users = user;
         }
       }
+    }
+
+    // Remove any skill in the User object 
+    vm.removeFavUser = function (id) {
+      for (let i = 0; i < vm.users; i++) {
+        if (vm.users[i].favid == id.favid) {
+          vm.users.splice(i, 1);
+          vm.copyUsers = vm.users;
+        }
+      }
+    }
+
+    vm.addIntern = function (internid) {
+      let userInfo = {
+        username: vm.user.company_info.username,
+        internid: internid,
+        favid: vm.projectid.length + 1
+      }
+      console.log(userInfo);
+      //User.addIntern(userInfo).then();
     }
   }
 

@@ -183,6 +183,21 @@
             "Authorization": "Bearer " + Authentication.getToken()
           }
         })
+      },
+
+      addIntern: function(info){
+        if(Authentication.getToken() == null){
+          return;
+        }
+
+        return $http({
+          url:"/api/addInternToProject",
+          method:'POST',
+          data:{info},
+          headers: {
+            "Authorization": "Bearer " + Authentication.getToken()
+          }
+        })
       }
     }
     return User;

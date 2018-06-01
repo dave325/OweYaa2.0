@@ -118,7 +118,6 @@
           console.log(error);
         });
       }
-      //User.addIntern(userInfo).then();
     }
   }
 

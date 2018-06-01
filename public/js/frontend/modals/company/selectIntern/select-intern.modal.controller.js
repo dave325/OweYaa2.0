@@ -3,7 +3,7 @@
     selectInternModalCtrl.$inject = ['User', '$http', '$timeout', '$uibModalInstance', 'CurrUser'];
     function selectInternModalCtrl(User, $http, $timeout, $uibModalInstance, CurrUser) {
 
-        var selectIntern = this;
+        selectIntern = this;
         selectIntern.user = User.getUser();
         selectIntern.projects = selectIntern.user.company_project;
         selectIntern.projIds =[];

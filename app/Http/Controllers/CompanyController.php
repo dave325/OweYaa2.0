@@ -348,7 +348,7 @@ class CompanyController extends Controller
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
                     $username = $contactInfo->username;
-                    $hours = $candidate['hours'];
+                    $hours = $info['hours'];
                     $user = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
             } catch (ModelNotFoundException $me) {
                 return response()->json(['error' => true], 500);

@@ -10,6 +10,7 @@
         for(let i = 0; i < selectIntern.projects.length;i++){
             selectIntern.projIds.push(selectIntern.projects[i].jobInfo.title);
         }
+        console.log(selectIntern.projIds);
         // The function that is call when a user cancels the opening of a modal
         selectIntern.cancel = function () {
             $uibModalInstance.dismiss('cancel')

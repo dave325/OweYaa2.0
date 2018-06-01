@@ -230,8 +230,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
             if(isset($cList))
             {
-                unset($candidates);
-                $candidates = array();
+                unset($candidate);
+                $candidate = array();
                 foreach($cList as $candidate)
                 {
                     $candidateUName = $candidate['username'];

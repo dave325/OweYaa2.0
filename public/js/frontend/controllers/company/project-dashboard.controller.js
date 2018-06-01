@@ -94,7 +94,7 @@
                         vm.curProj.skills.push($scope.newSkill);
                         $scope.newSkill = {};
                     }
-                    
+
                     $scope.addIndex = function (skill) {
                         let index;
                         for (let i = 0; i < vm.curProj[skill].length; i++) {
@@ -116,8 +116,8 @@
                         vm.curProj.username = vm.user.company_info.username;
                         console.log(vm.curProj);
                         $scope.removeSkill('skills');
-
-                        $uibModalInstance.close();
+                        updateAll(vm.curProj);
+                        $uibModalInstance.close(vm.curProj);
                     };
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;

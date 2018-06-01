@@ -27,7 +27,7 @@
                 hours: 0,
                 projid: selectInternvm.projectId
               }
-              User.addInfo(userInfo).then(function(response){
+              User.addIntern(userInfo).then(function(response){
                 console.log(response);
               }, function(error){
                   console.log(error);

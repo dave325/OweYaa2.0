@@ -96,10 +96,8 @@
         <div class="row">
             <label class="col-md-1">Skill:</label>
             <input type="text" ng-model="newSkill.skill" class="col-md-3" minlength="1" required="required" name="newSkillSkill" />
-            <label class="col-md-2">Rating(1-5): </label>
-            <input type="number" max="5" min="1" required="required" ng-model="newSkill.amount" name="newSkillAmount" class="col-md-2"
             />
-            <button ng-class="[{'addEntry':projDescription.newSkillAmount.$valid && projDescription.newSkillSkill.$valid}]" ng-disabled="curProj.skills.length == 9 || !projDescription.newSkillAmount.$valid || !projDescription.newSkillSkill.$valid"
+            <button ng-class="[{'addEntry':projDescription.newSkillAmount.$valid && projDescription.newSkillSkill.$valid}]" ng-disabled="curProj.skills.length == 9 || !projDescription.newSkillSkill.$valid"
                 type="button" ng-click="addToSkills()" class="btn col-md-1 col-md-offset-1">Add</button>
         </div>
         <br />

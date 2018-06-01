@@ -27,6 +27,7 @@
               }
               console.log(userInfo);
         }
+        console.log("reach");
     }
     angular.module('oweyaa')
         .controller('selectInternModalCtrl', selectInternModalCtrl);

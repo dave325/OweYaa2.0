@@ -8,7 +8,10 @@
         selectInternvm.projects = selectInternvm.user.company_project;
         selectInternvm.projIds = [];
         for(let i = 0; i < selectInternvm.projects.length;i++){
-            selectInternvm.projIds.push({title: selectInternvm.projects[i].jobInfo.title});
+            selectInternvm.projIds.push({
+                title: selectInternvm.projects[i].jobInfo.title,
+                id:selectInternvm.projects[i].jobInfo.projid
+            });
         }
 
         // The function that is call when a user cancels the opening of a modal

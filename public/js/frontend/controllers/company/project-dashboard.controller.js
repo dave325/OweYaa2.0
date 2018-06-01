@@ -89,7 +89,7 @@
                     $scope.newSkill = {};
                     // Add a new skill
                     $scope.addToSkills = function () {
-                        $scope.newSkill.skillid = $scope.addIndex('skills');
+                        $scope.newSkill.skillid = $scope.addIndex('skills').replace(/\s/g,'');
                         vm.curProj.skills.push($scope.newSkill);
                         $scope.newSkill = {};
                     }

@@ -19,7 +19,7 @@
             $uibModalInstance.close(result);
         };
 
-        selectIntern.onSubmit = function(selectIntern){
+        selectIntern.onSubmit = function(){
             let userInfo = {
                 username: vm.user.company_info.username,
                 hours: 0,

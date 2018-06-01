@@ -27,8 +27,6 @@
               }
               console.log(userInfo);
         }
-    
-
     }
     angular.module('oweyaa')
         .controller('selectInternModalCtrl', selectInternModalCtrl);

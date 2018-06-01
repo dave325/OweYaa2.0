@@ -99,11 +99,11 @@
                             if (vm.curProj[skill][i].skillid.substr(vm.curProj[skill][i].skillid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
-                                index = vm.user.company_info.username + (i + 1);
+                                index = vm.curProj.jobInfo.title + vm.user.company_info.username + (i + 1);
                             }
                         }
                         if (!index) {
-                            return vm.user.company_info.username + (vm.curProj[skill].length + 1)
+                            return vm.curProj.jobInfo.title + vm.user.company_info.username + (vm.curProj[skill].length + 1)
                         } else {
                             return index;
                         }
@@ -112,6 +112,7 @@
                     $scope.ok = function () {
 
                         vm.curProj.username = vm.user.company_info.username;
+                        console.log(vm.curProj);
                         updateAll(vm.curProj);
                         $scope.removeSkill('skills');
 

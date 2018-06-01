@@ -129,11 +129,26 @@ class ProjectDashboardController extends Controller
                 } catch (ModelNotFoundException $me) {
 
                     // Create a new TableModels object for the skill info.
-                    $skill = Project\CompanyProjectSkill::create($item);
+                    Project\CompanyProjectSkill::create($item);
 
                 }
             }
         }
+        // If there are items to be deleted...
+        if (isset($delete)) {
+
+            // Delete the items that are related to the Skill TableModels,
+            // within the delete stack.
+            Project\CompanyProjectSkill::destroy($delete);
+
+            // Remove all of the references within the delete stack.
+            unset($delete);
+
+            // Reset the delete stack.
+            $delete = array();
+
+        }
+
         return response()->json(['success' => true], 200);
     }
 

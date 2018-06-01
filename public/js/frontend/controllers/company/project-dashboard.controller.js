@@ -19,6 +19,7 @@
         }
         vm.username = vm.user.company_info.username;
         vm.curProj = vm.user.company_project[indexOfCurrentProject];
+        console.log(vm.curProj);
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }

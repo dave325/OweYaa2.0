@@ -108,7 +108,7 @@ class ProjectDashboardController extends Controller
                 unset($item['delete']);
 
                 // Add or modify contact info and username for the item.
-                $item['username'] = $credentials['username'];
+                $item['username'] = $projectInfo['username'];
 
                 try {
 

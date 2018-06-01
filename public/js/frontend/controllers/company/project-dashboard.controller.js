@@ -94,6 +94,7 @@
                         vm.curProj.skills.push($scope.newSkill);
                         $scope.newSkill = {};
                     }
+                    
                     $scope.addIndex = function (skill) {
                         let index;
                         for (let i = 0; i < vm.curProj[skill].length; i++) {

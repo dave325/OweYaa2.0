@@ -108,9 +108,6 @@ class ProjectDashboardController extends Controller
                 // Otherwise, nothing will be deleted.
                 unset($item['delete']);
 
-                // Add or modify contact info and username for the item.
-                $item['username'] = $projectInfo['username'];
-
                 try {
 
                     // Nothing is deleted. Unset the item from deletion.

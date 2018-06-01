@@ -343,11 +343,18 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try {
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
+                $contactInfo =  \App\TableModels\ContactInfo::findOrFail($info['username']);
+                $firstName = $contactInfo->firstname;
+                    $lastName = $contactInfo->lastname;
+                    $email = $contactInfo->email;
+                    $username = $contactInfo->username;
+                    $hours = $candidate['hours'];
+                    $user = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
             } catch (ModelNotFoundException $me) {
                 return response()->json(['error' => true], 500);
             }
             // If successful, return a success response.
-            return response()->json(['success' => true], 200);
+            return response()->json(['user' => $user], 200);
 
         } else {
 

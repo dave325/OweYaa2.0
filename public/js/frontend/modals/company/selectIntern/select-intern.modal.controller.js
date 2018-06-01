@@ -35,7 +35,7 @@
               User.addIntern(userInfo).then(function(response){
                 console.log(response);
                 selectInternvm.user.company_project.push(userInfo);
-                User.setUser(selectInternvm.user);
+                User.setUser(response.data.user);
                 selectInternvm.close(response);
               }, function(error){
                   console.log(error);

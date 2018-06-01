@@ -102,6 +102,7 @@
                 favid: vm.getFavId()
             }
             User.addFavUser(favIntern).then(function (response) {
+                vm.users[user].isFav = true;
                 console.log(response);
             }, function (error) {
                 console.log(error);

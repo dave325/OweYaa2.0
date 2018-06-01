@@ -125,7 +125,7 @@ class ProjectDashboardController extends Controller
                     $skill->save();
 
                     // If the skillid is not found...
-                } catch (ModelNotFoundException $me) {
+                } catch (\ModelNotFoundException $me) {
 
                     // Create a new TableModels object for the skill info.
                     $skill = Project\CompanyProjectSkill::create($item);

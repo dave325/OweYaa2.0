@@ -36,6 +36,14 @@
                                             vm.users[j].isFav = false;
                                         }
                                     }
+                                    for (let i = 0; i < vm.user.company_project.length; i++) {
+                                        if (vm.users[j].contact_info != null && vm.user.company_project[i] == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].user.contact_info.username) {
+                                            vm.users[j].inProj = true;
+                                            break;
+                                        } else {
+                                            vm.users[j].inProj = false;
+                                        }
+                                    }
                                 }
                                 console.log(vm.users);
                                 console.log(response);
@@ -117,6 +125,9 @@
         vm.isFav = function (user) {
             return !user.isFav;
         }
+        vm.inProj = function (user) {
+            return !user.inProj;
+        }
 
         vm.getFavId = function () {
             let index;
@@ -145,12 +156,13 @@
                     keyboard: false,
                     resolve: {
                         CurrUser: function () {
-                            return { user: internid };
+                            return { user: vm.users[internid]};
                         }
                     }
                 });
                 m.result.then(function (response) {
                     vm.resultInfo = "Successfully added candidate to project!";
+                    vm.users[internid].inProj = true;
                     $timeout(function () {
                         vm.resultInfo = "";
                     }, 1500);

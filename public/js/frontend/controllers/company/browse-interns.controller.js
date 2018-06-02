@@ -128,7 +128,28 @@
             } else {
                 return index;
             }
-
+        }
+        vm.addIntern = function (internid) {
+            if (User.getUser()) {
+                var m = $uibModal.open({
+                    templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
+                    controller: 'selectInternModalCtrl',
+                    controllerAs: 'selectInternvm',
+                    windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+                    backdrop: false,
+                    keyboard: false,
+                    resolve: {
+                        CurrUser: function () {
+                            return internid;
+                        }
+                    }
+                });
+                m.result.then(function (response) {
+                    console.log(response);
+                }, function (error) {
+                    console.log(error);
+                });
+            }
         }
     }
     angular.module('oweyaa')

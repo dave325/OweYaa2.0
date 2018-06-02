@@ -41,8 +41,8 @@
 						{{user.contactinfo.firstname+" "+user.contactinfo.lastname}}
 					</h4>
 
-					<button type="button" class="btn btn-info">WANT</button>
-					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="vm.isFav(user)">FAV</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addIntern(user)">Want</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addFavUser($index)" ng-if="vm.isFav(user)">Fav</button>
 
 				</div>
 				<div class="col-md-4">

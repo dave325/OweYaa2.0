@@ -31,6 +31,7 @@
                                     for (let i = 0; i < response.data.projects.length; i++) {
                                         if (vm.users[j].contactinfo != null && vm.users[j].contactinfo.username === response.data.projects[i].user.contact_info.username) {
                                             vm.users[j].isFav = true;
+                                            break;
                                         } else {
                                             vm.users[j].isFav = false;
                                         }

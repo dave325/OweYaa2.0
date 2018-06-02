@@ -141,7 +141,7 @@
                     keyboard: false,
                     resolve: {
                         CurrUser: function () {
-                            return internid;
+                            return {user:internid};
                         }
                     }
                 });

@@ -38,7 +38,6 @@
       }
       User.removeFavUser(id).then(function (response) {
         vm.resultInfo = "Successfully deleted user!";
-        vm.removeFavUser(user.favid);
         $timeout(function () {
           vm.resultInfo = null;
           getUser();

@@ -95,7 +95,6 @@
         }
 
         vm.addFavUser = function (user) {
-            console.log(vm.users[user]);
             favIntern = {
                 username: vm.user.company_info.username,
                 internid: vm.users[user].contactinfo.username,
@@ -120,7 +119,7 @@
             }, function (data) {
                 console.log(data);
             });
-            for (let i = 0; i < vm.users.length; i++) {
+            for (let i = 0; i < vm.favUsers.length; i++) {
                 // Check if the last number in the favid matches to the corresponding number formatting
                 if (vm.favUsers[i].favid.substr(vm.favUsers[i].favid.length - 1) == (i + 1)) {
                     continue;

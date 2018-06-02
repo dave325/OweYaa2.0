@@ -5,6 +5,7 @@
     var vm = this;
     vm.user = User.getUser();
     vm.resultInfo = '';
+    vm.noIntern = '';
     vm.projid = '';
     getUser();
     // Information will be retrieved from database
@@ -25,7 +26,7 @@
         console.log(vm.users);
         vm.copyUsers = vm.users.slice();
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
-          vm.resultInfo = "No favorite interns selected!";
+          vm.noIntern = "No favorite interns selected!";
         }
       }, function (data) {
         console.log(data);

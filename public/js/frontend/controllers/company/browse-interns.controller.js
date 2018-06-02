@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal"];
-    function browseInternsCtrl($scope, User, $http, Authentication,$uibModal) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal","$timeout"];
+    function browseInternsCtrl($scope, User, $http, Authentication,$uibModal, $timeout) {
         var vm = this;
         vm.test = '';
         vm.resultInfo = "";
@@ -105,6 +105,10 @@
             }
             User.addFavUser(favIntern).then(function (response) {
                 vm.users[user].isFav = true;
+                vm.resultInfo = "Successfully added intern to favorites!";
+                $timeout(function(){
+                    vm.resultInfo = "";
+                }, 800);
                 console.log(response);
             }, function (error) {
                 console.log(error);

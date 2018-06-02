@@ -161,7 +161,7 @@ class CompanyInternMatch extends Controller
         $compLatitude = $this->companyLocation[0];
         $compLongitude = $this->companyLocation[1];
 
-        $users = User::with('education', 'contactinfo', 'skill')
+        $users = User::with('education', 'contactInfo', 'skill')
 
             ->whereHas('contactinfo',
                 function ($query) use ($compLatitude, $compLongitude, $maxDistance) {

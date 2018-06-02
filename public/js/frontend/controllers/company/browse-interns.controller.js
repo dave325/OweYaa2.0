@@ -29,7 +29,7 @@
                                 vm.favUsers = response.data.projects;
                                 for (let j = 0; j < vm.users.length - 1; j++) {
                                     for (let i = 0; i < response.data.projects.length; i++) {
-                                        if (vm.users[j].contactinfo != null && vm.users[j].contactinfo.username === response.data.projects[i].user.contact_info.username) {
+                                        if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
                                             vm.users[j].isFav = true;
                                             break;
                                         } else {
@@ -100,7 +100,7 @@
         vm.addFavUser = function (user) {
             favIntern = {
                 username: vm.user.company_info.username,
-                internid: vm.users[user].contactinfo.username,
+                internid: vm.users[user].contact_info.username,
                 favid: vm.getFavId()
             }
             User.addFavUser(favIntern).then(function (response) {

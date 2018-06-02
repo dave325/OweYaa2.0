@@ -119,6 +119,7 @@
                         console.log(vm.curProj);
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                        User.setUser(vm.user);
                         $uibModalInstance.close(vm.curProj);
                     };
                     $scope.cancel = function () {

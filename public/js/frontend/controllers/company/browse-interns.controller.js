@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal","$timeout"];
-    function browseInternsCtrl($scope, User, $http, Authentication,$uibModal, $timeout) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal", "$timeout"];
+    function browseInternsCtrl($scope, User, $http, Authentication, $uibModal, $timeout) {
         var vm = this;
         vm.test = '';
         vm.resultInfo = "";
@@ -105,10 +105,10 @@
             }
             User.addFavUser(favIntern).then(function (response) {
                 vm.users[user].isFav = true;
-                vm.resultInfo = "Successfully added intern to favorites!";
-                $timeout(function(){
+                vm.resultInfo = "Successfully added candidate to favorites!";
+                $timeout(function () {
                     vm.resultInfo = "";
-                }, 800);
+                }, 1500);
                 console.log(response);
             }, function (error) {
                 console.log(error);
@@ -145,12 +145,15 @@
                     keyboard: false,
                     resolve: {
                         CurrUser: function () {
-                            return {user:internid};
+                            return { user: internid };
                         }
                     }
                 });
                 m.result.then(function (response) {
-                    console.log(response);
+                    vm.resultInfo = "Successfully added candidate to project!";
+                    $timeout(function () {
+                        vm.resultInfo = "";
+                    }, 1500);
                 }, function (error) {
                     console.log(error);
                 });

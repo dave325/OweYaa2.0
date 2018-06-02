@@ -4,7 +4,7 @@
     <form novalidate method="post" name="registerModal" class="col-md-8 col-xs-12 col-md-offset-2">
       <h2 class="text-center"> Register as a Company or Veteran/Military Spouse </h2>
       <p>Please fill in all fields and select either veteran or company to submit the form.</p>
-      <h3 class="bg-info" ng-show="vm.formError">{{vm.formError}}</h3>
+      <h3 class="alert alert-info" ng-show="vm.formError">{{vm.formError}}</h3>
       <div class="form-group">
         <label form="username">Username: </label>
         <p ng-show="!registerModal.username.$valid && registerModal.username.$touched" class="alert alert-warning">Username must be more than 5 characters</p>

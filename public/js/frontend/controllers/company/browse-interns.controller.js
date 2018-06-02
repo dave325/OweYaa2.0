@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication"];
-    function browseInternsCtrl($scope, User, $http, Authentication) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal"];
+    function browseInternsCtrl($scope, User, $http, Authentication,$uibModal) {
         var vm = this;
         vm.test = '';
         vm.resultInfo = "";

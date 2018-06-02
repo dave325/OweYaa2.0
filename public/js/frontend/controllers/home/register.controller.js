@@ -33,7 +33,7 @@
 			});
 		}
 		vm.formTitle = function(){
-			if(vm.credentials.registerModal= undefined){
+			if(vm.credentials.registerModal == undefined){
 				return "VeteranVeteran/Military Spouse";
 			}
 			else if(vm.credentials.registerModal.type == 1){

@@ -6,6 +6,7 @@
         vm.test = '';
         vm.resultInfo = "";
         vm.internsList = [];
+        vm.favUsers = [];
         vm.user = User.getUser();
         if (vm.user.membership_token.stripetoken == null) {
             vm.resultInfo = "Please purchase a membership to view available candidates!";
@@ -25,6 +26,7 @@
 
                             vm.users = response.data;
                             User.getFavUsers(vm.user).then(function (response) {
+                                vm.favUsers = response.data.projects;
                                 for (let j = 0; j < vm.users.length - 1; j++) {
                                     for (let i = 0; i < response.data.projects.length; i++) {
                                         if (vm.users[j].contactinfo != null && vm.users[j].contactinfo.username === response.data.projects[i].user.contact_info.username) {
@@ -113,12 +115,6 @@
 
         vm.getFavId = function () {
             let index;
-            vm.favUsers = [];
-            User.getFavUsers(vm.user).then(function (response) {
-                vm.favUsers = response.data.projects;
-            }, function (data) {
-                console.log(data);
-            });
             for (let i = 0; i < vm.favUsers.length; i++) {
                 // Check if the last number in the favid matches to the corresponding number formatting
                 if (vm.favUsers[i].favid.substr(vm.favUsers[i].favid.length - 1) == (i + 1)) {

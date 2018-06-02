@@ -140,7 +140,7 @@
                 }
             }
             if (!index) {
-                return vm.user.company_info.username + (parseInt(vm.users.length) + 1)
+                return vm.user.company_info.username + (parseInt(vm.favUsers.length) + 1)
             } else {
                 return index;
             }

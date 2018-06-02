@@ -22,6 +22,7 @@
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         vm.users = response.data.projects;
+        console.log(vm.users);
         vm.copyUsers = vm.users.slice();
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
           vm.resultInfo = "No favorite interns selected!";

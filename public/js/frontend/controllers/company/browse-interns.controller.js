@@ -114,6 +114,7 @@
 
         vm.getFavId = function () {
             let index;
+            vm.favUsers = [];
             User.getFavUsers(vm.user).then(function (response) {
                 vm.favUsers = response.data.projects;
             }, function (data) {

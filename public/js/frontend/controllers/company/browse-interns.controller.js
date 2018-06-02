@@ -117,7 +117,7 @@
 
             for (let i = 0; i < vm.users.length; i++) {
                 // Check if the last number in the favid matches to the corresponding number formatting
-                if (vm.users[i].favid.substr(vm.users[i].favid.length - 1) == (i + 1)) {
+                if (vm.users[i].favid == undefined || vm.users[i].favid.substr(vm.users[i].favid.length - 1) == (i + 1)) {
                     continue;
                 } else {
                     index = vm.user.company_info.username + (i + 1);

@@ -45,6 +45,7 @@
                                             } else {
                                                 temp[j].inProj = false;
                                             }
+                                            console.log(vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username);
                                         }
                                     }
                                 }
@@ -54,7 +55,7 @@
                             }, function (data) {
                                 console.log(data);
                             });
-                            vm.copyUsers = vm.users.slice();
+                            vm.copyUsers = temp.slice();
                         },
                         function (response) {
                             console.log("ERROR: Retrieving DB candidates" + response);

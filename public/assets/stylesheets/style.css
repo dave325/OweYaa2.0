@@ -1174,7 +1174,8 @@ section{
 
 .nav-message{
 	position:fixed;
-	top:85px;
+	left:0;
+	top:95px;
 	z-index:9999999999;
 }
 

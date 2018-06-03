@@ -38,7 +38,7 @@
                                         }
                                     }
                                     for (let i = 0; i < vm.user.company_project.length; i++) {
-                                        for (let k = 0; k < vm.user[j].company_project[i].candidates.length; k++) {
+                                        for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
                                             if (vm.users[j].contact_info != null && vm.user.company_project[i] == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].candidates[k].contact_info.username) {
                                                 vm.users[j].inProj = true;
                                                 break;

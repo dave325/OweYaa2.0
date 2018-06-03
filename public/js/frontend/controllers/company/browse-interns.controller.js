@@ -114,9 +114,9 @@
             User.addFavUser(favIntern).then(function (response) {
                 vm.users[user].isFav = true;
                 vm.resultInfo = "Successfully added candidate to favorites!";
-                $timeout(function () {
+                /*$timeout(function () {
                     vm.resultInfo = "";
-                }, 1500);
+                }, 1500);*/
                 console.log(response);
             }, function (error) {
                 console.log(error);
@@ -140,7 +140,7 @@
                 }
             }
             if (!index) {
-                return vm.user.company_info.username + (parseInt(vm.favUsers.length) + 1)
+                return vm.user.company_info.username + (vm.favUsers.length + 1)
             } else {
                 return index;
             }

@@ -25,31 +25,32 @@
                     $http(req).then(
                         function (response) {
 
-                            vm.users = response.data;
+                            let temp = response.data;
                             User.getFavUsers(vm.user).then(function (response) {
                                 vm.favUsers = response.data.projects;
-                                for (let j = 0; j < vm.users.length - 1; j++) {
+                                for (let j = 0; j < temp.length - 1; j++) {
                                     for (let i = 0; i < response.data.projects.length; i++) {
-                                        if (vm.users[j].contact_info != null && vm.users[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
-                                            vm.users[j].isFav = true;
+                                        if (temp[j].contact_info != null && temp[j].contact_info.username === response.data.projects[i].user.contact_info.username) {
+                                            temp[j].isFav = true;
                                             break;
                                         } else {
-                                            vm.users[j].isFav = false;
+                                            temp[j].isFav = false;
                                         }
                                     }
                                     for (let i = 0; i < vm.user.company_project.length; i++) {
                                         for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
-                                            if (vm.user.company_project[i].jobInfo.initiated == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
-                                                vm.users[j].inProj = true;
+                                            if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
+                                                temp[j].inProj = true;
                                                 break;
                                             } else {
-                                                vm.users[j].inProj = false;
+                                                temp[j].inProj = false;
                                             }
                                         }
                                     }
                                 }
-                                console.log(vm.users);
-                                console.log(response);
+                                console.log(temp);
+                                console.log(vm.user.company_project);
+                                vm.users = temp;
                             }, function (data) {
                                 console.log(data);
                             });

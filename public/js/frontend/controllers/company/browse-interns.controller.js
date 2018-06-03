@@ -38,11 +38,13 @@
                                         }
                                     }
                                     for (let i = 0; i < vm.user.company_project.length; i++) {
-                                        if (vm.users[j].contact_info != null && vm.user.company_project[i] == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].user.contact_info.username) {
-                                            vm.users[j].inProj = true;
-                                            break;
-                                        } else {
-                                            vm.users[j].inProj = false;
+                                        for (let k = 0; k < vm.user.company_project.candidates.length; k++) {
+                                            if (vm.users[j].contact_info != null && vm.user.company_project[i] == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].candidates[k].contact_info.username) {
+                                                vm.users[j].inProj = true;
+                                                break;
+                                            } else {
+                                                vm.users[j].inProj = false;
+                                            }
                                         }
                                     }
                                 }
@@ -119,7 +121,7 @@
                 $timeout(function () {
                     vm.resultInfo = "";
                 }, 1500);
-                
+
                 console.log(response);
             }, function (error) {
                 console.log(error);
@@ -159,7 +161,7 @@
                     keyboard: false,
                     resolve: {
                         CurrUser: function () {
-                            return { user: vm.users[internid]};
+                            return { user: vm.users[internid] };
                         }
                     }
                 });

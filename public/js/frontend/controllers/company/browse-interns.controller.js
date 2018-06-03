@@ -114,9 +114,11 @@
             User.addFavUser(favIntern).then(function (response) {
                 vm.users[user].isFav = true;
                 vm.resultInfo = "Successfully added candidate to favorites!";
+                vm.favUsers.push(favIntern);
                 $timeout(function () {
                     vm.resultInfo = "";
                 }, 1500);
+                
                 console.log(response);
             }, function (error) {
                 console.log(error);

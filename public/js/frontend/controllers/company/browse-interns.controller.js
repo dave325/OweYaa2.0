@@ -37,15 +37,15 @@
                                             temp[j].isFav = false;
                                         }
                                     }
-                                    for (let i = 0; i < vm.user.company_project.length; i++) {
-                                        for (let k = 1; k <2; k++) {
+                                    for (let i = 1; i < 2; i++) {
+                                        for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
                                             if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
                                                 temp[j].inProj = true;
                                                 break;
                                             } else {
                                                 temp[j].inProj = false;
                                             }
-                                            console.log(vm.user.company_project[i].jobInfo.initiated);
+                                            console.log(vm.user.company_project[i]);
                                             console.log(temp[j].contact_info.username);
                                             console.log(vm.user.company_project[i].candidates[k].username);
                                         }

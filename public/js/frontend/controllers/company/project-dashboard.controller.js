@@ -174,6 +174,7 @@
                         $scope.interns.splice(index,1);
                     }
                     $scope.ok = function () {
+                        console.log(vm.curProj);
                         updateAll(vm.curProj);
                         $uibModalInstance.close();
                     };

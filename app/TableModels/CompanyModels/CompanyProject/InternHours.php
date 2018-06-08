@@ -10,7 +10,7 @@ class InternHours extends Model{
      */
     protected $table = 'internhours';
     // Set primary key
-    protected $primaryKey = 'username';
+    protected $primaryKey = null;
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent

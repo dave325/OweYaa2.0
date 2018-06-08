@@ -161,9 +161,6 @@ class ProjectDashboardController extends Controller
 
             } else {
 
-                // Otherwise, nothing will be deleted.
-                unset($item['delete']);
-
                 try {
 
                     // Nothing is deleted. Unset the item from deletion.
@@ -172,7 +169,7 @@ class ProjectDashboardController extends Controller
                     // Search for the 'skill' credentials by skillid, primary key.
                     $intern = Project\InternHours::where([ 
                         ['projid','=',$projectInfo['jobInfo']['projid']],
-                        ['username', '=', $item['username']]
+                        ['username', '=', $item['username']],
                     ])->first();
 
                     // Fill in the information.
@@ -198,7 +195,7 @@ class ProjectDashboardController extends Controller
             foreach($delete as $id){
                 Project\InternHours::where([
                     ['projid','=',$projectInfo['jobInfo']['projid']],
-                    ['username', '=', $id]
+                    ['username', '=', $id],
                 ])->delete();
             }
 

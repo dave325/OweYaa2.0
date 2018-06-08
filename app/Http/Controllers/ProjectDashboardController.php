@@ -170,10 +170,8 @@ class ProjectDashboardController extends Controller
                     unset($item['delete']);
 
                     // Search for the 'skill' credentials by skillid, primary key.
-                    $intern = Project\InternHours::whereHas('projId',function($query){
-                        $query->where('projId','=',$item['projid'])
-                            ->where('username', '=', $item['username']);
-                    })->first();
+                    $intern = Project\InternHours::where('projId','=',$item['projid'])
+                            ->where('username', '=', $item['username'])->first();
 
                     // Fill in the information.
                     $intern->fill($item);

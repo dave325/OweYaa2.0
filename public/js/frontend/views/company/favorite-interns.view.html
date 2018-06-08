@@ -46,7 +46,7 @@
 					<h4 class="specialText">
 						{{user.user.contact_info.firstname+" "+user.user.contact_info.lastname}}
 					</h4>
-					<button type="button" class="btn btn-success" ng-click="vm.addIntern(user)">Want for project</button>
+					<button type="button" class="btn btn-info" ng-click="vm.addIntern($index)" ng-if="vm.inProj(user)">Want</button>
 					<button type="button" class="btn btn-success" ng-click="vm.removeFavUser(user)">Remove</button>
 				</div>
 				<!-- End of class col-md-2 -->

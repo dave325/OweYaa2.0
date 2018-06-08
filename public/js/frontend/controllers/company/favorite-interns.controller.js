@@ -23,6 +23,20 @@
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         vm.users = response.data.projects;
+        for (let j = 0; j < vm.users.length - 1; j++) {
+          if (vm.users[j].contact_info.ismatched == 1) {
+            vm.users[j].inProj = true;
+          } else {
+            for (let i = 0; i < vm.user.company_project.length; i++) {
+              for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
+                if (vm.user.company_project[i].jobInfo.initiated == 1 && vm.users[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
+                  vm.users[j].inProj = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
         console.log(vm.users);
         vm.copyUsers = vm.users.slice();
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
@@ -49,6 +63,12 @@
       });
     }
 
+    vm.isFav = function (user) {
+      return !user.isFav;
+    }
+    vm.inProj = function (user) {
+      return !user.inProj;
+    }
     // Filter user function
     vm.filterUsers = function () {
       let user = [];
@@ -99,12 +119,16 @@
           keyboard: false,
           resolve: {
             CurrUser: function () {
-              return internid;
+              return { user: vm.users[internid] };
             }
           }
         });
         m.result.then(function (response) {
-          console.log(response);
+          vm.resultInfo = "Successfully added candidate to project!";
+          vm.users[internid].inProj = true;
+          $timeout(function () {
+            vm.resultInfo = "";
+          }, 1500);
         }, function (error) {
           console.log(error);
         });

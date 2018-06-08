@@ -90,7 +90,7 @@
                     $scope.newSkill = {};
                     // Add a new skill
                     $scope.addToSkills = function () {
-                        $scope.newSkill.skillid = $scope.addIndex('skills').replace(/\s/g,'');
+                        $scope.newSkill.skillid = $scope.addIndex('skills').replace(/\s/g, '');
                         $scope.newSkill.projid = vm.curProj.jobInfo.projid;
                         vm.curProj.skills.push($scope.newSkill);
                         $scope.newSkill = {};
@@ -169,13 +169,21 @@
 
 
                     $scope.interns = vm.curProj.candidates;
-                    $scope.removeWorkingIntern = function(index){
+                    let deletedCandidates = [];
+                    $scope.removeWorkingIntern = function (index, username) {
                         vm.curProj.candidates[index].delete = true;
-                        $scope.interns.splice(index,1);
+                        deletedCandidates.push(username);
                     }
                     $scope.ok = function () {
-                        console.log(vm.curProj);
                         updateAll(vm.curProj);
+                        for (let i = 0; i < vm.curProj.candidates.length; i++) {
+                            for (let j = 0; j < deletedCandidates.length; j++) {
+                                if (deletedCandidates[j] === vm.curProj.candidates[i].jobInfo.username) {
+                                    vm.curProj.candidates.splice(i, 1);
+                                    break;
+                                }
+                            }
+                        }
                         $uibModalInstance.close();
                     };
 

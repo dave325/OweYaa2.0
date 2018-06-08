@@ -178,7 +178,7 @@
                         updateAll(vm.curProj);
                         for (let i = 0; i < vm.curProj.candidates.length; i++) {
                             for (let j = 0; j < deletedCandidates.length; j++) {
-                                if (deletedCandidates[j] === vm.curProj.candidates[i].jobInfo.username) {
+                                if (deletedCandidates[j] === vm.curProj.candidates[i].username) {
                                     vm.curProj.candidates.splice(i, 1);
                                     break;
                                 }

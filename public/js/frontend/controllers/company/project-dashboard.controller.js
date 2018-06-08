@@ -57,9 +57,9 @@
                 url: '/api/projDash/updateAll',
                 data: data
             }
-            $http(req).then(function (response) { 
+            $http(req).then(function (response) {
                 console.log(response);
-             },
+            },
                 function (error) { error });
         }
 
@@ -174,7 +174,7 @@
                     let deletedCandidates = [];
                     $scope.removeWorkingIntern = function (index, username) {
                         vm.curProj.candidates[index].delete = true;
-                        $scope.interns.splice(index,1);
+                        $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
                     $scope.ok = function () {
@@ -187,7 +187,9 @@
                                 }
                             }
                         }
-                        $uibModalInstance.close($scope.curProj);
+                        vm.user.company_project[indexOfCurrentProject] = $scope.curProj;
+                        User.setUser(vm.user);
+                        $uibModalInstance.close();
                     };
 
 

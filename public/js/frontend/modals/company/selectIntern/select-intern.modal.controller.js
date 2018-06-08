@@ -28,7 +28,7 @@
         selectInternvm.checkProjLength = function () {
             console.log('res');
             for (let i = 0; i < selectInternvm.projects.length; i++) {
-                if(selectInternvm.projectId == selectInternvm.project[i].jobInfo.projid){
+                if(selectInternvm.projectId == selectInternvm.projects[i].jobInfo.projid){
                     if(selectInternvm.project[i].candidates.length > 1){
                         selectInternvm.isError = true;
                         break;

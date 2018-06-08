@@ -170,7 +170,7 @@ class ProjectDashboardController extends Controller
                     unset($item['delete']);
 
                     // Search for the 'skill' credentials by skillid, primary key.
-                    $intern = Project\InternHours::where('projId','=',$item['projid'])
+                    $intern = Project\InternHours::where('projId','=',$projectInfo['jobInfo']['projid'])
                             ->where('username', '=', $item['username'])->first();
 
                     // Fill in the information.
@@ -194,10 +194,8 @@ class ProjectDashboardController extends Controller
             // Delete the items that are related to the Skill TableModels,
             // within the delete stack.
             foreach($delete as $id){
-                $intern = Project\InternHours::whereHas('projId',function($query){
-                    $query->where('projId','=',$item['projid'])
-                        ->where('username', '=', $id);
-                })->delete();
+                $intern = Project\InternHourswhere('projId','=',$projectInfo['jobInfo']['projid'])
+                        ->where('username', '=', $id)->delete();
             }
 
             // Remove all of the references within the delete stack.

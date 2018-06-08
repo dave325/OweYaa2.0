@@ -23,6 +23,7 @@
     function getUser() {
       User.getFavUsers(vm.user).then(function (response) {
         vm.users = response.data.projects;
+        console.log(vm.users);
         for (let j = 0; j < vm.users.length - 1; j++) {
           if (vm.users[j].contact_info.ismatched == 1) {
             vm.users[j].inProj = true;

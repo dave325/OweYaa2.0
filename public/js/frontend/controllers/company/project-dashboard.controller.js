@@ -187,8 +187,7 @@
                                 }
                             }
                         }
-                        vm.user.company_project = $scope.curProj;
-                        vm.curProj = $scope.curProj;
+                        vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
                         $uibModalInstance.close();
                     };

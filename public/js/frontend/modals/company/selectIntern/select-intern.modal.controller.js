@@ -30,6 +30,7 @@
                 if(selectInternvm.projectId == selectInternvm.project[i].jobInfo.projid){
                     if(selectInternvm.project[i].candidates.length > 1){
                         selectInternvm.isError = true;
+                        break;
                     }
                 }
             }

@@ -29,7 +29,7 @@
             console.log('res');
             for (let i = 0; i < selectInternvm.projects.length; i++) {
                 if(selectInternvm.projectId == selectInternvm.projects[i].jobInfo.projid){
-                    if(selectInternvm.project[i].candidates.length > 1){
+                    if(selectInternvm.projects[i].candidates.length > 1){
                         selectInternvm.isError = true;
                         break;
                     }

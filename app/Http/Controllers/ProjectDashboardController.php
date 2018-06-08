@@ -172,7 +172,7 @@ class ProjectDashboardController extends Controller
                     // Search for the 'skill' credentials by skillid, primary key.
                     $intern = Project\InternHours::where( 
                         ['projId','=',$projectInfo['jobInfo']['projid']],
-                        ['username', '=', $id]
+                        ['username', '=', $item['username']]
                     )->first();
 
                     // Fill in the information.

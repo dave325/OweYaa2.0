@@ -170,7 +170,8 @@
 
                     $scope.interns = vm.curProj.candidates;
                     $scope.removeWorkingIntern = function(index){
-                        vm.curProj.candidates.splice(index,1);
+                        vm.curProj.candidates.delete = true;
+                        $scope.interns.splice(index,1);
                     }
                     $scope.ok = function () {
                         updateAll(vm.curProj);

@@ -19,7 +19,7 @@
                 <td><input type="number"min="0" ng-model="intern.hours"></td>
                 <td ng-if="intern.checkin === 1">Yes</td>
                 <td ng-if="intern.checkin != 1">No</td>
-                <td ng-click="removeWorkingIntern($index)"><span class="glyphicon glyphicon-remove" style="color:red;"></span></td>
+                <td ng-click="removeWorkingIntern($index, intern.username)"><span class="glyphicon glyphicon-remove" style="color:red;"></span></td>
             </tr>
         </tbody>
 

@@ -168,7 +168,7 @@
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
 
-                    $scope.interns = vm.curProj.candidates.splice();
+                    $scope.interns = vm.curProj.candidates.slice();
                     let deletedCandidates = [];
                     $scope.removeWorkingIntern = function (index, username) {
                         vm.curProj.candidates[index].delete = true;

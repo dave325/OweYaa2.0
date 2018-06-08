@@ -32,6 +32,8 @@
                     if(selectInternvm.projects[i].candidates.length > 1){
                         selectInternvm.isError = true;
                         break;
+                    }else{
+                        selectInternvm.isError = true;
                     }
                 }
             }

@@ -57,7 +57,10 @@
                 url: '/api/projDash/updateAll',
                 data: data
             }
-            $http(req).then(function (response) { console.log(response) },
+            $http(req).then(function (response) { 
+                vm.user.company_project[indexOfCurrentProject] = response;
+                User.setUser(vm.user);
+             },
                 function (error) { error });
         }
 
@@ -185,7 +188,7 @@
                                 }
                             }
                         }
-                        $uibModalInstance.close();
+                        $uibModalInstance.close($scope.curProj);
                     };
 
 

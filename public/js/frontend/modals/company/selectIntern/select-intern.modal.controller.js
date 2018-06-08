@@ -1,16 +1,17 @@
 (function () {
     //Injector will protect against minification
-    selectInternModalCtrl.$inject = ['User','$uibModalInstance', 'CurrUser'];
-    function selectInternModalCtrl(User,$uibModalInstance, CurrUser) {
+    selectInternModalCtrl.$inject = ['User', '$uibModalInstance', 'CurrUser'];
+    function selectInternModalCtrl(User, $uibModalInstance, CurrUser) {
 
         var selectInternvm = this;
         selectInternvm.user = User.getUser();
         selectInternvm.projects = selectInternvm.user.company_project;
         selectInternvm.projIds = [];
-        for(let i = 0; i < selectInternvm.projects.length;i++){
+        selectInternvm.isError = false;
+        for (let i = 0; i < selectInternvm.projects.length; i++) {
             selectInternvm.projIds.push({
                 title: selectInternvm.projects[i].jobInfo.title,
-                id:selectInternvm.projects[i].jobInfo.projid
+                id: selectInternvm.projects[i].jobInfo.projid
             });
         }
 
@@ -24,27 +25,36 @@
             $uibModalInstance.close(result);
         };
 
-        selectInternvm.onSubmit = function(){
+        selectInternvm.checkProjLength = function () {
+            for (let i = 0; i < selectInternvm.projects.length; i++) {
+                if(selectInternvm.projectId == selectInternvm.project[i].jobInfo.projid){
+                    if(selectInternvm.project[i].candidates.length > 1){
+                        selectInternvm.isError = true;
+                    }
+                }
+            }
+        }
+        selectInternvm.onSubmit = function () {
             console.log(CurrUser);
             let userInfo = {
                 username: CurrUser.user.contact_info.username,
                 hours: 0,
                 projid: selectInternvm.projectId,
-              }
-              console.log(userInfo);
-              User.addIntern(userInfo).then(function(response){
+            }
+            console.log(userInfo);
+            User.addIntern(userInfo).then(function (response) {
                 console.log(response);
-                for(let i = 0; i < selectInternvm.user.company_project.length; i++){
-                    if(selectInternvm.user.company_project[i].jobInfo.projid == selectInternvm.projectId){
+                for (let i = 0; i < selectInternvm.user.company_project.length; i++) {
+                    if (selectInternvm.user.company_project[i].jobInfo.projid == selectInternvm.projectId) {
                         selectInternvm.user.company_project[i].candidates.push(response.data.user);
                         break;
                     }
                 }
                 User.setUser(selectInternvm.user);
                 selectInternvm.close(response);
-              }, function(error){
-                  console.log(error);
-              });
+            }, function (error) {
+                console.log(error);
+            });
         }
     }
 

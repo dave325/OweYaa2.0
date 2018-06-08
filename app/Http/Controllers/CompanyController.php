@@ -344,6 +344,8 @@ class CompanyController extends Controller
             try {
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
                 $contactInfo =  \App\TableModels\ContactInfo::findOrFail($info['username']);
+                $contactInfo->ismatched = 1;
+                $contactInfo->save();
                 $firstName = $contactInfo->firstname;
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;

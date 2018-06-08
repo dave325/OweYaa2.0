@@ -37,12 +37,16 @@
                                             temp[j].isFav = false;
                                         }
                                     }
-                                    for (let i = 0; i < vm.user.company_project.length; i++) {
-                                        for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
-                                            if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
-                                                temp[j].inProj = true;
-                                                break;
-                                            } 
+                                    if (temp[j].contact_info.ismatched == 1) {
+                                        temp[j].inProj = true;
+                                    }else{
+                                        for (let i = 0; i < vm.user.company_project.length; i++) {
+                                            for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
+                                                if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
+                                                    temp[j].inProj = true;
+                                                    break;
+                                                }
+                                            }
                                         }
                                     }
                                 }

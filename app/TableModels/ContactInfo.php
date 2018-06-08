@@ -20,7 +20,7 @@ class ContactInfo extends Model{
     *
     * @var array
     */
-    protected $fillable = ['firstname','lastname','email','phone','location', 'mos','branch',"username", 'imgUrl', 'isVet', 'bio','longitude','latitude'];
+    protected $fillable = ['firstname','lastname','email','phone','location', 'mos','branch',"username", 'imgUrl', 'isVet', 'bio','longitude','latitude', 'ismatched'];
 
     /**
      * Get the post that owns the comment.

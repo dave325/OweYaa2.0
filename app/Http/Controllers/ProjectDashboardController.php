@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\TableModels\CompanyModels\CompanyProject as Project;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 /*
@@ -137,6 +137,70 @@ class ProjectDashboardController extends Controller
             // Delete the items that are related to the Skill TableModels,
             // within the delete stack.
             Project\CompanyProjectSkill::destroy($delete);
+
+            // Remove all of the references within the delete stack.
+            unset($delete);
+
+            // Reset the delete stack.
+            $delete = array();
+
+        }
+
+        // Prepare to push items onto the delete stack.
+        $delete = array();
+
+        // For each of the 'skill' credentials...
+        foreach ($projectInfo['candidates'] as $item) {
+
+            // If the 'skill' needs to be deleted...
+            if (isset($item['delete']) && $item['delete']) {
+
+                // Push a reference to the skillid, primary key, to the
+                // delete stack.
+                array_push($delete, $item['username']);
+
+            } else {
+
+                // Otherwise, nothing will be deleted.
+                unset($item['delete']);
+
+                try {
+
+                    // Nothing is deleted. Unset the item from deletion.
+                    unset($item['delete']);
+
+                    // Search for the 'skill' credentials by skillid, primary key.
+                    $intern = Project\InternHours::whereHas('projId',function($query){
+                        $query->where('projId','=',$item['projid'])
+                            ->where('username', '=', $item['username']);
+                    })->first();
+
+                    // Fill in the information.
+                    $intern->fill($item);
+
+                    // Save and commit all changes to the skill variable.
+                    $intern->save();
+
+                    // If the skillid is not found...
+                } catch (ModelNotFoundException $me) {
+
+                    // Create a new TableModels object for the skill info.
+                    Project\InternHours::create($item);
+
+                }
+            }
+        }
+        // If there are items to be deleted...
+        if (isset($delete)) {
+
+            // Delete the items that are related to the Skill TableModels,
+            // within the delete stack.
+            foreach($delete as $id){
+                $intern = Project\InternHours::whereHas('projId',function($query){
+                    $query->where('projId','=',$item['projid'])
+                        ->where('username', '=', $id);
+                })->delete();
+            }
 
             // Remove all of the references within the delete stack.
             unset($delete);

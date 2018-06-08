@@ -194,7 +194,7 @@ class ProjectDashboardController extends Controller
             // Delete the items that are related to the Skill TableModels,
             // within the delete stack.
             foreach($delete as $id){
-                $intern = Project\InternHourswhere('projId','=',$projectInfo['jobInfo']['projid'])
+                Project\InternHours::where('projId','=',$projectInfo['jobInfo']['projid'])
                         ->where('username', '=', $id)->delete();
             }
 

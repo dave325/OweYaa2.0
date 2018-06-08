@@ -58,8 +58,7 @@
                 data: data
             }
             $http(req).then(function (response) { 
-                vm.user.company_project[indexOfCurrentProject] = response;
-                User.setUser(vm.user);
+                console.log(response);
              },
                 function (error) { error });
         }

@@ -120,7 +120,7 @@
           keyboard: false,
           resolve: {
             CurrUser: function () {
-              return { user: vm.users[internid] };
+              return { user: vm.users[internid].user };
             }
           }
         });

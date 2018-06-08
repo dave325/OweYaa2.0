@@ -4,28 +4,25 @@
 <!-- End of modal-header -->
 
 <div class="modal-body" id="proj-dashboard-Milestones">
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Hours worked</th>
+                <th>Checked In?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="intern in interns">
+                <td>{{intern.firstName}} {{intern.lastName}}</td>
+                <td><input type="number"min="0" ng-model="intern.hours"></td>
+                <td ng-if="intern.checkin === 1">Yes</td>
+                <td ng-if="intern.checkin === 0">No</td>
+            </tr>
+        </tbody>
 
-    <div ng-repeat="intern in interns">
-
-        <div class="row">
-            <div class="col-md-4">
-                <p>{{intern.firstName}} {{intern.lastName}}</p>
-            </div>
-
-            <div class="col-md-4">
-                <form>
-                    Total Hours:
-                    <input type="number"min="0" ng-model="intern.hours">
-                </form>
-
-            </div>
-        </div>
-
-
-    </div>
-
+    </table>
 </div>
-
 
 <div class="modal-footer">
 

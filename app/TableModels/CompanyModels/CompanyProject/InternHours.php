@@ -21,7 +21,7 @@ class InternHours extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','hours', 'projid'];
+    protected $fillable = ['username','hours', 'projid', 'checkin'];
 
     /**
      * Get the post that owns the comment.

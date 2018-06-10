@@ -20,7 +20,12 @@
                 vm.user.total_interns++;
             }
         }
-
+        let matchProj = 0;
+        if(vm.matched_project != null){
+            matchProj = 1;
+        }else{
+            matchProj = 0;
+        }
 
         // Fake information. Once testing has progressed far enough we will add the info from the database
         vm.projects = {
@@ -33,13 +38,13 @@
             projectCard2: {
                 text: "Total Projects With Matched",
                 detail: "Count",
-                amount: vm.matched_projects.length,
+                amount: matchProj,
                 img: "assets/images/hands.PNG"
             },
             projectCard3: {
                 text: "Projects With Unmatched",
                 detail: "Count",
-                amount: vm.unmatched_projects.length,
+                amount: vm.unmatched_projects,
                 img: "assets/images/Computer.PNG"
             },
             projectCard4: {

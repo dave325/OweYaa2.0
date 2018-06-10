@@ -9,9 +9,6 @@
     vm.projid = '';
     vm.displayUsers = [];
     getUser();
-    vm.totalItems = vm.users.length;
-    vm.currentPage = 1;
-    vm.itemsPerPage = 5;
     $scope.$watch("vm.currentPage", function () {
       setPagingData(vm.currentPage);
     });
@@ -56,6 +53,9 @@
         }
         console.log(vm.users);
         vm.copyUsers = vm.users.slice();
+        vm.totalItems = vm.users.length;
+        vm.currentPage = 1;
+        vm.itemsPerPage = 5;
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
           vm.noIntern = "No favorite interns selected!";
         }

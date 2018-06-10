@@ -11,9 +11,9 @@
         vm.displayUsers = [];
         vm.users = [];
         console.log(vm.user);
-
-
-
+        vm.totalItems = vm.users.length;
+        vm.currentPage = 1;
+        vm.itemsPerPage = 5;
         $scope.$watch("currentPage", function () {
             setPagingData(vm.currentPage);
         });
@@ -68,8 +68,6 @@
                                 }
                                 vm.users = temp;
                                 vm.totalItems = vm.users.length;
-                                vm.currentPage = 1;
-                                vm.itemsPerPage = 5;
                                 setPagingData(vm.currentPage);
                             }, function (data) {
                                 console.log(data);

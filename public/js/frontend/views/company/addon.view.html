@@ -1,54 +1,52 @@
 <div id="addon">
     <navbar content="{{navbarvm.activeNav}}"></navbar>
-    <div class="row">
-        <div class="col-xs-12">
-            <table class="table-striped">
-                <caption>Hour Bundles</caption>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>PER ADDITIONAL HOUR $25*</td>
-                        <td>$25</td>
-                    </tr>
-                    <tr>
-                        <td>10 HOURS - EQUIVALENT OF 1.5 WORK DAYS PER WEEK FOR ONE MONTH</td>
-                        <td>$230</td>
-                        <td ng-click="addonvm.purchase(0)">
-                            <span class="glyphicon glyphicon-credit-card"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>40 HOURS - EQUIVALENT OF 20 HOURS PER WEEK FOR ONE MONTH</td>
-                        <td>$920</td>
-                        <td ng-click="addonvm.purchase(1)">
-                            <span class="glyphicon glyphicon-credit-card"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>140 HOURS - EQUIVALENT OF 35 HOURS PER WEEK FOR ONE MONTH.</td>
-                        <td>$2400</td>
-                        <td ng-click="addonvm.purchase(2)">
-                            <span class="glyphicon glyphicon-credit-card"></span>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td>
-                            * ADDITIONAL HOURS BILLED AUTOMATICALLY UNLESS HOURS BUNDLE HAS BEEN PURCHASED
-                            <br /> ** UNUSED HOURS DO NOT EXPIRE WITH ACTIVE MEMBERSHIP
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <table class="table-striped">
+            <caption>Hour Bundles</caption>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PER ADDITIONAL HOUR $25*</td>
+                    <td>$25</td>
+                </tr>
+                <tr>
+                    <td>10 HOURS - EQUIVALENT OF 1.5 WORK DAYS PER WEEK FOR ONE MONTH</td>
+                    <td>$230</td>
+                    <td ng-click="addonvm.purchase(0)">
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>40 HOURS - EQUIVALENT OF 20 HOURS PER WEEK FOR ONE MONTH</td>
+                    <td>$920</td>
+                    <td ng-click="addonvm.purchase(1)">
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>140 HOURS - EQUIVALENT OF 35 HOURS PER WEEK FOR ONE MONTH.</td>
+                    <td>$2400</td>
+                    <td ng-click="addonvm.purchase(2)">
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        * ADDITIONAL HOURS BILLED AUTOMATICALLY UNLESS HOURS BUNDLE HAS BEEN PURCHASED
+                        <br /> ** UNUSED HOURS DO NOT EXPIRE WITH ACTIVE MEMBERSHIP
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </div>
 

@@ -8,6 +8,8 @@
         vm.internsList = [];
         vm.favUsers = [];
         vm.user = User.getUser();
+        vm.displayUsers = [];
+        vm.users = [];
         console.log(vm.user);
 
 
@@ -68,7 +70,7 @@
                                 vm.totalItems = vm.users.length;
                                 vm.currentPage = 1;
                                 vm.itemsPerPage = 5;
-                                setPagingData();
+                                setPagingData(vm.currentPage);
                             }, function (data) {
                                 console.log(data);
                             });

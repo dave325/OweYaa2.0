@@ -109,6 +109,11 @@
         link: '',
         click: 'login'
       },
+      link5:{
+        name:'Register',
+        link:'register',
+        click:''
+      },
       link6: {
         name: 'Contact',
         link: 'contact',

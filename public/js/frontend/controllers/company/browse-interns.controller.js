@@ -11,20 +11,6 @@
         vm.displayUsers = [];
         vm.users = [];
         console.log(vm.user);
-        vm.totalItems = vm.users.length;
-        vm.currentPage = 1;
-        vm.itemsPerPage = 5;
-        $scope.$watch("currentPage", function () {
-            setPagingData(vm.currentPage);
-        });
-
-        function setPagingData(page) {
-            var pagedData = vm.users.slice(
-                (page - 1) * vm.itemsPerPage,
-                page * vm.itemsPerPage
-            );
-            vm.displayUsers = pagedData;
-        }
         if (vm.user.membership_token.stripetoken == null) {
             vm.resultInfo = "Please purchase a membership to view available candidates!";
             vm.noToken = true;
@@ -68,6 +54,19 @@
                                 }
                                 vm.users = temp;
                                 vm.totalItems = vm.users.length;
+                                vm.currentPage = 1;
+                                vm.itemsPerPage = 5;
+                                $scope.$watch("currentPage", function () {
+                                    setPagingData(vm.currentPage);
+                                });
+
+                                function setPagingData(page) {
+                                    var pagedData = vm.users.slice(
+                                        (page - 1) * vm.itemsPerPage,
+                                        page * vm.itemsPerPage
+                                    );
+                                    vm.displayUsers = pagedData;
+                                }
                                 setPagingData(vm.currentPage);
                             }, function (data) {
                                 console.log(data);

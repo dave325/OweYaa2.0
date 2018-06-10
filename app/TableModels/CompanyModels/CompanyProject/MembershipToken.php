@@ -21,7 +21,7 @@ class MembershipToken extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','matchnum','stripetoken','membertoken'];
+    protected $fillable = ['username','matchnum','stripetoken','totalhours','membertoken'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -10,6 +10,7 @@
             "month": {
                 country: 'US',
                 currency: 'usd',
+                hours:35,
                 total: {
                     label: 'Monthly Membership',
                     amount: 120000,
@@ -18,6 +19,7 @@
             "quarter": {
                 country: 'US',
                 currency: 'usd',
+                hours:40,
                 total: {
                     label: 'Quarter Membership',
                     amount: 500000,
@@ -26,6 +28,7 @@
             "annual": {
                 country: 'US',
                 currency: 'usd',
+                hours:45,
                 total: {
                     label: 'Annual Membership',
                     amount: 1600000,

@@ -84,6 +84,11 @@
       controller:"purchaseMembershipCtrl",
       controllerAs:"vm"
     })
+    .when('/company/:companyid/add-on',{
+      templateUrl:"/js/frontend/views/company/addon.view.html",
+      controller:"addonCtrl",
+      controllerAs:"addonvm"
+    })
     .when('/company/:companyid/request-discount',{
       templateUrl:"/js/frontend/views/company/request-discount.view.html",
       controller:"requestDiscountCtrl",

@@ -25,6 +25,7 @@
         <script src="js/frontend/controllers/company/project-submission.controller.js"></script>
         <script src="js/frontend/controllers/company/project-dashboard.controller.js"></script>
         <script src="js/frontend/controllers/company/purchase-membership.controller.js"></script>
+        <script src="js/frontend/controllers/company/addon.controller.js"></script>
         <script src="js/frontend/controllers/company/request-discount.controller.js"></script>
 
         <!-- Home Page controllers -->

@@ -89,7 +89,7 @@ class ExampleController extends Controller
         // doesn't match the type that the database listed for this user,
         // the response states that the user is not found. This is a 404 error.
         if (!array_key_exists('type', $request) || intval($request['type']) != $currUser['type']) {
-            return response()->json(['user_not_found']);
+            return response()->json(['user_not_found'], 400);
         }
 
         // If the type of user specified exists and is equal to 0, the user is
@@ -118,7 +118,7 @@ class ExampleController extends Controller
         // Otherwise, the user doesn't exist. A user not found response will be
         // sent.
         else {
-            return response()->json(['user_not_found']);
+            return response()->json(['user_not_found'], 400);
         }
     }
 }

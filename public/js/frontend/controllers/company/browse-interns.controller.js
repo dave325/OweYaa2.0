@@ -121,6 +121,7 @@
                     } else {
                         // Set vm.users to temp array and only show results
                         vm.users = user;
+                        vm.resultInfo = null;
                     }
                 }
             }

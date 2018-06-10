@@ -7,7 +7,23 @@
     vm.resultInfo = '';
     vm.noIntern = '';
     vm.projid = '';
+    vm.displayUsers = [];
     getUser();
+    vm.totalItems = vm.users.length;
+    vm.currentPage = 1;
+    vm.itemsPerPage = 5;
+    $scope.$watch("vm.currentPage", function () {
+      setPagingData(vm.currentPage);
+    });
+
+    function setPagingData(page) {
+      var pagedData = vm.users.slice(
+        (page - 1) * vm.itemsPerPage,
+        page * vm.itemsPerPage
+      );
+      vm.displayUsers = pagedData;
+    }
+    setPagingData(vm.currentPage);
     // Information will be retrieved from database
     vm.contents = {
       content1: {
@@ -104,6 +120,7 @@
         } else {
           // Set vm.users to temp array and only show results
           vm.users = user;
+          vm.resultInfo = null;
         }
       }
     }

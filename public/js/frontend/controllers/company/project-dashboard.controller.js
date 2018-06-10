@@ -222,9 +222,9 @@
             $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-mstones'),
 
-                controller: function ($scope, $uibModalInstance) {
+                controller: function ($scope, $uibModalInstance, CurrUser) {
 
-                    $scope.milestones = vm.curProj.milestones;
+                    $scope.milestones = CurrUser.milestones.slice();
 
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
@@ -236,8 +236,8 @@
 
 
                     $scope.cancel = function () {
-                        vm.user.company_project[indexOfCurrentProject] = unmodified;
-                        vm.curProj = vm.user.company_project[indexOfCurrentProject];
+                        CurrUser.company_project[indexOfCurrentProject] = unmodified;
+                        vm.curProj = CurrUser.company_project[indexOfCurrentProject];
 
                         $uibModalInstance.close();
                     };
@@ -252,7 +252,14 @@
                         vm.milestones.push(new milestone(milestoneDescription, date, status));
                     }
                 },
-                windowClass: winClass
+                windowClass: winClass,
+                resolve: {
+                    CurrUser: function () {
+                        for (let i = 0; i < vm.curProj.milestones.length; i++) {
+                            vm.curProj.milestones[i].date = new Date($filter('date')(vm.curProj.milestones[i].date, "yyyy-MM-dd"));
+                        }
+                    }
+                }
             });
 
         }

@@ -4,7 +4,7 @@
 		<span class="clearfix"></span>
 		<h1 class="text-center" id="comp-name">Project Submission form </h1>
 		<!-- End of class col-lg-6 -->
-		<h2 class="alert alert-warning">You have met the maximum criteria for posting!</h2>
+		<h2 class="alert alert-warning" ng-if="vm.canSubmit">You have met the maximum criteria for posting!</h2>
 		<!-- Status Bar  -->
 		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression" ng-if="vm.canSubmit">
 			<p class="col-md-4 text-center col-sm-12 col-xs-12" ng-if="vm.steps.page1"> Step 1:Fill in project details </p>
@@ -19,7 +19,7 @@
 		<div class="form-container col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" ng-if="vm.canSubmit">
 			<form class="form" name="submissionForm">
 				<div class="step" id="step1" ng-class="{'active': vm.steps.page1}" ng-if="vm.steps.page1 && !vm.steps.page2">
-					<div class="form-group" ng-if="vm.submissionForm.company_proj_job_info.jobtype === 'job'">
+					<div class="form-group">
 						<label for="title">What is the name of your project?</label>
 						<input type="text" name="comp-title" class="form-control col-lg-12 col-md-12" ng-model="vm.submissionForm.company_proj_job_info.title">
 					</div>

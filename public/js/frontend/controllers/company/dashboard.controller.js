@@ -15,8 +15,12 @@
                 vm.unmatched_projects.push(vm.user.company_project[i]);
             }
         }
-        console.log(vm.unmatched_projects);
-        console.log(vm.matched_project);
+        for (let i = 0; i < vm.user.company_project.length; i++) {
+            for(let j = 0; j <vm.user.company_project[i].candidates.length; j++){
+                vm.user.total_interns++;
+            }
+        }
+
 
         // Fake information. Once testing has progressed far enough we will add the info from the database
         vm.projects = {
@@ -29,7 +33,7 @@
             projectCard2: {
                 text: "Total Projects With Matched",
                 detail: "Count",
-                amount: 1,
+                amount: vm.matched_projects.length,
                 img: "assets/images/hands.PNG"
             },
             projectCard3: {
@@ -41,7 +45,7 @@
             projectCard4: {
                 text: "# Of Hires From Projects",
                 detail: "Count",
-                amount: 0,
+                amount: vm.user.total_interns,
                 img: "assets/images/check.png"
             }
         }

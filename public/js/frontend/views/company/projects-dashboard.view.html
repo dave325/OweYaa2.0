@@ -56,7 +56,7 @@
         <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
         <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
         <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
-          <h4>Skills I have:</h4>
+          <h4>Skills the project needs:</h4>
           <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
             <p class="col-md-6">{{field.skill}}</p>
           </li>
@@ -132,7 +132,7 @@
           <div class="stat">
             <h4 class="task">{{milestone.milestone}}</h4>
             <p>
-              <span class="completionDate">Completion Date{{milestone.completionDate}}</span>
+              <span class="completionDate">Completion Date{{milestone.date}}</span>
               <br /> Is Completed?
               <span class="completionText" ng-if="milestone.completed === 0">No</span>
               <span class="completionText" ng-if="milestone.completed === 1">Yes</span>

@@ -4,7 +4,7 @@
 		<span class="clearfix"></span>
 		<h1 class="text-center" id="comp-name">Project Submission form </h1>
 		<!-- End of class col-lg-6 -->
-		<h2 class="alert alert-warning" ng-if="vm.canSubmit">You have met the maximum criteria for posting!</h2>
+		<h2 class="alert alert-warning" ng-if="!vm.canSubmit">You have met the maximum criteria for posting!</h2>
 		<!-- Status Bar  -->
 		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12" id="submit-progression" ng-if="vm.canSubmit">
 			<p class="col-md-4 text-center col-sm-12 col-xs-12" ng-if="vm.steps.page1"> Step 1:Fill in project details </p>

@@ -6,51 +6,124 @@
       <p>Please fill in all fields and select either veteran or company to submit the form.</p>
       <h3 class="alert alert-info  nav-message" ng-show="vm.formError">{{vm.formError}}</h3>
       <div class="form-group">
-        <label form="username">Username: </label>
-        <p ng-show="!registerModal.username.$valid && registerModal.username.$touched" class="alert alert-warning">Username must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.username" type="text" id="username" ng-minlength="5" ng-required="true" name="username"
-          class="form-control" ng-class="[{error: !registerModal.username.$valid && registerModal.username.$touched}, {success: registerModal.username.$valid}]"
-        />
-      </div>
-      <!-- End of class form-group -->
-      <div class="form-group">
-        <label form="name">First Name: </label>
-        <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="2" ng-required="true" name="firstname"
-          class="form-control" ng-class="[{error: !registerModal.firstname.$valid && registerModal.firstname.$touched}, {success: registerModal.firstname.$valid}]"
-        />
-      </div>
-      <!-- End of class form-group -->
-      <div class="form-group">
-        <label form="name">Last Name: </label>
-        <p ng-show="!registerModal.lastname.$valid && registerModal.lastname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
-        <input ng-model="vm.credentials.registerModal.lastname" type="text" id="lastname" ng-minlength="2" ng-required="true" name="lastname"
-          class="form-control" ng-class="[{error: !registerModal.lastname.$valid && registerModal.lastname.$touched}, {success: registerModal.lastname.$valid}]"
-        />
-      </div>
-      <!-- End of class form-group -->
-      <div class="form-group">
-        <label form="email">Email: </label>
-        <p ng-show="!registerModal.email.$valid && registerModal.email.$touched" class="alert alert-warning">Please enter a valid email i.e example@example.com</p>
-        <input ng-model="vm.credentials.registerModal.email" type="email" ng-class="[{error: !registerModal.email.$valid && registerModal.email.$touched}, {success: registerModal.email.$valid}]"
-          id="email" ng-minlength="5" ng-required="true" name="email" class="form-control" />
-      </div>
-      <!-- End of class form-group -->
-      <div class="form-group">
-        <label form="password">Password: </label>
-        <p ng-show="!registerModal.password.$valid && registerModal.password.$touched" class="alert alert-warning">Passwords must be more than 8 characters</p>
-        <input ng-model="vm.credentials.registerModal.password" type="password" ng-class="[{error: !registerModal.password.$valid && registerModal.password.$touched}, {success: registerModal.password.$valid}]"
-          ng-minlength="8" ng-required="true" id="password" name="password" class="form-control" />
-      </div>
-      <!-- End of class form-group -->
-      <div class="form-group">
         <input type="radio" ng-model="vm.credentials.registerModal.type" value="0" ng-required="true">Veteran/Military Spouse
         <br />
         <input type="radio" ng-model="vm.credentials.registerModal.type" value="1" ng-required="true">Company
         <br />
-        <button type="button" ng-disabled="registerModal.$invalid" ng-click="vm.doRegister(vm.credentials.registerModal)" class="btn btn-primary col-md-4 col-xs-12 pull-right">Register as {{vm.formTitle()}} </button>
+      </div>
+      <div id="vetForm">
+        <div class="form-group">
+          <label form="username">Username: </label>
+          <p ng-show="!registerModal.username.$valid && registerModal.username.$touched" class="alert alert-warning">Username must be more than 5 characters</p>
+          <input ng-model="vm.credentials.registerModal.username" type="text" id="username" ng-minlength="5" ng-required="true" name="username"
+            class="form-control" ng-class="[{error: !registerModal.username.$valid && registerModal.username.$touched}, {success: registerModal.username.$valid}]"
+          />
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group col-xs-12 col-md-6">
+          <label form="name">First Name: </label>
+          <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
+          <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="2" ng-required="true" name="firstname"
+            class="form-control" ng-class="[{error: !registerModal.firstname.$valid && registerModal.firstname.$touched}, {success: registerModal.firstname.$valid}]"
+          />
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group col-xs-12 col-md-6">
+          <label form="name">Last Name: </label>
+          <p ng-show="!registerModal.lastname.$valid && registerModal.lastname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
+          <input ng-model="vm.credentials.registerModal.lastname" type="text" id="lastname" ng-minlength="2" ng-required="true" name="lastname"
+            class="form-control" ng-class="[{error: !registerModal.lastname.$valid && registerModal.lastname.$touched}, {success: registerModal.lastname.$valid}]"
+          />
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group">
+          <label form="email">Email: </label>
+          <p ng-show="!registerModal.email.$valid && registerModal.email.$touched" class="alert alert-warning">Please enter a valid email i.e example@example.com</p>
+          <input ng-model="vm.credentials.registerModal.email" type="email" ng-class="[{error: !registerModal.email.$valid && registerModal.email.$touched}, {success: registerModal.email.$valid}]"
+            id="email" ng-minlength="5" ng-required="true" name="email" class="form-control" />
+        </div>
+        <!-- End of class form-group -->
+        <div class="form-group">
+          <label form="password">Password: </label>
+          <p ng-show="!registerModal.password.$valid && registerModal.password.$touched" class="alert alert-warning">Passwords must be more than 8 characters</p>
+          <input ng-model="vm.credentials.registerModal.password" type="password" ng-class="[{error: !registerModal.password.$valid && registerModal.password.$touched}, {success: registerModal.password.$valid}]"
+            ng-minlength="8" ng-required="true" id="password" name="password" class="form-control" />
+        </div>
+      </div>
+      <div id="companyForm">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <label form="registerModal">Username:
+              <p ng-show="!registerModal.username.$valid && registerModal.username.$touched" class="alert alert-warning">Username must be more than 5 characters</p>
+              <input ng-model="vm.credentials.registerModal.username" type="text" id="username" ng-minlength="5" ng-required="true" name="username"
+                class="form-control" ng-class="[{error: !registerModal.username.$valid && registerModal.username.$touched}, {success: registerModal.username.$valid}]"
+              />
+            </label>
+          </div>
+          <div class="form-group">
+            <label form="companyName">Company Name:
+              <p ng-show="!registerModal.companyName.$valid && registerModal.companyName.$touched" class="alert alert-warning">Copmany Name must be more than 3 characters</p>
+              <input ng-model="vm.credentials.registerModal.companyName" type="text" id="companyName" ng-minlength="5" ng-required="true"
+                name="companyName" class="form-control" ng-class="[{error: !registerModal.companyName.$valid && registerModal.companyName.$touched}, {success: registerModal.companyName.$valid}]"
+              />
+            </label>
+          </div>
+          <div class="form-group">
+            <label form="companyWebSite">Company Website:
+              <p ng-show="!registerModal.companyWebSite.$valid && registerModal.companyWebSite.$touched" class="alert alert-warning">Copmany Name must be more than 3 characters</p>
+              <input ng-model="vm.credentials.registerModal.companyWebSite" type="text" id="companyWebSite" ng-minlength="5" ng-required="true"
+                name="companyWebSite" class="form-control" ng-class="[{error: !registerModal.companyWebSite.$valid && registerModal.companyWebSite.$touched}, {success: registerModal.companyWebSite.$valid}]"
+              />
+            </label>
+          </div>
+        </div>
+        <!-- End of class form-group -->
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group col-xs-12 col-md-6">
+            <label form="name">First Name: </label>
+            <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
+            <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="2" ng-required="true" name="firstname"
+              class="form-control" ng-class="[{error: !registerModal.firstname.$valid && registerModal.firstname.$touched}, {success: registerModal.firstname.$valid}]"
+            />
+          </div>
+          <!-- End of class form-group -->
+          <div class="form-group col-xs-12 col-md-6">
+            <label form="name">Last Name: </label>
+            <p ng-show="!registerModal.lastname.$valid && registerModal.lastname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
+            <input ng-model="vm.credentials.registerModal.lastname" type="text" id="lastname" ng-minlength="2" ng-required="true" name="lastname"
+              class="form-control" ng-class="[{error: !registerModal.lastname.$valid && registerModal.lastname.$touched}, {success: registerModal.lastname.$valid}]"
+            />
+          </div>
+          <!-- End of class form-group -->
+          <div class="form-group">
+            <label form="email">Email: </label>
+            <p ng-show="!registerModal.email.$valid && registerModal.email.$touched" class="alert alert-warning">Please enter a valid email i.e example@example.com</p>
+            <input ng-model="vm.credentials.registerModal.email" type="email" ng-class="[{error: !registerModal.email.$valid && registerModal.email.$touched}, {success: registerModal.email.$valid}]"
+              id="email" ng-minlength="5" ng-required="true" name="email" class="form-control" />
+          </div>
+          <!-- End of class form-group -->
+          <div class="form-group">
+            <label form="password">Password: </label>
+            <p ng-show="!registerModal.password.$valid && registerModal.password.$touched" class="alert alert-warning">Passwords must be more than 8 characters</p>
+            <input ng-model="vm.credentials.registerModal.password" type="password" ng-class="[{error: !registerModal.password.$valid && registerModal.password.$touched}, {success: registerModal.password.$valid}]"
+              ng-minlength="8" ng-required="true" id="password" name="password" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label form="phoneNumber">Phone Number:
+              <p ng-show="!registerModal.phoneNumber.$valid && registerModal.phoneNumber.$touched" class="alert alert-warning">Passwords must be more than 8 characters</p>
+              <input ng-model="vm.credentials.registerModal.phoneNumber" type="number" ng-class="[{error: !registerModal.phoneNumber.$valid && registerModal.phoneNumber.$touched}, {success: registerModal.phoneNumber.$valid}]"
+                ng-minlength="8" ng-required="true" id="phoneNumber" name="phoneNumber" class="form-control" />
+            </label>
+          </div>
+          <div class="form-group">
+            <p>By signing up, you agree to our terms of Service and privacy policy.</p>
+            <button type="button" ng-disabled="registerModal.$invalid" ng-click="vm.doRegister(vm.credentials.registerModal)" class="btn btn-primary col-md-4 col-xs-12 pull-right">Register as {{vm.formTitle()}} </button>
+          </div>
+          <!-- End of class form-group -->
+        </div>
       </div>
       <!-- End of class form-group -->
+
     </form>
   </section>
   <footer-base></footer-base>

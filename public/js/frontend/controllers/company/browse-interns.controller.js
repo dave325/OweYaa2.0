@@ -16,7 +16,6 @@
           $scope.pageChanged = function() {
             console.log('Page changed to: ' + $scope.currentPage);
           };
-        
         if (vm.user.membership_token.stripetoken == null) {
             vm.resultInfo = "Please purchase a membership to view available candidates!";
             vm.noToken = true;
@@ -59,6 +58,7 @@
                                     }
                                 }
                                 vm.users = temp;
+                                $scope.totalItems = vm.users.length;
                             }, function (data) {
                                 console.log(data);
                             });

@@ -63,8 +63,7 @@
 
 				</div>
 			</div>
-			<ul uib-pagination total-items="vm.users.length" ng-model="bigCurrentPage" max-size="1000" class="pagination-sm" boundary-links="true"
-			 num-pages="30"></ul>
+			<ul uib-pagination direction-links="false" total-items="totalItems" ng-model="currentPage"></ul>
 		</article>
 		<span class="clearfix"></span>
 	</div>

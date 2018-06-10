@@ -33,7 +33,7 @@
 		<div ng-if="vm.noIntern" class='alert alert-info' role="alert">
 			<h3 class="text-center">{{vm.noIntern}}</h3>
 		</div>
-		
+
 		<!-- End of resultInfo div -->
 		<!-- Results that have been filtered out -->
 		<article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
@@ -66,6 +66,8 @@
 
 				</div>
 			</div>
+			<ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-pages="vm.itemsPerPage" class="col-xs-12"></ul>
+
 		</article>
 		<span class="clearfix"></span>
 	</div>

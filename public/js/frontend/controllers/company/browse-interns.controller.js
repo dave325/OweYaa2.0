@@ -9,13 +9,20 @@
         vm.favUsers = [];
         vm.user = User.getUser();
         console.log(vm.user);
-        $scope.setPage = function (pageNo) {
-            $scope.currentPage = pageNo;
-          };
-        
-          $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.currentPage);
-          };
+
+
+
+        $scope.$watch("currentPage", function () {
+            setPagingData(vm.currentPage);
+        });
+
+        function setPagingData(page) {
+            var pagedData = vm.users.slice(
+                (page - 1) * vm.itemsPerPage,
+                page * vm.itemsPerPage
+            );
+            vm.displayUsers = pagedData;
+        }
         if (vm.user.membership_token.stripetoken == null) {
             vm.resultInfo = "Please purchase a membership to view available candidates!";
             vm.noToken = true;
@@ -46,7 +53,7 @@
                                     }
                                     if (temp[j].contact_info.ismatched == 1) {
                                         temp[j].inProj = true;
-                                    }else{
+                                    } else {
                                         for (let i = 0; i < vm.user.company_project.length; i++) {
                                             for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
                                                 if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
@@ -58,7 +65,10 @@
                                     }
                                 }
                                 vm.users = temp;
-                                $scope.totalItems = vm.users.length;
+                                vm.totalItems = vm.users.length;
+                                vm.currentPage = 1;
+                                vm.itemsPerPage = 5;
+                                setPagingData();
                             }, function (data) {
                                 console.log(data);
                             });

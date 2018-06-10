@@ -44,7 +44,7 @@
             projectCard3: {
                 text: "Projects With Unmatched",
                 detail: "Count",
-                amount: vm.unmatched_projects,
+                amount: vm.unmatched_projects.length,
                 img: "assets/images/Computer.PNG"
             },
             projectCard4: {

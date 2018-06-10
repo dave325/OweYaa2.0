@@ -20,7 +20,6 @@
       );
       vm.displayUsers = pagedData;
     }
-    setPagingData(vm.currentPage);
     // Information will be retrieved from database
     vm.contents = {
       content1: {
@@ -56,6 +55,7 @@
         vm.totalItems = vm.users.length;
         vm.currentPage = 1;
         vm.itemsPerPage = 5;
+        setPagingData(vm.currentPage);
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
           vm.noIntern = "No favorite interns selected!";
         }

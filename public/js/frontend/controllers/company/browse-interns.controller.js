@@ -9,6 +9,14 @@
         vm.favUsers = [];
         vm.user = User.getUser();
         console.log(vm.user);
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+        
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+          };
+        
         if (vm.user.membership_token.stripetoken == null) {
             vm.resultInfo = "Please purchase a membership to view available candidates!";
             vm.noToken = true;

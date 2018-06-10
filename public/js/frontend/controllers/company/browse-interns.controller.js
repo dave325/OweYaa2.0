@@ -56,7 +56,7 @@
                                 vm.totalItems = vm.users.length;
                                 vm.currentPage = 1;
                                 vm.itemsPerPage = 5;
-                                $scope.$watch("currentPage", function () {
+                                $scope.$watch("vm.currentPage", function () {
                                     setPagingData(vm.currentPage);
                                 });
 

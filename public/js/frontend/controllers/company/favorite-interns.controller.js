@@ -8,6 +8,7 @@
     vm.noIntern = '';
     vm.projid = '';
     vm.displayUsers = [];
+    vm.users = [];
     getUser();
     $scope.$watch("vm.currentPage", function () {
       setPagingData(vm.currentPage);

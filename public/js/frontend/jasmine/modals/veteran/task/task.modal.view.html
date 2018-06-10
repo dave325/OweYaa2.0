@@ -1,0 +1,29 @@
+<span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="taskvm.cancel()"></span>
+<div id="taskModal">
+    <fieldset>
+    <legend>Task Recieved</legend>
+    <div ng-if="!taskvm.user.action_task || taskvm.user.action_task[0].task.length == 0 && taskvm.user.action_task[1].task.length == 0 ">
+        <p>No actions tasks at the moment!</p>
+    </div>
+    <form novalidate method="post" name="task" ng-submit="submit()" ng-if="taskvm.user.action_task[0].task.length > 0 || taskvm.user.action_task[1].task.length > 0">
+      <div class="row col-xs-12">
+            <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
+            <p ng-show="skillvm.formError" class="alert alert-danger" ng-bind-html="skillvm.formError"></p>
+            <p ng-show="skillvm.formInfo" class="alert alert-success" ng-bind-html="skillvm.formInfo"></p>
+          <div class="form-group" ng-repeat="task in taskvm.user.action_task track by $index">
+                    <label form="task" for="{{task.taskid}}">Task {{$index}}: </label>
+                    <p>{{task.task}}</p>
+                    <input type="checkbox" ng-model="task.completed" name="{{task.id}}"/>
+          </div> <!-- End of lass form-group -->
+        </div> <!-- End of class row col-xs-12 -->
+       <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center form-group">
+                <button ng-click="taskvm.cancel()" class="btn btn-warning">Close</button>
+                <button ng-click="taskvm.onSubmit('task',taskvm.user)" ng-disabled="taskvm.isDisabled"class="btn btn-info">Save</button>
+            </div> <!-- End of class text-center form-group -->
+        </div> <!-- End of class col-xs-12 -->
+        </div> <!-- End of class row --> 
+    </form>
+</div> <!-- End of span class -->
+</fieldset>

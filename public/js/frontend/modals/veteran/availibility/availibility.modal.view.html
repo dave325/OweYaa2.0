@@ -1,0 +1,43 @@
+<div id="availibilityModal">
+  <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="availibilityvm.cancel()"></span>
+  <form novalidate method="post" name="availability" ng-submit="submit()">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Information regarding higher education 
+        <fieldset>
+          <legend>Available worktimes</legend>
+          <div class="form-group" ng-repeat="time in availibilityvm.user.availability">{{time.dayofweek}}
+            <span class="clearfix hidden-md hidden-lg"></span>
+            <select required="true" name="openTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.start_time" ng-change="update(time.start_time, $index, 2)"></select>-
+            <select required="true" name="closeTime" ng-options="hour for hour in availibilityvm.hours" ng-model="time.end_time" ng-change="update(time.end_time, $index, 2)"></select>
+          </div>
+          <!-- End of ng-repeat time.dayofweek 
+        </fieldset> -->
+        <fieldset>
+          <legend>Available months</legend>
+          <div class="form-group" ng-repeat="time in availibilityvm.user.month_availability">
+            <label>
+              {{time.month}}
+              <input type="checkbox" ng-model="time.isavailable" ng-init="time.isavailable === 1">
+            </label>
+          </div>
+          <!-- End of ng-repeat time.dayofweek -->
+        </fieldset>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="text-center form-group">
+              <p ng-show="availibilityvm.formError" class="alert alert-danger" ng-bind-html="availibilityvm.formError"></p>
+              <p ng-show="availibilityvm.formInfo" class="alert alert-success" ng-bind-html="availibilityvm.formInfo"></p>
+              <input ng-click="availibilityvm.cancel()" class="btn btn-warning" type="button" value="Close"/>
+              <input ng-click="availibilityvm.onSubmit('availability',availibilityvm.user)" ng-disabled="availibilityvm.isDisabled" class="btn btn-info" type="button" value="Save"/>
+            </div>
+            <!-- End of class col-xs-12 -->
+          </div>
+          <!-- End of col-md-12 -->
+        </div>
+        <!-- End of class row -->
+      </div>
+    </div>
+  </form>
+</div>
+<!-- End of id availabilityModal -->

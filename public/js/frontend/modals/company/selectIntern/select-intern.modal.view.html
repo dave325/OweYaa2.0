@@ -1,0 +1,20 @@
+<div id="selectIntern">
+    <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="selectInternvm.cancel()"></span>
+    <form novalidate class="col-xs-12" name="selectIntern">
+        <h2 class="text-center comp-name">Choose the project you are selecting the intern for:</h2>
+        <div class="form-group">
+            <label for="project">Project:</label>
+            <div ng-if="selectInternvm.isError === true">Maximum intern amount reached for project</div>
+            <select ng-model="selectInternvm.projectId" name="projectId" class="form-control" id="project" ng-options="obj.id as obj.title for obj in selectInternvm.projIds" ng-change="selectInternvm.checkProjLength()">
+                
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-warning" ng-click="selectInternvm.cancel()" type="button" value="Cancel" />
+            <input class="btn btn-info" ng-click="selectInternvm.onSubmit()" type="button" ng-disabled="selectInternvm.isError === true" value="Save" />
+        </div>
+
+    </form>
+    <span class="clearfix"></span>
+</div>
+<!-- End of add Intern modal -->

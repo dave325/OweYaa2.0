@@ -1,0 +1,55 @@
+<div id="actionModal" class="">
+  <form novalidate method="post" name="actionvm.content" ng-submit="submit()">
+    <!-- New Row -->
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <!-- List all current tasks -->
+          <div>
+            <fieldset>
+            <legend>Current Tasks:</legend>
+            <!-- Editing Purposes -->
+            <button class="btn" type="button" ng-click="actionvm.triggerEditMode()" ng-hide="actionvm.editMode">Edit</button>
+            <button class="btn" type="button" ng-click="actionvm.triggerEditMode()" ng-show="actionvm.editMode">Done</button>
+            <!-- Actual list of tasks -->
+            <ol>
+              <li ng-repeat="task in actionvm.current track by $index">
+                <input type="checkbox" ng-hide="actionvm.editMode" ng-click="actionvm.addToCompleted($index)">
+                <span ng-hide="actionvm.editMode">{{task}}</span>
+                <input type="text" ng-show="actionvm.editMode" ng-model="actionvm.current[$index]">
+                <p><button class="btn" type="button" ng-click="actionvm.deleteTask($index)" ng-hide="actionvm.editMode">Delete</button></p>
+              </li>
+            </ol>
+          </div> <!-- End of div on line 8 -->
+          <div class="form-group">
+            <!-- Create a new task -->
+            <div>
+              <p>Add a new Task:</p>
+              <input type="text" ng-model="actionvm.newTask">
+              <button class="btn" type="button" ng-click="actionvm.addToCurrent()">Add</button>
+            </div> <!-- End of div on line 25 -->
+          </fieldset>
+          </div> <!-- End of class form-group -->
+        </div> <!-- End of class form-group -->
+      </div> <!-- End of class col-md-5 -->
+
+      <div class="col-md-5 col-md-offset-2">
+        <!-- Showcase only completed tasks -->
+        <h3>Completed Tasks:</h3>
+        <ol>
+          <li ng-repeat="task in actionvm.completed track by $index">
+            <span>{{task}}</span>
+            <button class="btn" type="button" ng-click="actionvm.deleteCompletedTask($index)">Delete</button>
+          </li>
+        </ol>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center form-group">
+            <input class="btn btn-warning" ng-click="actionvm.close()" ng-disabled="actionvm.isDisabled"type="button" value="Cancel"/>
+          </div> <!-- End of class text-center form-group -->
+        </div> <!-- End of class col-xs-12 -->
+      </div> <!-- End of class row -->
+    </div> <!-- End of class row --> 
+  </form>
+</div> <!-- End of id actionModal -->

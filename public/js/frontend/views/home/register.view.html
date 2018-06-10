@@ -79,7 +79,7 @@
         </div>
         <!-- End of class form-group -->
         <div class="col-xs-12 col-md-6">
-          <div class="form-group col-xs-12 col-md-6">
+          <div class="form-group">
             <label form="name">First Name: </label>
             <p ng-show="!registerModal.firstname.$valid && registerModal.firstname.$touched" class="alert alert-warning">Name must be more than 5 characters</p>
             <input ng-model="vm.credentials.registerModal.firstname" type="text" id="firstname" ng-minlength="2" ng-required="true" name="firstname"

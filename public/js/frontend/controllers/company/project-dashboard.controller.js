@@ -233,6 +233,8 @@
                     }
                     updateHours();
                     $scope.ok = function () {
+                        console.log(vm.curProj);
+                        return;
                         updateAll(vm.curProj);
                         for (let i = 0; i < vm.curProj.candidates.length; i++) {
                             for (let j = 0; j < deletedCandidates.length; j++) {

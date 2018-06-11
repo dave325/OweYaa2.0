@@ -142,7 +142,7 @@
                 // Sends request to server
                 $http.post('/api/payment/addon', purchaseAddonModalvm.pay).then(function (payment) {
                     if(PayType.type < 3){
-                        purchaseAddonModalvm.user.membership_token.totalhours += purchaseAddonModalvm.type.hours;
+                        purchaseAddonModalvm.user.membership_token.currenthours += purchaseAddonModalvm.type.hours;
                     }
                     User.setUser(purchaseAddonModalvm.user);
                     purchaseAddonModalvm.close(true);

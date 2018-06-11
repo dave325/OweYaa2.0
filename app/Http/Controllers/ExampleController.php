@@ -48,7 +48,7 @@ class ExampleController extends Controller
                 }
                 TableModels\Mentor::create(['username' => $credentials['username']]);
             } else {
-                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['username']]);
+                TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['username'], 'totalhours'=>0,'currenthours'=>0]);
                 TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email'],'website'=>$credentials['website'], 'phone' => $credentials['phone'],'compName'=>$credentials['compName']]);
             }
             return response()->json(true);

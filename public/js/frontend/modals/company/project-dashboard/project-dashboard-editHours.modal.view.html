@@ -17,7 +17,7 @@
         <tbody>
             <tr ng-repeat="intern in interns track by $index">
                 <td>{{intern.firstName}} {{intern.lastName}}</td>
-                <td><input type="number"min="0" ng-model="intern.hours" ng-change="updateTotalHours(intern)"></td>
+                <td><input type="number"min="0" ng-model="intern.hours" ng-change="updateTotalHours(intern)" ng-model-options="{ updateOn: 'blur'}"></td>
                 <td ng-if="intern.checkin === 1">Yes</td>
                 <td ng-if="intern.checkin != 1">No</td>
                 <td ng-click="removeWorkingIntern($index, intern.username)"><span class="glyphicon glyphicon-remove" style="color:red;"></span></td>

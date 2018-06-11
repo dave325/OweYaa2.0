@@ -193,6 +193,10 @@
                     }
 
                     let hours = vm.user.membership_token.currenthours;
+                    function updateHours(intern){
+                        $scope.updateTotalHours(intern);
+                    }
+                    updateHours(0);
                     $scope.updateTotalHours = function(intern){
                         hours = vm.user.membership_token.currenthours;
                         if(intern != null){

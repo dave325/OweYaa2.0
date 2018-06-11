@@ -194,8 +194,9 @@
 
                     let hours = vm.user.membership_token.currenthours;
                     $scope.updateTotalHours = function(intern){
+                        hours = vm.user.membership_token.currenthours;
                         if(intern != null){
-                            vm.user.membership_token.currenthours += intern.hours;
+                            hours += intern.hours;
                         }
                         if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
                             $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
@@ -203,6 +204,7 @@
                         else if(vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours -10){
                             $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
                         }else{
+                            vm.user.membership_token.currenthours = hours;
                             $scope.error = null;
                         }
                     }

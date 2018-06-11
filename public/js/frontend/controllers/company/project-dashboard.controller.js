@@ -213,9 +213,9 @@
                         }
                     }
                     function updateHours(intern){
-                        $scope.updateTotalHours(intern);
+                        updateTotalHours(intern);
                     }
-                    updateHours(0);
+                    updateHours();
                     $scope.ok = function () {
                         updateAll(vm.curProj);
                         for (let i = 0; i < vm.curProj.candidates.length; i++) {

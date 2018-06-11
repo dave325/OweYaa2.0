@@ -172,7 +172,6 @@
 
                     $scope.interns = vm.curProj.candidates.slice();
                     let deletedCandidates = [];
-                    $scope.updateTotalHours();
                     $scope.removeWorkingIntern = function (index, username) {
                         vm.curProj.candidates[index].delete = true;
                         $scope.interns.splice(index, 1);
@@ -192,6 +191,8 @@
                             $scope.error = null;
                         }
                     }
+
+                    $scope.updateTotalHours();
                     
                     $scope.ok = function () {
                         updateAll(vm.curProj);

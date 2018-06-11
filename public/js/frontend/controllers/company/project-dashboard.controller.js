@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope','User', '$uibModal', '$http'];
-    function projectDashboardCtrl($scope,User, $uibModal, $http) {
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http'];
+    function projectDashboardCtrl($scope, User, $uibModal, $http) {
 
         var vm = this;
 
@@ -18,16 +18,16 @@
             }
         }
         updateHours();
-        function updateHours(intern){
-            if(intern != null){
+        function updateHours(intern) {
+            if (intern != null) {
                 vm.user.membership_token.currenthours += intern.hours;
             }
-            if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
+            if (vm.user.membership_token.currenthours > vm.user.membership_token.totalhours) {
                 $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
             }
-            else if(vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours -10){
+            else if (vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours - 10) {
                 $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
-            }else{
+            } else {
                 $scope.error = null;
             }
         }
@@ -193,27 +193,43 @@
                     }
 
                     let hours = vm.user.membership_token.currenthours;
-                    $scope.updateTotalHours = function(intern){
+                    $scope.updateTotalHours = function (intern) {
                         hours = vm.user.membership_token.currenthours;
-                        if(intern != null){
+                        if (intern != null) {
                             hours += intern.hours;
                         }
-                        if(hours > vm.user.membership_token.totalhours){
+                        if (hours > vm.user.membership_token.totalhours) {
                             $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
                             $scope.isDisabled = true;
                         }
-                        else if(hours >= vm.user.membership_token.totalhours -10){
+                        else if (hours >= vm.user.membership_token.totalhours - 10) {
                             $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
-                        }else{
+                        } else {
                             vm.user.membership_token.currenthours = hours;
                             $scope.error = null;
                             $scope.isDisabled = false;
                         }
                     }
-                    function updateHours(intern){
-                        updateTotalHours(intern);
+                    function updateHours(intern) {
+                        hours = vm.user.membership_token.currenthours;
+                        if (intern != null) {
+                            hours += intern.hours;
+                        }
+                        if (hours > vm.user.membership_token.totalhours) {
+                            $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+                            $scope.isDisabled = true;
+                        }
+                        else if (hours >= vm.user.membership_token.totalhours - 10) {
+                            $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
+                            vm.user.membership_token.currenthours = hours;
+                            $scope.isDisabled = false;
+                        } else {
+                            vm.user.membership_token.currenthours = hours;
+                            $scope.error = null;
+                            $scope.isDisabled = false;
+                        }
                     }
                     updateHours();
                     $scope.ok = function () {

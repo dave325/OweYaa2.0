@@ -10,7 +10,7 @@ class InternHours extends Model{
      */
     protected $table = 'internhours';
     // Set primary key
-    protected $primaryKey = null;
+    protected $primaryKey = 'matchid';
     // Remove default increment from eloquent
     public $incrementing = false;
     // Remove default timestamp from eloquent
@@ -21,7 +21,7 @@ class InternHours extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username','hours', 'projid', 'checkin'];
+    protected $fillable = ['username','hours', 'projid', 'checkin','matchid'];
 
     /**
      * Get the post that owns the comment.

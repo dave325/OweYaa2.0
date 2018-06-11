@@ -46,6 +46,7 @@
                 username: CurrUser.user.contact_info.username,
                 hours: 0,
                 projid: selectInternvm.projectId,
+                matchid:CurrUser.user.contact_info.username + selectInternvm.projectId
             }
             console.log(userInfo);
             User.addIntern(userInfo).then(function (response) {

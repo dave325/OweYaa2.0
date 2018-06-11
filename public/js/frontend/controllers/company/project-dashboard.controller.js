@@ -191,9 +191,12 @@
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
+
+                    let hours = vm.user.membership_token.currenthours;
                     $scope.updateTotalHours = function(intern){
+                        hours - vm.user.membership_token.currenthours;
                         if(intern != null){
-                            vm.user.membership_token.currenthours += intern.hours;
+                            hours += intern.hours;
                         }
                         if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
                             $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";

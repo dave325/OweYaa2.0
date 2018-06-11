@@ -191,8 +191,9 @@
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
-
-                    updateHours();
+                    $scope.updateTotalHours = function(intern){
+                        updateHours(intern);
+                    }
                     
                     $scope.ok = function () {
                         updateAll(vm.curProj);

@@ -178,6 +178,10 @@
                         deletedCandidates.push(username);
                     }
 
+                    function updateHours(){
+                        $scope.updateTotalHours();
+                    }
+
                     $scope.updateTotalHours = function(intern){
                         if(intern != null){
                             vm.user.membership_token.currenthours += intern.hours;
@@ -192,7 +196,7 @@
                         }
                     }
 
-                    $scope.updateTotalHours();
+                    updateHours();
                     
                     $scope.ok = function () {
                         updateAll(vm.curProj);

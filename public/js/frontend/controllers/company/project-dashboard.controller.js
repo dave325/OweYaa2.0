@@ -194,7 +194,7 @@
 
                     let hours = vm.user.membership_token.currenthours;
                     function updateHours(intern){
-                        $scope.updateTotalHours(intern);
+                        updateTotalHours(intern);
                     }
                     updateHours(0);
                     $scope.updateTotalHours = function(intern){

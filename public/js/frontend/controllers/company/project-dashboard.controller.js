@@ -193,10 +193,6 @@
                     }
 
                     let hours = vm.user.membership_token.currenthours;
-                    function updateHours(intern){
-                        updateTotalHours(intern);
-                    }
-                    updateHours(0);
                     $scope.updateTotalHours = function(intern){
                         hours = vm.user.membership_token.currenthours;
                         if(intern != null){
@@ -216,7 +212,10 @@
                             $scope.isDisabled = false;
                         }
                     }
-                    
+                    function updateHours(intern){
+                        $scope.updateTotalHours(intern);
+                    }
+                    updateHours(0);
                     $scope.ok = function () {
                         updateAll(vm.curProj);
                         for (let i = 0; i < vm.curProj.candidates.length; i++) {

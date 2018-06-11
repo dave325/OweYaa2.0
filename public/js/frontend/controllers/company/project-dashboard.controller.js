@@ -177,12 +177,25 @@
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
+
+                    $scope.updateTotalHours = function(intern){
+                        vm.user.membership_token.currenthours += intern.hours;
+                        if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
+                            $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+                        }
+                        else if(vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours -10){
+                            $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
+                        }else{
+                            $scope.error = null;
+                        }
+                    }
                     $scope.ok = function () {
                         updateAll(vm.curProj);
                         for (let i = 0; i < vm.curProj.candidates.length; i++) {
                             for (let j = 0; j < deletedCandidates.length; j++) {
                                 if (deletedCandidates[j] === vm.curProj.candidates[i].username) {
                                     vm.curProj.candidates.splice(i, 1);
+                                    vm.user.membership_token.currenthours -= vm.curProj.candidates[i].hours;
                                     break;
                                 }
                             }

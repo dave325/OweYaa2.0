@@ -11,9 +11,9 @@
         addonvm.openPayment = function (payType) {
             if (User.getUser()) {
                 var m = $uibModal.open({
-                    templateUrl: '/js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.view.html',
-                    controller: 'purchaseMembershipModalCtrl',
-                    controllerAs: 'purchaseMembershipModalvm',
+                    templateUrl: '/js/frontend/modals/company/purchaseMembership/purchaseAddon.modal.view.html',
+                    controller: 'purchaseAddonModalCtrl',
+                    controllerAs: 'purchaseAddonModalvm',
                     windowClass: "col-xs-12 col-md-4 col-md-offset-4 compModal",
                     windowTopClass: "col-xs-12 ",
                     resolve: {

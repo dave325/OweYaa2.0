@@ -17,6 +17,20 @@
                 indexOfCurrentProject = i;
             }
         }
+        updateHours();
+        function updateHours(intern){
+            if(intern != null){
+                vm.user.membership_token.currenthours += intern.hours;
+            }
+            if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
+                $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+            }
+            else if(vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours -10){
+                $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
+            }else{
+                $scope.error = null;
+            }
+        }
         vm.username = vm.user.company_info.username;
         vm.curProj = vm.user.company_project[indexOfCurrentProject];
         console.log(vm.curProj);
@@ -176,24 +190,6 @@
                         vm.curProj.candidates[index].delete = true;
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
-                    }
-
-                    function updateHours(){
-                        $scope.updateTotalHours();
-                    }
-
-                    $scope.updateTotalHours = function(intern){
-                        if(intern != null){
-                            vm.user.membership_token.currenthours += intern.hours;
-                        }
-                        if(vm.user.membership_token.currenthours > vm.user.membership_token.totalhours){
-                            $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
-                        }
-                        else if(vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours -10){
-                            $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
-                        }else{
-                            $scope.error = null;
-                        }
                     }
 
                     updateHours();

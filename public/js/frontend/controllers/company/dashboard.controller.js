@@ -60,7 +60,7 @@
                 let url, ctrl;
                 console.log(modal);
                 if (modal === 'cultureSets'){
-                    let url = '/js/frontend/modals/company/companyCultureSets/company-culture-sets.modal.view.html'
+                    let url = '/js/frontend/modals/company/companyCultureSets/companyCultureSets.modal.view.html';
                     let ctrl = 'companyCultureSetsModalCtrl';
                     var m = $uibModal.open({                       
                         templateUrl: url,
@@ -73,7 +73,7 @@
                     });
                 }
                 else if(modal === 'stats'){
-                    let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
+                    let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html';
                     let ctrl = 'companySettingsStatsModalCtrl';
                     var m = $uibModal.open({                       
                         templateUrl: url,
@@ -85,7 +85,7 @@
                         }
                     });
                 }else{
-                    let url ='/js/frontend/modals/company/companySettingsInfo/company-settings.modal.view.html'
+                    let url ='/js/frontend/modals/company/companySettingsInfo/company-settings.modal.view.html';
                     let ctrl = 'companySettingsModalCtrl'
                     var m = $uibModal.open({                       
                         templateUrl: url,

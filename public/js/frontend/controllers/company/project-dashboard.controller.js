@@ -21,6 +21,7 @@
         function updateHours() {
             hours = 0;
             for(let i in vm.curProj.candidates){
+                console.log(vm.curProj.candidates[i].hours);
                 hours += vm.curProj.candidates[i].hours;
             }
             console.log(hours);

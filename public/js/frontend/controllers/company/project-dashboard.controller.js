@@ -23,6 +23,7 @@
             for(let i in vm.curProj.candidates){
                 hours += vm.curProj.candidates[i].hours;
             }
+            console.log(hours);
             if ((hours - vm.user.membership_token.totalhours) === 0) {
                 $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
             }
@@ -286,7 +287,7 @@
 
                 },
                 windowClass: winClass
-            }).result(function(response){
+            }).result.then(function(response){
                 console.log(response);
             },function(error){
                 console.log(error);

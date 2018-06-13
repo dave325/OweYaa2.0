@@ -196,8 +196,7 @@
                     $scope.updateTotalHours = function (intern) {
                         hours = 0;
                         for(let i in vm.curProj.candidates){
-                            console.log(i);
-                            hours += i.hours;
+                            hours += vm.curProj.candidates[i].hours;
                         }
                         console.log(hours);
                         if (intern != null) {

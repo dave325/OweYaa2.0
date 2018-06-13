@@ -20,6 +20,7 @@
         updateHours();
         let hours = 0;
         function updateHours() {
+            hours = 0;
             for(let i in vm.curProj.candidates){
                 hours += vm.curProj.candidates[i].hours;
             }

@@ -12,17 +12,17 @@
         var indexOfCurrentProject = 0;
         vm.matchedProj = {};
         vm.username = vm.user.company_info.username;
-        vm.curProj = vm.user.company_project[indexOfCurrentProject];
         for (let i = 0; i < vm.user.company_project.length; i++) {
             if (vm.user.company_project[i].jobInfo.initiated == 1) {
                 vm.matchedProj = vm.user.company_project[i];
                 indexOfCurrentProject = i;
             }
         }
+        vm.curProj = vm.user.company_project[indexOfCurrentProject];
         let hours = 0;
         function updateHours() {
             hours = 0;
-            for(let i in vm.curProj.candidates){
+            for(let i = 0; i < vm.curProj.candidates.length;i++){
                 console.log(vm.curProj.candidates[i].hours);
                 hours += vm.curProj.candidates[i].hours;
             }

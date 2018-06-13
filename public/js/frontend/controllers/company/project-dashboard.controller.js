@@ -196,13 +196,13 @@
                     $scope.updateTotalHours = function (intern) {
                         hours = 0;
                         for(let i in vm.curProj.candidates){
+                            if(intern != null && intern.username == vm.curProj.candidates[i] && intern.hours != vm.curProj.candidates[i].hours){
+                                hours += intern.hours;
+                            }
                             hours += vm.curProj.candidates[i].hours;
                         }
                         console.log(hours);
                         console.log(vm.user.membership_token.totalhours);
-                        if (intern != null) {
-                            hours += intern.hours;
-                        }
                         if (hours > vm.user.membership_token.totalhours) {
                             $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
                             $scope.isDisabled = true;

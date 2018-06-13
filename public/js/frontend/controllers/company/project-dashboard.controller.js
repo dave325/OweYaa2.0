@@ -23,10 +23,8 @@
         function updateHours() {
             hours = 0;
             for(let i = 0; i < vm.curProj.candidates.length;i++){
-                console.log(vm.curProj.candidates[i].hours);
                 hours += vm.curProj.candidates[i].hours;
             }
-            console.log(hours);
             if ((hours - vm.user.membership_token.totalhours) === 0) {
                 $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
             }

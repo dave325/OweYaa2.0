@@ -72,7 +72,7 @@
                         }
                     });
                 }
-                if(modal === 'stats'){
+                else if(modal === 'stats'){
                     let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
                     let ctrl = 'companySettingsStatsModalCtrl';
                     var m = $uibModal.open({                       

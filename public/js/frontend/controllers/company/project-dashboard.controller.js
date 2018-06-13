@@ -198,6 +198,7 @@
                         for(let i in vm.curProj.candidates){
                             if(intern != null && intern.username == vm.curProj.candidates[i] && intern.hours != vm.curProj.candidates[i].hours){
                                 hours += intern.hours;
+                                continue;
                             }
                             hours += vm.curProj.candidates[i].hours;
                         }

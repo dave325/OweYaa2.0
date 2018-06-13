@@ -1,0 +1,12 @@
+<span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="setvm.cancel()"></span>
+<div id="cultureSetModal">
+    <p>Please fill out the following fields. If you do not have one of the following, you may leave it blank.</p>
+    <form novalidate method="post" name="cultureSet" ng-submit="submit()">
+        <div ng-repeat="set in setvm.cultureSets">
+            <ul>
+                <li ng-repeat="item in set">{{item}}</li>
+            </ul>
+        </div>
+    </form>
+</div>
+<!-- End of id contactModal -->

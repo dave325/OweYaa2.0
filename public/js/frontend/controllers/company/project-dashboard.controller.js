@@ -202,6 +202,9 @@
                             }
                             hours += vm.curProj.candidates[i].hours;
                         }
+                        if (hours === vm.user.membership_token.totalhours) {
+                            $scope.error = "You have reached the # of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                        }
                         if (hours > vm.user.membership_token.totalhours) {
                             $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
                             $scope.isDisabled = true;
@@ -222,11 +225,11 @@
                             hours += intern.hours;
                         }
                         if (hours > vm.user.membership_token.totalhours) {
-                            $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
                             $scope.isDisabled = true;
                         }
                         else if (hours >= vm.user.membership_token.totalhours - 10) {
-                            $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
+                            $scope.error = "You are close to the limit of hours that the account can use. You have " + ( vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         } else {

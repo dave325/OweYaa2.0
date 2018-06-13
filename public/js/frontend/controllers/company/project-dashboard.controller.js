@@ -18,6 +18,7 @@
             }
         }
         updateHours();
+        let hours = 0;
         function updateHours() {
             for(let i in vm.curProj.candidates){
                 hours += vm.curProj.candidates[i].hours;
@@ -262,7 +263,7 @@
                         }
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
-                        $uibModalInstance.close();
+                        $uibModalInstance.close(vm.user.membership_token.currenthours);
                     };
 
 
@@ -284,6 +285,10 @@
 
                 },
                 windowClass: winClass
+            }).result(function(response){
+                console.log(response);
+            },function(error){
+                console.log(error);
             });
 
         }

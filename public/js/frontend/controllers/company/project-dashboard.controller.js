@@ -202,7 +202,7 @@
                             }
                             hours += vm.curProj.candidates[i].hours;
                         }
-                        if (hours - vm.user.membership_token.totalhours === 0) {
+                        if (hours == vm.user.membership_token.totalhours) {
                             $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
                         }
                         else if (hours > vm.user.membership_token.totalhours) {

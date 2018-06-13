@@ -265,7 +265,7 @@
                         }
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
-                        $uibModalInstance.close(vm.user.membership_token.currenthours);
+                        $uibModalInstance.close(vm.curProj);
                     };
 
 
@@ -288,6 +288,7 @@
                 },
                 windowClass: winClass
             }).result.then(function(response){
+                updateHours();
                 console.log(response);
             },function(error){
                 console.log(error);

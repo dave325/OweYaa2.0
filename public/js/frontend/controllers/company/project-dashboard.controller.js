@@ -18,15 +18,18 @@
             }
         }
         updateHours();
-        function updateHours(intern) {
-            if (intern != null) {
-                vm.user.membership_token.currenthours += intern.hours;
+        function updateHours() {
+            for(let i in vm.curProj.candidates){
+                hours += vm.curProj.candidates[i].hours;
             }
-            if (vm.user.membership_token.currenthours > vm.user.membership_token.totalhours) {
-                $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+            if ((hours - vm.user.membership_token.totalhours) === 0) {
+                $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
             }
-            else if (vm.user.membership_token.currenthours >= vm.user.membership_token.totalhours - 10) {
-                $scope.error = "You are close to the limit of hours that the account can use. Additional hours will be charged to your account or you may purchase more hours!";
+            else if (hours > vm.user.membership_token.totalhours) {
+                $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+            }
+            else if (hours >= vm.user.membership_token.totalhours - 10) {
+                $scope.error = "You are close to the limit of hours that the account can use. You have " + ( vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
             } else {
                 $scope.error = null;
             }

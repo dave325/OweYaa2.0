@@ -203,7 +203,7 @@
                             hours += intern.hours;
                         }
                         if (hours > vm.user.membership_token.totalhours) {
-                            $scope.error = "You have reached the limit of hours that the account can use. Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + "Additional hours will be charged to your account!";
                             $scope.isDisabled = true;
                         }
                         else if (hours >= vm.user.membership_token.totalhours - 10) {

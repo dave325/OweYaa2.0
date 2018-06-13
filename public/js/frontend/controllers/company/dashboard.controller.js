@@ -59,6 +59,19 @@
             if (User.getUser()) {
                 let url, ctrl;
                 console.log(modal);
+                if (modal === 'cultureSets'){
+                    let url = '/js/frontend/modals/company/companyCultureSets/company-culture-sets.modal.view.html'
+                    let ctrl = 'companyCultureSetsModalCtrl';
+                    var m = $uibModal.open({                       
+                        templateUrl: url,
+                        controller: ctrl,
+                        controllerAs: 'setvm',
+                        windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+                        resolve: {
+                            CurrUser: vm.user
+                        }
+                    });
+                }
                 if(modal === 'stats'){
                     let url = '/js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.view.html'
                     let ctrl = 'companySettingsStatsModalCtrl';

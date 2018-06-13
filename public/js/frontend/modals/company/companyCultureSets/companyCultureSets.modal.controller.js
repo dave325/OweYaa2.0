@@ -18,6 +18,7 @@
         setvm.close = function (result) {
             $uibModalInstance.close(result);
         }
+
         setvm.cultureSets = [
             [
                 "employees have room to grow",
@@ -48,6 +49,7 @@
                 "I know a few people at my company",
             ]
         ];
+        
         setvm.onSubmit = function (modal, data) {
             if ($scope.autoCompleteDetails == undefined) {
                 setvm.user.company_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();

@@ -29,7 +29,7 @@
 					email: credentials.email,
 					type: credentials.type,
 					username: credentials.username,
-					website:credentials.companyWebsite,
+					website:credentials.companyWebSite,
 					phone:credentials.phoneNumber,
 					compName:credentials.companyName
 				};

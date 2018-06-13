@@ -192,7 +192,7 @@
                         deletedCandidates.push(username);
                     }
 
-                    let hours = vm.user.membership_token.currenthours;
+                    let hours = 0;
                     $scope.updateTotalHours = function (intern) {
                         hours = 0;
                         for(let i in vm.curProj.candidates){
@@ -231,7 +231,7 @@
                         if ((hours - vm.user.membership_token.totalhours) === 0) {
                             $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
                         }
-                        if (hours > vm.user.membership_token.totalhours) {
+                        else if (hours > vm.user.membership_token.totalhours) {
                             $scope.error = "You have reached the limit of hours that the account can use by " + ( hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
                             $scope.isDisabled = true;
                         }

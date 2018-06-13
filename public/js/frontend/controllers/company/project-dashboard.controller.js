@@ -17,7 +17,6 @@
                 indexOfCurrentProject = i;
             }
         }
-        updateHours();
         let hours = 0;
         function updateHours() {
             hours = 0;
@@ -36,6 +35,7 @@
                 $scope.error = null;
             }
         }
+        updateHours();
         vm.username = vm.user.company_info.username;
         vm.curProj = vm.user.company_project[indexOfCurrentProject];
         console.log(vm.curProj);

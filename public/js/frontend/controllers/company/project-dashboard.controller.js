@@ -11,6 +11,8 @@
         vm.curProj = {};
         var indexOfCurrentProject = 0;
         vm.matchedProj = {};
+        vm.username = vm.user.company_info.username;
+        vm.curProj = vm.user.company_project[indexOfCurrentProject];
         for (let i = 0; i < vm.user.company_project.length; i++) {
             if (vm.user.company_project[i].jobInfo.initiated == 1) {
                 vm.matchedProj = vm.user.company_project[i];
@@ -38,8 +40,6 @@
             }
         }
         updateHours();
-        vm.username = vm.user.company_info.username;
-        vm.curProj = vm.user.company_project[indexOfCurrentProject];
         console.log(vm.curProj);
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';

@@ -235,6 +235,7 @@
                         }
                         if ((hours - vm.user.membership_token.totalhours) === 0) {
                             $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
+                            vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         }
                         else if (hours > vm.user.membership_token.totalhours) {

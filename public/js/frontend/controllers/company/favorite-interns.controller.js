@@ -38,7 +38,7 @@
         vm.users = response.data.projects;
         console.log(vm.users);
         for (let j = 0; j < vm.users.length; j++) {
-          if (vm.users[j].user.contact_info.ismatched == 1) {
+          if (vm.users[j].user.contact_info.ismatched === 1) {
             vm.users[j].inProj = true;
           } else {
             for (let i = 0; i < vm.user.company_project.length; i++) {

@@ -2,7 +2,7 @@
 namespace App\TableModels\CompanyModels;
 
 use Illuminate\Database\Eloquent\Model;
-class CompanySearch extends Model{
+class CultureSet extends Model{
     /**
      * The table associated with the model.
      *

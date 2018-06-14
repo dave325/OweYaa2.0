@@ -12,28 +12,17 @@
 		};
 		// Will make a call to the server and php file
 		vm.doRegister = function (credentials) {
-			if (vm.credentials.registerModal.type == 0) {
-				var user = {
-					firstname: credentials.firstname,
-					lastname: credentials.lastname,
-					password: credentials.password,
-					email: credentials.email,
-					type: credentials.type,
-					username: credentials.username
-				};
-			} else {
-				var user = {
-					firstname: credentials.firstname,
-					lastname: credentials.lastname,
-					password: credentials.password,
-					email: credentials.email,
-					type: credentials.type,
-					username: credentials.username,
-					website:credentials.companyWebSite,
-					phone:credentials.phoneNumber,
-					compName:credentials.companyName
-				};
-			}
+			var user = {
+				firstname: credentials.firstname,
+				lastname: credentials.lastname,
+				password: credentials.password,
+				email: credentials.email,
+				type: credentials.type,
+				username: credentials.username,
+				website:credentials.companyWebSite,
+				phone:credentials.phoneNumber,
+				compName:credentials.companyName
+			};
 			User.register(user).then(function (data) {
 				if (data) {
 					vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";

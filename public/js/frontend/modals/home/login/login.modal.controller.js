@@ -1,6 +1,6 @@
-(function(){
-  loginModalCtrl.$inject = ['$window','$uibModalInstance', 'User', 'Authentication', '$http', '$location'];
-	function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http, $location){
+(function () {
+  loginModalCtrl.$inject = ['$window', '$uibModalInstance', 'User', 'Authentication', '$http', '$location'];
+  function loginModalCtrl($window, $uibModalInstance, User, Authentication, $http, $location) {
     // Instantiate the var to this
     var loginvm = this;
     loginvm.isDisabled = false;
@@ -14,40 +14,44 @@
     // Stores the credentials the users add in
     // Creates the JSON object to hold form field
     loginvm.credentials = {
-      loginModal : {}
+      loginModal: {}
     };
     // The function that is call when a user cancels the opening of a modal
-		loginvm.cancel = function(){
-			$uibModalInstance.dismiss('cancel');
-		};
+    loginvm.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
     // The function that is call when the user closes the modal
-		loginvm.close = function(result){
-			$uibModalInstance.close(result);
-		};
+    loginvm.close = function (result) {
+      $uibModalInstance.close(result);
+    };
     // Will make a call to the server and php file
-    loginvm.doLogin = function(e,user){
+    loginvm.doLogin = function (e, user) {
       e.preventDefault();
       // stores the user information in a JSON object
       var checkUser = {
-        'username' : user.username.toLowerCase(),
-        'password' : user.password,
-        'type' : loginvm.type
+        'username': user.username.toLowerCase(),
+        'password': user.password,
+        'type': loginvm.type
       }
-      Authentication.login(checkUser).then(function(data){
+      Authentication.login(checkUser).then(function (data) {
         loginvm.isDisabled = true;
-        if(data.status === 200){
-          User.getCurrentUser(checkUser).then(function(data){
-            User.setUser(data.data.user);
-            loginvm.close(data.data.user);
-          },function(data){
+        if (data.status === 200) {
+          User.getCurrentUser(checkUser).then(function (data) {
+            if (data.data.user.company_info.initiated === 1) {
+              User.setUser(data.data.user);
+              loginvm.close(data.data.user);
+            }else{
+              loginvm.formError = "Please call a representative from OweYaa to activate your Account";
+            }
+          }, function (data) {
             loginvm.isDisabled = false;
             loginvm.formError = "Username or password does not exist.<br/> Please try again.";
           });
-        }else{
+        } else {
           loginvm.isDisabled = false;
           loginvm.formError = "Username or password does not exist.<br/> Please try again.";
         }
-      },function(){
+      }, function () {
         loginvm.isDisabled = false;
         loginvm.formError = "There was an error logging in. <br /> Please try again.";
       });
@@ -55,43 +59,43 @@
     /*
     * function that will show the form with veteran field set
     */
-    loginvm.registerVetCheck = function(){
+    loginvm.registerVetCheck = function () {
       loginvm.type = 0;
       loginvm.userTypeCheck = false;
     };
     /*
     * function that will show the form with copmany field set
     */
-    loginvm.registerCompCheck = function(){
+    loginvm.registerCompCheck = function () {
       loginvm.type = 1;
       loginvm.userTypeCheck = false;
     };
     /*
     * Displays the title based on what type is selected
     */
-    loginvm.displayFormTitle = function(type){
-      if(type == 1){
+    loginvm.displayFormTitle = function (type) {
+      if (type == 1) {
         return "Company";
-      }else{
+      } else {
         return "Veteran/Military Spouse";
       }
     };
     /*
     *
     */
-    loginvm.loginOppForm = function(){
-      if(loginvm.type == 1){
+    loginvm.loginOppForm = function () {
+      if (loginvm.type == 1) {
         loginvm.type = 0;
-      }else{
+      } else {
         loginvm.type = 1;
       }
     }
 
-    loginvm.registerPage = function(){
-      loginvm.close( {page: 'register'});
+    loginvm.registerPage = function () {
+      loginvm.close({ page: 'register' });
     }
-	}
+  }
 
-    angular.module('oweyaa')
-      .controller('loginModalCtrl', loginModalCtrl);
+  angular.module('oweyaa')
+    .controller('loginModalCtrl', loginModalCtrl);
 })();

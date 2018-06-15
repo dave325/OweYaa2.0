@@ -235,22 +235,46 @@ class CompanyController extends Controller
 
     public function retrieveProj(Request $request)
     {
+        // Retrieve Company projects where ismatched != true.
+        $projects = array();
+        $candidates = array();
+        $compid = TableModels\CompanyModels\CompanyInfo::all();
+        foreach ($compid as $cid) {
+            $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $cid['username'])->get();
+            foreach ($projId as $id) {
+                $cList = TableModels\CompanyModels\CompanyProject\InternHours::where('projid', '=', $id['projid'])->get()->toArray();
+                //could be that there are no interns yet
 
-        // In order to retrieve project info for the user, make sure that the user
-        // is a valid user. If the user is a valid user...
-        if ($isValid = $this->isValid()) {
-            $name = $request->only('company_info');
-            $projects = User::companyProjects($name['contact_info']['username']);
-
-            // If successful, return a success response.
-            return response()->json(['projects' => $projects, 'success' => true], 200);
-
-        } else {
-
-            // Otherwise, if there was an error, return an 'error' message.
-            return $isValid;
-
+                if (isset($cList)) {
+                    unset($candidates);
+                    $candidates = array();
+                    foreach ($cList as $candidate) {
+                        $candidateUName = $candidate['username'];
+                        $contactInfo = \App\TableModels\ContactInfo::where('username', '=', $candidateUName)->first();
+                        $firstName = $contactInfo->firstname;
+                        $lastName = $contactInfo->lastname;
+                        $email = $contactInfo->email;
+                        $username = $contactInfo->username;
+                        $hours = $candidate['hours'];
+                        $checkin = $candidate['checkin'];
+                        $matchid = $candidate['matchid'];
+                        $contactAddenium = array('username' => $username, 'email' => $email, 'firstName' => $firstName, 'lastName' => $lastName, 'hours' => $hours, 'checkin' => $checkin, 'matchid' => $matchid);
+                        array_push($candidates, $contactAddenium);
+                    }
+                }
+                $project = collect(
+                    [
+                        'jobInfo' => $id,
+                        'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
+                        'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                        'milestones' => TableModels\CompanyModels\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
+                        'candidates' => $candidates,
+                    ]
+                )->toArray();
+                array_push($projects, $project);
+            }
         }
+        return response()->json($projects,200);
     }
     /**
      * retrieveProj
@@ -343,15 +367,15 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try {
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                $contactInfo =  \App\TableModels\ContactInfo::findOrFail($info['username']);
+                $contactInfo = \App\TableModels\ContactInfo::findOrFail($info['username']);
                 $contactInfo->ismatched = 1;
                 $contactInfo->save();
                 $firstName = $contactInfo->firstname;
-                    $lastName = $contactInfo->lastname;
-                    $email = $contactInfo->email;
-                    $username = $contactInfo->username;
-                    $hours = $info['hours'];
-                    $user = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours);
+                $lastName = $contactInfo->lastname;
+                $email = $contactInfo->email;
+                $username = $contactInfo->username;
+                $hours = $info['hours'];
+                $user = array('username' => $username, 'email' => $email, 'firstName' => $firstName, 'lastName' => $lastName, 'hours' => $hours);
             } catch (ModelNotFoundException $me) {
                 return response()->json(['error' => true], 500);
             }

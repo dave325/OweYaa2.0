@@ -3,26 +3,12 @@
   <!-- Filter User Input and Output Result -->
   <section class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <h1 class="text-center">Browse Candidate</h1>
-    <form class="form col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <!-- Use angular to bind this element to the results and filter them -->
-      <div class="col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
-        <label>Option</label>
-        <select name="filterby" class="form-control-lg form-control">
-          <option value="date">Date</option>
-          <option value="name">Company</option>
-        </select>
-      </div>
-      <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12 form-group">
-        <label>Wanted Skills</label>
-        <input type="text" name="skills" class="form-control-lg form-control" ng-model="vm.test.skill.skill">
-      </div>
-      <span class="clearfix"></span>
-    </form>
-    <div ng-if="vm.resultInfo" class='alert alert-info nav-message col-xs-12' role="alert">
-      <h3 class="text-center">{{vm.resultInfo}}</h3>
+    
+    <div ng-if="vetIntern.resultInfo" class='alert alert-info nav-message col-xs-12' role="alert">
+      <h3 class="text-center">{{vetIntern.resultInfo}}</h3>
     </div>
     <!-- Results that have been filtered out -->
-    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" ng-if="!vm.noToken">
+    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" ng-if="!vetIntern.noToken">
       <h2 class="text-center">Results</h2>
       <div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vetIntern.projects track by $index">
 
@@ -32,7 +18,7 @@
           </h4>
           <p>{{user.jobInfo.compname}}</p>
 
-          <button type="button" class="btn btn-info" ng-click="vm.addIntern($index)" ng-if="vm.inProj(user)">Want</button>
+          <button type="button" class="btn btn-info" ng-click="vetIntern.addIntern($index)" ng-if="vetIntern.inProj(user)">Want</button>
 
         </div>
         <div class="col-md-4">
@@ -48,7 +34,7 @@
           <span>{{skill.skill}}</span>
         </div>
       </div>
-      <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-pages="vm.itemsPerPage" class="col-xs-12"></ul>
+      <ul uib-pagination total-items="vetIntern.totalItems" ng-model="vetIntern.currentPage" items-per-pages="vetIntern.itemsPerPage" class="col-xs-12"></ul>
       <br/>
       <br />
     </article>

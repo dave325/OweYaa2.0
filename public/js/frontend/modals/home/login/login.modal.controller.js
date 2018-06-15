@@ -42,6 +42,7 @@
               loginvm.close(data.data.user);
             }else{
               loginvm.formError = "Please call a representative from OweYaa to activate your Account";
+              
             }
           }, function (data) {
             loginvm.isDisabled = false;

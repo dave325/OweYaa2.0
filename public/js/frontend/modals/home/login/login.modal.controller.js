@@ -37,7 +37,7 @@
         loginvm.isDisabled = true;
         if (data.status === 200) {
           User.getCurrentUser(checkUser).then(function (data) {
-            if (data.data.user.company_info.initiated === 0) {
+            if (data.data.user.type == 0 || data.data.user.company_info.initiated && data.data.user.company_info.initiated === 0 ) {
               User.setUser(data.data.user);
               loginvm.close(data.data.user);
             }else{

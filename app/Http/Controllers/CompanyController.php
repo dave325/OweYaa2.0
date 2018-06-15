@@ -244,23 +244,9 @@ class CompanyController extends Controller
             foreach ($projId as $id) {
                 $cList = CModel\CompanyProject\InternHours::where('projid', '=', $id['projid'])->get()->toArray();
                 //could be that there are no interns yet
-
-                if (isset($cList)) {
-                    unset($candidates);
-                    $candidates = array();
-                    foreach ($cList as $candidate) {
-                        $candidateUName = $candidate['username'];
-                        $contactInfo = \App\TableModels\ContactInfo::where('username', '=', $candidateUName)->first();
-                        $firstName = $contactInfo->firstname;
-                        $lastName = $contactInfo->lastname;
-                        $email = $contactInfo->email;
-                        $username = $contactInfo->username;
-                        $hours = $candidate['hours'];
-                        $checkin = $candidate['checkin'];
-                        $matchid = $candidate['matchid'];
-                        $contactAddenium = array('username' => $username, 'email' => $email, 'firstName' => $firstName, 'lastName' => $lastName, 'hours' => $hours, 'checkin' => $checkin, 'matchid' => $matchid);
-                        array_push($candidates, $contactAddenium);
-                    }
+                
+                if (isset($cList) && count($cList) > 0)   {
+                    continue;
                 }
                 $project = collect(
                     [

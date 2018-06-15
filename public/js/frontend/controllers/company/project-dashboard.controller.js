@@ -12,33 +12,34 @@
         var indexOfCurrentProject = 0;
         vm.matchedProj = {};
         vm.username = vm.user.company_info.username;
-        for (let i = 0; i < vm.user.company_project.length; i++) {
-            if (vm.user.company_project[i].jobInfo.initiated == 1) {
-                vm.matchedProj = vm.user.company_project[i];
-                indexOfCurrentProject = i;
+        if (vm.user.company_project.length > 0) {
+            for (let i = 0; i < vm.user.company_project.length; i++) {
+                if (vm.user.company_project[i].jobInfo.initiated == 1) {
+                    vm.matchedProj = vm.user.company_project[i];
+                    indexOfCurrentProject = i;
+                }
             }
+            vm.curProj = vm.user.company_project[indexOfCurrentProject];
+            let hours = 0;
+            function updateHours() {
+                hours = 0;
+                for (let i = 0; i < vm.curProj.candidates.length; i++) {
+                    hours += vm.curProj.candidates[i].hours;
+                }
+                if ((hours - vm.user.membership_token.totalhours) === 0) {
+                    $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
+                }
+                else if (hours > vm.user.membership_token.totalhours) {
+                    $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                }
+                else if (hours >= vm.user.membership_token.totalhours - 10) {
+                    $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
+                } else {
+                    $scope.error = null;
+                }
+            }
+            updateHours();
         }
-        vm.curProj = vm.user.company_project[indexOfCurrentProject];
-        let hours = 0;
-        function updateHours() {
-            hours = 0;
-            for (let i = 0; i < vm.curProj.candidates.length; i++) {
-                hours += vm.curProj.candidates[i].hours;
-            }
-            if ((hours - vm.user.membership_token.totalhours) === 0) {
-                $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
-            }
-            else if (hours > vm.user.membership_token.totalhours) {
-                $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
-            }
-            else if (hours >= vm.user.membership_token.totalhours - 10) {
-                $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
-            } else {
-                $scope.error = null;
-            }
-        }
-        updateHours();
-        console.log(vm.curProj);
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';
         }

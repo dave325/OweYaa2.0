@@ -76,7 +76,6 @@
         <script src="js/frontend/modals/company/purchaseMembership/purchaseMembership.modal.controller.js"></script>
         <script src="js/frontend/modals/company/companySettingsInfo/company-settings.modal.controller.js"></script>
         <script src="js/frontend/modals/company/companySettingsStats/company-settings-stats.modal.controller.js"></script>
-        <script src="js/frontend/modals/company/companySettingsStats/companyCultureSets.modal.controller.js"></script>
         <script src="js/frontend/modals/company/selectIntern/select-intern.modal.controller.js"></script>
 
         <!-- Typography -->

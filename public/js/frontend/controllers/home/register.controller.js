@@ -1,5 +1,5 @@
 (function () {
-	registerCtrl.$inject = [ 'User', '$location', '$timeout'];
+	registerCtrl.$inject = ['User', '$location', '$timeout'];
 	function registerCtrl(User, $location, $timeout) {
 		var vm = this;
 		// Sets error variables
@@ -19,18 +19,20 @@
 				email: credentials.email,
 				type: credentials.type,
 				username: credentials.username,
-				website:credentials.companyWebSite,
-				phone:credentials.phoneNumber,
-				compName:credentials.companyName
+				website: credentials.companyWebSite,
+				phone: credentials.phoneNumber,
+				compName: credentials.companyName
 			};
 			User.register(user).then(function (data) {
-				if (data && user.type === 0) {
-					vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";
-					$timeout(function () {
-						$location.path('/');
-					}, 2000);
-				}else{
-					alert("Thank you very much! Please call a representative form OweYaa to proceed.");
+				if (data) {
+					if (user.type == 0) {
+						vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";
+						$timeout(function () {
+							$location.path('/');
+						}, 2000);
+					}else{
+						alert("Thank you very much! Please call a representative form OweYaa to proceed.");
+					}
 				}
 			}, function (data) {
 				console.log(data);

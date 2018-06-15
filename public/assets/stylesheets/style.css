@@ -309,7 +309,7 @@ Section 4.1: Spacing styles
   margin-top:20px;
 }
 
-#browse-interns .container, #fav-intern .container{
+#browse-interns .container, #fav-intern .container, #proj-dash section{
 	min-height:500px;
 }
 /**********

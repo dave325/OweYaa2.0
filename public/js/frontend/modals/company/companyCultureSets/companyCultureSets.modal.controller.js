@@ -1,9 +1,9 @@
 (function () {
 
 
-    companyCultureSetsModalCtrl.$inject = ['$scope', 'CurrUser', '$uibModalInstance', 'User'];
+    companyCultureSetsModalCtrl.$inject = ['$uibModalInstance', 'User'];
 
-    function companyCultureSetsModalCtrl($scope, CurrUser, $uibModalInstance, User) {
+    function companyCultureSetsModalCtrl( $uibModalInstance, User) {
 
         var setvm = this;
 
@@ -51,10 +51,6 @@
         ];
         
         setvm.onSubmit = function (modal, data) {
-            if ($scope.autoCompleteDetails == undefined) {
-                setvm.user.company_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
-                setvm.user.company_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
-            }
             setvm.isDisabled = true;
             User.updateUser(modal, data).then(function (response) {
                 console.log(response);

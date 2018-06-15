@@ -238,11 +238,11 @@ class CompanyController extends Controller
         // Retrieve Company projects where ismatched != true.
         $projects = array();
         $candidates = array();
-        $compid = TableModels\CompanyModels\CompanyInfo::all();
+        $compid = CModel\CompanyInfo::all();
         foreach ($compid as $cid) {
-            $projId = TableModels\CompanyModels\CompanyProject\CompanyProjectJobInfo::where('username', '=', $cid['username'])->get();
+            $projId = CModel\CompanyProject\CompanyProjectJobInfo::where('username', '=', $cid['username'])->get();
             foreach ($projId as $id) {
-                $cList = TableModels\CompanyModels\CompanyProject\InternHours::where('projid', '=', $id['projid'])->get()->toArray();
+                $cList = CModel\CompanyProject\InternHours::where('projid', '=', $id['projid'])->get()->toArray();
                 //could be that there are no interns yet
 
                 if (isset($cList)) {
@@ -265,9 +265,9 @@ class CompanyController extends Controller
                 $project = collect(
                     [
                         'jobInfo' => $id,
-                        'managerInfo' => TableModels\CompanyModels\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
-                        'skills' => TableModels\CompanyModels\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
-                        'milestones' => TableModels\CompanyModels\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
+                        'managerInfo' => CModel\CompanyProject\CompanyProjectManagerInfo::where('projid', '=', $id['projid'])->first(),
+                        'skills' => CModel\CompanyProject\CompanyProjectSkill::where('projid', '=', $id['projid'])->get(),
+                        'milestones' => CModel\CompanyProject\Milestone::where('projid', '=', $id['projid'])->get(),
                         'candidates' => $candidates,
                     ]
                 )->toArray();

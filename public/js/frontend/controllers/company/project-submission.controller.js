@@ -83,6 +83,8 @@
         vm.submissionForm.jobInfo = vm.submissionForm.company_proj_job_info;
         vm.submissionForm.skills = vm.submissionForm.company_skills;
         vm.submissionForm.candidates = [];
+        console.log(vm.submissionForm);
+        debugger;
         vm.user.company_project.push(vm.submissionForm);
         User.setUser(vm.user);
         console.log(response);

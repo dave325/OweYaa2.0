@@ -18,67 +18,39 @@
       </div>
       <span class="clearfix"></span>
     </form>
+    <div ng-if="vm.resultInfo" class='alert alert-info nav-message col-xs-12' role="alert">
+      <h3 class="text-center">{{vm.resultInfo}}</h3>
+    </div>
     <!-- Results that have been filtered out -->
-    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12">
+    <article class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" ng-if="!vm.noToken">
       <h2 class="text-center">Results</h2>
-      <div class="col-xs-12">
-        <div class="col-md-2">
-          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrsxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-            alt="">
-          <h4 class="specialText">CANDIDATE NAME</h4>
+      <div class="row col-lg-offset-1 col-md-offset-1 INTERN" ng-repeat="user in vm.displayUsers track by $index">
 
-          <button type="button" class="btn btn-success">WANT</button>
-          <button type="button" class="btn btn-success">FAV</button>
+        <div class="col-md-2">
+          <h4 class="specialText">
+            {{user.jobInfo.title}}
+          </h4>
+          <p>{{user.jobInfo.compname}}</p>
+
+          <button type="button" class="btn btn-info" ng-click="vm.addIntern($index)" ng-if="vm.inProj(user)">Want</button>
 
         </div>
-
         <div class="col-md-4">
           <br>
-          <p>Project Manager:</p>
-          <p>Project details:</p>
-          <p>INDUSTRY:</p>
-          <p>LOCATION:</p>
-
-        </div>
-      </div>
-      <div class="col-xs-12">
-        <div class="col-md-2">
-          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-            alt="">
-          <h4 class="specialText">CANDIDATE NAME</h4>
-
-          <button type="button" class="btn btn-success">WANT</button>
-          <button type="button" class="btn btn-success">FAV</button>
-
+          <p>Focus Area: {{user.jobInfo.focusarea}}</p>
+          <p>Position: {{user.jobInfo.position}}</p>
+          <p>Job Type: {{user.jobInfo.jobtype}}</p>
+          <p>Project Description: {{user.jobInfo.projdescription}}</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="skill in user.skills | limitTo: 3">
           <br>
-          <p>Project Manager:</p>
-          <p>Project details:</p>
-          <p>INDUSTRY:</p>
-          <p>LOCATION:</p>
+          <span>{{skill.skill}}</span>
         </div>
       </div>
-      <div class="col-xs-12">
-        <div class="col-md-2">
-          <img class="img-fluid" width="150" height="150" src="https://lh5.ggpht.com/IkVTCbFrxyiCxqnFTIH3pslS_1r9T1UOBb6gsUdgmlfFEYyUABxcKfkSwUWzMmQdbBqE=w300"
-            alt="">
-          <h4 class="specialText">CANDIDATE NAME</h4>
-
-          <button type="button" class="btn btn-success">WANT</button>
-          <button type="button" class="btn btn-success">FAV</button>
-
-        </div>
-
-        <div class="col-md-4">
-          <br>
-          <p>Project Manager:</p>
-          <p>Project Details:</p>
-          <p>INDUTRY:</p>
-          <p>LOCATION:</p>
-        </div>
-      </div>
+      <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-pages="vm.itemsPerPage" class="col-xs-12"></ul>
+      <br/>
+      <br />
     </article>
     <span class="clearfix"></span>
   </section>

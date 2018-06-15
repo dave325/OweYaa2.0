@@ -41,6 +41,7 @@
             updateHours();
         }else{
             $scope.error = "No projects are currently assigned";
+            vm.noProj = true;
         }
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';

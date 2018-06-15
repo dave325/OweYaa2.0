@@ -19,6 +19,9 @@
     if(vm.matchedProj >= 1 && vm.queuedProj >= 1){
       vm.canSubmit = false;
     }
+    vm.submissionForm.company_proj_job_info = {};
+    vm.submissionForm.company_proj_manager_info = {};
+
     vm.submissionForm.projid = vm.user.company_info.username + (vm.user.company_project.length + 1);
     vm.submissionForm.company_proj_job_info.username = vm.user.company_info.username;
     // Stores steps needed to submit project 

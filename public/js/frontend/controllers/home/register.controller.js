@@ -32,6 +32,7 @@
 						}, 2000);
 					}else{
 						alert("Thank you very much! Please call a representative form OweYaa to proceed.");
+						vm.credentials = {};
 					}
 				}
 			}, function (data) {

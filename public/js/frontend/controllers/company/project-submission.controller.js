@@ -76,6 +76,9 @@
         vm.submissionForm.company_proj_manager_info.managerdept = vm.user.company_info.department;
       }
       User.addProjects(vm.submissionForm).then(function (response) {
+        vm.submissionForm.mangerInfo = vm.submissionForm.company_proj_manager_info;
+        vm.submissionForm.jobInfo = vm.submissionForm.company_proj_job_info;
+        vm.submissionForm.skills;
         vm.user.company_project.push(vm.submissionForm);
         User.setUser(vm.user);
         console.log(response);

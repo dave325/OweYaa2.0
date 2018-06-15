@@ -23,7 +23,7 @@ class ExampleController extends Controller
     public function addUser(Request $request)
     {
         // grab credentials from the request
-        $credentials = $request->only('firstname', 'lastname', 'email', 'password', 'type', 'username');
+        $credentials = $request->all();
         $user = new User();
         $user->username = $credentials['username'];
         $user->email = $credentials['email'];

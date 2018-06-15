@@ -12,8 +12,6 @@
 		};
 		// Will make a call to the server and php file
 		vm.doRegister = function (credentials) {
-			console.log(credentials);
-			debugger;
 			var user = {
 				firstname: credentials.firstname,
 				lastname: credentials.lastname,

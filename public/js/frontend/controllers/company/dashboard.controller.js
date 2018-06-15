@@ -21,7 +21,7 @@
             }
         }
         let matchProj = 0;
-        if(vm.matched_project != null){
+        if(vm.matched_project != {}){
             matchProj = 1;
         }else{
             matchProj = 0;

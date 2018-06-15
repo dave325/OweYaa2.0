@@ -39,6 +39,8 @@
                 }
             }
             updateHours();
+        }else{
+            $scope.error = "No projects are currently assigned";
         }
         function getModalPath(modalName) {
             return '/js/frontend/modals/company/project-dashboard/' + modalName + '.modal.view.html';

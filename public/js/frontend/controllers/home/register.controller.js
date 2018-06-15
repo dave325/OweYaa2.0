@@ -1,10 +1,7 @@
 (function () {
 	registerCtrl.$inject = ['User', '$location', '$timeout'];
 	function registerCtrl(User, $location, $timeout) {
-		var vm = this;
-		// Sets error variables
-		vm.formError = " ";
-		// Stores the credentials the users add in
+		var vm = this;		// Stores the credentials the users add in
 		vm.credentials = {
 			username: "",
 			email: "",

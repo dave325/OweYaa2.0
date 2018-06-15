@@ -52,9 +52,12 @@
               if (data.type == 1) {
                 var curUser = data.company_info.username;
                 $location.path('/company/' + curUser + '/dashboard');
-              } else {
+              } else if(data.type == 0) {
                 var curUser = data.contact_info.username;
                 $location.path('/veteran/' + curUser + '/profile');
+              }else{
+                navbarvm.message = "There was an error. Please try again or contact us :)";
+                navbarvm.showMessage = true;
               }
             }, 3000);
           }

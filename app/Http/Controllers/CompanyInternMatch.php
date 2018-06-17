@@ -197,6 +197,8 @@ class CompanyInternMatch extends Controller
         return $users;
     }
     public function mail(){
-        Mail::send("new Message");
+        Mail::raw('Raw string email', function($msg) { $msg->to(['davedataram@gmail.com.com']); $msg->from(['x@x.com']); });
+
+
     }
 }

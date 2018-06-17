@@ -45,7 +45,8 @@
         adminDash.activateComp = function () {
             if (adminDash.compSearch.username && adminDash.compSearch.username.length > 0) {
                 AdminService.activateComp(adminDash.compSearch).then(function (response) {
-                    console.log(response.data.user);
+                    if(response.status === 200)
+                        adminDash.comp.formSuccess = "Successfully updated user";
                 }, function (error) {
                     console.log(error);
                 });

@@ -36,7 +36,8 @@
         </form>
         <form name="internSearch" novalidate id="internSearch" class="col-xs-12 col-md-5 col-md-offset-1">
             <h2>Enter Company to activate account</h2>
-            <div class="alert alert-warning" ng-hide="adminDash.comp.formError.length === 0">{{adminDash.comp.formError}}</div>
+            <div class="alert alert-warning" ng-id="adminDash.comp.formError">{{adminDash.comp.formError}}</div>
+            <div class="alert alert-infp" ng-id="adminDash.comp.formSuccess">{{adminDash.comp.formSuccess}}</div>
             <div class="form-group">
                 <input type="text" name="username" ng-model="adminDash.compSearch.username" class="form-control col-xs-12 col-md-6" />
                 <input type="submit" ng-click="adminDash.activateComp()" value="Search" />

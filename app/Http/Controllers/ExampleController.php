@@ -118,7 +118,7 @@ class ExampleController extends Controller
         // Otherwise, the user doesn't exist. A user not found response will be
         // sent.
         else {
-            return response()->json(['user_not_found'], 400);
+            return response()->json(['user_not_found1'], 400);
         }
     }
 }

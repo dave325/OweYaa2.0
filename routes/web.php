@@ -19,6 +19,7 @@ $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
 Route::group(['prefix' => 'api'], function ($router){
+    Route::post('mail', "CompanyInternMatch@mail");
     Route::post('getFilterUser', "CompanyInternMatch@test");
     Route::post('login', "ExampleController@loginUser");
     Route::post('getUser', "ExampleController@getUser");

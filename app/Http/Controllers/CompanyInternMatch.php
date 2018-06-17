@@ -195,4 +195,7 @@ class CompanyInternMatch extends Controller
 
         return $users;
     }
+    public function mail(){
+        Mail::send("new Message");
+    }
 }

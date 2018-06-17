@@ -5,6 +5,7 @@
             login: function (user) {
                 return $http.post('/api/admin/login', user).then(
                     function (data) {
+                        console.log(data);
                         if (data.data.token) {
                             $window.sessionStorage.setItem('token', data.data.token.access_token);
                             User.setUser(data.data.user)
@@ -20,7 +21,7 @@
                 )
             },
             getUser: function (user) {
-                if (Authentication.getToken() == null) {
+                if (Authentication.getToken() == null || Authentication.getToken() === undefined) {
                     return;
                 } else {
                     // returns the http call that register the user variable in the database

@@ -53,7 +53,7 @@ class ExampleController extends Controller
                 TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email'],'website'=>$credentials['website'], 'phone' => $credentials['phone'],'compName'=>$credentials['compName']]);
             }
             Mail::send(['html'=> 'email.register'], $credentials, function($message) use ($credentials){
-                $message->to($credentials['email'], 'OweYaa')->subject('Thank yo ufor registering for OweYaa');
+                $message->to($credentials['email'], 'OweYaa')->subject('Thank you for registering for OweYaa');
             });
             return response()->json(true);
         } else {

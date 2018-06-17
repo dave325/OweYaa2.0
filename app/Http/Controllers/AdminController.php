@@ -15,7 +15,7 @@ class AdminController extends Controller
         $credentials = $request->only('username', 'password');
         try {
             // attempt to verify the credentials and create a token for the user
-            if (!$token = app('auth')->attempt($credentials)) {
+            if (!$token = AuthController::login($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
         } catch (JWTException $e) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\TableModels\CompanyModels\CompanyProject as Project;
 use \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill as Skill;
 use \SplPriorityQueue;

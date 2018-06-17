@@ -8,6 +8,7 @@
             AdminService.login(adminLogin.user).then(function (response) {
                 if (response.status === 200) {
                     AdminService.getUser({type:2, admin:true}).then(function (data) {
+                        console.log(data);
                         User.setUser(data.data.user);
                         $location.path('/admin/dashboard');
                     }, function (data) {

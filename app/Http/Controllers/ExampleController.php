@@ -113,13 +113,15 @@ class ExampleController extends Controller
         // administrator access, the user is an administrator.
         elseif (array_key_exists('type', $request) && intval($request['type']) == 2) {
             $user = [];
+            $user["username"] = $currUser['username'];
+            $user["type"] = $currUser['type'];
             $user['candidates'] = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type', '=', 0)->get();
             foreach($user['candidates'] as $candidate){
                 $candidate['project'] = $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $candidate['contact_info']['username'])->first();
             }
             $user['companies'] = User::with('companyInfo', 'companyFavorite', 'CompanySearch','cultureSet', 'membershipToken')->where('type', '=', 1)->get();
             foreach($user['companies'] as $company){
-                $company['projects'] = $user['company_project'] = User::companyProject($currUser['username']);
+                $company['projects'] = $user['company_project'] = User::companyProject($company['username']);
             }
             return response()->json(['user' => $user], 200);
         }

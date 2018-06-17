@@ -317,7 +317,7 @@
 
                 controller: function ($scope, $uibModalInstance, CurrUser) {
 
-                    $scope.milestones = vm.user.milestones.slice();
+                    $scope.milestones = vm.curProj.milestones.slice();
 
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 

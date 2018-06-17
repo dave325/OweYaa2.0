@@ -2,6 +2,8 @@
 <html>
     <head></head>
     <body>
-        <p>{!! $credentials->email !!}</p>
+        <p>{!! $email !!}</p>
+        <p>{!! $lastname !!}</p>
+        <p>{!! $firstname !!}</p>
     </body>
 </html>

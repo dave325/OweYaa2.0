@@ -379,6 +379,15 @@
                         }
                     }
 
+                    $scope.onAdd = function () {
+                        let milestone = {
+                            completed: 0,
+                            date: null,
+                            milestone :"Critical Thinking",
+                        }
+                        $scope.milestones.push(milestone);
+                    }
+
                 },
                 windowClass: winClass,
                 resolve: {

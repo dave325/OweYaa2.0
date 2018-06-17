@@ -47,7 +47,7 @@ return [
     |
     */
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'davedataram@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'example@example.vom'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
     'to' => [

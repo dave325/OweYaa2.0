@@ -356,11 +356,10 @@
                     $scope.newSkill = {};
 
                     // Add a new milestone
-                    $scope.addToMilestones = function () {
-                        $scope.newMilestone.milestoneid = $scope.addIndex('milestones').replace(/\s/g, '');
-                        $scope.newMilestone.projid = vm.curProj.jobInfo.projid;
-                        vm.curProj.milestones.push($scope.newMilestone);
-                        $scope.newMilestone = {};
+                    $scope.addToMilestones = function (milestone) {
+                        milestone.milestoneid = $scope.addIndex('milestones').replace(/\s/g, '');
+                        milestone.projid = vm.curProj.jobInfo.projid;
+                        vm.curProj.milestones.push(milestone);
                     }
 
                     $scope.addIndex = function (milestone) {
@@ -385,7 +384,7 @@
                             date: null,
                             milestone :"",
                         }
-                        $scope.milestones.push(milestone);
+                        $scope.addToMilestones(milestone);
                     }
 
                 },

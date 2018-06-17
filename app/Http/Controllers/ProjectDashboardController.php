@@ -78,16 +78,59 @@ class ProjectDashboardController extends Controller
         }
 
         $milestones = Project\Milestone::where('projid', '=', $projectInfo['jobInfo']['projid'])->get();
-        foreach ($milestones as $milestone) {
-            $mId = $milestone->milestoneid;
-            foreach ($projectInfo['milestones'] as $incomingMilestone) {
+        // Prepare to push items onto the delete stack.
+        $delete = array();
 
-                if ($incomingMilestone['milestoneid'] === $mId) {
-                    $milestone->fill($incomingMilestone);
+        // For each of the 'skill' credentials...
+        foreach ($projectInfo['milestones'] as $item) {
+
+            // If the 'skill' needs to be deleted...
+            if (isset($item['delete']) && $item['delete']) {
+
+                // Push a reference to the skillid, primary key, to the
+                // delete stack.
+                array_push($delete, $item['milestoneid']);
+
+            } else {
+
+                // Otherwise, nothing will be deleted.
+                unset($item['delete']);
+
+                try {
+
+                    // Nothing is deleted. Unset the item from deletion.
+                    unset($item['delete']);
+
+                    // Search for the 'skill' credentials by skillid, primary key.
+                    $milestone = Project\Milestone::findOrFail($item['milestoneid']);
+
+                    // Fill in the information.
+                    $milestone->fill($item);
+
+                    // Save and commit all changes to the skill variable.
                     $milestone->save();
-                }
 
+                    // If the skillid is not found...
+                } catch (ModelNotFoundException $me) {
+
+                    // Create a new TableModels object for the skill info.
+                    Project\Milestone::create($item);
+
+                }
             }
+        }
+        // If there are items to be deleted...
+        if (isset($delete)) {
+
+            // Delete the items that are related to the Skill TableModels,
+            // within the delete stack.
+            Project\Milestone::destroy($delete);
+
+            // Remove all of the references within the delete stack.
+            unset($delete);
+
+            // Reset the delete stack.
+            $delete = array();
 
         }
         // Prepare to push items onto the delete stack.
@@ -167,8 +210,8 @@ class ProjectDashboardController extends Controller
                     unset($item['delete']);
 
                     // Search for the 'skill' credentials by skillid, primary key.
-                    $intern = Project\InternHours::where([ 
-                        ['projid','=',$projectInfo['jobInfo']['projid']],
+                    $intern = Project\InternHours::where([
+                        ['projid', '=', $projectInfo['jobInfo']['projid']],
                         ['username', '=', $item['username']],
                     ])->first();
 
@@ -192,9 +235,9 @@ class ProjectDashboardController extends Controller
 
             // Delete the items that are related to the Skill TableModels,
             // within the delete stack.
-            foreach($delete as $id){
+            foreach ($delete as $id) {
                 Project\InternHours::where([
-                    ['projid','=',$projectInfo['jobInfo']['projid']],
+                    ['projid', '=', $projectInfo['jobInfo']['projid']],
                     ['username', '=', $id],
                 ])->delete();
             }

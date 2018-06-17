@@ -1,6 +1,6 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http','$filter'];
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter'];
     function projectDashboardCtrl($scope, User, $uibModal, $http, $filter) {
 
         var vm = this;
@@ -39,7 +39,7 @@
                 }
             }
             updateHours();
-        }else{
+        } else {
             $scope.error = "No projects are currently assigned";
             vm.noProj = true;
         }
@@ -315,15 +315,19 @@
             $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-mstones'),
 
-                controller: function ($scope, $uibModalInstance, CurrUser) {
+                controller: function ($scope, $uibModalInstance) {
 
                     $scope.milestones = vm.curProj.milestones.slice();
 
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
-
+                    $scope.newMilestone = {};
 
                     $scope.ok = function () {
+                        vm.curProj.username = vm.user.company_info.username;
+                        $scope.removeSkill('milestones');
                         updateAll(vm.curProj);
+                        vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                        User.setUser(vm.user);
                         $uibModalInstance.close();
                     };
 
@@ -335,15 +339,46 @@
                         $uibModalInstance.close();
                     };
 
-                    $scope.onDelete = function (milestone) {
-
-                        vm.milestones.splice(milestones.indexOf(milestone), 1);
+                    // Remove any skill in the User object 
+                    $scope.removeMilestone = function (milestone) {
+                        for (let i = 0; i < vm.curProj.milestones.length; i++) {
+                            if (vm.curProj[milestone][i].delete) {
+                                vm.curProj[milestone].splice(i, 1);
+                            }
+                        }
                     }
 
-                    $scope.onAdd = function (milestoneDescription, date, status) {
-
-                        vm.milestones.push(new milestone(milestoneDescription, date, status));
+                    // Delete one of your skills
+                    $scope.deleteSkill = function (index) {
+                        vm.curProj.milestones[index].delete = true;
                     }
+
+                    $scope.newSkill = {};
+
+                    // Add a new milestone
+                    $scope.addToMilestones = function () {
+                        $scope.newMilestone.milestoneid = $scope.addIndex('milestones').replace(/\s/g, '');
+                        $scope.newMilestone.projid = vm.curProj.jobInfo.projid;
+                        vm.curProj.milestones.push($scope.newMilestone);
+                        $scope.newMilestone = {};
+                    }
+
+                    $scope.addIndex = function (milestone) {
+                        let index;
+                        for (let i = 0; i < vm.curProj[milestone].length; i++) {
+                            if (vm.curProj[milestone][i].milestoneid.substr(vm.curProj[milestone][i].milestoneid.length - 1) == (i + 1)) {
+                                continue;
+                            } else {
+                                index = vm.curProj.jobInfo.title + vm.user.company_info.username + (i + 1);
+                            }
+                        }
+                        if (!index) {
+                            return vm.curProj.jobInfo.title + vm.user.company_info.username + (vm.curProj[milestone].length + 1)
+                        } else {
+                            return index;
+                        }
+                    }
+
                 },
                 windowClass: winClass,
                 resolve: {

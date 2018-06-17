@@ -7,10 +7,10 @@
 
         <br>
         <div class="form-group">
-            <label for="usr">{{milestone.description}}</label>
-            <input type="text" class="form-control" id="usr">
+            <label for="usr">{{milestone.milestone}}</label>
+            <input type="text" class="form-control" id="usr" ng-model="milestone.milestone">
         </div> <!-- End of class form-group -->
-        <input type="checkbox" name="checkCompleted"> Completed
+        <input type="checkbox" name="checkCompleted" ng-model="milestone.completed"> Completed
 
         <button class="btn btn-warning btn-sm">Delete</button>
 

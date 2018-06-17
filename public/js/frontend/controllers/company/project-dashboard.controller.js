@@ -317,7 +317,7 @@
 
                 controller: function ($scope, $uibModalInstance, CurrUser) {
 
-                    $scope.milestones = CurrUser.milestones.slice();
+                    $scope.milestones = vm.user.milestones.slice();
 
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
 
@@ -329,8 +329,8 @@
 
 
                     $scope.cancel = function () {
-                        CurrUser.company_project[indexOfCurrentProject] = unmodified;
-                        vm.curProj = CurrUser.company_project[indexOfCurrentProject];
+                        vm.user.company_project[indexOfCurrentProject] = unmodified;
+                        vm.curProj = vm.user.company_project[indexOfCurrentProject];
 
                         $uibModalInstance.close();
                     };

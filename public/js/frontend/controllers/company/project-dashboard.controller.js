@@ -325,6 +325,7 @@
                     $scope.ok = function () {
                         vm.curProj.username = vm.user.company_info.username;
                         $scope.removeMilestone('milestones');
+                        vm.curProj.milestones = $scope.milestones;
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);

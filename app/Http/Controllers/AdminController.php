@@ -85,7 +85,7 @@ class AdminController extends Controller
     }
     public function activateComp(Request $rq){
         $username = $rq->only('username');
-        App\TableModels\CompanyModels\CompanyInfo::where('username', '=',$username)->update(['initiated'=>1]);
+        \App\TableModels\CompanyModels\CompanyInfo::where('username', '=',$username)->update(['initiated'=>1]);
         return response()->json(['success'=>true],200);
     }
 }

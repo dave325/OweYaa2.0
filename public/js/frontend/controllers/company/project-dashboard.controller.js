@@ -324,7 +324,7 @@
 
                     $scope.ok = function () {
                         vm.curProj.username = vm.user.company_info.username;
-                        $scope.removeSkill('milestones');
+                        $scope.removeMilestone('milestones');
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
@@ -341,16 +341,16 @@
 
                     // Remove any skill in the User object 
                     $scope.removeMilestone = function (milestone) {
-                        for (let i = 0; i < vm.curProj.milestones.length; i++) {
-                            if (vm.curProj[milestone][i].delete) {
-                                vm.curProj[milestone].splice(i, 1);
+                        for (let i = 0; i < $scope.milestones.length; i++) {
+                            if ($scope[milestone][i].delete) {
+                                $scope[milestone].splice(i, 1);
                             }
                         }
                     }
 
                     // Delete one of your skills
                     $scope.deleteSkill = function (index) {
-                        vm.curProj.milestones[index].delete = true;
+                        $scope.milestones[index].delete = true;
                     }
 
                     $scope.newSkill = {};
@@ -359,13 +359,13 @@
                     $scope.addToMilestones = function (milestone) {
                         milestone.milestoneid = $scope.addIndex('milestones').replace(/\s/g, '');
                         milestone.projid = vm.curProj.jobInfo.projid;
-                        vm.curProj.milestones.push(milestone);
+                        $scope.milestones.push(milestone);
                     }
 
                     $scope.addIndex = function (milestone) {
                         let index;
                         for (let i = 0; i < vm.curProj[milestone].length; i++) {
-                            if (vm.curProj[milestone][i].milestoneid.substr(vm.curProj[milestone][i].milestoneid.length - 1) == (i + 1)) {
+                            if ($scope[milestone][i].milestoneid.substr($scope[milestone][i].milestoneid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
                                 index = vm.curProj.jobInfo.title + vm.user.company_info.username + (i + 1);

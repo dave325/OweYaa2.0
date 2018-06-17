@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\TableModels\CompanyModels\CompanyProject as Project;
 use \App\TableModels\CompanyModels\CompanyProject\CompanyProjectSkill as Skill;
 use \SplPriorityQueue;
@@ -195,10 +194,5 @@ class CompanyInternMatch extends Controller
          */
 
         return $users;
-    }
-    public function mail(){
-        Mail::raw('Raw string email', function($msg) { $msg->to(['davedataram@gmail.com.com']); $msg->from(['x@x.com']); });
-
-
     }
 }

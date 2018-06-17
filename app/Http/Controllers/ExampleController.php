@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MilitaryUser;
 use App\TableModels;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -51,6 +52,9 @@ class ExampleController extends Controller
                 TableModels\CompanyModels\CompanyProject\MembershipToken::create(['username' => $credentials['username'], 'totalhours'=>0,'currenthours'=>0]);
                 TableModels\CompanyModels\CompanyInfo::create(["firstname" => $credentials['firstname'],"lastname" => $credentials['lastname'], 'username' => $credentials['username'], 'email' => $credentials['email'],'website'=>$credentials['website'], 'phone' => $credentials['phone'],'compName'=>$credentials['compName']]);
             }
+            Mail::to($credentials['email'])->send(['html'=> 'emails.register'], $credentials, function($message){
+                $message->to($credentials['email'], 'OweYaa')->subject('Thank yo ufor registering for OweYaa');
+            });
             return response()->json(true);
         } else {
             return response()->json(['error' => 'User not Created'], 500);

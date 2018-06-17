@@ -24,13 +24,40 @@
 		}, function (error) {
 			console.log(error);
 		});
-	}
 
-	vetIntern.inProj = function (user) {
-		if (user.jobInfo.initiated == 1) {
-			user.inProj = true;
-		} else {
-			user.inProj = false;
+		vetIntern.inProj = function (user) {
+			if (user.jobInfo.initiated == 1) {
+				user.inProj = true;
+			} else {
+				user.inProj = false;
+			}
+		}
+
+		vm.addProj = function (internid) {
+			if (User.getUser()) {
+				var m = $uibModal.open({
+					templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
+					controller: 'selectInternModalCtrl',
+					controllerAs: 'selectInternvm',
+					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
+					backdrop: false,
+					keyboard: false,
+					resolve: {
+						CurrUser: function () {
+							return { user: vm.users[internid] };
+						}
+					}
+				});
+				m.result.then(function (response) {
+					vm.resultInfo = "Successfully added candidate to project!";
+					vm.users[internid].inProj = true;
+					$timeout(function () {
+						vm.resultInfo = "";
+					}, 1500);
+				}, function (error) {
+					console.log(error);
+				});
+			}
 		}
 	}
 	angular

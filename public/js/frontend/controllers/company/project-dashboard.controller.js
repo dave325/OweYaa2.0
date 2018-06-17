@@ -383,7 +383,7 @@
                         let milestone = {
                             completed: 0,
                             date: null,
-                            milestone :"Critical Thinking",
+                            milestone :"",
                         }
                         $scope.milestones.push(milestone);
                     }

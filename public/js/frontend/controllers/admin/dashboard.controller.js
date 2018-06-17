@@ -5,7 +5,6 @@
         adminDash.internSearch = {};
         adminDash.formError = "";
         adminDash.user = User.getUser();
-        console.log(adminDash.user);
         adminDash.numProjects = 0;
         adminDash.numInterviewed = 0;
         adminDash.vetInProject = 0;
@@ -41,6 +40,17 @@
                 });
             } else {
                 adminDash.formError = "Please include a veteran username!";
+            }
+        }
+        adminDash.activateComp = function () {
+            if (adminDash.compSearch.username && adminDash.compSearch.username.length > 0) {
+                AdminService.activateComp(adminDash.compSearch).then(function (response) {
+                    console.log(response.data.user);
+                }, function (error) {
+                    console.log(error);
+                });
+            } else {
+                adminDash.comp.formError = "Please include a company username!";
             }
         }
     }

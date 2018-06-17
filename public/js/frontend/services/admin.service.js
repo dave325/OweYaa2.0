@@ -44,6 +44,9 @@
             },
             retrieveCompInfo: function () {
                 return $http.post('/api/admin/retrieveComp');
+            },
+            activateComp: function(data){
+                return $http.post('/api/admin/activateComp');
             }
         }
         return adminService;

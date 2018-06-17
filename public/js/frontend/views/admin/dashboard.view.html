@@ -1,7 +1,8 @@
 <style>
-    #adminDashboard section{
+    #adminDashboard section {
         margin-top: 30px;
     }
+
     #adminDashboard #stats {
         background-color: rgb(211, 211, 211);
         border: 1px solid rgb(247, 159, 75);
@@ -18,9 +19,9 @@
         <h1>Admin Dashboard</h1>
         <article id="stats" class="col-xs-12 col-md-3 col-md-offset-1">
             <h2>Statistics for OweYaa users</h2>
-            <p>Number of companies: {{adminDash.compInfo.length}}</p>
+            <p>Number of companies: {{adminDash.user.companies.length}}</p>
             <p>Number of projects: {{adminDash.numProjects}}</p>
-            <p>Number of Veterans: {{adminDash.vet.length}}</p>
+            <p>Number of Veterans: {{adminDash.user.candidates.length}}</p>
             <p>Number of Veterans in projects: {{adminDash.vetInProject}}</p>
             <p>Number of Veterans Interviewed: {{adminDash.numInterviewed}}</p>
         </article>
@@ -30,8 +31,20 @@
             <div class="form-group">
                 <input type="text" name="username" ng-model="adminDash.internSearch.username" class="form-control col-xs-12 col-md-6" />
                 <input type="submit" ng-click="adminDash.retrieveVet()" value="Search" />
-            </div> <!-- End of class form-group -->
+            </div>
+            <!-- End of class form-group -->
         </form>
+        <form name="internSearch" novalidate id="internSearch" class="col-xs-12 col-md-5 col-md-offset-1">
+            <h2>Enter Company to activate account</h2>
+            <div class="alert alert-warning" ng-hide="adminDash.comp.formError.length === 0">{{adminDash.comp.formError}}</div>
+            <div class="form-group">
+                <input type="text" name="username" ng-model="adminDash.compSearch.username" class="form-control col-xs-12 col-md-6" />
+                <input type="submit" ng-click="adminDash.activateComp()" value="Search" />
+            </div>
+            <!-- End of class form-group -->
+        </form>
+
     </section>
     <footer-base></footer-base>
-</div> <!-- End of id adminDashboard -->
+</div>
+<!-- End of id adminDashboard -->

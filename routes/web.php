@@ -60,6 +60,7 @@ Route::group(['prefix' => 'api'], function ($router){
         Route::post('retrieveVet','AdminController@retrieveVet');
         Route::post('retrieveAllVet','AdminController@retrieveAllVet');
         Route::post('retrieveComp','AdminController@retrieveComp');
+        Route::post('activateComp','AdminController@activateComp');
         // Need to implement
         Route::post('matchComp','AdminController@matchComp');
     });

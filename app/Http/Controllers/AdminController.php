@@ -83,4 +83,9 @@ class AdminController extends Controller
         }
         return response()->json(['user' => compact('companies')], 200);
     }
+    public function activateComp(Request $rq){
+        $username = $rq->only('username');
+        App\TableModels\CompanyModels\CompanyInfo::where('username', '=',$username)->update(['initiated'=>1]);
+        return response()->json(['success'=>true],200);
+    }
 }

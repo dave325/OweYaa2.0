@@ -5,7 +5,6 @@
             login: function (user) {
                 return $http.post('/api/admin/login', user).then(
                     function (data) {
-                        console.log(data);
                         if (data.data.token.token) {
                             $window.sessionStorage.setItem('token', data.data.token.token.access_token);
                             User.setUser(data.data.token.user)

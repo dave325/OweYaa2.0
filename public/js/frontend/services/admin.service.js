@@ -25,7 +25,7 @@
                 } else {
                     // returns the http call that register the user variable in the database
                     return $http({
-                        url: '/api/check',
+                        url: '/api/getUser',
                         method: 'POST',
                         data: { type:user.type,admin:user.admin },
                         headers: {

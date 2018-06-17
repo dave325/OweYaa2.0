@@ -7,7 +7,6 @@
                     function (data) {
                         if (data.data.token.token) {
                             $window.sessionStorage.setItem('token', data.data.token.token.access_token);
-                            User.setUser(data.data.token.user)
                             // Returns the user data object to the login modal
                             return data;
                         } else {

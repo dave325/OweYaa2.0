@@ -326,6 +326,9 @@
                         vm.curProj.username = vm.user.company_info.username;
                         $scope.removeMilestone('milestones');
                         vm.curProj.milestones = $scope.milestones;
+                        console.log(vm.curProj);
+                        console.log($scope.milestones);
+                        debugger;
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
@@ -365,7 +368,7 @@
 
                     $scope.addIndex = function (milestone) {
                         let index;
-                        for (let i = 0; i < vm.curProj[milestone].length; i++) {
+                        for (let i = 0; i < $scope[milestone].length; i++) {
                             if ($scope[milestone][i].milestoneid.substr($scope[milestone][i].milestoneid.length - 1) == (i + 1)) {
                                 continue;
                             } else {
@@ -373,7 +376,7 @@
                             }
                         }
                         if (!index) {
-                            return vm.curProj.jobInfo.title + vm.user.company_info.username + (vm.curProj[milestone].length + 1)
+                            return vm.curProj.jobInfo.title + vm.user.company_info.username + ($scope[milestone].length + 1)
                         } else {
                             return index;
                         }

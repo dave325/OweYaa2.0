@@ -8,7 +8,7 @@
         navbarvm.user = User.getUser().company_info.username;
       } else if (User.getUser().type == 0) {
         navbarvm.user = User.getUser().contact_info.username;
-      } else if(User.getUser().user.type == 2){
+      } else if(User.getUser().type == 2){
         navbarvm.user = User.getUser().username;
       } {
         navbarvm.user = '';

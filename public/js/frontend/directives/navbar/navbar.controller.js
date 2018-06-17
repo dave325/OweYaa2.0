@@ -10,7 +10,7 @@
         navbarvm.user = User.getUser().contact_info.username;
       } else if(User.getUser().type == 2){
         navbarvm.user = User.getUser().username;
-      } {
+      }else {
         navbarvm.user = '';
       }
     } else {

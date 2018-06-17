@@ -138,9 +138,9 @@
             <h4 class="task">{{milestone.milestone}}</h4>
             <p>
               <span class="completionDate">Completion Date: {{milestone.date  | date: 'shortDate'}}</span>
-              <br /> Is Completed?
-              <span class="completionText" ng-if="milestone.completed === 0">No</span>
-              <span class="completionText" ng-if="milestone.completed === 1">Yes</span>
+              <br /> Is Completed? 
+              <span class="completionText" ng-if="milestone.completed == 0">No</span>
+              <span class="completionText" ng-if="milestone.completed == 1">Yes</span>
             </p>
 
           </div>

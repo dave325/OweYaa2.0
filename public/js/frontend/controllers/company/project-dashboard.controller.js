@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter'];
-    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter) {
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location'];
+    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location) {
 
         var vm = this;
 

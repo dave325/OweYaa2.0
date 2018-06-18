@@ -200,7 +200,10 @@
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
-
+                    $scope.getAddOnHours = function(){
+                        $location.path('/company/' + vm.user.company_info.userame + '/add-on');
+                        $scope.cancel();
+                    }
                     let hours = 0;
                     $scope.updateTotalHours = function (intern) {
                         hours = 0;

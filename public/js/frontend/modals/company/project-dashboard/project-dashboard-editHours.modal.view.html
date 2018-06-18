@@ -5,7 +5,7 @@
 
 <div class="modal-body" id="proj-dashboard-Milestones">
     <h2 class="alert alert-danger text-center" ng-if="error">{{error}}</h2>
-    <h3 class="alert alert-info text-center" ng-if="error"><a href="/company/{{vm.user.company_info.username}}/add-on">Click here to get additional hours for your project!</a> </h3>
+    <h3 class="alert alert-info text-center" ng-if="error"><a ng-click="getAddOnHours()">Click here to get additional hours for your project!</a> </h3>
     <h2 ng-if="!error"> Remaining hours: {{vm.user.membership_token.totalhours - vm.user.membership_token.currenthours}}</h2>
     <table class="table table-striped col-xs-12">
         <thead>

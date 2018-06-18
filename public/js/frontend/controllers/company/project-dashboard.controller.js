@@ -27,13 +27,13 @@
                     hours += vm.curProj.candidates[i].hours;
                 }
                 if ((hours - vm.user.membership_token.totalhours) === 0) {
-                    $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
+                    $scope.error = "You have reached the # of hours that the account can use by. Please purchase more hours!";
                 }
                 else if (hours > vm.user.membership_token.totalhours) {
-                    $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                    $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Please purchase more hours!";
                 }
                 else if (hours >= vm.user.membership_token.totalhours - 10) {
-                    $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
+                    $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Please purchase more hours";
                 } else {
                     $scope.error = null;
                 }
@@ -212,16 +212,16 @@
                             hours += vm.curProj.candidates[i].hours;
                         }
                         if ((hours - vm.user.membership_token.totalhours) === 0) {
-                            $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the # of hours that the account can use by. Please purchase more hours!";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         }
                         else if (hours > vm.user.membership_token.totalhours) {
-                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Please purchase more hours!";
                             $scope.isDisabled = true;
                         }
                         else if (hours >= vm.user.membership_token.totalhours - 10) {
-                            $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
+                            $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Please purchase more hours";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         } else {
@@ -240,16 +240,16 @@
                             hours += vm.curProj.candidates[i].hours;
                         }
                         if ((hours - vm.user.membership_token.totalhours) === 0) {
-                            $scope.error = "You have reached the # of hours that the account can use by. Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the # of hours that the account can use by. Please purchase more hours!";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         }
                         else if (hours > vm.user.membership_token.totalhours) {
-                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Please purchase more hours!";
                             $scope.isDisabled = true;
                         }
                         else if (hours >= vm.user.membership_token.totalhours - 10) {
-                            $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Additional hours will be charged to your account or you may purchase more hours!";
+                            $scope.error = "You are close to the limit of hours that the account can use. You have " + (vm.user.membership_token.totalhours - hours) + " remaining. Please purchase more hours";
                             vm.user.membership_token.currenthours = hours;
                             $scope.isDisabled = false;
                         } else {
@@ -261,7 +261,7 @@
                     updateHours();
                     $scope.ok = function () {
                         if (vm.user.membership_token.currenthours > vm.user.membership_token.totalhours) {
-                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Additional hours will be charged to your account!";
+                            $scope.error = "You have reached the limit of hours that the account can use by " + (hours - vm.user.membership_token.totalhours) + ". Please purchase more hours!";
                             $scope.isDisabled = false;
                         } else {
                             updateAll(vm.curProj);

@@ -331,7 +331,6 @@
                         vm.curProj.milestones = $scope.milestones;
                         console.log(vm.curProj);
                         console.log($scope.milestones);
-                        debugger;
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);

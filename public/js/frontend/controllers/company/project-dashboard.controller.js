@@ -331,6 +331,9 @@
                         vm.curProj.milestones = $scope.milestones;
                         console.log(vm.curProj);
                         console.log($scope.milestones);
+                        for(let i = 0; i < vm.curProj.milestones.length; i++){
+                            vm.curProj.milestones[i].date = new Date($filter('date')(vm.curProj.milestones[i].date, "yyyy-MM-dd"));
+                        }
                         updateAll(vm.curProj);
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);

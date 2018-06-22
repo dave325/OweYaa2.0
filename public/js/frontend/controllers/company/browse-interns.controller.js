@@ -20,6 +20,7 @@
                     var req = {
                         method: 'POST',
                         url: '/api/matching',
+                        data:vm.user,
                         headers: {
                             "Authorization": "Bearer " + Authentication.getToken()
                         }

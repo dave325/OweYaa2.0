@@ -17,8 +17,12 @@ class CompanyInternMatch extends Controller
 
     private $skillsList;
     private $pq;
-    private $companyLocation = array(40, -74);
+    private $companyLocation;
 
+    public function constructor(Request $rq){
+
+        $companyLocation = array()
+    }
     /**
      * isValid
      *
@@ -155,11 +159,11 @@ class CompanyInternMatch extends Controller
 
     }
 
-    private function filter($attendedCollFlag, $maxDistance)
+    private function filter(Request $rq, $attendedCollFlag, $maxDistance)
     {
-
-        $compLatitude = $this->companyLocation[0];
-        $compLongitude = $this->companyLocation[1];
+        $location = $rq['company_info'];
+        $compLatitude = $location['latitude'];
+        $compLongitude = $location['longitude'];
 
         $users = User::with('education', 'contactInfo', 'skill')
 

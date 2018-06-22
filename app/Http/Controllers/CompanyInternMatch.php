@@ -19,10 +19,6 @@ class CompanyInternMatch extends Controller
     private $pq;
     private $companyLocation;
 
-    public function constructor(Request $rq){
-
-        $companyLocation = array()
-    }
     /**
      * isValid
      *

@@ -80,7 +80,7 @@ class ProjectDashboardController extends Controller
         $milestones = Project\Milestone::where('projid', '=', $projectInfo['jobInfo']['projid'])->get();
         // Prepare to push items onto the delete stack.
         $delete = array();
-
+        return response()->json($projectInfo['milestones'] );
         // For each of the 'skill' credentials...
         foreach ($projectInfo['milestones'] as $item) {
 

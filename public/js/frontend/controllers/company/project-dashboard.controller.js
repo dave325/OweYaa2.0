@@ -344,7 +344,7 @@
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-
+                        
                         $uibModalInstance.close();
                     };
 

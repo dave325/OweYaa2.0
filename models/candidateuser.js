@@ -7,7 +7,7 @@ var BookSchema = new mongoose.Schema({
 
   about: {
     bio:          String,
-    social media: [String],
+    social_media: [String],
     ethnicity:    String,
     age:          Number,
     Gender:       String,

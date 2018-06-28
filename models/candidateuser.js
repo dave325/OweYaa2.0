@@ -12,7 +12,7 @@ var BookSchema = new mongoose.Schema({
     age:          Number,
     Gender:       String,
     isVet:        Boolean
-  }
+  },
 
   contact_info: {
     phone:      String,
@@ -21,7 +21,7 @@ var BookSchema = new mongoose.Schema({
     longitude:  Number,
     latitude:   Number,
     address:    String
-  }
+  },
 
   military: {
     branch:           String,
@@ -30,7 +30,7 @@ var BookSchema = new mongoose.Schema({
     disability:       String,
     discharge status: Boolean,
     social benefits:  String,
-  }
+  },
 
   achievements: {
     bootcamp:       String,
@@ -38,14 +38,14 @@ var BookSchema = new mongoose.Schema({
     course:         String,
     skills:         String,
     wanted_skills:  String
-  }
+  },
 
   education: {
     highest:             String,
     school:              [String],
     degree:              String,
     currently_attending: Boolean
-  }
+  },
 
   career{
     previous_fields:  {},
@@ -57,7 +57,7 @@ var BookSchema = new mongoose.Schema({
     interviews:       String,
     focus_area:       String,
     position:         Number
-  }
+  },
 
   Mentor{
     first:    String,

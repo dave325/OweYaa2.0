@@ -2,14 +2,15 @@ var mongoose = require('mongoose');
 
 var BookSchema = new mongoose.Schema({
   // ex isbn: String,
-  email:String,
+  email:      String,
+  intiated:   { type: Date, default: Date.now },
 
   about: {
     bio:          String,
-    social media: {},
+    social media: [String],
     ethnicity:    String,
     age:          Number,
-    Gender:       Char,
+    Gender:       String,
     isVet:        Boolean
   }
 
@@ -24,7 +25,7 @@ var BookSchema = new mongoose.Schema({
 
   military: {
     branch:           String,
-    MOS/MOSC:         String,
+    mosc_mosc:        String,
     rank:             String,
     disability:       String,
     discharge status: Boolean,
@@ -40,9 +41,9 @@ var BookSchema = new mongoose.Schema({
   }
 
   education: {
-    highest:    String,
-    school:     String,
-    degree:     String,
+    highest:             String,
+    school:              [String],
+    degree:              String,
     currently_attending: Boolean
   }
 
@@ -61,6 +62,10 @@ var BookSchema = new mongoose.Schema({
   Mentor{
     first:    String,
     last:     String,
-    relation: String
+    relation: String,
+    contact: {
+      email: String,
+      phone: String
+    }
   }
 });

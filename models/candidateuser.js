@@ -28,8 +28,8 @@ var BookSchema = new mongoose.Schema({
     mosc_mosc:        String,
     rank:             String,
     disability:       String,
-    discharge status: Boolean,
-    social benefits:  String,
+    discharge_status: Boolean,
+    social_benefits:  String,
   },
 
   achievements: {
@@ -47,8 +47,8 @@ var BookSchema = new mongoose.Schema({
     currently_attending: Boolean
   },
 
-  career{
-    previous_fields:  {},
+  career: {
+    previous_fields:  [String],
     career_goals:     String,
     last_income:      Number,
     employ_status:    Boolean,
@@ -59,7 +59,7 @@ var BookSchema = new mongoose.Schema({
     position:         Number
   },
 
-  Mentor{
+  Mentor: {
     first:    String,
     last:     String,
     relation: String,

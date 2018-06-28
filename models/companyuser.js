@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://oweyaa:password1@ds247449.mlab.com:47449/oweyaa');
 
 var CompanySchema = new mongoose.Schema({
     

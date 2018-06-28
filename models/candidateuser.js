@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://oweyaa:password1@ds247449.mlab.com:47449/oweyaa');
 
-var BookSchema = new mongoose.Schema({
+
+var CandidateUserSchema = new mongoose.Schema({
   // ex isbn: String,
   email:      String,
   intiated:   { type: Date, default: Date.now },
@@ -69,3 +71,5 @@ var BookSchema = new mongoose.Schema({
     }
   }
 });
+
+module.exports = mongoose.model('CandidateUser',CandidateUserSchema);

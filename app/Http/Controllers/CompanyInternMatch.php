@@ -112,7 +112,7 @@ class CompanyInternMatch extends Controller
             
         
            
-            $filtered = $this->filter(true, 500, null);
+            $filtered = $this->filter(true, 500, $request);
 
             for ($i = 0; $i < count($filtered); $i++) {
                 $this->pq->insert($filtered[$i], $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));

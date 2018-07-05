@@ -155,7 +155,7 @@ class CompanyInternMatch extends Controller
 
     }
 
-    private function filter(Request $rq, $attendedCollFlag, $maxDistance)
+    private function filter($attendedCollFlag, $maxDistance,Request $rq)
     {
         $location = $rq['company_info'];
         $compLatitude = $location['latitude'];

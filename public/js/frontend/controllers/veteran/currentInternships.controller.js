@@ -6,21 +6,21 @@
 		User.getAllProjects().then(function (response) {
 			console.log(response.data);
 			vetIntern.projects = response.data;
-			vm.totalItems = vetIntern.projects.length;
-			vm.currentPage = 1;
-			vm.itemsPerPage = 5;
+			vetIntern.totalItems = vetIntern.projects.length;
+			vetIntern.currentPage = 1;
+			vetIntern.itemsPerPage = 5;
 			$scope.$watch("vetIntern.currentPage", function () {
-				setPagingData(vm.currentPage);
+				setPagingData(vetIntern.currentPage);
 			});
 
 			function setPagingData(page) {
 				var pagedData = vetIntern.projects.slice(
-					(page - 1) * vm.itemsPerPage,
-					page * vm.itemsPerPage
+					(page - 1) * vetIntern.itemsPerPage,
+					page * vetIntern.itemsPerPage
 				);
-				vm.displayUsers = pagedData;
+				vetIntern.displayUsers = pagedData;
 			}
-			setPagingData(vm.currentPage);
+			setPagingData(vetIntern.currentPage);
 		}, function (error) {
 			console.log(error);
 		});
@@ -33,26 +33,26 @@
 			}
 		}
 
-		vm.addProj = function (internid) {
+		vetIntern.addProj = function (internid) {
 			if (User.getUser()) {
 				var m = $uibModal.open({
 					templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
 					controller: 'selectInternModalCtrl',
-					controllerAs: 'selectInternvm',
+					controllerAs: 'selectInternvetIntern',
 					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
 					backdrop: false,
 					keyboard: false,
 					resolve: {
 						CurrUser: function () {
-							return { user: vm.users[internid] };
+							return { user: vetIntern.users[internid] };
 						}
 					}
 				});
 				m.result.then(function (response) {
-					vm.resultInfo = "Successfully added candidate to project!";
-					vm.users[internid].inProj = true;
+					vetIntern.resultInfo = "Successfully added candidate to project!";
+					vetIntern.users[internid].inProj = true;
 					$timeout(function () {
-						vm.resultInfo = "";
+						vetIntern.resultInfo = "";
 					}, 1500);
 				}, function (error) {
 					console.log(error);

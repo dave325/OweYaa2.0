@@ -112,7 +112,7 @@ class CompanyInternMatch extends Controller
             
         
            
-            $filtered = $this->filter(true, 500);
+            $filtered = $this->filter(true, 500, null);
 
             for ($i = 0; $i < count($filtered); $i++) {
                 $this->pq->insert($filtered[$i], $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
@@ -155,7 +155,7 @@ class CompanyInternMatch extends Controller
 
     }
 
-    private function filter($attendedCollFlag, $maxDistance,Request $rq)
+    private function filter($attendedCollFlag, $maxDistance, Request $rq)
     {
         $location = $rq['company_info'];
         $compLatitude = $location['latitude'];

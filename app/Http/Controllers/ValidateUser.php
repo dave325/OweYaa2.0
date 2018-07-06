@@ -375,9 +375,6 @@ class ValidateUser extends Controller
                     // Otherwise, the "interviews" credentials will not be deleted.
                     unset($item['delete']);
 
-                    // Add or update the contact info for the name of the person.
-                    $item['name'] = $credentials['contact_info']['name'];
-
                     try {
 
                         // Search for an interviewid, containing "interviews"

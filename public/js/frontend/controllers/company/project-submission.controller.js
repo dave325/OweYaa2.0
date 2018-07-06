@@ -71,7 +71,6 @@
         });
       }
       console.log(vm.submissionForm);
-      debugger;
       vm.submissionForm.skills = null;
       if (vm.submissionForm.company_proj_manager_info.ismanager) {
         vm.submissionForm.company_proj_manager_info.managername = vm.user.company_info.firstname + vm.user.company_info.lastname;

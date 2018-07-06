@@ -17,10 +17,14 @@
     educationvm.newCourse = {};
     educationvm.newBootcamp = {};
 
+    educationvm.cert = educationvm.user.certifications;
+    educationvm.course = education.user.course;
+    educationvm.bootcamp = education.user.bootcamp;
     // Add a new certification
     educationvm.addToCertifications = function () {
       educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');
       educationvm.user.certifications.push(educationvm.newCertification);
+      education.certifications.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }
 
@@ -28,6 +32,7 @@
     educationvm.addToCourses = function () {
       educationvm.newCourse.courseid = educationvm.addIndex('course', 'courseid');
       educationvm.user.course.push(educationvm.newCourse);
+      education.course.push(educationvm.course);
       educationvm.newCourse = {};
     }
 
@@ -35,6 +40,7 @@
     educationvm.addToBootcamps = function () {
       educationvm.newBootcamp.bootcampid = educationvm.addIndex('bootcamp', 'bootcampid');
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
+      educationvm.bootcamp.push(educationvm.bootcamp);
       educationvm.newBootcamp = {};
     }
 
@@ -46,16 +52,19 @@
     // Delete one of your certifications
     educationvm.deleteCertification = function (index) {
       educationvm.user.certifications[index].delete = true;
+      educationvm.certifications.splice(index,1);
     }
 
     // Delete one of your courses
     educationvm.deleteCourse = function (index) {
       educationvm.user.course[index].delete = true;
+      educationvm.course.splice(index,1);
     }
 
     // Delete one of your bootcamps
     educationvm.deleteBootcamp = function (index) {
       educationvm.user.bootcamp[index].delete = true;
+      educationvm.bootcamp.splice(index,1);
     }
 
     // The function that is call when a user cancels the opening of a modal

@@ -96,8 +96,8 @@
               </div>
               <br />
               <!-- End of div on line 52 -->
-              <ol ng-if="educationvm.user.bootcamp.length > 0">
-                <li ng-repeat="field in educationvm.user.bootcamp track by $index" class="col-md-5">
+              <ol ng-if="educationvm.bootcamp.length > 0">
+                <li ng-repeat="field in educationvm.bootcamp track by $index" class="col-md-5">
                   <input type="text" ng-model="field.bootcamp" class="form-control">
                   <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteBootcamp($index)"></span>
                 </li>
@@ -123,8 +123,8 @@
               </div>
               <br />
               <!-- End of div on line 73 -->
-              <ol ng-if="educationvm.user.course.length > 0">
-                <li ng-repeat="field in educationvm.user.course track by $index" class="col-md-5">
+              <ol ng-if="educationvm.course.length > 0">
+                <li ng-repeat="field in educationvm.course track by $index" class="col-md-5">
                   <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                   <input type="text" ng-model="field.course" class="form-control">
                   <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCourse($index)"></span>
@@ -151,8 +151,8 @@
               </div>
               <br />
               <!-- End of div on line 94 -->
-              <ol ng-if="educationvm.user.certifications.length > 0">
-                <li ng-repeat="field in educationvm.user.certifications track by $index" class="col-md-5">
+              <ol ng-if="educationvm.certifications.length > 0">
+                <li ng-repeat="field in educationvm.certifications track by $index" class="col-md-5">
                   <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                   <input type="text" ng-model="field.certification" class="form-control">
                   <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>

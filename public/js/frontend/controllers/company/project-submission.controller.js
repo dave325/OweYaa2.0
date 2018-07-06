@@ -71,7 +71,6 @@
         });
       }
       console.log(vm.submissionForm);
-      debugger;
       vm.submissionForm.skills = null;
       if (vm.submissionForm.company_proj_manager_info.ismanager) {
         vm.submissionForm.company_proj_manager_info.managername = vm.user.company_info.firstname + vm.user.company_info.lastname;
@@ -84,7 +83,6 @@
         vm.submissionForm.skills = vm.submissionForm.company_skills;
         vm.submissionForm.candidates = [];
         console.log(vm.submissionForm);
-        debugger;
         vm.user.company_project.push(vm.submissionForm);
         User.setUser(vm.user);
         console.log(response);

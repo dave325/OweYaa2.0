@@ -163,7 +163,7 @@ class CompanyInternMatch extends Controller
         $users = NULL;
        
         if($compLatitude === null && $compLongitude === null){
-            $users = User::with('education', 'contactInfo', 'skill')->toArray();
+            $users = User::with('education', 'contactInfo', 'skill')->get();
         }else{
         /*
         $compLatitude = 40;

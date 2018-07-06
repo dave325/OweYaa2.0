@@ -31,7 +31,7 @@
                             let temp = response.data;
                             console.log(response);
                             User.getFavUsers(vm.user).then(function (response) {
-                                vm.favUsers = response.data.projects;
+                                vm.favUsers = response.data;
                                 for (let j = 0; j < temp.length - 1; j++) {
                                     for (let i = 0; i < response.data.projects.length; i++) {
                                         if (temp[j].contact_info != null && temp[j].contact_info.username === response.data.projects[i].user.contact_info.username) {

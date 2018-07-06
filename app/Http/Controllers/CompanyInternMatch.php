@@ -112,7 +112,8 @@ class CompanyInternMatch extends Controller
             
         
            
-            $filtered = $this->filter(true, 500, $request);
+            $filtered = $this->filter(true, 500, $request->all());
+
 
             for ($i = 0; $i < count($filtered); $i++) {
                 $this->pq->insert($filtered[$i], $this->getSkillPoints($filtered[$i]->skill->pluck('skill')->toArray()));
@@ -155,15 +156,19 @@ class CompanyInternMatch extends Controller
 
     }
 
-    private function filter($attendedCollFlag, $maxDistance, Request $rq)
+    private function filter( $attendedCollFlag, $maxDistance, $rq)
     {
         $location = $rq['company_info'];
         $compLatitude = $location['latitude'];
         $compLongitude = $location['longitude'];
-
-        return response($compLatitude, 200);
-
-        $users = User::with('education', 'contactInfo', 'skill')
+        $users = NULL;
+        if($compLatitude == NULL && $compLongitude ==NULL)
+        {
+            $users = User::with('education', 'contactInfo', 'skill');
+        }
+        else
+        {
+          $users = User::with('education', 'contactInfo', 'skill')
 
             ->whereHas('contactinfo',
                 function ($query) use ($compLatitude, $compLongitude, $maxDistance) {
@@ -184,6 +189,11 @@ class CompanyInternMatch extends Controller
                     $query->where('attendedcollege', '=', '$attendedCollFlag');
 
                 })->get();
+                
+        }
+
+        return $users;
+        
 
         /*
         var_dump(DB::select(DB::raw("
@@ -194,7 +204,5 @@ class CompanyInternMatch extends Controller
         pi()/180 / 2), 2) )) FROM contactinfo
         ")));
          */
-
-        return $users;
     }
 }

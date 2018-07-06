@@ -112,7 +112,7 @@ class CompanyInternMatch extends Controller
             
         
            
-            return $filtered = $this->filter(true, 500, $request->all());
+            $filtered = $this->filter(true, 500, $request->all());
 
 
             for ($i = 0; $i < count($filtered); $i++) {
@@ -162,13 +162,11 @@ class CompanyInternMatch extends Controller
         $compLatitude = $location['latitude'];
         $compLongitude = $location['longitude'];
         $users = NULL;
-        if($compLatitude == NULL && $compLongitude ==NULL)
-        {
-            //$users = User::with('education', 'contactInfo', 'skill')->get();
-            return "EBR";
-        }
-        else
-        {
+       
+        $compLatitude = 40;
+        $compLongitude = -70;
+        
+        
           $users = User::with('education', 'contactInfo', 'skill')
 
             ->whereHas('contactinfo',
@@ -191,7 +189,7 @@ class CompanyInternMatch extends Controller
 
                 })->get();
                 
-        }
+        
 
         return $users;
         

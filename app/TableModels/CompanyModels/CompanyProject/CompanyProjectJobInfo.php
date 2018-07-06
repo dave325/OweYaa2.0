@@ -21,7 +21,7 @@ class CompanyProjectJobInfo extends Model{
     *
     * @var array
     */
-    protected $fillable = ['projid','title','jobtype','position','focusarea','istemp','projdescription','projdeadline','isremote','totalinternhours','ismatched','initiated','datesubmitted','completed'];
+    protected $fillable = ['projid','title','jobtype','position','focusarea','istemp','projdescription','projdeadline','isremote','totalinternhours','ismatched','initiated','datesubmitted','completed', 'username'];
 
 
     /**

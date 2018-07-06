@@ -28,8 +28,10 @@
 		vetIntern.inProj = function (user) {
 			if (user.jobInfo.initiated === 1) {
 				user.inProj = true;
+				return true;
 			} else {
 				user.inProj = false;
+				return false;
 			}
 		}
 

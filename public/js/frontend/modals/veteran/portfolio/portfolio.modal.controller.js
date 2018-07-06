@@ -57,7 +57,7 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
-      if ($scope.autoCompleteDetails == undefined) {
+      if ($scope.autoCompleteDetails != undefined ) {
         portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
         portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
       }

@@ -110,9 +110,8 @@ class CompanyInternMatch extends Controller
             }     
             
             
-            return response()->json($request->all());
            
-            $filtered = $this->filter(true, 500, $request->all());
+            $filtered = $this->filter(true, 500);
 
 
             for ($i = 0; $i < count($filtered); $i++) {
@@ -163,9 +162,13 @@ class CompanyInternMatch extends Controller
         $compLongitude = $location['longitude'];
         $users = NULL;
        
+        if($compLatitude === null && $compLongitude === null){
+            $users = User::with('education', 'contactInfo', 'skill')->toArray();
+        }else{
+        /*
         $compLatitude = 40;
         $compLongitude = -70;
-        
+        */
         
           $users = User::with('education', 'contactInfo', 'skill')
 
@@ -190,7 +193,7 @@ class CompanyInternMatch extends Controller
                 })->get();
                 
         
-
+            }
         return $users;
         
 

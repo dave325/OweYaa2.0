@@ -163,6 +163,7 @@ class CompanyInternMatch extends Controller
         $compLongitude = $location['longitude'];
         $users = NULL;
        
+        return response()->json($rq);
         $compLatitude = 40;
         $compLongitude = -70;
         

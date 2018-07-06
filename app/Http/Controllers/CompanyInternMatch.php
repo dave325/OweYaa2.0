@@ -111,7 +111,7 @@ class CompanyInternMatch extends Controller
             
             
            
-            $filtered = $this->filter(true, 500);
+            $filtered = $this->filter(true, 500, $request->all());
 
 
             for ($i = 0; $i < count($filtered); $i++) {

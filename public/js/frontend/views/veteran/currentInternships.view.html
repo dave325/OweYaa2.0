@@ -18,7 +18,7 @@
           </h4>
           <p>{{user.jobInfo.compname}}</p>
 
-          <button type="button" class="btn btn-info" ng-click="vetIntern.addIntern($index)" ng-if="vetIntern.inProj(user)">Want</button>
+          <button type="button" class="btn btn-info" ng-click="vetIntern.addIntern($index)" ng-if="!vetIntern.inProj(user)">Want</button>
 
         </div>
         <div class="col-md-4">

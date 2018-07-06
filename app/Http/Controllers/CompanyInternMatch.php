@@ -164,7 +164,7 @@ class CompanyInternMatch extends Controller
         $users = NULL;
         if($compLatitude == NULL && $compLongitude ==NULL)
         {
-            $users = User::with('education', 'contactInfo', 'skill');
+            $users = User::with('education', 'contactInfo', 'skill')->get();
         }
         else
         {

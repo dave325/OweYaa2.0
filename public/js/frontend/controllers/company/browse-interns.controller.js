@@ -41,7 +41,7 @@
                                         }
                                     }
                                     console.log(j);
-                                    if (temp[j].contact_info.ismatched === 1) {
+                                    if (temp[j].contact_info != null && temp[j].contact_info.ismatched === 1) {
                                         temp[j].inProj = true;
                                     } else {
                                         for (let i = 0; i < vm.user.company_project.length; i++) {

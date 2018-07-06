@@ -12,11 +12,11 @@
     for (let i = 0; i < vm.user.company_project.length; i++) {
       if (vm.user.company_project[i].jobInfo.initiated == 1) {
         vm.matchedProj++;
-      }else{
+      } else {
         vm.queuedProj++;
       }
     }
-    if(vm.matchedProj >= 1 && vm.queuedProj >= 1){
+    if (vm.matchedProj >= 1 && vm.queuedProj >= 1) {
       vm.canSubmit = false;
     }
     vm.submissionForm.company_proj_job_info = {};
@@ -71,6 +71,7 @@
         });
       }
       console.log(vm.submissionForm);
+      debugger;
       vm.submissionForm.skills = null;
       if (vm.submissionForm.company_proj_manager_info.ismanager) {
         vm.submissionForm.company_proj_manager_info.managername = vm.user.company_info.firstname + vm.user.company_info.lastname;
@@ -104,7 +105,7 @@
         value: 0
       }
     ];
-    vm.position.designerOptions = ['Graphi Designer', 'UX Designer'];
+    vm.position.designerOptions = ['Graphic Designer', 'UX Designer'];
 
   }
   angular.module('oweyaa')

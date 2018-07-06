@@ -26,7 +26,7 @@
 		});
 
 		vetIntern.inProj = function (user) {
-			if (user.jobInfo.initiated == 1) {
+			if (user.jobInfo.initiated === 1) {
 				user.inProj = true;
 			} else {
 				user.inProj = false;

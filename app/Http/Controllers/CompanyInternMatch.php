@@ -112,7 +112,7 @@ class CompanyInternMatch extends Controller
             
         
            
-            $filtered = $this->filter(true, 500, $request->all());
+            return $filtered = $this->filter(true, 500, $request->all());
 
 
             for ($i = 0; $i < count($filtered); $i++) {
@@ -164,7 +164,8 @@ class CompanyInternMatch extends Controller
         $users = NULL;
         if($compLatitude == NULL && $compLongitude ==NULL)
         {
-            $users = User::with('education', 'contactInfo', 'skill')->get();
+            //$users = User::with('education', 'contactInfo', 'skill')->get();
+            return "EBR";
         }
         else
         {

@@ -29,6 +29,7 @@
                         function (response) {
 
                             let temp = response.data;
+                            console.log(response);
                             User.getFavUsers(vm.user).then(function (response) {
                                 vm.favUsers = response.data.projects;
                                 for (let j = 0; j < temp.length - 1; j++) {
@@ -40,7 +41,7 @@
                                             temp[j].isFav = false;
                                         }
                                     }
-                                    if (temp[j].contact_info.ismatched == 1) {
+                                    if (temp[j].contact_info.ismatched === 1) {
                                         temp[j].inProj = true;
                                     } else {
                                         for (let i = 0; i < vm.user.company_project.length; i++) {

@@ -28,7 +28,7 @@ class StripeController extends Controller
             } else {
                 $user["customer"] = \Stripe\Customer::create([
                     "email" => $info['user']['company_info']['email'],
-                    "source" => $info['token'],
+                    "source" => $info['tempToken'],
                 ]);
                 $user["charge"] = \Stripe\Charge::create([
                     "amount" => $info['type']['total']['amount'],

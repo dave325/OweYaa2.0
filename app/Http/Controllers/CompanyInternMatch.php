@@ -161,6 +161,8 @@ class CompanyInternMatch extends Controller
         $compLatitude = $location['latitude'];
         $compLongitude = $location['longitude'];
 
+        return response($compLatitude, 200);
+
         $users = User::with('education', 'contactInfo', 'skill')
 
             ->whereHas('contactinfo',

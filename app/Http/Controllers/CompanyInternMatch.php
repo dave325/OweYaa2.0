@@ -110,7 +110,7 @@ class CompanyInternMatch extends Controller
             }     
             
             
-        
+            return response()->json($request->all());
            
             $filtered = $this->filter(true, 500, $request->all());
 
@@ -163,7 +163,6 @@ class CompanyInternMatch extends Controller
         $compLongitude = $location['longitude'];
         $users = NULL;
        
-        return response()->json($rq);
         $compLatitude = 40;
         $compLongitude = -70;
         

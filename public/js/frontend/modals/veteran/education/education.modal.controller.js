@@ -18,8 +18,8 @@
     educationvm.newBootcamp = {};
 
     educationvm.cert = educationvm.user.certifications;
-    educationvm.course = education.user.course;
-    educationvm.bootcamp = education.user.bootcamp;
+    educationvm.course = educationvm.user.course;
+    educationvm.bootcamp = educationvm.user.bootcamp;
     // Add a new certification
     educationvm.addToCertifications = function () {
       educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');

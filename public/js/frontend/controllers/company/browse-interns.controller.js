@@ -40,7 +40,6 @@
                                             temp[j].isFav = false;
                                         }
                                     }
-                                    console.log(j);
                                     if (temp[j].contact_info != null && temp[j].contact_info.ismatched === 1) {
                                         temp[j].inProj = true;
                                     } else {

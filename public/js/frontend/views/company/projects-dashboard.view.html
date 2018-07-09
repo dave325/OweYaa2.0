@@ -58,9 +58,9 @@
       <div class="well col-md-12" id="proj-description-pane">
         <h3 class="title">
           {{vm.curProj.jobInfo.title}}
-          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.curProj)" ng-if="project.jobInfo.completed != 1"></span>
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.curProj)" ng-if="vm.curProj.jobInfo.completed != 1"></span>
         </h3>
-        <h4 class="alert alert-info" ng-click="vm.completeProject()" ng-if="project.jobInfo.completed != 1">Click here to have the project completed!</h4>
+        <h4 class="alert alert-info" ng-click="vm.completeProject()" ng-if="vm.curProj.jobInfo.completed != 1">Click here to have the project completed!</h4>
         <!-- Need location -->
         <p>
           Description: {{vm.curProj.jobInfo.projdescription}}
@@ -99,7 +99,7 @@
         <div class="well row">
           <h3 class="title">
             Intern hours
-            <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)" ng-if="project.jobInfo.completed != 1"></span>
+            <span class="glyphicon glyphicon-pencil pull-right pull-right" type="button" ng-click="vm.editInternHours(vm.interns)" ng-if="vm.curProj.jobInfo.completed != 1"></span>
           </h3>
           <div ng-if="vm.curProj.candidates.length == 0">
             <p class="alert alert-info">
@@ -140,7 +140,7 @@
       <div class="col-xs-12 well" id="Milestones">
         <h3 class="title">
           Milestones
-          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.curProj)" ng-if="project.jobInfo.completed != 1"></span>
+          <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editMilestones(vm.curProj)" ng-if="vm.curProj.jobInfo.completed != 1"></span>
         </h3>
         <div ng-if="vm.curProj.milestones.length == 0">
           <p class="alert alert-info">

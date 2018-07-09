@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location'];
-    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location) {
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location', '$route'];
+    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location, $route) {
 
         var vm = this;
 
@@ -158,6 +158,11 @@
             });
         }
 
+        vm.completeProject = function(){
+            vm.curProj.completed = 1;
+            vm.updateAll(vm.curProj);
+            $route.reload();
+        }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-manager'),

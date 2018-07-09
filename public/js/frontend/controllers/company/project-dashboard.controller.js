@@ -160,7 +160,7 @@
 
         vm.completeProject = function(){
             vm.curProj.completed = 1;
-            vm.updateAll(vm.curProj);
+            updateAll(vm.curProj);
             $route.reload();
         }
         vm.editManagerInfo = function () {

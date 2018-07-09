@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location', '$window'];
-    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location, $window) {
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter', '$location', '$window'];
+    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter, $location, $window) {
 
         var vm = this;
 
@@ -158,12 +158,14 @@
             });
         }
 
-        vm.completeProject = function(){
-            vm.curProj.jobInfo.completed = 1;
-            vm.curProj.candidates = [];
-            updateAll(vm.curProj);
-            vm.user.company_project[indexOfCurrentProject] = vm.curProj;
-            User.setUser(vm.user);
+        vm.completeProject = function () {
+            if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + "completed?")) {
+                vm.curProj.jobInfo.completed = 1;
+                vm.curProj.candidates = [];
+                updateAll(vm.curProj);
+                vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                User.setUser(vm.user);
+            }
         }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({
@@ -207,7 +209,7 @@
                         $scope.interns.splice(index, 1);
                         deletedCandidates.push(username);
                     }
-                    $scope.getAddOnHours = function(){
+                    $scope.getAddOnHours = function () {
                         $location.path('/company/' + vm.user.company_info.userame + '/add-on');
                         $scope.cancel();
                     }
@@ -338,7 +340,7 @@
                         vm.curProj.milestones = $scope.milestones;
                         console.log(vm.curProj);
                         console.log($scope.milestones);
-                        for(let i = 0; i < vm.curProj.milestones.length; i++){
+                        for (let i = 0; i < vm.curProj.milestones.length; i++) {
                             vm.curProj.milestones[i].date = new Date($filter('date')(vm.curProj.milestones[i].date, "yyyy-MM-dd"));
                         }
                         updateAll(vm.curProj);
@@ -351,7 +353,7 @@
                     $scope.cancel = function () {
                         vm.user.company_project[indexOfCurrentProject] = unmodified;
                         vm.curProj = vm.user.company_project[indexOfCurrentProject];
-                        
+
                         $uibModalInstance.close();
                     };
 
@@ -398,7 +400,7 @@
                         let milestone = {
                             completed: 0,
                             date: null,
-                            milestone :"",
+                            milestone: "",
                         }
                         $scope.addToMilestones(milestone);
                     }

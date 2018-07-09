@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location', '$route'];
-    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location, $route) {
+    projectDashboardCtrl.$inject = ['$scope', 'User', '$uibModal', '$http', '$filter','$location', '$window'];
+    function projectDashboardCtrl($scope, User, $uibModal, $http, $filter,$location, $window) {
 
         var vm = this;
 
@@ -159,9 +159,11 @@
         }
 
         vm.completeProject = function(){
-            vm.curProj.completed = 1;
+            vm.curProj.jobInfocompleted = 1;
             updateAll(vm.curProj);
-            $route.reload();
+            vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+            User.setUser(vm.user);
+            $window.location.reload();
         }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({

@@ -160,6 +160,7 @@
 
         vm.completeProject = function(){
             vm.curProj.jobInfo.completed = 1;
+            vm.curProj.candidates = [];
             updateAll(vm.curProj);
             vm.user.company_project[indexOfCurrentProject] = vm.curProj;
             User.setUser(vm.user);

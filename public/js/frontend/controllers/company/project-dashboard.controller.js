@@ -163,7 +163,6 @@
             updateAll(vm.curProj);
             vm.user.company_project[indexOfCurrentProject] = vm.curProj;
             User.setUser(vm.user);
-            $window.location.reload();
         }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({

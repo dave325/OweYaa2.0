@@ -159,7 +159,7 @@
         }
 
         vm.completeProject = function(){
-            vm.curProj.jobInfocompleted = 1;
+            vm.curProj.jobInfo.completed = 1;
             updateAll(vm.curProj);
             vm.user.company_project[indexOfCurrentProject] = vm.curProj;
             User.setUser(vm.user);

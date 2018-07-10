@@ -192,7 +192,9 @@ class CompanyInternMatch extends Controller
 
                 })->get();
                 
-        
+                if(count($users) === 0){
+                    $users = User::with('education', 'contactInfo', 'skill')->get();
+                }
             }
         return $users;
         

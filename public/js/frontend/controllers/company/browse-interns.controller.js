@@ -45,7 +45,7 @@
                                     } else {
                                         for (let i = 0; i < vm.user.company_project.length; i++) {
                                             for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
-                                                if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
+                                                if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info != null && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
                                                     temp[j].inProj = true;
                                                     break;
                                                 }

@@ -11,7 +11,7 @@
 			<div class="col-md-10 col-md-offset-1 col-xs-12 box gap">
 				<div ng-repeat="project in vm.projects" class="col-md-3 col-sm-6 col-xs-12 text-center">
 					<p>{{project.text}}</p>
-					<img src="{{project.img}}" height="121px">
+					<a href="/company/{{vm.user.company_info.username}}/project-dashboard"><img src="{{project.img}}" height="121px"></a>
 					<p>{{project.detail}}</p>
 					<p>{{project.amount}}</p>
 				</div>
@@ -27,8 +27,11 @@
 				Company Info
 				<span class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" ng-click="vm.openModal('info')"></span>
 			</h2>
-			<div ng-if="vm.user.company_info.name">
-				<p>Name: {{vm.user.company_info.name}}</p>
+			<div ng-if="vm.user.company_info.first_name">
+				<p>Name: {{vm.user.company_info.first_name}}</p>
+			</div>
+			<div ng-if="vm.user.company_info.last_name">
+				<p>Name: {{vm.user.company_info.last_name}}</p>
 			</div>
 			<div ng-if="vm.user.company_info.pointofcontact">
 				<p>Point of Context: {{vm.user.company_info.pointofcontact}}</p>

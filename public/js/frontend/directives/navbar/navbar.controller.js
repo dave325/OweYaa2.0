@@ -110,7 +110,7 @@
         click: ''
       },
       link4: {
-        name: 'Sign In',
+        name: 'Log In',
         link: '',
         click: 'login'
       },

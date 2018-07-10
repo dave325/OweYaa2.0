@@ -2,15 +2,15 @@
   <span class="glyphicon glyphicon-remove close-btn pull-right" ng-click="loginvm.cancel()"></span>
   <div id="loginUserType" class="col-xs-12" ng-if="loginvm.userTypeCheck">
     <div id="loginVeteran" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerVetCheck()" >
-      <h3 class="text-center">Login as Veteran</h3>
+      <h3 class="text-center">Welcome back, candidate! Log in.</h3>
     </div>
     <div id="loginCompany" class="col-md-6 col-xs-12 login-image" ng-click="loginvm.registerCompCheck()">
-      <h3 class="text-center">Login as Company</h3>
+      <h3 class="text-center">Welcome back, employer! Log in.</h3>
     </div> <!-- End of id loginCompany -->
   </div> <!-- End of id loginVeteran -->
   <form novalidate method="post" name="loginModal"  ng-if="!loginvm.userTypeCheck" class="col-xs-12 col-md-8 col-md-offset-2">
     <h2 class="text-center">Sign in({{loginvm.displayFormTitle(loginvm.type)}})</h2>
-    <p ng-show="loginvm.formError" class="alert alert-danger" ng-bind-html="loginvm.formError"></p>
+    <p ng-show="loginvm.formError" class="alert alert-danger">{{loginvm.formError}}</p>
     <div class="form-group">
       <label form="username">Username: </label>
       <p ng-show="!loginModal.username.$valid && loginModal.username.$touched" class="alert alert-warning">Username too short</p>
@@ -28,7 +28,7 @@
     </div> <!-- End of class form-group -->
   </form>
   <div class="col-xs-12" id="loginOptions">
-    <a class="col-xs-12" ng-click="loginvm.registerPage()">Click here to register </a><br />
+    <a class="col-xs-12" ng-click="loginvm.registerPage()">Click here to sign up </a><br />
     <a class="col-xs-12" ng-click="loginvm.forgetPage()">Forgot password</a>
   </div> <!-- End of id loginOptions -->
   <span class="clearfix"></span>

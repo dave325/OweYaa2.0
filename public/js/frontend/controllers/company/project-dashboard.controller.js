@@ -159,7 +159,7 @@
         }
 
         vm.completeProject = function () {
-            if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + "completed?")) {
+            if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + " completed?")) {
                 vm.curProj.jobInfo.completed = 1;
                 vm.curProj.candidates = [];
                 updateAll(vm.curProj);

@@ -925,4 +925,10 @@ class ValidateUser extends Controller
         }
     }
 
+    public function addWantedProj(Request $request){
+        if ($isValid = $this->isValid()) {
+
+        }
+    }
+
 }

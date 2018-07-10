@@ -36,23 +36,26 @@
 		}
 
 		vetIntern.addProj = function (internid) {
+			let confirm;
+			if(confirm = confirm('Are you sure?')){
+				
+			}
 			if (User.getUser()) {
 				var m = $uibModal.open({
-					templateUrl: '/js/frontend/modals/company/selectIntern/select-intern.modal.view.html',
-					controller: 'selectInternModalCtrl',
-					controllerAs: 'selectInternvetIntern',
+					templateUrl: '/js/frontend/modals/veteran/selectProject/select-project.modal.view.html',
+					controller: 'selectProjectModalCtrl',
+					controllerAs: 'selectProjIntern',
 					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
 					backdrop: false,
 					keyboard: false,
 					resolve: {
 						CurrUser: function () {
-							return { user: vetIntern.users[internid] };
+							return { user: vetIntern.projects[internid] };
 						}
 					}
 				});
 				m.result.then(function (response) {
-					vetIntern.resultInfo = "Successfully added candidate to project!";
-					vetIntern.users[internid].inProj = true;
+					vetIntern.resultInfo = "Successfully added Project!";
 					$timeout(function () {
 						vetIntern.resultInfo = "";
 					}, 1500);

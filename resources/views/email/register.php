@@ -3,7 +3,7 @@
     <head></head>
     <body>
         <p>Hi <?php echo $firstname ?>,<br />
-            Thanks for signing up for OweYaa on behalf of Company.
+            Thanks for signing up for OweYaa.
             Every week, we introduce growing technology companies to high-quality software engineers, designers, product managers, and businesspeople from the OweYaa community. (Remember, when we say "high quality," we mean it. We turn away ~85% of the candidates that apply to OweYaa.)
             Someone from our team will email you soon to help you through the onboarding process. <br />
             OweYaa

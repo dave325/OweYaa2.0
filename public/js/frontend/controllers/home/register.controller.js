@@ -23,13 +23,14 @@
 			User.register(user).then(function (data) {
 				if (data) {
 					if (user.type == 0) {
-						vm.formError = "Thank you very much. You will be redirected shortly Please sign in on the following screen. ";
+						vm.formError = "Thank you very much. You have signed up. You will be redirected shortly Please sign in on the following screen. ";
 						$timeout(function () {
 							$location.path('/');
 						}, 2000);
 					}else{
-						alert("Thank you very much! Please call a representative form OweYaa to proceed.");
+						alert("Thank you very much! You have signed up. Please call a representative from OweYaa to proceed.");
 						vm.credentials = {};
+						$location.path('/');
 					}
 				}
 			}, function (data) {

@@ -12,8 +12,10 @@
     for (let i = 0; i < vm.user.company_project.length; i++) {
       if (vm.user.company_project[i].jobInfo.initiated == 1) {
         vm.matchedProj++;
-      } else {
+      } else if(vm.user.company_project[i].jobInfo.completed != 1){
         vm.queuedProj++;
+      }else{
+        continue;
       }
     }
     if (vm.matchedProj >= 1 && vm.queuedProj >= 1) {

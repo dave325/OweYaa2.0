@@ -161,6 +161,7 @@
         vm.completeProject = function () {
             if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + " completed?")) {
                 vm.curProj.jobInfo.completed = 1;
+                vm.curProj.jobInfo.initiated = 0;
                 vm.curProj.candidates = [];
                 updateAll(vm.curProj);
                 vm.user.company_project[indexOfCurrentProject] = vm.curProj;

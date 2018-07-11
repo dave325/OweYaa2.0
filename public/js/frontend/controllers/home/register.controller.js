@@ -48,6 +48,9 @@
 				return "Veteran/Military Spouse";
 			}
 		}
+		vm.registerType = function(type){
+			vm.credentials.registerModal.type = type;
+		}
 	}
 	angular.module('oweyaa')
 		.controller('registerCtrl', registerCtrl);

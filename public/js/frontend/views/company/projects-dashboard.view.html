@@ -54,7 +54,7 @@
 
 
 
-    <div class="col-md-8 col-md-offset-4" ng-if="vm.user.company_project.length > 0">
+    <div class="col-md-7 col-md-offset-4" ng-if="vm.user.company_project.length > 0" id="proj-dash-info">
       <div class="well col-md-12" id="proj-description-pane">
         <h3 class="title">
           {{vm.curProj.jobInfo.title}}
@@ -64,7 +64,7 @@
         <!-- Need location -->
         <div class="col-xs-12 col-md-6">
           <p>
-            Job Description: {{vm.curProj.jobInfo.projdescription}}
+            Job Description: <br />{{vm.curProj.jobInfo.projdescription}}
           </p>
           <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
           <p>Position: {{vm.curProj.jobInfo.position}}</p>

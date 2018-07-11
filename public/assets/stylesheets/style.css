@@ -187,6 +187,10 @@ Section 2: Home Page
 	padding-bottom:15px;
 }
 
+#military-sign-up{
+	border-right:2px solid #000;
+}
+
 /**********************************************************
 END OF SECTION 2
 **********************************************************/

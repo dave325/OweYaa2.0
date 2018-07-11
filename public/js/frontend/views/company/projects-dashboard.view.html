@@ -54,7 +54,7 @@
 
 
 
-    <div class="col-md-7 col-md-offset-4" ng-if="vm.user.company_project.length > 0">
+    <div class="col-md-8 col-md-offset-4" ng-if="vm.user.company_project.length > 0">
       <div class="well col-md-12" id="proj-description-pane">
         <h3 class="title">
           {{vm.curProj.jobInfo.title}}
@@ -62,7 +62,7 @@
         </h3>
         <h4 class="alert alert-info text-center" ng-click="vm.completeProject()" ng-if="vm.curProj.jobInfo.completed != 1">Click here to have the project completed!</h4>
         <!-- Need location -->
-        <div class="col-xs-12 col-md-12">
+        <div class="col-xs-12 col-md-6">
           <p>
             Job Description: {{vm.curProj.jobInfo.projdescription}}
           </p>
@@ -74,7 +74,7 @@
           </p>
           <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
         </div>
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-6 col-xs-6">
           <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
           <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
           <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">

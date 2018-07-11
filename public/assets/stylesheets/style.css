@@ -723,8 +723,6 @@ Section 6.4: Purchase Membership
 }
 
 #purchaseMembership h3 {
-	padding: 20px 0px;
-	border-bottom: 2px solid rgb(247, 159, 75);
 	text-align: center;
 }
 #purchaseMembership ul{
@@ -787,14 +785,17 @@ Blue - 83, 131, 211
 
 #purchaseMembership .month-price{
 	color:#4F9939;
+	font-weight:900;
 }
 
 #purchaseMembership .quarter-price{
 	color:#E25125;
+	font-weight:900;
 }
 
 #purchaseMembership .annual-price{
 	color:#8C8788;
+	font-weight:900;
 }
 
 

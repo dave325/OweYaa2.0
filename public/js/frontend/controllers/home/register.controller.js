@@ -3,9 +3,7 @@
 	function registerCtrl(User, $location, $timeout) {
 		var vm = this;		// Stores the credentials the users add in
 		vm.credentials = {
-			username: "",
-			email: "",
-			password: ""
+			registerModal:{}
 		};
 		// Will make a call to the server and php file
 		vm.doRegister = function (credentials) {

@@ -723,15 +723,16 @@ Section 6.4: Purchase Membership
 }
 
 #purchaseMembership h3 {
+	padding: 20px 0px;
 	text-align: center;
+	margin-top:0px;
 }
 #purchaseMembership ul{
 	list-style-type: none;
 }
 .payOption ul {
-	padding: 20px 0px;
+	padding: 0px;
 	text-align: center;
-	margin-top:0px;
 }
 
 .payOption ul li {
@@ -741,10 +742,6 @@ Section 6.4: Purchase Membership
 
 .payOption ul li::first-letter {
     text-transform: uppercase;
-    font-size: 3em;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 5px;
 }
 #purchaseMembership #discount-notification {
 	margin-top: 20px;

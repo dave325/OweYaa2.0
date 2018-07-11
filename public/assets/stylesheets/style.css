@@ -763,6 +763,7 @@ Blue - 83, 131, 211
 #purchaseMembership .paySubmit {
 	color: rgb(0,0,0);
 	padding: 20px 0px;
+	border:1px solid #000;
 	background-color: #FFF;
 	transition: 0.5s all;
 }
@@ -782,6 +783,21 @@ Blue - 83, 131, 211
 #purchaseMembership .annual{
 	background-color:#8C8788;
 }
+
+
+#purchaseMembership .month-price{
+	background-color:#4F9939;
+}
+
+#purchaseMembership .quarter-price{
+	background-color:#E25125;
+}
+
+#purchaseMembership .annual-price{
+	background-color:#8C8788;
+}
+
+
 /**********
 
 Section 6.4.1: Purchase Membership Portal

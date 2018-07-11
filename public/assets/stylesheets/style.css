@@ -769,8 +769,9 @@ Blue - 83, 131, 211
 #purchaseMembership .paySubmit {
 	color: rgb(0,0,0);
 	padding: 20px 0px;
-	background-color: #FFF;
 	transition: 0.5s all;
+	position:absolute;
+	bottom:0px;
 }
 
 #purchaseMembership .paySubmit:hover {

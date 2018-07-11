@@ -115,7 +115,7 @@
         click: 'login'
       },
       link5:{
-        name:'Register',
+        name:'Sign Up',
         link:'register',
         click:''
       },
@@ -180,19 +180,9 @@
         click: ''
       },
       link4: {
-        name: 'Veteran Profile',
-        links: {
-          link1: {
             name: "Veteran Dashboard",
             link: 'veteran/' + navbarvm.user + '/profile',
             click: ''
-          },
-          link2: {
-            name: "Available Internships",
-            link: 'veteran/' + navbarvm.user + '/internships',
-            click: ''
-          }
-        }
       },
       link5: {
         name: 'Sign Out',

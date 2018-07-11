@@ -60,29 +60,33 @@
           {{vm.curProj.jobInfo.title}}
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.curProj)" ng-if="vm.curProj.jobInfo.completed != 1"></span>
         </h3>
-        <h4 class="alert alert-info" ng-click="vm.completeProject()" ng-if="vm.curProj.jobInfo.completed != 1">Click here to have the project completed!</h4>
+        <h4 class="alert alert-info text-center" ng-click="vm.completeProject()" ng-if="vm.curProj.jobInfo.completed != 1">Click here to have the project completed!</h4>
         <!-- Need location -->
-        <p>
-          Job Description: {{vm.curProj.jobInfo.projdescription}}
-        </p>
-        <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
-        <p>Position: {{vm.curProj.jobInfo.position}}</p>
-        <p>Is remote?
-          <span ng-if="vm.curProj.jobInfo.isremote === 'true'">Yes</span>
-          <span ng-if="vm.curProj.jobInfo.isremote != 'true'">No</span>
-        </p>
-        <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
-        <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
-        <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
-        <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
-          <h4>Skills the project needs:</h4>
-          <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
-            <p class="col-md-6">{{field.skill}}</p>
-          </li>
-          <br />
-        </ol>
+        <div class="col-xs-12 col-md-12">
+          <p>
+            Job Description: {{vm.curProj.jobInfo.projdescription}}
+          </p>
+          <p>Focus Area: {{vm.curProj.jobInfo.focusarea}}</p>
+          <p>Position: {{vm.curProj.jobInfo.position}}</p>
+          <p>Is remote?
+            <span ng-if="vm.curProj.jobInfo.isremote === 'true'">Yes</span>
+            <span ng-if="vm.curProj.jobInfo.isremote != 'true'">No</span>
+          </p>
+          <p>Job Type: {{vm.curProj.jobInfo.jobtype}}</p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <p>Project Deadline: {{vm.curProj.jobInfo.projdeadline}}</p>
+          <p>Total Intern Hours: {{vm.curProj.jobInfo.totalinternhours}}</p>
+          <ol ng-if="vm.curProj.skills.length > 0" class="skillsModal col-md-12">
+            <h4>Skills the project needs:</h4>
+            <li ng-repeat="field in vm.curProj.skills | limitTo: 8">
+              <p class="col-md-6">{{field.skill}}</p>
+            </li>
+            <br />
+          </ol>
+        </div>
         <br />
-        <div class="col-xs-12">
+        <div>
           <h3 class="title">
             Manager Information for Project
             <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editManagerInfo()"></span>

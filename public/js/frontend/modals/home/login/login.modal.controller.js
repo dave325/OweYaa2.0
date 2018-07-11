@@ -75,7 +75,7 @@
     */
     loginvm.displayFormTitle = function (type) {
       if (type == 1) {
-        return "Company";
+        return "employer";
       } else {
         return "Veteran/Military Spouse";
       }

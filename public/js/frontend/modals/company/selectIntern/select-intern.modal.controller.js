@@ -9,10 +9,12 @@
         selectInternvm.projIds = [];
         selectInternvm.isError = false;
         for (let i = 0; i < selectInternvm.projects.length; i++) {
-            selectInternvm.projIds.push({
-                title: selectInternvm.projects[i].jobInfo.title,
-                id: selectInternvm.projects[i].jobInfo.projid
-            });
+            if (selectInternvm.projects.jobInfo.completed != 1) {
+                selectInternvm.projIds.push({
+                    title: selectInternvm.projects[i].jobInfo.title,
+                    id: selectInternvm.projects[i].jobInfo.projid
+                });
+            }
         }
 
         // The function that is call when a user cancels the opening of a modal
@@ -28,11 +30,11 @@
         selectInternvm.checkProjLength = function () {
             console.log('res');
             for (let i = 0; i < selectInternvm.projects.length; i++) {
-                if(selectInternvm.projectId == selectInternvm.projects[i].jobInfo.projid){
-                    if(selectInternvm.projects[i].candidates.length > 0){
+                if (selectInternvm.projectId == selectInternvm.projects[i].jobInfo.projid) {
+                    if (selectInternvm.projects[i].candidates.length > 0) {
                         selectInternvm.isError = true;
                         break;
-                    }else{
+                    } else {
                         selectInternvm.isError = false;
                         break;
 
@@ -46,7 +48,7 @@
                 username: CurrUser.user.contact_info.username,
                 hours: 0,
                 projid: selectInternvm.projectId,
-                matchid:CurrUser.user.contact_info.username + selectInternvm.projectId
+                matchid: CurrUser.user.contact_info.username + selectInternvm.projectId
             }
             console.log(userInfo);
             User.addIntern(userInfo).then(function (response) {

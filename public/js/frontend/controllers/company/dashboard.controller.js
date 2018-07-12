@@ -11,7 +11,7 @@
         for (let i = 0; i < vm.user.company_project.length; i++) {
             if (vm.user.company_project[i].jobInfo.initiated == 1) {
                 vm.matched_project = vm.user.company_project[i];
-            } else {
+            } else if(vm.user.company_project[i].jobInfo.initiated == 1 && vm.user.company_project[i].jobInfo.completed != 1){
                 vm.unmatched_projects.push(vm.user.company_project[i]);
             }
         }

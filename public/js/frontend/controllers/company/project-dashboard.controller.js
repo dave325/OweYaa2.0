@@ -165,6 +165,9 @@
                 vm.curProj.candidates = [];
                 updateAll(vm.curProj);
                 vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                if(vm.curProj == vm.matchedProj){
+                    vm.matchedProj = null;
+                }
                 User.setUser(vm.user);
             }
         }

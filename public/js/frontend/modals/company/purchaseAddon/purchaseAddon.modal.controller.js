@@ -141,6 +141,8 @@
                 purchaseAddonModalvm.pay.type = purchaseAddonModalvm.type;
                 if(PayType > 2){
                     purchaseAddonModalvm.pay.flag = true;
+                }else{
+                    purchaseAddonModalvm.user.membership_token.totalhours += purchaseAddonModalvm.type.hours;
                 }
                 // Sends request to server
                 $http.post('/api/payment/addon', purchaseAddonModalvm.pay).then(function (payment) {

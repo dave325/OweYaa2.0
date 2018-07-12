@@ -102,6 +102,9 @@ class StripeController extends Controller
                   "statement_descriptor" => "Custom descriptor",
                   "customer" => $user['customer']->id,
               ));
+              if(isset($info["flag"])){
+                  // Create Mail to notify OweYaa
+              }
               return response()->json(['user' => $user, 'success' => true],200);
             }else{
               throw new \Stripe\Error\Authentication();

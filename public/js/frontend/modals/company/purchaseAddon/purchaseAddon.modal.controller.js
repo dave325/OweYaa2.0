@@ -139,6 +139,9 @@
                 purchaseAddonModalvm.pay.token = purchaseAddonModalvm.user.membership_token.stripetoken;
                 purchaseAddonModalvm.pay.user = purchaseAddonModalvm.user;
                 purchaseAddonModalvm.pay.type = purchaseAddonModalvm.type;
+                if(PayType > 2){
+                    purchaseAddonModalvm.pay.flag = true;
+                }
                 // Sends request to server
                 $http.post('/api/payment/addon', purchaseAddonModalvm.pay).then(function (payment) {
                     if(PayType.type < 3){

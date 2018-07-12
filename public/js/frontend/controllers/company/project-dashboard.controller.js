@@ -168,6 +168,15 @@
                 User.setUser(vm.user);
             }
         }
+
+        vm.initiateProject = function () {
+            if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + " initiated?")) {
+                vm.curProj.jobInfo.initiated = 1;
+                updateAll(vm.curProj);
+                vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                User.setUser(vm.user);
+            }
+        }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-manager'),

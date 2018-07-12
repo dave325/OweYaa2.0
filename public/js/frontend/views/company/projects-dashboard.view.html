@@ -61,7 +61,7 @@
           <span class="glyphicon glyphicon-pencil pull-right" type="button" ng-click="vm.editDescription(vm.curProj)" ng-if="vm.curProj.jobInfo.completed != 1"></span>
         </h3>
         <h4 class="alert alert-info text-center" ng-click="vm.completeProject()" ng-if="vm.curProj.jobInfo.completed != 1 && vm.curProj.jobInfo.initiated === 1">Click here to have the project completed!</h4>
-        <h4 class="alert alert-info text-center" ng-click="vm.initiateProject()" ng-if="vm.curProj.jobInfo.completed != 1 && vm.curProj.jobInfo.initiated != 1">Click here to initiate the project!</h4>
+        <h4 class="alert alert-info text-center" ng-click="vm.initiateProject()" ng-if="vm.curProj.jobInfo.completed != 1 && vm.curProj.jobInfo.initiated != 1 && vm.matchedProj === null">Click here to initiate the project!</h4>
         <!-- Need location -->
         <div class="col-xs-12 col-md-6">
           <p>

@@ -45,7 +45,7 @@ class ExampleController extends Controller
                 TableModels\Education::create(['username' => $credentials['username']]);
                 $month= ["January","February","March","April","May","June","July", "August","September","October","November","December"];
                 for($i = 0; $i < 12; $i++){
-                    App\TableModels::create(['username' => $credentials['username'], 'month' => $month[$i], 'isavailable' => 0, 'monthid' => $credentials['username'] . $i]);
+                    App\TableModels\MonthAvailability::create(['username' => $credentials['username'], 'month' => $month[$i], 'isavailable' => 0, 'monthid' => $credentials['username'] . $i]);
                 }
                 TableModels\Mentor::create(['username' => $credentials['username']]);
             } else {

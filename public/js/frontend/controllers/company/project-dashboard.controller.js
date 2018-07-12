@@ -10,7 +10,7 @@
         vm.user = User.getUser();
         vm.curProj = {};
         var indexOfCurrentProject = 0;
-        vm.matchedProj = {};
+        vm.matchedProj = null;
         vm.username = vm.user.company_info.username;
         if (vm.user.company_project.length > 0) {
             for (let i = 0; i < vm.user.company_project.length; i++) {

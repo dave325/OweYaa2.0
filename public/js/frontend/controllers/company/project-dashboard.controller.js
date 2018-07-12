@@ -174,6 +174,7 @@
                 vm.curProj.jobInfo.initiated = 1;
                 updateAll(vm.curProj);
                 vm.user.company_project[indexOfCurrentProject] = vm.curProj;
+                vm.matchedProj = vm.curProj;
                 User.setUser(vm.user);
             }
         }

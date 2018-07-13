@@ -67,7 +67,7 @@ class ProjectDashboardController extends Controller
         $projInfo = Project\CompanyProjectJobInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
         $projInfo->fill($projectInfo['jobInfo']);
         $projInfo->save();
-        $projInfo = Project\CompanyProjectManageInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
+        $projInfo = Project\CompanyProjectManagerInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
         $projInfo->fill($projectInfo['managerInfo']);
         $projInfo->save();
         //Save hours

@@ -43,7 +43,7 @@ class AuthController extends Controller
             // absent, and the exception status code is also returned.
             return response()->json(['token_absent'], $e->getStatusCode());
         }
-        if($token === null){
+        if(isset($token) && $token === null){
             return response()->json(['success' => false], 404);
         }
         $tokenInfo = AuthController::respondWithToken($token);

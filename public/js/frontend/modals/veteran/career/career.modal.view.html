@@ -19,8 +19,8 @@
         <div>
           <label form="career" form="prevFrom{{$index}}">From: </label>
           <input ng-model="career.start_date"type="date" class="form-control" name="from{{$index}}" id="prevFrom{{$index}}"/>
-          <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" />
-        </div>
+          <p class="pull-left">Present:</p><input type="checkbox" class="" ng-model="career.present" ng-selected="career.present === 1" />
+        </div><br />
         <div>
           <label form="career" form="prevTo{{$index}}">To: </label>
           <input ng-model="career.end_date" type="date"  ng-disabled="career.present" class="form-control" name="to{{$index}}" id="prevTo{{$index}}"/>

@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    purchaseMembershipCtrl.$inject = ['User', '$http', '$uibModal'];
-    function purchaseMembershipCtrl(User, $http, $uibModal) {
+    purchaseMembershipCtrl.$inject = ['User', '$location', '$uibModal'];
+    function purchaseMembershipCtrl(User, $location, $uibModal) {
         var vm = this;
         vm.user = User.getUser();
         // Opens modal to begin payment
@@ -21,6 +21,7 @@
                 m.result
                     .then(function (data) {
                         console.log(data);
+                        $location.path('/company/' + vm.user.company_info.username + '/dashboard');
                     }, function (reason) {
                         console.log(reason);
                     });

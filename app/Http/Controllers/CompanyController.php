@@ -383,12 +383,12 @@ class CompanyController extends Controller
                     $email = $contactInfo->email;
                     $username = $contactInfo->username;
 
-                    $hours = $candidate['hours'];
-                    $checkin = $candidate['checkin'];
-                    $matchid = $candidate['matchid'];
+                    $hours = $cList['hours'];
+                    $checkin = $cList['checkin'];
+                    $matchid = $cList['matchid'];
                     $user = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours, 'checkin' =>$checkin,'matchid'=>$matchid);
                 }
-                return response()->json(['success'=> true,'user'=> $candidate], 200);
+                return response()->json(['success'=> true,'user'=> $user], 200);
             }catch(ModelNotFoundException $me){
                 return response()->json(['success'=> false], 500);
             }

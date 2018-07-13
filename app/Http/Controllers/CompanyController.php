@@ -369,7 +369,22 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try{
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                $candidate = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->where('username','=',$info['username'])->first();
+                $cList= TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->where('username','=',$info['username'])->first();
+                //could be that there are no interns yet
+    
+                if(isset($cList))
+                {
+                    $candidateUName = $info['username'];
+                    $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
+                    $firstName = $contactInfo->firstname;
+                    $lastName = $contactInfo->lastname;
+                    $email = $contactInfo->email;
+                    $username = $contactInfo->username;
+                    $hours = $candidate['hours'];
+                    $checkin = $candidate['checkin'];
+                    $matchid = $candidate['matchid'];
+                    $user = array('username' => $username,'email'=>$email,'firstName'=>$firstName,'lastName'=>$lastName, 'hours'=>$hours, 'checkin' =>$checkin,'matchid'=>$matchid);
+                }
                 return response()->json(['success'=> true,'user'=> $candidate], 200);
             }catch(ModelNotFoundException $me){
                 return response()->json(['success'=> false], 500);

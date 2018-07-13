@@ -9,7 +9,7 @@
         selectInternvm.projIds = [];
         selectInternvm.isError = false;
         for (let i = 0; i < selectInternvm.projects.length; i++) {
-            if (selectInternvm.projects.jobInfo.completed != 1) {
+            if (selectInternvm.projects[i].jobInfo.completed != 1) {
                 selectInternvm.projIds.push({
                     title: selectInternvm.projects[i].jobInfo.title,
                     id: selectInternvm.projects[i].jobInfo.projid

@@ -110,6 +110,7 @@
                             }
                         }
                     }
+                    console.log("reach");
                     // If user with skill is not found, then return nothing.  
                     if (user.length === 0) {
                         vm.users = [];

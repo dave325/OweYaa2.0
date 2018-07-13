@@ -25,7 +25,6 @@ class StripeController extends Controller
                     "statement_descriptor" => "Custom descriptor",
                     "customer" => $user['customer']->id,
                 ));
-                return response()->json(['user' => $user, 'success' => true], 200);
             } else {
                 $user["customer"] = \Stripe\Customer::create([
                     "email" => $info['user']['company_info']['email'],
@@ -43,7 +42,7 @@ class StripeController extends Controller
                 $membershipToken->fill($info['user']['membershiptoken']);
                 $membershipToken->totalhours = $info['type']['hours'];
                 $membershipToken->save();
-                return response()->json(compact('user'));
+                return response()->json(['user' => $user, 'success' => true], 200);
             }
         } catch (\Stripe\Error\Card $e) {
             // Since it's a decline, \Stripe\Error\Card will be caught

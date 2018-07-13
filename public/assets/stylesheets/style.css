@@ -716,7 +716,7 @@ Section 6.4: Purchase Membership
 	background-color: rgb(254,253,229) !important;
 }
 
-#purchaseMembership h3 {
+.payOption > h3 {
 	padding: 20px 0px;
 	text-align: center;
 	margin-top:0px;

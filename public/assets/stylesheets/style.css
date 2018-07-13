@@ -1198,7 +1198,10 @@ section{
 	position:fixed;
 	left:0;
 	top:95px;
-	z-index:9999999999;
+	z-index:1000;
+}
+.dropdown-menu{
+	z-index:99999;
 }
 
 /*******************************

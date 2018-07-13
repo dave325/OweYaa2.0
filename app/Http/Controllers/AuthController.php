@@ -56,7 +56,7 @@ class AuthController extends Controller
         if(isset($token) && $token === null){
             return response()->json(['success' => false], 404);
         }
-        return array($message,$code);
+        return array(['message'=>$message,'code'=>$code]);
     }
 
     /**

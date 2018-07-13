@@ -76,7 +76,7 @@ class ExampleController extends Controller
             "password" => $request['password'],
         );
         $currUser = AuthController::login($loginInfo);
-        return response()->json($currUser);
+        return response()->json($currUser['message'], $currUser['code']);
     }
 
     public function logoutUser(){

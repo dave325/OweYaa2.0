@@ -54,7 +54,8 @@
                     indexOfCurrentProject = vm.user.company_project.indexOf(ele);
 
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
-
+                    var myEl = angular.element( document.querySelector( '.projectLink' ) );
+                    myEl[ele].addClass('alpha');
                     return;
                 }
             });

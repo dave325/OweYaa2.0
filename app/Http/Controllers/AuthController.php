@@ -27,9 +27,19 @@ class AuthController extends Controller
      */
     public static function login($credentials)
     {
+        $message = array();
+        $code;
         try {
             if (!$token = JWTAUTH::attempt($credentials)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                $message = ['error' => 'Unauthorized'];
+                $code = 401;
+            }else{
+                $tokenInfo = AuthController::respondWithToken($token);
+                $message = array(
+                    "user" => AuthController::currUser(),
+                    "token" => $tokenInfo
+                );
+                $code = 200;
             }
         } catch (JWTException\TokenInvalidException $e) {
 
@@ -46,12 +56,7 @@ class AuthController extends Controller
         if(isset($token) && $token === null){
             return response()->json(['success' => false], 404);
         }
-        $tokenInfo = AuthController::respondWithToken($token);
-        $user = array(
-            "user" => AuthController::currUser(),
-            "token" => $tokenInfo
-        );
-        return $user;
+        return array($message,$code);
     }
 
     /**

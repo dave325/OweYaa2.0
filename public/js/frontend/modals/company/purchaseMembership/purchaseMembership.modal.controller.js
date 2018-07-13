@@ -6,6 +6,7 @@
         purchaseMembershipModalvm.user = User.getUser();
         purchaseMembershipModalvm.isDisabled = false;
         purchaseMembershipModalvm.showMessage = null;
+        purchaseMembershipModalvm.showError = null;
         // List of different types of payments 
         purchaseMembershipModalvm.paymentType = {
             "month": {
@@ -130,9 +131,10 @@
                             purchaseMembershipModalvm.showMessage = "Payment Processed, taking you back to the dashboard.";
                             $timeout(function(){
                                 purchaseMembershipModalvm.close(true);
-                            },1000);
+                            },1500);
                         }, function (data) {
                             purchaseMembershipModalvm.isDisabled = false;
+                            purchaseMembershipModalvm.showError = "Payment Processed, taking you back to the dashboard.";
                             console.log(data);
                         });
                     }

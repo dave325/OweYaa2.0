@@ -144,9 +144,9 @@
                     $scope.ok = function () {
 
                         vm.curProj.username = vm.user.company_info.username;
-                        $scope.removeSkill('skills');
                         console.log(vm.curProj);
                         updateAll(vm.curProj);
+                        $scope.removeSkill('skills');
                         vm.user.company_project[indexOfCurrentProject] = vm.curProj;
                         User.setUser(vm.user);
                         $uibModalInstance.close(vm.curProj);

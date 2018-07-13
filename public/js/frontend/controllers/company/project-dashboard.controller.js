@@ -369,7 +369,7 @@
                         $scope.removeMilestone('milestones');
                         for(let i = $scope.milestones.length -1; i >= 0;i--){
                             if($scope.milestones[i].milestone.length == 0){
-                                te$scope.milestonesmp.splice(i,1);
+                                $scope.milestones.splice(i,1);
                             }
                         }
                         vm.curProj.milestones = $scope.milestones;

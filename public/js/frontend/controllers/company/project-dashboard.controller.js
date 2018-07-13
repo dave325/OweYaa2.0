@@ -56,7 +56,7 @@
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
                     var myEl = angular.element( document.getElementsByClassName( 'projectLink' ) );
                     var active = angular.element( document.getElementsByClassName( 'active' ) );
-                    if(active != undefined && active.classList != undefined){
+                    if(active.length > 0){
                         console.log('a');
                         active[0].classList.remove('active');
                     }

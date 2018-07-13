@@ -58,6 +58,11 @@ class ProjectDashboardController extends Controller
     public function updateAll(Request $request)
     {
         $projectInfo = $request->all();
+        if(isset($projectInfo['delete']) && $projectInfo['delete']){
+            Project\CompanyProjectJobInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->delete();
+            $candidateHours = Project\InternHours::where('projid', '=', $projectInfo['jobInfo']['projid'])->delete();
+            $milestones = Project\Milestone::where('projid', '=', $projectInfo['jobInfo']['projid'])->delete();
+        }
         //save project info
         $projInfo = Project\CompanyProjectJobInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
         $projInfo->fill($projectInfo['jobInfo']);

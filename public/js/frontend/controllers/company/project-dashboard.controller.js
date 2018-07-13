@@ -186,6 +186,18 @@
                 User.setUser(vm.user);
             }
         }
+
+        vm.deleteProj = function(){
+            if (confirm("Are you sure you want to mark " + vm.curProj.jobInfo.title + " initiated?")) {
+                vm.curProj.delete = true;
+                updateAll(vm.curProj);
+                vm.user.company_project.splice(indexOfCurrentProject,1);
+                indexOfCurrentProject = 0;
+                vm.curProj = vm.user.company_project[0];
+                vm.matchedProj = vm.curProj;
+                User.setUser(vm.user);
+            }
+        }
         vm.editManagerInfo = function () {
             var modal = $uibModal.open({
                 templateUrl: getModalPath('project-dashboard-manager'),

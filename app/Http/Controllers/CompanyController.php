@@ -371,7 +371,7 @@ class CompanyController extends Controller
                 $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
                 return reponse()->json(['success'=> true], 200);
             }catch(ModelNotFoundException $me){
-                return reponse()->json(['success'=> false], 500);
+                return response()->json(['success'=> false], 500);
             }
             /*
             $internFavProj = App\TableModels\FavProject::findOrFail($info['username'])->get();

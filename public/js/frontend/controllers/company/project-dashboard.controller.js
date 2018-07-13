@@ -54,13 +54,12 @@
                     indexOfCurrentProject = vm.user.company_project.indexOf(ele);
 
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
-                    var myEl = angular.element( document.getElementsByClassName( 'projectLink' ) );
                     var active = angular.element( document.getElementsByClassName( 'active' ) );
                     if(active.length > 0){
                         console.log('a');
                         active[0].classList.remove('active');
                     }
-                    myEl[indexOfCurrentProject].classList.add('active');
+                    $e.currentTarget.classList.add('active');
                     return;
                 }
             });

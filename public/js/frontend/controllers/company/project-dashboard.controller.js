@@ -55,8 +55,11 @@
 
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
                     var myEl = angular.element( document.getElementsByClassName( 'projectLink' ) );
-                    myEl.classList.remove('active');
-                    myEl[indexOfCurrentProject].classList.add('avtice');
+                    var active = angular.element( document.getElementsByClassName( 'active' ) );
+                    if(active != undefined){
+                        active.classList.remove('active');
+                    }
+                    myEl[indexOfCurrentProject].classList.add('actice');
                     return;
                 }
             });

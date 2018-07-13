@@ -4,6 +4,7 @@
     <form novalidate ng-submit="purchaseMembershipModalvm.charge()" class="col-xs-12">
         <h2 class="text-center comp-name">Payment Method for {{purchaseMembershipModalvm.type.total.label}}</h2>
         <div id="card-errors" class="alert alert-warning payAlert" role="alert"></div>
+        <h3 ng-if="purchaseMembershipModalvm.showMessage">{{purchaseMembershipModalvm.showMessage}}</h3>
         <div class="form-group col-xs-12">
             <!-- Used to display Element errors -->
             <div id="card-number-errors" class="alert alert-warning payAlert" role="alert"></div>

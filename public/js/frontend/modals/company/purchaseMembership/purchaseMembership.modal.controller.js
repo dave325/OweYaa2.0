@@ -5,6 +5,7 @@
         var purchaseMembershipModalvm = this;
         purchaseMembershipModalvm.user = User.getUser();
         purchaseMembershipModalvm.isDisabled = false;
+        purchaseMembershipModalvm.showMessage = null;
         // List of different types of payments 
         purchaseMembershipModalvm.paymentType = {
             "month": {
@@ -126,7 +127,10 @@
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                             purchaseMembershipModalvm.user.membership_token.stripetoken = payment.data.user.customer.id;
                             User.setUser(purchaseMembershipModalvm.user);
-                            purchaseMembershipModalvm.close(true);
+                            purchaseMembershipModalvm.showMessage = "Payment Processed, taking you back to the dashboard.";
+                            $timeout(function(){
+                                purchaseMembershipModalvm.close(true);
+                            },1000);
                         }, function (data) {
                             purchaseMembershipModalvm.isDisabled = false;
                             console.log(data);

@@ -204,9 +204,9 @@
             <span class="glyphicon glyphicon-pencil pull-right" ng-click="openModal('education')"></span>
           </h2>
           <h3 ng-if="user.education.school">Education:</h3>
-          <p ng-if="user.education.school">School: {{user.education.school}}</p>
-          <p ng-if="user.education.degree">Degree: {{user.education.degree}}</p>
-          <p ng-if="user.education.graddate">Currently Attending: {{user.education.attendedcollege}}</p>
+          <p ng-if="user.education.attendedcollege">Currently Attending: {{user.education.attendedcollege}}</p>
+          <p ng-if="user.education.school && user.education.attendedcollege">School: {{user.education.school}}</p>
+          <p ng-if="user.education.degree && user.education.attendedcollege">Degree: {{user.education.degree}}</p>
           <div ng-if="user.careerFocus.length > 0">
             <h3>Career Focus:</h3>
             <ul>

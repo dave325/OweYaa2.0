@@ -11,19 +11,19 @@
             <legend>Highlest Level of Education</legend>
             <p>Enter any information you have regarding your education!</p>
             <div class="form-group">
+              <span>Are you currently attending college:</span>
+              <input type="checkbox" name="attendedcollege" ng-model="educationvm.user.education.attendedcollege" ng-checked="educationvm.user.education.attendedcollege === 1"
+                ng-true-value="1" ng-false-value="0" />
+            </div>
+            <div class="form-group">
               <label form="education" for="school">School: </label>
-              <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.school && educationvm.user.education.attendedcollege" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="school" id="school" />
             </div>
             <div class="form-group">
               <label form="education" for="degree">Degree: </label>
-              <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.degree && educationvm.user.education.attendedcollege" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="degree" id="degree" />
-            </div>
-            <div class="form-group">
-              <span>Are you currently attending college:</span>
-              <input type="checkbox" name="attendedcollege" ng-model="educationvm.user.education.attendedcollege" ng-checked="educationvm.user.education.attendedcollege === 1"
-                ng-true-value="1" ng-false-value="0" />
             </div>
             <!-- End of class form-group -->
           </fieldset>

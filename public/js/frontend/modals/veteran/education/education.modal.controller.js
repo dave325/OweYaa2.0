@@ -24,7 +24,7 @@
     educationvm.addToCertifications = function () {
       educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');
       educationvm.user.certifications.push(educationvm.newCertification);
-      education.certifications.push(educationvm.newCertification);
+      education.cert.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }
 
@@ -40,7 +40,7 @@
     educationvm.addToBootcamps = function () {
       educationvm.newBootcamp.bootcampid = educationvm.addIndex('bootcamp', 'bootcampid');
       educationvm.user.bootcamp.push(educationvm.newBootcamp);
-      educationvm.bootcamp.push(educationvm.bootcamp);
+      educationvm.bootcamp.push(educationvm.newBootcamp);
       educationvm.newBootcamp = {};
     }
 

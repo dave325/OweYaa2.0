@@ -369,17 +369,20 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try{
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                $cList= TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->where('username','=',$info['username'])->first();
+                $cList= \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->where('username','=',$info['username'])->first();
                 //could be that there are no interns yet
     
                 if(isset($cList))
                 {
                     $candidateUName = $info['username'];
                     $contactInfo = \App\TableModels\ContactInfo::where('username','=',$candidateUName)->first();
+                    $contactInfo->inproj = true;
+                    $contactInfo->save();
                     $firstName = $contactInfo->firstname;
                     $lastName = $contactInfo->lastname;
                     $email = $contactInfo->email;
                     $username = $contactInfo->username;
+
                     $hours = $candidate['hours'];
                     $checkin = $candidate['checkin'];
                     $matchid = $candidate['matchid'];

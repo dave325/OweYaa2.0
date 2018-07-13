@@ -27,21 +27,6 @@
       User.getFavUsers(vm.user).then(function (response) {
         vm.users = response.data.projects;
         console.log(vm.users);
-        for (let j = 0; j < vm.users.length; j++) {
-          if (vm.users[j].user.contact_info.ismatched === 1) {
-            vm.users[j].inProj = true;
-          } else {
-            for (let i = 0; i < vm.user.company_project.length; i++) {
-              for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
-                if (vm.user.company_project[i].jobInfo.initiated == 1 && vm.users[j].user.contact_info.username === vm.user.company_project[i].candidates[k].username) {
-                  vm.users[j].inProj = true;
-                  break;
-                }
-              }
-            }
-          }
-        }
-        console.log(vm.users);
         vm.copyUsers = vm.users.slice();
         vm.totalItems = vm.users.length;
         vm.currentPage = 1;
@@ -86,7 +71,7 @@
       return !user.isFav;
     }
     vm.inProj = function (user) {
-      return !user.inProj;
+      return !user.contact_info.inproj;
     }
     // Filter user function
     vm.filterUsers = function () {

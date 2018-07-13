@@ -40,18 +40,6 @@
                                             temp[j].isFav = false;
                                         }
                                     }
-                                    if (temp[j].contact_info != null && temp[j].contact_info.ismatched === 1) {
-                                        temp[j].inProj = true;
-                                    } else {
-                                        for (let i = 0; i < vm.user.company_project.length; i++) {
-                                            for (let k = 0; k < vm.user.company_project[i].candidates.length; k++) {
-                                                if (vm.user.company_project[i].jobInfo.initiated == 1 && temp[j].contact_info != null && temp[j].contact_info.username === vm.user.company_project[i].candidates[k].username) {
-                                                    temp[j].inProj = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
                                 }
                                 vm.users = temp;
                                 vm.totalItems = vm.users.length;
@@ -166,7 +154,7 @@
             return !user.isFav;
         }
         vm.inProj = function (user) {
-            return !user.inProj;
+            return !user.contact_info.inProj;
         }
 
         vm.getFavId = function () {

@@ -59,7 +59,7 @@
                         break;
                     }
                 }
-                
+                CurrUser.user.contact_info.inproj = true;
                 User.setUser(selectInternvm.user);
                 selectInternvm.close(response);
             }, function (error) {

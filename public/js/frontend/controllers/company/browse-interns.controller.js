@@ -154,7 +154,7 @@
             return !user.isFav;
         }
         vm.inProj = function (user) {
-            return !user.contact_info.inProj;
+            return !user.contact_info.inproj;
         }
 
         vm.getFavId = function () {

@@ -33,7 +33,7 @@ Route::group(['prefix' => 'api'], function ($router){
     Route::post('addFavUsers', 'CompanyController@addFavUser');
     Route::post('removeFavUser', 'CompanyController@removeFavUser');
     Route::post('addInternToProject', 'CompanyController@addInternToProject');
-    Route::post('addWantedProj', 'ValidateUser@addWantedProj');
+    //Route::post('addWantedProj', 'ValidateUser@addWantedProj');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');

@@ -363,9 +363,17 @@ class CompanyController extends Controller
     public function addInternToProject(Request $req)
     {
         $info = $req->all();
+        
         // In order to retrieve project info for the user, make sure that the user
         // is a valid user. If the user is a valid user...
         if ($isValid = $this->isValid()) {
+            try{
+                $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($Info);
+                return reponse()->json(['success'=> true], 200);
+            }catch(ModelNotFoundException $me){
+                return reponse()->json(['success'=> false], 500);
+            }
+            /*
             $internFavProj = App\TableModels\FavProject::findOrFail($info['username'])->get();
             foreach($proj as $internFavProj){
                 if($info['projid'] === $proj['projid']){
@@ -387,6 +395,7 @@ class CompanyController extends Controller
                     return response()->json(['user' => $user], 200);
                 }
             }
+            */
 
         } else {
 

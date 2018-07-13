@@ -45,15 +45,15 @@
             }
           }, function (data) {
             loginvm.isDisabled = false;
-            loginvm.formError = "Username or password does not exist.<br/> Please try again.";
+            loginvm.formError = "Username or password does not exist. Please try again.";
           });
         } else {
           loginvm.isDisabled = false;
-          loginvm.formError = "Username or password does not exist.<br/> Please try again.";
+          loginvm.formError = "Username or password does not exist.Please try again.";
         }
       }, function () {
         loginvm.isDisabled = false;
-        loginvm.formError = "There was an error logging in. <br /> Please try again.";
+        loginvm.formError = "There was an error logging in. Please try again.";
       });
     };
     /*

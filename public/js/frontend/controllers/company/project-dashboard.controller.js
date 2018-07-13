@@ -365,7 +365,7 @@
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
                     $scope.newMilestone = {};
                     for(let i = 0; i < $scope.milestones.length;i++){
-                        if($scope.milestones[i].milestone === ""){
+                        if($scope.milestones[i].milestone.length === 0){
                             $scope.milestones.splice(i,1);
                         }
                     }

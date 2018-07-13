@@ -55,9 +55,8 @@
 
                     vm.curProj = vm.user.company_project[indexOfCurrentProject];
                     var myEl = angular.element( document.getElementsByClassName( 'projectLink' ) );
-                    console.log(myEl);
-                    myEl.removeClass('alpha');
-                    myEl[ele].addClass('alpha');
+                    myEl.removeClass('active');
+                    myEl[indexOfCurrentProject].addClass('avtice');
                     return;
                 }
             });

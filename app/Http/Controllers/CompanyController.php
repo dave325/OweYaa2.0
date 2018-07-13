@@ -368,7 +368,7 @@ class CompanyController extends Controller
         // is a valid user. If the user is a valid user...
         if ($isValid = $this->isValid()) {
             try{
-                $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($Info);
+                $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
                 return reponse()->json(['success'=> true], 200);
             }catch(ModelNotFoundException $me){
                 return reponse()->json(['success'=> false], 500);

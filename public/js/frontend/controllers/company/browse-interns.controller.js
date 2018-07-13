@@ -96,7 +96,7 @@
                     return;
                 }
                 if (vm.test == undefined || vm.test.length === 0) {
-                    vm.users = vm.copyUsers;
+                    vm.displayUsers = vm.copyUsers;
                 } else {
                     // Loop through every user in database
                     for (let i = 0; i < vm.copyUsers.length; i++) {
@@ -110,19 +110,18 @@
                             }
                         }
                     }
-                    console.log("reach");
                     // If user with skill is not found, then return nothing.  
                     if (user.length === 0) {
-                        vm.users = [];
+                        vm.displayUsers = [];
                         vm.resultInfo = "No interns match that criteria";
                     }
                     // If the length of currenct array is empty and the input field is empty return every user
                     else if (vm.test.length === 0) {
-                        vm.users = vm.copyUsers;
+                        vm.displayUsers = vm.copyUsers;
                         vm.resultInfo = null;
                     } else {
                         // Set vm.users to temp array and only show results
-                        vm.users = user;
+                        vm.displayUsers = user;
                         vm.resultInfo = null;
                     }
                 }

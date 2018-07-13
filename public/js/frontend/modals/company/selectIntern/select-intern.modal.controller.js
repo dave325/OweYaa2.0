@@ -59,6 +59,7 @@
                         break;
                     }
                 }
+                
                 User.setUser(selectInternvm.user);
                 selectInternvm.close(response);
             }, function (error) {

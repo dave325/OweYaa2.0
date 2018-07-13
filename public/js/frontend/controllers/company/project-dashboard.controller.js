@@ -59,7 +59,7 @@
                     if(active != undefined && active.classList != undefined){
                         active.classList.remove('active');
                     }
-                    myEl[indexOfCurrentProject].classList.add('actice');
+                    myEl[indexOfCurrentProject].classList.add('active');
                     return;
                 }
             });

@@ -36,7 +36,7 @@
     educationvm.addToCertifications = function () {
       educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');
       educationvm.user.certifications.push(educationvm.newCertification);
-      education.cert.push(educationvm.newCertification);
+      educationvm.cert.push(educationvm.newCertification);
       educationvm.newCertification = {};
     }
 
@@ -44,7 +44,7 @@
     educationvm.addToCourses = function () {
       educationvm.newCourse.courseid = educationvm.addIndex('course', 'courseid');
       educationvm.user.course.push(educationvm.newCourse);
-      education.course.push(educationvm.newCourse);
+      educationvm.course.push(educationvm.newCourse);
       educationvm.newCourse = {};
     }
 

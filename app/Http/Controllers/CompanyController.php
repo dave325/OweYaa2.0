@@ -369,7 +369,7 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try{
                 \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                $candidate = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->ehere('username','=',$info['username'])->get();
+                $candidate = \App\TableModels\CompanyModels\CompanyProject\InternHours::where('projid','=',$info['projid'])->where('username','=',$info['username'])->get();
                 return response()->json(['success'=> true,'user'=> $candidate], 200);
             }catch(ModelNotFoundException $me){
                 return response()->json(['success'=> false], 500);

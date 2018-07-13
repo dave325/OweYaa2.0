@@ -124,6 +124,7 @@
                         purchaseMembershipModalvm.pay.tempToken = result.token.id;
                         purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
                         purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
+                        purchaseMembershipModalvm.showMessage = "Proccessing Payment ....";
                         // Sends request to server
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                             purchaseMembershipModalvm.user.membership_token.stripetoken = payment.data.user.customer.id;

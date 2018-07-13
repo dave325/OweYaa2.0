@@ -15,14 +15,14 @@
               <input type="checkbox" name="attendedcollege" ng-model="educationvm.user.education.attendedcollege" ng-checked="educationvm.user.education.attendedcollege === 1"
                 ng-true-value="1" ng-false-value="0" />
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-if="educationvm.user.education.attendedcollege === 1">
               <label form="education" for="school">School: </label>
-              <input ng-model="educationvm.user.education.school" ng-if="educationvm.user.education.attendedcollege === 1" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.school" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="school" id="school" />
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-if="educationvm.user.education.attendedcollege === 1">
               <label form="education" for="degree">Degree: </label>
-              <input ng-model="educationvm.user.education.degree" ng-if="educationvm.user.education.attendedcollege === 1" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.degree" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="degree" id="degree" />
             </div>
             <!-- End of class form-group -->

@@ -16,10 +16,22 @@
     educationvm.newCertification = {};
     educationvm.newCourse = {};
     educationvm.newBootcamp = {};
-
-    educationvm.cert = educationvm.user.certifications;
-    educationvm.course = educationvm.user.course;
-    educationvm.bootcamp = educationvm.user.bootcamp;
+    if(educationvm.user.certifications.length === 0){
+      educationvm.cert = [];
+    }else{
+      educationvm.cert = educationvm.user.certifications;
+    }
+    if(educationvm.user.course.length === 0){
+      educationvm.course = [];
+    }else{
+      educationvm.course = educationvm.user.course;
+    }
+    if(educationvm.user.bootcamp.length === 0){
+      educationvm.bootcamp = [];
+    }else{
+      educationvm.bootcamp = educationvm.user.bootcamp;
+    }
+    
     // Add a new certification
     educationvm.addToCertifications = function () {
       educationvm.newCertification.certid = educationvm.addIndex('certifications', 'certid');
@@ -32,7 +44,7 @@
     educationvm.addToCourses = function () {
       educationvm.newCourse.courseid = educationvm.addIndex('course', 'courseid');
       educationvm.user.course.push(educationvm.newCourse);
-      education.course.push(educationvm.course);
+      education.course.push(educationvm.newCourse);
       educationvm.newCourse = {};
     }
 

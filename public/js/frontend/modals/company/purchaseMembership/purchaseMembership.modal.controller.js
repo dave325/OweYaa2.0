@@ -128,8 +128,7 @@
                         purchaseMembershipModalvm.showMessage = "Proccessing Payment ....";
                         // Sends request to server
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
-                            console.log(payment);
-                            purchaseMembershipModalvm.user.membership_token = payment.data.membership_info;
+                            purchaseMembershipModalvm.user.membership_token = payment.data.membershipInfo;
                             User.setUser(purchaseMembershipModalvm.user);
                             purchaseMembershipModalvm.showMessage = "Payment Processed, taking you back to the dashboard.";
                             $timeout(function(){

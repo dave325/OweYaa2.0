@@ -17,10 +17,10 @@
 
       <div>
         <h2 class="title"> Projects </h2>
-        <div class="nav nav-pills nav-stacked" ng-if="vm.matchedProj">
+        <divng-if="vm.matchedProj">
           <h3>Matched</h3>
           <ul class="nav nav-pills nav-stacked">
-            <li>
+            <li role="presentation" class="active">
               <a ng-click="vm.reloadPageNewID($event,vm.matchedProj.jobInfo.projid)">
                 <strong>{{vm.matchedProj.jobInfo.title}}</strong>
               </a>
@@ -32,7 +32,7 @@
         <h3>Queued</h3>
         <ul class="nav nav-pills nav-stacked">
           <li ng-if="project.jobInfo.initiated != 1 && project.jobInfo.completed != 1" ng-click="vm.reloadPageNewID($event,project.jobInfo.projid)"
-            ng-repeat="project in vm.user.company_project">
+            ng-repeat="project in vm.user.company_project track by $index" role="presentation" ng-class="{active: vm.matchedProj === null && $index = 0}">
             <a>
               <strong>{{project.jobInfo.title}}</strong>
             </a>

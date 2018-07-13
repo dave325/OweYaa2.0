@@ -364,7 +364,11 @@
 
                     var unmodified = JSON.parse(JSON.stringify(vm.curProj));
                     $scope.newMilestone = {};
-
+                    for(let i = 0; i < $scope.milestones.length;i++){
+                        if($scope.milestones[i].milestone === ""){
+                            $scope.milestones.splice(i,1);
+                        }
+                    }
                     $scope.ok = function () {
                         vm.curProj.username = vm.user.company_info.username;
                         $scope.removeMilestone('milestones');

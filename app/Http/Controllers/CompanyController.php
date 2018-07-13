@@ -369,7 +369,7 @@ class CompanyController extends Controller
         if ($isValid = $this->isValid()) {
             try{
                 $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                return reponse()->json(['success'=> true], 200);
+                return response()->json(['success'=> true], 200);
             }catch(ModelNotFoundException $me){
                 return response()->json(['success'=> false], 500);
             }

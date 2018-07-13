@@ -123,11 +123,12 @@
                         // Creates an object containing information server needs to process payment
                         purchaseMembershipModalvm.pay.tempToken = result.token.id;
                         purchaseMembershipModalvm.pay.user = purchaseMembershipModalvm.user;
+
                         purchaseMembershipModalvm.pay.type = purchaseMembershipModalvm.type;
                         purchaseMembershipModalvm.showMessage = "Proccessing Payment ....";
                         // Sends request to server
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
-                            purchaseMembershipModalvm.user.membership_token.stripetoken = payment.data.user.customer.id;
+                            purchaseMembershipModalvm.user.membership_token = payment.data.membershipInfo;
                             User.setUser(purchaseMembershipModalvm.user);
                             purchaseMembershipModalvm.showMessage = "Payment Processed, taking you back to the dashboard.";
                             $timeout(function(){

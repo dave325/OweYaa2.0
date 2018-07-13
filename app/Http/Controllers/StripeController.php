@@ -42,7 +42,7 @@ class StripeController extends Controller
                 $membershipToken->fill($info['user']['membershiptoken']);
                 $membershipToken->totalhours = $info['type']['hours'];
                 $membershipToken->save();
-                return response()->json(['user' => $user, 'success' => true], 200);
+                return response()->json(['user' => $user, 'success' => true,'membershipInfo' => $membershipToken], 200);
             }
         } catch (\Stripe\Error\Card $e) {
             // Since it's a decline, \Stripe\Error\Card will be caught

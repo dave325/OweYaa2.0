@@ -77,7 +77,6 @@ class ExampleController extends Controller
         );
         $currUser = AuthController::login($loginInfo);
         return response()->json($currUser);
-        return response()->json(["token" => $currUser['token']], 200);
     }
 
     public function logoutUser(){

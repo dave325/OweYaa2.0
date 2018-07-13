@@ -10,17 +10,7 @@
     vm.displayUsers = [];
     vm.users = [];
     getUser();
-    $scope.$watch("vm.currentPage", function () {
-      setPagingData(vm.currentPage);
-    });
 
-    function setPagingData(page) {
-      var pagedData = vm.users.slice(
-        (page - 1) * vm.itemsPerPage,
-        page * vm.itemsPerPage
-      );
-      vm.displayUsers = pagedData;
-    }
     // Information will be retrieved from database
     vm.contents = {
       content1: {
@@ -56,6 +46,17 @@
         vm.totalItems = vm.users.length;
         vm.currentPage = 1;
         vm.itemsPerPage = 5;
+        $scope.$watch("vm.currentPage", function () {
+          setPagingData(vm.currentPage);
+        });
+
+        function setPagingData(page) {
+          var pagedData = vm.users.slice(
+            (page - 1) * vm.itemsPerPage,
+            page * vm.itemsPerPage
+          );
+          vm.displayUsers = pagedData;
+        }
         setPagingData(vm.currentPage);
         if (vm.copyUsers === undefined || vm.copyUsers.length === 0) {
           vm.noIntern = "No favorite interns selected!";
@@ -111,18 +112,33 @@
         }
         // If user with skill is not found, then return nothing.  
         if (user.length === 0) {
-          vm.users = [];
+          vm.displayUsers = [];
           vm.resultInfo = "No interns match that criteria";
         }
         // If the length of currenct array is empty and the input field is empty return every user
         else if (vm.test.length === 0) {
-          vm.users = vm.copyUsers;
+          vm.displayUsers = vm.copyUsers;
           vm.resultInfo = null;
         } else {
           // Set vm.users to temp array and only show results
-          vm.users = user;
+          vm.displayUsers = user;
           vm.resultInfo = null;
         }
+        vm.totalItems = vm.displayUsers.length;
+        vm.currentPage = 1;
+        vm.itemsPerPage = 5;
+        $scope.$watch("vm.currentPage", function () {
+          setPagingData(vm.currentPage);
+        });
+
+        function setPagingData(page) {
+          var pagedData = vm.displayUsers.slice(
+            (page - 1) * vm.itemsPerPage,
+            page * vm.itemsPerPage
+          );
+          vm.displayUsers = pagedData;
+        }
+        setPagingData(vm.currentPage);
       }
     }
 

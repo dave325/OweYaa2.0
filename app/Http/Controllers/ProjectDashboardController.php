@@ -67,7 +67,9 @@ class ProjectDashboardController extends Controller
         $projInfo = Project\CompanyProjectJobInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
         $projInfo->fill($projectInfo['jobInfo']);
         $projInfo->save();
-
+        $projInfo = Project\CompanyProjectManageInfo::where('projid', '=', $projectInfo['jobInfo']['projid'])->first();
+        $projInfo->fill($projectInfo['managerInfo']);
+        $projInfo->save();
         //Save hours
         $candidateHours = Project\InternHours::where('projid', '=', $projectInfo['jobInfo']['projid'])->get();
         foreach ($candidateHours as $candidate) {

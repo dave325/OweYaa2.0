@@ -20,7 +20,7 @@
                     var req = {
                         method: 'POST',
                         url: '/api/matching',
-                        data:vm.user,
+                        data: vm.user,
                         headers: {
                             "Authorization": "Bearer " + Authentication.getToken()
                         }
@@ -124,6 +124,21 @@
                         vm.displayUsers = user;
                         vm.resultInfo = null;
                     }
+                    vm.totalItems = vm.displayUsers.length;
+                    vm.currentPage = 1;
+                    vm.itemsPerPage = 5;
+                    $scope.$watch("vm.currentPage", function () {
+                        setPagingData(vm.currentPage);
+                    });
+
+                    function setPagingData(page) {
+                        var pagedData = vm.displayUsers.slice(
+                            (page - 1) * vm.itemsPerPage,
+                            page * vm.itemsPerPage
+                        );
+                        vm.displayUsers = pagedData;
+                    }
+                    setPagingData(vm.currentPage);
                 }
             }
         }

@@ -64,7 +64,7 @@
     // Delete one of your certifications
     educationvm.deleteCertification = function (index) {
       educationvm.user.certifications[index].delete = true;
-      educationvm.certifications.splice(index,1);
+      educationvm.cert.splice(index,1);
     }
 
     // Delete one of your courses

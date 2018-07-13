@@ -151,8 +151,8 @@
               </div>
               <br />
               <!-- End of div on line 94 -->
-              <ol ng-if="educationvm.certifications.length > 0">
-                <li ng-repeat="field in educationvm.certifications track by $index" class="col-md-5">
+              <ol ng-if="educationvm.cert.length > 0">
+                <li ng-repeat="field in educationvm.cert track by $index" class="col-md-5">
                   <!-- <span ng-hide="educationvm.user.editMode">{{field}}</span> -->
                   <input type="text" ng-model="field.certification" class="form-control">
                   <span class="glyphicon glyphicon-remove" ng-click="educationvm.deleteCertification($index)"></span>

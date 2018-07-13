@@ -368,8 +368,9 @@ class CompanyController extends Controller
         // is a valid user. If the user is a valid user...
         if ($isValid = $this->isValid()) {
             try{
-                $proj = \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
-                return response()->json(['success'=> true], 200);
+                \App\TableModels\CompanyModels\CompanyProject\InternHours::create($info);
+                $candidate = \App\TableModels\CompanyModels\CompanyProject\InternHours::find()->where('projid','=',$info['projid'])->ehere('username','=',$info['uesrname'])->get();
+                return response()->json(['success'=> true,'user'=> $candidate], 200);
             }catch(ModelNotFoundException $me){
                 return response()->json(['success'=> false], 500);
             }

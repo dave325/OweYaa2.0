@@ -19,17 +19,17 @@
     if(educationvm.user.certifications.length === 0){
       educationvm.cert = [];
     }else{
-      educationvm.cert = educationvm.user.certifications;
+      educationvm.cert = educationvm.user.certifications.slice();;
     }
     if(educationvm.user.course.length === 0){
       educationvm.course = [];
     }else{
-      educationvm.course = educationvm.user.course;
+      educationvm.course = educationvm.user.course.slice();
     }
     if(educationvm.user.bootcamp.length === 0){
       educationvm.bootcamp = [];
     }else{
-      educationvm.bootcamp = educationvm.user.bootcamp;
+      educationvm.bootcamp = educationvm.user.bootcamp.slice();
     }
     
     // Add a new certification

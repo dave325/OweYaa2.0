@@ -20,8 +20,8 @@
         <div>
           <h3 ng-if="vm.matchedProj">Matched</h3>
           <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" ng-if="vm.matchedProj" class="projectLink">
-              <a ng-click="vm.reloadPageNewID($event,vm.matchedProj.jobInfo.projid)">
+            <li role="presentation" ng-if="vm.matchedProj" class="projectLink" ng-click="vm.reloadPageNewID($event,vm.matchedProj.jobInfo.projid)">
+              <a>
                 <strong>{{vm.matchedProj.jobInfo.title}}</strong>
               </a>
             </li>

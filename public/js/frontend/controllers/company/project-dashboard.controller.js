@@ -367,7 +367,7 @@
                     $scope.ok = function () {
                         vm.curProj.username = vm.user.company_info.username;
                         $scope.removeMilestone('milestones');
-                        for(let i = $scope.milestones.length; i >0;i--){
+                        for(let i = $scope.milestones.length -1; i >0;i--){
                             if($scope.milestones[i].milestone.length == 0){
                                 te$scope.milestonesmp.splice(i,1);
                             }

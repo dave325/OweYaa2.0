@@ -57,6 +57,7 @@
                     var myEl = angular.element( document.getElementsByClassName( 'projectLink' ) );
                     var active = angular.element( document.getElementsByClassName( 'active' ) );
                     if(active != undefined && active.classList != undefined){
+                        console.log('a');
                         active[0].classList.remove('active');
                     }
                     myEl[indexOfCurrentProject].classList.add('active');

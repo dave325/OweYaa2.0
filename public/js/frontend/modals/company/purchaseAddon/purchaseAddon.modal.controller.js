@@ -142,6 +142,7 @@
                 if(PayType > 2){
                     purchaseAddonModalvm.pay.flag = true;
                 }else{
+                    let temp = purchaseAddonModalvm.user.membership_token.totalhours;
                     purchaseAddonModalvm.user.membership_token.totalhours += purchaseAddonModalvm.type.hours;
                 }
                 console.log( purchaseAddonModalvm.user.membership_token.totalhours);
@@ -153,6 +154,7 @@
                     User.setUser(purchaseAddonModalvm.user);
                     purchaseAddonModalvm.close(true);
                 }, function (data) {
+                    purchaseAddonModalvm.user.membership_token.totalhours = temp;
                     purchaseAddonModalvm.isDisabled = false;
                     console.log(data);
                 });

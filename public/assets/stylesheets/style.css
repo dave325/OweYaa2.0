@@ -378,11 +378,6 @@ Section 5.1: Veteran Dashboard
 	background-color:rgb(211,211,211);
 }
 
-.vet-dashboard aside{
-	height:100%;
-	position:fixed;
-	right:0px;
-}
 .vet-dashboard .space, #describeYourself {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -661,7 +656,6 @@ color: rgb(47,79,79);
 
 #proj-dash aside{
 	height:auto;
-	position:fixed;
 }
 
 #proj-dash-skill li{

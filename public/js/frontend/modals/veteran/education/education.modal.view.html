@@ -17,12 +17,12 @@
             </div>
             <div class="form-group">
               <label form="education" for="school">School: </label>
-              <input ng-model="educationvm.user.education.school && educationvm.user.education.attendedcollege" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.school" ng-if="educationvm.user.education.attendedcollege === 1" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="school" id="school" />
             </div>
             <div class="form-group">
               <label form="education" for="degree">Degree: </label>
-              <input ng-model="educationvm.user.education.degree && educationvm.user.education.attendedcollege" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
+              <input ng-model="educationvm.user.education.degree" ng-if="educationvm.user.education.attendedcollege === 1" ng-disabled="!educationvm.user.education.attendedcollege" type="text"
                 class="form-control" name="degree" id="degree" />
             </div>
             <!-- End of class form-group -->

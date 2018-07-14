@@ -71,7 +71,7 @@
       return !user.isFav;
     }
     vm.inProj = function (user) {
-      return !user.contact_info.inproj;
+      return !user.user.contact_info.inproj;
     }
     // Filter user function
     vm.filterUsers = function () {

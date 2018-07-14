@@ -2,22 +2,18 @@
   <div class=" col-sm-12">
     <div class="footer-links">
       <nav class="col-md-6 col-xs-12 col-md-offset-3">
-        <a ng-repeat="link in footervm.links" href="{{link.link}}" > {{link.name}}</a>
+        <a ng-repeat="link in footervm.links" href="{{link.link}}" class="col-md-3 col-xs-12 text-center"> {{link.name}}</a>
       </nav>
     </div>
-    <p class="footer-company-name col-sm-12 col-xs-12">OweYaa &copy; 2017</p>
+    <p class="footer-company-name text-center col-xs-12">OweYaa &copy; 2017</p>
   </div>
 
-  <div class="col-xs-12 col-md-4 ">
-    <p class="footer-company-about">
-      <span>About OweYaa</span>
-      {{footervm.about}}
-    </p>
-    <div class="footer-icons">
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-github"></i></a>
+  <div class="col-xs-12">
+    <div class="footer-icons col-md-offset-3 col-md-6">
+      <a href="#"><i class="fa fa-facebook col-md-4"></i></a>
+      <a href="#"><i class="fa fa-twitter col-md-4"></i></a>
+      <a href="#"><i class="fa fa-linkedin col-md-4"></i></a>
+      <a href="#"><i class="fa fa-github col-md-4"></i></a>
     </div>
   </div>
 </footer>

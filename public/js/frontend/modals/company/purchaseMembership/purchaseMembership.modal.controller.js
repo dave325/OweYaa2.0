@@ -130,8 +130,8 @@
                         $http.post('/api/payment/test', purchaseMembershipModalvm.pay).then(function (payment) {
                             purchaseMembershipModalvm.user.membership_token = payment.data.membershipInfo;
                             purchaseMembershipModalvm.showMessage = "Payment Processed, taking you back to the dashboard.";
+                            User.setUser(purchaseMembershipModalvm.user);
                             $timeout(function(){
-                                User.setUser(purchaseMembershipModalvm.user);
                                 purchaseMembershipModalvm.close(true);
                             },1500);
                         }, function (data) {

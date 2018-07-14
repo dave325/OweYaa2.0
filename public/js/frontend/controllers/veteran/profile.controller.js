@@ -166,16 +166,20 @@
 							for (var i = 0; i < 2; i++) {
 								if ($scope.user.prev_career_fields[i].start_date != null) {
 									$scope.user.prev_career_fields[i].start_date = new Date($filter('date')($scope.user.prev_career_fields[i].start_date, "yyyy-MM-dd"));
+									$scope.user.prev_career_fields[i].start_date.setDate($scope.user.prev_career_fields[i].start_date.getDate() + 1);
 								}
 								if ($scope.user.prev_career_fields[i].end_date != null) {
 									$scope.user.prev_career_fields[i].end_date = new Date($filter('date')($scope.user.prev_career_fields[i].end_date, "yyyy-MM-dd"));
+									$scope.user.prev_career_fields[i].end_date.setDate($scope.user.prev_career_fields[i].end_date.getDate() + 1);
 								}
 								if ($scope.user.interviews[i].date != null) {
 									$scope.user.interviews[i].date = new Date($filter('date')($scope.user.interviews[i].date, "yyyy-MM-dd"));
+									$scope.user.interviews[i].date.setDate($scope.user.interviews[i].date.getDate() + 1);
 								}
 							}
 							if ($scope.user.education.graddate != null) {
 								$scope.user.education.graddate = new Date($filter('date')($scope.user.education.graddate, "yyyy-MM-dd"));
+								$scope.user.education.graddate.setDate($scope.user.education.graddate.getDate() + 1);
 							}
 							return $scope.user;
 						}

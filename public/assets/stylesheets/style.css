@@ -914,6 +914,10 @@ Blue - 83, 131, 211
 	margin: 20px 0 12px;
 	padding: 0;
 }
+.footer-links > nav{
+	border-bottom:1px solid #000;
+	padding-bottom:10px;
+}
 
 /*
 Gray - 157, 157, 157

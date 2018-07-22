@@ -12,6 +12,11 @@
 $router->get('/', function (){
     return view('index');
 });
+
+$router->get('/forgotPassword',function(){
+    return view('indexa');
+});
+
 $router->get('{all}', function (){
     return view('index');
 });

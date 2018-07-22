@@ -89,11 +89,6 @@
       controller:"addonCtrl",
       controllerAs:"addonvm"
     })
-    .when('/company/:companyid/request-discount',{
-      templateUrl:"/js/frontend/views/company/request-discount.view.html",
-      controller:"requestDiscountCtrl",
-      controllerAs:"vm"
-    })
 
     .when('/admin/login',{
       templateUrl:"/js/frontend/views/admin/login.view.html",
@@ -111,6 +106,12 @@
       controller:"adminMatchProjectdCtrl",
       controllerAs:"matchedProjects"
     })
+    
+    .when('/forgotPassword',{
+      templateUrl:"/js/frontend/views/home/forgotPassword.view.html",
+      controller:"forgotPassword.controller.js",
+      controllerAs:"vm"
+    })
 
     .when('/notFound',{
       templateUrl:"/js/frontend/views/home/error.view.html",
@@ -118,7 +119,7 @@
       controllerAs:"vm"
     })
 
-    .otherwise('/notFound')
+    .otherwise('/not`Fo`und')
   }
   function locationConfig($locationProvider){
     $locationProvider.html5Mode(true);

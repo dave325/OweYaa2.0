@@ -135,4 +135,12 @@ class ExampleController extends Controller
             return response()->json(['user_not_found1'], 400);
         }
     }
+
+    public function forgotPassword(Request $rq){
+        $user = $rq->only('username');
+        Mail::send(['html'=> 'indexa'], ['email'=> $credentials], function($message) use ($credentials){
+            $message->to($credentials['email'], $credentials['firstname'] . ' ' . $credentials['lastname'])->subject('Forgot Password');
+            $message->from("barika@oweyaa.com", 'OweYaa');
+        });
+    }
 }

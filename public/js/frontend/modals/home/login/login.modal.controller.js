@@ -100,6 +100,10 @@
     loginvm.registerPage = function () {
       loginvm.close({ page: 'register' });
     }
+
+    loginvm.forgotPage = function () {
+      loginvm.close({ page: 'forgotPassword' });
+    }
   }
 
   angular.module('oweyaa')

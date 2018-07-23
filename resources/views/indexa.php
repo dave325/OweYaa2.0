@@ -75,7 +75,7 @@
         setTimeout(function(){
           window.location = '/';
         },1000);
-      }, function(err) {
+      }).catch(function(err) {
         let message = document.createElement('h2');
         message.setAttribute('id','msg');
         message.textContent = "An error occurred. Please try again.";

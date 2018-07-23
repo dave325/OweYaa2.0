@@ -47,17 +47,18 @@
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
   let submitBtn = document.getElementById('submit');
-    let data = {
-      "email": getQueryStringValue('email'),
-      "password": password
-    }
 
     function submit(ev) {
 
       ev.preventDefault();
       let password = document.getElementById('password').value;
   let confirmPass = document.getElementById('confirmPass').value;
+
   if (password === confirmPass) {
+    let data = {
+      "email": getQueryStringValue('email'),
+      "password": password
+    }
     if(document.getElementById('message').hasChildNodes()){
     document.getElementById('message').removeChild(document.getElementById('msg'));
     }

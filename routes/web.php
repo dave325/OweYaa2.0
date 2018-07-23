@@ -39,6 +39,7 @@ Route::group(['prefix' => 'api'], function ($router){
     Route::post('removeFavUser', 'CompanyController@removeFavUser');
     Route::post('addInternToProject', 'CompanyController@addInternToProject');
     Route::post('forgotPassword', 'ExampleController@forgotPassword');
+    Route::post('updatePass', 'ValidateUser@updatePass');
     Route::group(['prefix' => 'update'], function (){
         Route::post('contactInfo', 'ValidateUser@updateContact');
         Route::post('education', 'ValidateUser@updateEducation');

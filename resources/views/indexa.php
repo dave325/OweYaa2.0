@@ -49,7 +49,7 @@
   let submitBtn = document.getElementById('submit');
     let data = {
       "email": getQueryStringValue('email'),
-      "pass": password
+      "password": password
     }
 
     function submit(ev) {

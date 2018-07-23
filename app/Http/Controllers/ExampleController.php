@@ -137,10 +137,11 @@ class ExampleController extends Controller
     }
 
     public function forgotPassword(Request $rq){
-        $user = $rq->only('username');
-        $credentials = TableModels\ContactInfo::where("username",'=',$user)->first();
-        Mail::send(['html'=> 'indexa'], ['email'=> $user], function($message) use ($user){
-            $message->to($credentials['email'], $credentials['firstname'] . ' ' . $credentials['lastname'])->subject('Forgot Password');
+        $user['username'] = $rq->only('username');
+        $user['info'] = TableModels\ContactInfo::where("username",'=',$user)->first();
+
+        Mail::send(['html'=> 'indexa'], ['email'=> $user['username']], function($message) use ($user){
+            $message->to($user['info']['email'])->subject('Forgot Password');
             $message->from("barika@oweyaa.com", 'OweYaa');
         });
     }

@@ -35,7 +35,7 @@
       <input type="text" id="password" minlength="5" required="true" name="password" class="form-control" />
     </div> <!-- End of class form-group -->
     <div class="form-group">
-      <input type="hidden" name="username" value="<?php echo $email ?>" class="form-control" />
+      <input type="hidden" name="username" value="<?php echo $GET['username'] ?>" class="form-control" />
     </div> <!-- End of class form-group -->
   </form>
   <footer-base></footer-base>

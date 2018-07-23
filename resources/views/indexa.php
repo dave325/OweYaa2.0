@@ -26,6 +26,7 @@
 
   <form novalidate method="post" name="registerModal" class="col-md-8 col-xs-12 col-md-offset-2">
     <h2 class="text-center"> Forgot password</h2>
+    <div id="message"></div>
     <div class="form-group">
       <label form="password">New Password: </label>
       <input type="password" id="password" minlength="5" required="true" name="pass" class="form-control" />
@@ -69,6 +70,10 @@
       });
     }
     submitBtn.addEventListener('click',submit);
+  }else{
+    let message = document.createElement('h2');
+    message.textContent = "Passwords do not match";
+    document.getElementById('message').append(message);
   }
 </script>
   </body>

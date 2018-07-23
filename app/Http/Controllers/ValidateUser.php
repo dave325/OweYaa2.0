@@ -74,9 +74,9 @@ class ValidateUser extends Controller
             User::where("username" , "=",$user['email'])->update($user);
             return response()->json('Successful', 200);
         }catch(Illuminate\Database\QueryException $e){
-            return response()->json('Error', 400);
+            return response()->json($e, 400);
         }catch(\Exception $e){
-            return response()->json('Error', 500);
+            return response()->json($e, 500);
         }
         
     }

@@ -56,7 +56,12 @@
     }
 
     function submit(ev) {
-      ev.preventDefault();
+      console.log(password);
+      console.log(password.value);
+      console.log(confirmPass);
+      console.log(confirmPass.value);
+      
+      ev.preventDefault();/*
       fetch('/api/updatePass', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -67,7 +72,7 @@
         console.log(res);
       }, function(err) {
         console.log(err);
-      });
+      });*/
     }
     submitBtn.addEventListener('click',submit);
   }else{

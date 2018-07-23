@@ -47,21 +47,17 @@
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
   let submitBtn = document.getElementById('submit');
-  let password = document.getElementById('password').value;
-  let confirmPass = document.getElementById('confirmPass').value;
-  if (password === confirmPass) {
     let data = {
       "email": getQueryStringValue('email'),
       "pass": password
     }
 
     function submit(ev) {
-      console.log(password);
-      console.log(password.value);
-      console.log(confirmPass);
-      console.log(confirmPass.value);
-      
-      ev.preventDefault();/*
+
+      ev.preventDefault();
+      let password = document.getElementById('password').value;
+  let confirmPass = document.getElementById('confirmPass').value;
+  if (password === confirmPass) {/*
       fetch('/api/updatePass', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -73,13 +69,13 @@
       }, function(err) {
         console.log(err);
       });*/
-    }
-    submitBtn.addEventListener('click',submit);
-  }else{
+    }else{
     let message = document.createElement('h2');
     message.textContent = "Passwords do not match";
     document.getElementById('message').append(message);
   }
+    }
+    submitBtn.addEventListener('click',submit);
 </script>
   </body>
 </html>

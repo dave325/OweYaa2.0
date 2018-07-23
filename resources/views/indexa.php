@@ -9,7 +9,7 @@
     </head>
     <body >
     <div id="registerModal" class="container col-xs-12">
-  <nav class="navbar navbar-fixed-top col-xs-12" id="header-nav">
+  <nav class="navbar col-xs-12" id="header-nav" style="position:relative">
     <div>
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">

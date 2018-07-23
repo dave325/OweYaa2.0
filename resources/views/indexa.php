@@ -73,7 +73,7 @@
         message.textContent = "Successful! You are being redirected to the home page! ";
         document.getElementById('message').append(message);
         setTimeout(function(){
-          window.location('/');
+          window.location = '/';
         },1000);
       }, function(err) {
         let message = document.createElement('h2');

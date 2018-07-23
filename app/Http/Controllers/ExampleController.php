@@ -137,7 +137,7 @@ class ExampleController extends Controller
     }
 
     public function forgotPassword(Request $rq){
-        $user['username'] = $rq->only('username');
+        $user['username'] = $rq->input('username');
         $user['info'] = TableModels\ContactInfo::where("username",'=',$user)->first();
 
         Mail::send(['html'=> 'indexa'], ['email'=> $user['username']], function($message) use ($user){

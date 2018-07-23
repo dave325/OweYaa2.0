@@ -29,7 +29,7 @@
     <div id="message"></div>
     <div class="form-group">
       <label form="password">New Password: </label>
-      <input type="password" id="password" minlength="5" required="true" name="pass" class="form-control" />
+      <input type="password" id="password" minlength="5" required="true" name="password" class="form-control" />
     </div>
     <!-- End of class form-group -->
     <div class="form-group">

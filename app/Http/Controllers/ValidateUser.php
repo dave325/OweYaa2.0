@@ -69,7 +69,7 @@ class ValidateUser extends Controller
 
     public function updatePass(Request $rq){
         $user = $rq->all();
-        User::where("username" , "=",$user['email'])->first()->save();
+        User::where("username" , "=",$user['email'])->update($user);
 
         return response()->json('Successful', 200);
     }

@@ -102,7 +102,7 @@
     }
 
     loginvm.forgotPage = function () {
-      loginvm.close({ page: 'forgotPassword' });
+      loginvm.close({ page: 'forgotPass' });
     }
   }
 

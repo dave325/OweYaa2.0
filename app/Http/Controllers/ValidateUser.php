@@ -75,6 +75,8 @@ class ValidateUser extends Controller
             return response()->json('Successful', 200);
         }catch(Illuminate\Database\QueryException $e){
             return response()->json('Error', 400);
+        }catch(\Exception $e){
+            return response()->json('Error', 500);
         }
         
     }

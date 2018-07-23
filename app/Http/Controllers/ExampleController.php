@@ -140,7 +140,7 @@ class ExampleController extends Controller
         $user['username'] = $rq->input('username');
         $user['info'] = TableModels\ContactInfo::where("username",'=',$user)->first();
 
-        Mail::send(['html'=> 'email.forgotPassword'], ['email'=> $user['username']], function($message) use ($user){
+        Mail::send(['html'=> 'email.forgotPassword'], ['email'=> $user['info']['email']], function($message) use ($user){
             $message->to($user['info']['email'])->subject('Forgot Password');
             $message->from("barika@oweyaa.com", 'OweYaa');
         });

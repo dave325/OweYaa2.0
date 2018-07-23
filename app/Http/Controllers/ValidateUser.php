@@ -66,6 +66,13 @@ class ValidateUser extends Controller
 
         return true;
     }
+
+    public function updatePass(Request $rq){
+        $user = $rq->all();
+        User::where("username" , "=",$user['email'])->save();
+
+        return response()->json('Successful', 200);
+    }
     // look into sorting files in the cloud
     public function uploadFiles(Request $request)
     {

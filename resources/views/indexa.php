@@ -7,8 +7,8 @@
 
     </head>
     <body >
-    <div id="registerModal">
-    <nav class="navbar navbar-fixed-top" id="header-nav">
+    <div id="registerModal" class="container col-xs-12">
+    <nav class="navbar navbar-fixed-top col-xs-12" id="header-nav">
       <div>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -28,11 +28,11 @@
     <h2 class="text-center"> Forgot password</h2>
     <div class="form-group">
       <label form="password">New Password: </label>
-      <input type="text" id="password" minlength="5" required="true" name="password" class="form-control" />
+      <input type="password" id="password" minlength="5" required="true" name="pass" class="form-control" />
     </div> <!-- End of class form-group -->
     <div class="form-group">
       <label form="password">Confirm Password: </label>
-      <input type="text" id="password" minlength="5" required="true" name="password" class="form-control" />
+      <input type="password" id="confirmPass" minlength="5" required="true" name="confirmPass" class="form-control" />
     </div> <!-- End of class form-group -->
     <button id="submit">Submit</button>
   </form>
@@ -42,7 +42,29 @@
     function getQueryStringValue (key) {
   return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
-  console.log(getQueryStringValue('email'));
+  let submitBtn = document.getElementById('submit');
+  let password = document.getElementById('password');
+  let confirmPass = document.getElementById('confirmPass');
+
+  if(password.value === confirmPass.value){
+  let data = {
+    "email" : getQueryStringValue('email'),
+    "pass" : password
+  }
+  function submit(ev){
+    ev.preventDefault();
+    fetch('/api/updatePass',{
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(function(res){
+      console.log(res);
+    }, function(err){
+      console.log(err);
+    });
+  }
   </script>
   </body>
 </html>

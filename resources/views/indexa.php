@@ -68,9 +68,18 @@
           'Content-Type': 'application/json'
         }
       }).then(function(res) {
-        console.log(res);
+        let message = document.createElement('h2');
+        message.setAttribute('id','msg');
+        message.textContent = "Successful! You are being redirected to the home page! ";
+        document.getElementById('message').append(message);
+        setTimeout(function(){
+          window.location('/');
+        },1000);
       }, function(err) {
-        console.log(err);
+        let message = document.createElement('h2');
+        message.setAttribute('id','msg');
+        message.textContent = "An error occurred. Please try again.";
+        document.getElementById('message').append(message);
       });
     }else{
     let message = document.createElement('h2');

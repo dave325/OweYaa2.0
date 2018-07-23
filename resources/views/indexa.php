@@ -68,6 +68,7 @@
         console.log(err);
       });
     }
+    submitBtn.addEventListener('click',submit);
   }
 </script>
   </body>

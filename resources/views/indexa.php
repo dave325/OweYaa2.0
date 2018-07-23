@@ -57,7 +57,8 @@
       ev.preventDefault();
       let password = document.getElementById('password').value;
   let confirmPass = document.getElementById('confirmPass').value;
-  if (password === confirmPass) {/*
+  if (password === confirmPass) {
+    document.getElementById('message').removeChild(document.getElementById('msg'));
       fetch('/api/updatePass', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -68,9 +69,10 @@
         console.log(res);
       }, function(err) {
         console.log(err);
-      });*/
+      });
     }else{
     let message = document.createElement('h2');
+    message.setAttribute('id','msg');
     message.textContent = "Passwords do not match";
     document.getElementById('message').append(message);
   }

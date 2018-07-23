@@ -83,7 +83,7 @@
   <div class="container-fluid col-xs-12">
     <!-- Veteran boxes -->
     <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 text-center col-sm-12 col-xs-12 ">How It Works For Veterans</h2>
-    <div class="text-center col-md-4 col-sm-12 col-xs-12" ng-repeat="vet in vm.boxes.veterans track by $index" ng-class="vm.boxes($index)">
+    <div class="text-center col-md-4 col-sm-12 col-xs-12" ng-repeat="vet in vm.boxes.veterans track by $index" ng-class="vm.boxClass($index)">
       <!-- ng repeat -->
       <div class="box">
         <h3 class="header">{{vet.name}}</h3>

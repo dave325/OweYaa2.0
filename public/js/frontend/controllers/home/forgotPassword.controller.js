@@ -1,6 +1,6 @@
 (function(){
 
-    forgotPasswordCtrl.$inject(['$http']);
+    forgotPasswordCtrl.$inject = ['$http'];
     function forgotPasswordCtrl($http){
         var vm = this;
         vm.formError = '';

@@ -109,7 +109,7 @@
     
     .when('/forgotPass',{
       templateUrl:"/js/frontend/views/home/forgotPassword.view.html",
-      controller:"forgotPassword.controller.js",
+      controller:"forgotPassword",
       controllerAs:"vm"
     })
 

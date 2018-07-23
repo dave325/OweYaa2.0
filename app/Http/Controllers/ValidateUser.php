@@ -69,9 +69,14 @@ class ValidateUser extends Controller
 
     public function updatePass(Request $rq){
         $user = $rq->all();
-        User::where("username" , "=",$user['email'])->update($user);
 
-        return response()->json('Successful', 200);
+        try{
+            User::where("username" , "=",$user['email'])->update($user);
+            return response()->json('Successful', 200);
+        }catch(Illuminate\Database\QueryException $e){
+            return response()->json('Error', 400);
+        }
+        
     }
     // look into sorting files in the cloud
     public function uploadFiles(Request $request)

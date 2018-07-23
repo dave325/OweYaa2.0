@@ -34,6 +34,7 @@
         <script src="js/frontend/controllers/home/veteran.controller.js"></script>
         <script src="js/frontend/controllers/home/contact.controller.js"></script>
         <script src="js/frontend/controllers/home/register.controller.js"></script>
+        <script src="js/frontend/controllers/home/forgotPassword.controller.js"></script>
 
         <!-- Veteran Controllers -->
         <script src="js/frontend/controllers/veteran/currentInternships.controller.js"></script>

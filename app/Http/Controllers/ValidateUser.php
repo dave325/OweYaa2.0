@@ -69,11 +69,11 @@ class ValidateUser extends Controller
 
     public function updatePass(Request $rq){
         $user = $rq->all();
-        $user['password'] = Illuminate\Support\Facades\Hash::make($user['password']);
+        $user['password'] = \Illuminate\Support\Facades\Hash::make($user['password']);
         try{
             User::where("username" , "=",$user['email'])->update($user);
             return response()->json('Successful', 200);
-        }catch(Illuminate\Database\QueryException $e){
+        }catch(\Illuminate\Database\QueryException $e){
             return response()->json($e, 400);
         }catch(\Exception $e){
             return response()->json($e, 500);

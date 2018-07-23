@@ -118,6 +118,13 @@ function homeCtrl($scope,$uibModal, $http, $window) {
         link: 'https://www.bestbuy.com/?ref=199&loc=dRloVCspcqA&acampID=5&siteID=dRloVCspcqA-KzxBIO_4xOQDQlm3lmmi7Q'
       }
     }
+    vm.boxes = function(index){
+        if(index % 2 === 1){
+            return "col-md-offset-1";
+        }else{
+            return "col-md-offset-1";
+        }
+    }
  }
  angular.module('oweyaa')
 .controller('homeCtrl', homeCtrl);

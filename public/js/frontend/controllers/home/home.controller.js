@@ -122,7 +122,7 @@ function homeCtrl($scope,$uibModal, $http, $window) {
         if(index % 2 === 1){
             return "col-md-offset-1";
         }else{
-            return "col-md-offset-1";
+            return "col-md-offset-2";
         }
     }
  }

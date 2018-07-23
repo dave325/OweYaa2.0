@@ -67,7 +67,12 @@
         headers: {
           'Content-Type': 'application/json'
         }
-      }).then(function(res) {
+      }).then(function(response){
+        if(response.ok) {
+          return response.blob();
+        }
+        throw new Error('Issue');
+        }).then(function(res) {
         let message = document.createElement('h2');
         message.setAttribute('id','msg');
         message.textContent = "Successful! You are being redirected to the home page! ";

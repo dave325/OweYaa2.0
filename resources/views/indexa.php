@@ -34,11 +34,15 @@
       <label form="password">Confirm Password: </label>
       <input type="text" id="password" minlength="5" required="true" name="password" class="form-control" />
     </div> <!-- End of class form-group -->
-    <div class="form-group">
-      <input type="hidden" name="username" value="<?php echo $GET['username'] ?>" class="form-control" />
-    </div> <!-- End of class form-group -->
+    <button id="submit">Submit</button>
   </form>
   <footer-base></footer-base>
 </div> <!-- End of id registerModal -->
-    </body>
+<script>
+    function getQueryStringValue (key) {
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+  console.log(getQueryStringValue('email'));
+  </script>
+  </body>
 </html>

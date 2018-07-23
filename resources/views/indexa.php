@@ -47,9 +47,9 @@
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
   let submitBtn = document.getElementById('submit');
-  let password = document.getElementById('password');
-  let confirmPass = document.getElementById('confirmPass');
-  if (password.value === confirmPass.value) {
+  let password = document.getElementById('password').value;
+  let confirmPass = document.getElementById('confirmPass').value;
+  if (password === confirmPass) {
     let data = {
       "email": getQueryStringValue('email'),
       "pass": password

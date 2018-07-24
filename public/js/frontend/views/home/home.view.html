@@ -99,7 +99,7 @@
     <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-12 text-center col-sm-12 col-xs-12">
       <strong>How It Works For Employers</strong>
     </h2>
-    <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="com in vm.boxes.companies">
+    <div class="text-center col-md-4 col-sm-12 col-xs-12" ng-repeat="com in vm.boxes.companies track by $index"  ng-class="vm.boxClass($index)">
       <div class="box">
         <h3 class="header">{{com.name}}</h3>
         <img src="{{com.img}}" height="245" width="245" />

@@ -120,9 +120,9 @@ function homeCtrl($scope,$uibModal, $http, $window) {
     }
     vm.boxClass = function(index){
         if(index % 2 === 1){
-            return "col-md-offset-1";
-        }else{
             return "col-md-offset-2";
+        }else{
+            return "col-md-offset-1";
         }
     }
  }

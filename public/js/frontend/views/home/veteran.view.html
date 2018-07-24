@@ -53,7 +53,7 @@
 <div class="container-fluid col-xs-12"> <!-- ng repeat -->
   <!-- Veteran boxes -->
   <h2 class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 text-center col-sm-12 col-xs-12 "><strong>How It Works For Veterans</strong></h2>
-  <div class="text-center col-md-6 col-sm-12 col-xs-12" ng-repeat="vet in vm.cards">
+  <div class="text-center col-md-4 col-sm-12 col-xs-12" ng-repeat="vet in vm.cards track by $index" ng-class="vm.boxClasses($index)">
     <div class="box">
       <h3 class="header">{{vet.name}}</h3>
       <img id="pics" class="content" src="{{vet.img}}"/>
@@ -63,13 +63,6 @@
 </div> <!-- End of class container-fluid -->
 <span class="clearfix"></span>
 
-
-<div class="col-xs-12 match">
-    <h3 class="text-center">Our Valued Partners And Sponsers</h3>
-    <div style="margin-top:20px" class="text-center col-md-12">
-        <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>
-    </div> <!-- End of style margin -->
-  </div> <!-- End of class col-xs-12 match -->
   <span class="clearfix"></span>
 
 
@@ -128,13 +121,12 @@
     </div> <!-- End of class row -->
   </div> <!-- End of class match col-xs-12 -->
   <span class="clearfix"></span>
+  <div class="col-xs-12 match">
+    <h3 class="text-center">Our Valued Partners And Sponsers</h3>
+    <div style="margin-top:20px" class="text-center col-md-12">
+        <a ng-repeat="partner in vm.partners" href="{{partner.link}}"><img src="{{partner.image}}" height=70></a>
+    </div> <!-- End of style margin -->
+  </div> <!-- End of class col-xs-12 match -->
 
-  <div class="col-xs-12">
-    <hr>
-    <h2 class="text-center">Proud Supporter of the VET-TEC Act</h2>
-    <div class="textBox col-md-6 col-md-offset-3">
-      <h3>OweYaa is the proud supporter of the VET-TEC Act, a bill being brought to congress to appropiate an annual 15M in funding for Veterans to attend unique coding bootcamps. Along with multiple supporters such as Operation Code, OweYaa asks you to reach out to your representatives to show your support for this important bill.</h3>
-    </div> <!-- End of textBox -->
-  </div> <!-- End of class col-xs-12 -->
   <footer-base></footer-base>
 </div> <!-- End of class home-page and id vet-home-page -->

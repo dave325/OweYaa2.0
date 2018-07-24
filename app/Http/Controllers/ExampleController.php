@@ -135,4 +135,11 @@ class ExampleController extends Controller
             return response()->json(['user_not_found1'], 400);
         }
     }
+    
+    public function contactOweYaa(){
+    Mail::send(['html'=> 'email.contact'], ['email'=> $credentials['email'],'firstname' => $credentials['firstname'], 'message' =>$credentials['message']], function($message) use ($credentials){
+                    $message->to('support@oweyaa.com', $credentials['firstname'])->subject('inquiry from contact form');
+                    
+                });
+    }
 }

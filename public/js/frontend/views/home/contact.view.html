@@ -13,11 +13,11 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputName">Full Name</label>
-                    <input ng-model="vm.fullName" type="text" class="form-control gap" id="exampleInputName" placeholder="Full Name">
+                    <input ng-model="vm.form.fullName" type="text" class="form-control gap" id="exampleInputName" placeholder="Full Name">
                     <label for="exampleInputEmail">Email Address</label>
-                    <input ng-model="vm.email" type="email" class="form-control gap" id="exampleInputEmail" placeholder="Email Address">
+                    <input ng-model="vm.form.email" type="email" class="form-control gap" id="exampleInputEmail" placeholder="Email Address">
                     <label for="exampleInputSubject">Subject</label>
-                    <input ng-model="vm.subject" type="text" class="form-control gap" id="exampleInputSubject" placeholder="Subject">
+                    <input ng-model="vm.form.subject" type="text" class="form-control gap" id="exampleInputSubject" placeholder="Subject">
                 </div>
                 <!-- End of class form-group -->
             </div>
@@ -25,7 +25,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputText">How can we help you?</label>
-                    <textarea ng-model="vm.description" class="form-control" id="exampleInputText" rows="7"></textarea>
+                    <textarea ng-model="vm.form.description" class="form-control" id="exampleInputText" rows="7"></textarea>
                     <div class="col-md-12">
                         <button type="button" class="btn btn-labeled btn-success">
                             <span class="btn-label">

@@ -23,6 +23,7 @@ $router->get('{all}', function (){
 $router->get('/{any:.*}', function ($any) use ($router){
     return view('index');
 });
+$router->post('contact', 'ExampleController@contactOweYaa');
 Route::group(['prefix' => 'api'], function ($router){
     Route::post('mail', "CompanyInternMatch@mail");
     Route::post('getFilterUser', "CompanyInternMatch@test");

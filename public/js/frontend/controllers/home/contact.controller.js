@@ -1,23 +1,17 @@
 (function(){
 //Injector will protect against minification
-contactCtrl.$inject = [];
-function contactCtrl() {
+contactCtrl.$inject = ['$http'];
+function contactCtrl($http) {
     var vm = this;
 
-    vm.fullName = "";
-    vm.email = "";
-    vm.subject = "";
-    vm.description = "";
+    vm.form = {};
 
     vm.submit = function() {
-      if (vm.fullName != "" && vm.email != "" && vm.submit != "" && vm.description != "") {
+      if (vm.form.fullName != "" && vm.form.email != "" && vm.form.submit != "" && vm.form.description != "") {
         //Send Email
-
+        $http.post('/contact', vm.form).then();
         //Clear Page
-        vm.fullName = "";
-        vm.email = "";
-        vm.subject = "";
-        vm.description = "";
+        vm.form = {};
       }
     }
  }

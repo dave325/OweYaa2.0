@@ -61,14 +61,13 @@
         portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
         portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
       }
-      console.log(portfoliovm.user.contact_info);
       portfoliovm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function (data) {
         if (portfoliovm.user.pic) {
           var uploadPic = Upload.upload({
             url: "/api/uploadFile",
-            data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.files.length)}
+            data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}
           });
           uploadPic.then(function (response) {
             $timeout(function () {

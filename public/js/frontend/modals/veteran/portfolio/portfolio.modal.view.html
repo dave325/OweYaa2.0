@@ -66,7 +66,7 @@
               <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
               <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
               <input ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-warning" type="button" value="Cancel" />
-              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user, )' ng-disabled="portfoliovm.isDisabled" class="btn btn-info"
+              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user )' ng-disabled="portfoliovm.isDisabled" class="btn btn-info"
                 type="button" value="Save" />
             </div>
             <!-- End of class text-center form-group -->

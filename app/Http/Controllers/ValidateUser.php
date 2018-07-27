@@ -913,7 +913,7 @@ class ValidateUser extends Controller
         }
     }
 
-    public function updateFIle(Request $request)
+    public function updateFile(Request $request)
     {
         if ($isValid = $this->isValid()) {
             if (isset($request['delete']) && $request['delete']) {

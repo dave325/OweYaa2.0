@@ -68,7 +68,7 @@
         if (portfoliovm.user.pic) {
           var uploadPic = Upload.upload({
             url: "/api/uploadFile",
-            data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username }
+            data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.contact_info.username + portfoliovm.files.length)}
           });
           uploadPic.then(function (response) {
             $timeout(function () {

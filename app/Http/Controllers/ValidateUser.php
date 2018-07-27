@@ -67,18 +67,19 @@ class ValidateUser extends Controller
         return true;
     }
 
-    public function updatePass(Request $rq){
+    public function updatePass(Request $rq)
+    {
         $user = $rq->all();
         $user['password'] = \Illuminate\Support\Facades\Hash::make($user['password']);
-        try{
-            User::where("username" , "=",$user['email'])->update($user);
+        try {
+            User::where("username", "=", $user['email'])->update($user);
             return response()->json('Successful', 200);
-        }catch(\Illuminate\Database\QueryException $e){
+        } catch (\Illuminate\Database\QueryException $e) {
             return response()->json($e, 400);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e, 500);
         }
-        
+
     }
     // look into sorting files in the cloud
     public function uploadFiles(Request $request)
@@ -444,7 +445,6 @@ class ValidateUser extends Controller
 
                     // Otherwise, the "events" credentials will not be deleted.
                     unset($item['delete']);
-
 
                     try {
 
@@ -939,9 +939,61 @@ class ValidateUser extends Controller
         }
     }
 
-    public function addWantedProj(Request $request){
+    public function updateFIle(Request $request)
+    {
         if ($isValid = $this->isValid()) {
+            if (isset($request['delete']) && $request['delete']) {
 
+            } else {
+                try {
+                    $item = array(
+                        "fileid" => $request->only('fileid'),
+                        "filename" => $request['username'] . $request->photo->extension(),
+                        "username" => $request['username'],
+                    );
+                    Storage::disk('ftp')->putFileAs('storage', $request->file('file'), $request['username'] . $request->photo->extension());
+
+                    // Store the Storage::disk('s3') data in a variable, $directories.
+                    $directories = Storage::disk('ftp');
+
+                    // Search for the skillid.
+                    $file = TableModels\File::findOrFail($item['fileid']);
+
+                    // Fill information for the item.
+                    $file->fill($item);
+
+                    // Save and commit all changes to the skill variable.
+                    $file->save();
+                } catch (ModelNotFoundException $me) {
+
+                    // Create a new TableModels object for the "Wanted Skill".
+                    $file = new TableModels\File($item);
+
+                    // Save and commit all changes to the skill variable.
+                    $file->save();
+
+                } catch (\Exception $e) {
+                    return response()->json('error', 500);
+                }
+            }
+
+            // If there is data that needs to be deleted...
+            if (isset($delete)) {
+
+                // Delete the data.
+                TableModels\File::destroy($delete);
+
+                // Empty the delete stack.
+                unset($delete);
+
+                // Reset the delete stack.
+                $delete = array();
+
+            }
+
+            return response()->json(['success' => true], 200);
+        } else {
+            return response()->json(['success' => false], 400);
         }
     }
 

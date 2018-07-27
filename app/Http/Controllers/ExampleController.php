@@ -100,7 +100,7 @@ class ExampleController extends Controller
         // a Veteran user, and the attributes are filled in for this Veteran user.
         elseif (array_key_exists('type', $request) && $request['type'] == 0) {
             //$user= User::with(['milUser.skill','milUser.contactInfo'])->where('username','=',$userCheck->username)->get();
-            $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('username', '=', $currUser['username'])->first();
+            $user = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews','files')->where('username', '=', $currUser['username'])->first();
             $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $currUser['username'])->first();
             return response()->json(['user' => $user], 200);
         }
@@ -119,7 +119,7 @@ class ExampleController extends Controller
             $user = [];
             $user["username"] = $currUser['username'];
             $user["type"] = $currUser['type'];
-            $user['candidates'] = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews')->where('type', '=', 0)->get();
+            $user['candidates'] = User::with('contactInfo', 'skill', 'language', 'wantedSkills', 'availability', 'monthAvailability', 'certifications', 'mentor', 'course', 'social', 'education', 'careerSearch', 'goals', 'events', 'bootcamp', 'actionTask', 'prevCareerFields', 'careerGoals', 'hobbies', 'interviews', 'files')->where('type', '=', 0)->get();
             foreach($user['candidates'] as $candidate){
                 $candidate['project'] = $user['project'] = TableModels\CompanyModels\CompanyProject::where('internid', '=', $candidate['contact_info']['username'])->first();
             }

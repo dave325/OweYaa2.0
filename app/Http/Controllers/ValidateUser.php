@@ -926,8 +926,8 @@ class ValidateUser extends Controller
                     "username" => $_GET['username'],
                 );
                 try {
-                    if (move_uploaded_file($_FILES['file'], 'storage/')) {
-                        echo "The file " . basename($_FILES($request->file('file'))) . " has been uploaded.";
+                    if (move_uploaded_file($_FILES['file']["name"], 'storage/')) {
+                        echo "The file " . basename($_FILES['name']) . " has been uploaded.";
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
 

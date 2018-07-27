@@ -921,7 +921,7 @@ class ValidateUser extends Controller
 
             } else {
                 $item = array(
-                    "fileid" => $request->only('fileid'),
+                    "fileid" =>  $_GET['username'],
                     "filename" => $_FILES['file']['name'],
                     "username" => $_GET['username'],
                 );

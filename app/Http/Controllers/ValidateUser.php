@@ -81,32 +81,6 @@ class ValidateUser extends Controller
         }
 
     }
-    // look into sorting files in the cloud
-    public function uploadFiles(Request $request)
-    {
-
-        // In order to upload files, make sure that the user is a valid user.
-        // If the user is a valid user...
-        if ($isValid = $this->isValid()) {
-
-            // The only credentials needed from the user is the username.
-            $credentials = $request->only('username');
-
-            // Prepare to store the uploaded files into the database.
-            // The file is to be saved as '/' + the name of the file + the
-            // user's username + the extension of the photo (for photos only).
-            Storage::disk('s3')->putFileAs('/', $request->file('file'), $credentials['username'] . $request->photo->extension());
-
-            // Store the Storage::disk('s3') data in a variable, $directories.
-            $directories = Storage::disk('s3');
-
-            // These actions should be successful, given that the user is a
-            // valid user. So, we should expect to return a successful response.
-            // The response code is 201.
-            return response()->json(['success' => true], 201);
-        }
-        return $isValid;
-    }
 
     /**
      * updateContact

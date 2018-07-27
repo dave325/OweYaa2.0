@@ -9,7 +9,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label form="portfolio" for="pic">Profile Picture: </label>
-              <input ng-model="portfoliovm.user.pic" type="file" ngf-select class="form-control" name="pic" />
+              <input type="file" file-upload="portfoliovm.user.pic" class="form-control" name="pic" />
             </div>
             <!-- End of div class form-group -->
             <div class="form-group">
@@ -66,7 +66,7 @@
               <p ng-show="portfoliovm.formError" class="alert alert-danger" ng-bind-html="portfoliovm.formError"></p>
               <p ng-show="portfoliovm.formInfo" class="alert alert-success" ng-bind-html="portfoliovm.formInfo"></p>
               <input ng-click="portfoliovm.close(portfoliovm.user)" class="btn btn-warning" type="button" value="Cancel" />
-              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user)' ng-disabled="portfoliovm.isDisabled" class="btn btn-info"
+              <input ng-click='portfoliovm.onSubmit("contactInfo", portfoliovm.user, )' ng-disabled="portfoliovm.isDisabled" class="btn btn-info"
                 type="button" value="Save" />
             </div>
             <!-- End of class text-center form-group -->

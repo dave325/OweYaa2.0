@@ -57,7 +57,7 @@
     }
     // Will make a call to the server and php file
     portfoliovm.doportfolio = function (modal, data) {
-      if ($scope.autoCompleteDetails != undefined ) {
+      if ($scope.autoCompleteDetails != undefined) {
         portfoliovm.user.contact_info.latitude = $scope.autoCompleteDetails.geometry.location.lat();
         portfoliovm.user.contact_info.longitude = $scope.autoCompleteDetails.geometry.location.lng();
       }
@@ -65,11 +65,21 @@
       //Update server information
       User.updateUser(modal, data).then(function (data) {
         if (portfoliovm.user.pic) {
-          var uploadPic = Upload.upload({
-            url: "/api/uploadFile",
-            data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}
+          var fileFormData = new FormData();
+          fileFormData.append('file', portfoliovm.user.pic);
+          var deffered = $q.defer();
+          $http.post("/api/uploadFile", fileFormData, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+
+          }).success(function (response) {
+            deffered.resolve(response);
+
+          }).error(function (response) {
+            deffered.reject(response);
           });
-          uploadPic.then(function (response) {
+
+          deffered.promise.then(function (response) {
             $timeout(function () {
               console.log(response);
             });
@@ -78,30 +88,45 @@
             if (response.status > 0)
               console.log(response.status + ': ' + response.data);
           });
-        }
-        portfoliovm.formInfo = "Succesfully Updated!";
-        User.setUser(portfoliovm.user);
-        portfoliovm.close();
-      }, function (data) {
-        portfoliovm.isDisabled = false;
-        if (data.status === 401) {
-          portfoliovm.formError = "Unauthorized, there was an error. Please try again!";
-        } else {
-          portfoliovm.formError = "There was an error. Please try again!";
-        }
-      });
-    }
-
-    // Will Submit the form depending if everything is filled out
-    portfoliovm.onSubmit = function (modal, data) {
-      if (portfoliovm.user.contact_info.firstname.length < 1 || portfoliovm.user.contact_info.lastname.length < 1) {
-        portfoliovm.formError = "You must submit a first name  and last nameto save the information";
-      } else {
-        portfoliovm.doportfolio(modal, data);
+        
+        /*
+        var uploadPic = Upload.upload({
+          url: "/api/uploadFile",
+          data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}
+        });
+        uploadPic.then(function (response) {
+          $timeout(function () {
+            console.log(response);
+          });
+        }, function (response) {
+          console.log(response);
+          if (response.status > 0)
+            console.log(response.status + ': ' + response.data);
+        });*/
       }
-    }
-
+    portfoliovm.formInfo = "Succesfully Updated!";
+      User.setUser(portfoliovm.user);
+      portfoliovm.close();
+    }, function (data) {
+      portfoliovm.isDisabled = false;
+      if (data.status === 401) {
+        portfoliovm.formError = "Unauthorized, there was an error. Please try again!";
+      } else {
+        portfoliovm.formError = "There was an error. Please try again!";
+      }
+    });
   }
-  angular.module('oweyaa')
-    .controller('portfolioModalCtrl', portfolioModalCtrl);
-})();
+
+  // Will Submit the form depending if everything is filled out
+  portfoliovm.onSubmit = function (modal, data) {
+    if (portfoliovm.user.contact_info.firstname.length < 1 || portfoliovm.user.contact_info.lastname.length < 1) {
+      portfoliovm.formError = "You must submit a first name  and last nameto save the information";
+    } else {
+      portfoliovm.doportfolio(modal, data);
+    }
+  }
+
+}
+angular.module('oweyaa')
+  .controller('portfolioModalCtrl', portfolioModalCtrl);
+}) ();

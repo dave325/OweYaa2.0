@@ -926,7 +926,7 @@ class ValidateUser extends Controller
                     "username" => $request['username'],
                 );
                 try {
-                    return response()->json($_FILES[0], 200);
+                    return response()->json($_FILES[$request->file('file')], 200);
                     if (move_uploaded_file($_FILES[$request->file('file')], 'storage/')) {
                         echo "The file " . basename($_FILES($request->file('file'))) . " has been uploaded.";
                         // Search for the skillid.

@@ -9,6 +9,7 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illumunate\Exception;
 
 /**
  * The class that will validate all users. This class extends from the
@@ -921,15 +922,12 @@ class ValidateUser extends Controller
 
             } else {
                 $item = array(
-                    "fileid" => $request->only('fileid'),
-                    "filename" => $request['username'] . $request->file->getClientOriginalExtension(),
+                    "fileid" => $request->only('fileid')['fileid'],
+                    "filename" => $request['username'] .'.'. $request->file->getClientOriginalExtension(),
                     "username" => $request['username'],
                 );
                 try {
-                    Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] . $request->file->extensgetClientOriginalExtensionion());
-
-                    // Store the Storage::disk('s3') data in a variable, $directories.
-                    $directories = Storage::disk('ftp');
+                    Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 
                     // Search for the skillid.
                     $file = TableModels\File::findOrFail($item['fileid']);
@@ -948,7 +946,7 @@ class ValidateUser extends Controller
                     // Save and commit all changes to the skill variable.
                     $file->save();
                     return response()->json($item, 200);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     return response()->json($item, 500);
                 }
             }

@@ -50,6 +50,7 @@
         <script src="js/frontend/directives/footer/footer.directive.js"></script>
         <script src="js/frontend/directives/navbar/navbar.directive.js"></script>
         <script src="js/frontend/directives/footer/footer.controller.js"></script>
+        <script src="js/frontend/directives/navbar/navbar.controller.js"></script>
         <script src="js/frontend/directives/file-upload.controller.js"></script>
 
         <!-- Services/Factories -->

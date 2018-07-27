@@ -948,7 +948,7 @@ class ValidateUser extends Controller
                     $file->save();
 
                 } catch (\Exception $e) {
-                    return response()->json($e, $e->statusCode);
+                    return response()->json($e);
                 }
             }
 

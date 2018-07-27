@@ -922,8 +922,8 @@ class ValidateUser extends Controller
             } else {
                 $item = array(
                     "fileid" => $request->only('fileid'),
-                    "filename" => $request['username'] . '.' . $request->file->getClientOriginalExtension(),
-                    "username" => $request['username'],
+                    "filename" => $info['username'] . '.' . $_FILES['filefile']['name'],
+                    "username" => $info['username'],
                 );
                 try {
                     if (move_uploaded_file($_FILES['filefile'], 'storage/')) {

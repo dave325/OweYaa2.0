@@ -17,8 +17,8 @@
              attrs: key value pair of element attributes
              */
             link: function (scope, element, attrs) {
-                var model = $parse(attrs.demoFileModel),
-                    modelSetter = model.assign; //define a setter for demoFileModel
+                var model = $parse(attrs.demoFileModel);
+                 var modelSetter = model.assign; //define a setter for demoFileModel
  
                 //Bind change event on the element
                 element.bind('change', function () {

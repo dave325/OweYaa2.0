@@ -31,7 +31,7 @@ Route::group(['prefix' => 'api'], function ($router){
     Route::post('getUser', "ExampleController@getUser");
     Route::post('addUser', "ExampleController@addUser");
     Route::post('matching', 'CompanyInternMatch@match');
-    Route::post('uploadFile','ValidateUser@uploadFile');
+    Route::post('uploadFile','ValidateUser@updateFile');
     Route::post('getUsers', 'CompanyController@returnAllUsers');
     Route::post('addProjects', 'CompanyController@addProj');
     Route::post('getProjects', 'CompanyController@retrieveProj');

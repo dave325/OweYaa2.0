@@ -17,9 +17,9 @@ return [
         ],
         'ftp' => [
             'driver'   => 'ftp',
-            'host'     => 'ftp.example.com',
-            'username' => 'your-username',
-            'password' => 'your-password',
+            'host'     => 'ftp.oweyaa.com',
+            'username' => ' David@oweyaa.com',
+            'password' => 'Dave32594!',
         
             // Optional FTP Settings...
             // 'port'     => 21,

@@ -923,10 +923,10 @@ class ValidateUser extends Controller
                 try {
                     $item = array(
                         "fileid" => $request->only('fileid'),
-                        "filename" => $request['username'] . $request->photo->extension(),
+                        "filename" => $request['username'] . $request->file->getClientOriginalExtension(),
                         "username" => $request['username'],
                     );
-                    Storage::disk('ftp')->putFileAs('storage', $request->file('file'), $request['username'] . $request->photo->extension());
+                    Storage::disk('ftp')->putFileAs('storage', $request->file('file'), $request['username'] . $request->file->extensgetClientOriginalExtensionion());
 
                     // Store the Storage::disk('s3') data in a variable, $directories.
                     $directories = Storage::disk('ftp');

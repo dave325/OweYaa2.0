@@ -916,7 +916,6 @@ class ValidateUser extends Controller
     public function updateFile(Request $request)
     {
         $info = $request->all();
-        return response()->json($request->file('pic'), 200);
         if ($isValid = $this->isValid()) {
             if (isset($info['delete']) && $info['delete']) {
 
@@ -927,8 +926,7 @@ class ValidateUser extends Controller
                     "username" => $request['username'],
                 );
                 try {
-                    return response()->json($_FILES[$request->file('file')], 200);
-                    if (move_uploaded_file($_FILES[$request->file('file')], 'storage/')) {
+                    if (move_uploaded_file($_FILES['file'], 'storage/')) {
                         echo "The file " . basename($_FILES($request->file('file'))) . " has been uploaded.";
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);

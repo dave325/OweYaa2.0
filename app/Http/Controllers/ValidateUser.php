@@ -920,13 +920,13 @@ class ValidateUser extends Controller
             if (isset($info['delete']) && $info['delete'] ) {
 
             } else {
+                $item = array(
+                    "fileid" => $request->only('fileid'),
+                    "filename" => $request['username'] . $request->file->getClientOriginalExtension(),
+                    "username" => $request['username'],
+                );
                 try {
-                    $item = array(
-                        "fileid" => $request->only('fileid'),
-                        "filename" => $request['username'] . $request->file->getClientOriginalExtension(),
-                        "username" => $request['username'],
-                    );
-                    Storage::disk('ftp')->putFileAs('storage', $request->file('file'), $request['username'] . $request->file->extensgetClientOriginalExtensionion());
+                    Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] . $request->file->extensgetClientOriginalExtensionion());
 
                     // Store the Storage::disk('s3') data in a variable, $directories.
                     $directories = Storage::disk('ftp');
@@ -939,6 +939,7 @@ class ValidateUser extends Controller
 
                     // Save and commit all changes to the skill variable.
                     $file->save();
+                    return response()->json($item, 200);
                 } catch (ModelNotFoundException $me) {
 
                     // Create a new TableModels object for the "Wanted Skill".
@@ -946,7 +947,7 @@ class ValidateUser extends Controller
 
                     // Save and commit all changes to the skill variable.
                     $file->save();
-
+                    return response()->json($item, 200);
                 } catch (\Exception $e) {
                     return response()->json($e);
                 }

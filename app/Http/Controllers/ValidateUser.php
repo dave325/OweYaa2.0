@@ -949,7 +949,7 @@ class ValidateUser extends Controller
                     $file->save();
                     return response()->json($item, 200);
                 } catch (\Exception $e) {
-                    return response()->json($e);
+                    return response()->json($item, 500);
                 }
             }
 

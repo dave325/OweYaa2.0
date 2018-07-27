@@ -916,15 +916,14 @@ class ValidateUser extends Controller
     public function updateFile(Request $request)
     {
         $info = $request->all();
-        return response()->json($info);
         if ($isValid = $this->isValid()) {
             if (isset($info['delete']) && $info['delete']) {
 
             } else {
                 $item = array(
                     "fileid" => $request->only('fileid'),
-                    "filename" => $info['username'] . '.' . $_FILES['filefile']['name'],
-                    "username" => $info['username'],
+                    "filename" => $_FILES['filefile']['name'],
+                    "username" => $_GET['username'],
                 );
                 try {
                     if (move_uploaded_file($_FILES['filefile'], 'storage/')) {

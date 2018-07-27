@@ -68,9 +68,10 @@
           var fileFormData = new FormData();
           fileFormData.append('file', portfoliovm.user.pic);
           var deffered = $q.defer();
-          $http.post("/api/uploadFile", { file: fileFormData, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}, {
+          $http.post("/api/uploadFile", {
             transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
+            headers: { 'Content-Type': undefined },
+            data:{file: fileFormData, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}
 
           }).success(function (response) {
             deffered.resolve(response);

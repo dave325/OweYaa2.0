@@ -916,6 +916,7 @@ class ValidateUser extends Controller
     public function updateFile(Request $request)
     {
         $info = $request->all();
+        return response()->json($info);
         if ($isValid = $this->isValid()) {
             if (isset($info['delete']) && $info['delete']) {
 

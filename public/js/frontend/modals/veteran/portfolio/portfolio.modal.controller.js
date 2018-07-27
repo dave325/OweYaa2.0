@@ -1,6 +1,6 @@
 (function () {
-  portfolioModalCtrl.$inject = ['$scope', '$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Upload', 'User'];
-  function portfolioModalCtrl($scope, $uibModalInstance, CurrUser, $http, $timeout, Upload, User) {
+  portfolioModalCtrl.$inject = ['$scope', '$uibModalInstance', 'CurrUser', '$http', '$timeout', '$q', 'User'];
+  function portfolioModalCtrl($scope, $uibModalInstance, CurrUser, $http, $timeout, $q, User) {
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     portfoliovm.isDisabled = false;

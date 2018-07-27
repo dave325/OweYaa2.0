@@ -7,9 +7,8 @@ use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Illumunate\Exception;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * The class that will validate all users. This class extends from the
@@ -918,26 +917,32 @@ class ValidateUser extends Controller
     {
         $info = $request->all();
         if ($isValid = $this->isValid()) {
-            if (isset($info['delete']) && $info['delete'] ) {
+            if (isset($info['delete']) && $info['delete']) {
 
             } else {
                 $item = array(
                     "fileid" => $request->only('fileid')['fileid'],
-                    "filename" => $request['username'] .'.'. $request->file->getClientOriginalExtension(),
+                    "filename" => $request['username'] . '.' . $request->file->getClientOriginalExtension(),
                     "username" => $request['username'],
                 );
                 try {
-                    Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
+                    $_FILES[$request->file('file')];
+                    if (move_uploaded_file($_FILES($request->file('file')), 'storage/')) {
+                        echo "The file " . basename($_FILES($request->file('file'))) . " has been uploaded.";
+                        // Search for the skillid.
+                        $file = TableModels\File::findOrFail($item['fileid']);
 
-                    // Search for the skillid.
-                    $file = TableModels\File::findOrFail($item['fileid']);
+                        // Fill information for the item.
+                        $file->fill($item);
 
-                    // Fill information for the item.
-                    $file->fill($item);
+                        // Save and commit all changes to the skill variable.
+                        $file->save();
+                        return response()->json($item, 200);
+                    }else{
+                        return response()->json($item, 500);
+                    }
+                    //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 
-                    // Save and commit all changes to the skill variable.
-                    $file->save();
-                    return response()->json($item, 200);
                 } catch (ModelNotFoundException $me) {
 
                     // Create a new TableModels object for the "Wanted Skill".

@@ -70,7 +70,7 @@
           var deffered = $q.defer();
           $http.post("/api/uploadFile?username=" + portfoliovm.user.contact_info.username + '&count=' + portfoliovm.user.files.length, fileFormData,{
             transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined },
+            headers: { 'Content-Type': undefined,'Process-Data': false },
           }).then(function (response) {
             deffered.resolve(response);
 

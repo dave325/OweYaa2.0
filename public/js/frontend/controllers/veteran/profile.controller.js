@@ -18,12 +18,13 @@
 		$scope.recommendedFields = [];
 		console.log($scope.user);
 		if($location.search().hasOwnProperty('username')){
-			$timeout(function(){
-				$location.search('username',null);
-			},1000);
 			return;
 		}else{
 			$scope.progress = calcProgress($scope.user);
+		}
+
+		if($location.search().hasOwnProperty('username')){
+			$location.search('username',null);
 		}
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);

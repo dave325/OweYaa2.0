@@ -19,7 +19,7 @@
 		console.log($scope.user);
 		if($location.search().hasOwnProperty('username')){
 			$timeout(function(){
-				$locatino.search('username',null);
+				$location.search('username',null);
 			},500);
 			return;
 		}else{

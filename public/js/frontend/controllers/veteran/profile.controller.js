@@ -7,25 +7,21 @@
 			User.returnUser($location.search().username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
+				if($location.search().hasOwnProperty('username')){
+					$scope.progress = calcProgress($scope.user);
+					return;
+				}
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
 		} else {
 			// Retrieve current user 
 			$scope.user = User.getUser();
+			$scope.progress = calcProgress($scope.user);
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
-		if($location.search().hasOwnProperty('username')){
-			return;
-		}else{
-			$scope.progress = calcProgress($scope.user);
-		}
-
-		if($location.search().hasOwnProperty('username')){
-			$location.search('username',null);
-		}
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

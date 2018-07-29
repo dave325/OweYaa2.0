@@ -1,7 +1,7 @@
 (function () {
   //Injector will protect against minification
-  favoriteInternsCtrl.$inject = ['$scope', 'User', '$timeout', '$uibModal','$location'];
-  function favoriteInternsCtrl($scope, User, $timeout, $uibModal,$location) {
+  favoriteInternsCtrl.$inject = ['$scope', 'User', '$timeout', '$uibModal', '$location'];
+  function favoriteInternsCtrl($scope, User, $timeout, $uibModal, $location) {
     var vm = this;
     vm.user = User.getUser();
     vm.resultInfo = '';
@@ -50,9 +50,9 @@
         console.log(data);
       });
     }
-    vm.viewUser = function(user){
-      $location.path('/veteran/'+ user.contact_info.username + '/profile');
-  }
+    vm.viewUser = function (user) {
+      $location.path('/veteran/' + user.contact_info.username + '/profile');
+    }
 
     vm.removeFavUser = function (user) {
       id = {

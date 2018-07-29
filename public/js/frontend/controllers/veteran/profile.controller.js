@@ -5,6 +5,7 @@
 
 		if ($routeParams.veteranid.length > 0) {
 			User.returnUser($routeParams.veteranid).then(function (res) {
+				console.log(res);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
 			}, function (err) {

@@ -1,17 +1,18 @@
 (function () {
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter','$location','$routeParams'];
-	function profileCtrl($scope, User, $uibModal, $filter,$location,$routeParams) {
-		// Retrieve current user 
-		$scope.user = User.getUser();
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
+	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
 
-		if($routeParams.veteranid != undefined){
-			User.returnUser($routeParams.veteranid).then(function(res){
+		if ($routeParams.veteranid.length > 0) {
+			User.returnUser($routeParams.veteranid).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
-			},function(err){
-				location.path('/company/' + User.getUser().company_info.username+'/browase-interns')
+			}, function (err) {
+				location.path('/company/' + User.getUser().company_info.username + '/browase-interns')
 			});
+		} else {
+			// Retrieve current user 
+			$scope.user = User.getUser();
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
@@ -168,8 +169,8 @@
 					controller: modal + 'ModalCtrl',
 					controllerAs: modal + 'vm',
 					windowClass: "col-xs-12 col-md-8 col-md-offset-2 vetModal",
-					backdrop:false,
-					keyboard:false,
+					backdrop: false,
+					keyboard: false,
 					resolve: {
 						CurrUser: function () {
 							for (var i = 0; i < 2; i++) {

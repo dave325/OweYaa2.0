@@ -50,7 +50,9 @@
         console.log(data);
       });
     }
-
+    vm.viewUser = function(user){
+      $location.path('/veteran/'+ user.contact_info.username + '/profile');
+  }
 
     vm.removeFavUser = function (user) {
       id = {

@@ -936,7 +936,7 @@ class ValidateUser extends Controller
                     8 => 'A PHP extension stopped the file upload.',
                 );
                 try {
-                        Storage::disk('local')->put($_FILES['file']['name']);
+                        Storage::disk('local')->put($_FILES['file']['name'], $_FILES['file']);
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
 

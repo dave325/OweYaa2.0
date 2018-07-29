@@ -20,7 +20,7 @@
 		if($location.search().hasOwnProperty('username')){
 			$timeout(function(){
 				$location.search('username',null);
-			},500);
+			},1000);
 			return;
 		}else{
 			$scope.progress = calcProgress($scope.user);

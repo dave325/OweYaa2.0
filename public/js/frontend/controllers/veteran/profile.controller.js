@@ -4,7 +4,6 @@
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $timeout) {
 		let username = $location.search().username;
 		if (username != undefined || username != null) {
-			console.log('read');
 			User.returnUser(username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
@@ -12,9 +11,7 @@
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
 		} else {
-			console.log('read2');
 			$scope.user = User.getUser();
-			$scope.progress = calcProgress($scope.user);
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
@@ -22,6 +19,7 @@
 		$scope.$on("$locationChangeStart",function(){
 			$location.search('username',null);
 		})
+		$scope.progress = calcProgress($scope.user);
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

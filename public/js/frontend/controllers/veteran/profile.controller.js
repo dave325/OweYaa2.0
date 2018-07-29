@@ -3,7 +3,7 @@
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
 
-		if ($location.search().username != undefined && $location.search().username.length > 0) {
+		if ($location.search().username != null && $location.search().username.length > 0) {
 			User.returnUser($location.search().username).then(function (res) {
 				console.log(res.data.user);
 				$scope.user = res.data.user;

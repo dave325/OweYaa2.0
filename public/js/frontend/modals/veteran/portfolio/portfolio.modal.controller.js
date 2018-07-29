@@ -85,7 +85,7 @@
           }, function (response) {
             console.log(response);
             if (response.status > 0)
-              console.log(response.status + ': ' + response.data);
+              console.log(response.data);
           });
         
         /*

@@ -80,6 +80,7 @@
         
         if (educationvm.user.education.graddate != null) {
           educationvm.user.education.graddate = new Date($filter('date')(educationvm.user.education.graddate, "yyyy-MM-dd"));
+          educationvm.user.education.graddate.setDate( educationvm.user.education.graddate.getDate() + 1);
         }
         educationvm.removeSkill('certifications');
         educationvm.removeSkill('bootcamp');

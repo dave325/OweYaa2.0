@@ -20,6 +20,8 @@
         for (var i = 0; i < 2; i++) {
           if (journalvm.user.interviews[i].date != null) {
             journalvm.user.interviews[i].date = new Date($filter('date')(journalvm.user.interviews[i].date, "yyyy-MM-dd"));
+            journalvm.user.interviews[i].date.setDate(journalvm.user.interviews[i].date.getDate() + 1);
+
           }
         }
         journalvm.formInfo = "Succesffuly Updated!";

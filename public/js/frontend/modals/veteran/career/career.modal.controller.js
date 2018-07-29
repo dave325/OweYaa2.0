@@ -52,9 +52,11 @@
         for(var i = 0; i < 2; i++){
           if(careervm.user.prev_career_fields[i].start_date != null){
             careervm.user.prev_career_fields[i].start_date = new Date($filter('date')(careervm.user.prev_career_fields[i].start_date,"yyyy-MM-dd"));
+            careervm.user.prev_career_fields[i].start_date.setDate(careervm.user.prev_career_fields[i].start_date.getDate() + 1 );
           }
           if(careervm.user.prev_career_fields[i].end_date != null){
             careervm.user.prev_career_fields[i].end_date = new Date($filter('date')(careervm.user.prev_career_fields[i].end_date,"yyyy-MM-dd"));
+            careervm.user.prev_career_fields[i].end_date.setDate( careervm.user.prev_career_fields[i].end_date.getDate() + 1);
           }
         }
         careervm.formInfo = "Successfully updated!";

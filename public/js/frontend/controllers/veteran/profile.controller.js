@@ -8,17 +8,18 @@
 				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 0;
+				$scope.progress = calcProgress($scope.user);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browase-interns')
 			});
 		} else {
 			// Retrieve current user 
 			$scope.user = User.getUser();
+			$scope.progress = calcProgress($scope.user);
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
-		$scope.progress = calcProgress($scope.user);
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

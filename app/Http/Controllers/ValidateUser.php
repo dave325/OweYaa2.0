@@ -936,7 +936,7 @@ class ValidateUser extends Controller
                     8 => 'A PHP extension stopped the file upload.',
                 );
                 try {
-                    if (move_uploaded_file($_FILES['file']["name"], '/lumen/storage/' . basename($_FILES['file']["name"]))) {
+                    if (move_uploaded_file($_FILES['file']["name"], dirname(__FILE__) . '../../..//storage/' . basename($_FILES['file']["name"]))) {
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
 
@@ -947,7 +947,7 @@ class ValidateUser extends Controller
                         $file->save();
                         return response()->json(['suceess'=>true], 200);
                     }else{
-                        return response()->json($_FILES,500);
+                        return response()->json(dirname(__FILE__) . '../../../',500);
                         return response()->json(['suceess'=>false, 'error'=> $phpFileUploadErrors[$_FILES['file']['error']]], 500);
                     }
                     //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());

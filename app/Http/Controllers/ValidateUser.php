@@ -925,8 +925,17 @@ class ValidateUser extends Controller
                     "filename" => $_FILES['file']['name'],
                     "username" => $_GET['username'],
                 );
+                $phpFileUploadErrors = array(
+                    0 => 'There is no error, the file uploaded with success',
+                    1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+                    2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+                    3 => 'The uploaded file was only partially uploaded',
+                    4 => 'No file was uploaded',
+                    6 => 'Missing a temporary folder',
+                    7 => 'Failed to write file to disk.',
+                    8 => 'A PHP extension stopped the file upload.',
+                );
                 try {
-                    return response()->json($_FILES['file']);
                     if (move_uploaded_file($_FILES['file']["name"], './storage/' . basename($_FILES['file']["name"]))) {
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
@@ -938,7 +947,7 @@ class ValidateUser extends Controller
                         $file->save();
                         return response()->json(['suceess'=>true], 200);
                     }else{
-                        return response()->json(['suceess'=>false], 500);
+                        return response()->json(['suceess'=>false, 'error'=> $phpFileUploadErrors[$_FILES['file']['error']]], 500);
                     }
                     //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 

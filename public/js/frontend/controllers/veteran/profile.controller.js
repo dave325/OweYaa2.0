@@ -8,6 +8,7 @@
 				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
+				$location.search('username',null);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});

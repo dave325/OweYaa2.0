@@ -3,6 +3,8 @@
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
 
+		console.log($location.search());
+		debugger;
 		if ($location.search('username').length > 0) {
 			User.returnUser($location.search('username').length).then(function (res) {
 				console.log(res.data.user);

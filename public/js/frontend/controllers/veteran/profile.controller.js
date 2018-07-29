@@ -8,7 +8,7 @@
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
 				if($location.search().hasOwnProperty('username')){
-					$scope.progress = calcProgress($scope.user);
+					$location.search('username',null);
 					return;
 				}
 			}, function (err) {

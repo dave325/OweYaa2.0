@@ -7,17 +7,21 @@
 			User.returnUser($location.search().username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
-				if($location.search().hasOwnProperty('username')){
-					$location.search('username',null);
-					return;
-				}
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
+			if ($location.search().hasOwnProperty('username')) {
+				$location.search('username', null);
+				return;
+			}
 		} else {
-			// Retrieve current user 
-			$scope.user = User.getUser();
-			$scope.progress = calcProgress($scope.user);
+			if ($scope.user.type === 1) {
+				return;
+			} else {
+				// Retrieve current user 
+				$scope.user = User.getUser();
+				$scope.progress = calcProgress($scope.user);
+			}
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];

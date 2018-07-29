@@ -6,7 +6,7 @@
 		$scope.user = User.getUser();
 
 		if($location.search('username') != undefined ){
-			User.returnUser(location.search('username')).then(function(res){
+			User.returnUser($location.search('username')).then(function(res){
 				console.log(res);
 			},function(err){
 				console.log(err);

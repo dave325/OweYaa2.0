@@ -14,11 +14,11 @@
 		} else {
 			// Retrieve current user 
 			$scope.user = User.getUser();
-			$scope.progress = calcProgress($scope.user);
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
+		$scope.progress = calcProgress($scope.user);
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

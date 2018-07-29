@@ -8,7 +8,6 @@
 			User.returnUser(username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
-				$location.search('username', null);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
@@ -20,6 +19,9 @@
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
+		$scope.$on("$locationChangeStart",function(){
+			$location.search('username',null);
+		})
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

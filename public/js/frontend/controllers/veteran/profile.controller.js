@@ -5,8 +5,8 @@
 
 		console.log($location.search());
 		debugger;
-		if ($location.search('username').length > 0) {
-			User.returnUser($location.search('username').length).then(function (res) {
+		if ($location.search().username.length > 0) {
+			User.returnUser($location.search().username).then(function (res) {
 				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;

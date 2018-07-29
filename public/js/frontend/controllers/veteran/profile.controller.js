@@ -1,11 +1,11 @@
 (function () {
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter','location'];
-	function profileCtrl($scope, User, $uibModal, $filter,location) {
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter','$location'];
+	function profileCtrl($scope, User, $uibModal, $filter,$location) {
 		// Retrieve current user 
 		$scope.user = User.getUser();
 
-		if(location.search('username') != undefined ){
+		if($location.search('username') != undefined ){
 			User.returnUser(location.search('username')).then(function(res){
 				console.log(res);
 			},function(err){

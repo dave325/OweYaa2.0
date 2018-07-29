@@ -1,7 +1,7 @@
 (function () {
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
-	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$timeout'];
+	function profileCtrl($scope, User, $uibModal, $filter, $location, $timout) {
 
 		if ($location.search().hasOwnProperty('username') && $location.search().username.length > 0) {
 			User.returnUser($location.search().username).then(function (res) {
@@ -18,6 +18,9 @@
 		$scope.recommendedFields = [];
 		console.log($scope.user);
 		if($location.search().hasOwnProperty('username')){
+			$timeout(function(){
+				$locatino.search('username',null);
+			},500);
 			return;
 		}else{
 			$scope.progress = calcProgress($scope.user);

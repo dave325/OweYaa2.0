@@ -1,7 +1,7 @@
 (function () {
 	//Injector will protect against minification
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$timeout'];
-	function profileCtrl($scope, User, $uibModal, $filter, $location, $timout) {
+	function profileCtrl($scope, User, $uibModal, $filter, $location, $timeout) {
 
 		if ($location.search().hasOwnProperty('username') && $location.search().username.length > 0) {
 			User.returnUser($location.search().username).then(function (res) {

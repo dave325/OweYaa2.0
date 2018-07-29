@@ -3,12 +3,11 @@
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
 
-		if ($location.search().username != null && $location.search().username.length > 0) {
+		if ($location.search().hasOwnProperty('username') && $location.search().username.length > 0) {
 			User.returnUser($location.search().username).then(function (res) {
 				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
-				$scope.progress = calcProgress($scope.user);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});

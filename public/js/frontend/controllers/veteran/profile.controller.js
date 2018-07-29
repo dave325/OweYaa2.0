@@ -7,7 +7,7 @@
 			User.returnUser($routeParams.veteranid).then(function (res) {
 				console.log(res.data.user);
 				$scope.user = res.data.user;
-				$scope.user.type = 0;
+				$scope.user.type = 1;
 				$scope.progress = calcProgress($scope.user);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browase-interns')

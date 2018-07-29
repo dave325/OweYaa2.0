@@ -3,14 +3,14 @@
 	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$routeParams'];
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $routeParams) {
 
-		if ($routeParams.veteranid.length > 0) {
-			User.returnUser($routeParams.veteranid).then(function (res) {
+		if ($location.search('username').length > 0) {
+			User.returnUser($location.search('username').length).then(function (res) {
 				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
 				$scope.progress = calcProgress($scope.user);
 			}, function (err) {
-				location.path('/company/' + User.getUser().company_info.username + '/browase-interns')
+				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
 		} else {
 			// Retrieve current user 

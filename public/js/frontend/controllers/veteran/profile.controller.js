@@ -15,17 +15,21 @@
 				return;
 			}
 		} else {
-			if ($scope.user.type === 1) {
-				return;
-			} else {
-				// Retrieve current user 
 				$scope.user = User.getUser();
-				$scope.progress = calcProgress($scope.user);
-			}
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
+		if ($location.search().hasOwnProperty('username')) {
+			$location.search('username', null);
+			return;
+		}else{
+			if ($scope.user.type === 1) {
+				return;
+			} else {
+				$scope.progress = calcProgress($scope.user);
+			}
+		}
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

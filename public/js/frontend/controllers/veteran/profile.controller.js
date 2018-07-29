@@ -5,9 +5,9 @@
 
 		if ($routeParams.veteranid.length > 0) {
 			User.returnUser($routeParams.veteranid).then(function (res) {
-				console.log(res);
+				console.log(res.data.user);
 				$scope.user = res.data.user;
-				$scope.user.type = 1;
+				$scope.user.type = 0;
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browase-interns')
 			});

@@ -1,6 +1,6 @@
 (function () {
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter','$location','$#routeParams'];
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter','$location','$routeParams'];
 	function profileCtrl($scope, User, $uibModal, $filter,$location,$routeParams) {
 		// Retrieve current user 
 		$scope.user = User.getUser();

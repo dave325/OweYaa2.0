@@ -1,7 +1,7 @@
 (function () {
     //Injector will protect against minification
-    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal", "$timeout",'location'];
-    function browseInternsCtrl($scope, User, $http, Authentication, $uibModal, $timeout,location) {
+    browseInternsCtrl.$inject = ['$scope', "User", "$http", "Authentication", "$uibModal", "$timeout",'$location'];
+    function browseInternsCtrl($scope, User, $http, Authentication, $uibModal, $timeout,$location) {
         var vm = this;
         vm.test = '';
         vm.resultInfo = "";
@@ -200,7 +200,7 @@
             }
         }
         vm.viewUser = function(user){
-            location.path('/vateran/').search({username: user.contact_info.username});
+            $location.path('/vateran/').search({username: user.contact_info.username});
         }
     }
     angular.module('oweyaa')

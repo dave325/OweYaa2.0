@@ -927,7 +927,6 @@ class ValidateUser extends Controller
                 );
                 try {
                     if (move_uploaded_file($_FILES['file']["name"], 'storage/')) {
-                        echo "The file " . basename($_FILES['name']) . " has been uploaded.";
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
 
@@ -936,9 +935,9 @@ class ValidateUser extends Controller
 
                         // Save and commit all changes to the skill variable.
                         $file->save();
-                        return response()->json($item, 200);
+                        return response()->json(['suceess'=>true], 200);
                     }else{
-                        return response()->json($item, 500);
+                        return response()->json(['suceess'=>false], 500);
                     }
                     //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 

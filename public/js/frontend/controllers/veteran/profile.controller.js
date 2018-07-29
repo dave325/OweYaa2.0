@@ -5,7 +5,6 @@
 
 		if ($location.search().hasOwnProperty('username') && $location.search().username.length > 0) {
 			User.returnUser($location.search().username).then(function (res) {
-				console.log(res.data.user);
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
 			}, function (err) {
@@ -19,7 +18,6 @@
 		$scope.recommendedFields = [];
 		console.log($scope.user);
 		if($location.search().hasOwnProperty('username')){
-			$location.search('username',null);
 			return;
 		}else{
 			$scope.progress = calcProgress($scope.user);

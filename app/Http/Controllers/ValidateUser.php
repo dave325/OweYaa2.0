@@ -9,7 +9,7 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illumunate\Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
-
+use Illuminate\Support\Facades\Storage;
 /**
  * The class that will validate all users. This class extends from the
  * Controller class.

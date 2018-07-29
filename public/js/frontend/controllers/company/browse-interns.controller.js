@@ -199,6 +199,9 @@
                 });
             }
         }
+        vm.viewUser = function(user){
+            location.path('/vateran/').search({username: user.contact_info.username});
+        }
     }
     angular.module('oweyaa')
         .controller('browseInternsCtrl', browseInternsCtrl);

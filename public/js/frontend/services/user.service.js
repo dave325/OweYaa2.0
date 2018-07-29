@@ -198,6 +198,18 @@
             "Authorization": "Bearer " + Authentication.getToken()
           }
         })
+      },
+
+      returnUser:function(user){
+        if(Authentication.getToken == null){
+          return;
+        }
+
+        return $http({
+          url:'/api/returnUser',
+          method:"POST",
+          data: {username:user},
+        })
       }
     }
     return User;

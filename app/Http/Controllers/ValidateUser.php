@@ -936,7 +936,7 @@ class ValidateUser extends Controller
                     8 => 'A PHP extension stopped the file upload.',
                 );
                 try {
-                    if (move_uploaded_file($_FILES['file']["name"], dirname(__FILE__, 4) . './storage/' . basename($_FILES['file']["name"]))) {
+                   Storage::disk('local')->put($_FILE['file']['name']);
                         // Search for the skillid.
                         $file = TableModels\File::findOrFail($item['fileid']);
 
@@ -946,10 +946,7 @@ class ValidateUser extends Controller
                         // Save and commit all changes to the skill variable.
                         $file->save();
                         return response()->json(['suceess'=>true], 200);
-                    }else{
-                        return response()->json(dirname(__FILE__,4),500);
-                        return response()->json(['suceess'=>false, 'error'=> $phpFileUploadErrors[$_FILES['file']['error']]], 500);
-                    }
+                    
                     //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 
                 } catch (ModelNotFoundException $me) {
@@ -961,7 +958,7 @@ class ValidateUser extends Controller
                     $file->save();
                     return response()->json($item, 200);
                 } catch (Exception $e) {
-                    return response()->json($item, 500);
+                    return response()->json($e, 500);
                 }
             }
 

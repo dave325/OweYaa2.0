@@ -5,8 +5,7 @@ return [
     'disks' =>[
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
-            'url' => env('APP_URL').'/resources/profile_pics'
+            'root' => storage_path('app')
         ],
         's3' => [
             'driver' => 's3',

@@ -4,28 +4,22 @@
 	function profileCtrl($scope, User, $uibModal, $filter, $location, $timeout) {
 
 		if ($location.search().hasOwnProperty('username') && $location.search().username.length > 0) {
-			User.returnUser($location.search().username).then(function (res) {
+			let username = $location.search().username;
+			User.returnUser(username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
-
-				if ($location.search().hasOwnProperty('username')) {
-					$location.search('username', null);
-					return;
-				}
+				$location.search('username', null);
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
 		} else {
 			$scope.user = User.getUser();
+			$scope.progress = calcProgress($scope.user);
+
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
-		if ($scope.user.type === 1) {
-			return;
-		} else {
-			$scope.progress = calcProgress($scope.user);
-		}
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
 		}

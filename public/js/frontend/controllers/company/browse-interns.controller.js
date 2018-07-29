@@ -200,7 +200,7 @@
             }
         }
         vm.viewUser = function(user){
-            $location.path('/vateran/'+ user.contact_info.username + '/profile').search({username: user.contact_info.username});
+            $location.path('/veteran/'+ user.contact_info.username + '/profile').search({username: user.contact_info.username});
         }
     }
     angular.module('oweyaa')

@@ -7,28 +7,24 @@
 			User.returnUser($location.search().username).then(function (res) {
 				$scope.user = res.data.user;
 				$scope.user.type = 1;
+
+				if ($location.search().hasOwnProperty('username')) {
+					$location.search('username', null);
+					return;
+				}
 			}, function (err) {
 				location.path('/company/' + User.getUser().company_info.username + '/browse-interns')
 			});
-			if ($location.search().hasOwnProperty('username')) {
-				$location.search('username', null);
-				return;
-			}
 		} else {
-				$scope.user = User.getUser();
+			$scope.user = User.getUser();
 		}
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
-		if ($location.search().hasOwnProperty('username')) {
-			$location.search('username', null);
+		if ($scope.user.type === 1) {
 			return;
-		}else{
-			if ($scope.user.type === 1) {
-				return;
-			} else {
-				$scope.progress = calcProgress($scope.user);
-			}
+		} else {
+			$scope.progress = calcProgress($scope.user);
 		}
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);

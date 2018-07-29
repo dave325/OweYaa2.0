@@ -7,9 +7,10 @@
 
 		if($routeParams.veteranid != undefined){
 			User.returnUser($routeParams.veteranid).then(function(res){
-				console.log(res);
+				$scope.user = res.data.user;
+				$scope.user.type = 1;
 			},function(err){
-				console.log(err);
+				location.path('/company/' + User.getUser().company_info.username+'/browase-interns')
 			});
 		}
 		$scope.requiredFields = [];

@@ -66,7 +66,7 @@
       User.updateUser(modal, data).then(function (data) {
         if (portfoliovm.user.pic) {
           var fileFormData = new FormData();
-          fileFormData.append('file', portfoliovm.user.pic);
+          fileFormData.append('file', portfoliovm.pic);
           var deffered = $q.defer();
           $http.post("/api/uploadFile?username=" + portfoliovm.user.contact_info.username + '&count=' + portfoliovm.user.files.length, fileFormData,{
             transformRequest: angular.identity,

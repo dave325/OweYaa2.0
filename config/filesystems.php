@@ -5,7 +5,7 @@ return [
     'disks' =>[
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app')
+            'root' => dirname(storage_path('app'),5) . '/public_html/update/assets/images/uploads'
         ],
         's3' => [
             'driver' => 's3',

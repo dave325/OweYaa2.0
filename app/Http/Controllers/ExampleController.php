@@ -145,4 +145,11 @@ class ExampleController extends Controller
             $message->from("barika@oweyaa.com", 'OweYaa');
         });
     }
+    
+    public function contactOweYaa(){
+    Mail::send(['html'=> 'email.contact'], ['email'=> $credentials['email'],'firstname' => $credentials['firstname'], 'message' =>$credentials['message']], function($message) use ($credentials){
+                    $message->to('support@oweyaa.com', $credentials['firstname'])->subject('inquiry from contact form');
+                    
+                });
+    }
 }

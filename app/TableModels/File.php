@@ -21,7 +21,7 @@ class File extends Model{
     *
     * @var array
     */
-    protected $fillable = ['username', 'fileid', 'filename'];
+    protected $fillable = ['username', 'fileid', 'filename','isResume'];
 
     /**
      * The attributes excluded from the model's JSON form.

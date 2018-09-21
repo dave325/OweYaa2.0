@@ -1,7 +1,7 @@
 (function () {
 	//Injector will protect against minification
-	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$timeout'];
-	function profileCtrl($scope, User, $uibModal, $filter, $location, $timeout) {
+	profileCtrl.$inject = ['$scope', 'User', '$uibModal', '$filter', '$location', '$route','$templateCache'];
+	function profileCtrl($scope, User, $uibModal, $filter, $location, $route,$templateCache) {
 		let username = $location.search().username;
 		if (username != undefined || username != null) {
 			User.returnUser(username).then(function (res) {
@@ -16,9 +16,16 @@
 		$scope.requiredFields = [];
 		$scope.recommendedFields = [];
 		console.log($scope.user);
-		$scope.$on("$locationChangeStart",function(){
-			$location.search('username',null);
+		$scope.$on("$locationChangeStart", function () {
+			$location.search('username', null);
 		})
+		for (let i = 0; i < $scope.user.files.length; i++) {
+			if ($scope.user.files[i].isresume == true) {
+				$scope.resume = user.files[i];
+			} else {
+				$scope.pic = user.files[i];
+			}
+		}
 		$scope.progress = calcProgress($scope.user);
 		function arrayContains(needle, arrhaystack) {
 			return (arrhaystack.indexOf(needle) > -1);
@@ -202,6 +209,17 @@
 					.then(function (data) {
 						$scope.user = User.getUser();
 						$scope.progress = calcProgress(User.getUser());
+						console.log(data);
+						if (data.success == true) {
+							if (data.info.isresume == true) {
+								$scope.resume = data.info;
+							} else {
+								$scope.pic = data.info;
+							}
+							var currentPageTemplate = $route.current.templateUrl;
+							$templateCache.remove(currentPageTemplate);
+							$route.reload();
+						}
 					}, function (reason) {
 						console.log(reason);
 					});

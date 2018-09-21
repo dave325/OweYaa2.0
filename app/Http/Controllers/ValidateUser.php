@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\TableModels;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Filesystem\FileNotFoundException;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illumunate\Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Storage;
+
 /**
  * The class that will validate all users. This class extends from the
  * Controller class.
@@ -915,16 +917,33 @@ class ValidateUser extends Controller
 
     public function updateFile(Request $request)
     {
-        $info = $request->file('file');
-        return response()->json($_FILES);
+        //return response()->json(dirname(storage_path('app'),5) . '/public_html/update/uploads', 500);
         if ($isValid = $this->isValid()) {
+            $fileInfo = pathinfo($_FILES['file']['tmp_name'] . '/' . $_FILES['file']['name']);
+            $extension = strtolower($fileInfo['extension']);
+            if (isset($_GET['resume']) && $_GET['resume'] === "true") {
+                if ($extension == "jpg" || $extension == "png" || $extension == "jpeg"
+                    || $extension == "gif") {
+                        return response()->json(['error' => "File is an iamge"], 400);
+                }
+                $filename = "resume." . $extension;
+                $isresume = true;
+            } else {
+                if ($extension != "jpg" && $extension != "png" && $extension != "jpeg"
+                    && $extension != "gif") {
+                        return response()->json(['error' => "File is not an iamge"], 400);
+                }
+                $filename = "photo." . $extension;
+                $isresume = false;
+            }
             if (isset($info['delete']) && $info['delete']) {
 
             } else {
                 $item = array(
-                    "fileid" =>  $_GET['username'],
-                    "filename" => $_FILES['file']['name'],
+                    "fileid" => $_GET['username'] . $_GET['count'],
+                    "filename" => $filename,
                     "username" => $_GET['username'],
+                    "isresume" => $isresume
                 );
                 $phpFileUploadErrors = array(
                     0 => 'There is no error, the file uploaded with success',
@@ -937,17 +956,22 @@ class ValidateUser extends Controller
                     8 => 'A PHP extension stopped the file upload.',
                 );
                 try {
-                        Storage::disk('local')->put($_FILES['file']['name'], $_FILES['file']);
-                        // Search for the skillid.
-                        $file = TableModels\File::findOrFail($item['fileid']);
+                    if (Storage::directories($_GET['username'])) {
+                        Storage::disk('local')->putFileAs('/' . $_GET['username'], new File($_FILES['file']['tmp_name']), $filename);
+                    } else {
+                        Storage::makeDirectory('/' . $_GET['username']);
+                        Storage::disk('local')->putFileAs('/' . $_GET['username'], new File($_FILES['file']['tmp_name']), $filename);
+                    }
+                    // Search for the skillid.
+                    $file = TableModels\File::findOrFail($item['fileid']);
 
-                        // Fill information for the item.
-                        $file->fill($item);
+                    // Fill information for the item.
+                    $file->fill($item);
 
-                        // Save and commit all changes to the skill variable.
-                        $file->save();
-                        return response()->json(['suceess'=>true], 200);
-                    
+                    // Save and commit all changes to the skill variable.
+                    $file->save();
+                    return response()->json(['success' => true, 'info'=> $item], 200);
+
                     //Storage::disk('ftp')->putFileAs('/storage', $request->file('file'), $request['username'] .'.'. $request->file->extensgetClientOriginalExtensionion());
 
                 } catch (ModelNotFoundException $me) {
@@ -957,7 +981,10 @@ class ValidateUser extends Controller
 
                     // Save and commit all changes to the skill variable.
                     $file->save();
-                    return response()->json($item, 200);
+                    return response()->json(['success' => true, 'info'=> $item], 200);
+                } catch (FileNotFoundException $fne) {
+                    return response()->json($fne, 500);
+
                 } catch (Exception $e) {
                     return response()->json($e, 500);
                 }

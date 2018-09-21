@@ -69,6 +69,9 @@ class AuthController extends Controller
         return JWTAuth::user();
     }
 
+    public static function validate(){
+        return JWTAUTH::validate();
+    }
     /**
      * Log the user out (Invalidate the token).
      *

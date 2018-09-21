@@ -1,6 +1,6 @@
 (function () {
-  portfolioModalCtrl.$inject = ['$scope', '$uibModalInstance', 'CurrUser', '$http', '$timeout', '$q', 'User'];
-  function portfolioModalCtrl($scope, $uibModalInstance, CurrUser, $http, $timeout, $q, User) {
+  portfolioModalCtrl.$inject = ['$scope', '$uibModalInstance', 'CurrUser', '$http', '$timeout', 'Authentication', 'User'];
+  function portfolioModalCtrl($scope, $uibModalInstance, CurrUser, $http, $timeout, Authentication, User) {
     portfoliovm = this;
     portfoliovm.user = CurrUser;
     portfoliovm.isDisabled = false;
@@ -64,68 +64,56 @@
       portfoliovm.isDisabled = true;
       //Update server information
       User.updateUser(modal, data).then(function (data) {
-        if (portfoliovm.user.pic) {
+        if (portfoliovm.pic) {
           var fileFormData = new FormData();
           fileFormData.append('file', portfoliovm.pic);
-          var deffered = $q.defer();
-          $http.post("/api/uploadFile?username=" + portfoliovm.user.contact_info.username + '&count=' + portfoliovm.user.files.length, fileFormData,{
+          //var deffered = $q.defer();
+          $http.post("/api/uploadFile?username=" + portfoliovm.user.contact_info.username + '&count=' + portfoliovm.user.files.length + "&resume=false", fileFormData, {
             transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined,'Process-Data': false },
+            headers: { 'Content-Type': undefined, 'Process-Data': false, "Authorization": "Bearer " + Authentication.getToken() },
           }).then(function (response) {
-            deffered.resolve(response);
-
-          },function (response) {
-            deffered.reject(response);
-          });
-
-          deffered.promise.then(function (response) {
-            $timeout(function () {
-              console.log(response);
-            });
+            console.log(response);
+            let isChanged = true;
+            if (response.data.success == true) {
+              //portfoliovm.user.files.push(response['info']);
+              for (let i = 0; i < portfoliovm.user.files.length; i++) {
+                console.log(portfoliovm.user.files[i])
+                if (portfoliovm.user.files[i].filename == response.data.info.filename) {
+                  portfoliovm.user.files[i] = response.data.info;
+                  isChanged = false;
+                }
+              }
+              if (isChanged) {
+                console.log('reach');
+                portfoliovm.user.files.push(response.data.info);
+              }
+              portfoliovm.formInfo = "Succesfully Updated!";
+              User.setUser(portfoliovm.user);
+              portfoliovm.close(response.data);
+            }
           }, function (response) {
-            console.log(response);
-            if (response.status > 0)
-              console.log(response.data);
-          });
-        
-        /*
-        var uploadPic = Upload.upload({
-          url: "/api/uploadFile",
-          data: { file: portfoliovm.user.pic, username: portfoliovm.user.contact_info.username, fileid:(portfoliovm.user.contact_info.username + portfoliovm.user.files.length)}
-        });
-        uploadPic.then(function (response) {
-          $timeout(function () {
-            console.log(response);
-          });
-        }, function (response) {
-          console.log(response);
-          if (response.status > 0)
-            console.log(response.status + ': ' + response.data);
-        });*/
-      }
-    portfoliovm.formInfo = "Succesfully Updated!";
-      User.setUser(portfoliovm.user);
-      portfoliovm.close();
-    }, function (data) {
-      portfoliovm.isDisabled = false;
-      if (data.status === 401) {
-        portfoliovm.formError = "Unauthorized, there was an error. Please try again!";
-      } else {
-        portfoliovm.formError = "There was an error. Please try again!";
-      }
-    });
-  }
-
-  // Will Submit the form depending if everything is filled out
-  portfoliovm.onSubmit = function (modal, data) {
-    if (portfoliovm.user.contact_info.firstname.length < 1 || portfoliovm.user.contact_info.lastname.length < 1) {
-      portfoliovm.formError = "You must submit a first name  and last nameto save the information";
-    } else {
-      portfoliovm.doportfolio(modal, data);
+            portfoliovm.formError = "There was an error. Please try again!";          });
+        }
+      }, function (data) {
+        portfoliovm.isDisabled = false;
+        if (data.status === 401) {
+          portfoliovm.formError = "Unauthorized, there was an error. Please try again!";
+        } else {
+          portfoliovm.formError = "There was an error. Please try again!";
+        }
+      });
     }
-  }
 
-}
-angular.module('oweyaa')
-  .controller('portfolioModalCtrl', portfolioModalCtrl);
-}) ();
+    // Will Submit the form depending if everything is filled out
+    portfoliovm.onSubmit = function (modal, data) {
+      if (portfoliovm.user.contact_info.firstname.length < 1 || portfoliovm.user.contact_info.lastname.length < 1) {
+        portfoliovm.formError = "You must submit a first name  and last nameto save the information";
+      } else {
+        portfoliovm.doportfolio(modal, data);
+      }
+    }
+
+  }
+  angular.module('oweyaa')
+    .controller('portfolioModalCtrl', portfolioModalCtrl);
+})();

@@ -34,10 +34,7 @@
           </h2>
           <!-- Profile Picture -->
           <div class="col-md-3 col-xs-12 text-center">
-            <img src="{{user.contact_info.imgurl}}" height=200 alt="Profile Image" />
-            <p>
-              <button class="btn btn-default">Upload Photo</button>
-              <p>
+            <img ng-src="assets/images/uploads/{{user.contact_info.username}}/{{pic.filename}}" height=200 alt="Profile Image" />
           </div>
           <!-- End of class col-md-3 -->
           <!-- Basic Information -->
@@ -103,7 +100,6 @@
       <div class="row">
         <div class="col-xs-12 space box">
           <h2 class="col-xs-12 bg-primary">{{user.contact_info.firstname}} {{user.contact_info.lastname}} - Resume and Portfolio</h2>
-
         </div>
         <!-- End of class space box -->
       </div>
